@@ -1,0 +1,30 @@
+/* CSS Document */
+
+#basic-accordian{
+
+	width:350px;
+}
+
+.accordion_headings{
+	padding:5px;
+	background-image : url('headgrid.gif');	
+	color:#000025;
+	border:1px solid #FFF;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.accordion_headings:hover{
+	background-image : url('headgrid1.gif')	;
+	color:#000000;
+}
+
+.accordion_child{
+	padding:15px;
+	background:#EEE;
+}
+
+.header_highlight{
+    background-image : url('headgrid1.gif')	;
+	
+}

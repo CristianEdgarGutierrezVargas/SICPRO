@@ -1,0 +1,303 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{900D023C-008E-4E8C-9D7E-931E2495E684}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PresentacionWeb</RootNamespace>
+    <AssemblyName>PresentacionWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Sitio\Vista\Default.aspx" />
+    <Content Include="Sitio\Vista\Login\Login.aspx" />
+    <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="UI\css\acc.css" />
+    <Content Include="UI\css\Blue.css" />
+    <Content Include="UI\css\default.css" />
+    <Content Include="UI\img\1271470.png" />
+    <Content Include="UI\img\24sep.png" />
+    <Content Include="UI\img\add-user.gif" />
+    <Content Include="UI\img\add-user.png" />
+    <Content Include="UI\img\alert.png" />
+    <Content Include="UI\img\aliag.png" />
+    <Content Include="UI\img\aliav.png" />
+    <Content Include="UI\img\amortiza1.png" />
+    <Content Include="UI\img\amortiza2.png" />
+    <Content Include="UI\img\anular.png" />
+    <Content Include="UI\img\aplicacion.png" />
+    <Content Include="UI\img\bisa.png" />
+    <Content Include="UI\img\blank.gif" />
+    <Content Include="UI\img\blue\captionbckg.gif" />
+    <Content Include="UI\img\blue\first.png" />
+    <Content Include="UI\img\blue\headgrid.gif" />
+    <Content Include="UI\img\blue\headgrid1.gif" />
+    <Content Include="UI\img\blue\last.png" />
+    <Content Include="UI\img\blue\next.png" />
+    <Content Include="UI\img\blue\previous.png" />
+    <Content Include="UI\img\blue\rowover.gif" />
+    <Content Include="UI\img\blue\thbackground.gif" />
+    <Content Include="UI\img\blue\toolbarbck.gif" />
+    <Content Include="UI\img\boli.png" />
+    <Content Include="UI\img\Calendar_scheduleHS.png" />
+    <Content Include="UI\img\caso.png" />
+    <Content Include="UI\img\cheqcuo.png" />
+    <Content Include="UI\img\cierre.png" />
+    <Content Include="UI\img\cred.png" />
+    <Content Include="UI\img\cut.png" />
+    <Content Include="UI\img\direccion.png" />
+    <Content Include="UI\img\docscia.png" />
+    <Content Include="UI\img\dollar-sign.png" />
+    <Content Include="UI\img\edit.png" />
+    <Content Include="UI\img\exclusion.png" />
+    <Content Include="UI\img\favicon.bmp" />
+    <Content Include="UI\img\file-add.png" />
+    <Content Include="UI\img\First.gif" />
+    <Content Include="UI\img\Firstg.gif" />
+    <Content Include="UI\img\folder-blue.png" />
+    <Content Include="UI\img\fort.png" />
+    <Content Include="UI\img\front.png" />
+    <Content Include="UI\img\green-flag.png" />
+    <Content Include="UI\img\greenball_c.gif" />
+    <Content Include="UI\img\GroupUsers.png" />
+    <Content Include="UI\img\help.png" />
+    <Content Include="UI\img\ihi.png" />
+    <Content Include="UI\img\illi.png" />
+    <Content Include="UI\img\img01.gif" />
+    <Content Include="UI\img\img02.jpg" />
+    <Content Include="UI\img\img03.gif" />
+    <Content Include="UI\img\img04.gif" />
+    <Content Include="UI\img\img05.gif" />
+    <Content Include="UI\img\img06.gif" />
+    <Content Include="UI\img\img07.jpg" />
+    <Content Include="UI\img\img08.gif" />
+    <Content Include="UI\img\img09.gif" />
+    <Content Include="UI\img\img2.png" />
+    <Content Include="UI\img\inclusion.png" />
+    <Content Include="UI\img\Last.gif" />
+    <Content Include="UI\img\Lastg.gif" />
+    <Content Include="UI\img\latina.png" />
+    <Content Include="UI\img\lavit.png" />
+    <Content Include="UI\img\lc_checkbox.png" />
+    <Content Include="UI\img\lc_okcheckbox.png" />
+    <Content Include="UI\img\lc_save.png" />
+    <Content Include="UI\img\lc_uncheckbox.png" />
+    <Content Include="UI\img\lock.gif" />
+    <Content Include="UI\img\lock.png" />
+    <Content Include="UI\img\locks.png" />
+    <Content Include="UI\img\logo-s.png" />
+    <Content Include="UI\img\logo.png" />
+    <Content Include="UI\img\logo1.png" />
+    <Content Include="UI\img\logo2.png" />
+    <Content Include="UI\img\logo3.png" />
+    <Content Include="UI\img\msg_button_1.jpg" />
+    <Content Include="UI\img\msg_button_2.jpg" />
+    <Content Include="UI\img\msg_icon_1-.png" />
+    <Content Include="UI\img\msg_icon_1.png" />
+    <Content Include="UI\img\msg_icon_2.png" />
+    <Content Include="UI\img\msg_title_1.jpg" />
+    <Content Include="UI\img\msg_title_2.jpg" />
+    <Content Include="UI\img\nalvi.png" />
+    <Content Include="UI\img\Next.gif" />
+    <Content Include="UI\img\Nextg.gif" />
+    <Content Include="UI\img\pile.png" />
+    <Content Include="UI\img\poliza.gif" />
+    <Content Include="UI\img\Previous.gif" />
+    <Content Include="UI\img\Previousg.gif" />
+    <Content Include="UI\img\recibos1.png" />
+    <Content Include="UI\img\recibos2.png" />
+    <Content Include="UI\img\refresh.png" />
+    <Content Include="UI\img\relogo.jpg" />
+    <Content Include="UI\img\relogo.png" />
+    <Content Include="UI\img\renovar.png" />
+    <Content Include="UI\img\save as.png" />
+    <Content Include="UI\img\search_user.png" />
+    <Content Include="UI\img\seguimiento.png" />
+    <Content Include="UI\img\simple_f.gif" />
+    <Content Include="UI\img\simple_uf.gif" />
+    <Content Include="UI\img\spacer.gif" />
+    <Content Include="UI\img\stop-error.png" />
+    <Content Include="UI\img\stop.png" />
+    <Content Include="UI\img\tasks.png" />
+    <Content Include="UI\img\top1.png" />
+    <Content Include="UI\img\top2.png" />
+    <Content Include="UI\img\user.png" />
+    <Content Include="UI\img\view.png" />
+    <Content Include="UI\img\XPbanner.png" />
+    <Content Include="UI\img\XPbanner1.gif" />
+    <Content Include="UI\img\XPbanner2.gif" />
+    <Content Include="UI\img\XPbanner3.gif" />
+    <Content Include="UI\img\XPbanner4.gif" />
+    <Content Include="UI\img\XPbanner5.gif" />
+    <Content Include="UI\img\XPbanner6.gif" />
+    <Content Include="UI\img\XPbanner7.gif" />
+    <Content Include="UI\img\XPline.gif" />
+    <Content Include="UI\img\XPline.png" />
+    <Content Include="UI\img\zuri.png" />
+    <Content Include="UI\js\debug.js" />
+    <Content Include="UI\js\effects.js" />
+    <Content Include="UI\js\extended_debug.js" />
+    <Content Include="UI\js\prototype.js" />
+    <Content Include="UI\js\tooltip.js" />
+    <Content Include="UI\js\window.js" />
+    <Content Include="UI\js\window_effects.js" />
+    <Content Include="UI\js\window_ext.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.Master.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal.Master.designer.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sitio\Vista\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Login\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Principal.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dll\" />
+    <Folder Include="Lib\" />
+    <Folder Include="Parametros\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Sitio\Controladores\" />
+    <Folder Include="Sitio\Entidades\" />
+    <Folder Include="Sitio\Vista\Exceptions\" />
+    <Folder Include="Sitio\Vista\Reportes\" />
+    <Folder Include="UI\fonts\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60714</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44347/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

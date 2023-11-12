@@ -1,0 +1,2499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sicproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="co_anticom">
+          <Key>
+            <PropertyRef Name="id_anco" />
+          </Key>
+          <Property Name="id_anco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fc_solicitud" Type="date" Nullable="false" />
+          <Property Name="doc_cont" Type="varchar" MaxLength="15" />
+          <Property Name="imp_anticipo" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="desc_anti" Type="varchar" MaxLength="100" />
+          <Property Name="id_percart" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="co_porcomi">
+          <Key>
+            <PropertyRef Name="id_percart" />
+          </Key>
+          <Property Name="id_percart" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="porcentaje" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="factura" Type="bit" Nullable="false" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="co_presprod">
+          <Key>
+            <PropertyRef Name="mes_proy" />
+            <PropertyRef Name="anio_proy" />
+            <PropertyRef Name="id_percart" />
+            <PropertyRef Name="id_suc" />
+          </Key>
+          <Property Name="mes_proy" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="anio_proy" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="id_percart" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="id_suc" Type="int" Nullable="false" />
+          <Property Name="monto_proy" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="monto_cproy" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="co_proycartera">
+          <Key>
+            <PropertyRef Name="mes_proy" />
+            <PropertyRef Name="anio_proy" />
+            <PropertyRef Name="id_suc" />
+            <PropertyRef Name="id_percart" />
+          </Key>
+          <Property Name="mes_proy" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="anio_proy" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="id_suc" Type="float" Nullable="false" />
+          <Property Name="id_percart" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="monto_proy" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="co_sueldo">
+          <Key>
+            <PropertyRef Name="id_persona" />
+            <PropertyRef Name="mes_sueldo" />
+            <PropertyRef Name="anio_sueldo" />
+            <PropertyRef Name="dias" />
+          </Key>
+          <Property Name="id_persona" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="mes_sueldo" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="anio_sueldo" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="dias" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="basico_sueldo" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="bono_anti" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_acceso">
+          <Key>
+            <PropertyRef Name="id_acc" />
+          </Key>
+          <Property Name="id_acc" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_com" Type="bigint" Nullable="false" />
+          <Property Name="id_rol" Type="bigint" Nullable="false" />
+          <Property Name="nivel" Type="float" Nullable="false" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_cierreregistro">
+          <Key>
+            <PropertyRef Name="mes" />
+            <PropertyRef Name="anio" />
+          </Key>
+          <Property Name="mes" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="anio" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="ini_reg" Type="date" Nullable="false" />
+          <Property Name="fin_reg" Type="date" Nullable="false" />
+          <Property Name="tcambio" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_compania">
+          <Key>
+            <PropertyRef Name="id_spvs" />
+          </Key>
+          <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="cf" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="abrev_cia" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="rubro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TRIAL357" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_componente">
+          <Key>
+            <PropertyRef Name="id_com" />
+          </Key>
+          <Property Name="id_com" Type="numeric" Precision="3" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep_com" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nivel" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="desc_comp" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ayuda" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="vinculo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="icono" Type="varchar" MaxLength="50" />
+          <Property Name="toolb" Type="bit" Nullable="false" />
+          <Property Name="imgtoolb" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_contacto">
+          <Key>
+            <PropertyRef Name="id_dir" />
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_dir" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="relacion" Type="varchar" MaxLength="100" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_direccion">
+          <Key>
+            <PropertyRef Name="id_dir" />
+          </Key>
+          <Property Name="id_dir" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="id_tpdir" Type="float" Nullable="false" />
+          <Property Name="telf_dir" Type="varchar" MaxLength="20" />
+          <Property Name="int_dire" Type="varchar" MaxLength="20" />
+          <Property Name="telf_cel" Type="varchar" MaxLength="20" />
+          <Property Name="telf_fax" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="casilla" Type="varchar" MaxLength="10" />
+          <Property Name="web" Type="varchar" MaxLength="100" />
+          <Property Name="id_emis" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_parametro">
+          <Key>
+            <PropertyRef Name="id_par" />
+          </Key>
+          <Property Name="id_par" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="columna" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="desc_param" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="abrev_param" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="valor_param" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_pass">
+          <Key>
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cambio" Type="bit" />
+          <Property Name="login" Type="varchar" MaxLength="20" />
+          <Property Name="logged" Type="bit" />
+          <Property Name="id_rol" Type="numeric" Precision="8" Scale="0" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_persona">
+          <Key>
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="nomraz" Type="varchar" MaxLength="160" Nullable="false" />
+          <Property Name="id_tper" Type="bigint" Nullable="false" />
+          <Property Name="fechaaniv" Type="date" />
+          <Property Name="id_sal" Type="bigint" />
+          <Property Name="id_rol" Type="bigint" Nullable="false" />
+          <Property Name="id_tdoc" Type="bigint" Nullable="false" />
+          <Property Name="id_emis" Type="bigint" Nullable="false" />
+          <Property Name="nit_fac" Type="varchar" MaxLength="50" />
+          <Property Name="id_suc" Type="int" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="gr_tc">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="id_div" />
+          </Key>
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="id_div" Type="bigint" Nullable="false" />
+          <Property Name="tcambio" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_anulada">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="monto_anulada" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="neta_anulada" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="comision_anulada" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="anulada_mes" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="anulada_anio" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="anulada_por" Type="text" />
+          <Property Name="id_anulada" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_calculo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+            <PropertyRef Name="id_spvs" />
+          </Key>
+          <Property Name="id_riesgo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="formula" Type="varchar" MaxLength="40" />
+          <Property Name="comision" Type="float" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_cuotapoliza">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="cuota" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="cuota" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="fecha_pago" Type="date" />
+          <Property Name="cuota_total" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cuota_neta" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cuota_comis" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cuota_pago" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cuota_comicob" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_devolucion">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="id_devolucion" />
+            <PropertyRef Name="cuota_devolucion" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="id_devolucion" Type="bigint" Nullable="false" />
+          <Property Name="cuota_devolucion" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="monto_devolucion" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="neta_devolucion" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comision_devolucion" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comision_pc" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cheque" Type="ntext" />
+          <Property Name="devolucion_por" Type="text" />
+          <Property Name="saldo_devolucion" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="banco" Type="varchar" MaxLength="15" />
+          <Property Name="comis_mes" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="comis_anio" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_excluida">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="id_excluye" />
+            <PropertyRef Name="excluye_cuota" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="id_excluye" Type="bigint" Nullable="false" />
+          <Property Name="excluye_cuota" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="monto_exclusion" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="neta_exclusion" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comision_exclusion" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="mes_exclusion" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="anio_exclusion" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_formriesgo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+            <PropertyRef Name="id_spvs" />
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_riesgo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="form_riesgo1" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="comis_riesgo" Type="numeric" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="opera" Type="bit" />
+          <Property Name="evaluar" Type="numeric" Precision="10" Scale="5" />
+          <Property Name="id_producto" Type="bigint" Nullable="false" />
+          <Property Name="por_cred" Type="numeric" Precision="6" Scale="4" />
+          <Property Name="plus_neta" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="form_riesgo2" Type="varchar" MaxLength="30" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_grupo">
+          <Key>
+            <PropertyRef Name="id_gru" />
+          </Key>
+          <Property Name="desc_grupo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_gru" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_liqrec">
+          <Key>
+            <PropertyRef Name="id_liq" />
+            <PropertyRef Name="id_suc" />
+          </Key>
+          <Property Name="id_liq" Type="int" Nullable="false" />
+          <Property Name="fc_liq" Type="date" />
+          <Property Name="id_perucb" Type="varchar" MaxLength="15" />
+          <Property Name="monto_liqs" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="monto_liqb" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="id_suc" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_numaplicas">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="del" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="del" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="al" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="id_mom" Type="bigint" Nullable="false" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_poliza" Type="float" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+          <Property Name="cuota" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="id_recibo" Type="bigint" />
+          <Property Name="anio_recibo" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="factura" Type="float" />
+          <Property Name="fecha_factura" Type="date" />
+          <Property Name="monto_pago" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="neta_pago" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comision_pago" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="id_tpago" Type="bigint" />
+          <Property Name="monto_comis" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cheque_comis" Type="ntext" />
+          <Property Name="comis_mes" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="comis_anio" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="pago_por" Type="text" />
+          <Property Name="id_liq" Type="int" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="pr_pagocompania">
+          <Key>
+            <PropertyRef Name="cheque" />
+            <PropertyRef Name="id_spvs" />
+            <PropertyRef Name="factura_pc" />
+          </Key>
+          <Property Name="cheque" Type="ntext" Nullable="false" />
+          <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto_pc" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comision_pc" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="factura_pc" Type="ntext" Nullable="false" />
+          <Property Name="pc_mes" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="pc_anio" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="comision_spc" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="comisaldo_pc" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="id_div" Type="bigint" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_poliza">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_poliza" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_producto" Type="bigint" Nullable="false" />
+          <Property Name="id_perclie" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_gru" Type="bigint" />
+          <Property Name="clase_poliza" Type="bit" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="fc_reg" Type="date" />
+          <Property Name="id_percart" Type="varchar" MaxLength="15" />
+          <Property Name="id_suc" Type="bigint" />
+          <Property Name="TRIAL360" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_polmov">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="id_movimiento" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_perejec" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="fc_emision" Type="date" Nullable="false" />
+          <Property Name="fc_inivig" Type="date" Nullable="false" />
+          <Property Name="fc_finvig" Type="date" Nullable="false" />
+          <Property Name="prima_bruta" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="prima_neta" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="por_comision" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="comision" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="id_div" Type="bigint" Nullable="false" />
+          <Property Name="tipo_cuota" Type="bit" Nullable="false" />
+          <Property Name="num_cuota" Type="float" Nullable="false" />
+          <Property Name="id_clamov" Type="bigint" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="15" />
+          <Property Name="id_dir" Type="bigint" Nullable="false" />
+          <Property Name="fc_recepcion" Type="date" Nullable="false" />
+          <Property Name="mat_aseg" Type="ntext" />
+          <Property Name="fc_reg" Type="date" Nullable="false" />
+          <Property Name="no_liquida" Type="varchar" MaxLength="30" />
+          <Property Name="id_mom" Type="bigint" Nullable="false" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc_prod" Type="varchar" MaxLength="50" />
+          <Property Name="abrev_prod" Type="varchar" MaxLength="5" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_recibo">
+          <Key>
+            <PropertyRef Name="id_recibo" />
+            <PropertyRef Name="anio_recibo" />
+          </Key>
+          <Property Name="id_recibo" Type="bigint" Nullable="false" />
+          <Property Name="anio_recibo" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="fecha_entregado" Type="date" />
+          <Property Name="id_suc" Type="varchar" MaxLength="5" />
+          <Property Name="id_perucb" Type="varchar" MaxLength="15" />
+          <Property Name="id_perclie" Type="varchar" MaxLength="15" />
+          <Property Name="fecha_cobro" Type="date" />
+          <Property Name="monto_cobro" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="monto_resto" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="recibo_por" Type="text" />
+          <Property Name="id_div" Type="bigint" />
+          <Property Name="id_apli" Type="bigint" />
+          <Property Name="id_liq" Type="bigint" />
+          <Property Name="cont_bs" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cont_sus" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cheq_bs" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="cheq_sus" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="pr_riesgo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+          </Key>
+          <Property Name="id_riesgo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="cod_mod" Type="varchar" MaxLength="2" />
+          <Property Name="cod_ram" Type="varchar" MaxLength="2" />
+          <Property Name="cod_pol" Type="varchar" MaxLength="2" />
+          <Property Name="desc_riesgo" Type="varchar" MaxLength="70" />
+          <Property Name="cobertura" Type="varchar" MaxLength="4" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="re_caso">
+          <Key>
+            <PropertyRef Name="id_caso" />
+            <PropertyRef Name="anio_caso" />
+            <PropertyRef Name="id_sucur" />
+          </Key>
+          <Property Name="id_caso" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="anio_caso" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="id_sucur" Type="int" Nullable="false" />
+          <Property Name="id_perclie" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="id_perurc" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="id_poliza" Type="bigint" Nullable="false" />
+          <Property Name="aprox_caso" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="id_divaprox" Type="float" Nullable="false" />
+          <Property Name="pago_caso" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="franq_caso" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="indem_caso" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="inspector_cia" Type="varchar" MaxLength="100" />
+          <Property Name="atendido_por" Type="varchar" MaxLength="100" />
+          <Property Name="atendido_en" Type="varchar" MaxLength="150" />
+          <Property Name="fc_reg" Type="date" />
+          <Property Name="id_recibo" Type="float" />
+          <Property Name="anio_recibo" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="re_histcaso">
+          <Key>
+            <PropertyRef Name="id_histcaso" />
+          </Key>
+          <Property Name="id_histcaso" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_caso" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="anio" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="id_sucur" Type="int" Nullable="false" />
+          <Property Name="fc_iniestado" Type="date" Nullable="false" />
+          <Property Name="fc_finestado" Type="date" />
+          <Property Name="id_estca" Type="float" Nullable="false" />
+          <Property Name="obs_histcaso" Type="text" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="re_siniestro">
+          <Key>
+            <PropertyRef Name="id_caso" />
+            <PropertyRef Name="anio" />
+            <PropertyRef Name="id_sucur" />
+          </Key>
+          <Property Name="id_caso" Type="float" Nullable="false" />
+          <Property Name="anio" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="id_sucur" Type="int" Nullable="false" />
+          <Property Name="fc_incidente" Type="date" Nullable="false" />
+          <Property Name="denunciante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="reladenun" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="mat_aseg" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="lugar_siniestro" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="circunstancia" Type="text" Nullable="false" />
+          <Property Name="id_uniobj" Type="float" />
+          <Property Name="uniobj" Type="varchar" MaxLength="20" />
+          <Property Name="fc_denuncia" Type="date" />
+          <Property Name="TRIAL363" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="fk_co_anticom">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
+          <End Role="co_anticom" Type="Self.co_anticom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="co_anticom">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comicio_persona">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
+          <End Role="co_porcomi" Type="Self.co_porcomi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="co_porcomi">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_re_caso_pr_poliza">
+          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="1" />
+          <End Role="re_caso" Type="Self.re_caso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_poliza">
+              <PropertyRef Name="id_poliza" />
+            </Principal>
+            <Dependent Role="re_caso">
+              <PropertyRef Name="id_poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_acceso_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="1" />
+          <End Role="gr_acceso" Type="Self.gr_acceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_acceso">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_compania_fk">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
+          <End Role="gr_compania" Type="Self.gr_compania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="gr_compania">
+              <PropertyRef Name="id_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_pass_fk">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
+          <End Role="gr_pass" Type="Self.gr_pass" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="gr_pass">
+              <PropertyRef Name="id_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_rol_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="1" />
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_sal_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="0..1" />
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_sal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_tper_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="1" />
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_tper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_tc_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="1" />
+          <End Role="gr_tc" Type="Self.gr_tc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_tc">
+              <PropertyRef Name="id_div" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_dir_polmov_fk">
+          <End Role="gr_direccion" Type="Self.gr_direccion" Multiplicity="1" />
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_direccion">
+              <PropertyRef Name="id_dir" />
+            </Principal>
+            <Dependent Role="pr_polmov">
+              <PropertyRef Name="id_dir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_perejec_polmov_fk">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="pr_polmov">
+              <PropertyRef Name="id_perejec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_calculo_riesgo_fk">
+          <End Role="pr_riesgo" Type="Self.pr_riesgo" Multiplicity="1" />
+          <End Role="pr_calculo" Type="Self.pr_calculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_riesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Principal>
+            <Dependent Role="pr_calculo">
+              <PropertyRef Name="id_riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_cuotapoliza_fk">
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
+          <End Role="pr_cuotapoliza" Type="Self.pr_cuotapoliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_cuotapoliza">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_devolucion_fk">
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
+          <End Role="pr_devolucion" Type="Self.pr_devolucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_devolucion">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_excluida_fk">
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
+          <End Role="pr_excluida" Type="Self.pr_excluida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_excluida">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_formriesgo_riesgo_fk">
+          <End Role="pr_riesgo" Type="Self.pr_riesgo" Multiplicity="1" />
+          <End Role="pr_formriesgo" Type="Self.pr_formriesgo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_riesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Principal>
+            <Dependent Role="pr_formriesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_formriesgo_spvs_fk">
+          <End Role="gr_compania" Type="Self.gr_compania" Multiplicity="1" />
+          <End Role="pr_formriesgo" Type="Self.pr_formriesgo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_compania">
+              <PropertyRef Name="id_spvs" />
+            </Principal>
+            <Dependent Role="pr_formriesgo">
+              <PropertyRef Name="id_spvs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_numaplicas_fk">
+          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
+          <End Role="pr_numaplicas" Type="Self.pr_numaplicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_numaplicas">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_pago_tpago_fk">
+          <End Role="gr_parametro" Type="Self.gr_parametro" Multiplicity="0..1" />
+          <End Role="pr_pago" Type="Self.pr_pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="pr_pago">
+              <PropertyRef Name="id_tpago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_pagocompania_fk">
+          <End Role="gr_compania" Type="Self.gr_compania" Multiplicity="1" />
+          <End Role="pr_pagocompania" Type="Self.pr_pagocompania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_compania">
+              <PropertyRef Name="id_spvs" />
+            </Principal>
+            <Dependent Role="pr_pagocompania">
+              <PropertyRef Name="id_spvs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_poliza_fk">
+          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="0..1" />
+          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="pr_poliza">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_poliza_producto_fk">
+          <End Role="pr_producto" Type="Self.pr_producto" Multiplicity="1" />
+          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="pr_poliza">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sicproModelStoreContainer">
+          <EntitySet Name="co_anticom" EntityType="Self.co_anticom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="co_porcomi" EntityType="Self.co_porcomi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="co_presprod" EntityType="Self.co_presprod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="co_proycartera" EntityType="Self.co_proycartera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_acceso" EntityType="Self.gr_acceso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_cierreregistro" EntityType="Self.gr_cierreregistro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_compania" EntityType="Self.gr_compania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_componente" EntityType="Self.gr_componente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_contacto" EntityType="Self.gr_contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_direccion" EntityType="Self.gr_direccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_parametro" EntityType="Self.gr_parametro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_pass" EntityType="Self.gr_pass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_persona" EntityType="Self.gr_persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_tc" EntityType="Self.gr_tc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_anulada" EntityType="Self.pr_anulada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_calculo" EntityType="Self.pr_calculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_cuotapoliza" EntityType="Self.pr_cuotapoliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_devolucion" EntityType="Self.pr_devolucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_excluida" EntityType="Self.pr_excluida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_formriesgo" EntityType="Self.pr_formriesgo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_grupo" EntityType="Self.pr_grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_liqrec" EntityType="Self.pr_liqrec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_numaplicas" EntityType="Self.pr_numaplicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_pago" EntityType="Self.pr_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_poliza" EntityType="Self.pr_poliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_polmov" EntityType="Self.pr_polmov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_producto" EntityType="Self.pr_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_recibo" EntityType="Self.pr_recibo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pr_riesgo" EntityType="Self.pr_riesgo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="re_caso" EntityType="Self.re_caso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="re_histcaso" EntityType="Self.re_histcaso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="re_siniestro" EntityType="Self.re_siniestro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="co_sueldo" EntityType="Self.co_sueldo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [co_sueldo].[id_persona] AS [id_persona], 
+    [co_sueldo].[mes_sueldo] AS [mes_sueldo], 
+    [co_sueldo].[anio_sueldo] AS [anio_sueldo], 
+    [co_sueldo].[dias] AS [dias], 
+    [co_sueldo].[basico_sueldo] AS [basico_sueldo], 
+    [co_sueldo].[bono_anti] AS [bono_anti], 
+    [co_sueldo].[TRIAL357] AS [TRIAL357]
+    FROM [dbo].[co_sueldo] AS [co_sueldo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pr_pagocompania" EntityType="Self.pr_pagocompania" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [pr_pagocompania].[cheque] AS [cheque], 
+    [pr_pagocompania].[id_spvs] AS [id_spvs], 
+    [pr_pagocompania].[fecha] AS [fecha], 
+    [pr_pagocompania].[monto_pc] AS [monto_pc], 
+    [pr_pagocompania].[comision_pc] AS [comision_pc], 
+    [pr_pagocompania].[factura_pc] AS [factura_pc], 
+    [pr_pagocompania].[pc_mes] AS [pc_mes], 
+    [pr_pagocompania].[pc_anio] AS [pc_anio], 
+    [pr_pagocompania].[comision_spc] AS [comision_spc], 
+    [pr_pagocompania].[comisaldo_pc] AS [comisaldo_pc], 
+    [pr_pagocompania].[id_div] AS [id_div], 
+    [pr_pagocompania].[TRIAL360] AS [TRIAL360]
+    FROM [dbo].[pr_pagocompania] AS [pr_pagocompania]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_co_anticom" Association="Self.fk_co_anticom">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="co_anticom" EntitySet="co_anticom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comicio_persona" Association="Self.fk_comicio_persona">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="co_porcomi" EntitySet="co_porcomi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_re_caso_pr_poliza" Association="Self.fk_re_caso_pr_poliza">
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+            <End Role="re_caso" EntitySet="re_caso" />
+          </AssociationSet>
+          <AssociationSet Name="gr_acceso_fk" Association="Self.gr_acceso_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_acceso" EntitySet="gr_acceso" />
+          </AssociationSet>
+          <AssociationSet Name="gr_compania_fk" Association="Self.gr_compania_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="gr_compania" EntitySet="gr_compania" />
+          </AssociationSet>
+          <AssociationSet Name="gr_pass_fk" Association="Self.gr_pass_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="gr_pass" EntitySet="gr_pass" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_rol_fk" Association="Self.gr_persona_rol_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_sal_fk" Association="Self.gr_persona_sal_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_tper_fk" Association="Self.gr_persona_tper_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_tc_fk" Association="Self.gr_tc_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_tc" EntitySet="gr_tc" />
+          </AssociationSet>
+          <AssociationSet Name="id_dir_polmov_fk" Association="Self.id_dir_polmov_fk">
+            <End Role="gr_direccion" EntitySet="gr_direccion" />
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+          </AssociationSet>
+          <AssociationSet Name="id_perejec_polmov_fk" Association="Self.id_perejec_polmov_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+          </AssociationSet>
+          <AssociationSet Name="pr_calculo_riesgo_fk" Association="Self.pr_calculo_riesgo_fk">
+            <End Role="pr_riesgo" EntitySet="pr_riesgo" />
+            <End Role="pr_calculo" EntitySet="pr_calculo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_cuotapoliza_fk" Association="Self.pr_cuotapoliza_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_cuotapoliza" EntitySet="pr_cuotapoliza" />
+          </AssociationSet>
+          <AssociationSet Name="pr_devolucion_fk" Association="Self.pr_devolucion_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_devolucion" EntitySet="pr_devolucion" />
+          </AssociationSet>
+          <AssociationSet Name="pr_excluida_fk" Association="Self.pr_excluida_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_excluida" EntitySet="pr_excluida" />
+          </AssociationSet>
+          <AssociationSet Name="pr_formriesgo_riesgo_fk" Association="Self.pr_formriesgo_riesgo_fk">
+            <End Role="pr_riesgo" EntitySet="pr_riesgo" />
+            <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_formriesgo_spvs_fk" Association="Self.pr_formriesgo_spvs_fk">
+            <End Role="gr_compania" EntitySet="gr_compania" />
+            <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_numaplicas_fk" Association="Self.pr_numaplicas_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_numaplicas" EntitySet="pr_numaplicas" />
+          </AssociationSet>
+          <AssociationSet Name="pr_pago_tpago_fk" Association="Self.pr_pago_tpago_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="pr_pago" EntitySet="pr_pago" />
+          </AssociationSet>
+          <AssociationSet Name="pr_pagocompania_fk" Association="Self.pr_pagocompania_fk">
+            <End Role="gr_compania" EntitySet="gr_compania" />
+            <End Role="pr_pagocompania" EntitySet="pr_pagocompania" />
+          </AssociationSet>
+          <AssociationSet Name="pr_poliza_fk" Association="Self.pr_poliza_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+          </AssociationSet>
+          <AssociationSet Name="pr_poliza_producto_fk" Association="Self.pr_poliza_producto_fk">
+            <End Role="pr_producto" EntitySet="pr_producto" />
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sicproModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="sicproEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="co_anticom" EntityType="sicproModel.co_anticom" />
+          <EntitySet Name="co_porcomi" EntityType="sicproModel.co_porcomi" />
+          <EntitySet Name="co_presprod" EntityType="sicproModel.co_presprod" />
+          <EntitySet Name="co_proycartera" EntityType="sicproModel.co_proycartera" />
+          <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
+          <EntitySet Name="gr_cierreregistro" EntityType="sicproModel.gr_cierreregistro" />
+          <EntitySet Name="gr_compania" EntityType="sicproModel.gr_compania" />
+          <EntitySet Name="gr_componente" EntityType="sicproModel.gr_componente" />
+          <EntitySet Name="gr_contacto" EntityType="sicproModel.gr_contacto" />
+          <EntitySet Name="gr_direccion" EntityType="sicproModel.gr_direccion" />
+          <EntitySet Name="gr_parametro" EntityType="sicproModel.gr_parametro" />
+          <EntitySet Name="gr_pass" EntityType="sicproModel.gr_pass" />
+          <EntitySet Name="gr_persona" EntityType="sicproModel.gr_persona" />
+          <EntitySet Name="gr_tc" EntityType="sicproModel.gr_tc" />
+          <EntitySet Name="pr_anulada" EntityType="sicproModel.pr_anulada" />
+          <EntitySet Name="pr_calculo" EntityType="sicproModel.pr_calculo" />
+          <EntitySet Name="pr_cuotapoliza" EntityType="sicproModel.pr_cuotapoliza" />
+          <EntitySet Name="pr_devolucion" EntityType="sicproModel.pr_devolucion" />
+          <EntitySet Name="pr_excluida" EntityType="sicproModel.pr_excluida" />
+          <EntitySet Name="pr_formriesgo" EntityType="sicproModel.pr_formriesgo" />
+          <EntitySet Name="pr_grupo" EntityType="sicproModel.pr_grupo" />
+          <EntitySet Name="pr_liqrec" EntityType="sicproModel.pr_liqrec" />
+          <EntitySet Name="pr_numaplicas" EntityType="sicproModel.pr_numaplicas" />
+          <EntitySet Name="pr_pago" EntityType="sicproModel.pr_pago" />
+          <EntitySet Name="pr_poliza" EntityType="sicproModel.pr_poliza" />
+          <EntitySet Name="pr_polmov" EntityType="sicproModel.pr_polmov" />
+          <EntitySet Name="pr_producto" EntityType="sicproModel.pr_producto" />
+          <EntitySet Name="pr_recibo" EntityType="sicproModel.pr_recibo" />
+          <EntitySet Name="pr_riesgo" EntityType="sicproModel.pr_riesgo" />
+          <EntitySet Name="re_caso" EntityType="sicproModel.re_caso" />
+          <EntitySet Name="re_histcaso" EntityType="sicproModel.re_histcaso" />
+          <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
+          <EntitySet Name="co_sueldo" EntityType="sicproModel.co_sueldo" />
+          <EntitySet Name="pr_pagocompania" EntityType="sicproModel.pr_pagocompania" />
+          <AssociationSet Name="fk_co_anticom" Association="sicproModel.fk_co_anticom">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="co_anticom" EntitySet="co_anticom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_comicio_persona" Association="sicproModel.fk_comicio_persona">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="co_porcomi" EntitySet="co_porcomi" />
+          </AssociationSet>
+          <AssociationSet Name="gr_acceso_fk" Association="sicproModel.gr_acceso_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_acceso" EntitySet="gr_acceso" />
+          </AssociationSet>
+          <AssociationSet Name="gr_compania_fk" Association="sicproModel.gr_compania_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="gr_compania" EntitySet="gr_compania" />
+          </AssociationSet>
+          <AssociationSet Name="pr_formriesgo_spvs_fk" Association="sicproModel.pr_formriesgo_spvs_fk">
+            <End Role="gr_compania" EntitySet="gr_compania" />
+            <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_pagocompania_fk" Association="sicproModel.pr_pagocompania_fk">
+            <End Role="gr_compania" EntitySet="gr_compania" />
+            <End Role="pr_pagocompania" EntitySet="pr_pagocompania" />
+          </AssociationSet>
+          <AssociationSet Name="id_dir_polmov_fk" Association="sicproModel.id_dir_polmov_fk">
+            <End Role="gr_direccion" EntitySet="gr_direccion" />
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_rol_fk" Association="sicproModel.gr_persona_rol_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_sal_fk" Association="sicproModel.gr_persona_sal_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_persona_tper_fk" Association="sicproModel.gr_persona_tper_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_persona" EntitySet="gr_persona" />
+          </AssociationSet>
+          <AssociationSet Name="gr_tc_fk" Association="sicproModel.gr_tc_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="gr_tc" EntitySet="gr_tc" />
+          </AssociationSet>
+          <AssociationSet Name="pr_pago_tpago_fk" Association="sicproModel.pr_pago_tpago_fk">
+            <End Role="gr_parametro" EntitySet="gr_parametro" />
+            <End Role="pr_pago" EntitySet="pr_pago" />
+          </AssociationSet>
+          <AssociationSet Name="gr_pass_fk" Association="sicproModel.gr_pass_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="gr_pass" EntitySet="gr_pass" />
+          </AssociationSet>
+          <AssociationSet Name="id_perejec_polmov_fk" Association="sicproModel.id_perejec_polmov_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+          </AssociationSet>
+          <AssociationSet Name="pr_poliza_fk" Association="sicproModel.pr_poliza_fk">
+            <End Role="gr_persona" EntitySet="gr_persona" />
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+          </AssociationSet>
+          <AssociationSet Name="pr_calculo_riesgo_fk" Association="sicproModel.pr_calculo_riesgo_fk">
+            <End Role="pr_riesgo" EntitySet="pr_riesgo" />
+            <End Role="pr_calculo" EntitySet="pr_calculo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_cuotapoliza_fk" Association="sicproModel.pr_cuotapoliza_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_cuotapoliza" EntitySet="pr_cuotapoliza" />
+          </AssociationSet>
+          <AssociationSet Name="pr_devolucion_fk" Association="sicproModel.pr_devolucion_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_devolucion" EntitySet="pr_devolucion" />
+          </AssociationSet>
+          <AssociationSet Name="pr_excluida_fk" Association="sicproModel.pr_excluida_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_excluida" EntitySet="pr_excluida" />
+          </AssociationSet>
+          <AssociationSet Name="pr_formriesgo_riesgo_fk" Association="sicproModel.pr_formriesgo_riesgo_fk">
+            <End Role="pr_riesgo" EntitySet="pr_riesgo" />
+            <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
+          </AssociationSet>
+          <AssociationSet Name="pr_numaplicas_fk" Association="sicproModel.pr_numaplicas_fk">
+            <End Role="pr_polmov" EntitySet="pr_polmov" />
+            <End Role="pr_numaplicas" EntitySet="pr_numaplicas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_re_caso_pr_poliza" Association="sicproModel.fk_re_caso_pr_poliza">
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+            <End Role="re_caso" EntitySet="re_caso" />
+          </AssociationSet>
+          <AssociationSet Name="pr_poliza_producto_fk" Association="sicproModel.pr_poliza_producto_fk">
+            <End Role="pr_producto" EntitySet="pr_producto" />
+            <End Role="pr_poliza" EntitySet="pr_poliza" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="co_anticom">
+          <Key>
+            <PropertyRef Name="id_anco" />
+          </Key>
+          <Property Name="id_anco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fc_solicitud" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="doc_cont" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="imp_anticipo" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="desc_anti" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_percart" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.fk_co_anticom" FromRole="co_anticom" ToRole="gr_persona" />
+        </EntityType>
+        <EntityType Name="co_porcomi">
+          <Key>
+            <PropertyRef Name="id_percart" />
+          </Key>
+          <Property Name="id_percart" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="porcentaje" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="factura" Type="Boolean" Nullable="false" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.fk_comicio_persona" FromRole="co_porcomi" ToRole="gr_persona" />
+        </EntityType>
+        <EntityType Name="co_presprod">
+          <Key>
+            <PropertyRef Name="mes_proy" />
+            <PropertyRef Name="anio_proy" />
+            <PropertyRef Name="id_percart" />
+            <PropertyRef Name="id_suc" />
+          </Key>
+          <Property Name="mes_proy" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="anio_proy" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="id_percart" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_suc" Type="Int32" Nullable="false" />
+          <Property Name="monto_proy" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="monto_cproy" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="co_proycartera">
+          <Key>
+            <PropertyRef Name="mes_proy" />
+            <PropertyRef Name="anio_proy" />
+            <PropertyRef Name="id_suc" />
+            <PropertyRef Name="id_percart" />
+          </Key>
+          <Property Name="mes_proy" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="anio_proy" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="id_suc" Type="Double" Nullable="false" />
+          <Property Name="id_percart" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="monto_proy" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gr_acceso">
+          <Key>
+            <PropertyRef Name="id_acc" />
+          </Key>
+          <Property Name="id_acc" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_com" Type="Int64" Nullable="false" />
+          <Property Name="id_rol" Type="Int64" Nullable="false" />
+          <Property Name="nivel" Type="Double" Nullable="false" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_parametro" Relationship="sicproModel.gr_acceso_fk" FromRole="gr_acceso" ToRole="gr_parametro" />
+        </EntityType>
+        <EntityType Name="gr_cierreregistro">
+          <Key>
+            <PropertyRef Name="mes" />
+            <PropertyRef Name="anio" />
+          </Key>
+          <Property Name="mes" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="anio" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="ini_reg" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fin_reg" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tcambio" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gr_compania">
+          <Key>
+            <PropertyRef Name="id_spvs" />
+          </Key>
+          <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cf" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+          <Property Name="abrev_cia" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="rubro" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.gr_compania_fk" FromRole="gr_compania" ToRole="gr_persona" />
+          <NavigationProperty Name="pr_formriesgo" Relationship="sicproModel.pr_formriesgo_spvs_fk" FromRole="gr_compania" ToRole="pr_formriesgo" />
+          <NavigationProperty Name="pr_pagocompania" Relationship="sicproModel.pr_pagocompania_fk" FromRole="gr_compania" ToRole="pr_pagocompania" />
+        </EntityType>
+        <EntityType Name="gr_componente">
+          <Key>
+            <PropertyRef Name="id_com" />
+          </Key>
+          <Property Name="id_com" Type="Decimal" Nullable="false" Precision="3" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep_com" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="nivel" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="desc_comp" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ayuda" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vinculo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="toolb" Type="Boolean" Nullable="false" />
+          <Property Name="imgtoolb" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gr_contacto">
+          <Key>
+            <PropertyRef Name="id_dir" />
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_dir" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="relacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gr_direccion">
+          <Key>
+            <PropertyRef Name="id_dir" />
+          </Key>
+          <Property Name="id_dir" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_tpdir" Type="Double" Nullable="false" />
+          <Property Name="telf_dir" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="int_dire" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telf_cel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telf_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="casilla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="web" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_emis" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.id_dir_polmov_fk" FromRole="gr_direccion" ToRole="pr_polmov" />
+        </EntityType>
+        <EntityType Name="gr_parametro">
+          <Key>
+            <PropertyRef Name="id_par" />
+          </Key>
+          <Property Name="id_par" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="columna" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="desc_param" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="abrev_param" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="valor_param" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_acceso" Relationship="sicproModel.gr_acceso_fk" FromRole="gr_parametro" ToRole="gr_acceso" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.gr_persona_rol_fk" FromRole="gr_parametro" ToRole="gr_persona" />
+          <NavigationProperty Name="gr_persona1" Relationship="sicproModel.gr_persona_sal_fk" FromRole="gr_parametro" ToRole="gr_persona" />
+          <NavigationProperty Name="gr_persona2" Relationship="sicproModel.gr_persona_tper_fk" FromRole="gr_parametro" ToRole="gr_persona" />
+          <NavigationProperty Name="gr_tc" Relationship="sicproModel.gr_tc_fk" FromRole="gr_parametro" ToRole="gr_tc" />
+          <NavigationProperty Name="pr_pago" Relationship="sicproModel.pr_pago_tpago_fk" FromRole="gr_parametro" ToRole="pr_pago" />
+        </EntityType>
+        <EntityType Name="gr_pass">
+          <Key>
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cambio" Type="Boolean" />
+          <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="logged" Type="Boolean" />
+          <Property Name="id_rol" Type="Decimal" Precision="8" Scale="0" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.gr_pass_fk" FromRole="gr_pass" ToRole="gr_persona" />
+        </EntityType>
+        <EntityType Name="gr_persona">
+          <Key>
+            <PropertyRef Name="id_per" />
+          </Key>
+          <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nomraz" Type="String" Nullable="false" MaxLength="160" FixedLength="false" Unicode="false" />
+          <Property Name="id_tper" Type="Int64" Nullable="false" />
+          <Property Name="fechaaniv" Type="DateTime" Precision="0" />
+          <Property Name="id_sal" Type="Int64" />
+          <Property Name="id_rol" Type="Int64" Nullable="false" />
+          <Property Name="id_tdoc" Type="Int64" Nullable="false" />
+          <Property Name="id_emis" Type="Int64" Nullable="false" />
+          <Property Name="nit_fac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_suc" Type="Int32" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="co_anticom" Relationship="sicproModel.fk_co_anticom" FromRole="gr_persona" ToRole="co_anticom" />
+          <NavigationProperty Name="co_porcomi" Relationship="sicproModel.fk_comicio_persona" FromRole="gr_persona" ToRole="co_porcomi" />
+          <NavigationProperty Name="gr_compania" Relationship="sicproModel.gr_compania_fk" FromRole="gr_persona" ToRole="gr_compania" />
+          <NavigationProperty Name="gr_parametro" Relationship="sicproModel.gr_persona_rol_fk" FromRole="gr_persona" ToRole="gr_parametro" />
+          <NavigationProperty Name="gr_parametro1" Relationship="sicproModel.gr_persona_sal_fk" FromRole="gr_persona" ToRole="gr_parametro" />
+          <NavigationProperty Name="gr_parametro2" Relationship="sicproModel.gr_persona_tper_fk" FromRole="gr_persona" ToRole="gr_parametro" />
+          <NavigationProperty Name="gr_pass" Relationship="sicproModel.gr_pass_fk" FromRole="gr_persona" ToRole="gr_pass" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.id_perejec_polmov_fk" FromRole="gr_persona" ToRole="pr_polmov" />
+          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.pr_poliza_fk" FromRole="gr_persona" ToRole="pr_poliza" />
+        </EntityType>
+        <EntityType Name="gr_tc">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="id_div" />
+          </Key>
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_div" Type="Int64" Nullable="false" />
+          <Property Name="tcambio" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_parametro" Relationship="sicproModel.gr_tc_fk" FromRole="gr_tc" ToRole="gr_parametro" />
+        </EntityType>
+        <EntityType Name="pr_anulada">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="monto_anulada" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="neta_anulada" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="comision_anulada" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="anulada_mes" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="anulada_anio" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="anulada_por" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_anulada" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pr_calculo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+            <PropertyRef Name="id_spvs" />
+          </Key>
+          <Property Name="id_riesgo" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="formula" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="comision" Type="Double" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_riesgo" Relationship="sicproModel.pr_calculo_riesgo_fk" FromRole="pr_calculo" ToRole="pr_riesgo" />
+        </EntityType>
+        <EntityType Name="pr_cuotapoliza">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="cuota" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="cuota" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="0" />
+          <Property Name="cuota_total" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cuota_neta" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cuota_comis" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cuota_pago" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cuota_comicob" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_cuotapoliza_fk" FromRole="pr_cuotapoliza" ToRole="pr_polmov" />
+        </EntityType>
+        <EntityType Name="pr_devolucion">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="id_devolucion" />
+            <PropertyRef Name="cuota_devolucion" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="id_devolucion" Type="Int64" Nullable="false" />
+          <Property Name="cuota_devolucion" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="monto_devolucion" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="neta_devolucion" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comision_devolucion" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comision_pc" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cheque" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="devolucion_por" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="saldo_devolucion" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="banco" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="comis_mes" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="comis_anio" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_devolucion_fk" FromRole="pr_devolucion" ToRole="pr_polmov" />
+        </EntityType>
+        <EntityType Name="pr_excluida">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="id_excluye" />
+            <PropertyRef Name="excluye_cuota" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="id_excluye" Type="Int64" Nullable="false" />
+          <Property Name="excluye_cuota" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="monto_exclusion" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="neta_exclusion" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comision_exclusion" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="mes_exclusion" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="anio_exclusion" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_excluida_fk" FromRole="pr_excluida" ToRole="pr_polmov" />
+        </EntityType>
+        <EntityType Name="pr_formriesgo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+            <PropertyRef Name="id_spvs" />
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_riesgo" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="form_riesgo1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="comis_riesgo" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="opera" Type="Boolean" />
+          <Property Name="evaluar" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="id_producto" Type="Int64" Nullable="false" />
+          <Property Name="por_cred" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="plus_neta" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="form_riesgo2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_compania" Relationship="sicproModel.pr_formriesgo_spvs_fk" FromRole="pr_formriesgo" ToRole="gr_compania" />
+          <NavigationProperty Name="pr_riesgo" Relationship="sicproModel.pr_formriesgo_riesgo_fk" FromRole="pr_formriesgo" ToRole="pr_riesgo" />
+        </EntityType>
+        <EntityType Name="pr_grupo">
+          <Key>
+            <PropertyRef Name="id_gru" />
+          </Key>
+          <Property Name="desc_grupo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_gru" Type="Decimal" Nullable="false" Precision="10" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pr_liqrec">
+          <Key>
+            <PropertyRef Name="id_liq" />
+            <PropertyRef Name="id_suc" />
+          </Key>
+          <Property Name="id_liq" Type="Int32" Nullable="false" />
+          <Property Name="fc_liq" Type="DateTime" Precision="0" />
+          <Property Name="id_perucb" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="monto_liqs" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="monto_liqb" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="id_suc" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pr_numaplicas">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+            <PropertyRef Name="del" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="del" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="al" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="id_mom" Type="Int64" Nullable="false" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_numaplicas_fk" FromRole="pr_numaplicas" ToRole="pr_polmov" />
+        </EntityType>
+        <EntityType Name="pr_pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_poliza" Type="Double" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" />
+          <Property Name="cuota" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="id_recibo" Type="Int64" />
+          <Property Name="anio_recibo" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="factura" Type="Double" />
+          <Property Name="fecha_factura" Type="DateTime" Precision="0" />
+          <Property Name="monto_pago" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="neta_pago" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comision_pago" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="id_tpago" Type="Int64" />
+          <Property Name="monto_comis" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cheque_comis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="comis_mes" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="comis_anio" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="pago_por" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_liq" Type="Int32" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_parametro" Relationship="sicproModel.pr_pago_tpago_fk" FromRole="pr_pago" ToRole="gr_parametro" />
+        </EntityType>
+        <EntityType Name="pr_poliza">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_poliza" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_producto" Type="Int64" Nullable="false" />
+          <Property Name="id_perclie" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="id_gru" Type="Int64" />
+          <Property Name="clase_poliza" Type="Boolean" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="fc_reg" Type="DateTime" Precision="0" />
+          <Property Name="id_percart" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_suc" Type="Int64" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.pr_poliza_fk" FromRole="pr_poliza" ToRole="gr_persona" />
+          <NavigationProperty Name="re_caso" Relationship="sicproModel.fk_re_caso_pr_poliza" FromRole="pr_poliza" ToRole="re_caso" />
+          <NavigationProperty Name="pr_producto" Relationship="sicproModel.pr_poliza_producto_fk" FromRole="pr_poliza" ToRole="pr_producto" />
+        </EntityType>
+        <EntityType Name="pr_polmov">
+          <Key>
+            <PropertyRef Name="id_poliza" />
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="id_movimiento" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_perejec" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fc_emision" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fc_inivig" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fc_finvig" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="prima_bruta" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="prima_neta" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="por_comision" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="comision" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="id_div" Type="Int64" Nullable="false" />
+          <Property Name="tipo_cuota" Type="Boolean" Nullable="false" />
+          <Property Name="num_cuota" Type="Double" Nullable="false" />
+          <Property Name="id_clamov" Type="Int64" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_dir" Type="Int64" Nullable="false" />
+          <Property Name="fc_recepcion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mat_aseg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fc_reg" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="no_liquida" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_mom" Type="Int64" Nullable="false" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_direccion" Relationship="sicproModel.id_dir_polmov_fk" FromRole="pr_polmov" ToRole="gr_direccion" />
+          <NavigationProperty Name="gr_persona" Relationship="sicproModel.id_perejec_polmov_fk" FromRole="pr_polmov" ToRole="gr_persona" />
+          <NavigationProperty Name="pr_cuotapoliza" Relationship="sicproModel.pr_cuotapoliza_fk" FromRole="pr_polmov" ToRole="pr_cuotapoliza" />
+          <NavigationProperty Name="pr_devolucion" Relationship="sicproModel.pr_devolucion_fk" FromRole="pr_polmov" ToRole="pr_devolucion" />
+          <NavigationProperty Name="pr_excluida" Relationship="sicproModel.pr_excluida_fk" FromRole="pr_polmov" ToRole="pr_excluida" />
+          <NavigationProperty Name="pr_numaplicas" Relationship="sicproModel.pr_numaplicas_fk" FromRole="pr_polmov" ToRole="pr_numaplicas" />
+        </EntityType>
+        <EntityType Name="pr_producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc_prod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abrev_prod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.pr_poliza_producto_fk" FromRole="pr_producto" ToRole="pr_poliza" />
+        </EntityType>
+        <EntityType Name="pr_recibo">
+          <Key>
+            <PropertyRef Name="id_recibo" />
+            <PropertyRef Name="anio_recibo" />
+          </Key>
+          <Property Name="id_recibo" Type="Int64" Nullable="false" />
+          <Property Name="anio_recibo" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="fecha_entregado" Type="DateTime" Precision="0" />
+          <Property Name="id_suc" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="id_perucb" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_perclie" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_cobro" Type="DateTime" Precision="0" />
+          <Property Name="monto_cobro" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="monto_resto" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="recibo_por" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_div" Type="Int64" />
+          <Property Name="id_apli" Type="Int64" />
+          <Property Name="id_liq" Type="Int64" />
+          <Property Name="cont_bs" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cont_sus" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cheq_bs" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cheq_sus" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pr_riesgo">
+          <Key>
+            <PropertyRef Name="id_riesgo" />
+          </Key>
+          <Property Name="id_riesgo" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="cod_mod" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_ram" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_pol" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="desc_riesgo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="cobertura" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_calculo" Relationship="sicproModel.pr_calculo_riesgo_fk" FromRole="pr_riesgo" ToRole="pr_calculo" />
+          <NavigationProperty Name="pr_formriesgo" Relationship="sicproModel.pr_formriesgo_riesgo_fk" FromRole="pr_riesgo" ToRole="pr_formriesgo" />
+        </EntityType>
+        <EntityType Name="re_caso">
+          <Key>
+            <PropertyRef Name="id_caso" />
+            <PropertyRef Name="anio_caso" />
+            <PropertyRef Name="id_sucur" />
+          </Key>
+          <Property Name="id_caso" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="anio_caso" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="id_sucur" Type="Int32" Nullable="false" />
+          <Property Name="id_perclie" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_perurc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="id_poliza" Type="Int64" Nullable="false" />
+          <Property Name="aprox_caso" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="id_divaprox" Type="Double" Nullable="false" />
+          <Property Name="pago_caso" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="franq_caso" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="indem_caso" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="inspector_cia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="atendido_por" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="atendido_en" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fc_reg" Type="DateTime" Precision="0" />
+          <Property Name="id_recibo" Type="Double" />
+          <Property Name="anio_recibo" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.fk_re_caso_pr_poliza" FromRole="re_caso" ToRole="pr_poliza" />
+        </EntityType>
+        <EntityType Name="re_histcaso">
+          <Key>
+            <PropertyRef Name="id_histcaso" />
+          </Key>
+          <Property Name="id_histcaso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_caso" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="anio" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="id_sucur" Type="Int32" Nullable="false" />
+          <Property Name="fc_iniestado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fc_finestado" Type="DateTime" Precision="0" />
+          <Property Name="id_estca" Type="Double" Nullable="false" />
+          <Property Name="obs_histcaso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="re_siniestro">
+          <Key>
+            <PropertyRef Name="id_caso" />
+            <PropertyRef Name="anio" />
+            <PropertyRef Name="id_sucur" />
+          </Key>
+          <Property Name="id_caso" Type="Double" Nullable="false" />
+          <Property Name="anio" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="id_sucur" Type="Int32" Nullable="false" />
+          <Property Name="fc_incidente" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="denunciante" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reladenun" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="mat_aseg" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_siniestro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="circunstancia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_uniobj" Type="Double" />
+          <Property Name="uniobj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fc_denuncia" Type="DateTime" Precision="0" />
+          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="co_sueldo">
+          <Key>
+            <PropertyRef Name="id_persona" />
+            <PropertyRef Name="mes_sueldo" />
+            <PropertyRef Name="anio_sueldo" />
+            <PropertyRef Name="dias" />
+          </Key>
+          <Property Name="id_persona" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="mes_sueldo" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="anio_sueldo" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="dias" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="basico_sueldo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="bono_anti" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pr_pagocompania">
+          <Key>
+            <PropertyRef Name="cheque" />
+            <PropertyRef Name="id_spvs" />
+            <PropertyRef Name="factura_pc" />
+          </Key>
+          <Property Name="cheque" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="monto_pc" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comision_pc" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="factura_pc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pc_mes" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="pc_anio" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="comision_spc" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="comisaldo_pc" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="id_div" Type="Int64" />
+          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="gr_compania" Relationship="sicproModel.pr_pagocompania_fk" FromRole="pr_pagocompania" ToRole="gr_compania" />
+        </EntityType>
+        <Association Name="fk_co_anticom">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
+          <End Type="sicproModel.co_anticom" Role="co_anticom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="co_anticom">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_comicio_persona">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
+          <End Type="sicproModel.co_porcomi" Role="co_porcomi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="co_porcomi">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_acceso_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="1" />
+          <End Type="sicproModel.gr_acceso" Role="gr_acceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_acceso">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_compania_fk">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
+          <End Type="sicproModel.gr_compania" Role="gr_compania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="gr_compania">
+              <PropertyRef Name="id_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_formriesgo_spvs_fk">
+          <End Type="sicproModel.gr_compania" Role="gr_compania" Multiplicity="1" />
+          <End Type="sicproModel.pr_formriesgo" Role="pr_formriesgo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_compania">
+              <PropertyRef Name="id_spvs" />
+            </Principal>
+            <Dependent Role="pr_formriesgo">
+              <PropertyRef Name="id_spvs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_pagocompania_fk">
+          <End Type="sicproModel.gr_compania" Role="gr_compania" Multiplicity="1" />
+          <End Type="sicproModel.pr_pagocompania" Role="pr_pagocompania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_compania">
+              <PropertyRef Name="id_spvs" />
+            </Principal>
+            <Dependent Role="pr_pagocompania">
+              <PropertyRef Name="id_spvs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_dir_polmov_fk">
+          <End Type="sicproModel.gr_direccion" Role="gr_direccion" Multiplicity="1" />
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_direccion">
+              <PropertyRef Name="id_dir" />
+            </Principal>
+            <Dependent Role="pr_polmov">
+              <PropertyRef Name="id_dir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_rol_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="1" />
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_sal_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="0..1" />
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_sal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_persona_tper_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="1" />
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_persona">
+              <PropertyRef Name="id_tper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_tc_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="1" />
+          <End Type="sicproModel.gr_tc" Role="gr_tc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="gr_tc">
+              <PropertyRef Name="id_div" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_pago_tpago_fk">
+          <End Type="sicproModel.gr_parametro" Role="gr_parametro" Multiplicity="0..1" />
+          <End Type="sicproModel.pr_pago" Role="pr_pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_parametro">
+              <PropertyRef Name="id_par" />
+            </Principal>
+            <Dependent Role="pr_pago">
+              <PropertyRef Name="id_tpago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gr_pass_fk">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
+          <End Type="sicproModel.gr_pass" Role="gr_pass" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="gr_pass">
+              <PropertyRef Name="id_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="id_perejec_polmov_fk">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="pr_polmov">
+              <PropertyRef Name="id_perejec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_poliza_fk">
+          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="0..1" />
+          <End Type="sicproModel.pr_poliza" Role="pr_poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gr_persona">
+              <PropertyRef Name="id_per" />
+            </Principal>
+            <Dependent Role="pr_poliza">
+              <PropertyRef Name="id_percart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_calculo_riesgo_fk">
+          <End Type="sicproModel.pr_riesgo" Role="pr_riesgo" Multiplicity="1" />
+          <End Type="sicproModel.pr_calculo" Role="pr_calculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_riesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Principal>
+            <Dependent Role="pr_calculo">
+              <PropertyRef Name="id_riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_cuotapoliza_fk">
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
+          <End Type="sicproModel.pr_cuotapoliza" Role="pr_cuotapoliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_cuotapoliza">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_devolucion_fk">
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
+          <End Type="sicproModel.pr_devolucion" Role="pr_devolucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_devolucion">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_excluida_fk">
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
+          <End Type="sicproModel.pr_excluida" Role="pr_excluida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_excluida">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_formriesgo_riesgo_fk">
+          <End Type="sicproModel.pr_riesgo" Role="pr_riesgo" Multiplicity="1" />
+          <End Type="sicproModel.pr_formriesgo" Role="pr_formriesgo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_riesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Principal>
+            <Dependent Role="pr_formriesgo">
+              <PropertyRef Name="id_riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_numaplicas_fk">
+          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
+          <End Type="sicproModel.pr_numaplicas" Role="pr_numaplicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_polmov">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Principal>
+            <Dependent Role="pr_numaplicas">
+              <PropertyRef Name="id_poliza" />
+              <PropertyRef Name="id_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_re_caso_pr_poliza">
+          <End Type="sicproModel.pr_poliza" Role="pr_poliza" Multiplicity="1" />
+          <End Type="sicproModel.re_caso" Role="re_caso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_poliza">
+              <PropertyRef Name="id_poliza" />
+            </Principal>
+            <Dependent Role="re_caso">
+              <PropertyRef Name="id_poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pr_poliza_producto_fk">
+          <End Type="sicproModel.pr_producto" Role="pr_producto" Multiplicity="1" />
+          <End Type="sicproModel.pr_poliza" Role="pr_poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pr_producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="pr_poliza">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sicproModelStoreContainer" CdmEntityContainer="sicproEntities">
+          <EntitySetMapping Name="co_anticom">
+            <EntityTypeMapping TypeName="sicproModel.co_anticom">
+              <MappingFragment StoreEntitySet="co_anticom">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="desc_anti" ColumnName="desc_anti" />
+                <ScalarProperty Name="imp_anticipo" ColumnName="imp_anticipo" />
+                <ScalarProperty Name="doc_cont" ColumnName="doc_cont" />
+                <ScalarProperty Name="fc_solicitud" ColumnName="fc_solicitud" />
+                <ScalarProperty Name="id_anco" ColumnName="id_anco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="co_porcomi">
+            <EntityTypeMapping TypeName="sicproModel.co_porcomi">
+              <MappingFragment StoreEntitySet="co_porcomi">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="co_presprod">
+            <EntityTypeMapping TypeName="sicproModel.co_presprod">
+              <MappingFragment StoreEntitySet="co_presprod">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="monto_cproy" ColumnName="monto_cproy" />
+                <ScalarProperty Name="monto_proy" ColumnName="monto_proy" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="anio_proy" ColumnName="anio_proy" />
+                <ScalarProperty Name="mes_proy" ColumnName="mes_proy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="co_proycartera">
+            <EntityTypeMapping TypeName="sicproModel.co_proycartera">
+              <MappingFragment StoreEntitySet="co_proycartera">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="monto_proy" ColumnName="monto_proy" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="anio_proy" ColumnName="anio_proy" />
+                <ScalarProperty Name="mes_proy" ColumnName="mes_proy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_acceso">
+            <EntityTypeMapping TypeName="sicproModel.gr_acceso">
+              <MappingFragment StoreEntitySet="gr_acceso">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+                <ScalarProperty Name="id_acc" ColumnName="id_acc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_cierreregistro">
+            <EntityTypeMapping TypeName="sicproModel.gr_cierreregistro">
+              <MappingFragment StoreEntitySet="gr_cierreregistro">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="tcambio" ColumnName="tcambio" />
+                <ScalarProperty Name="fin_reg" ColumnName="fin_reg" />
+                <ScalarProperty Name="ini_reg" ColumnName="ini_reg" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="mes" ColumnName="mes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_compania">
+            <EntityTypeMapping TypeName="sicproModel.gr_compania">
+              <MappingFragment StoreEntitySet="gr_compania">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="rubro" ColumnName="rubro" />
+                <ScalarProperty Name="abrev_cia" ColumnName="abrev_cia" />
+                <ScalarProperty Name="cf" ColumnName="cf" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_componente">
+            <EntityTypeMapping TypeName="sicproModel.gr_componente">
+              <MappingFragment StoreEntitySet="gr_componente">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="imgtoolb" ColumnName="imgtoolb" />
+                <ScalarProperty Name="toolb" ColumnName="toolb" />
+                <ScalarProperty Name="icono" ColumnName="icono" />
+                <ScalarProperty Name="vinculo" ColumnName="vinculo" />
+                <ScalarProperty Name="ayuda" ColumnName="ayuda" />
+                <ScalarProperty Name="desc_comp" ColumnName="desc_comp" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="dep_com" ColumnName="dep_com" />
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_contacto">
+            <EntityTypeMapping TypeName="sicproModel.gr_contacto">
+              <MappingFragment StoreEntitySet="gr_contacto">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="relacion" ColumnName="relacion" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_direccion">
+            <EntityTypeMapping TypeName="sicproModel.gr_direccion">
+              <MappingFragment StoreEntitySet="gr_direccion">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="casilla" ColumnName="casilla" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telf_fax" ColumnName="telf_fax" />
+                <ScalarProperty Name="telf_cel" ColumnName="telf_cel" />
+                <ScalarProperty Name="int_dire" ColumnName="int_dire" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="id_tpdir" ColumnName="id_tpdir" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_parametro">
+            <EntityTypeMapping TypeName="sicproModel.gr_parametro">
+              <MappingFragment StoreEntitySet="gr_parametro">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="valor_param" ColumnName="valor_param" />
+                <ScalarProperty Name="abrev_param" ColumnName="abrev_param" />
+                <ScalarProperty Name="desc_param" ColumnName="desc_param" />
+                <ScalarProperty Name="columna" ColumnName="columna" />
+                <ScalarProperty Name="id_par" ColumnName="id_par" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_pass">
+            <EntityTypeMapping TypeName="sicproModel.gr_pass">
+              <MappingFragment StoreEntitySet="gr_pass">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="logged" ColumnName="logged" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="cambio" ColumnName="cambio" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_persona">
+            <EntityTypeMapping TypeName="sicproModel.gr_persona">
+              <MappingFragment StoreEntitySet="gr_persona">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="nit_fac" ColumnName="nit_fac" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="id_tdoc" ColumnName="id_tdoc" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_sal" ColumnName="id_sal" />
+                <ScalarProperty Name="fechaaniv" ColumnName="fechaaniv" />
+                <ScalarProperty Name="id_tper" ColumnName="id_tper" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_tc">
+            <EntityTypeMapping TypeName="sicproModel.gr_tc">
+              <MappingFragment StoreEntitySet="gr_tc">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="tcambio" ColumnName="tcambio" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_anulada">
+            <EntityTypeMapping TypeName="sicproModel.pr_anulada">
+              <MappingFragment StoreEntitySet="pr_anulada">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_anulada" ColumnName="id_anulada" />
+                <ScalarProperty Name="anulada_por" ColumnName="anulada_por" />
+                <ScalarProperty Name="anulada_anio" ColumnName="anulada_anio" />
+                <ScalarProperty Name="anulada_mes" ColumnName="anulada_mes" />
+                <ScalarProperty Name="comision_anulada" ColumnName="comision_anulada" />
+                <ScalarProperty Name="neta_anulada" ColumnName="neta_anulada" />
+                <ScalarProperty Name="monto_anulada" ColumnName="monto_anulada" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_calculo">
+            <EntityTypeMapping TypeName="sicproModel.pr_calculo">
+              <MappingFragment StoreEntitySet="pr_calculo">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="comision" ColumnName="comision" />
+                <ScalarProperty Name="formula" ColumnName="formula" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="id_riesgo" ColumnName="id_riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_cuotapoliza">
+            <EntityTypeMapping TypeName="sicproModel.pr_cuotapoliza">
+              <MappingFragment StoreEntitySet="pr_cuotapoliza">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="cuota_comicob" ColumnName="cuota_comicob" />
+                <ScalarProperty Name="cuota_pago" ColumnName="cuota_pago" />
+                <ScalarProperty Name="cuota_comis" ColumnName="cuota_comis" />
+                <ScalarProperty Name="cuota_neta" ColumnName="cuota_neta" />
+                <ScalarProperty Name="cuota_total" ColumnName="cuota_total" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_devolucion">
+            <EntityTypeMapping TypeName="sicproModel.pr_devolucion">
+              <MappingFragment StoreEntitySet="pr_devolucion">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="comis_anio" ColumnName="comis_anio" />
+                <ScalarProperty Name="comis_mes" ColumnName="comis_mes" />
+                <ScalarProperty Name="banco" ColumnName="banco" />
+                <ScalarProperty Name="saldo_devolucion" ColumnName="saldo_devolucion" />
+                <ScalarProperty Name="devolucion_por" ColumnName="devolucion_por" />
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+                <ScalarProperty Name="comision_pc" ColumnName="comision_pc" />
+                <ScalarProperty Name="comision_devolucion" ColumnName="comision_devolucion" />
+                <ScalarProperty Name="neta_devolucion" ColumnName="neta_devolucion" />
+                <ScalarProperty Name="monto_devolucion" ColumnName="monto_devolucion" />
+                <ScalarProperty Name="cuota_devolucion" ColumnName="cuota_devolucion" />
+                <ScalarProperty Name="id_devolucion" ColumnName="id_devolucion" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_excluida">
+            <EntityTypeMapping TypeName="sicproModel.pr_excluida">
+              <MappingFragment StoreEntitySet="pr_excluida">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="anio_exclusion" ColumnName="anio_exclusion" />
+                <ScalarProperty Name="mes_exclusion" ColumnName="mes_exclusion" />
+                <ScalarProperty Name="comision_exclusion" ColumnName="comision_exclusion" />
+                <ScalarProperty Name="neta_exclusion" ColumnName="neta_exclusion" />
+                <ScalarProperty Name="monto_exclusion" ColumnName="monto_exclusion" />
+                <ScalarProperty Name="excluye_cuota" ColumnName="excluye_cuota" />
+                <ScalarProperty Name="id_excluye" ColumnName="id_excluye" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_formriesgo">
+            <EntityTypeMapping TypeName="sicproModel.pr_formriesgo">
+              <MappingFragment StoreEntitySet="pr_formriesgo">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="form_riesgo2" ColumnName="form_riesgo2" />
+                <ScalarProperty Name="plus_neta" ColumnName="plus_neta" />
+                <ScalarProperty Name="por_cred" ColumnName="por_cred" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="evaluar" ColumnName="evaluar" />
+                <ScalarProperty Name="opera" ColumnName="opera" />
+                <ScalarProperty Name="comis_riesgo" ColumnName="comis_riesgo" />
+                <ScalarProperty Name="form_riesgo1" ColumnName="form_riesgo1" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="id_riesgo" ColumnName="id_riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_grupo">
+            <EntityTypeMapping TypeName="sicproModel.pr_grupo">
+              <MappingFragment StoreEntitySet="pr_grupo">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_liqrec">
+            <EntityTypeMapping TypeName="sicproModel.pr_liqrec">
+              <MappingFragment StoreEntitySet="pr_liqrec">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="monto_liqb" ColumnName="monto_liqb" />
+                <ScalarProperty Name="monto_liqs" ColumnName="monto_liqs" />
+                <ScalarProperty Name="id_perucb" ColumnName="id_perucb" />
+                <ScalarProperty Name="fc_liq" ColumnName="fc_liq" />
+                <ScalarProperty Name="id_liq" ColumnName="id_liq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_numaplicas">
+            <EntityTypeMapping TypeName="sicproModel.pr_numaplicas">
+              <MappingFragment StoreEntitySet="pr_numaplicas">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_mom" ColumnName="id_mom" />
+                <ScalarProperty Name="al" ColumnName="al" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_pago">
+            <EntityTypeMapping TypeName="sicproModel.pr_pago">
+              <MappingFragment StoreEntitySet="pr_pago">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_liq" ColumnName="id_liq" />
+                <ScalarProperty Name="pago_por" ColumnName="pago_por" />
+                <ScalarProperty Name="comis_anio" ColumnName="comis_anio" />
+                <ScalarProperty Name="comis_mes" ColumnName="comis_mes" />
+                <ScalarProperty Name="cheque_comis" ColumnName="cheque_comis" />
+                <ScalarProperty Name="monto_comis" ColumnName="monto_comis" />
+                <ScalarProperty Name="id_tpago" ColumnName="id_tpago" />
+                <ScalarProperty Name="comision_pago" ColumnName="comision_pago" />
+                <ScalarProperty Name="neta_pago" ColumnName="neta_pago" />
+                <ScalarProperty Name="monto_pago" ColumnName="monto_pago" />
+                <ScalarProperty Name="fecha_factura" ColumnName="fecha_factura" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="anio_recibo" ColumnName="anio_recibo" />
+                <ScalarProperty Name="id_recibo" ColumnName="id_recibo" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_poliza">
+            <EntityTypeMapping TypeName="sicproModel.pr_poliza">
+              <MappingFragment StoreEntitySet="pr_poliza">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="clase_poliza" ColumnName="clase_poliza" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_polmov">
+            <EntityTypeMapping TypeName="sicproModel.pr_polmov">
+              <MappingFragment StoreEntitySet="pr_polmov">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="id_mom" ColumnName="id_mom" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
+                <ScalarProperty Name="fc_recepcion" ColumnName="fc_recepcion" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_clamov" ColumnName="id_clamov" />
+                <ScalarProperty Name="num_cuota" ColumnName="num_cuota" />
+                <ScalarProperty Name="tipo_cuota" ColumnName="tipo_cuota" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="comision" ColumnName="comision" />
+                <ScalarProperty Name="por_comision" ColumnName="por_comision" />
+                <ScalarProperty Name="prima_neta" ColumnName="prima_neta" />
+                <ScalarProperty Name="prima_bruta" ColumnName="prima_bruta" />
+                <ScalarProperty Name="fc_finvig" ColumnName="fc_finvig" />
+                <ScalarProperty Name="fc_inivig" ColumnName="fc_inivig" />
+                <ScalarProperty Name="fc_emision" ColumnName="fc_emision" />
+                <ScalarProperty Name="id_perejec" ColumnName="id_perejec" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_producto">
+            <EntityTypeMapping TypeName="sicproModel.pr_producto">
+              <MappingFragment StoreEntitySet="pr_producto">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_recibo">
+            <EntityTypeMapping TypeName="sicproModel.pr_recibo">
+              <MappingFragment StoreEntitySet="pr_recibo">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="cheq_sus" ColumnName="cheq_sus" />
+                <ScalarProperty Name="cheq_bs" ColumnName="cheq_bs" />
+                <ScalarProperty Name="cont_sus" ColumnName="cont_sus" />
+                <ScalarProperty Name="cont_bs" ColumnName="cont_bs" />
+                <ScalarProperty Name="id_liq" ColumnName="id_liq" />
+                <ScalarProperty Name="id_apli" ColumnName="id_apli" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="recibo_por" ColumnName="recibo_por" />
+                <ScalarProperty Name="monto_resto" ColumnName="monto_resto" />
+                <ScalarProperty Name="monto_cobro" ColumnName="monto_cobro" />
+                <ScalarProperty Name="fecha_cobro" ColumnName="fecha_cobro" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="id_perucb" ColumnName="id_perucb" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="fecha_entregado" ColumnName="fecha_entregado" />
+                <ScalarProperty Name="anio_recibo" ColumnName="anio_recibo" />
+                <ScalarProperty Name="id_recibo" ColumnName="id_recibo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_riesgo">
+            <EntityTypeMapping TypeName="sicproModel.pr_riesgo">
+              <MappingFragment StoreEntitySet="pr_riesgo">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="cobertura" ColumnName="cobertura" />
+                <ScalarProperty Name="desc_riesgo" ColumnName="desc_riesgo" />
+                <ScalarProperty Name="cod_pol" ColumnName="cod_pol" />
+                <ScalarProperty Name="cod_ram" ColumnName="cod_ram" />
+                <ScalarProperty Name="cod_mod" ColumnName="cod_mod" />
+                <ScalarProperty Name="id_riesgo" ColumnName="id_riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="re_caso">
+            <EntityTypeMapping TypeName="sicproModel.re_caso">
+              <MappingFragment StoreEntitySet="re_caso">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="anio_recibo" ColumnName="anio_recibo" />
+                <ScalarProperty Name="id_recibo" ColumnName="id_recibo" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="atendido_en" ColumnName="atendido_en" />
+                <ScalarProperty Name="atendido_por" ColumnName="atendido_por" />
+                <ScalarProperty Name="inspector_cia" ColumnName="inspector_cia" />
+                <ScalarProperty Name="indem_caso" ColumnName="indem_caso" />
+                <ScalarProperty Name="franq_caso" ColumnName="franq_caso" />
+                <ScalarProperty Name="pago_caso" ColumnName="pago_caso" />
+                <ScalarProperty Name="id_divaprox" ColumnName="id_divaprox" />
+                <ScalarProperty Name="aprox_caso" ColumnName="aprox_caso" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_perurc" ColumnName="id_perurc" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
+                <ScalarProperty Name="anio_caso" ColumnName="anio_caso" />
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="re_histcaso">
+            <EntityTypeMapping TypeName="sicproModel.re_histcaso">
+              <MappingFragment StoreEntitySet="re_histcaso">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="obs_histcaso" ColumnName="obs_histcaso" />
+                <ScalarProperty Name="id_estca" ColumnName="id_estca" />
+                <ScalarProperty Name="fc_finestado" ColumnName="fc_finestado" />
+                <ScalarProperty Name="fc_iniestado" ColumnName="fc_iniestado" />
+                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+                <ScalarProperty Name="id_histcaso" ColumnName="id_histcaso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="re_siniestro">
+            <EntityTypeMapping TypeName="sicproModel.re_siniestro">
+              <MappingFragment StoreEntitySet="re_siniestro">
+                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
+                <ScalarProperty Name="fc_denuncia" ColumnName="fc_denuncia" />
+                <ScalarProperty Name="uniobj" ColumnName="uniobj" />
+                <ScalarProperty Name="id_uniobj" ColumnName="id_uniobj" />
+                <ScalarProperty Name="circunstancia" ColumnName="circunstancia" />
+                <ScalarProperty Name="lugar_siniestro" ColumnName="lugar_siniestro" />
+                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
+                <ScalarProperty Name="reladenun" ColumnName="reladenun" />
+                <ScalarProperty Name="denunciante" ColumnName="denunciante" />
+                <ScalarProperty Name="fc_incidente" ColumnName="fc_incidente" />
+                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="co_sueldo">
+            <EntityTypeMapping TypeName="sicproModel.co_sueldo">
+              <MappingFragment StoreEntitySet="co_sueldo">
+                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
+                <ScalarProperty Name="bono_anti" ColumnName="bono_anti" />
+                <ScalarProperty Name="basico_sueldo" ColumnName="basico_sueldo" />
+                <ScalarProperty Name="dias" ColumnName="dias" />
+                <ScalarProperty Name="anio_sueldo" ColumnName="anio_sueldo" />
+                <ScalarProperty Name="mes_sueldo" ColumnName="mes_sueldo" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pr_pagocompania">
+            <EntityTypeMapping TypeName="sicproModel.pr_pagocompania">
+              <MappingFragment StoreEntitySet="pr_pagocompania">
+                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="comisaldo_pc" ColumnName="comisaldo_pc" />
+                <ScalarProperty Name="comision_spc" ColumnName="comision_spc" />
+                <ScalarProperty Name="pc_anio" ColumnName="pc_anio" />
+                <ScalarProperty Name="pc_mes" ColumnName="pc_mes" />
+                <ScalarProperty Name="factura_pc" ColumnName="factura_pc" />
+                <ScalarProperty Name="comision_pc" ColumnName="comision_pc" />
+                <ScalarProperty Name="monto_pc" ColumnName="monto_pc" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

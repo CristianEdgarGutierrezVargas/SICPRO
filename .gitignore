@@ -1,0 +1,20 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SicPro
+/EntidadesClases/bin/Debug
+/EntidadesClases/obj/Debug
+/Logica/bin/Debug
+/Logica/obj/Debug
+/ManejadorMetodos/bin/Debug
+/ManejadorMetodos/obj/Debug
+/ManejadorMetodosSql/bin/Debug
+/ManejadorMetodosSql/obj/Debug
+/ManejadorModelo/bin/Debug
+/ManejadorModelo/obj/Debug
+/packages
+/PresentacionWeb/bin
+/PresentacionWeb/obj/Debug
+/Common/bin/Debug
+/Common/obj/Debug

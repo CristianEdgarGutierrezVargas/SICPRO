@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="PresentacionWeb.Principal" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">        
+    </asp:ContentPlaceHolder>
+
+	<link href="~/UI/css/default.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <div id="header">
+				<div id="logo">
+					<h1><a href="#"><img src="../../../UI/img/img2.png" alt="SICPRO" style="border:0;"></a></h1>
+				</div>
+				<div id="menu">
+				<blockquote>
+					<ul>
+						<li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
+						<li><a href="#" onclick="abre2();">Acerca de </a></li>
+						<li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
+					</ul>
+					</blockquote>
+				</div>
+			</div>
+
+			<div id="page">
+			<!-- Inicio Barra Izquierda -->
+			<div id="leftbar" class="sidebar1">
+				bienvei
+				</p>
+				sdfs
+				fsdfsdfsdf
+			</div>
+			<!-- Fin Barra Izquierda -->
+			<!-- Inicio Contenido -->
+			<div id="content">
+				tyutyuty
+				 <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
+				 </asp:ContentPlaceHolder>
+			</div>
+				<!-- Fin Contenido -->
+			<!-- Inicio Barra Derecha -->
+			<div style="clear: both;">
+				<p style="text-align: center;" class="right">©2008 All Rights Reserved. &nbsp;•&nbsp; Design by <a href="http://www.eisbol.com/">Enterprise Integrated Solutions Bolivia</a>.
+			<br>EISBOL	</p>
+			</div>
+			<!--Fin Barra Derecha-->
+			</div>
+           
+
+        </div>
+    </form>
+</body>
+</html>

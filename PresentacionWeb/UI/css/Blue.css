@@ -1,0 +1,110 @@
+﻿.gridcontainer  
+{
+    border: solid 1px #99BBE8;
+    border-top-width:0px;
+}
+.grid {border-width:0px;}
+
+.grid caption {
+	background:#f9f9f9 url(images/blue/captionbckg.gif) repeat-x;
+    color:#15428B;
+	text-align:left;
+	font-weight:bold;
+	padding-top:4px;
+	padding-left:4px;
+}
+
+.grid table 
+{
+	border-color:#99BBE8;
+	border-width:1px;
+}
+	
+.grid td, .grid th
+{
+    height:18px;
+    vertical-align:middle;
+    background-color:#ffffff;        
+}
+
+.grid th
+{
+	background:transparent url(images/blue/thbackground.gif) repeat-x;
+    height:19px;
+    border:solid 1px #99BBE8;
+    font-weight:normal;
+}
+
+.grid td
+{
+	border:1px solid #ededed;
+    border-top-color:#fff;
+    cursor:hand;
+}
+
+.selectedrow 
+{
+	background: #DFE8F6;	
+	border:1px dotted #A3BAE9;
+}
+
+.altrow 
+{
+	background-color:#f2f2f2;
+	cursor:'default';
+}
+
+.altoverow
+{
+    background: #efefef url(images/blue/rowover.gif) repeat-x left top;
+    cursor:'hand';
+}
+.footerstyle
+{
+	font-weight:bold;	
+	text-align:right;
+    background-position: bottom left;
+    background: #D0DEF0 url(images/blue/toolbarbck.gif) repeat-x scroll left top;
+}
+.pagerstyle 
+{
+	text-align:right;
+	height: 24px;
+    background-position: bottom left;
+    background: #D0DEF0 url(images/blue/toolbarbck.gif) repeat-x scroll left top;
+}
+
+.gopag {
+    font-size:x-small;
+    width:20px;
+}
+
+.pagprev{
+    background:transparent url(images/blue/previous.png) no-repeat scroll center;
+    height:24px;
+    width:16px;
+    cursor:pointer;
+    border:0px;
+}
+.pagnext{
+    background:transparent url(images/blue/next.png) no-repeat scroll center;
+    height:24px;
+    width:16px;
+    cursor:pointer;
+    border:0px;
+}
+
+.pagfirst{
+    background:transparent url(images/blue/first.png) no-repeat scroll center;
+    height:24px;
+    width:16px;
+    cursor:pointer;
+    border:0px;
+}
+.paglast{
+    background:transparent url(images/blue/last.png) no-repeat scroll center;
+    height:24px;
+    width:16px;
+    cursor:pointer;
+    border:0px;
+}

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BF813F0-3F6D-4AC3-9185-456CEDA60083}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntidadesClases</RootNamespace>
+    <AssemblyName>EntidadesClases</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModelSicPro\co_anticom.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\co_porcomi.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\co_presprod.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\co_proycartera.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\co_sueldo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_acceso.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_cierreregistro.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_compania.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_componente.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_contacto.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_direccion.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_parametro.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_pass.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_persona.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\gr_tc.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\ModelSicPro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_anulada.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_calculo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_cuotapoliza.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_devolucion.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_excluida.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_formriesgo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_grupo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_liqrec.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_numaplicas.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_pago.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_pagocompania.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_poliza.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_polmov.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_producto.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_recibo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\pr_riesgo.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\re_caso.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\re_histcaso.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\re_siniestro.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomModelEntities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelSicPro\ModelSicPro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelSicPro.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
