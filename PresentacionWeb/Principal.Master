@@ -10,12 +10,15 @@
     </asp:ContentPlaceHolder>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
 	<link href="~/UI/css/default.css" rel="stylesheet" />
-
    
 </head>
-     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+	<script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.js")%>"></script>
+
+
 <body>
     <form id="form1" runat="server">
+		<asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
         <div>
              <div id="header">
 				<div id="logo">
