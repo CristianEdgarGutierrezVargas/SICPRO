@@ -7,20 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PresentacionWeb.Sitio.Vista.Login
+namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
 
 
-    public partial class Login
+    public partial class RegistroPersonas
     {
-
-        /// <summary>
-        /// Control btnAceptar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptar;
     }
 }

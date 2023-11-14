@@ -93,6 +93,7 @@
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx" />
     <Content Include="UI\css\acc.css" />
     <Content Include="UI\css\Blue.css" />
     <Content Include="UI\css\default.css" />
@@ -262,6 +263,13 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx.cs">
+      <DependentUpon>RegistroPersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx.designer.cs">
+      <DependentUpon>RegistroPersonas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -307,7 +315,6 @@
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloComisiones\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
-    <Folder Include="Sitio\Vista\RegistroProduccion\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />
     <Folder Include="Sitio\Vista\Reportes\" />
     <Folder Include="Sitio\Vista\ValidacionProduccion\" />

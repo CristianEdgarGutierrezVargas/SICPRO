@@ -58,8 +58,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tcontenedor'], [
                         &nbsp;</td>
                 </tr>
 			<tr><td colspan="2" align="center">
-			
-			<input type="submit" name="btnaceptar" value="Aceptar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnaceptar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnaceptar" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;"></td>
+                <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnAceptar_Click" />
 			</tr>
                 <tr>
                     <td align="center" colspan="2">

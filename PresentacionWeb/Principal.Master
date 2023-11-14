@@ -35,60 +35,26 @@
 			<div id="page">
 				<!-- Inicio Barra Izquierda -->
 				<div id="leftbar" class="sidebar1">
-					<asp:Menu ID="Menu1" runat="server">
+                    <asp:Menu ID="Menu1" runat="server" RenderingMode="List">
                         <Items>
-                            <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento">
-                                <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento">
-                                    <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
+                            <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/RegistroPersonas.aspx" Text="Registro de Persona" Value="Registro de Persona"></asp:MenuItem>
+                                <asp:MenuItem Text="Registro Polizas nuevas" Value="Registro Polizas nuevas"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Validacion de Produccion" Value="Validacion de Produccion"></asp:MenuItem>
+                            <asp:MenuItem Text="Modulo de Cobranzas" Value="Modulo de Cobranzas"></asp:MenuItem>
+                            <asp:MenuItem Text="Modulo de Comisiones" Value="Modulo de Comisiones">
+                                <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Modulo de Reclamos" Value="Modulo de Reclamos"></asp:MenuItem>
+                            <asp:MenuItem Text="Reportes de Sistema" Value="Reportes de Sistema"></asp:MenuItem>
+                            <asp:MenuItem Text="Configuracion del Sistema" Value="Configuracion del Sistema"></asp:MenuItem>
+                            <asp:MenuItem Text="Opciones del Sistema" Value="Opciones del Sistema">
                                 </asp:MenuItem>
-                                <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
-                            <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
-                            <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento">
-                                <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
-                            </asp:MenuItem>
                         </Items>
                     </asp:Menu>
 					
-					<div class="accordion" id="accordionExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
-                          </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                          <div class="accordion-body">
-                            <strong>This is the first item's accordion body</strong>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
-                          </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                          <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> 
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
-                          </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                          <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> 
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+					
 				</div>
 				<!-- Fin Barra Izquierda -->
 				<!-- Inicio Contenido -->
