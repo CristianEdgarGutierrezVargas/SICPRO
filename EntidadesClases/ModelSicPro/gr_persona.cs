@@ -33,16 +33,12 @@ namespace EntidadesClases.ModelSicPro
         public long id_emis { get; set; }
         public string nit_fac { get; set; }
         public Nullable<int> id_suc { get; set; }
-        public string TRIAL360 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<co_anticom> co_anticom { get; set; }
         public virtual co_porcomi co_porcomi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<gr_compania> gr_compania { get; set; }
-        public virtual gr_parametro gr_parametro { get; set; }
-        public virtual gr_parametro gr_parametro1 { get; set; }
-        public virtual gr_parametro gr_parametro2 { get; set; }
         public virtual gr_pass gr_pass { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pr_polmov> pr_polmov { get; set; }

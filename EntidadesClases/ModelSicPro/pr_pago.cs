@@ -32,8 +32,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> comis_anio { get; set; }
         public string pago_por { get; set; }
         public Nullable<int> id_liq { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        public virtual gr_parametro gr_parametro { get; set; }
     }
 }

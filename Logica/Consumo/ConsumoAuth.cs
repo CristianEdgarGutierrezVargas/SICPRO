@@ -62,7 +62,6 @@ namespace Logica.Consumo
 
         #endregion
 
-
         #region gr_pass
 
 

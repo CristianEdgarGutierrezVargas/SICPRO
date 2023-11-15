@@ -14,35 +14,10 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class gr_parametro
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public gr_parametro()
-        {
-            this.gr_acceso = new HashSet<gr_acceso>();
-            this.gr_persona = new HashSet<gr_persona>();
-            this.gr_persona1 = new HashSet<gr_persona>();
-            this.gr_persona2 = new HashSet<gr_persona>();
-            this.gr_tc = new HashSet<gr_tc>();
-            this.pr_pago = new HashSet<pr_pago>();
-        }
-    
         public long id_par { get; set; }
         public string columna { get; set; }
         public string desc_param { get; set; }
         public string abrev_param { get; set; }
         public Nullable<decimal> valor_param { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gr_acceso> gr_acceso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gr_persona> gr_persona { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gr_persona> gr_persona1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gr_persona> gr_persona2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gr_tc> gr_tc { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_pago> pr_pago { get; set; }
     }
 }

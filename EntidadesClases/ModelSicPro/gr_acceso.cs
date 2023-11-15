@@ -19,7 +19,5 @@ namespace EntidadesClases.ModelSicPro
         public long id_rol { get; set; }
         public double nivel { get; set; }
         public string TRIAL357 { get; set; }
-    
-        public virtual gr_parametro gr_parametro { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace EntidadesClases.ModelSicPro
         public string id_percart { get; set; }
         public decimal porcentaje { get; set; }
         public bool factura { get; set; }
-        public string TRIAL357 { get; set; }
     
         public virtual gr_persona gr_persona { get; set; }
     }

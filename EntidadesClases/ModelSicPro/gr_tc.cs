@@ -18,7 +18,5 @@ namespace EntidadesClases.ModelSicPro
         public long id_div { get; set; }
         public Nullable<decimal> tcambio { get; set; }
         public string TRIAL360 { get; set; }
-    
-        public virtual gr_parametro gr_parametro { get; set; }
     }
 }
