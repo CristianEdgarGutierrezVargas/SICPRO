@@ -59,6 +59,8 @@
 			                    <div>
                                     <table width="500">
                                         <tbody><tr><td style="height: 18px">
+
+
                                                 <span id="ctl00_cpmaster_lblcodigo">Documento Identificación :</span></td>
                                             <td style="height: 18px">
                                                 <input name="ctl00$cpmaster$id_per" type="text" id="ctl00_cpmaster_id_per" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;" class="normalfld">
@@ -80,8 +82,9 @@
                                                 &nbsp;<span id="ctl00_cpmaster_Label1">Sucursal :</span>
                                             </td>
                                             <td>
+                                                <asp:DropDownList ID="id_suc" runat="server"></asp:DropDownList>
                                                 <select name="ctl00$cpmaster$id_suc" id="ctl00_cpmaster_id_suc" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
+                                                    
 	                    </select>
                                             </td>
                                         </tr>
