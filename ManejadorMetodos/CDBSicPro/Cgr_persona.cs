@@ -82,26 +82,133 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        //public bool ModificarPersona(string varbusqueda)
+        public bool ModificarPersona(gr_persona objPersona)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.gr_persona.Where(w=>w.id_per == objPersona.id_per).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        sql.nomraz = objPersona.nomraz;
+                        sql.id_tper = objPersona.id_tper;
+                        sql.fechaaniv = objPersona.fechaaniv;
+                        sql.id_sal = objPersona.id_sal;
+                        sql.id_rol = objPersona.id_rol;
+                        sql.id_tdoc = objPersona.id_tdoc;
+                        sql.id_emis = objPersona.id_emis;
+                        sql.nit_fac = objPersona.nit_fac;
+                        sql.id_suc = objPersona.id_suc;
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }              
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
+        
+
+
+        //public string TablaPersona(string varbusqueda)
         //{
-        //    bool flag;
-        //    try
+        //    DataTable dt = new DataTable();
+        //    string var = "";
+        //    dt = this.ObtenerTablaPersonasC(varbusqueda);
+        //    decimal l2 = dt.Rows.Count / 10;
+        //    var = "<div class=\"gridcontainer\" style=\"width: 350px\">";
+        //    var = string.Concat(var, "<table class=\"grid\" width=\"350\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">");
+        //    var = string.Concat(var, "<caption>Lista de Personas</caption>");
+        //    decimal num = Math.Floor(l2);
+        //    this.ll = int.Parse(num.ToString()) * 10;
+        //    if (dt.Rows.Count < 10)
         //    {
-        //        string[] text = new string[] { "UPDATE gr_persona SET id_per='", this.id_per.Text, "', nomraz='", this.nomraz.Text.ToUpper(), "',id_tper=", this.id_tper.SelectedValue, ",fechaaniv='", Funciones.fc(this.fechaaniv.Text), "',id_sal=", this.id_sal.SelectedValue, ",id_rol=", this.id_rol.SelectedValue, ",id_tdoc=", this.id_tdoc.SelectedValue, ",id_emis=", this.id_emis.SelectedValue, ", nit_fac='", this.nit_fac.Text, "', id_suc=", this.id_suc.SelectedValue, " WHERE id_per='", varbusqueda, "'" };
-        //        string sql = string.Concat(text);
-        //        this.lblmensaje.Text = sql;
-        //        Acceso db = new Acceso();
-        //        db.Conectar();
-        //        db.CrearComando(sql);
-        //        db.EjecutarComando();
-        //        db.Desconectar();
-        //        flag = true;
+        //        this.b.Value = dt.Rows.Count.ToString();
+        //        this.bb = dt.Rows.Count;
+        //        this.aa = 0;
+        //        this.cc = 0;
+        //        this.dd = dt.Rows.Count;
         //    }
-        //    catch
+        //    else if (int.Parse(this.b.Value) < 10)
         //    {
-        //        flag = false;
+        //        this.b.Value = "10";
+        //        this.bb = 10;
+        //        this.cc = -10;
+        //        this.a.Value = "0";
+        //        this.aa = 0;
+        //        this.dd = 0;
         //    }
-        //    return flag;
+        //    for (int i = int.Parse(this.a.Value); i <= int.Parse(this.b.Value) - 1; i++)
+        //    {
+        //        string str = var;
+        //        string[] strArrays = new string[] { str, "<tr OnMouseOut=\"this.className = this.orignalclassName;\" OnMouseOver=\"this.orignalclassName = this.className;this.className = 'altoverow';\" onclick=\"mClk1('", dt.Rows[i][0].ToString(), "','", dt.Rows[i][1].ToString(), "');\"><td >" };
+        //        var = string.Concat(strArrays);
+        //        var = string.Concat(var, "<font color=\"#336699\" style=\" font-weight:bold ; size:12px\">");
+        //        var = string.Concat(var, dt.Rows[i][1].ToString());
+        //        var = string.Concat(var, "</font></td></tr>");
+        //    }
+        //    var = string.Concat(var, "</table></div>");
+        //    this.aa = int.Parse(this.b.Value);
+        //    if (this.aa + 10 <= dt.Rows.Count - 1)
+        //    {
+        //        this.bb = this.aa + 10;
+        //    }
+        //    else
+        //    {
+        //        this.bb = dt.Rows.Count - 1;
+        //    }
+        //    this.cc = this.aa - 20;
+        //    this.dd = this.bb - 20; 
+        //    int l3 = dt.Rows.Count;
+        //    if (dt.Rows.Count >= 10)
+        //    {
+        //        if (int.Parse(this.a.Value) == 0)
+        //        {
+        //            var = string.Concat(var, "<div class=\"gridcontainer\" style=\"width: 350px\"><div style=\"width: 350px\" class=\"pagerstyle\"><center><a href='#' ><input type=\"submit\" class=\"pagfirst\" value=\"\" title='Primera Página Desactivado' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;");
+        //            var = string.Concat(var, "<a href='#' ><input type=\"submit\" class=\"pagprev\" value=\"\" title='Anterior Página Desactivado' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;");
+        //            object obj = var;
+        //            object[] objArray = new object[] { obj, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.aa, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", this.bb, ";f(); '><input type=\"submit\" value=\"\" class=\"pagnext\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Siguiente Página'/></a>&nbsp;&nbsp;" };
+        //            var = string.Concat(objArray);
+        //            object obj1 = var;
+        //            object[] objArray1 = new object[] { obj1, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.ll, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", l3, ";f(); '><input type=\"submit\" value=\"\" class=\"paglast\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Última Página'/></a></center></div></div>" };
+        //            var = string.Concat(objArray1);
+        //        }
+        //        else if (int.Parse(this.a.Value) != this.ll)
+        //        {
+        //            var = string.Concat(var, "<div class=\"gridcontainer\" style=\"width: 350px\"><div style=\"width: 350px\" class=\"pagerstyle\"><center><a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = 0; document.forms.aspnetForm.ctl00_cpmaster_b.value = 10;f(); '><input type=\"submit\" class=\"pagfirst\" value=\"\" title='Primera Página' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;");
+        //            object obj2 = var;
+        //            object[] objArray2 = new object[] { obj2, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.cc, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", this.dd, ";f(); '><input type=\"submit\" class=\"pagprev\" value=\"\" title='Anterior Página' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;" };
+        //            var = string.Concat(objArray2);
+        //            object obj3 = var;
+        //            object[] objArray3 = new object[] { obj3, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.aa, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", this.bb, ";f(); '><input type=\"submit\" value=\"\" class=\"pagnext\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Siguiente Página' /></a>&nbsp;&nbsp;" };
+        //            var = string.Concat(objArray3);
+        //            object obj4 = var;
+        //            object[] objArray4 = new object[] { obj4, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.ll, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", l3, ";f(); '><input type=\"submit\" value=\"\" class=\"paglast\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Última Página' /></a></center></div></div>" };
+        //            var = string.Concat(objArray4);
+        //        }
+        //        else
+        //        {
+        //            var = string.Concat(var, "<div class=\"gridcontainer\" style=\"width: 350px\"><div style=\"width: 350px\" class=\"pagerstyle\"><center><a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = 0; document.forms.aspnetForm.ctl00_cpmaster_b.value = 10;f(); '><input type=\"submit\" class=\"pagfirst\" value=\"\" title='Primera Página' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;");
+        //            object obj5 = var;
+        //            object[] objArray5 = new object[] { obj5, "<a href='#' onclick='document.forms.aspnetForm.ctl00_cpmaster_a.value = ", this.cc, "; document.forms.aspnetForm.ctl00_cpmaster_b.value = ", this.dd, ";f(); '><input type=\"submit\" class=\"pagprev\" value=\"\" title='Anterior Página' style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" /></a>&nbsp;&nbsp;" };
+        //            var = string.Concat(objArray5);
+        //            var = string.Concat(var, "<a href='#' ><input type=\"submit\" value=\"\" class=\"pagnext\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Siguiente Página Desactivado' /></a>&nbsp;&nbsp;");
+        //            var = string.Concat(var, "<a href='#' ><input type=\"submit\" value=\"\" class=\"paglast\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;\" title='Última Página Desactivado' /></a></center></div></div>");
+        //        }
+        //    }
+        //    return var;
         //}
     }
 }

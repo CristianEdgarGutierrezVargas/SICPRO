@@ -246,6 +246,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Funciones.cs" />
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -319,7 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dll\" />
-    <Folder Include="Lib\" />
     <Folder Include="Parametros\" />
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />

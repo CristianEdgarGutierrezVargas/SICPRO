@@ -38,7 +38,7 @@ namespace Logica.Consumo
             }
             finally
             {
-                dbContext.Dispose();
+                //dbContext.Dispose();
             }
         }
 

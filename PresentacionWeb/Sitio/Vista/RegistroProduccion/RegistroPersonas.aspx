@@ -74,7 +74,14 @@
                                                 <span id="ctl00_cpmaster_lblnombre">Nombre o Razon Social :</span></td>
                                             <td id="btnper">
                                                 <input name="ctl00$cpmaster$nomraz" type="text" id="ctl00_cpmaster_nomraz" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:250px;" class="normalfld">
-                                                &nbsp;<input type="submit" name="ctl00$cpmaster$btnserper" value="..." id="ctl00_cpmaster_btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                                                &nbsp;
+                                                <input type="submit" name="ctl00$cpmaster$btnserper" value="..." id="ctl00_cpmaster_btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+
+                                                <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                                                  ...
+                                                </button>
+
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -162,4 +169,25 @@
                 </div>
             </div>
         </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_btnserper" tabindex="-1" aria-labelledby="Busca Persona" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </asp:Content>
