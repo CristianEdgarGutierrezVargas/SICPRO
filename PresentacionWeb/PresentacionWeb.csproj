@@ -105,7 +105,16 @@
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
-    <Content Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_grupo.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_listaanu.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_listaapli.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_listaexclu.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
     <Content Include="UI\css\acc.css" />
     <Content Include="UI\css\Blue.css" />
     <Content Include="UI\css\default.css" />
@@ -276,12 +285,75 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx.cs">
-      <DependentUpon>RegistroPersonas.aspx</DependentUpon>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
+      <DependentUpon>wgr_contactos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\RegistroPersonas.aspx.designer.cs">
-      <DependentUpon>RegistroPersonas.aspx</DependentUpon>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.designer.cs">
+      <DependentUpon>wgr_contactos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx.cs">
+      <DependentUpon>wgr_persona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx.designer.cs">
+      <DependentUpon>wgr_persona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx.cs">
+      <DependentUpon>wgr_direccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx.designer.cs">
+      <DependentUpon>wgr_direccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_grupo.aspx.cs">
+      <DependentUpon>wpr_grupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_grupo.aspx.designer.cs">
+      <DependentUpon>wpr_grupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaanu.aspx.cs">
+      <DependentUpon>wpr_listaanu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaanu.aspx.designer.cs">
+      <DependentUpon>wpr_listaanu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaapli.aspx.cs">
+      <DependentUpon>wpr_listaapli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaapli.aspx.designer.cs">
+      <DependentUpon>wpr_listaapli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaexclu.aspx.cs">
+      <DependentUpon>wpr_listaexclu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listaexclu.aspx.designer.cs">
+      <DependentUpon>wpr_listaexclu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx.cs">
+      <DependentUpon>wpr_listainclu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx.designer.cs">
+      <DependentUpon>wpr_listainclu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx.cs">
+      <DependentUpon>wpr_listareno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx.designer.cs">
+      <DependentUpon>wpr_listareno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx.cs">
+      <DependentUpon>wpr_poliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx.designer.cs">
+      <DependentUpon>wpr_poliza.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="RegistroPersonas.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.RegistroPersonas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wgr_persona.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.RegistroPersonas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
@@ -123,7 +123,9 @@
                                             <td>
                                                 <select name="ctl00$cpmaster$id_rol" id="ctl00_cpmaster_id_rol" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
 
-	                    </select></td>
+	                                            </select></td>
+
+
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lbltipodoc">Tipo de Documento :</span></td>

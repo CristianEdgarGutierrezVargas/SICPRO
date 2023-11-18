@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
-    public partial class RegistroPersonas : System.Web.UI.Page
+    public partial class wgr_persona : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
 
