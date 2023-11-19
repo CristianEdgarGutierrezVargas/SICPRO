@@ -25,7 +25,7 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-                var sql = _context.gr_parametro.Where(w => w.columna == columna).ToList();
+                var sql = _context.gr_parametro.Where(w => w.columna == columna).OrderBy(ob=>ob.id_par).ToList();
 
                 return sql;
             }

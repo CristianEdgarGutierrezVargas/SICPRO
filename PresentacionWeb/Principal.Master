@@ -41,8 +41,14 @@
                     <asp:Menu ID="Menu1" runat="server" RenderingMode="List">
                         <Items>
                             <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/RegistroPersonas.aspx" Text="Registro de Persona" Value="Registro de Persona"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wgr_persona.aspx" Text="Registro de Persona" Value="Registro de Persona"></asp:MenuItem>
                                 <asp:MenuItem Text="Registro Polizas nuevas" Value="Registro Polizas nuevas"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listareno.aspx" Text="Registro de Polizas Renovadas" Value="Registro de Polizas Renovadas"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx" Text="Registro de Aplicaciones a polizas" Value="Registro de Aplicaciones a polizas"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listainclu.aspx" Text="Registro de Inclusiones a Poliza" Value="Registro de Inclusiones a Poliza"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaexclu.aspx" Text="Registro a Exclusiones a Poliza" Value="Registro a Exclusiones a Poliza"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaanu.aspx" Text="Registro de Anulaciones de Poliza" Value="Registro de Anulaciones de Poliza"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_grupo.aspx" Text="Registro de Grupos" Value="Registro de Grupos"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Validacion de Produccion" Value="Validacion de Produccion"></asp:MenuItem>
                             <asp:MenuItem Text="Modulo de Cobranzas" Value="Modulo de Cobranzas"></asp:MenuItem>

@@ -1,54 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wgr_persona.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.RegistroPersonas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wgr_persona.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wgr_persona1" %>
+
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-    <div id="content">
+    
+
+        <div id="content">
             <div class="post">
                 <div>                   
                     <script type="text/javascript" src="scripts/fieldScripts.js"></script>
                     <script type="text/javascript" src="scripts/validaciones.js"></script>
-
-                    <script type="text/javascript">
-                    function Abrir()
-                    {
-                        window.open('wgr_buscar.aspx','ventanita2' ,'height=300, width=450, top=100, left= 100, status=no, toolbar=no, menubar=no,location=no, scrollbars = yes, resizable = yes');
-                    }
-                    function mOvr(src,clrOver)
-                    {
-                        if (!src.contains(event.fromElement)) 
-                        {
-                            src.style.cursor = 'hand';
-                            src.bgColor = clrOver;   
-                        }
-                    }
-                    function mOut(src,clrIn) 
-                    {
-                        if (!src.contains(event.toElement)) 
-                        {
-                            src.style.cursor = 'default';
-                            src.bgColor = clrIn;
-                        }
-                    }
-                    function mClk1(a1,a2)
-                    {        
-                        document.getElementById("ctl00_cpmaster_id_per").value = a1;
-                        document.getElementById("ctl00_cpmaster_nomraz").value = a2;
-                        document.getElementById("pagedimmer").style.visibility = "hidden";
-                        document.getElementById("msgbox").style.visibility = "hidden";
-                        __doPostBack("ctl00$cpmaster$b1","");
-                    }
-                    function f()
-                    {
-                        __doPostBack("ctl00$cpmaster$btnserper","");
-                    }
-                    </script>
-
-                    <script type="text/javascript">
-                    //<![CDATA[
-                    Sys.WebForms.PageRequestManager._initialize('ctl00$cpmaster$smcontrol', document.getElementById('aspnetForm'));
-                    Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$cpmaster$ctl00'], [], [], 90);
-                    //]]>
-                    </script>
+                                      
 
                     <div id="ctl00_cpmaster_ctl00">
 	
@@ -75,12 +40,10 @@
                                             <td id="btnper">
                                                 <input name="ctl00$cpmaster$nomraz" type="text" id="ctl00_cpmaster_nomraz" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:250px;" class="normalfld">
                                                 &nbsp;
-                                                <input type="submit" name="ctl00$cpmaster$btnserper" value="..." id="ctl00_cpmaster_btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
+                                                
                                                 <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
                                                   ...
                                                 </button>
-
 
                                             </td>
                                         </tr>
@@ -88,58 +51,50 @@
                                             <td>
                                                 &nbsp;<span id="ctl00_cpmaster_Label1">Sucursal :</span>
                                             </td>
-                                            <td>
-                                                <asp:DropDownList ID="id_suc" runat="server"></asp:DropDownList>
-                                                <select name="ctl00$cpmaster$id_suc" id="ctl00_cpmaster_id_suc" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                                                    
-	                    </select>
+                                            <td>    
+                                                <asp:DropDownList ID="cmb_id_suc" runat="server">
+                                                </asp:DropDownList>                                               
                                             </td>
                                         </tr>
                                         <tr><td style="height: 18px">
                                                 <span id="ctl00_cpmaster_lbltipoper">Tipo de Persona :</span></td>
-                                            <td style="height: 18px">
-                                                <select name="ctl00$cpmaster$id_tper" id="ctl00_cpmaster_id_tper" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	                    </select>
+                                                <td style="height: 18px">
+                                                  <asp:DropDownList ID="cmb_tper" runat="server"></asp:DropDownList>
                                                 </td>
                                         </tr>
                                         <tr><td style="height: 24px">
                                                 <span id="ctl00_cpmaster_lblfecha_nac">Fecha de Nacimiento :</span></td>
                                             <td style="height: 24px">
-                                                <input name="ctl00$cpmaster$fechaaniv" type="text" value="//" id="ctl00_cpmaster_fechaaniv" onkeydown="return dFilter (event.keyCode, this, '##/##/####');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;">
-                                                <input type="image" name="ctl00$cpmaster$ibtncalendario" id="ctl00_cpmaster_ibtncalendario" src="images/Calendar_scheduleHS.png" alt="Click en la Imagen para mostrar el Calendario" style="border-width:0px;">
-                            
-                                                </td>
+                                                                                                
+                                                <dx:ASPxDateEdit runat="server">
+                                                </dx:ASPxDateEdit>
+                                                <dx:BootstrapDateEdit ID="fechaaniv" runat="server"></dx:BootstrapDateEdit>
+                                            </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblsal">Salutación Personal :</span></td>
-                                            <td>
-                                                <select name="ctl00$cpmaster$id_sal" id="ctl00_cpmaster_id_sal" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	                    </select></td>
+                                            <td>                                                
+                                                <asp:DropDownList ID="cmb_id_sal" runat="server"></asp:DropDownList>
+                                            </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblrol">Tipo de Rol :</span></td>
-                                            <td>
-                                                <select name="ctl00$cpmaster$id_rol" id="ctl00_cpmaster_id_rol" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	                                            </select></td>
-
+                                            <td>          
+                                                <asp:DropDownList ID="cmb_id_rol" runat="server"></asp:DropDownList>
+                                            </td>
 
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lbltipodoc">Tipo de Documento :</span></td>
                                             <td>
-                                                <select name="ctl00$cpmaster$id_tdoc" onchange="javascript:setTimeout('__doPostBack(\'ctl00$cpmaster$id_tdoc\',\'\')', 0)" id="ctl00_cpmaster_id_tdoc" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	                    </select></td>
+                                                <asp:DropDownList ID="cmb_tipodoc" runat="server"></asp:DropDownList>
+                                            </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblldoc">Emisión del Documento :</span></td>
-                                            <td>
-                                                <select name="ctl00$cpmaster$id_emis" id="ctl00_cpmaster_id_emis" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	                    </select></td>
+                                            <td>                                                
+                                                <asp:DropDownList ID="cmb_id_emis" runat="server"></asp:DropDownList>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
