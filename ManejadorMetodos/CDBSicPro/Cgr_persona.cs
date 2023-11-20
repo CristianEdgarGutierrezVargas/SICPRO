@@ -119,8 +119,26 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        
 
+
+        public gr_persona ObtenerPersona(string varbusqueda)
+        {
+            try
+            {
+
+                var sql = _context.gr_persona.Where(w=>w.id_per == varbusqueda).ToList();
+
+                if (sql.Count > 0)
+                {
+                    return sql.First();
+                }
+                return null;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
 
         //public string TablaPersona(string varbusqueda)
         //{

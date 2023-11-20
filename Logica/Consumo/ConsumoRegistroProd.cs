@@ -15,6 +15,7 @@ namespace Logica.Consumo
         #region Contructor Principal
 
         private readonly Cgr_parametro _manejador_gr_parametro;
+        private readonly Cgr_persona _manejador_gr_persona;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -22,10 +23,12 @@ namespace Logica.Consumo
             if (dbContext != null) dbContext.Dispose();
             dbContext = new sicproEntities();
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
+            _manejador_gr_persona = new Cgr_persona(dbContext);
         }
 
         #endregion
 
+        #region gr_parametro
         public List<gr_parametro> ObtenerLista(string columna)
         {
             try
@@ -42,7 +45,25 @@ namespace Logica.Consumo
             }
         }
 
+        #endregion
 
+        #region gr_persona
+        public gr_persona ObtenerPersona(string varbusqueda)
+        {
+            try
+            {
+                return _manejador_gr_persona.ObtenerPersona(varbusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
+        #endregion
     }
 }

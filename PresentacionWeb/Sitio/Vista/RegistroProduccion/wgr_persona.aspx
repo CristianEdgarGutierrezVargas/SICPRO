@@ -8,44 +8,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
     
 
-        <div id="content">
-            <div class="post">
+        <div >
+            <div >
                 <div>                   
-                    <script type="text/javascript" src="scripts/fieldScripts.js"></script>
-                    <script type="text/javascript" src="scripts/validaciones.js"></script>
-                                      
-
+                                     
                     <div id="ctl00_cpmaster_ctl00">
 	
                        <div id="ctl00_cpmaster_msgboxpanel"></div> 
                             <div class="post">
                             <h1 class="title">Registro de Personas</h1>
 			                    <div class="entry"> <img src="../../../UI/img/add-user.gif" alt="" width="122" height="122" class="left">
-			                    <div>
-                                    <table width="500">
+			                    </div>
+
+                                <table width="500">
                                         <tbody><tr><td style="height: 18px">
 
-
-                                                <span id="ctl00_cpmaster_lblcodigo">Documento Identificación :</span></td>
+                                            <span id="ctl00_cpmaster_lblcodigo">Documento Identificación :</span></td>
                                             <td style="height: 18px">
-                                                <input name="ctl00$cpmaster$id_per" type="text" id="ctl00_cpmaster_id_per" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;" class="normalfld">
-                                                <span id="ctl00_cpmaster_lblid">(C.I, NIT, otros)</span>
-                                                <input type="hidden" name="ctl00$cpmaster$hid_per" id="ctl00_cpmaster_hid_per">
-                                                <input type="hidden" name="ctl00$cpmaster$a" id="ctl00_cpmaster_a" value="0">
-                                                <input type="hidden" name="ctl00$cpmaster$b" id="ctl00_cpmaster_b" value="10">
+                                                <dx:ASPxTextBox ID="id_per" runat="server" Width="100%"></dx:ASPxTextBox>                                                
                                             </td>
+                                             <td style="height: 18px">
+                                                <span id="lblid">(C.I, NIT, otros)</span>
+                                             </td>
                                         </tr>
-                                        <tr><td>
-                                                <span id="ctl00_cpmaster_lblnombre">Nombre o Razon Social :</span></td>
-                                            <td id="btnper">
-                                                <input name="ctl00$cpmaster$nomraz" type="text" id="ctl00_cpmaster_nomraz" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:250px;" class="normalfld">
-                                                &nbsp;
-                                                
-                                                <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                                        <tr>
+                                            <td>
+                                                <span id="ctl00_cpmaster_lblnombre">Nombre o Razon Social :</span>
+                                            </td>
+                                            <td id="btnper">                                                
+                                                <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%"></dx:ASPxTextBox>  
+                                            </td>
+                                             <td >    
+                                                 <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
                                                   ...
                                                 </button>
-
-                                            </td>
+                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -56,19 +53,21 @@
                                                 </asp:DropDownList>                                               
                                             </td>
                                         </tr>
-                                        <tr><td style="height: 18px">
-                                                <span id="ctl00_cpmaster_lbltipoper">Tipo de Persona :</span></td>
+                                        <tr>
+                                            <td style="height: 18px">
+                                                <span id="ctl00_cpmaster_lbltipoper">Tipo de Persona :</span>
+                                            </td>
                                                 <td style="height: 18px">
                                                   <asp:DropDownList ID="cmb_tper" runat="server"></asp:DropDownList>
                                                 </td>
                                         </tr>
-                                        <tr><td style="height: 24px">
-                                                <span id="ctl00_cpmaster_lblfecha_nac">Fecha de Nacimiento :</span></td>
+                                        <tr>
                                             <td style="height: 24px">
-                                                                                                
-                                                <dx:ASPxDateEdit runat="server">
-                                                </dx:ASPxDateEdit>
-                                                <dx:BootstrapDateEdit ID="fechaaniv" runat="server"></dx:BootstrapDateEdit>
+                                                <span id="ctl00_cpmaster_lblfecha_nac">Fecha de Nacimiento :</span>
+                                            </td>
+                                            <td style="height: 24px">
+                                                                                                                 
+                                                <dx:ASPxDateEdit ID="fechaNacimiento" runat="server"></dx:ASPxDateEdit>
                                             </td>
                                         </tr>
                                         <tr><td>
@@ -101,27 +100,43 @@
                                                 <span id="ctl00_cpmaster_lblnit">Datos de Facturación :</span>
                                             </td>
                                             <td>
-                                                <input name="ctl00$cpmaster$nit_fac" type="text" maxlength="50" id="ctl00_cpmaster_nit_fac" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:250px;">
+                                                <dx:ASPxTextBox ID="nit_fac" runat="server" Width="170px"></dx:ASPxTextBox>                                                
                                             </td>
                                         </tr>
-                                        <tr><td colspan="2" align="center">
-                            
-                                                <input type="submit" name="ctl00$cpmaster$btnguardar" value="Guardar" id="ctl00_cpmaster_btnguardar" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
+
+                                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click"></dx:ASPxButton>
+
+                                                <dx:ASPxButton ID="btnDirecciones" runat="server" Text="Direcciones" CssClass="msg_button_class" OnClick="btnDirecciones_Click"></dx:ASPxButton>
+                                           
+
+                                                <dx:ASPxButton ID="btnBuscar" runat="server" Text="Buscar" CssClass="msg_button_class" OnClick="btnBuscar_Click"></dx:ASPxButton>
+
+                                                <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
+
+                                               <%-- <input type="submit" name="ctl00$cpmaster$btnguardar" value="Guardar" id="ctl00_cpmaster_btnguardar" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
                             
                             
                                                 <input type="button" name="ctl00$cpmaster$b1" value="Buscar" onclick="javascript:__doPostBack('ctl00$cpmaster$b1','')" id="ctl00_cpmaster_b1" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
                                                 <input type="submit" name="ctl00$cpmaster$btnsalir" value="Salir" id="ctl00_cpmaster_btnsalir" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                                                </td>
+
+--%>
+
+
+                                            </td>
                                         </tr>
                                     </tbody></table>
-                                </div>
-			                    </div>
-			                    <p class="links">
-                                    <span id="ctl00_cpmaster_lblmensaje" class="error">Introduzca Valores</span>
-                                        </p>
-                                </div>
+
+			                    <p class="links">                                    
+                                    <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>                                   
+                                </p>
+                                                                   
+                            </div>
             
                     </div>
+                    
             
                 </div>
             </div>

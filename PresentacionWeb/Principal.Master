@@ -15,7 +15,6 @@
     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
 	<script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.js")%>"></script>
 
-
 <body>
     <form id="form1" runat="server">
 		<asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
@@ -42,7 +41,7 @@
                         <Items>
                             <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wgr_persona.aspx" Text="Registro de Persona" Value="Registro de Persona"></asp:MenuItem>
-                                <asp:MenuItem Text="Registro Polizas nuevas" Value="Registro Polizas nuevas"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_poliza.aspx" Text="Registro Polizas nuevas" Value="Registro Polizas nuevas"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listareno.aspx" Text="Registro de Polizas Renovadas" Value="Registro de Polizas Renovadas"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx" Text="Registro de Aplicaciones a polizas" Value="Registro de Aplicaciones a polizas"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listainclu.aspx" Text="Registro de Inclusiones a Poliza" Value="Registro de Inclusiones a Poliza"></asp:MenuItem>

@@ -22,7 +22,7 @@
                             <h1 class="title">
                                 Registro de Direcciones</h1>
                             <div class="entry">
-                                <img src="images/direccion.png" alt="" width="128" height="128" class="left">
+                                <img src="../../../UI/img/direccion.png" alt="" width="128" height="128" class="left">
                                 <div>
                                     <table width="520" cellpadding="0" cellspacing="0">
                                         <tbody><tr>
@@ -65,18 +65,14 @@
                                             <td style="height: 24px; width: 70px;">
                                                 <span id="ctl00_cpmaster_Label1">Tipo :</span>
                                             </td>
-                                            <td style="height: 24px; width: 200px;">
-                                                <select name="ctl00$cpmaster$id_tpdir" id="ctl00_cpmaster_id_tpdir" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	            </select>
+                                            <td style="height: 24px; width: 200px;">                                                
+                                                <asp:DropDownList ID="cmb_tpdir" runat="server"></asp:DropDownList>                                          
                                             </td>
                                             <td style="width: 70px; height: 24px">
                                                 <span id="ctl00_cpmaster_Label9">Lugar :</span>
                                             </td>
                                             <td style="width: 4px; height: 24px">
-                                                <select name="ctl00$cpmaster$id_emis" id="ctl00_cpmaster_id_emis" style="color:#0F5B96;background-color:White;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-
-	            </select>
+                                                <asp:DropDownList ID="cmb_id_emis" runat="server"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
