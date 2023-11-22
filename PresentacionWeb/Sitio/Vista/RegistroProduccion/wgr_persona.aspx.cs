@@ -34,7 +34,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_suc.DataValueField = "id_par";
             cmb_id_suc.DataValueField = "desc_param";
             cmb_id_suc.DataBind();
-
+            var itemSeleccioneSucursal = new ListItem { Text = "Seleccione...", Value = string.Empty, Selected = true };
+            cmb_id_suc.Items.Add(itemSeleccioneSucursal);
 
             var lstTipoPersona = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_tper);
 
@@ -139,7 +140,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Sitio/Vista/Default.aspx");
         }
     }
 }

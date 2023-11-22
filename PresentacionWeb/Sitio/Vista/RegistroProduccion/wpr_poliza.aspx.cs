@@ -11,7 +11,21 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                return;
+            }
+            CargaInicial();
+        }
+
+        #region Metodos
+
+        private void CargaInicial()
+        {
 
         }
+
+
+        #endregion
     }
 }

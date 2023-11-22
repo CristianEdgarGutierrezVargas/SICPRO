@@ -234,7 +234,8 @@ hr {
 
 .post {
 	margin-bottom: 15px;
-	background: #F3F3F3 url(../img/img05.gif) no-repeat;
+	/*background: #F3F3F3 url(../img/img05.gif) no-repeat;*/
+	background: #F3F3F3;
 	color: #0A416B;
 }
 
@@ -489,8 +490,16 @@ hr {
 }
 
 th, td {
-	padding: 3px;
+	padding: 2px;
 }
 
+.dxeRadioButtonList{
+	border:none !important
+}
+
+*, *::before, *::after {
+	/* box-sizing: border-box; 
+	box-sizing: revert-layer !important;*/
+}
 
 /*********************/

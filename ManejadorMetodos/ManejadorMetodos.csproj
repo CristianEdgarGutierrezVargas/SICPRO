@@ -54,6 +54,7 @@
     <Compile Include="CDBSicPro\Cgr_parametro.cs" />
     <Compile Include="CDBSicPro\Cgr_pass.cs" />
     <Compile Include="CDBSicPro\Cgr_persona.cs" />
+    <Compile Include="CDBSicPro\Cpr_grupo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
