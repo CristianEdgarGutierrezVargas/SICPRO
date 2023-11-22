@@ -20,6 +20,5 @@ namespace EntidadesClases.ModelSicPro
         public decimal dias { get; set; }
         public Nullable<decimal> basico_sueldo { get; set; }
         public Nullable<decimal> bono_anti { get; set; }
-        public string TRIAL357 { get; set; }
     }
 }

@@ -23,6 +23,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> anulada_anio { get; set; }
         public string anulada_por { get; set; }
         public long id_anulada { get; set; }
-        public string TRIAL360 { get; set; }
     }
 }

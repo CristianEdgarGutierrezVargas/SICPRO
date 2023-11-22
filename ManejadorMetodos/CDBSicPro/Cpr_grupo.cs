@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Common;
+using EntidadesClases.ModelSicPro;
+using ManejadorModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +11,29 @@ namespace ManejadorMetodos.CDBSicPro
 {
     public class Cpr_grupo
     {
+        #region Contructor Principal
 
-
-        public void ObtenerGrupo()
+        readonly sicproEntities _context;
+        public Cpr_grupo(sicproEntities dbContext)
         {
-            //try
-            //{
-            //    string sql = "SELECT pr_grupo.id_gru, pr_grupo.desc_grupo FROM pr_grupo UNION SELECT -1, 'SELECCIONE UNA OPCIÓN'";
-            //    Acceso db = new Acceso();
-            //    db.Conectar();
-            //    db.CrearComando(sql);
-            //    DataTable dtgeneral = db.Consulta();
-            //    this.ddlgeneral.DataSource = dtgeneral;
-            //    this.ddlgeneral.DataTextField = "desc_grupo";
-            //    this.ddlgeneral.DataValueField = "id_gru";
-            //    this.ddlgeneral.DataBind();
-            //}
-            //catch (SecureExceptions secureException)
-            //{
-            //    throw new SecureExceptions("Error al Generar la Consulta", secureException);
-            //}
+            _context = dbContext;
         }
+
+        #endregion
+
+
+        public List<pr_grupo> ObtenerGrupo()
+        {
+            try
+            {
+                var sql = _context.pr_grupo.ToList();                
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        
     }
 }

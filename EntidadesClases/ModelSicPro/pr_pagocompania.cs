@@ -25,7 +25,6 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> comision_spc { get; set; }
         public Nullable<decimal> comisaldo_pc { get; set; }
         public Nullable<long> id_div { get; set; }
-        public string TRIAL360 { get; set; }
     
         public virtual gr_compania gr_compania { get; set; }
     }

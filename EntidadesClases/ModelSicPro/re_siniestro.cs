@@ -26,6 +26,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<double> id_uniobj { get; set; }
         public string uniobj { get; set; }
         public Nullable<System.DateTime> fc_denuncia { get; set; }
-        public string TRIAL363 { get; set; }
     }
 }

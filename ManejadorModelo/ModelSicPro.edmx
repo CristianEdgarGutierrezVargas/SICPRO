@@ -38,7 +38,6 @@
           <Property Name="id_suc" Type="int" Nullable="false" />
           <Property Name="monto_proy" Type="numeric" Precision="15" Scale="2" />
           <Property Name="monto_cproy" Type="numeric" Precision="15" Scale="2" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="co_proycartera">
           <Key>
@@ -52,7 +51,6 @@
           <Property Name="id_suc" Type="float" Nullable="false" />
           <Property Name="id_percart" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="monto_proy" Type="numeric" Precision="15" Scale="2" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -69,17 +67,20 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="dias" Type="numeric" Precision="2" Scale="0" Nullable="false" />
           <Property Name="basico_sueldo" Type="numeric" Precision="10" Scale="2" />
           <Property Name="bono_anti" Type="numeric" Precision="10" Scale="2" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sicpro.dbo.gr_acceso' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="gr_acceso">
           <Key>
             <PropertyRef Name="id_acc" />
+            <PropertyRef Name="id_com" />
+            <PropertyRef Name="id_rol" />
+            <PropertyRef Name="nivel" />
           </Key>
           <Property Name="id_acc" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_com" Type="bigint" Nullable="false" />
           <Property Name="id_rol" Type="bigint" Nullable="false" />
           <Property Name="nivel" Type="float" Nullable="false" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_cierreregistro">
           <Key>
@@ -91,7 +92,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="ini_reg" Type="date" Nullable="false" />
           <Property Name="fin_reg" Type="date" Nullable="false" />
           <Property Name="tcambio" Type="numeric" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_compania">
           <Key>
@@ -102,7 +102,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="cf" Type="numeric" Precision="1" Scale="0" Nullable="false" />
           <Property Name="abrev_cia" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="rubro" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="TRIAL357" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_componente">
           <Key>
@@ -117,7 +116,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="icono" Type="varchar" MaxLength="50" />
           <Property Name="toolb" Type="bit" Nullable="false" />
           <Property Name="imgtoolb" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_contacto">
           <Key>
@@ -128,7 +126,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="relacion" Type="varchar" MaxLength="100" />
           <Property Name="activo" Type="bit" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_direccion">
           <Key>
@@ -146,7 +143,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="casilla" Type="varchar" MaxLength="10" />
           <Property Name="web" Type="varchar" MaxLength="100" />
           <Property Name="id_emis" Type="numeric" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_parametro">
           <Key>
@@ -168,7 +164,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="login" Type="varchar" MaxLength="20" />
           <Property Name="logged" Type="bit" />
           <Property Name="id_rol" Type="numeric" Precision="8" Scale="0" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="gr_persona">
           <Key>
@@ -193,7 +188,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="id_div" Type="bigint" Nullable="false" />
           <Property Name="tcambio" Type="numeric" Precision="8" Scale="2" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_anulada">
           <Key>
@@ -209,7 +203,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="anulada_anio" Type="numeric" Precision="4" Scale="0" />
           <Property Name="anulada_por" Type="text" />
           <Property Name="id_anulada" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_calculo">
           <Key>
@@ -220,7 +213,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="formula" Type="varchar" MaxLength="40" />
           <Property Name="comision" Type="float" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_cuotapoliza">
           <Key>
@@ -237,7 +229,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="cuota_comis" Type="numeric" Precision="9" Scale="2" />
           <Property Name="cuota_pago" Type="numeric" Precision="9" Scale="2" />
           <Property Name="cuota_comicob" Type="numeric" Precision="9" Scale="2" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_devolucion">
           <Key>
@@ -260,7 +251,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="banco" Type="varchar" MaxLength="15" />
           <Property Name="comis_mes" Type="numeric" Precision="2" Scale="0" />
           <Property Name="comis_anio" Type="numeric" Precision="4" Scale="0" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_excluida">
           <Key>
@@ -278,7 +268,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="comision_exclusion" Type="numeric" Precision="9" Scale="2" />
           <Property Name="mes_exclusion" Type="numeric" Precision="2" Scale="0" />
           <Property Name="anio_exclusion" Type="numeric" Precision="4" Scale="0" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_formriesgo">
           <Key>
@@ -296,7 +285,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="por_cred" Type="numeric" Precision="6" Scale="4" />
           <Property Name="plus_neta" Type="numeric" Precision="8" Scale="2" />
           <Property Name="form_riesgo2" Type="varchar" MaxLength="30" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_grupo">
           <Key>
@@ -304,7 +292,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           </Key>
           <Property Name="desc_grupo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="id_gru" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_liqrec">
           <Key>
@@ -317,7 +304,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="monto_liqs" Type="numeric" Precision="9" Scale="2" />
           <Property Name="monto_liqb" Type="numeric" Precision="9" Scale="2" />
           <Property Name="id_suc" Type="numeric" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_numaplicas">
           <Key>
@@ -330,7 +316,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="del" Type="numeric" Precision="5" Scale="0" Nullable="false" />
           <Property Name="al" Type="numeric" Precision="5" Scale="0" Nullable="false" />
           <Property Name="id_mom" Type="bigint" Nullable="false" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_pago">
           <Key>
@@ -374,7 +359,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="comision_spc" Type="numeric" Precision="9" Scale="2" />
           <Property Name="comisaldo_pc" Type="numeric" Precision="9" Scale="2" />
           <Property Name="id_div" Type="bigint" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_poliza">
           <Key>
@@ -391,11 +375,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="date" />
           <Property Name="id_percart" Type="varchar" MaxLength="15" />
           <Property Name="id_suc" Type="bigint" />
-          <Property Name="TRIAL360" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_polmov">
           <Key>
-            <PropertyRef Name="id_poliza" />
             <PropertyRef Name="id_movimiento" />
           </Key>
           <Property Name="id_poliza" Type="bigint" Nullable="false" />
@@ -419,7 +401,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="date" Nullable="false" />
           <Property Name="no_liquida" Type="varchar" MaxLength="30" />
           <Property Name="id_mom" Type="bigint" Nullable="false" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_producto">
           <Key>
@@ -428,7 +409,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_producto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="desc_prod" Type="varchar" MaxLength="50" />
           <Property Name="abrev_prod" Type="varchar" MaxLength="5" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_recibo">
           <Key>
@@ -452,7 +432,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cont_sus" Type="numeric" Precision="9" Scale="2" />
           <Property Name="cheq_bs" Type="numeric" Precision="9" Scale="2" />
           <Property Name="cheq_sus" Type="numeric" Precision="9" Scale="2" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="pr_riesgo">
           <Key>
@@ -464,7 +443,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cod_pol" Type="varchar" MaxLength="2" />
           <Property Name="desc_riesgo" Type="varchar" MaxLength="70" />
           <Property Name="cobertura" Type="varchar" MaxLength="4" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="re_caso">
           <Key>
@@ -489,7 +467,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="date" />
           <Property Name="id_recibo" Type="float" />
           <Property Name="anio_recibo" Type="numeric" Precision="4" Scale="0" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="re_histcaso">
           <Key>
@@ -503,7 +480,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_finestado" Type="date" />
           <Property Name="id_estca" Type="float" Nullable="false" />
           <Property Name="obs_histcaso" Type="text" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="re_siniestro">
           <Key>
@@ -523,7 +499,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_uniobj" Type="float" />
           <Property Name="uniobj" Type="varchar" MaxLength="20" />
           <Property Name="fc_denuncia" Type="date" />
-          <Property Name="TRIAL363" Type="char" MaxLength="1" />
         </EntityType>
         <Association Name="fk_co_anticom">
           <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
@@ -549,15 +524,15 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_re_caso_pr_poliza">
-          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="1" />
-          <End Role="re_caso" Type="Self.re_caso" Multiplicity="*" />
+        <Association Name="FK_pr_poliza_pr_producto">
+          <End Role="pr_producto" Type="Self.pr_producto" Multiplicity="1" />
+          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="pr_poliza">
-              <PropertyRef Name="id_poliza" />
+            <Principal Role="pr_producto">
+              <PropertyRef Name="id_producto" />
             </Principal>
-            <Dependent Role="re_caso">
-              <PropertyRef Name="id_poliza" />
+            <Dependent Role="pr_poliza">
+              <PropertyRef Name="id_producto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -585,30 +560,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="id_dir_polmov_fk">
-          <End Role="gr_direccion" Type="Self.gr_direccion" Multiplicity="1" />
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="gr_direccion">
-              <PropertyRef Name="id_dir" />
-            </Principal>
-            <Dependent Role="pr_polmov">
-              <PropertyRef Name="id_dir" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="id_perejec_polmov_fk">
-          <End Role="gr_persona" Type="Self.gr_persona" Multiplicity="1" />
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="gr_persona">
-              <PropertyRef Name="id_per" />
-            </Principal>
-            <Dependent Role="pr_polmov">
-              <PropertyRef Name="id_perejec" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="pr_calculo_riesgo_fk">
           <End Role="pr_riesgo" Type="Self.pr_riesgo" Multiplicity="1" />
           <End Role="pr_calculo" Type="Self.pr_calculo" Multiplicity="*" />
@@ -618,48 +569,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Principal>
             <Dependent Role="pr_calculo">
               <PropertyRef Name="id_riesgo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_cuotapoliza_fk">
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
-          <End Role="pr_cuotapoliza" Type="Self.pr_cuotapoliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_cuotapoliza">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_devolucion_fk">
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
-          <End Role="pr_devolucion" Type="Self.pr_devolucion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_devolucion">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_excluida_fk">
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
-          <End Role="pr_excluida" Type="Self.pr_excluida" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_excluida">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -687,20 +596,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="pr_numaplicas_fk">
-          <End Role="pr_polmov" Type="Self.pr_polmov" Multiplicity="1" />
-          <End Role="pr_numaplicas" Type="Self.pr_numaplicas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_numaplicas">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="pr_pagocompania_fk">
           <End Role="gr_compania" Type="Self.gr_compania" Multiplicity="1" />
           <End Role="pr_pagocompania" Type="Self.pr_pagocompania" Multiplicity="*" />
@@ -725,24 +620,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="pr_poliza_producto_fk">
-          <End Role="pr_producto" Type="Self.pr_producto" Multiplicity="1" />
-          <End Role="pr_poliza" Type="Self.pr_poliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_producto">
-              <PropertyRef Name="id_producto" />
-            </Principal>
-            <Dependent Role="pr_poliza">
-              <PropertyRef Name="id_producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="sicproModelStoreContainer">
           <EntitySet Name="co_anticom" EntityType="Self.co_anticom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_porcomi" EntityType="Self.co_porcomi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_presprod" EntityType="Self.co_presprod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_proycartera" EntityType="Self.co_proycartera" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="gr_acceso" EntityType="Self.gr_acceso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_cierreregistro" EntityType="Self.gr_cierreregistro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_compania" EntityType="Self.gr_compania" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_componente" EntityType="Self.gr_componente" Schema="dbo" store:Type="Tables" />
@@ -777,9 +659,16 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
     [co_sueldo].[anio_sueldo] AS [anio_sueldo], 
     [co_sueldo].[dias] AS [dias], 
     [co_sueldo].[basico_sueldo] AS [basico_sueldo], 
-    [co_sueldo].[bono_anti] AS [bono_anti], 
-    [co_sueldo].[TRIAL357] AS [TRIAL357]
+    [co_sueldo].[bono_anti] AS [bono_anti]
     FROM [dbo].[co_sueldo] AS [co_sueldo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="gr_acceso" EntityType="Self.gr_acceso" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [gr_acceso].[id_acc] AS [id_acc], 
+    [gr_acceso].[id_com] AS [id_com], 
+    [gr_acceso].[id_rol] AS [id_rol], 
+    [gr_acceso].[nivel] AS [nivel]
+    FROM [dbo].[gr_acceso] AS [gr_acceso]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="pr_pagocompania" EntityType="Self.pr_pagocompania" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -793,8 +682,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
     [pr_pagocompania].[pc_anio] AS [pc_anio], 
     [pr_pagocompania].[comision_spc] AS [comision_spc], 
     [pr_pagocompania].[comisaldo_pc] AS [comisaldo_pc], 
-    [pr_pagocompania].[id_div] AS [id_div], 
-    [pr_pagocompania].[TRIAL360] AS [TRIAL360]
+    [pr_pagocompania].[id_div] AS [id_div]
     FROM [dbo].[pr_pagocompania] AS [pr_pagocompania]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="fk_co_anticom" Association="Self.fk_co_anticom">
@@ -805,9 +693,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             <End Role="gr_persona" EntitySet="gr_persona" />
             <End Role="co_porcomi" EntitySet="co_porcomi" />
           </AssociationSet>
-          <AssociationSet Name="fk_re_caso_pr_poliza" Association="Self.fk_re_caso_pr_poliza">
+          <AssociationSet Name="FK_pr_poliza_pr_producto" Association="Self.FK_pr_poliza_pr_producto">
+            <End Role="pr_producto" EntitySet="pr_producto" />
             <End Role="pr_poliza" EntitySet="pr_poliza" />
-            <End Role="re_caso" EntitySet="re_caso" />
           </AssociationSet>
           <AssociationSet Name="gr_compania_fk" Association="Self.gr_compania_fk">
             <End Role="gr_persona" EntitySet="gr_persona" />
@@ -817,29 +705,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             <End Role="gr_persona" EntitySet="gr_persona" />
             <End Role="gr_pass" EntitySet="gr_pass" />
           </AssociationSet>
-          <AssociationSet Name="id_dir_polmov_fk" Association="Self.id_dir_polmov_fk">
-            <End Role="gr_direccion" EntitySet="gr_direccion" />
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-          </AssociationSet>
-          <AssociationSet Name="id_perejec_polmov_fk" Association="Self.id_perejec_polmov_fk">
-            <End Role="gr_persona" EntitySet="gr_persona" />
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-          </AssociationSet>
           <AssociationSet Name="pr_calculo_riesgo_fk" Association="Self.pr_calculo_riesgo_fk">
             <End Role="pr_riesgo" EntitySet="pr_riesgo" />
             <End Role="pr_calculo" EntitySet="pr_calculo" />
-          </AssociationSet>
-          <AssociationSet Name="pr_cuotapoliza_fk" Association="Self.pr_cuotapoliza_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_cuotapoliza" EntitySet="pr_cuotapoliza" />
-          </AssociationSet>
-          <AssociationSet Name="pr_devolucion_fk" Association="Self.pr_devolucion_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_devolucion" EntitySet="pr_devolucion" />
-          </AssociationSet>
-          <AssociationSet Name="pr_excluida_fk" Association="Self.pr_excluida_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_excluida" EntitySet="pr_excluida" />
           </AssociationSet>
           <AssociationSet Name="pr_formriesgo_riesgo_fk" Association="Self.pr_formriesgo_riesgo_fk">
             <End Role="pr_riesgo" EntitySet="pr_riesgo" />
@@ -849,20 +717,12 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             <End Role="gr_compania" EntitySet="gr_compania" />
             <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
           </AssociationSet>
-          <AssociationSet Name="pr_numaplicas_fk" Association="Self.pr_numaplicas_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_numaplicas" EntitySet="pr_numaplicas" />
-          </AssociationSet>
           <AssociationSet Name="pr_pagocompania_fk" Association="Self.pr_pagocompania_fk">
             <End Role="gr_compania" EntitySet="gr_compania" />
             <End Role="pr_pagocompania" EntitySet="pr_pagocompania" />
           </AssociationSet>
           <AssociationSet Name="pr_poliza_fk" Association="Self.pr_poliza_fk">
             <End Role="gr_persona" EntitySet="gr_persona" />
-            <End Role="pr_poliza" EntitySet="pr_poliza" />
-          </AssociationSet>
-          <AssociationSet Name="pr_poliza_producto_fk" Association="Self.pr_poliza_producto_fk">
-            <End Role="pr_producto" EntitySet="pr_producto" />
             <End Role="pr_poliza" EntitySet="pr_poliza" />
           </AssociationSet>
         </EntityContainer>
@@ -875,7 +735,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySet Name="co_porcomi" EntityType="sicproModel.co_porcomi" />
           <EntitySet Name="co_presprod" EntityType="sicproModel.co_presprod" />
           <EntitySet Name="co_proycartera" EntityType="sicproModel.co_proycartera" />
-          <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
           <EntitySet Name="gr_cierreregistro" EntityType="sicproModel.gr_cierreregistro" />
           <EntitySet Name="gr_compania" EntityType="sicproModel.gr_compania" />
           <EntitySet Name="gr_componente" EntityType="sicproModel.gr_componente" />
@@ -904,6 +763,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySet Name="re_histcaso" EntityType="sicproModel.re_histcaso" />
           <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
           <EntitySet Name="co_sueldo" EntityType="sicproModel.co_sueldo" />
+          <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
           <EntitySet Name="pr_pagocompania" EntityType="sicproModel.pr_pagocompania" />
           <AssociationSet Name="fk_co_anticom" Association="sicproModel.fk_co_anticom">
             <End Role="gr_persona" EntitySet="gr_persona" />
@@ -925,17 +785,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             <End Role="gr_compania" EntitySet="gr_compania" />
             <End Role="pr_pagocompania" EntitySet="pr_pagocompania" />
           </AssociationSet>
-          <AssociationSet Name="id_dir_polmov_fk" Association="sicproModel.id_dir_polmov_fk">
-            <End Role="gr_direccion" EntitySet="gr_direccion" />
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-          </AssociationSet>
           <AssociationSet Name="gr_pass_fk" Association="sicproModel.gr_pass_fk">
             <End Role="gr_persona" EntitySet="gr_persona" />
             <End Role="gr_pass" EntitySet="gr_pass" />
-          </AssociationSet>
-          <AssociationSet Name="id_perejec_polmov_fk" Association="sicproModel.id_perejec_polmov_fk">
-            <End Role="gr_persona" EntitySet="gr_persona" />
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
           </AssociationSet>
           <AssociationSet Name="pr_poliza_fk" Association="sicproModel.pr_poliza_fk">
             <End Role="gr_persona" EntitySet="gr_persona" />
@@ -945,31 +797,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             <End Role="pr_riesgo" EntitySet="pr_riesgo" />
             <End Role="pr_calculo" EntitySet="pr_calculo" />
           </AssociationSet>
-          <AssociationSet Name="pr_cuotapoliza_fk" Association="sicproModel.pr_cuotapoliza_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_cuotapoliza" EntitySet="pr_cuotapoliza" />
-          </AssociationSet>
-          <AssociationSet Name="pr_devolucion_fk" Association="sicproModel.pr_devolucion_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_devolucion" EntitySet="pr_devolucion" />
-          </AssociationSet>
-          <AssociationSet Name="pr_excluida_fk" Association="sicproModel.pr_excluida_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_excluida" EntitySet="pr_excluida" />
-          </AssociationSet>
           <AssociationSet Name="pr_formriesgo_riesgo_fk" Association="sicproModel.pr_formriesgo_riesgo_fk">
             <End Role="pr_riesgo" EntitySet="pr_riesgo" />
             <End Role="pr_formriesgo" EntitySet="pr_formriesgo" />
           </AssociationSet>
-          <AssociationSet Name="pr_numaplicas_fk" Association="sicproModel.pr_numaplicas_fk">
-            <End Role="pr_polmov" EntitySet="pr_polmov" />
-            <End Role="pr_numaplicas" EntitySet="pr_numaplicas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_re_caso_pr_poliza" Association="sicproModel.fk_re_caso_pr_poliza">
-            <End Role="pr_poliza" EntitySet="pr_poliza" />
-            <End Role="re_caso" EntitySet="re_caso" />
-          </AssociationSet>
-          <AssociationSet Name="pr_poliza_producto_fk" Association="sicproModel.pr_poliza_producto_fk">
+          <AssociationSet Name="FK_pr_poliza_pr_producto" Association="sicproModel.FK_pr_poliza_pr_producto">
             <End Role="pr_producto" EntitySet="pr_producto" />
             <End Role="pr_poliza" EntitySet="pr_poliza" />
           </AssociationSet>
@@ -1009,7 +841,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_suc" Type="Int32" Nullable="false" />
           <Property Name="monto_proy" Type="Decimal" Precision="15" Scale="2" />
           <Property Name="monto_cproy" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="co_proycartera">
           <Key>
@@ -1023,17 +854,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_suc" Type="Double" Nullable="false" />
           <Property Name="id_percart" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="monto_proy" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="gr_acceso">
-          <Key>
-            <PropertyRef Name="id_acc" />
-          </Key>
-          <Property Name="id_acc" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_com" Type="Int64" Nullable="false" />
-          <Property Name="id_rol" Type="Int64" Nullable="false" />
-          <Property Name="nivel" Type="Double" Nullable="false" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="gr_cierreregistro">
           <Key>
@@ -1045,7 +865,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="ini_reg" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="fin_reg" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="tcambio" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="gr_compania">
           <Key>
@@ -1056,7 +875,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cf" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
           <Property Name="abrev_cia" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="rubro" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="gr_persona" Relationship="sicproModel.gr_compania_fk" FromRole="gr_compania" ToRole="gr_persona" />
           <NavigationProperty Name="pr_formriesgo" Relationship="sicproModel.pr_formriesgo_spvs_fk" FromRole="gr_compania" ToRole="pr_formriesgo" />
           <NavigationProperty Name="pr_pagocompania" Relationship="sicproModel.pr_pagocompania_fk" FromRole="gr_compania" ToRole="pr_pagocompania" />
@@ -1074,7 +892,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="toolb" Type="Boolean" Nullable="false" />
           <Property Name="imgtoolb" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="gr_contacto">
           <Key>
@@ -1085,7 +902,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_per" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="relacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="activo" Type="Boolean" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="gr_direccion">
           <Key>
@@ -1103,8 +919,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="casilla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="web" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="id_emis" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.id_dir_polmov_fk" FromRole="gr_direccion" ToRole="pr_polmov" />
         </EntityType>
         <EntityType Name="gr_parametro">
           <Key>
@@ -1126,7 +940,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="logged" Type="Boolean" />
           <Property Name="id_rol" Type="Decimal" Precision="8" Scale="0" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="gr_persona" Relationship="sicproModel.gr_pass_fk" FromRole="gr_pass" ToRole="gr_persona" />
         </EntityType>
         <EntityType Name="gr_persona">
@@ -1147,7 +960,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <NavigationProperty Name="co_porcomi" Relationship="sicproModel.fk_comicio_persona" FromRole="gr_persona" ToRole="co_porcomi" />
           <NavigationProperty Name="gr_compania" Relationship="sicproModel.gr_compania_fk" FromRole="gr_persona" ToRole="gr_compania" />
           <NavigationProperty Name="gr_pass" Relationship="sicproModel.gr_pass_fk" FromRole="gr_persona" ToRole="gr_pass" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.id_perejec_polmov_fk" FromRole="gr_persona" ToRole="pr_polmov" />
           <NavigationProperty Name="pr_poliza" Relationship="sicproModel.pr_poliza_fk" FromRole="gr_persona" ToRole="pr_poliza" />
         </EntityType>
         <EntityType Name="gr_tc">
@@ -1158,7 +970,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="id_div" Type="Int64" Nullable="false" />
           <Property Name="tcambio" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="pr_anulada">
           <Key>
@@ -1174,7 +985,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="anulada_anio" Type="Decimal" Precision="4" Scale="0" />
           <Property Name="anulada_por" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="id_anulada" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="pr_calculo">
           <Key>
@@ -1185,7 +995,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="formula" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="comision" Type="Double" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="pr_riesgo" Relationship="sicproModel.pr_calculo_riesgo_fk" FromRole="pr_calculo" ToRole="pr_riesgo" />
         </EntityType>
         <EntityType Name="pr_cuotapoliza">
@@ -1203,8 +1012,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cuota_comis" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="cuota_pago" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="cuota_comicob" Type="Decimal" Precision="9" Scale="2" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_cuotapoliza_fk" FromRole="pr_cuotapoliza" ToRole="pr_polmov" />
         </EntityType>
         <EntityType Name="pr_devolucion">
           <Key>
@@ -1227,8 +1034,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="banco" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="comis_mes" Type="Decimal" Precision="2" Scale="0" />
           <Property Name="comis_anio" Type="Decimal" Precision="4" Scale="0" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_devolucion_fk" FromRole="pr_devolucion" ToRole="pr_polmov" />
         </EntityType>
         <EntityType Name="pr_excluida">
           <Key>
@@ -1246,8 +1051,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="comision_exclusion" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="mes_exclusion" Type="Decimal" Precision="2" Scale="0" />
           <Property Name="anio_exclusion" Type="Decimal" Precision="4" Scale="0" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_excluida_fk" FromRole="pr_excluida" ToRole="pr_polmov" />
         </EntityType>
         <EntityType Name="pr_formriesgo">
           <Key>
@@ -1265,7 +1068,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="por_cred" Type="Decimal" Precision="6" Scale="4" />
           <Property Name="plus_neta" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="form_riesgo2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="gr_compania" Relationship="sicproModel.pr_formriesgo_spvs_fk" FromRole="pr_formriesgo" ToRole="gr_compania" />
           <NavigationProperty Name="pr_riesgo" Relationship="sicproModel.pr_formriesgo_riesgo_fk" FromRole="pr_formriesgo" ToRole="pr_riesgo" />
         </EntityType>
@@ -1275,7 +1077,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           </Key>
           <Property Name="desc_grupo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_gru" Type="Decimal" Nullable="false" Precision="10" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="pr_liqrec">
           <Key>
@@ -1288,7 +1089,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="monto_liqs" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="monto_liqb" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="id_suc" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="pr_numaplicas">
           <Key>
@@ -1301,8 +1101,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="del" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <Property Name="al" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <Property Name="id_mom" Type="Int64" Nullable="false" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_polmov" Relationship="sicproModel.pr_numaplicas_fk" FromRole="pr_numaplicas" ToRole="pr_polmov" />
         </EntityType>
         <EntityType Name="pr_pago">
           <Key>
@@ -1342,14 +1140,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="DateTime" Precision="0" />
           <Property Name="id_percart" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="id_suc" Type="Int64" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="gr_persona" Relationship="sicproModel.pr_poliza_fk" FromRole="pr_poliza" ToRole="gr_persona" />
-          <NavigationProperty Name="re_caso" Relationship="sicproModel.fk_re_caso_pr_poliza" FromRole="pr_poliza" ToRole="re_caso" />
-          <NavigationProperty Name="pr_producto" Relationship="sicproModel.pr_poliza_producto_fk" FromRole="pr_poliza" ToRole="pr_producto" />
+          <NavigationProperty Name="pr_producto" Relationship="sicproModel.FK_pr_poliza_pr_producto" FromRole="pr_poliza" ToRole="pr_producto" />
         </EntityType>
         <EntityType Name="pr_polmov">
           <Key>
-            <PropertyRef Name="id_poliza" />
             <PropertyRef Name="id_movimiento" />
           </Key>
           <Property Name="id_poliza" Type="Int64" Nullable="false" />
@@ -1373,13 +1168,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="no_liquida" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="id_mom" Type="Int64" Nullable="false" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="gr_direccion" Relationship="sicproModel.id_dir_polmov_fk" FromRole="pr_polmov" ToRole="gr_direccion" />
-          <NavigationProperty Name="gr_persona" Relationship="sicproModel.id_perejec_polmov_fk" FromRole="pr_polmov" ToRole="gr_persona" />
-          <NavigationProperty Name="pr_cuotapoliza" Relationship="sicproModel.pr_cuotapoliza_fk" FromRole="pr_polmov" ToRole="pr_cuotapoliza" />
-          <NavigationProperty Name="pr_devolucion" Relationship="sicproModel.pr_devolucion_fk" FromRole="pr_polmov" ToRole="pr_devolucion" />
-          <NavigationProperty Name="pr_excluida" Relationship="sicproModel.pr_excluida_fk" FromRole="pr_polmov" ToRole="pr_excluida" />
-          <NavigationProperty Name="pr_numaplicas" Relationship="sicproModel.pr_numaplicas_fk" FromRole="pr_polmov" ToRole="pr_numaplicas" />
         </EntityType>
         <EntityType Name="pr_producto">
           <Key>
@@ -1388,8 +1176,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_producto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="desc_prod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="abrev_prod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.pr_poliza_producto_fk" FromRole="pr_producto" ToRole="pr_poliza" />
+          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.FK_pr_poliza_pr_producto" FromRole="pr_producto" ToRole="pr_poliza" />
         </EntityType>
         <EntityType Name="pr_recibo">
           <Key>
@@ -1413,7 +1200,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cont_sus" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="cheq_bs" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="cheq_sus" Type="Decimal" Precision="9" Scale="2" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="pr_riesgo">
           <Key>
@@ -1425,7 +1211,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="cod_pol" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="desc_riesgo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="cobertura" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="pr_calculo" Relationship="sicproModel.pr_calculo_riesgo_fk" FromRole="pr_riesgo" ToRole="pr_calculo" />
           <NavigationProperty Name="pr_formriesgo" Relationship="sicproModel.pr_formriesgo_riesgo_fk" FromRole="pr_riesgo" ToRole="pr_formriesgo" />
         </EntityType>
@@ -1452,8 +1237,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_reg" Type="DateTime" Precision="0" />
           <Property Name="id_recibo" Type="Double" />
           <Property Name="anio_recibo" Type="Decimal" Precision="4" Scale="0" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="pr_poliza" Relationship="sicproModel.fk_re_caso_pr_poliza" FromRole="re_caso" ToRole="pr_poliza" />
         </EntityType>
         <EntityType Name="re_histcaso">
           <Key>
@@ -1467,7 +1250,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="fc_finestado" Type="DateTime" Precision="0" />
           <Property Name="id_estca" Type="Double" Nullable="false" />
           <Property Name="obs_histcaso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="re_siniestro">
           <Key>
@@ -1487,7 +1269,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="id_uniobj" Type="Double" />
           <Property Name="uniobj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fc_denuncia" Type="DateTime" Precision="0" />
-          <Property Name="TRIAL363" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="co_sueldo">
           <Key>
@@ -1502,7 +1283,18 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="dias" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
           <Property Name="basico_sueldo" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="bono_anti" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="TRIAL357" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gr_acceso">
+          <Key>
+            <PropertyRef Name="id_acc" />
+            <PropertyRef Name="id_com" />
+            <PropertyRef Name="id_rol" />
+            <PropertyRef Name="nivel" />
+          </Key>
+          <Property Name="id_acc" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_com" Type="Int64" Nullable="false" />
+          <Property Name="id_rol" Type="Int64" Nullable="false" />
+          <Property Name="nivel" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="pr_pagocompania">
           <Key>
@@ -1521,7 +1313,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <Property Name="comision_spc" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="comisaldo_pc" Type="Decimal" Precision="9" Scale="2" />
           <Property Name="id_div" Type="Int64" />
-          <Property Name="TRIAL360" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="gr_compania" Relationship="sicproModel.pr_pagocompania_fk" FromRole="pr_pagocompania" ToRole="gr_compania" />
         </EntityType>
         <Association Name="fk_co_anticom">
@@ -1584,18 +1375,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="id_dir_polmov_fk">
-          <End Type="sicproModel.gr_direccion" Role="gr_direccion" Multiplicity="1" />
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="gr_direccion">
-              <PropertyRef Name="id_dir" />
-            </Principal>
-            <Dependent Role="pr_polmov">
-              <PropertyRef Name="id_dir" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="gr_pass_fk">
           <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
           <End Type="sicproModel.gr_pass" Role="gr_pass" Multiplicity="0..1" />
@@ -1605,18 +1384,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Principal>
             <Dependent Role="gr_pass">
               <PropertyRef Name="id_per" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="id_perejec_polmov_fk">
-          <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="gr_persona">
-              <PropertyRef Name="id_per" />
-            </Principal>
-            <Dependent Role="pr_polmov">
-              <PropertyRef Name="id_perejec" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1644,48 +1411,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="pr_cuotapoliza_fk">
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
-          <End Type="sicproModel.pr_cuotapoliza" Role="pr_cuotapoliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_cuotapoliza">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_devolucion_fk">
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
-          <End Type="sicproModel.pr_devolucion" Role="pr_devolucion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_devolucion">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_excluida_fk">
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
-          <End Type="sicproModel.pr_excluida" Role="pr_excluida" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_excluida">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="pr_formriesgo_riesgo_fk">
           <End Type="sicproModel.pr_riesgo" Role="pr_riesgo" Multiplicity="1" />
           <End Type="sicproModel.pr_formriesgo" Role="pr_formriesgo" Multiplicity="*" />
@@ -1698,33 +1423,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="pr_numaplicas_fk">
-          <End Type="sicproModel.pr_polmov" Role="pr_polmov" Multiplicity="1" />
-          <End Type="sicproModel.pr_numaplicas" Role="pr_numaplicas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_polmov">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Principal>
-            <Dependent Role="pr_numaplicas">
-              <PropertyRef Name="id_poliza" />
-              <PropertyRef Name="id_movimiento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_re_caso_pr_poliza">
-          <End Type="sicproModel.pr_poliza" Role="pr_poliza" Multiplicity="1" />
-          <End Type="sicproModel.re_caso" Role="re_caso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pr_poliza">
-              <PropertyRef Name="id_poliza" />
-            </Principal>
-            <Dependent Role="re_caso">
-              <PropertyRef Name="id_poliza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pr_poliza_producto_fk">
+        <Association Name="FK_pr_poliza_pr_producto">
           <End Type="sicproModel.pr_producto" Role="pr_producto" Multiplicity="1" />
           <End Type="sicproModel.pr_poliza" Role="pr_poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1767,7 +1466,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="co_presprod">
             <EntityTypeMapping TypeName="sicproModel.co_presprod">
               <MappingFragment StoreEntitySet="co_presprod">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
                 <ScalarProperty Name="monto_cproy" ColumnName="monto_cproy" />
                 <ScalarProperty Name="monto_proy" ColumnName="monto_proy" />
                 <ScalarProperty Name="id_suc" ColumnName="id_suc" />
@@ -1780,7 +1478,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="co_proycartera">
             <EntityTypeMapping TypeName="sicproModel.co_proycartera">
               <MappingFragment StoreEntitySet="co_proycartera">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
                 <ScalarProperty Name="monto_proy" ColumnName="monto_proy" />
                 <ScalarProperty Name="id_percart" ColumnName="id_percart" />
                 <ScalarProperty Name="id_suc" ColumnName="id_suc" />
@@ -1789,21 +1486,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="gr_acceso">
-            <EntityTypeMapping TypeName="sicproModel.gr_acceso">
-              <MappingFragment StoreEntitySet="gr_acceso">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
-                <ScalarProperty Name="nivel" ColumnName="nivel" />
-                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
-                <ScalarProperty Name="id_com" ColumnName="id_com" />
-                <ScalarProperty Name="id_acc" ColumnName="id_acc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="gr_cierreregistro">
             <EntityTypeMapping TypeName="sicproModel.gr_cierreregistro">
               <MappingFragment StoreEntitySet="gr_cierreregistro">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
                 <ScalarProperty Name="tcambio" ColumnName="tcambio" />
                 <ScalarProperty Name="fin_reg" ColumnName="fin_reg" />
                 <ScalarProperty Name="ini_reg" ColumnName="ini_reg" />
@@ -1815,7 +1500,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_compania">
             <EntityTypeMapping TypeName="sicproModel.gr_compania">
               <MappingFragment StoreEntitySet="gr_compania">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
                 <ScalarProperty Name="rubro" ColumnName="rubro" />
                 <ScalarProperty Name="abrev_cia" ColumnName="abrev_cia" />
                 <ScalarProperty Name="cf" ColumnName="cf" />
@@ -1827,7 +1511,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_componente">
             <EntityTypeMapping TypeName="sicproModel.gr_componente">
               <MappingFragment StoreEntitySet="gr_componente">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="imgtoolb" ColumnName="imgtoolb" />
                 <ScalarProperty Name="toolb" ColumnName="toolb" />
                 <ScalarProperty Name="icono" ColumnName="icono" />
@@ -1843,7 +1526,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_contacto">
             <EntityTypeMapping TypeName="sicproModel.gr_contacto">
               <MappingFragment StoreEntitySet="gr_contacto">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="relacion" ColumnName="relacion" />
                 <ScalarProperty Name="id_per" ColumnName="id_per" />
@@ -1854,7 +1536,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_direccion">
             <EntityTypeMapping TypeName="sicproModel.gr_direccion">
               <MappingFragment StoreEntitySet="gr_direccion">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_emis" ColumnName="id_emis" />
                 <ScalarProperty Name="web" ColumnName="web" />
                 <ScalarProperty Name="casilla" ColumnName="casilla" />
@@ -1884,7 +1565,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_pass">
             <EntityTypeMapping TypeName="sicproModel.gr_pass">
               <MappingFragment StoreEntitySet="gr_pass">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_rol" ColumnName="id_rol" />
                 <ScalarProperty Name="logged" ColumnName="logged" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -1913,7 +1593,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="gr_tc">
             <EntityTypeMapping TypeName="sicproModel.gr_tc">
               <MappingFragment StoreEntitySet="gr_tc">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="tcambio" ColumnName="tcambio" />
                 <ScalarProperty Name="id_div" ColumnName="id_div" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
@@ -1923,7 +1602,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_anulada">
             <EntityTypeMapping TypeName="sicproModel.pr_anulada">
               <MappingFragment StoreEntitySet="pr_anulada">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_anulada" ColumnName="id_anulada" />
                 <ScalarProperty Name="anulada_por" ColumnName="anulada_por" />
                 <ScalarProperty Name="anulada_anio" ColumnName="anulada_anio" />
@@ -1939,7 +1617,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_calculo">
             <EntityTypeMapping TypeName="sicproModel.pr_calculo">
               <MappingFragment StoreEntitySet="pr_calculo">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="comision" ColumnName="comision" />
                 <ScalarProperty Name="formula" ColumnName="formula" />
                 <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
@@ -1950,7 +1627,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_cuotapoliza">
             <EntityTypeMapping TypeName="sicproModel.pr_cuotapoliza">
               <MappingFragment StoreEntitySet="pr_cuotapoliza">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="cuota_comicob" ColumnName="cuota_comicob" />
                 <ScalarProperty Name="cuota_pago" ColumnName="cuota_pago" />
                 <ScalarProperty Name="cuota_comis" ColumnName="cuota_comis" />
@@ -1966,7 +1642,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_devolucion">
             <EntityTypeMapping TypeName="sicproModel.pr_devolucion">
               <MappingFragment StoreEntitySet="pr_devolucion">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="comis_anio" ColumnName="comis_anio" />
                 <ScalarProperty Name="comis_mes" ColumnName="comis_mes" />
                 <ScalarProperty Name="banco" ColumnName="banco" />
@@ -1987,7 +1662,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_excluida">
             <EntityTypeMapping TypeName="sicproModel.pr_excluida">
               <MappingFragment StoreEntitySet="pr_excluida">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="anio_exclusion" ColumnName="anio_exclusion" />
                 <ScalarProperty Name="mes_exclusion" ColumnName="mes_exclusion" />
                 <ScalarProperty Name="comision_exclusion" ColumnName="comision_exclusion" />
@@ -2003,7 +1677,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_formriesgo">
             <EntityTypeMapping TypeName="sicproModel.pr_formriesgo">
               <MappingFragment StoreEntitySet="pr_formriesgo">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="form_riesgo2" ColumnName="form_riesgo2" />
                 <ScalarProperty Name="plus_neta" ColumnName="plus_neta" />
                 <ScalarProperty Name="por_cred" ColumnName="por_cred" />
@@ -2020,7 +1693,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_grupo">
             <EntityTypeMapping TypeName="sicproModel.pr_grupo">
               <MappingFragment StoreEntitySet="pr_grupo">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_gru" ColumnName="id_gru" />
                 <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
               </MappingFragment>
@@ -2029,7 +1701,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_liqrec">
             <EntityTypeMapping TypeName="sicproModel.pr_liqrec">
               <MappingFragment StoreEntitySet="pr_liqrec">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_suc" ColumnName="id_suc" />
                 <ScalarProperty Name="monto_liqb" ColumnName="monto_liqb" />
                 <ScalarProperty Name="monto_liqs" ColumnName="monto_liqs" />
@@ -2042,7 +1713,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_numaplicas">
             <EntityTypeMapping TypeName="sicproModel.pr_numaplicas">
               <MappingFragment StoreEntitySet="pr_numaplicas">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_mom" ColumnName="id_mom" />
                 <ScalarProperty Name="al" ColumnName="al" />
                 <ScalarProperty Name="del" ColumnName="del" />
@@ -2078,7 +1748,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_poliza">
             <EntityTypeMapping TypeName="sicproModel.pr_poliza">
               <MappingFragment StoreEntitySet="pr_poliza">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_suc" ColumnName="id_suc" />
                 <ScalarProperty Name="id_percart" ColumnName="id_percart" />
                 <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
@@ -2096,7 +1765,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_polmov">
             <EntityTypeMapping TypeName="sicproModel.pr_polmov">
               <MappingFragment StoreEntitySet="pr_polmov">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="id_mom" ColumnName="id_mom" />
                 <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
                 <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
@@ -2124,7 +1792,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_producto">
             <EntityTypeMapping TypeName="sicproModel.pr_producto">
               <MappingFragment StoreEntitySet="pr_producto">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
                 <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
@@ -2134,7 +1801,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_recibo">
             <EntityTypeMapping TypeName="sicproModel.pr_recibo">
               <MappingFragment StoreEntitySet="pr_recibo">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="cheq_sus" ColumnName="cheq_sus" />
                 <ScalarProperty Name="cheq_bs" ColumnName="cheq_bs" />
                 <ScalarProperty Name="cont_sus" ColumnName="cont_sus" />
@@ -2158,7 +1824,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="pr_riesgo">
             <EntityTypeMapping TypeName="sicproModel.pr_riesgo">
               <MappingFragment StoreEntitySet="pr_riesgo">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="cobertura" ColumnName="cobertura" />
                 <ScalarProperty Name="desc_riesgo" ColumnName="desc_riesgo" />
                 <ScalarProperty Name="cod_pol" ColumnName="cod_pol" />
@@ -2171,7 +1836,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="re_caso">
             <EntityTypeMapping TypeName="sicproModel.re_caso">
               <MappingFragment StoreEntitySet="re_caso">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="anio_recibo" ColumnName="anio_recibo" />
                 <ScalarProperty Name="id_recibo" ColumnName="id_recibo" />
                 <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
@@ -2195,7 +1859,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="re_histcaso">
             <EntityTypeMapping TypeName="sicproModel.re_histcaso">
               <MappingFragment StoreEntitySet="re_histcaso">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="obs_histcaso" ColumnName="obs_histcaso" />
                 <ScalarProperty Name="id_estca" ColumnName="id_estca" />
                 <ScalarProperty Name="fc_finestado" ColumnName="fc_finestado" />
@@ -2210,7 +1873,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="re_siniestro">
             <EntityTypeMapping TypeName="sicproModel.re_siniestro">
               <MappingFragment StoreEntitySet="re_siniestro">
-                <ScalarProperty Name="TRIAL363" ColumnName="TRIAL363" />
                 <ScalarProperty Name="fc_denuncia" ColumnName="fc_denuncia" />
                 <ScalarProperty Name="uniobj" ColumnName="uniobj" />
                 <ScalarProperty Name="id_uniobj" ColumnName="id_uniobj" />
@@ -2229,7 +1891,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
           <EntitySetMapping Name="co_sueldo">
             <EntityTypeMapping TypeName="sicproModel.co_sueldo">
               <MappingFragment StoreEntitySet="co_sueldo">
-                <ScalarProperty Name="TRIAL357" ColumnName="TRIAL357" />
                 <ScalarProperty Name="bono_anti" ColumnName="bono_anti" />
                 <ScalarProperty Name="basico_sueldo" ColumnName="basico_sueldo" />
                 <ScalarProperty Name="dias" ColumnName="dias" />
@@ -2239,10 +1900,19 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.pr_pagocompania' no tiene definid
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="gr_acceso">
+            <EntityTypeMapping TypeName="sicproModel.gr_acceso">
+              <MappingFragment StoreEntitySet="gr_acceso">
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+                <ScalarProperty Name="id_acc" ColumnName="id_acc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="pr_pagocompania">
             <EntityTypeMapping TypeName="sicproModel.pr_pagocompania">
               <MappingFragment StoreEntitySet="pr_pagocompania">
-                <ScalarProperty Name="TRIAL360" ColumnName="TRIAL360" />
                 <ScalarProperty Name="id_div" ColumnName="id_div" />
                 <ScalarProperty Name="comisaldo_pc" ColumnName="comisaldo_pc" />
                 <ScalarProperty Name="comision_spc" ColumnName="comision_spc" />

@@ -19,6 +19,5 @@ namespace EntidadesClases.ModelSicPro
         public double id_suc { get; set; }
         public string id_percart { get; set; }
         public Nullable<decimal> monto_proy { get; set; }
-        public string TRIAL357 { get; set; }
     }
 }

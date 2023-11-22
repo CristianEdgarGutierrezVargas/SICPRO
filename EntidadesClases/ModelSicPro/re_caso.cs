@@ -31,8 +31,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<System.DateTime> fc_reg { get; set; }
         public Nullable<double> id_recibo { get; set; }
         public Nullable<decimal> anio_recibo { get; set; }
-        public string TRIAL363 { get; set; }
-    
-        public virtual pr_poliza pr_poliza { get; set; }
     }
 }

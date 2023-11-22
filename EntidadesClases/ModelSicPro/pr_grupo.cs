@@ -16,6 +16,5 @@ namespace EntidadesClases.ModelSicPro
     {
         public string desc_grupo { get; set; }
         public decimal id_gru { get; set; }
-        public string TRIAL360 { get; set; }
     }
 }

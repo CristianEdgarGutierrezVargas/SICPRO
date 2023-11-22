@@ -23,7 +23,6 @@ namespace EntidadesClases.ModelSicPro
         public long id_producto { get; set; }
         public string desc_prod { get; set; }
         public string abrev_prod { get; set; }
-        public string TRIAL363 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pr_poliza> pr_poliza { get; set; }

@@ -19,8 +19,5 @@ namespace EntidadesClases.ModelSicPro
         public decimal del { get; set; }
         public decimal al { get; set; }
         public long id_mom { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        public virtual pr_polmov pr_polmov { get; set; }
     }
 }

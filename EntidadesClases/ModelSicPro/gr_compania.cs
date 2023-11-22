@@ -26,7 +26,6 @@ namespace EntidadesClases.ModelSicPro
         public decimal cf { get; set; }
         public string abrev_cia { get; set; }
         public string rubro { get; set; }
-        public string TRIAL357 { get; set; }
     
         public virtual gr_persona gr_persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

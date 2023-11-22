@@ -14,15 +14,6 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class pr_polmov
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pr_polmov()
-        {
-            this.pr_cuotapoliza = new HashSet<pr_cuotapoliza>();
-            this.pr_devolucion = new HashSet<pr_devolucion>();
-            this.pr_excluida = new HashSet<pr_excluida>();
-            this.pr_numaplicas = new HashSet<pr_numaplicas>();
-        }
-    
         public long id_poliza { get; set; }
         public long id_movimiento { get; set; }
         public string id_perejec { get; set; }
@@ -44,17 +35,5 @@ namespace EntidadesClases.ModelSicPro
         public System.DateTime fc_reg { get; set; }
         public string no_liquida { get; set; }
         public long id_mom { get; set; }
-        public string TRIAL363 { get; set; }
-    
-        public virtual gr_direccion gr_direccion { get; set; }
-        public virtual gr_persona gr_persona { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_cuotapoliza> pr_cuotapoliza { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_devolucion> pr_devolucion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_excluida> pr_excluida { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_numaplicas> pr_numaplicas { get; set; }
     }
 }

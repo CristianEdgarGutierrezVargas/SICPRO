@@ -19,7 +19,6 @@ namespace EntidadesClases.ModelSicPro
         {
             this.co_anticom = new HashSet<co_anticom>();
             this.gr_compania = new HashSet<gr_compania>();
-            this.pr_polmov = new HashSet<pr_polmov>();
             this.pr_poliza = new HashSet<pr_poliza>();
         }
     
@@ -40,8 +39,6 @@ namespace EntidadesClases.ModelSicPro
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<gr_compania> gr_compania { get; set; }
         public virtual gr_pass gr_pass { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_polmov> pr_polmov { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pr_poliza> pr_poliza { get; set; }
     }

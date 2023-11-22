@@ -19,6 +19,5 @@ namespace EntidadesClases.ModelSicPro
         public System.DateTime ini_reg { get; set; }
         public System.DateTime fin_reg { get; set; }
         public decimal tcambio { get; set; }
-        public string TRIAL357 { get; set; }
     }
 }

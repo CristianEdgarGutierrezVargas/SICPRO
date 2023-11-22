@@ -22,6 +22,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<System.DateTime> fc_finestado { get; set; }
         public double id_estca { get; set; }
         public string obs_histcaso { get; set; }
-        public string TRIAL363 { get; set; }
     }
 }

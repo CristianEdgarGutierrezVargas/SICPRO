@@ -18,7 +18,6 @@ namespace EntidadesClases.ModelSicPro
         public string id_spvs { get; set; }
         public string formula { get; set; }
         public Nullable<double> comision { get; set; }
-        public string TRIAL360 { get; set; }
     
         public virtual pr_riesgo pr_riesgo { get; set; }
     }

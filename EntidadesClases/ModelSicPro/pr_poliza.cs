@@ -14,12 +14,6 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class pr_poliza
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pr_poliza()
-        {
-            this.re_caso = new HashSet<re_caso>();
-        }
-    
         public long id_poliza { get; set; }
         public string num_poliza { get; set; }
         public long id_producto { get; set; }
@@ -31,11 +25,8 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<System.DateTime> fc_reg { get; set; }
         public string id_percart { get; set; }
         public Nullable<long> id_suc { get; set; }
-        public string TRIAL360 { get; set; }
     
         public virtual gr_persona gr_persona { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<re_caso> re_caso { get; set; }
         public virtual pr_producto pr_producto { get; set; }
     }
 }

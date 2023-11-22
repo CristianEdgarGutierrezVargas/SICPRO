@@ -27,7 +27,6 @@ namespace EntidadesClases.ModelSicPro
         public string cod_pol { get; set; }
         public string desc_riesgo { get; set; }
         public string cobertura { get; set; }
-        public string TRIAL363 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pr_calculo> pr_calculo { get; set; }

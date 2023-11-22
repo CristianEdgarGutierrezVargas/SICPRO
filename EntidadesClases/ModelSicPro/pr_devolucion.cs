@@ -28,8 +28,5 @@ namespace EntidadesClases.ModelSicPro
         public string banco { get; set; }
         public Nullable<decimal> comis_mes { get; set; }
         public Nullable<decimal> comis_anio { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        public virtual pr_polmov pr_polmov { get; set; }
     }
 }

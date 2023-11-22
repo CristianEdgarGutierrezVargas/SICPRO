@@ -20,6 +20,5 @@ namespace EntidadesClases.ModelSicPro
         public int id_suc { get; set; }
         public Nullable<decimal> monto_proy { get; set; }
         public Nullable<decimal> monto_cproy { get; set; }
-        public string TRIAL357 { get; set; }
     }
 }

@@ -17,6 +17,5 @@ namespace EntidadesClases.ModelSicPro
         public System.DateTime fecha { get; set; }
         public long id_div { get; set; }
         public Nullable<decimal> tcambio { get; set; }
-        public string TRIAL360 { get; set; }
     }
 }

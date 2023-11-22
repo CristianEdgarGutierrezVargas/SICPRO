@@ -20,7 +20,6 @@ namespace EntidadesClases.ModelSicPro
         public string login { get; set; }
         public Nullable<bool> logged { get; set; }
         public Nullable<decimal> id_rol { get; set; }
-        public string TRIAL360 { get; set; }
     
         public virtual gr_persona gr_persona { get; set; }
     }

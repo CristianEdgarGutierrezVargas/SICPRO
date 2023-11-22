@@ -31,6 +31,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> cont_sus { get; set; }
         public Nullable<decimal> cheq_bs { get; set; }
         public Nullable<decimal> cheq_sus { get; set; }
-        public string TRIAL363 { get; set; }
     }
 }

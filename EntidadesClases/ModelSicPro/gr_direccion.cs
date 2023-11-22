@@ -14,12 +14,6 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class gr_direccion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public gr_direccion()
-        {
-            this.pr_polmov = new HashSet<pr_polmov>();
-        }
-    
         public long id_dir { get; set; }
         public string id_per { get; set; }
         public string direccion { get; set; }
@@ -32,9 +26,5 @@ namespace EntidadesClases.ModelSicPro
         public string casilla { get; set; }
         public string web { get; set; }
         public decimal id_emis { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_polmov> pr_polmov { get; set; }
     }
 }

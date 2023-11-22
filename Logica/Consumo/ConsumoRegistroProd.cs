@@ -16,6 +16,8 @@ namespace Logica.Consumo
 
         private readonly Cgr_parametro _manejador_gr_parametro;
         private readonly Cgr_persona _manejador_gr_persona;
+        private readonly Cpr_grupo _manejador_pr_grupo;
+        private readonly Cpr_polmov _manejador_pr_polmov;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -24,6 +26,8 @@ namespace Logica.Consumo
             dbContext = new sicproEntities();
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
             _manejador_gr_persona = new Cgr_persona(dbContext);
+            _manejador_pr_grupo = new Cpr_grupo(dbContext);
+            _manejador_pr_polmov = new Cpr_polmov(dbContext);
         }
 
         #endregion
@@ -53,6 +57,63 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_gr_persona.ObtenerPersona(varbusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<gr_persona> ObtenerEjecutivoClientes()
+        {
+            try
+            {
+                return _manejador_gr_persona.ObtenerEjecutivoClientes();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region pr_grupo
+
+        public List<pr_grupo> ObtenerGrupo()
+        {
+            try
+            {
+                return _manejador_pr_grupo.ObtenerGrupo();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+
+        #endregion
+
+        #region pr_polmov
+
+        public List<gr_parametro> listas1()
+        {
+            try
+            {
+                return _manejador_pr_polmov.listas1();
             }
             catch (SecureExceptions secureException)
             {

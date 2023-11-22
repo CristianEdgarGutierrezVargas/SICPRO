@@ -23,6 +23,5 @@ namespace EntidadesClases.ModelSicPro
         public string icono { get; set; }
         public bool toolb { get; set; }
         public string imgtoolb { get; set; }
-        public string TRIAL360 { get; set; }
     }
 }

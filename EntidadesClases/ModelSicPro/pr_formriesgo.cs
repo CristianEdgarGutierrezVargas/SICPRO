@@ -24,7 +24,6 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> por_cred { get; set; }
         public Nullable<decimal> plus_neta { get; set; }
         public string form_riesgo2 { get; set; }
-        public string TRIAL360 { get; set; }
     
         public virtual gr_compania gr_compania { get; set; }
         public virtual pr_riesgo pr_riesgo { get; set; }

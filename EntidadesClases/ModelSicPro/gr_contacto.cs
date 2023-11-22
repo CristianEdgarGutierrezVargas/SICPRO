@@ -18,6 +18,5 @@ namespace EntidadesClases.ModelSicPro
         public string id_per { get; set; }
         public string relacion { get; set; }
         public Nullable<bool> activo { get; set; }
-        public string TRIAL360 { get; set; }
     }
 }

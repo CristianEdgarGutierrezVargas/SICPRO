@@ -23,8 +23,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> comision_exclusion { get; set; }
         public Nullable<decimal> mes_exclusion { get; set; }
         public Nullable<decimal> anio_exclusion { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        public virtual pr_polmov pr_polmov { get; set; }
     }
 }

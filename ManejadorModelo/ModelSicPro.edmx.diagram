@@ -5,57 +5,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="51a7f16a09f84dff8ec17efbf7ab92f2" Name="Diagram1">
-        <EntityTypeShape EntityType="sicproModel.co_anticom" Width="1.5" PointX="3" PointY="43.375" />
-        <EntityTypeShape EntityType="sicproModel.co_porcomi" Width="1.5" PointX="3" PointY="40.875" />
+        <EntityTypeShape EntityType="sicproModel.co_anticom" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="sicproModel.co_porcomi" Width="1.5" PointX="3" PointY="20.75" />
         <EntityTypeShape EntityType="sicproModel.co_presprod" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="sicproModel.co_proycartera" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_acceso" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="sicproModel.gr_cierreregistro" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_compania" Width="1.5" PointX="3" PointY="37" />
-        <EntityTypeShape EntityType="sicproModel.gr_componente" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.gr_compania" Width="1.5" PointX="3" PointY="17.125" />
+        <EntityTypeShape EntityType="sicproModel.gr_componente" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="sicproModel.gr_contacto" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_direccion" Width="1.5" PointX="0.75" PointY="14.875" />
-        <EntityTypeShape EntityType="sicproModel.gr_parametro" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_pass" Width="1.5" PointX="3" PointY="46.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_persona" Width="1.5" PointX="0.75" PointY="19.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_tc" Width="1.5" PointX="6.75" PointY="3.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_anulada" Width="1.5" PointX="6.75" PointY="6.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_calculo" Width="1.5" PointX="5.25" PointY="45.25" />
-        <EntityTypeShape EntityType="sicproModel.pr_cuotapoliza" Width="1.5" PointX="5.25" PointY="32.125" />
-        <EntityTypeShape EntityType="sicproModel.pr_devolucion" Width="1.5" PointX="5.25" PointY="14.25" />
-        <EntityTypeShape EntityType="sicproModel.pr_excluida" Width="1.5" PointX="5.25" PointY="25.125" />
-        <EntityTypeShape EntityType="sicproModel.pr_formriesgo" Width="1.5" PointX="5.25" PointY="36.625" />
-        <EntityTypeShape EntityType="sicproModel.pr_grupo" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_liqrec" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_numaplicas" Width="1.5" PointX="5.25" PointY="29" />
-        <EntityTypeShape EntityType="sicproModel.pr_pago" Width="1.5" PointX="8.75" PointY="4.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_poliza" Width="1.5" PointX="6" PointY="19.875" />
-        <EntityTypeShape EntityType="sicproModel.pr_polmov" Width="1.5" PointX="3" PointY="18.625" />
-        <EntityTypeShape EntityType="sicproModel.pr_producto" Width="1.5" PointX="3.75" PointY="10.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_recibo" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_riesgo" Width="1.5" PointX="3" PointY="33" />
-        <EntityTypeShape EntityType="sicproModel.re_caso" Width="1.5" PointX="8.25" PointY="19.5" />
-        <EntityTypeShape EntityType="sicproModel.re_histcaso" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="sicproModel.re_siniestro" Width="1.5" PointX="10.75" PointY="6.75" />
-        <EntityTypeShape EntityType="sicproModel.co_sueldo" Width="1.5" PointX="5.75" PointY="10.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_pagocompania" Width="1.5" PointX="5.25" PointY="40.875" />
+        <EntityTypeShape EntityType="sicproModel.gr_direccion" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.gr_parametro" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.gr_pass" Width="1.5" PointX="3" PointY="13.625" />
+        <EntityTypeShape EntityType="sicproModel.gr_persona" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="sicproModel.gr_tc" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_anulada" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_calculo" Width="1.5" PointX="5.25" PointY="25.375" />
+        <EntityTypeShape EntityType="sicproModel.pr_cuotapoliza" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_devolucion" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_excluida" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_formriesgo" Width="1.5" PointX="5.25" PointY="16.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_grupo" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_liqrec" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_numaplicas" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_pago" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_poliza" Width="1.5" PointX="6" PointY="10.375" />
+        <EntityTypeShape EntityType="sicproModel.pr_polmov" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_producto" Width="1.5" PointX="3.75" PointY="10.25" />
+        <EntityTypeShape EntityType="sicproModel.pr_recibo" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_riesgo" Width="1.5" PointX="3" PointY="24.125" />
+        <EntityTypeShape EntityType="sicproModel.re_caso" Width="1.5" PointX="10.75" PointY="14.75" />
+        <EntityTypeShape EntityType="sicproModel.re_histcaso" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="sicproModel.re_siniestro" Width="1.5" PointX="7.75" PointY="15.75" />
+        <EntityTypeShape EntityType="sicproModel.co_sueldo" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.gr_acceso" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_pagocompania" Width="1.5" PointX="5.25" PointY="20.75" />
         <AssociationConnector Association="sicproModel.fk_co_anticom" />
         <AssociationConnector Association="sicproModel.fk_comicio_persona" />
         <AssociationConnector Association="sicproModel.gr_compania_fk" />
         <AssociationConnector Association="sicproModel.pr_formriesgo_spvs_fk" />
         <AssociationConnector Association="sicproModel.pr_pagocompania_fk" />
-        <AssociationConnector Association="sicproModel.id_dir_polmov_fk" />
         <AssociationConnector Association="sicproModel.gr_pass_fk" />
-        <AssociationConnector Association="sicproModel.id_perejec_polmov_fk" />
         <AssociationConnector Association="sicproModel.pr_poliza_fk" />
         <AssociationConnector Association="sicproModel.pr_calculo_riesgo_fk" />
-        <AssociationConnector Association="sicproModel.pr_cuotapoliza_fk" />
-        <AssociationConnector Association="sicproModel.pr_devolucion_fk" />
-        <AssociationConnector Association="sicproModel.pr_excluida_fk" />
         <AssociationConnector Association="sicproModel.pr_formriesgo_riesgo_fk" />
-        <AssociationConnector Association="sicproModel.pr_numaplicas_fk" />
-        <AssociationConnector Association="sicproModel.fk_re_caso_pr_poliza" />
-        <AssociationConnector Association="sicproModel.pr_poliza_producto_fk" />
+        <AssociationConnector Association="sicproModel.FK_pr_poliza_pr_producto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

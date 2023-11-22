@@ -23,8 +23,5 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> cuota_comis { get; set; }
         public Nullable<decimal> cuota_pago { get; set; }
         public Nullable<decimal> cuota_comicob { get; set; }
-        public string TRIAL360 { get; set; }
-    
-        public virtual pr_polmov pr_polmov { get; set; }
     }
 }

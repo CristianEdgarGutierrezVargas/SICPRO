@@ -29,7 +29,6 @@ namespace ManejadorModelo
         public virtual DbSet<co_porcomi> co_porcomi { get; set; }
         public virtual DbSet<co_presprod> co_presprod { get; set; }
         public virtual DbSet<co_proycartera> co_proycartera { get; set; }
-        public virtual DbSet<gr_acceso> gr_acceso { get; set; }
         public virtual DbSet<gr_cierreregistro> gr_cierreregistro { get; set; }
         public virtual DbSet<gr_compania> gr_compania { get; set; }
         public virtual DbSet<gr_componente> gr_componente { get; set; }
@@ -58,6 +57,7 @@ namespace ManejadorModelo
         public virtual DbSet<re_histcaso> re_histcaso { get; set; }
         public virtual DbSet<re_siniestro> re_siniestro { get; set; }
         public virtual DbSet<co_sueldo> co_sueldo { get; set; }
+        public virtual DbSet<gr_acceso> gr_acceso { get; set; }
         public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
     }
 }

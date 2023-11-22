@@ -49,11 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDBSicPro\CAcceso.cs" />
+    <Compile Include="CDBSicPro\Cgr_compania.cs" />
     <Compile Include="CDBSicPro\Cgr_contactos.cs" />
     <Compile Include="CDBSicPro\Cgr_direccion.cs" />
     <Compile Include="CDBSicPro\Cgr_parametro.cs" />
     <Compile Include="CDBSicPro\Cgr_pass.cs" />
     <Compile Include="CDBSicPro\Cgr_persona.cs" />
+    <Compile Include="CDBSicPro\Cpr_polmov.cs" />
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
