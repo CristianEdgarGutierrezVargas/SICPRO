@@ -120,6 +120,19 @@ namespace ManejadorMetodos.CDBSicPro
         }
 
 
+        public List<gr_persona> ObtenerListaPersona()
+        {
+            try
+            {
+                var sql = _context.gr_persona.ToList();
+                return sql;
+                //string sql = "SELECT * FROM gr_persona";               
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
 
         public gr_persona ObtenerPersona(string varbusqueda)
         {

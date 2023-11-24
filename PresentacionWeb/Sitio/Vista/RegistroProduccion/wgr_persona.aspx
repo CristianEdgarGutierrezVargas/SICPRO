@@ -143,18 +143,40 @@
         </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modal_btnserper" tabindex="-1" aria-labelledby="Busca Persona" aria-hidden="true">
-  <div class="modal-dialog">
+<!-- Modal class="modal fade"-->
+<div  class="modal fade" id="modal_btnserper" tabindex="-1" aria-labelledby="Busca Persona" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <div class="modal-header" style="background-color:#0F5B96">
+        <h6 class="modal-title" id="exampleModalLabel">Busqueda de Persona por Nombre o Razón Social</h6>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body" style="color:#0F5B96">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" style="text-align:center">
+                <img src="../../../UI/img/search_user.png" width="48" height="48">               
+            </div>
+          </div>
+            <br />
+          <div class="row">
+            <div class="col-md-12">
+                <dx:ASPxGridView ID="grdPersonas" KeyFieldName="id_per" runat="server" Width="100%" OnDataBinding="grdPersonas_DataBinding" OnRowCommand="gv_RowCommand">
+                    <Columns>     
+                         <dx:GridViewDataTextColumn FieldName="id_per" Caption ="Opciones" VisibleIndex="3">
+                            <DataItemTemplate>
+                                <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar"></dx:ASPxButton>
+                            </DataItemTemplate>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="nomraz" />   
+                    </Columns>
+                     <SettingsSearchPanel Visible="true"/>
+                </dx:ASPxGridView>
+            </div>
+          </div>         
+        </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" >
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>

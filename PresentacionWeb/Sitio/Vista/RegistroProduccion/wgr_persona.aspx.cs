@@ -1,4 +1,7 @@
 ﻿using Common;
+using DevExpress.Web.Rendering;
+using DevExpress.Web;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
@@ -71,6 +74,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_emis.DataValueField = "id_par";
             cmb_id_emis.DataValueField = "desc_param";
             cmb_id_emis.DataBind();
+
+            var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();
+            grdPersonas.DataSource = lstPersonas;
+            Session["LST_PERSONAS"] = lstPersonas;
+            grdPersonas.DataBind();
         }
 
         private void LimpiarFormulario()
@@ -141,6 +149,40 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Sitio/Vista/Default.aspx");
+        }
+
+        protected void grdPersonas_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<gr_persona>)Session["LST_PERSONAS"];
+
+            if (lstData != null)
+            {
+                grdPersonas.DataSource = lstData;
+            }
+        }
+
+        protected void Select_Click(object sender, EventArgs e)
+        {
+            //LinkButton link = sender as LinkButton;
+            //if (link == null) return;
+            //GridViewDataItemTemplateContainer container = link.Parent as GridViewDataItemTemplateContainer;
+            //if (container == null) return;
+            //GridViewTableDataCell dataCell = container.Parent as GridViewTableDataCell;
+            //if (dataCell == null) return;
+            //GridViewTableDataRow row = dataCell.Parent as GridViewTableDataRow;
+            //if (row == null) return;
+            //var gridview = (ASPxGridView)row.Parent.Parent.Parent.Parent.Parent.Parent;
+            //gridview.Selection.UnselectAll();
+            //gridview.Selection.SelectRow(row.VisibleIndex);
+        }
+
+        protected void gv_RowCommand(object sender, ASPxGridViewRowCommandEventArgs e)
+        {
+            ASPxGridView grid = (ASPxGridView)sender;
+            object id = e.KeyValue;
+            //Delete record using data adapter or some other ORM 
+            // Delete from users where userid=id
+            //https://supportcenter.devexpress.com/Ticket/Details/Q494995/fields-value-in-aspxgridview-on-row-command
         }
     }
 }

@@ -68,6 +68,22 @@ namespace Logica.Consumo
             }
         }
 
+        public List<gr_persona> ObtenerListaPersona()
+        {
+            try
+            {
+                return _manejador_gr_persona.ObtenerListaPersona();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public List<gr_persona> ObtenerEjecutivoClientes()
         {
             try
