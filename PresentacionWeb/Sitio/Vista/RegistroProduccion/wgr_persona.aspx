@@ -48,9 +48,8 @@
                                             <td>
                                                 &nbsp;<span id="ctl00_cpmaster_Label1">Sucursal :</span>
                                             </td>
-                                            <td>    
-                                                <asp:DropDownList ID="cmb_id_suc" runat="server">
-                                                </asp:DropDownList>                                               
+                                            <td>                                                   
+                                                <dx:ASPxComboBox ID="cmb_id_suc" runat="server" ValueType="System.Int32" Width="100%"></dx:ASPxComboBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -58,7 +57,7 @@
                                                 <span id="ctl00_cpmaster_lbltipoper">Tipo de Persona :</span>
                                             </td>
                                                 <td style="height: 18px">
-                                                  <asp:DropDownList ID="cmb_tper" runat="server"></asp:DropDownList>
+                                                    <dx:ASPxComboBox ID="cmb_tper" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
                                                 </td>
                                         </tr>
                                         <tr>
@@ -73,26 +72,26 @@
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblsal">Salutación Personal :</span></td>
                                             <td>                                                
-                                                <asp:DropDownList ID="cmb_id_sal" runat="server"></asp:DropDownList>
+                                                <dx:ASPxComboBox ID="cmb_id_sal" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblrol">Tipo de Rol :</span></td>
                                             <td>          
-                                                <asp:DropDownList ID="cmb_id_rol" runat="server"></asp:DropDownList>
+                                                <dx:ASPxComboBox ID="cmb_id_rol" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
                                             </td>
 
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lbltipodoc">Tipo de Documento :</span></td>
                                             <td>
-                                                <asp:DropDownList ID="cmb_tipodoc" runat="server"></asp:DropDownList>
+                                                <dx:ASPxComboBox ID="cmb_tipodoc" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblldoc">Emisión del Documento :</span></td>
                                             <td>                                                
-                                                <asp:DropDownList ID="cmb_id_emis" runat="server"></asp:DropDownList>
+                                                <dx:ASPxComboBox ID="cmb_id_emis" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr>
@@ -161,16 +160,21 @@
             <br />
           <div class="row">
             <div class="col-md-12">
-                <dx:ASPxGridView ID="grdPersonas" KeyFieldName="id_per" runat="server" Width="100%" OnDataBinding="grdPersonas_DataBinding" OnRowCommand="gv_RowCommand">
+               
+                <dx:ASPxGridView ID="grdPersonas" KeyFieldName="id_per" runat="server" Width="100%"
+                    OnSearchPanelEditorCreate="Grid_SearchPanelEditorCreate"
+                    OnDataBinding="grdPersonas_DataBinding" OnRowCommand="gv_RowCommand" OnPageIndexChanged="grdPersonas_PageIndexChanged">
                     <Columns>     
-                         <dx:GridViewDataTextColumn FieldName="id_per" Caption ="Opciones" VisibleIndex="3">
+                         <dx:GridViewDataTextColumn FieldName="id_per" Caption ="Opciones" VisibleIndex="0">
                             <DataItemTemplate>
                                 <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar"></dx:ASPxButton>
                             </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="nomraz" />   
+                        <dx:GridViewDataTextColumn FieldName="nomraz" Caption="Nombre o Razon Social" />   
                     </Columns>
-                     <SettingsSearchPanel Visible="true"/>
+                     <SettingsSearchPanel Visible="true" ColumnNames="nomraz" ShowApplyButton="True" ShowClearButton="True"/>
+                    <SettingsPager Mode="ShowPager" PageSize="10" />
+                    <%--<SettingsSearchPanel CustomEditorID="ASPxTextBox1" />--%>
                 </dx:ASPxGridView>
             </div>
           </div>         

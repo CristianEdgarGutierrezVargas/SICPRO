@@ -1,4 +1,5 @@
 ﻿using Common;
+using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
@@ -16,6 +17,7 @@ namespace Logica.Consumo
 
         private readonly Cgr_parametro _manejador_gr_parametro;
         private readonly Cgr_persona _manejador_gr_persona;
+        private readonly Cgr_direccion _manejador_gr_direccion;
         private readonly Cpr_grupo _manejador_pr_grupo;
         private readonly Cpr_polmov _manejador_pr_polmov;
 
@@ -26,8 +28,9 @@ namespace Logica.Consumo
             dbContext = new sicproEntities();
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
             _manejador_gr_persona = new Cgr_persona(dbContext);
+            _manejador_gr_direccion = new Cgr_direccion(dbContext);
             _manejador_pr_grupo = new Cpr_grupo(dbContext);
-            _manejador_pr_polmov = new Cpr_polmov(dbContext);
+            _manejador_pr_polmov = new Cpr_polmov(dbContext);            
         }
 
         #endregion
@@ -99,6 +102,43 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        #endregion
+
+        #region gr_direccion
+
+        public List<OC_DIRECCION_PARAMETRO> ObtenerListaDireccion(string varBusqueda)
+        {
+            try
+            {
+                return _manejador_gr_direccion.ObtenerListaDireccion(varBusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public gr_direccion ObtenerDireccion(long varBusqueda)
+        {
+            try
+            {
+                return _manejador_gr_direccion.ObtenerDireccion(varBusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
 
         #endregion
 

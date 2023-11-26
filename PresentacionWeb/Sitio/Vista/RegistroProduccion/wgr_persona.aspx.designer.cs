@@ -39,7 +39,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_id_suc;
+        protected global::DevExpress.Web.ASPxComboBox cmb_id_suc;
 
         /// <summary>
         /// Control cmb_tper.
@@ -48,7 +48,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_tper;
+        protected global::DevExpress.Web.ASPxComboBox cmb_tper;
 
         /// <summary>
         /// Control fechaNacimiento.
@@ -66,7 +66,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_id_sal;
+        protected global::DevExpress.Web.ASPxComboBox cmb_id_sal;
 
         /// <summary>
         /// Control cmb_id_rol.
@@ -75,7 +75,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_id_rol;
+        protected global::DevExpress.Web.ASPxComboBox cmb_id_rol;
 
         /// <summary>
         /// Control cmb_tipodoc.
@@ -84,7 +84,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_tipodoc;
+        protected global::DevExpress.Web.ASPxComboBox cmb_tipodoc;
 
         /// <summary>
         /// Control cmb_id_emis.
@@ -93,7 +93,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_id_emis;
+        protected global::DevExpress.Web.ASPxComboBox cmb_id_emis;
 
         /// <summary>
         /// Control nit_fac.

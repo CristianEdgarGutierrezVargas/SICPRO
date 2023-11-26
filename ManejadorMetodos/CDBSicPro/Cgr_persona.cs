@@ -134,6 +134,67 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        private List<gr_persona> ObtenerListaPersonaByNombre(string strNombre)
+        {
+            try
+            {
+               
+
+                var sql = _context.gr_persona.Where(w=>w.nomraz.ToUpper().Contains(strNombre.ToUpper())).ToList();
+                return sql;
+                //string sql = "SELECT * FROM gr_persona";               
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        private List<gr_persona> GetPersonaPaginacion(string strNombre)
+        {
+            //We want to display 4 Records Per page
+            int RecordsPerPage = 500;
+            //Set the Initial Page Number as 0
+            int PageNumber = 0;
+
+            do
+            {
+                Console.WriteLine("\nEnter the Page Number Between 1 and 4");
+                //Read the Value and if its integer type, then store that value in the PageNumber variable
+                if (int.TryParse(Console.ReadLine(), out PageNumber))
+                {
+                    //Check if PageNumber is > 0 and < 5
+                    if (PageNumber > 0 && PageNumber < 5)
+                    {
+                        var sql = _context.gr_persona.Where(w => w.nomraz.ToUpper().Contains(strNombre.ToUpper()))
+                            .Skip((PageNumber - 1) * RecordsPerPage) //Skip Logic
+                            .Take(RecordsPerPage) //Take Logic
+                            .ToList();
+                        return sql;
+
+                        ////Logic to Implement Paging
+                        //var employees = Employee.GetAllEmployees() //Data Source
+                        //            .Skip((PageNumber - 1) * RecordsPerPage) //Skip Logic
+                        //            .Take(RecordsPerPage).ToList(); //Take Logic
+
+                        //foreach (var emp in employees)
+                        //{
+                        //    Console.WriteLine($"ID : {emp.ID}, Name : {emp.Name}, Department : {emp.Department}");
+                        //}
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nPlease Enter a Valid Page Number");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nPlease Enter a Valid Page Number");
+                }
+            } while (true);
+        }
+
+
         public gr_persona ObtenerPersona(string varbusqueda)
         {
             try

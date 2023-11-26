@@ -1,21 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wgr_direccion.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wgr_direccion" %>
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-    <div id="content">
+
             <div class="post">
-                <div>
-                    
+                <div>                    
 
                 <script type="text/javascript" src="scripts/fieldScripts.js"></script>
 
                 <div class="post">
-                    <script type="text/javascript">
-            //<![CDATA[
-            Sys.WebForms.PageRequestManager._initialize('ctl00$cpmaster$smcontrol', document.getElementById('aspnetForm'));
-            Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$cpmaster$panel'], [], [], 90);
-            //]]>
-                    </script>
 
                     <div id="ctl00_cpmaster_panel">
 	
@@ -38,13 +34,13 @@
                                                 &nbsp;
                                             </td>
                                             <td style="height: 18px; width: 200px;">
-                                                <input type="hidden" name="ctl00$cpmaster$id_dir" id="ctl00_cpmaster_id_dir">
+                                                <input type="text" name="ctl00$cpmaster$id_dir" id="ctl00_cpmaster_id_dir">
                                             </td>
                                             <td style="width: 70px; height: 18px">
-                                                <input type="hidden" name="ctl00$cpmaster$id_per" id="ctl00_cpmaster_id_per" value="4546936">
+                                               
                                             </td>
                                             <td style="width: 4px; height: 18px">
-                                                &nbsp;
+                                                 <input type="text" name="ctl00$cpmaster$id_per" id="ctl00_cpmaster_id_per" value="4546936">
                                             </td>
                                         </tr>
                                         <tr>
@@ -52,7 +48,7 @@
                                                 <span id="ctl00_cpmaster_lblcontraseña">Dirección :</span>
                                             </td>
                                             <td style="width: 200px">
-                                                <input name="ctl00$cpmaster$direccion" type="text" id="ctl00_cpmaster_direccion" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:200px;">
+                                                <dx:ASPxTextBox ID="direccion" runat="server" Width="100%"></dx:ASPxTextBox>  
                                             </td>
                                             <td style="width: 70px">
                                                 &nbsp;
@@ -65,14 +61,14 @@
                                             <td style="height: 24px; width: 70px;">
                                                 <span id="ctl00_cpmaster_Label1">Tipo :</span>
                                             </td>
-                                            <td style="height: 24px; width: 200px;">                                                
-                                                <asp:DropDownList ID="cmb_tpdir" runat="server"></asp:DropDownList>                                          
+                                            <td style="height: 24px; width: 200px;">     
+                                                <dx:ASPxComboBox ID="cmb_tpdir" runat="server" ValueType="System.Int32" Width="100%"></dx:ASPxComboBox>
                                             </td>
                                             <td style="width: 70px; height: 24px">
                                                 <span id="ctl00_cpmaster_Label9">Lugar :</span>
                                             </td>
                                             <td style="width: 4px; height: 24px">
-                                                <asp:DropDownList ID="cmb_id_emis" runat="server"></asp:DropDownList>
+                                                <dx:ASPxComboBox ID="cmb_id_emis" runat="server" ValueType="System.Int32" Width="100%"></dx:ASPxComboBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -80,13 +76,13 @@
                                                 <span id="ctl00_cpmaster_Label2">Teléfono :</span>
                                             </td>
                                             <td style="width: 200px">
-                                                <input name="ctl00$cpmaster$telf_dir" type="text" id="ctl00_cpmaster_telf_dir" onkeydown="return dFilter (event.keyCode, this, '########');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:100px;">
+                                                <dx:ASPxTextBox ID="telf_dir" runat="server" Width="100%"></dx:ASPxTextBox>                                                  
                                             </td>
                                             <td style="width: 70px">
                                                 <span id="ctl00_cpmaster_Label3">N° Interno :</span>
                                             </td>
                                             <td style="width: 4px">
-                                                <input name="ctl00$cpmaster$int_dire" type="text" id="ctl00_cpmaster_int_dire" onkeydown="return dFilter (event.keyCode, this, '####');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:100px;">
+                                                <dx:ASPxTextBox ID="int_dire" runat="server" Width="100%"></dx:ASPxTextBox>                                                  
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,13 +90,13 @@
                                                 <span id="ctl00_cpmaster_Label4">Celular :</span>
                                             </td>
                                             <td style="width: 200px">
-                                                <input name="ctl00$cpmaster$telf_cel" type="text" id="ctl00_cpmaster_telf_cel" onkeydown="return dFilter (event.keyCode, this, '#########');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:100px;">
+                                                <dx:ASPxTextBox ID="telf_cel" runat="server" Width="100%"></dx:ASPxTextBox>                                                 
                                             </td>
                                             <td style="width: 70px">
                                                 <span id="ctl00_cpmaster_Label5">Fax :</span>
                                             </td>
                                             <td style="width: 4px">
-                                                <input name="ctl00$cpmaster$telf_fax" type="text" id="ctl00_cpmaster_telf_fax" onkeydown="return dFilter (event.keyCode, this, '#########');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:100px;">
+                                                <dx:ASPxTextBox ID="telf_fax" runat="server" Width="100%"></dx:ASPxTextBox>                                                  
                                             </td>
                                         </tr>
                                         <tr>
@@ -108,13 +104,13 @@
                                                 <span id="ctl00_cpmaster_Label6">E-Mail :</span>
                                             </td>
                                             <td style="width: 200px">
-                                                <input name="ctl00$cpmaster$email" type="text" id="ctl00_cpmaster_email" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:200px;">
+                                                <dx:ASPxTextBox ID="email" runat="server" Width="100%"></dx:ASPxTextBox>                                                  
                                             </td>
                                             <td style="width: 70px">
                                                 <span id="ctl00_cpmaster_Label7">N° Casilla :</span>
                                             </td>
                                             <td style="width: 4px">
-                                                <input name="ctl00$cpmaster$casilla" type="text" id="ctl00_cpmaster_casilla" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:100px;">
+                                                <dx:ASPxTextBox ID="casilla" runat="server" Width="100%"></dx:ASPxTextBox>                                                 
                                             </td>
                                         </tr>
                                         <tr>
@@ -122,7 +118,7 @@
                                                 <span id="ctl00_cpmaster_Label8">Sitio Web :</span>
                                             </td>
                                             <td style="width: 200px">
-                                                <input name="ctl00$cpmaster$web" type="text" id="ctl00_cpmaster_web" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:200px;">
+                                                <dx:ASPxTextBox ID="web" runat="server" Width="100%"></dx:ASPxTextBox>                                                  
                                             </td>
                                             <td style="width: 70px">
                                                 &nbsp;
@@ -133,36 +129,39 @@
                                         </tr>
                                         <tr>
                                             <td colspan="4" align="center" style="height: 22px">
-                                                <input type="submit" name="ctl00$cpmaster$btnpersona" value="Persona" id="ctl00_cpmaster_btnpersona" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                                    
-                                                <input type="submit" name="ctl00$cpmaster$btnguardar" value="Guardar" id="ctl00_cpmaster_btnguardar" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                                    
-                                    
-                                                <input type="submit" name="ctl00$cpmaster$Button1" value="  Salir  " id="ctl00_cpmaster_Button1" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                                               
+                                                <dx:ASPxButton ID="btnPersona" runat="server" Text="Persona" CssClass="msg_button_class" OnClick="btnPersona_Click"></dx:ASPxButton>
+                                           
+                                                <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
+
+                                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click"></dx:ASPxButton>
+                                                             
+                                                <dx:ASPxButton ID="btnContactos" runat="server" Text="Contactos" CssClass="msg_button_class" OnClick="btnContactos_Click"></dx:ASPxButton>
+
+                                                <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
+
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" colspan="4" style="height: 22px">
                                                 <div class="gridcontainer" style="width: 500px">
                                                     <div>
-		            <table class="grid" cellspacing="0" cellpadding="0" rules="all" border="1" id="ctl00_cpmaster_grddireccion" style="width:500px;border-collapse:collapse;">
-			            <caption>
-				            Lista de Direcciones
-			            </caption><tbody><tr>
-				            <th align="center" scope="col">&nbsp;</th><th align="center" scope="col">Código</th><th align="center" scope="col">Dirección</th><th align="center" scope="col">Descripción</th>
-			            </tr><tr onmouseout="this.className = this.orignalclassName;" onmouseover="this.orignalclassName = this.className;this.className = 'altoverow';" class="">
-				            <td style="width:25px;">
-                                                                    <input type="image" name="ctl00$cpmaster$grddireccion$ctl02$img1" id="ctl00_cpmaster_grddireccion_ctl02_img1" title="Seleccionar Registro" src="images/front.png" style="background-color:Transparent;height:20px;width:20px;border-width:0px;">
-                                                                </td><td align="center" style="width:80px;">
-                                                                    <span id="ctl00_cpmaster_grddireccion_ctl02_id_dir">3009</span>
-                                                                </td><td align="left" style="width:300px;">
-                                                                    <span id="ctl00_cpmaster_grddireccion_ctl02_direccion">CAPCEM</span>
-                                                                </td><td align="left" style="width:100px;">
-                                                                    <span id="ctl00_cpmaster_grddireccion_ctl02_desc_param">TRABAJO</span>
-                                                                </td>
-			            </tr>
-		            </tbody></table>
-	            </div>
+                                                         <dx:ASPxGridView ID="grdDirecciones" KeyFieldName="id_dir" runat="server" Width="100%"
+                                                            OnDataBinding="grdDirecciones_DataBinding" OnRowCommand="grdDirecciones_RowCommand">
+                                                             <Columns>     
+                                                                  <dx:GridViewDataTextColumn FieldName="id_dir" Caption ="Opciones" VisibleIndex="0">
+                                                                     <DataItemTemplate>
+                                                                         <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar"></dx:ASPxButton>
+                                                                     </DataItemTemplate>
+                                                                 </dx:GridViewDataTextColumn>
+                                                                 <dx:GridViewDataTextColumn FieldName="id_dir" Caption="Codigo" />  
+                                                                 <dx:GridViewDataTextColumn FieldName="direccion" Caption="Direccion"/>  
+                                                                 <dx:GridViewDataTextColumn FieldName="desc_param" Caption="Descripcion"/>  
+                                                             </Columns>
+                                                              <SettingsPager Mode="ShowPager" PageSize="10" />
+                                                         </dx:ASPxGridView>
+	                                                </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -171,7 +170,8 @@
                             </div>
                             <p class="links">
                                 <a class="error">
-                                    <span id="ctl00_cpmaster_lblmensaje" class="error">Error al Generar la Consulta</span></a>
+                                    <asp:Label ID="lblmensaje" runat="server" Text="Error al Generar la Consulta" CssClass="error"></asp:Label>  
+                                </a>
                             </p>
             
             </div>
@@ -179,5 +179,5 @@
 
                 </div>
             </div>
-        </div>
+
 </asp:Content>
