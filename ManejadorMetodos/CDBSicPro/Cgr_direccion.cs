@@ -120,6 +120,64 @@ namespace ManejadorMetodos.CDBSicPro
         //    }
         //}
 
+        public gr_direccion InsertarDireccion(gr_direccion objDireccion)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.gr_direccion.Add(objDireccion);
+                    _context.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return objDireccion;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return null;
+                }
+            }
+        }
+
+        public bool ModificarDireccion(gr_direccion objDireccion)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.gr_direccion.Where(w => w.id_dir == objDireccion.id_dir).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        sql.direccion = objDireccion.direccion;
+                        sql.id_tpdir = objDireccion.id_tpdir;
+                        sql.telf_dir = objDireccion.telf_dir;
+                        sql.int_dire = objDireccion.int_dire;
+                        sql.telf_cel = objDireccion.telf_cel;
+
+                        sql.telf_fax = objDireccion.telf_fax;
+                        sql.email = objDireccion.email;
+                        sql.casilla = objDireccion.casilla;
+                        sql.web = objDireccion.web;
+                        sql.id_emis = objDireccion.id_emis;
+                                                                        
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
 
     }
 }

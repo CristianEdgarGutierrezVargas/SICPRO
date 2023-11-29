@@ -63,7 +63,7 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        public bool InsertarPersona(gr_persona objPersona)
+        public gr_persona InsertarPersona(gr_persona objPersona)
         {
             using (var dbContextTransaction = _context.Database.BeginTransaction())
             {
@@ -72,12 +72,12 @@ namespace ManejadorMetodos.CDBSicPro
                     var sql = _context.gr_persona.Add(objPersona);
                     _context.SaveChanges();
                     dbContextTransaction.Commit();
-                    return true;
+                    return objPersona;
                 }
                 catch (Exception ex)
                 {
                     dbContextTransaction.Rollback();
-                    return false;
+                    return null;
                 }
             }
         }
@@ -200,7 +200,7 @@ namespace ManejadorMetodos.CDBSicPro
             try
             {
 
-                var sql = _context.gr_persona.Where(w=>w.id_per == varbusqueda).ToList();
+                var sql = _context.gr_persona.Where(w=>w.id_per.TrimStart().TrimEnd() == varbusqueda.TrimStart().TrimEnd()).ToList();
 
                 if (sql.Count > 0)
                 {

@@ -25,7 +25,11 @@
 
                                             <span id="ctl00_cpmaster_lblcodigo">Documento Identificación :</span></td>
                                             <td style="height: 18px">
-                                                <dx:ASPxTextBox ID="id_per" runat="server" Width="100%"></dx:ASPxTextBox>                                                
+                                                <dx:ASPxTextBox ID="id_per" runat="server" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_persona">
+                                                        <RequiredField ErrorText="Este campo es requerido" IsRequired="True"></RequiredField>
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>                                                
                                             </td>
                                              <td style="height: 18px">
                                                 <span id="lblid">(C.I, NIT, otros)</span>
@@ -36,7 +40,11 @@
                                                 <span id="ctl00_cpmaster_lblnombre">Nombre o Razon Social :</span>
                                             </td>
                                             <td id="btnper">                                                
-                                                <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%"></dx:ASPxTextBox>  
+                                                <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_persona">
+                                                        <RequiredField ErrorText="Este campo es requerido" IsRequired="True"></RequiredField>
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>  
                                             </td>
                                              <td >    
                                                  <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
@@ -49,7 +57,11 @@
                                                 &nbsp;<span id="ctl00_cpmaster_Label1">Sucursal :</span>
                                             </td>
                                             <td>                                                   
-                                                <dx:ASPxComboBox ID="cmb_id_suc" runat="server" ValueType="System.Int32" Width="100%"></dx:ASPxComboBox>
+                                                <dx:ASPxComboBox ID="cmb_id_suc" runat="server" ValueType="System.Int32" Width="100%" NullText="Seleccione.....">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                    </ValidationSettings>
+                                                </dx:ASPxComboBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -57,7 +69,11 @@
                                                 <span id="ctl00_cpmaster_lbltipoper">Tipo de Persona :</span>
                                             </td>
                                                 <td style="height: 18px">
-                                                    <dx:ASPxComboBox ID="cmb_tper" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
+                                                    <dx:ASPxComboBox ID="cmb_tper" runat="server" ValueType="System.Int64" Width="100%">
+                                                        <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                        </ValidationSettings>
+                                                    </dx:ASPxComboBox>                                           
                                                 </td>
                                         </tr>
                                         <tr>
@@ -66,32 +82,59 @@
                                             </td>
                                             <td style="height: 24px">
                                                                                                                  
-                                                <dx:ASPxDateEdit ID="fechaNacimiento" runat="server"></dx:ASPxDateEdit>
+                                                <dx:ASPxDateEdit ID="fechaNacimiento" ClientInstanceName="fechaNacimiento" runat="server">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_persona">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                        <RequiredField ErrorText="Este campo es requerido" IsRequired="true"  />  
+                                                    </ValidationSettings>  
+                                                    <ClientSideEvents Init="function(s,e){  
+                                                                               var dt1 = new Date();  
+                                                                               var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                               var dt3 = new Date(dt1.getFullYear() - 100, dt1.getMonth(), dt1.getDate());  
+                                                                               fechaNacimiento.SetMinDate(new Date(dt3));  
+                                                                               fechaNacimiento.SetMaxDate(new Date(dt2));  
+                                                                            }" />  
+                                                </dx:ASPxDateEdit>
                                             </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblsal">Salutación Personal :</span></td>
                                             <td>                                                
-                                                <dx:ASPxComboBox ID="cmb_id_sal" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
+                                                <dx:ASPxComboBox ID="cmb_id_sal" runat="server" ValueType="System.Int64" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                    </ValidationSettings>
+                                                </dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblrol">Tipo de Rol :</span></td>
                                             <td>          
-                                                <dx:ASPxComboBox ID="cmb_id_rol" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
+                                                <dx:ASPxComboBox ID="cmb_id_rol" runat="server" ValueType="System.Int64" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                    </ValidationSettings>
+                                                </dx:ASPxComboBox>                                           
                                             </td>
 
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lbltipodoc">Tipo de Documento :</span></td>
                                             <td>
-                                                <dx:ASPxComboBox ID="cmb_tipodoc" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
+                                                <dx:ASPxComboBox ID="cmb_tipodoc" runat="server" ValueType="System.Int64" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                    </ValidationSettings>
+                                                </dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr><td>
                                                 <span id="ctl00_cpmaster_lblldoc">Emisión del Documento :</span></td>
                                             <td>                                                
-                                                <dx:ASPxComboBox ID="cmb_id_emis" runat="server" ValueType="System.Int64" Width="100%"></dx:ASPxComboBox>                                           
+                                                <dx:ASPxComboBox ID="cmb_id_emis" runat="server" ValueType="System.Int64" Width="100%">
+                                                    <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_persona" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                                    </ValidationSettings>
+                                                </dx:ASPxComboBox>                                           
                                             </td>
                                         </tr>
                                         <tr>
@@ -99,14 +142,18 @@
                                                 <span id="ctl00_cpmaster_lblnit">Datos de Facturación :</span>
                                             </td>
                                             <td>
-                                                <dx:ASPxTextBox ID="nit_fac" runat="server" Width="170px"></dx:ASPxTextBox>                                                
+                                                <dx:ASPxTextBox ID="nit_fac" runat="server" Width="100%">
+                                                     <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_persona">
+                                                         <RequiredField ErrorText="Este campo es requerido" IsRequired="True"></RequiredField>
+                                                     </ValidationSettings>
+                                                </dx:ASPxTextBox>                                                
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" align="center">
                                                 <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
 
-                                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click" ValidationGroup="form_wgr_persona"></dx:ASPxButton>
 
                                                 <dx:ASPxButton ID="btnDirecciones" runat="server" Text="Direcciones" CssClass="msg_button_class" OnClick="btnDirecciones_Click"></dx:ASPxButton>
                                            
