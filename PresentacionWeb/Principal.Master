@@ -56,7 +56,10 @@
                             </asp:MenuItem>
                             <asp:MenuItem Text="Modulo de Reclamos" Value="Modulo de Reclamos"></asp:MenuItem>
                             <asp:MenuItem Text="Reportes de Sistema" Value="Reportes de Sistema"></asp:MenuItem>
-                            <asp:MenuItem Text="Configuracion del Sistema" Value="Configuracion del Sistema"></asp:MenuItem>
+                            <asp:MenuItem Text="Configuracion del Sistema" Value="Configuracion del Sistema">
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_respass.aspx" Text="Reiniciar Contrasena" Value="Reiniciar Contrasena"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_passnuevo.aspx" Text="Registro de Nuevos Usuarios" Value="Registro de Nuevos Usuarios"></asp:MenuItem>
+                            </asp:MenuItem>
                             <asp:MenuItem Text="Opciones del Sistema" Value="Opciones del Sistema">
                                 </asp:MenuItem>
                         </Items>

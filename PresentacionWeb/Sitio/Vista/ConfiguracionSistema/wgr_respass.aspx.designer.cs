@@ -7,56 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentacionWeb
+namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 {
 
 
-    public partial class Principal
+    public partial class wgr_respass
     {
 
         /// <summary>
-        /// head control.
+        /// msgboxpanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Panel msgboxpanel;
 
         /// <summary>
-        /// form1 control.
+        /// id_per control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList id_per;
 
         /// <summary>
-        /// MasterAjaxScript control.
+        /// btnguardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager MasterAjaxScript;
+        protected global::System.Web.UI.WebControls.Button btnguardar;
 
         /// <summary>
-        /// Menu1 control.
+        /// lblmensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
-
-        /// <summary>
-        /// ContentPlaceHolderPrincipal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderPrincipal;
+        protected global::System.Web.UI.WebControls.Label lblmensaje;
     }
 }
