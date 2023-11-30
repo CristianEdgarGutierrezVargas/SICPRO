@@ -55,6 +55,38 @@ namespace Logica.Consumo
         #endregion
 
         #region gr_persona
+        public gr_persona InsertarPersona(gr_persona objPersona)
+        {
+            try
+            {
+                return _manejador_gr_persona.InsertarPersona(objPersona);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool ModificarPersona(gr_persona objPersona)
+        {
+            try
+            {
+                return _manejador_gr_persona.ModificarPersona(objPersona);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public gr_persona ObtenerPersona(string varbusqueda)
         {
             try
@@ -128,6 +160,38 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_gr_direccion.ObtenerDireccion(varBusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public gr_direccion InsertarDireccion(gr_direccion objDireccion)
+        {
+            try
+            {
+                return _manejador_gr_direccion.InsertarDireccion(objDireccion);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool ModificarDireccion(gr_direccion objDireccion)
+        {
+            try
+            {
+                return _manejador_gr_direccion.ModificarDireccion(objDireccion);
             }
             catch (SecureExceptions secureException)
             {

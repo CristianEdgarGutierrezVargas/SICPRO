@@ -1,5 +1,6 @@
 ﻿using Common;
 using DevExpress.Web;
+using Logica.Consumo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,38 +12,56 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
     public partial class wgr_contactos : System.Web.UI.Page
     {
+        ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
             {
                 return;
             }
+
+            string idDireccion = base.Request.QueryString["var"];
+            string idPersona = base.Request.QueryString["val"];
+
+            ViewState["id_dir"] = idDireccion;
+            ViewState["id_per"] = idPersona;
+
+            if (base.Request.QueryString["var"] == "")
+            {
+                CargaInicial();
+                //this.btnmodificar.Visible = false;
+                //this.btnnuevo.Visible = false;
+                return;
+            }
+            CargaInicial();
+            
+
+            
+
+            //this.id_dir.Value = item;
+            //this.id_perclie.Value = str;
+            //this.DatosPersona(int.Parse(this.id_dir.Value));
+            //this.Combos();
+            //this.btnmodificar.Visible = false;
+            //this.btnnuevo.Visible = false;
+
         }
 
         #region Metodos
 
-        private void CargaInicial(string id_per)
+        private void CargaInicial()
         {
-            //var lstTipoDireccion = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_tpdir);
+            var lstLugarContactos = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_emis);
 
-            //cmb_tpdir.DataSource = lstTipoDireccion;
-            //cmb_tpdir.ValueField = "id_par";
-            //cmb_tpdir.TextField = "desc_param";
-            //cmb_tpdir.DataBind();
+            cmb_id_emis.DataSource = lstLugarContactos;
+            cmb_id_emis.ValueField = "id_par";
+            cmb_id_emis.TextField = "desc_param";
+            cmb_id_emis.DataBind();
 
-            //var itemTipoDireccion = new ListEditItem { Text = "Seleccione...", Value = 0, Selected = true, Index = 0 };
-            //cmb_tpdir.Items.Add(itemTipoDireccion);
+            var itemLugarContactos = new ListEditItem { Text = "Seleccione...", Value = 0, Selected = true, Index = 0 };
+            cmb_id_emis.Items.Add(itemLugarContactos);
 
-            //var lstLugarEmision = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_emis);
-
-            //cmb_id_emis.DataSource = lstLugarEmision;
-            //cmb_id_emis.ValueField = "id_par";
-            //cmb_id_emis.TextField = "desc_param";
-            //cmb_id_emis.DataBind();
-
-            //var itemLugarEmision = new ListEditItem { Text = "Seleccione...", Value = 0, Selected = true, Index = 0 };
-            //cmb_id_emis.Items.Add(itemLugarEmision);
-
+           
             //var lstDireccionParametro = _objConsumoRegistroProd.ObtenerListaDireccion(id_per);
             //grdDirecciones.DataSource = lstDireccionParametro;
             //grdDirecciones.DataBind();
@@ -84,5 +103,21 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
 
         #endregion
+
+        protected void btnDirecciones_Click(object sender, EventArgs e)
+        {
+            var idPersona = Convert.ToString(ViewState["id_per"]);
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wgr_direccion.aspx?var=" + idPersona.TrimStart().TrimEnd());
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
