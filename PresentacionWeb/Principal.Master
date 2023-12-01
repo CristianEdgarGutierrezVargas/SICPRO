@@ -10,6 +10,7 @@
     </asp:ContentPlaceHolder>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
 	<link href="~/UI/css/default.css" rel="stylesheet" />
+    <link href="UI/css/Blue.css" rel="stylesheet" />
    
 </head>
     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>

@@ -130,28 +130,8 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         //    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
         //}
 
-        //protected void IraPag(object sender, EventArgs e)
-        //{
-        //    TextBox textBox = sender as TextBox;
-        //    int result;
-        //    if (int.TryParse(textBox.Text.Trim(), out result) && result > 0 && result <= this.grdusuarios.PageCount)
-        //        this.grdusuarios.PageIndex = !int.TryParse(textBox.Text.Trim(), out result) || result <= 0 || result > this.grdusuarios.PageCount ? 0 : result - 1;
-        //    this.grdusuarios.DataSource = (object)new gr_pass().BuscarUsuario();
-        //    this.grdusuarios.DataBind();
-        //}
+      
 
-        //protected void grdusuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.grdusuarios.PageIndex = e.NewPageIndex;
-        //        this.grdusuarios.DataSource = (object)new gr_pass().BuscarUsuario();
-        //        this.grdusuarios.DataBind();
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
 
         //protected void grdusuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         //{
