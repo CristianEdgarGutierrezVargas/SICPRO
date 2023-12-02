@@ -20,6 +20,8 @@ namespace Logica.Consumo
         private readonly Cgr_direccion _manejador_gr_direccion;
         private readonly Cpr_grupo _manejador_pr_grupo;
         private readonly Cpr_polmov _manejador_pr_polmov;
+        private readonly Cgr_compania _manejador_gr_compania;
+        private readonly Cpr_producto _manejador_pr_compania;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -30,7 +32,9 @@ namespace Logica.Consumo
             _manejador_gr_persona = new Cgr_persona(dbContext);
             _manejador_gr_direccion = new Cgr_direccion(dbContext);
             _manejador_pr_grupo = new Cpr_grupo(dbContext);
-            _manejador_pr_polmov = new Cpr_polmov(dbContext);            
+            _manejador_pr_polmov = new Cpr_polmov(dbContext);
+            _manejador_gr_compania = new Cgr_compania(dbContext);
+            _manejador_pr_compania = new Cpr_producto(dbContext);
         }
 
         #endregion
@@ -51,6 +55,23 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public List<gr_parametro> ParametroA(string columna)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ParametroA(columna);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
 
         #endregion
 
@@ -124,6 +145,22 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_gr_persona.ObtenerEjecutivoClientes();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<gr_persona> Persona(int parametro)
+        {
+            try
+            {
+                return _manejador_gr_persona.Persona(parametro);
             }
             catch (SecureExceptions secureException)
             {
@@ -244,6 +281,47 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        #endregion
+
+        #region gr_compania
+
+        public List<v_pr_cias_resum> ObtenerListaCompania()
+        {
+            try
+            {
+                return _manejador_gr_compania.ObtenerListaCompania();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region producto
+
+        public List<pr_producto> ObtenerTablaProducto(string varBusqueda)
+        {
+            try
+            {
+                return _manejador_pr_compania.ObtenerTablaProducto(varBusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
 
         #endregion
     }

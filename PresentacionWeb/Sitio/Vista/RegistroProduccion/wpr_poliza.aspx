@@ -38,7 +38,7 @@
                              </ValidationSettings>  
                              <ClientSideEvents Init="function(s,e){  
                                                         var dt1 = new Date();  
-                                                        var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
                                                         var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
                                                         fc_emision.SetMinDate(new Date(dt3));  
                                                         fc_emision.SetMaxDate(new Date(dt2));  
@@ -55,7 +55,7 @@
                             </ValidationSettings>  
                               <ClientSideEvents Init="function(s,e){  
                                                          var dt1 = new Date();  
-                                                         var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
                                                          fc_recepcion.SetMinDate(new Date(dt3));  
                                                          fc_recepcion.SetMaxDate(new Date(dt2));  
@@ -75,7 +75,7 @@
                             </ValidationSettings>  
                               <ClientSideEvents Init="function(s,e){  
                                                          var dt1 = new Date();  
-                                                         var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
                                                          fc_inivig.SetMinDate(new Date(dt3));  
                                                          fc_inivig.SetMaxDate(new Date(dt2));  
@@ -92,8 +92,8 @@
                              </ValidationSettings>  
                                <ClientSideEvents Init="function(s,e){  
                                                           var dt1 = new Date();  
-                                                          var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
-                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                          var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                          var dt3 = new Date(dt1.getFullYear() - 2, dt1.getMonth(), dt1.getDate());  
                                                           fc_finvig.SetMinDate(new Date(dt3));  
                                                           fc_finvig.SetMaxDate(new Date(dt2));  
                                                        }" /> 
@@ -178,9 +178,9 @@
                         <span id="ctl00_cpmaster_Label2">Cia Aseguradora :</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%">
-                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                        <dx:ASPxComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="id_spvs_SelectedIndexChanged">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                             </ValidationSettings>
                         </dx:ASPxComboBox>
                     </div>
@@ -230,7 +230,7 @@
                         <span id="ctl00_cpmaster_lblagente">Agente Cartera:</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_percart" runat="server" ValueType="System.String">
+                        <dx:ASPxComboBox ID="id_percart" runat="server" ValueType="System.String" Width="100%">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                               <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -271,7 +271,9 @@
                                     </td>
                                     <td style="width: 60px; height: 18px">
                                         <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
-                                        <dx:ASPxTextBox ID="num_cuota" runat="server" Width="50px"></dx:ASPxTextBox>
+                                        
+                                        <dx:ASPxSpinEdit ID="num_cuota" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="20" Increment="1" NumberType="Float">    
+                                        </dx:ASPxSpinEdit>
                 
                                     </td>
                                     <td style="width: 45px; height: 18px">

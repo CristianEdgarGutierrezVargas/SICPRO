@@ -57,6 +57,7 @@
     <Compile Include="CDBSicPro\Cgr_persona.cs" />
     <Compile Include="CDBSicPro\Cpr_polmov.cs" />
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />
+    <Compile Include="CDBSicPro\Cpr_producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

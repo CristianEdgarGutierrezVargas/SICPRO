@@ -339,5 +339,40 @@ namespace ManejadorMetodos.CDBSicPro
         //    }
         //    return var;
         //}
+
+        public List<gr_persona> Persona(int parametro)
+        {
+            try
+            {
+
+                var sql = _context.gr_persona.Where(w => w.id_rol == parametro).OrderByDescending(o => o.nomraz).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        //public void Persona(int parametro)
+        //{
+        //    try
+        //    {
+        //        string sentenciaSQL = "SELECT gr_persona.id_per, gr_persona.nomraz FROM gr_persona WHERE gr_persona.id_rol =" + parametro + " UNION SELECT '0', ' SELECCIONE UNA OPCIÓN' order by nomraz";
+        //        Acceso acceso = new Acceso();
+        //        acceso.Conectar();
+        //        acceso.CrearComando(sentenciaSQL);
+        //        DataTable dataSource = acceso.Consulta();
+        //        id_rol.DataSource = dataSource;
+        //        id_rol.DataTextField = "nomraz";
+        //        id_rol.DataValueField = "id_per";
+        //        id_rol.DataBind();
+        //        acceso.Desconectar();
+        //    }
+        //    catch (SecureExceptions original)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", original);
+        //    }
+        //}
     }
 }

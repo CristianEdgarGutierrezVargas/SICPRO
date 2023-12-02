@@ -35,5 +35,38 @@ namespace ManejadorMetodos.CDBSicPro
         //    }
         //}
 
+        public List<v_pr_cias_resum> ObtenerListaCompania()
+        {
+            try
+            {
+                var sql = _context.v_pr_cias_resum.ToList();
+                return sql;
+                
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+        //public void ObtenerListaCompania()
+        //{
+        //    try
+        //    {
+        //        string sentenciaSQL = "SELECT v_pr_cias_resum.id_spvs, v_pr_cias_resum.nomraz FROM v_pr_cias_resum UNION SELECT '0' as spvs, ' SELECCIONE UNA OPCIÓN' as nomraz order by nomraz";
+        //        Acceso acceso = new Acceso();
+        //        acceso.Conectar();
+        //        acceso.CrearComando(sentenciaSQL);
+        //        DataTable dataSource = acceso.Consulta();
+        //        ddlgeneral.DataSource = dataSource;
+        //        ddlgeneral.DataTextField = "nomraz";
+        //        ddlgeneral.DataValueField = "id_spvs";
+        //        ddlgeneral.DataBind();
+        //        acceso.Desconectar();
+        //    }
+        //    catch (SecureExceptions original)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", original);
+        //    }
+        //}
     }
 }

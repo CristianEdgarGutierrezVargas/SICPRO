@@ -71,5 +71,47 @@ namespace ManejadorMetodos.CDBSicPro
             }
             return null;
         }
+
+        public List<gr_parametro> ParametroA(string columna)
+        {
+            try
+            {
+                var sql = _context.gr_parametro.Where(w => w.columna == columna).ToList();
+                if (sql == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return sql;
+                }
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+            return null;
+        }
+
+        //public void ParametroA(string columna)
+        //{
+        //    try
+        //    {
+        //        string sentenciaSQL = "SELECT gr_parametro.id_par, gr_parametro.abrev_param FROM gr_parametro WHERE gr_parametro.columna LIKE '" + columna + "' UNION SELECT 0, 'SELECCIONE UNA OPCIÓN'";
+        //        Acceso acceso = new Acceso();
+        //        acceso.Conectar();
+        //        acceso.CrearComando(sentenciaSQL);
+        //        DataTable dataSource = acceso.Consulta();
+        //        ddlgeneral.DataSource = dataSource;
+        //        ddlgeneral.DataTextField = "abrev_param";
+        //        ddlgeneral.DataValueField = "id_par";
+        //        ddlgeneral.DataBind();
+        //        acceso.Desconectar();
+        //    }
+        //    catch (SecureExceptions original)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", original);
+        //    }
+        //}
     }
 }

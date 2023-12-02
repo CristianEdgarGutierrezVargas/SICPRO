@@ -67,6 +67,33 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstFuncionarios = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             id_perejec.Items.Add(itemLstFuncionarios);
 
+            var lstCiaAseguradora = _objConsumoRegistroProd.ObtenerListaCompania();
+            id_spvs.DataSource = lstCiaAseguradora;
+            id_spvs.TextField = "nomraz";
+            id_spvs.ValueField = "id_spvs";
+            id_spvs.DataBind();
+
+            var itemLstCiaAseguradora = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_spvs.Items.Add(itemLstCiaAseguradora);
+
+
+            var lstAgenteCartera = _objConsumoRegistroProd.Persona(60);
+            id_percart.DataSource = lstAgenteCartera;
+            id_percart.TextField = "nomraz";
+            id_percart.ValueField = "id_per";
+            id_percart.DataBind();
+
+            var itemLstAgenteCartera = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_percart.Items.Add(itemLstAgenteCartera);
+
+            var lstDivisa = _objConsumoRegistroProd.ParametroA("id_div");
+            id_div.DataSource = lstDivisa;
+            id_div.TextField = "abrev_param";
+            id_div.ValueField = "id_par";
+            id_div.DataBind();
+
+            var itemLstDivisa = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_div.Items.Add(itemLstDivisa);
         }
 
         private List<pr_cuotapoliza> GetDataCuotas(int numeroCuotas)
@@ -126,7 +153,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotas_Click(object sender, EventArgs e)
         {
-            GetDataCuotas(5);
+            var intNumeroCuotas = Convert.ToInt32(num_cuota.Text);
+            GetDataCuotas(intNumeroCuotas);
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
@@ -147,6 +175,20 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void grdCuotas_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
             //RowUpdating batch mode
+        }
+
+        protected void id_spvs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var strIdSpvs = Convert.ToString(id_spvs.SelectedItem.Value);
+
+            var lstCiaAseguradora = _objConsumoRegistroProd.ObtenerTablaProducto(strIdSpvs);
+            id_producto.DataSource = lstCiaAseguradora;
+            id_producto.TextField = "desc_prod";
+            id_producto.ValueField = "id_producto";
+            id_producto.DataBind();
+
+            var itemLstCiaAseguradora = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_producto.Items.Add(itemLstCiaAseguradora);
         }
     }
 }

@@ -165,7 +165,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox num_cuota;
+        protected global::DevExpress.Web.ASPxSpinEdit num_cuota;
 
         /// <summary>
         /// Control id_div.
