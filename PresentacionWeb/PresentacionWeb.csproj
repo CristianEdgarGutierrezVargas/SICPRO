@@ -105,6 +105,8 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx" />
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
@@ -267,6 +269,20 @@
       <DependentUpon>Principal.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx.cs">
+      <DependentUpon>wgr_passnuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx.designer.cs">
+      <DependentUpon>wgr_passnuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx.cs">
+      <DependentUpon>wgr_respass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx.designer.cs">
+      <DependentUpon>wgr_respass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,7 +415,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />
     <Folder Include="Sitio\Entidades\" />
-    <Folder Include="Sitio\Vista\ConfiguracionSistema\" />
     <Folder Include="Sitio\Vista\Exceptions\" />
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloComisiones\" />
