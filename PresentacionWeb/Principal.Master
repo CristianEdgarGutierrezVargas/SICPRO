@@ -9,7 +9,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">        
     </asp:ContentPlaceHolder>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/UI/css/themes/cerulean.v5.3.css" rel="stylesheet" />
 	<link href="~/UI/css/default.css" rel="stylesheet" />
+    
     <link href="UI/css/Blue.css" rel="stylesheet" />
    
 </head>

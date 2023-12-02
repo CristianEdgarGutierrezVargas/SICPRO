@@ -51,6 +51,7 @@
     <Compile Include="Consumo\ConsumoAuth.cs" />
     <Compile Include="Consumo\ConsumoConfiguracionSistema.cs" />
     <Compile Include="Consumo\ConsumoRegistroProd.cs" />
+    <Compile Include="Consumo\ConsumoValidarProd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

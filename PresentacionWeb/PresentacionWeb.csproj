@@ -120,9 +120,11 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
+    <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx" />
     <Content Include="UI\css\acc.css" />
     <Content Include="UI\css\Blue.css" />
     <Content Include="UI\css\default.css" />
+    <Content Include="UI\css\themes\cerulean.v5.3.css" />
     <Content Include="UI\img\1271470.png" />
     <Content Include="UI\img\24sep.png" />
     <Content Include="UI\img\add-user.gif" />
@@ -374,6 +376,13 @@
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx.designer.cs">
       <DependentUpon>wpr_poliza.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx.cs">
+      <DependentUpon>wpr_listacob1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx.designer.cs">
+      <DependentUpon>wpr_listacob1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -421,7 +430,6 @@
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />
     <Folder Include="Sitio\Vista\Reportes\" />
-    <Folder Include="Sitio\Vista\ValidacionProduccion\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
   <ItemGroup>
