@@ -9,10 +9,6 @@
     <div class="post">
        <div>                    
 
-    <script type="text/javascript" src="scripts/fieldScripts.js"></script>
-
-    <script type="text/javascript" src="scripts/validaciones.js"></script>
-
         <div class="container">
           <div class="row">
             <div class="col-md-3">      
@@ -36,13 +32,35 @@
                       <span id="lblfecemis">Fecha de Emisión:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxDateEdit ID="fc_emision" runat="server" Width="100%"></dx:ASPxDateEdit>
+                       <dx:ASPxDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                 <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                             </ValidationSettings>  
+                             <ClientSideEvents Init="function(s,e){  
+                                                        var dt1 = new Date();  
+                                                        var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                        var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                        fc_emision.SetMinDate(new Date(dt3));  
+                                                        fc_emision.SetMaxDate(new Date(dt2));  
+                                                     }" />  
+                       </dx:ASPxDateEdit>
                     </div>
                     <div class="col-md-3">      
                        <span id="lblfc_recepcion">Fecha de Recepción:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxDateEdit ID="fc_recepcion" runat="server" Width="100%"></dx:ASPxDateEdit>
+                       <dx:ASPxDateEdit ID="fc_recepcion" ClientInstanceName="fc_recepcion" runat="server" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                  <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                            </ValidationSettings>  
+                              <ClientSideEvents Init="function(s,e){  
+                                                         var dt1 = new Date();  
+                                                         var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         fc_recepcion.SetMinDate(new Date(dt3));  
+                                                         fc_recepcion.SetMaxDate(new Date(dt2));  
+                                                      }" /> 
+                       </dx:ASPxDateEdit>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -51,13 +69,35 @@
                        <span id="lblfc_inivig">Inicio Vigencia:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxDateEdit ID="fc_inivig" runat="server" Width="100%"></dx:ASPxDateEdit>
+                       <dx:ASPxDateEdit ID="fc_inivig" ClientInstanceName="fc_inivig" runat="server" Width="100%">
+                           <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                  <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                            </ValidationSettings>  
+                              <ClientSideEvents Init="function(s,e){  
+                                                         var dt1 = new Date();  
+                                                         var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                         fc_inivig.SetMinDate(new Date(dt3));  
+                                                         fc_inivig.SetMaxDate(new Date(dt2));  
+                                                      }" /> 
+                       </dx:ASPxDateEdit>
                     </div>
                     <div class="col-md-3">      
                        <span id="ctl00_cpmaster_lblfc_finvig">Fin Vigencia:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxDateEdit ID="fc_finvig" runat="server" Width="100%"></dx:ASPxDateEdit>  
+                       <dx:ASPxDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
+                           <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                   <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                             </ValidationSettings>  
+                               <ClientSideEvents Init="function(s,e){  
+                                                          var dt1 = new Date();  
+                                                          var dt2 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                          fc_finvig.SetMinDate(new Date(dt3));  
+                                                          fc_finvig.SetMaxDate(new Date(dt2));  
+                                                       }" /> 
+                       </dx:ASPxDateEdit>  
                     </div>
                 </div>
                 <%--<br />--%>
@@ -66,13 +106,21 @@
                        <span id="lblnumero">N° de Poliza:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxTextBox ID="num_poliza" runat="server" Width="100%"></dx:ASPxTextBox>
+                       <dx:ASPxTextBox ID="num_poliza" runat="server" Width="100%">
+                           <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                            </ValidationSettings>
+                       </dx:ASPxTextBox>
                     </div>
                     <div class="col-md-3">      
                        <span id="lblnumliquida">Nº Liquidación:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxTextBox ID="no_liquida" runat="server" Width="100%"></dx:ASPxTextBox>  
+                       <dx:ASPxTextBox ID="no_liquida" runat="server" Width="100%">
+                           <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                 <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                             </ValidationSettings>
+                       </dx:ASPxTextBox>  
                     </div>
                 </div>
                 <%--<br />--%>
@@ -81,7 +129,11 @@
                         <span id="ctl00_cpmaster_Label1">Asegurado :</span>
                      </div>
                      <div class="col-md-7">      
-                        <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%"></dx:ASPxTextBox> 
+                        <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                              </ValidationSettings>
+                        </dx:ASPxTextBox> 
                      </div>
                     <div class="col-md-1">
                         <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
@@ -95,7 +147,11 @@
                         <span id="lbldireccion">Dirección :</span>
                      </div>
                      <div class="col-md-7">      
-                        <dx:ASPxTextBox ID="direccion" runat="server" Width="100%"></dx:ASPxTextBox> 
+                        <dx:ASPxTextBox ID="direccion" runat="server" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                              </ValidationSettings>
+                        </dx:ASPxTextBox> 
                      </div>
                     <div class="col-md-1">
                         <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
@@ -109,7 +165,11 @@
                         <span id="ctl00_cpmaster_Label3">Grupo :</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_gru" runat="server" ValueType="System.String" Width="100%"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="id_gru" runat="server" ValueType="System.String" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -118,7 +178,11 @@
                         <span id="ctl00_cpmaster_Label2">Cia Aseguradora :</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -127,7 +191,11 @@
                          <span id="lblnombre">Producto :</span>
                      </div>
                      <div class="col-md-8">      
-                         <dx:ASPxComboBox ID="id_producto" runat="server" ValueType="System.String" Width="100%"></dx:ASPxComboBox>
+                         <dx:ASPxComboBox ID="id_producto" runat="server" ValueType="System.String" Width="100%">
+                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                         </dx:ASPxComboBox>
                      </div>
                  </div>
                 <%--<br />--%>
@@ -136,7 +204,11 @@
                          <span id="ctl00_cpmaster_Label5">Tipo de Cartera :</span>
                      </div>
                      <div class="col-md-8">      
-                         <dx:ASPxComboBox ID="id_clamov1" runat="server" ValueType="System.String" Width="100%"></dx:ASPxComboBox>
+                         <dx:ASPxComboBox ID="id_clamov1" runat="server" ValueType="System.String" Width="100%">
+                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                         </dx:ASPxComboBox>
                      </div>
                  </div>
                 <%--<br />--%>
@@ -145,7 +217,11 @@
                         <span id="ctl00_cpmaster_lblejecutivo">Ejecutivo:</span>
                      </div>
                      <div class="col-md-8">      
-                          <dx:ASPxComboBox ID="id_perejec" runat="server" ValueType="System.String" Width="100%"></dx:ASPxComboBox>
+                          <dx:ASPxComboBox ID="id_perejec" runat="server" ValueType="System.String" Width="100%">
+                              <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                              </ValidationSettings>
+                          </dx:ASPxComboBox>
                      </div>
                  </div>
                 <%--<br />--%>
@@ -154,7 +230,11 @@
                         <span id="ctl00_cpmaster_lblagente">Agente Cartera:</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_percart" runat="server" ValueType="System.String"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="id_percart" runat="server" ValueType="System.String">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -230,13 +310,62 @@
                     </div>
                 </div>
                 <%--<br />--%>
+
+                 <div class="row">
+                     <div class="col-md-2">      
+                         
+                     </div>
+                     <div class="col-md-8"> 
+                         <div class="panel-group">
+                          <div class="panel panel-default">
+                            <div class="panel-body">Cuotas de la Poliza</div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-body">
+                                <dx:ASPxGridView ID="grdCuotas" Width="100%" runat="server" KeyFieldName="cuota" OnDataBinding="grdCuotas_DataBinding" AutoGenerateColumns="False"
+                                    EnableRowsCache="false" OnRowUpdating="grdCuotas_RowUpdating" >
+                                    <SettingsPager Visible="False">
+                                    </SettingsPager>
+                                       <SettingsEditing Mode="Batch">
+                                           <BatchEditSettings EditMode="Cell" KeepChangesOnCallbacks="False" StartEditAction="Click" />
+                                    </SettingsEditing>
+                                       <SettingsPopup>
+                                       <FilterControl AutoUpdatePosition="False"></FilterControl>
+                                       </SettingsPopup>
+                                    <Columns>
+                                        <dx:GridViewDataTextColumn VisibleIndex="0" FieldName="cuota" Caption="Nro de Cuota" Width="50">
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataDateColumn FieldName="fecha_pago" Caption="Fecha de Pago" VisibleIndex="5" Width="50">
+                                           <PropertiesDateEdit>
+                                               <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                               </ValidationSettings>
+                                           </PropertiesDateEdit>
+                                       </dx:GridViewDataDateColumn>
+                                       <dx:GridViewDataSpinEditColumn  FieldName="cuota_total" VisibleIndex="6">
+                                           <PropertiesSpinEdit DisplayFormatString="c" DisplayFormatInEditMode="true" MinValue="0" Increment="0.1" LargeIncrement ="1" MaxValue="60000" SpinButtons-ShowLargeIncrementButtons="true">
+                                               <ValidationSettings Display="Dynamic" RequiredField-IsRequired="true" />
+                                           </PropertiesSpinEdit>
+                                       </dx:GridViewDataSpinEditColumn>
+                                                                                
+                                    </Columns>
+                                </dx:ASPxGridView>
+                            </div>
+                          </div>
+                        </div>
+                         
+
+                          
+                     </div>
+                 </div>
+
                 <div class="row">
                     <div class="col-md-4">      
         
                     </div>
-                    <div class="col-md-7">      
-                        <input type="submit" name="ctl00$cpmaster$btncuotas" value="Cuotas" id="ctl00_cpmaster_btncuotas" title="Mostrar Datos de las Cuotas de la Poliza" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                        <input type="submit" name="ctl00$cpmaster$btnsalir" value="Salir" id="ctl00_cpmaster_btnsalir" title="Salir del Formulario" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">                            
+                    <div class="col-md-7">   
+                        <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
                     </div>
                 </div>
 

@@ -1,4 +1,6 @@
-﻿using Logica.Consumo;
+﻿using DevExpress.Web;
+using EntidadesClases.ModelSicPro;
+using Logica.Consumo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,20 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //GridViewFeaturesHelper.SetupGlobalGridViewBehavior(Grid);
+            //DemoHelper.Instance.PrepareControlOptions(OptionsFormLayout, new ControlOptionsSettings
+            //{
+            //    ColumnMinWidth = 380,
+            //    RightBlockWidth = 410,
+            //    ColumnCountMode = RecalculateColumnCountMode.RootGroup
+            //});
+
+            //Grid.SettingsPager.Mode = (GridViewPagerMode)Enum.Parse(typeof(GridViewPagerMode), PagerModeCombo.Text, true);
+            //grdCuotas.SettingsEditing.BatchEditSettings.EditMode = (GridViewBatchEditMode)Enum.Parse(typeof(GridViewBatchEditMode), "Row", true);
+            //grdCuotas.SettingsEditing.BatchEditSettings.StartEditAction = (GridViewBatchStartEditAction)Enum.Parse(typeof(GridViewBatchStartEditAction), "Click", true);
+            //grdCuotas.SettingsEditing.BatchEditSettings.HighlightDeletedRows = true;
+            //grdCuotas.SettingsEditing.BatchEditSettings.KeepChangesOnCallbacks = false;
+
             if (IsPostBack)
             {
                 return;
@@ -30,11 +46,17 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             id_gru.ValueField = "id_gru";
             id_gru.DataBind();
 
+            var itemLstGrupo = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_gru.Items.Add(itemLstGrupo);
+
             var lstTipoCartera = _objConsumoRegistroProd.listas1();
             id_clamov1.DataSource = lstTipoCartera;
             id_clamov1.TextField = "desc_param";
             id_clamov1.ValueField = "id_par";
             id_clamov1.DataBind();
+
+            var itemTipoCartera = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_clamov1.Items.Add(itemTipoCartera);
 
             var lstFuncionarios = _objConsumoRegistroProd.ObtenerEjecutivoClientes();
             id_perejec.DataSource = lstFuncionarios;
@@ -42,9 +64,89 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             id_perejec.ValueField = "id_per";
             id_perejec.DataBind();
 
+            var itemLstFuncionarios = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            id_perejec.Items.Add(itemLstFuncionarios);
+
         }
 
+        private List<pr_cuotapoliza> GetDataCuotas(int numeroCuotas)
+        {
+            var lstCuotas = new List<pr_cuotapoliza>();
+            for (int i = 0; i < numeroCuotas; i++)
+            {
+                var objCuotasPoliza = new pr_cuotapoliza();
+                objCuotasPoliza.cuota = i;
+                objCuotasPoliza.fecha_pago = null;
+                objCuotasPoliza.cuota_total = null;
+
+                lstCuotas.Add(objCuotasPoliza);
+            }
+            Session["LST_CUOTAS"] = lstCuotas;
+
+            grdCuotas.DataBind();
+
+            return lstCuotas;
+        }
+
+        private void LimpiarFormulario()
+        {
+            fc_emision.Text = string.Empty;
+            fc_recepcion.Text = string.Empty;
+            fc_inivig.Text = string.Empty;
+            fc_finvig.Text = string.Empty;
+            num_poliza.Text = string.Empty;
+            no_liquida.Text = string.Empty;
+
+            nomraz.Text = string.Empty;
+            direccion.Text = string.Empty;
+            id_gru.SelectedItem = id_gru.Items.FindByValue("");
+
+            //this.id_per.Text = string.Empty;
+            //this.nomraz.Text = string.Empty;
+            //this.fechaNacimiento.Text = string.Empty;
+            //this.nit_fac.Text = string.Empty;
+
+            //cmb_id_suc.SelectedItem = cmb_id_suc.Items.FindByValue(0);
+            //cmb_id_sal.SelectedItem = cmb_id_sal.Items.FindByValue(Convert.ToInt64(0));
+            //cmb_tipodoc.SelectedItem = cmb_tipodoc.Items.FindByValue(Convert.ToInt64(0));
+            //cmb_tper.SelectedItem = cmb_tper.Items.FindByValue(Convert.ToInt64(0));
+            //cmb_id_rol.SelectedItem = cmb_id_rol.Items.FindByValue(Convert.ToInt64(0));
+            //cmb_id_emis.SelectedItem = cmb_id_emis.Items.FindByValue(Convert.ToInt64(0));
+
+            //btnDirecciones.Visible = false;
+            //btnNuevo.Visible = false;
+        }
 
         #endregion
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCuotas_Click(object sender, EventArgs e)
+        {
+            GetDataCuotas(5);
+        }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Sitio/Vista/Default.aspx");
+        }
+
+        protected void grdCuotas_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+
+            if (lstData != null)
+            {
+                grdCuotas.DataSource = lstData;
+            }
+        }
+
+        protected void grdCuotas_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+            //RowUpdating batch mode
+        }
     }
 }

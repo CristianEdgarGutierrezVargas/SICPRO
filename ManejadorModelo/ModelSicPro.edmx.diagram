@@ -49,6 +49,73 @@
         <AssociationConnector Association="sicproModel.pr_calculo_riesgo_fk" />
         <AssociationConnector Association="sicproModel.pr_formriesgo_riesgo_fk" />
         <AssociationConnector Association="sicproModel.FK_pr_poliza_pr_producto" />
+        <EntityTypeShape EntityType="sicproModel.v_gr_cont_dir" Width="1.5" PointX="13.75" PointY="16.75" />
+        <EntityTypeShape EntityType="sicproModel.v_pr_cias_resum" Width="1.5" PointX="15.75" PointY="16.75" />
+        <EntityTypeShape EntityType="sicproModel.v_tipopersona" Width="1.5" PointX="17.75" PointY="6.75" />
+        <EntityTypeShape EntityType="sicproModel.vad_polizaanu" Width="1.5" PointX="17.75" PointY="9.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_anulaciones" Width="1.5" PointX="17.75" PointY="17.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_cuotaexcludev" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_cuotaexcludev_obs" Width="1.5" PointX="19.75" PointY="6.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_cuotasdias" Width="1.5" PointX="19.75" PointY="12.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_desglocepago" Width="1.5" PointX="7.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_desglosepago" Width="1.5" PointX="9.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_listacuoamort" Width="1.5" PointX="11.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_pagoxcuota" Width="1.5" PointX="13.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_reciboxanio" Width="1.5" PointX="19.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcob1" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcob2" Width="1.5" PointX="21.75" PointY="4.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcob3" Width="1.5" PointX="21.75" PointY="8.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcob4" Width="1.5" PointX="21.75" PointY="12.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcob5" Width="1.5" PointX="21.75" PointY="16.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_repcobranzas1" Width="1.5" PointX="21.75" PointY="21.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_resexcludev" Width="1.5" PointX="15.75" PointY="22.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_respolpago1" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_resumcuotas" Width="1.5" PointX="23.75" PointY="4.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_sumdevcuotas" Width="1.5" PointX="23.75" PointY="9.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_sumexclucuotas" Width="1.5" PointX="23.75" PointY="13.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_sumexcludev" Width="1.5" PointX="23.75" PointY="17.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_telfsclie" Width="1.5" PointX="17.75" PointY="23.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_totalpago" Width="1.5" PointX="23.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_veripoliza1" Width="1.5" PointX="7.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_veripoliza2" Width="1.5" PointX="9.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vcb_veripoliza3" Width="1.5" PointX="11.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_comicap" Width="1.5" PointX="23.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_comicobrada" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_comiefect" Width="1.5" PointX="25.75" PointY="4.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_liqcomiejec" Width="1.5" PointX="25.75" PointY="8.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_preascii" Width="1.5" PointX="25.75" PointY="15.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_preascii1" Width="1.5" PointX="25.75" PointY="19.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_prodcap" Width="1.5" PointX="19.75" PointY="25.75" />
+        <EntityTypeShape EntityType="sicproModel.vcm_prodtot" Width="1.5" PointX="25.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_amortizacomis1" Width="1.5" PointX="13.75" PointY="26.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_amortizacomis2" Width="1.5" PointX="15.75" PointY="26.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_chequeconsaldo" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_notacobcia" Width="1.5" PointX="0.75" PointY="27.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_veripoliza1" Width="1.5" PointX="2.75" PointY="27.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_veripoliza2" Width="1.5" PointX="27.75" PointY="4.75" />
+        <EntityTypeShape EntityType="sicproModel.vco_veripoliza3" Width="1.5" PointX="27.75" PointY="12.75" />
+        <EntityTypeShape EntityType="sicproModel.vgr_comprol" Width="1.5" PointX="27.75" PointY="20.75" />
+        <EntityTypeShape EntityType="sicproModel.vgr_spvscias" Width="1.5" PointX="27.75" PointY="24.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_cuotastxt" Width="1.5" PointX="27.75" PointY="27.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_excludev" Width="1.5" PointX="4.75" PointY="28.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_formriesgo" Width="1.5" PointX="21.75" PointY="28.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_listasinpago" Width="1.5" PointX="23.75" PointY="28.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_pagocuota" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_pergrup" Width="1.5" PointX="29.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polanuvar" Width="1.5" PointX="29.75" PointY="6.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polaplivar" Width="1.5" PointX="29.75" PointY="14.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polexcluvar" Width="1.5" PointX="17.75" PointY="29.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polexcluvar1" Width="1.5" PointX="29.75" PointY="22.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polincluvar" Width="1.5" PointX="29.75" PointY="28.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polmaxnr" Width="1.5" PointX="31.75" PointY="0.75" />
+        <EntityTypeShape EntityType="sicproModel.vpr_polrenovar" Width="1.5" PointX="31.75" PointY="3.75" />
+        <EntityTypeShape EntityType="sicproModel.vre_maxcaso" Width="1.5" PointX="31.75" PointY="10.75" />
+        <EntityTypeShape EntityType="sicproModel.vre_memo1" Width="1.5" PointX="31.75" PointY="13.75" />
+        <EntityTypeShape EntityType="sicproModel.vre_resumpolclie" Width="1.5" PointX="13.75" PointY="31.75" />
+        <EntityTypeShape EntityType="sicproModel.vrp_memo" Width="1.5" PointX="31.75" PointY="19.75" />
+        <EntityTypeShape EntityType="sicproModel.vtemp" Width="1.5" PointX="31.75" PointY="25.75" />
+        <EntityTypeShape EntityType="sicproModel.zrep" Width="1.5" PointX="25.75" PointY="31.75" />
+        <EntityTypeShape EntityType="sicproModel.zrep_estcta1" Width="1.5" PointX="31.75" PointY="28.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
