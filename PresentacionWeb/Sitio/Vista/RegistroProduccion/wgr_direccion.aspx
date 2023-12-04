@@ -5,11 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-    <style>
-        table, th, td {
-  border: 1px solid black;
-}
-    </style>
+
             <div class="post">
                 <div>                    
 

@@ -21,7 +21,7 @@
 <body>
     <form id="form1" runat="server">
 		<asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
-        <div>
+        
              <div id="header">
 				<div id="logo">
 					<h1><a href="#"><img src="../../../UI/img/img2.png" alt="SICPRO" style="border:0;"></a></h1>
@@ -36,10 +36,13 @@
 					</blockquote>
 				</div>
 			</div>
-
-			<div id="page">
+          <p></p>
+			<div class="container">
+                <div class="row">
+                <div class="col-md-1">
+                </div>
 				<!-- Inicio Barra Izquierda -->
-				<div id="leftbar" class="sidebar1">
+				<div class="col-md-2">
                     <asp:Menu ID="Menu1" runat="server" RenderingMode="List">
                         <Items>
                             <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
@@ -66,17 +69,18 @@
                             <asp:MenuItem Text="Opciones del Sistema" Value="Opciones del Sistema">
                                 </asp:MenuItem>
                         </Items>
-                    </asp:Menu>
-					
-					
+                    </asp:Menu>					
 				</div>
 				<!-- Fin Barra Izquierda -->
 				<!-- Inicio Contenido -->
-				<div id="content">					
+				<div class="col-md-8" style="background: #F3F3F3;color: #0A416B;border-radius:5px">					
 					 <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
 					 </asp:ContentPlaceHolder>
 				</div>
 					<!-- Fin Contenido -->
+                <div class="col-md-1">
+                </div>
+                </div>
 				<!-- Inicio Barra Derecha -->
 				<div style="clear: both;">
 					<p style="text-align: center;" class="right">©2008 All Rights Reserved. &nbsp;•&nbsp; Design by <a href="http://www.eisbol.com/">Enterprise Integrated Solutions Bolivia</a>.
@@ -86,7 +90,7 @@
 			</div>
            
 
-        </div>
+        
     </form>
 </body>
 </html>

@@ -416,7 +416,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             ASPxGridView grid = (ASPxGridView)sender;
             object str_id_per = e.KeyValue;
 
-            SetFormDatosPersona(Convert.ToString(str_id_per));            
+            SetFormDatosPersona(Convert.ToString(str_id_per).TrimStart().TrimEnd());            
 
             //https://supportcenter.devexpress.com/Ticket/Details/Q494995/fields-value-in-aspxgridview-on-row-command
             //https://docs.devexpress.com/AspNet/17651/components/grid-view/concepts/filter-data/search-panel

@@ -128,17 +128,16 @@
                      <div class="col-md-3">      
                         <span id="ctl00_cpmaster_Label1">Asegurado :</span>
                      </div>
-                     <div class="col-md-7">      
-                        <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%">
-                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
-                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
-                              </ValidationSettings>
-                        </dx:ASPxTextBox> 
+                     <div class="col-md-7">  
+                        <dx:ASPxComboBox ID="cmb_nomraz" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmb_nomraz_SelectedIndexChanged">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
+                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
                      </div>
                     <div class="col-md-1">
-                        <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                          ...
-                        </button>
+                        <%--<button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btndirper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                          ...</button>--%>
                     </div>
                  </div>
                 <%--<br />--%>
@@ -146,17 +145,17 @@
                      <div class="col-md-3">      
                         <span id="lbldireccion">Dirección :</span>
                      </div>
-                     <div class="col-md-7">      
-                        <dx:ASPxTextBox ID="direccion" runat="server" Width="100%">
-                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
-                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
-                              </ValidationSettings>
-                        </dx:ASPxTextBox> 
+                     <div class="col-md-7">   
+                        <dx:ASPxComboBox ID="cmb_direccion" runat="server" ValueType="System.String" Width="100%">
+                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                            </ValidationSettings>
+                        </dx:ASPxComboBox>
                      </div>
                     <div class="col-md-1">
-                        <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
+                       <%-- <button type="button" name="btndirper" data-bs-toggle="modal" data-bs-target="#modal_btndirper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
                           ...
-                        </button>
+                        </button>--%>
                     </div>
                  </div>
                 <%--<br />--%>
@@ -245,7 +244,7 @@
                     <div class="col-md-8">      
                          <dx:ASPxRadioButtonList ID="clase_poliza" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
                              <Items>
-                                 <dx:ListEditItem Text="Normal" Value="True"></dx:ListEditItem>
+                                 <dx:ListEditItem Text="Normal" Value="True" Selected></dx:ListEditItem>
                                  <dx:ListEditItem Text="Flotante" Value="False"></dx:ListEditItem>
                              </Items>
                          </dx:ASPxRadioButtonList>
@@ -259,9 +258,9 @@
                      <div class="col-md-8">      
                             <table style="width: 100%;">
                                 <tr>
-                                    <td style="width: 150px; height: 18px">          
+                                    <td style="width: 125px; height: 18px">          
                                         <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
-                                        <dx:ASPxSpinEdit ID="prima_bruta" Width="150px" runat="server" Number="1.1" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                        <dx:ASPxSpinEdit ID="prima_bruta" Width="125px" runat="server" Number="1.1" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                         </dx:ASPxSpinEdit>
                                
@@ -272,7 +271,7 @@
                                     <td style="width: 60px; height: 18px">
                                         <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
                                         
-                                        <dx:ASPxSpinEdit ID="num_cuota" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="20" Increment="1" NumberType="Float">    
+                                        <dx:ASPxSpinEdit ID="num_cuota" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                         </dx:ASPxSpinEdit>
                 
                                     </td>
@@ -296,7 +295,7 @@
                      <div class="col-md-8">      
                          <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
                             <Items>
-                                <dx:ListEditItem Text="Contado" Value="True"></dx:ListEditItem>
+                                <dx:ListEditItem Text="Contado" Value="True" Selected></dx:ListEditItem>
                                 <dx:ListEditItem Text="Crédito" Value="False"></dx:ListEditItem>
                             </Items>
                         </dx:ASPxRadioButtonList>

@@ -69,22 +69,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxTextBox no_liquida;
 
         /// <summary>
-        /// Control nomraz.
+        /// Control cmb_nomraz.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox nomraz;
+        protected global::DevExpress.Web.ASPxComboBox cmb_nomraz;
 
         /// <summary>
-        /// Control direccion.
+        /// Control cmb_direccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox direccion;
+        protected global::DevExpress.Web.ASPxComboBox cmb_direccion;
 
         /// <summary>
         /// Control id_gru.

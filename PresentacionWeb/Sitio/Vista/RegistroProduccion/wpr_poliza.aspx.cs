@@ -94,6 +94,16 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var itemLstDivisa = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             id_div.Items.Add(itemLstDivisa);
+
+
+            var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();
+            cmb_nomraz.DataSource = lstPersonas;
+            cmb_nomraz.TextField = "nomraz";
+            cmb_nomraz.ValueField = "id_per";
+            cmb_nomraz.DataBind();
+
+            var itemLstPersonas = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            cmb_nomraz.Items.Add(itemLstPersonas);
         }
 
         private List<pr_cuotapoliza> GetDataCuotas(int numeroCuotas)
@@ -124,8 +134,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             num_poliza.Text = string.Empty;
             no_liquida.Text = string.Empty;
 
-            nomraz.Text = string.Empty;
-            direccion.Text = string.Empty;
+            cmb_nomraz.Text = string.Empty;
+            cmb_direccion.Text = string.Empty;
             id_gru.SelectedItem = id_gru.Items.FindByValue("");
 
             //this.id_per.Text = string.Empty;
@@ -189,6 +199,20 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var itemLstCiaAseguradora = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             id_producto.Items.Add(itemLstCiaAseguradora);
+        }
+
+        protected void cmb_nomraz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var strIdPer = Convert.ToString(cmb_nomraz.SelectedItem.Value);
+
+            var lstDirecciones = _objConsumoRegistroProd.ObtenerDireccionesPersona(strIdPer.TrimStart().TrimEnd());
+            cmb_direccion.DataSource = lstDirecciones;
+            cmb_direccion.TextField = "direccion";
+            cmb_direccion.ValueField = "id_dir";
+            cmb_direccion.DataBind();
+
+            var itemLstDirecciones = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            cmb_direccion.Items.Add(itemLstDirecciones);
         }
     }
 }

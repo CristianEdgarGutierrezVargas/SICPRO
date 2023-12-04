@@ -22,6 +22,7 @@ namespace Logica.Consumo
         private readonly Cpr_polmov _manejador_pr_polmov;
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cpr_producto _manejador_pr_compania;
+        private readonly Cpr_poliza _manejador_pr_poliza;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -35,6 +36,7 @@ namespace Logica.Consumo
             _manejador_pr_polmov = new Cpr_polmov(dbContext);
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_pr_compania = new Cpr_producto(dbContext);
+            _manejador_pr_poliza = new Cpr_poliza(dbContext);
         }
 
         #endregion
@@ -240,7 +242,21 @@ namespace Logica.Consumo
             }
         }
 
-
+        public List<gr_direccion> ObtenerDireccionesPersona(string id_per)
+        {
+            try
+            {
+                return _manejador_gr_direccion.ObtenerDireccionesPersona(id_per);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
 
         #region pr_grupo
@@ -304,7 +320,7 @@ namespace Logica.Consumo
 
         #endregion
 
-        #region producto
+        #region pr_producto
 
         public List<pr_producto> ObtenerTablaProducto(string varBusqueda)
         {
@@ -322,6 +338,26 @@ namespace Logica.Consumo
             }
         }
 
+
+        #endregion
+
+        #region pr_poliza
+
+        public bool ExistePol(string numpoliza, string no_liquida)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ExistePol(numpoliza, no_liquida);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         #endregion
     }

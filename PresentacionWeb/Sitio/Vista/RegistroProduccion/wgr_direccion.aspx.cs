@@ -31,7 +31,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
             string itemIdPer = base.Request.QueryString["var"];
             //this.id_per.Value = item;
-            CargaInicial(itemIdPer);
+            CargaInicial(itemIdPer.TrimStart().TrimEnd());
             //this.DireccionPersona();
            
             ViewState["id_per"] = itemIdPer;

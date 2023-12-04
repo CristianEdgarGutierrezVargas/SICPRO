@@ -179,5 +179,35 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        public List<gr_direccion> ObtenerDireccionesPersona(string id_per)
+        {
+            try
+            {
+                var query = _context.gr_direccion.Where(w => w.id_per == id_per).ToList();                   
+                return query;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+            return null;
+        }
+        //public DataTable ObtenerDireccionesPersona(string id_per)
+        //{
+        //    try
+        //    {
+        //        string sentenciaSQL = "SELECT gr_direccion.id_dir, gr_direccion.direccion FROM gr_direccion WHERE gr_direccion.id_per = '" + id_per.ToString() + "'";
+        //        Acceso acceso = new Acceso();
+        //        acceso.Conectar();
+        //        acceso.CrearComando(sentenciaSQL);
+        //        DataTable result = acceso.Consulta();
+        //        acceso.Desconectar();
+        //        return result;
+        //    }
+        //    catch (SecureExceptions original)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", original);
+        //    }
+        //}
     }
 }

@@ -13,5 +13,20 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         {
 
         }
+
+        protected void grdListaReno_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
