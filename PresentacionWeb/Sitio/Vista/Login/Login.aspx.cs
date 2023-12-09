@@ -17,6 +17,7 @@ namespace PresentacionWeb.Sitio.Vista.Login
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
 
+            Session["suc"] = 54;
         }
     }
 }

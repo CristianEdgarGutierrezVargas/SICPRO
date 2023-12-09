@@ -106,7 +106,7 @@
                        <span id="lblnumero">N° de Poliza:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxTextBox ID="num_poliza" runat="server" Width="100%">
+                       <dx:ASPxTextBox ID="txtNroPoliza" runat="server" Width="100%">
                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
                                 <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
                             </ValidationSettings>
@@ -116,7 +116,7 @@
                        <span id="lblnumliquida">Nº Liquidación:</span>
                     </div>
                     <div class="col-md-3">      
-                       <dx:ASPxTextBox ID="no_liquida" runat="server" Width="100%">
+                       <dx:ASPxTextBox ID="txtNroLiquidacion" runat="server" Width="100%">
                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
                              </ValidationSettings>
@@ -129,7 +129,7 @@
                         <span id="ctl00_cpmaster_Label1">Asegurado :</span>
                      </div>
                      <div class="col-md-7">  
-                        <dx:ASPxComboBox ID="cmb_nomraz" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmb_nomraz_SelectedIndexChanged">
+                        <dx:ASPxComboBox ID="cmbAsegurado" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmb_nomraz_SelectedIndexChanged">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                               <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -146,7 +146,7 @@
                         <span id="lbldireccion">Dirección :</span>
                      </div>
                      <div class="col-md-7">   
-                        <dx:ASPxComboBox ID="cmb_direccion" runat="server" ValueType="System.String" Width="100%">
+                        <dx:ASPxComboBox ID="cmbDireccion" runat="server" ValueType="System.String" Width="100%">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                               <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -164,7 +164,7 @@
                         <span id="ctl00_cpmaster_Label3">Grupo :</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_gru" runat="server" ValueType="System.String" Width="100%">
+                        <dx:ASPxComboBox ID="cmbGrupo" runat="server" ValueType="System.String" Width="100%">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                 <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -177,7 +177,7 @@
                         <span id="ctl00_cpmaster_Label2">Cia Aseguradora :</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="id_spvs_SelectedIndexChanged">
+                        <dx:ASPxComboBox ID="cmbCiaAseg" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="id_spvs_SelectedIndexChanged">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                                 <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                             </ValidationSettings>
@@ -190,7 +190,7 @@
                          <span id="lblnombre">Producto :</span>
                      </div>
                      <div class="col-md-8">      
-                         <dx:ASPxComboBox ID="id_producto" runat="server" ValueType="System.String" Width="100%">
+                         <dx:ASPxComboBox ID="cmbProducto" runat="server" ValueType="System.String" Width="100%">
                              <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                 <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -203,7 +203,7 @@
                          <span id="ctl00_cpmaster_Label5">Tipo de Cartera :</span>
                      </div>
                      <div class="col-md-8">      
-                         <dx:ASPxComboBox ID="id_clamov1" runat="server" ValueType="System.String" Width="100%">
+                         <dx:ASPxComboBox ID="cmbTipoCartera" runat="server" ValueType="System.String" Width="100%">
                              <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                 <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -216,7 +216,7 @@
                         <span id="ctl00_cpmaster_lblejecutivo">Ejecutivo:</span>
                      </div>
                      <div class="col-md-8">      
-                          <dx:ASPxComboBox ID="id_perejec" runat="server" ValueType="System.String" Width="100%">
+                          <dx:ASPxComboBox ID="cmbEjecutivo" runat="server" ValueType="System.String" Width="100%">
                               <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                 <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                               </ValidationSettings>
@@ -229,7 +229,7 @@
                         <span id="ctl00_cpmaster_lblagente">Agente Cartera:</span>
                     </div>
                     <div class="col-md-8">      
-                        <dx:ASPxComboBox ID="id_percart" runat="server" ValueType="System.String" Width="100%">
+                        <dx:ASPxComboBox ID="cmbAgente" runat="server" ValueType="System.String" Width="100%">
                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                               <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                             </ValidationSettings>
@@ -242,7 +242,7 @@
                         <span id="ctl00_cpmaster_Label4">Tipo Poliza:</span>
                     </div>
                     <div class="col-md-8">      
-                         <dx:ASPxRadioButtonList ID="clase_poliza" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
+                         <dx:ASPxRadioButtonList ID="rbTipoPoliza" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None" ValueType="System.Boolean">
                              <Items>
                                  <dx:ListEditItem Text="Normal" Value="True" Selected></dx:ListEditItem>
                                  <dx:ListEditItem Text="Flotante" Value="False"></dx:ListEditItem>
@@ -260,7 +260,7 @@
                                 <tr>
                                     <td style="width: 125px; height: 18px">          
                                         <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
-                                        <dx:ASPxSpinEdit ID="prima_bruta" Width="125px" runat="server" Number="1.1" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                        <dx:ASPxSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                         </dx:ASPxSpinEdit>
                                
@@ -271,7 +271,7 @@
                                     <td style="width: 60px; height: 18px">
                                         <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
                                         
-                                        <dx:ASPxSpinEdit ID="num_cuota" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        <dx:ASPxSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                         </dx:ASPxSpinEdit>
                 
                                     </td>
@@ -279,7 +279,7 @@
                                          <span id="ctl00_cpmaster_lblid_div">Divisa:</span>                            
                                     </td>
                                     <td style="width: 100px; height: 18px">
-                                        <dx:ASPxComboBox ID="id_div" runat="server" ValueType="System.String" Width="100px"></dx:ASPxComboBox>
+                                        <dx:ASPxComboBox ID="cmbDivisa" runat="server" ValueType="System.String" Width="100px"></dx:ASPxComboBox>
 
                                     </td>
                                 </tr>
@@ -307,7 +307,7 @@
                         <span id="lblmat_aseg">Mat. Asegurada:</span>
                     </div>
                     <div class="col-md-8">      
-                         <dx:ASPxMemo ID="mat_aseg" runat="server" Height="71px" Width="100%"></dx:ASPxMemo>
+                         <dx:ASPxMemo ID="txtMatAseg" runat="server" Height="71px" Width="100%"></dx:ASPxMemo>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -323,6 +323,41 @@
                           </div>
                           <div class="panel panel-default">
                             <div class="panel-body">
+
+                                <asp:GridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:BoundField DataField="cuota" HeaderText="Cuota" >
+                                        <ControlStyle Width="20px" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="Fecha Pago">
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                 <dx:ASPxDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
+                                                     Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
+                                                     <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                             <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                                       </ValidationSettings>  
+                                                 </dx:ASPxDateEdit>
+                                            </ItemTemplate>
+                                            <ControlStyle Width="50px" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Cuota Total">
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>                                                
+                                                <dx:ASPxSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                    Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
+                                                    <SpinButtons ShowLargeIncrementButtons="true" />
+                                                </dx:ASPxSpinEdit>
+                                            </ItemTemplate>
+                                            <ControlStyle Width="50px" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+
                                 <dx:ASPxGridView ID="grdCuotas" Width="100%" runat="server" KeyFieldName="cuota" OnDataBinding="grdCuotas_DataBinding" AutoGenerateColumns="False"
                                     EnableRowsCache="false" OnRowUpdating="grdCuotas_RowUpdating" >
                                     <SettingsPager Visible="False">
@@ -366,6 +401,8 @@
                     <div class="col-md-7">   
                         <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
                         <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnCuotasPoliza" runat="server" Text="Guardar Poliza y Cuotas" CssClass="msg_button_class" OnClick="btnCuotasPoliza_Click" ></dx:ASPxButton>
+                       
                         <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
                     </div>
                 </div>

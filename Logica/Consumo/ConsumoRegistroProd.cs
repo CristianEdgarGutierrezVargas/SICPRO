@@ -23,6 +23,7 @@ namespace Logica.Consumo
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cpr_producto _manejador_pr_compania;
         private readonly Cpr_poliza _manejador_pr_poliza;
+        private readonly Cpr_cuotas _manejador_pr_cuota_poliza;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -37,6 +38,7 @@ namespace Logica.Consumo
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_pr_compania = new Cpr_producto(dbContext);
             _manejador_pr_poliza = new Cpr_poliza(dbContext);
+            _manejador_pr_cuota_poliza = new Cpr_cuotas(dbContext);
         }
 
         #endregion
@@ -298,6 +300,22 @@ namespace Logica.Consumo
             }
         }
 
+        public pr_polmov InsertarPolizaMovimiento(pr_polmov objPolMov)
+        {
+            try
+            {
+                return _manejador_pr_polmov.InsertarPolizaMovimiento(objPolMov);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region gr_compania
@@ -359,6 +377,73 @@ namespace Logica.Consumo
             }
         }
 
+        public pr_poliza InsertarPoliza(pr_poliza objPoliza)
+        {
+            try
+            {
+                return _manejador_pr_poliza.InsertarPoliza(objPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region pr_cuotas_poliza
+
+        public pr_cuotapoliza InsertarCuotasPoliza(pr_cuotapoliza objCuotaPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.InsertarCuotaPoliza(objCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool InsertarLstCuotasPoliza(List<pr_cuotapoliza> lstCuotaPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool ActualizarCuotaPoliza(pr_cuotapoliza objPrCuotaPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.ActualizarCuotaPoliza(objPrCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
     }
 }

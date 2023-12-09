@@ -51,130 +51,130 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxDateEdit fc_finvig;
 
         /// <summary>
-        /// Control num_poliza.
+        /// Control txtNroPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox num_poliza;
+        protected global::DevExpress.Web.ASPxTextBox txtNroPoliza;
 
         /// <summary>
-        /// Control no_liquida.
+        /// Control txtNroLiquidacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox no_liquida;
+        protected global::DevExpress.Web.ASPxTextBox txtNroLiquidacion;
 
         /// <summary>
-        /// Control cmb_nomraz.
+        /// Control cmbAsegurado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_nomraz;
+        protected global::DevExpress.Web.ASPxComboBox cmbAsegurado;
 
         /// <summary>
-        /// Control cmb_direccion.
+        /// Control cmbDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_direccion;
+        protected global::DevExpress.Web.ASPxComboBox cmbDireccion;
 
         /// <summary>
-        /// Control id_gru.
+        /// Control cmbGrupo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_gru;
+        protected global::DevExpress.Web.ASPxComboBox cmbGrupo;
 
         /// <summary>
-        /// Control id_spvs.
+        /// Control cmbCiaAseg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_spvs;
+        protected global::DevExpress.Web.ASPxComboBox cmbCiaAseg;
 
         /// <summary>
-        /// Control id_producto.
+        /// Control cmbProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_producto;
+        protected global::DevExpress.Web.ASPxComboBox cmbProducto;
 
         /// <summary>
-        /// Control id_clamov1.
+        /// Control cmbTipoCartera.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_clamov1;
+        protected global::DevExpress.Web.ASPxComboBox cmbTipoCartera;
 
         /// <summary>
-        /// Control id_perejec.
+        /// Control cmbEjecutivo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_perejec;
+        protected global::DevExpress.Web.ASPxComboBox cmbEjecutivo;
 
         /// <summary>
-        /// Control id_percart.
+        /// Control cmbAgente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_percart;
+        protected global::DevExpress.Web.ASPxComboBox cmbAgente;
 
         /// <summary>
-        /// Control clase_poliza.
+        /// Control rbTipoPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRadioButtonList clase_poliza;
+        protected global::DevExpress.Web.ASPxRadioButtonList rbTipoPoliza;
 
         /// <summary>
-        /// Control prima_bruta.
+        /// Control txtPrimaBruta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit prima_bruta;
+        protected global::DevExpress.Web.ASPxSpinEdit txtPrimaBruta;
 
         /// <summary>
-        /// Control num_cuota.
+        /// Control txtNumCuotas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit num_cuota;
+        protected global::DevExpress.Web.ASPxSpinEdit txtNumCuotas;
 
         /// <summary>
-        /// Control id_div.
+        /// Control cmbDivisa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox id_div;
+        protected global::DevExpress.Web.ASPxComboBox cmbDivisa;
 
         /// <summary>
         /// Control tipo_cuota.
@@ -186,13 +186,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxRadioButtonList tipo_cuota;
 
         /// <summary>
-        /// Control mat_aseg.
+        /// Control txtMatAseg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxMemo mat_aseg;
+        protected global::DevExpress.Web.ASPxMemo txtMatAseg;
+
+        /// <summary>
+        /// Control grdCuotasPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCuotasPoliza;
 
         /// <summary>
         /// Control grdCuotas.
@@ -220,6 +229,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnCuotas;
+
+        /// <summary>
+        /// Control btnCuotasPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnCuotasPoliza;
 
         /// <summary>
         /// Control btnSalir.

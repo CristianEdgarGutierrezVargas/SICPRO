@@ -51,6 +51,45 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        public pr_poliza InsertarPoliza(pr_poliza objPoliza)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_poliza.Add(objPoliza);
+                    _context.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return objPoliza;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return null;
+                }
+            }
+        }
 
+        //public void InsertarPoliza(string variable)
+        //{
+        //    try
+        //    {
+        //        string[] upper = new string[] { "INSERT INTO " +
+        //            "pr_poliza(num_poliza,id_producto,id_perclie,id_spvs,id_gru,clase_poliza,fc_reg,id_percart,id_suc) " +
+        //            "VALUES ('", this.num_poliza.Text.ToUpper(), "','", this.id_prod.SelectedValue, "','", this.id_perclie.Value, "','"
+        //            , this.id_spvs.SelectedValue.ToString(), "',", this.id_gru.SelectedValue, ",'", variable, "','"
+        //            , Funciones.fc(this.fc_reg.Value), "','", this.id_percart.SelectedValue.ToString(), "',", this.id_suc.Value, ")" };
+        //        string sql = string.Concat(upper);
+        //        Acceso db = new Acceso();
+        //        db.Conectar();
+        //        db.CrearComando(sql);
+        //        db.EjecutarComando();
+        //        db.Desconectar();
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Transaccion", secureException);
+        //    }
+        //}
     }
 }
