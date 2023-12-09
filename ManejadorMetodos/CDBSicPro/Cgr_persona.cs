@@ -134,7 +134,7 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        private List<gr_persona> ObtenerListaPersonaByNombre(string strNombre)
+        public List<gr_persona> ObtenerListaPersonaByNombre(string strNombre)
         {
             try
             {
@@ -374,5 +374,24 @@ namespace ManejadorMetodos.CDBSicPro
         //        throw new SecureExceptions("Error al Generar la Consulta", original);
         //    }
         //}
+        public List<gr_persona> ObtenerTablaPersonasC(string strNombre)
+        {
+            List<gr_persona> sql;
+            try
+            {
+
+                if (string.IsNullOrEmpty(strNombre))
+                    sql = _context.gr_persona.ToList();
+                else
+                    sql = _context.gr_persona.Where(w => w.nomraz.ToUpper().Contains(strNombre.ToUpper())).ToList();
+
+                return sql;
+                //string sql = "SELECT * FROM gr_persona";               
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

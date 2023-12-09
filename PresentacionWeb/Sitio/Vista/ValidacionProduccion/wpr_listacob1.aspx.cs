@@ -21,7 +21,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         private long bb = 0;
         private long cc = 0;
         private long dd = 0;
-        public static string valor; 
+        public static string valor;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,18 +46,18 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         private void Datos()
         {
-            // MasterPage.msgboxpanel.Visible = false;
-            if (!this.vigencia.Checked & (this.num_poliza.Text == "") & (this.nomraz.Text == "") & (this.nomco.Text == "") & (this.desc_producto.Text == "") & !this.porvencer.Checked)
+            msgboxpanel.Visible = false;
+            if (!vigencia.Checked & (num_poliza.Text == "") & (nomraz.Text == "") & (nomco.Text == "") & (desc_producto.Text == "") & !porvencer.Checked)
             {
-                //this.msgboxpanel.Visible = true;
-                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox1.tpl"));
+                //msgboxpanel.Visible = true;
+                //MessageBox messageBox = new MessageBox(base.Server.MapPath("../msgbox1.tpl"));
                 //messageBox.SetTitle("Información");
                 //messageBox.SetIcon("msg_icon_2.png");
                 //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Introduzca Criterios de Búsqueda</p>");
                 //messageBox.SetOKButton("msg_button_class1");
                 //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
                 //this.lblmensaje.Text = "Introduzca Criterios de Búsqueda";
-                //return;
+                return;
             }
             //Cpr_cobranzas prCobranza = new Cpr_cobranzas();
 
@@ -76,7 +76,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //prCobranza.b = this.bp;
             //prCobranza.RecuperaTablaPolizaNRI(item);
 
-            RecuperaTablaPolizaNRI(item);
+            //RecuperaTablaPolizaNRI(item);
             var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
@@ -163,8 +163,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 dd = 0;
             }
             var i = 0;
-           // for (int i = int.Parse(a.Value); i <= int.Parse(b.Value) - 1; i++)
-           foreach(var data in dt)
+            // for (int i = int.Parse(a.Value); i <= int.Parse(b.Value) - 1; i++)
+            foreach (var data in dt)
             {
                 object obj = npoliza;
                 object[] str = new object[] { obj, "<tr OnMouseOut=\"this.className = this.orignalclassName;\" OnMouseOver=\"this.orignalclassName = this.className;this.className = 'altoverow';\" onDblClick=\"AbrirPoliza('", data.id_poliza.ToString(), "', '", data.id_movimiento.ToString(), "', '", id_clamov, "');\" onclick=\"toggleDisplay('", i, "');\">" };
@@ -173,7 +173,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 npoliza = string.Concat(npoliza, data.num_poliza.ToString());
                 npoliza = string.Concat(npoliza, "</font></td>");
                 npoliza = string.Concat(npoliza, "<td><font color=\"#336699\" size:10px\">");
-                npoliza = string.Concat(npoliza,  data.nomraz.ToString());
+                npoliza = string.Concat(npoliza, data.nomraz.ToString());
                 npoliza = string.Concat(npoliza, "</font></td>");
                 npoliza = string.Concat(npoliza, "<td><font color=\"#336699\" size:10px\">");
                 npoliza = string.Concat(npoliza, data.fc_inivig.ToString().Substring(0, 10));
@@ -245,13 +245,13 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             if (nomco.Text == "")
             {
                 //this.msgboxpanel.Visible = true;
-                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox1.tpl"));
+                //MessageBox messageBox = new MessageBox(base.Server.MapPath("../msgbox1.tpl"));
                 //messageBox.SetTitle("Validación de Datos");
                 //messageBox.SetIcon("msg_icon_2.png");
                 //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Seleccione una Compañia Existente <br />Para realizar la Busqueda de un Producto</p>");
                 //messageBox.SetOKButton("msg_button_class1");
                 //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-                lblmensaje.Text = "Seleccione una Compañia Existente Para realizar la Busqueda de un Producto";
+                //lblmensaje.Text = "Seleccione una Compañia Existente Para realizar la Busqueda de un Producto";
                 return;
             }
             //pr_producto prProducto = new pr_producto()
@@ -261,7 +261,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //};
             string str = TablaProductoL(id_spvs.Value, desc_producto.Text.ToUpper());
             //this.msgboxpanel.Visible = true;
-            //MessageBox messageBox1 = new MessageBox(base.Server.MapPath("msgboxprod.tpl"));
+            //MessageBox messageBox1 = new MessageBox(base.Server.MapPath("../msgboxprod.tpl"));
             //messageBox1.SetTitle("Busqueda de Productos por Compañia");
             //messageBox1.SetIcon("search_user.png");
             //messageBox1.SetMessage(str);
@@ -275,7 +275,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             string str;
             try
             {
-               // DataTable dt = new DataTable();
+                // DataTable dt = new DataTable();
                 string var = "";
                 var dt = _objConsumoValidarProd.ObtenerTablaProductoL(var1, desc_prod);
                 decimal l2 = dt.Count / 10;
@@ -302,8 +302,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                     this.dd = 0;
                 }
                 //for (int i = int.Parse(this.a.Value); i <= int.Parse(this.b.Value) - 1; i++)
-                    foreach (var data in dt)
-                    {
+                foreach (var data in dt)
+                {
                     string str1 = var;
                     string[] strArrays = new string[] { str1, "<tr OnMouseOut=\"this.className = this.orignalclassName;\" OnMouseOver=\"this.orignalclassName = this.className;this.className = 'altoverow';\" onclick=\"mClk1('", data.id_producto.ToString(), "','", data.desc_prod.ToString(), "');\"><td >" };
                     var = string.Concat(strArrays);
@@ -374,8 +374,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         }
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
-            //this.msgboxpanel.Visible = false;
-           // base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
+            this.msgboxpanel.Visible = false;
+            base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
         }
 
         protected void btnsercom_Click(object sender, EventArgs e)
@@ -405,6 +405,43 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //messageBox.SetMessage(str);
             //messageBox.SetOKButton("msg_button_class");
             //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+        }
+
+        protected void btnserper_Click(object sender, EventArgs e)
+        {
+
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz.Text.ToUpper());
+
+
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+            pCPersona.ShowOnPageLoad = true;
+            //this.msgboxpanel.Visible = true;
+            //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox2.tpl"));
+            //messageBox.SetTitle("Busqueda de Persona por Nombre o Razón Social");
+            //messageBox.SetIcon("search_user.png");
+            //messageBox.SetMessage(str);
+            //messageBox.SetOKButton("msg_button_class");
+            //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+            //this.a.Value = "0";
+            //this.b.Value = "10";
+        }
+
+        protected void btnserper1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        protected void grdPersonas_SelectionChanged(object sender, EventArgs e)
+        {
+            return;
+        }
+
+        protected void grdPersonas_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+            return;
         }
     }
 }

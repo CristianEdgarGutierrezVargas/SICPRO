@@ -24,6 +24,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::System.Web.UI.WebControls.Panel panel;
 
         /// <summary>
+        /// Control msgboxpanel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgboxpanel;
+
+        /// <summary>
         /// Control lblnumero.
         /// </summary>
         /// <remarks>
@@ -328,5 +337,41 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmensaje;
+
+        /// <summary>
+        /// Control pCPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCPersona;
+
+        /// <summary>
+        /// Control nomraz1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz1;
+
+        /// <summary>
+        /// Control btnserper1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper1;
+
+        /// <summary>
+        /// Control grdPersonas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
     }
 }
