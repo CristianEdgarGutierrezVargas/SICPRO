@@ -23,6 +23,7 @@ namespace Logica.Consumo
         private readonly Cvcb_veripoliza1 _manejador_vcb_veripoliza1;
         private readonly Cpr_producto _manejador_pr_producto;
         private readonly Cpr_formriesgo _manejador_pr_formriesgo;
+        private readonly Cgr_compania _manejador_gr_compania;
         public static sicproEntities dbContext;
         public ConsumoValidarProd()
         {
@@ -34,6 +35,7 @@ namespace Logica.Consumo
             _manejador_pr_producto = new Cpr_producto(dbContext);
             _manejador_pr_formriesgo = new Cpr_formriesgo(dbContext);
             _manejador_gr_persona = new Cgr_persona(dbContext);
+            _manejador_gr_compania = new Cgr_compania(dbContext);
         }
 
         #endregion
@@ -107,20 +109,19 @@ namespace Logica.Consumo
 
         public List<OcTablaProductoL> ObtenerTablaProductoL(string varbusqueda, string desc_prod)
         {
-            List<OcTablaProductoL> sql;
+            List<OcTablaProductoL> sql=new List<OcTablaProductoL>();
             try
             {
-                var producto = _manejador_pr_producto.GetListProducto();
+                var producto = _manejador_pr_producto.GetListProducto(desc_prod);
                 var formriesgo = _manejador_pr_formriesgo.GetListFormriesgo();
-                sql = (List<OcTablaProductoL>)formriesgo.Join(producto, x => x.id_producto, s => s.id_producto, (x, s) => new { s.id_producto, s.desc_prod, x.id_spvs }).Where(x => x.id_spvs == varbusqueda && x.desc_prod.Contains(desc_prod)).OrderBy(x => x.desc_prod).Select(x => new { x.id_producto, x.desc_prod });
-                // string[] strArrays = new string[] { "SELECT pr_producto.id_producto, pr_producto.desc_prod FROM pr_formriesgo INNER JOIN pr_producto ON (pr_formriesgo.id_producto = pr_producto.id_producto) WHERE pr_formriesgo.id_spvs = '", varbusqueda, "' AND pr_producto.desc_prod LIKE '%", desc_prod, "%' ORDER BY desc_prod" };
-                //string sql = string.Concat(strArrays);
-                //Acceso db = new Acceso();
-                // db.Conectar();
-                // db.CrearComando(sql);
-                //DataTable dtgeneral = sql.Consulta();
-                //db.Desconectar();
-                //dataTable = dtgeneral;
+                var sql1 = formriesgo.Join(producto, x => x.id_producto, s => s.id_producto, (x, s) => new { s.id_producto, s.desc_prod, x.id_spvs }).Where(x => x.id_spvs == varbusqueda).OrderBy(x => x.desc_prod).Select(x => new { x.id_producto, x.desc_prod });
+                foreach(var dt in sql1)
+                {
+                    var dato = new OcTablaProductoL();
+                    dato.id_producto = dt.id_producto;
+                    dato.desc_prod= dt.desc_prod;
+                    sql.Add(dato);
+                }
             }
             catch (SecureExceptions secureException)
             {
@@ -128,7 +129,30 @@ namespace Logica.Consumo
             }
             return sql;
         }
-
+        public List<OcTablaCompaniaPersona> ObtenerTablaCompania(string varbusqueda)
+        {
+            List<OcTablaCompaniaPersona> sql=new List<OcTablaCompaniaPersona>();
+            try
+            {
+                var persona = _manejador_gr_persona.ObtenerTablaPersonasC(varbusqueda);
+                var compania = _manejador_gr_compania.ListaCompania();
+                
+                var sql1 = compania.Join(persona, x => x.id_per, s => s.id_per, (x, s) => new { s.nomraz,  x.id_spvs }).Select(x => new { x.id_spvs, x.nomraz });
+                foreach(var dt in sql1)
+                {
+                    var dato = new OcTablaCompaniaPersona();
+                    dato.id_spvs =Convert.ToInt64( dt.id_spvs);
+                    dato.nomraz= dt.nomraz;
+                    sql.Add(dato);
+                }
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+            return sql;
+        }
 
     }
 }

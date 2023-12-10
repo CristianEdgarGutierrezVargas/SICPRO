@@ -150,6 +150,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::System.Web.UI.WebControls.Label lblproducto;
 
         /// <summary>
+        /// Control CallBProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBProducto;
+
+        /// <summary>
         /// Control desc_producto.
         /// </summary>
         /// <remarks>
@@ -159,15 +168,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_producto;
 
         /// <summary>
-        /// Control btnserprod.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserprod;
-
-        /// <summary>
         /// Control id_producto.
         /// </summary>
         /// <remarks>
@@ -175,6 +175,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField id_producto;
+
+        /// <summary>
+        /// Control btnserprod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserprod;
 
         /// <summary>
         /// Control vigencia.
@@ -391,5 +400,41 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdCompania;
+
+        /// <summary>
+        /// Control pCProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCProducto;
+
+        /// <summary>
+        /// Control desc_producto1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_producto1;
+
+        /// <summary>
+        /// Control btnProd.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnProd;
+
+        /// <summary>
+        /// Control grdProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdProducto;
     }
 }

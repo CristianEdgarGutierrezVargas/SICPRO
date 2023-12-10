@@ -32,7 +32,16 @@
                 pCCompania.Hide();
 
             }
+            function UpdateDetailGridProducto(s, e) {
+                var index = e.visibleIndex;
 
+                CallBProducto.PerformCallback(index);
+            }
+            function OnEndCallbackProducto(s, e) {
+
+                pCProducto.Hide();
+
+            }
         </script>
 
 
@@ -92,7 +101,7 @@
                                                 <dx:BootstrapTextBox runat="server" ID="nomco" NullText="" Width="150px">
                                                     <CssClasses Input="form-control-sm fs-10" />
                                                 </dx:BootstrapTextBox>
-                                                 <asp:HiddenField runat="server" ID="id_spvs" Value="" />
+                                                <asp:HiddenField runat="server" ID="id_spvs" Value="" />
                                             </dx:ContentControl>
                                         </ContentCollection>
                                     </dx:BootstrapCallbackPanel>
@@ -101,7 +110,7 @@
                                         <SettingsBootstrap RenderOption="None" />
                                     </dx:BootstrapButton>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="row mt-1">
@@ -110,16 +119,23 @@
                             </div>
                             <div class="col-8">
                                 <div class="d-flex flex-row">
-                                    <dx:BootstrapTextBox runat="server" ID="desc_producto" NullText="" Width="150px">
-                                        <CssClasses Input="form-control-sm fs-10" />
-                                    </dx:BootstrapTextBox>
-
+                                    <dx:BootstrapCallbackPanel ID="CallBProducto" ClientInstanceName="CallBProducto" runat="server" OnCallback="CallBProducto_Callback">
+                                        <ClientSideEvents EndCallback="OnEndCallbackProducto"></ClientSideEvents>
+                                        <ContentCollection>
+                                            <dx:ContentControl>
+                                                <dx:BootstrapTextBox runat="server" ID="desc_producto" NullText="" Width="150px">
+                                                    <CssClasses Input="form-control-sm fs-10" />
+                                                </dx:BootstrapTextBox>
+                                                <asp:HiddenField runat="server" ID="id_producto" Value="" />
+                                            </dx:ContentControl>
+                                        </ContentCollection>
+                                    </dx:BootstrapCallbackPanel>
                                     <dx:BootstrapButton ID="btnserprod" runat="server" AutoPostBack="false" Text="..." OnClick="btnserprod_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
                                     </dx:BootstrapButton>
                                 </div>
-                                <asp:HiddenField runat="server" ID="id_producto" Value="" />
+
                             </div>
                         </div>
                         <div class="row mt-1 msg_button_class">
@@ -277,67 +293,130 @@
             </FooterContentTemplate>
         </dx:BootstrapPopupControl>
 
-          <dx:BootstrapPopupControl ID="pCCompania" runat="server" ClientInstanceName="pCCompania" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
-      <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
-      <CssClasses Content="pt-1" />
-      <ContentCollection>
-          <dx:ContentControl>
-              <div class="row msg_button_class rounded-top-1">
-                  <div class="col-12 fs-10 p-1 ">
-                      <span>Busqueda de Persona por Nombre o Razón Social</span>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-4">
-                      <div class="row">
-                          <div class="col-12 text-center mt-2">
-                              <img src="../../../UI/img/search_user.png" />
-                          </div>
-                          <div class="col-12 text-center mt-2">
-                              <dx:BootstrapTextBox runat="server" ID="nomco1" ClientInstanceName="nomraz1" NullText="" Width="150px">
-                                  <CssClasses Input="form-control-sm fs-10" />
-                              </dx:BootstrapTextBox>
-                          </div>
-                          <div class="col-12 text-center mt-2">
-                              <dx:BootstrapButton ID="btnnomco" runat="server" AutoPostBack="false" Text="-->" OnClick="btnnomco_Click">
-                                  <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
-                                  <SettingsBootstrap RenderOption="None" />
-                              </dx:BootstrapButton>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-8 mt-2">
+        <dx:BootstrapPopupControl ID="pCCompania" runat="server" ClientInstanceName="pCCompania" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+            <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
+            <CssClasses Content="pt-1" />
+            <ContentCollection>
+                <dx:ContentControl>
+                    <div class="row msg_button_class rounded-top-1">
+                        <div class="col-12 fs-10 p-1 ">
+                            <span>Busqueda de Persona por Nombre o Razón Social</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12 text-center mt-2">
+                                    <img src="../../../UI/img/search_user.png" />
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapTextBox runat="server" ID="nomco1" ClientInstanceName="nomraz1" NullText="" Width="150px">
+                                        <CssClasses Input="form-control-sm fs-10" />
+                                    </dx:BootstrapTextBox>
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapButton ID="btnnomco" runat="server" AutoPostBack="false" Text="-->" OnClick="btnnomco_Click">
+                                        <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                        <SettingsBootstrap RenderOption="None" />
+                                    </dx:BootstrapButton>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8 mt-2">
 
-                      <dx:BootstrapGridView ID="grdCompania" EnableCallBacks="true" runat="server" KeyFieldName="id_per" ClientInstanceName="grdCompania" OnDataBinding="grdCompania_DataBinding">
-                          <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
-                          <SettingsText Title="Lista de Personas" />
-                          <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                          <ClientSideEvents RowClick="UpdateDetailGridCompania" />
-                          <SettingsBootstrap Striped="true" />
-                          <CssClasses PanelHeading="msg_button_class p-1 fs-10 " />
-                          <SettingsPager NumericButtonCount="3">
-                              <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
-                          </SettingsPager>
-                          <Columns>
-                              <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
+                            <dx:BootstrapGridView ID="grdCompania" EnableCallBacks="true" runat="server" KeyFieldName="id_spvs" ClientInstanceName="grdCompania" OnDataBinding="grdCompania_DataBinding">
+                                <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
+                                <SettingsText Title="Lista de Personas" />
+                                <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                                <ClientSideEvents RowClick="UpdateDetailGridCompania" />
+                                <SettingsBootstrap Striped="true" />
+                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 " />
+                                <SettingsPager NumericButtonCount="3">
+                                    <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                                </SettingsPager>
+                                <Columns>
+                                    <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
 
-                          </Columns>
+                                </Columns>
 
-                      </dx:BootstrapGridView>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12">
-                  </div>
-              </div>
-          </dx:ContentControl>
-      </ContentCollection>
-      <FooterContentTemplate>
-          <dx:BootstrapButton runat="server" ID="btnAceptarCompania" OnClick="btnAceptarCompania_Click" Text="Aceptar">
-              <SettingsBootstrap RenderOption="None" Sizing="Small" />
-              <CssClasses Control="msg_button_class" Text="fs-9" />
-          </dx:BootstrapButton>
-      </FooterContentTemplate>
-  </dx:BootstrapPopupControl>
+                            </dx:BootstrapGridView>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
+                    </div>
+                </dx:ContentControl>
+            </ContentCollection>
+            <FooterContentTemplate>
+                <dx:BootstrapButton runat="server" ID="btnAceptarCompania" OnClick="btnAceptarCompania_Click" Text="Aceptar">
+                    <SettingsBootstrap RenderOption="None" Sizing="Small" />
+                    <CssClasses Control="msg_button_class" Text="fs-9" />
+                </dx:BootstrapButton>
+            </FooterContentTemplate>
+        </dx:BootstrapPopupControl>
+
+        <dx:BootstrapPopupControl ID="pCProducto" runat="server" ClientInstanceName="pCProducto" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+            <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
+            <CssClasses Content="pt-1" />
+            <ContentCollection>
+                <dx:ContentControl>
+                    <div class="row msg_button_class rounded-top-1">
+                        <div class="col-12 fs-10 p-1 ">
+                            <span>Busqueda de Persona por Nombre o Razón Social</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12 text-center mt-2">
+                                    <img src="../../../UI/img/search_user.png" />
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapTextBox runat="server" ID="desc_producto1" ClientInstanceName="desc_producto1" NullText="" Width="150px">
+                                        <CssClasses Input="form-control-sm fs-10" />
+                                    </dx:BootstrapTextBox>
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapButton ID="btnProd" runat="server" AutoPostBack="false" Text="-->" OnClick="btnProd_Click">
+                                        <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                        <SettingsBootstrap RenderOption="None" />
+                                    </dx:BootstrapButton>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8 mt-2">
+
+                            <dx:BootstrapGridView ID="grdProducto" EnableCallBacks="true" runat="server" KeyFieldName="id_producto" ClientInstanceName="grdProducto" OnDataBinding="grdProducto_DataBinding">
+                                <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
+                                <SettingsText Title="Lista de Personas" />
+                                <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                                <ClientSideEvents RowClick="UpdateDetailGridProducto" />
+                                <SettingsBootstrap Striped="true" />
+                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 " />
+                                <SettingsPager NumericButtonCount="3">
+                                    <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                                </SettingsPager>
+                                <Columns>
+                                    <dx:BootstrapGridViewDataColumn FieldName="desc_prod" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
+
+                                </Columns>
+
+                            </dx:BootstrapGridView>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
+                    </div>
+                </dx:ContentControl>
+            </ContentCollection>
+            <FooterContentTemplate>
+                <dx:BootstrapButton runat="server" ID="btnAceptarProducto" OnClick="btnAceptarProducto_Click" Text="Aceptar">
+                    <SettingsBootstrap RenderOption="None" Sizing="Small" />
+                    <CssClasses Control="msg_button_class" Text="fs-9" />
+                </dx:BootstrapButton>
+            </FooterContentTemplate>
+        </dx:BootstrapPopupControl>
     </div>
 </asp:Content>

@@ -62,12 +62,14 @@ namespace ManejadorMetodos.CDBSicPro
         //        throw new SecureExceptions("Error al Generar la Consulta", original);
         //    }
         //}
-        public List<pr_producto> GetListProducto()
+        public List<pr_producto> GetListProducto(string vBusqueda)
         {
             List<pr_producto> sql = new List<pr_producto>();
             try
-            {
+            {if(string.IsNullOrEmpty(vBusqueda))
                 sql = _context.pr_producto.ToList();
+            else
+                    sql = _context.pr_producto.Where(w=>w.desc_prod.ToUpper().Contains(vBusqueda.ToUpper()) ).ToList();
 
             }
             catch (SecureExceptions secureException)

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
     <Compile Include="CustomModelEntities\OC_DIRECCION_PARAMETRO.cs" />
     <Compile Include="ModelSicPro\co_anticom.cs">
