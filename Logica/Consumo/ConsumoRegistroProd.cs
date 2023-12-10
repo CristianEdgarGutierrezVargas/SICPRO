@@ -514,7 +514,7 @@ namespace Logica.Consumo
             }
         }
 
-        public double Com3(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        public decimal Com3(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
             try
             {
@@ -530,7 +530,7 @@ namespace Logica.Consumo
             }
         }
 
-        public double Calculo2(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        public decimal Calculo2(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
             try
             {

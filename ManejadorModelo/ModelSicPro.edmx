@@ -1459,11 +1459,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.vco_amortizacomis2' no tiene defi
 advertencia 6002: La tabla o vista 'sicpro.dbo.vco_chequeconsaldo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vco_chequeconsaldo">
           <Key>
-            <PropertyRef Name="cheque" />
             <PropertyRef Name="id_spvs" />
             <PropertyRef Name="pago_mes" />
+            <PropertyRef Name="cheque" />
           </Key>
-          <Property Name="cheque" Type="ntext" Nullable="false" />
+          <Property Name="cheque" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="nomrazcia" Type="varchar" MaxLength="160" />
           <Property Name="fecha" Type="date" />
@@ -1512,17 +1512,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.vco_notacobcia' no tiene definida
           <Property Name="id_perclie" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="cliente" Type="varchar" MaxLength="160" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'sicpro.dbo.vco_prodcartmes' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="vco_prodcartmes">
-          <Property Name="mes_prod" Type="int" />
-          <Property Name="anio_prod" Type="int" />
-          <Property Name="id_percart" Type="varchar" MaxLength="15" />
-          <Property Name="id_suc" Type="bigint" />
-          <Property Name="prima_neta" Type="numeric" Precision="38" Scale="2" />
-          <Property Name="comision" Type="numeric" Precision="38" Scale="2" />
-          <Property Name="prome_comi" Type="numeric" Precision="38" Scale="6" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'sicpro.dbo.vco_veripoliza1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vco_veripoliza1">
@@ -2511,6 +2500,190 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="findcheque" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cheque" Type="varchar" Mode="In" />
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="cheque" Type="varchar" MaxLength="100" />
+                <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+                <Property Name="nomrazcia" Type="varchar" MaxLength="160" />
+                <Property Name="fecha" Type="date" />
+                <Property Name="comision_pc" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="comisaldo_pc" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="pago_mes" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="pc_mes" Type="numeric" Precision="2" Scale="0" />
+                <Property Name="pc_anio" Type="numeric" Precision="4" Scale="0" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="findcheques" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="spvs" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="cheque" Type="ntext" Nullable="false" />
+                <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+                <Property Name="nomrazcia" Type="varchar" MaxLength="160" />
+                <Property Name="fecha" Type="date" />
+                <Property Name="comision_pc" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="comisaldo_pc" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="pago_mes" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="pc_mes" Type="numeric" Precision="2" Scale="0" />
+                <Property Name="pc_anio" Type="numeric" Precision="4" Scale="0" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="findname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="id_per" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="nomraz" Type="varchar" MaxLength="160" />
+                <Property Name="id_suc" Type="bigint" />
+                <Property Name="sucursal" Type="varchar" MaxLength="100" />
+                <Property Name="id_producto" Type="bigint" Nullable="false" />
+                <Property Name="desc_prod" Type="varchar" MaxLength="50" />
+                <Property Name="abrev_prod" Type="varchar" MaxLength="5" />
+                <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+                <Property Name="abrev_cia" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="nomraz_cia" Type="varchar" MaxLength="160" Nullable="false" />
+                <Property Name="id_gru" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+                <Property Name="desc_grupo" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="num_poliza" Type="varchar" MaxLength="30" Nullable="false" />
+                <Property Name="id_poliza" Type="bigint" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_perclie" Type="varchar" Mode="In" />
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+          <Parameter Name="id_cartera" Type="varchar" Mode="In" />
+          <Parameter Name="poliza" Type="varchar" Mode="In" />
+          <Parameter Name="liquida" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="id_poliza" Type="bigint" Nullable="false" />
+                <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+                <Property Name="num_poliza" Type="varchar" MaxLength="30" Nullable="false" />
+                <Property Name="id_percart" Type="varchar" MaxLength="15" />
+                <Property Name="id_perejec" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="no_liquida" Type="varchar" MaxLength="30" />
+                <Property Name="id_producto" Type="bigint" Nullable="false" />
+                <Property Name="abrev_prod" Type="varchar" MaxLength="5" />
+                <Property Name="desc_prod" Type="varchar" MaxLength="50" />
+                <Property Name="id_perclie" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="cliente" Type="varchar" MaxLength="160" />
+                <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+                <Property Name="nit_fac" Type="varchar" MaxLength="50" />
+                <Property Name="cia_aseg" Type="varchar" MaxLength="160" />
+                <Property Name="prima_bruta" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+                <Property Name="fecha_pago" Type="date" />
+                <Property Name="cuota" Type="numeric" Precision="2" Scale="0" />
+                <Property Name="cuota_total1" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="exclusion" Type="numeric" Precision="38" Scale="2" />
+                <Property Name="cuota_pago1" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="devolucion" Type="numeric" Precision="38" Scale="2" />
+                <Property Name="estadoc" Type="varchar" MaxLength="5" Nullable="false" />
+                <Property Name="fc_reg" Type="date" Nullable="false" />
+                <Property Name="id_dir" Type="bigint" Nullable="false" />
+                <Property Name="factura" Type="float" />
+                <Property Name="fecha_factura" Type="date" />
+                <Property Name="liquidacion" Type="int" />
+                <Property Name="id_div" Type="bigint" Nullable="false" />
+                <Property Name="divisa" Type="varchar" MaxLength="5" />
+                <Property Name="del" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="al" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+                <Property Name="id_tpdir" Type="float" Nullable="false" />
+                <Property Name="tdirec" Type="varchar" MaxLength="100" />
+                <Property Name="telf_dir" Type="varchar" MaxLength="20" />
+                <Property Name="telf_cel" Type="varchar" MaxLength="20" />
+                <Property Name="telf_fax" Type="varchar" MaxLength="20" />
+                <Property Name="email" Type="varchar" MaxLength="200" />
+                <Property Name="web" Type="varchar" MaxLength="100" />
+                <Property Name="int_dire" Type="varchar" MaxLength="20" />
+                <Property Name="id_emis" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+                <Property Name="ciudad" Type="varchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="pagos_rep1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_perclie" Type="varchar" Mode="In" />
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+          <Parameter Name="id_cartera" Type="varchar" Mode="In" />
+          <Parameter Name="poliza" Type="varchar" Mode="In" />
+          <Parameter Name="liquida" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="id_poliza" Type="bigint" Nullable="false" />
+                <Property Name="id_movimiento" Type="bigint" Nullable="false" />
+                <Property Name="num_poliza" Type="varchar" MaxLength="30" Nullable="false" />
+                <Property Name="id_percart" Type="varchar" MaxLength="15" />
+                <Property Name="id_perejec" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="no_liquida" Type="varchar" MaxLength="30" />
+                <Property Name="id_producto" Type="bigint" Nullable="false" />
+                <Property Name="abrev_prod" Type="varchar" MaxLength="5" />
+                <Property Name="desc_prod" Type="varchar" MaxLength="50" />
+                <Property Name="id_perclie" Type="varchar" MaxLength="15" Nullable="false" />
+                <Property Name="cliente" Type="varchar" MaxLength="160" />
+                <Property Name="id_spvs" Type="varchar" MaxLength="3" Nullable="false" />
+                <Property Name="nit_fac" Type="varchar" MaxLength="50" />
+                <Property Name="cia_aseg" Type="varchar" MaxLength="160" />
+                <Property Name="prima_bruta" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+                <Property Name="fecha_pago" Type="date" />
+                <Property Name="cuota" Type="numeric" Precision="2" Scale="0" />
+                <Property Name="cuota_total1" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="exclusion" Type="numeric" Precision="38" Scale="2" Nullable="false" />
+                <Property Name="cuota_pago1" Type="numeric" Precision="9" Scale="2" />
+                <Property Name="devolucion" Type="numeric" Precision="38" Scale="2" Nullable="false" />
+                <Property Name="estadoc" Type="varchar" MaxLength="5" Nullable="false" />
+                <Property Name="fc_reg" Type="date" Nullable="false" />
+                <Property Name="id_dir" Type="bigint" Nullable="false" />
+                <Property Name="factura" Type="float" />
+                <Property Name="fecha_factura" Type="date" />
+                <Property Name="liquidacion" Type="int" />
+                <Property Name="id_div" Type="bigint" Nullable="false" />
+                <Property Name="divisa" Type="varchar" MaxLength="5" />
+                <Property Name="del" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="al" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+                <Property Name="id_tpdir" Type="float" Nullable="false" />
+                <Property Name="tdirec" Type="varchar" MaxLength="100" />
+                <Property Name="telf_dir" Type="varchar" MaxLength="20" />
+                <Property Name="telf_cel" Type="varchar" MaxLength="20" />
+                <Property Name="telf_fax" Type="varchar" MaxLength="20" />
+                <Property Name="email" Type="varchar" MaxLength="200" />
+                <Property Name="web" Type="varchar" MaxLength="100" />
+                <Property Name="int_dire" Type="varchar" MaxLength="20" />
+                <Property Name="id_emis" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+                <Property Name="ciudad" Type="varchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="pr_calcfrmcred" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idproducto" Type="bigint" Mode="In" />
+          <Parameter Name="idspvs" Type="varchar" Mode="In" />
+          <Parameter Name="primatotal" Type="numeric" Mode="In" />
+          <Parameter Name="tipocuota" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="pr_calcfrmcred_cuo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idproducto" Type="bigint" Mode="In" />
+          <Parameter Name="idspvs" Type="varchar" Mode="In" />
+          <Parameter Name="primatotal" Type="numeric" Mode="In" />
+          <Parameter Name="tipocuota" Type="bit" Mode="In" />
+          <Parameter Name="cuota" Type="int" Mode="In" />
+          <Parameter Name="idmovimiento" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="sicproModelStoreContainer">
           <EntitySet Name="co_anticom" EntityType="Self.co_anticom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_porcomi" EntityType="Self.co_porcomi" Schema="dbo" store:Type="Tables" />
@@ -4001,6 +4174,44 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <EntitySet Name="vtemp" EntityType="sicproModel.vtemp" />
           <EntitySet Name="zrep" EntityType="sicproModel.zrep" />
           <EntitySet Name="zrep_estcta1" EntityType="sicproModel.zrep_estcta1" />
+          <FunctionImport Name="findcheque" IsComposable="true" ReturnType="Collection(sicproModel.findcheque_Result)">
+            <Parameter Name="cheque" Mode="In" Type="String" />
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="findcheques" IsComposable="true" ReturnType="Collection(sicproModel.findcheques_Result)">
+          <Parameter Name="spvs" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="findname" IsComposable="true" ReturnType="Collection(sicproModel.findname_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pagos_rep" IsComposable="true" ReturnType="Collection(sicproModel.pagos_rep_Result)">
+            <Parameter Name="id_perclie" Mode="In" Type="String" />
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
+            <Parameter Name="id_cartera" Mode="In" Type="String" />
+            <Parameter Name="poliza" Mode="In" Type="String" />
+            <Parameter Name="liquida" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pagos_rep1" IsComposable="true" ReturnType="Collection(sicproModel.pagos_rep1_Result)">
+            <Parameter Name="id_perclie" Mode="In" Type="String" />
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
+            <Parameter Name="id_cartera" Mode="In" Type="String" />
+            <Parameter Name="poliza" Mode="In" Type="String" />
+            <Parameter Name="liquida" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_calcfrmcred" ReturnType="Collection(Decimal)">
+            <Parameter Name="idproducto" Mode="In" Type="Int64" />
+            <Parameter Name="idspvs" Mode="In" Type="String" />
+            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
+            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="pr_calcfrmcred_cuo" ReturnType="Collection(Decimal)">
+            <Parameter Name="idproducto" Mode="In" Type="Int64" />
+            <Parameter Name="idspvs" Mode="In" Type="String" />
+            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
+            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
+            <Parameter Name="cuota" Mode="In" Type="Int32" />
+            <Parameter Name="idmovimiento" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -5512,7 +5723,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <PropertyRef Name="id_spvs" />
             <PropertyRef Name="pago_mes" />
           </Key>
-          <Property Name="cheque" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cheque" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="id_spvs" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="nomrazcia" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
           <Property Name="fecha" Type="DateTime" Precision="0" />
@@ -6377,6 +6588,132 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Name="id_emis" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
           <Property Name="ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="findcheque_Result">
+          <Property Type="String" Name="cheque" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="nomrazcia" Nullable="true" MaxLength="160" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="comision_pc" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="comisaldo_pc" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="String" Name="pago_mes" Nullable="false" MaxLength="10" />
+          <Property Type="Decimal" Name="pc_mes" Nullable="true" Precision="2" Scale="0" />
+          <Property Type="Decimal" Name="pc_anio" Nullable="true" Precision="4" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="findcheques_Result">
+          <Property Type="String" Name="cheque" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="nomrazcia" Nullable="true" MaxLength="160" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="comision_pc" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="comisaldo_pc" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="String" Name="pago_mes" Nullable="false" MaxLength="10" />
+          <Property Type="Decimal" Name="pc_mes" Nullable="true" Precision="2" Scale="0" />
+          <Property Type="Decimal" Name="pc_anio" Nullable="true" Precision="4" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="findname_Result">
+          <Property Type="String" Name="id_per" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nomraz" Nullable="true" MaxLength="160" />
+          <Property Type="Int64" Name="id_suc" Nullable="true" />
+          <Property Type="String" Name="sucursal" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="desc_prod" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="abrev_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="abrev_cia" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nomraz_cia" Nullable="false" MaxLength="160" />
+          <Property Type="Decimal" Name="id_gru" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="desc_grupo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pagos_rep_Result">
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+          <Property Type="Int64" Name="id_movimiento" Nullable="false" />
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="id_percart" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="id_perejec" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="no_liquida" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="abrev_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="desc_prod" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="id_perclie" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="cliente" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="nit_fac" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cia_aseg" Nullable="true" MaxLength="160" />
+          <Property Type="Decimal" Name="prima_bruta" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="DateTime" Name="fecha_pago" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="2" Scale="0" />
+          <Property Type="Decimal" Name="cuota_total1" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="exclusion" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="cuota_pago1" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="devolucion" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="String" Name="estadoc" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="fc_reg" Nullable="false" Precision="10" />
+          <Property Type="Int64" Name="id_dir" Nullable="false" />
+          <Property Type="Double" Name="factura" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_factura" Nullable="true" Precision="10" />
+          <Property Type="Int32" Name="liquidacion" Nullable="true" />
+          <Property Type="Int64" Name="id_div" Nullable="false" />
+          <Property Type="String" Name="divisa" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="Double" Name="id_tpdir" Nullable="false" />
+          <Property Type="String" Name="tdirec" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_cel" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_fax" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="web" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="int_dire" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="id_emis" Nullable="false" Precision="8" Scale="0" />
+          <Property Type="String" Name="ciudad" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="pagos_rep1_Result">
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+          <Property Type="Int64" Name="id_movimiento" Nullable="false" />
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="id_percart" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="id_perejec" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="no_liquida" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="abrev_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="desc_prod" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="id_perclie" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="cliente" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="nit_fac" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cia_aseg" Nullable="true" MaxLength="160" />
+          <Property Type="Decimal" Name="prima_bruta" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="DateTime" Name="fecha_pago" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="2" Scale="0" />
+          <Property Type="Decimal" Name="cuota_total1" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="exclusion" Nullable="false" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="cuota_pago1" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="devolucion" Nullable="false" Precision="38" Scale="2" />
+          <Property Type="String" Name="estadoc" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="fc_reg" Nullable="false" Precision="10" />
+          <Property Type="Int64" Name="id_dir" Nullable="false" />
+          <Property Type="Double" Name="factura" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_factura" Nullable="true" Precision="10" />
+          <Property Type="Int32" Name="liquidacion" Nullable="true" />
+          <Property Type="Int64" Name="id_div" Nullable="false" />
+          <Property Type="String" Name="divisa" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="Double" Name="id_tpdir" Nullable="false" />
+          <Property Type="String" Name="tdirec" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_cel" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_fax" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="web" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="int_dire" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="id_emis" Nullable="false" Precision="8" Scale="0" />
+          <Property Type="String" Name="ciudad" Nullable="true" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8241,6 +8578,154 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="findcheque" FunctionName="sicproModel.Store.findcheque">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.findcheque_Result">
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="nomrazcia" ColumnName="nomrazcia" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comision_pc" ColumnName="comision_pc" />
+                <ScalarProperty Name="comisaldo_pc" ColumnName="comisaldo_pc" />
+                <ScalarProperty Name="pago_mes" ColumnName="pago_mes" />
+                <ScalarProperty Name="pc_mes" ColumnName="pc_mes" />
+                <ScalarProperty Name="pc_anio" ColumnName="pc_anio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="findcheques" FunctionName="sicproModel.Store.findcheques">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.findcheques_Result">
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="nomrazcia" ColumnName="nomrazcia" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comision_pc" ColumnName="comision_pc" />
+                <ScalarProperty Name="comisaldo_pc" ColumnName="comisaldo_pc" />
+                <ScalarProperty Name="pago_mes" ColumnName="pago_mes" />
+                <ScalarProperty Name="pc_mes" ColumnName="pc_mes" />
+                <ScalarProperty Name="pc_anio" ColumnName="pc_anio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="findname" FunctionName="sicproModel.Store.findname">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.findname_Result">
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="abrev_cia" ColumnName="abrev_cia" />
+                <ScalarProperty Name="nomraz_cia" ColumnName="nomraz_cia" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pagos_rep" FunctionName="sicproModel.Store.pagos_rep">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.pagos_rep_Result">
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="id_perejec" ColumnName="id_perejec" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="nit_fac" ColumnName="nit_fac" />
+                <ScalarProperty Name="cia_aseg" ColumnName="cia_aseg" />
+                <ScalarProperty Name="prima_bruta" ColumnName="prima_bruta" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="cuota_total1" ColumnName="cuota_total1" />
+                <ScalarProperty Name="exclusion" ColumnName="exclusion" />
+                <ScalarProperty Name="cuota_pago1" ColumnName="cuota_pago1" />
+                <ScalarProperty Name="devolucion" ColumnName="devolucion" />
+                <ScalarProperty Name="estadoc" ColumnName="estadoc" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="fecha_factura" ColumnName="fecha_factura" />
+                <ScalarProperty Name="liquidacion" ColumnName="liquidacion" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="divisa" ColumnName="divisa" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="al" ColumnName="al" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_tpdir" ColumnName="id_tpdir" />
+                <ScalarProperty Name="tdirec" ColumnName="tdirec" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="telf_cel" ColumnName="telf_cel" />
+                <ScalarProperty Name="telf_fax" ColumnName="telf_fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="int_dire" ColumnName="int_dire" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pagos_rep1" FunctionName="sicproModel.Store.pagos_rep1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.pagos_rep1_Result">
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="id_perejec" ColumnName="id_perejec" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+                <ScalarProperty Name="nit_fac" ColumnName="nit_fac" />
+                <ScalarProperty Name="cia_aseg" ColumnName="cia_aseg" />
+                <ScalarProperty Name="prima_bruta" ColumnName="prima_bruta" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="cuota_total1" ColumnName="cuota_total1" />
+                <ScalarProperty Name="exclusion" ColumnName="exclusion" />
+                <ScalarProperty Name="cuota_pago1" ColumnName="cuota_pago1" />
+                <ScalarProperty Name="devolucion" ColumnName="devolucion" />
+                <ScalarProperty Name="estadoc" ColumnName="estadoc" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="fecha_factura" ColumnName="fecha_factura" />
+                <ScalarProperty Name="liquidacion" ColumnName="liquidacion" />
+                <ScalarProperty Name="id_div" ColumnName="id_div" />
+                <ScalarProperty Name="divisa" ColumnName="divisa" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="al" ColumnName="al" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_tpdir" ColumnName="id_tpdir" />
+                <ScalarProperty Name="tdirec" ColumnName="tdirec" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="telf_cel" ColumnName="telf_cel" />
+                <ScalarProperty Name="telf_fax" ColumnName="telf_fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="int_dire" ColumnName="int_dire" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pr_calcfrmcred" FunctionName="sicproModel.Store.pr_calcfrmcred" />
+          <FunctionImportMapping FunctionImportName="pr_calcfrmcred_cuo" FunctionName="sicproModel.Store.pr_calcfrmcred_cuo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

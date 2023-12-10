@@ -37,18 +37,18 @@ namespace ManejadorMetodos.CDBSicPro
         //    value = num * double.Parse(dataTable.Rows[0]["evaluar"].ToString());
         //    return Math.Round(value, 2);
         //}
-        public double Com3(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        public decimal Com3(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
-            double num = Calculo2(primaBruta, id_producto, id_spvs1, tipoCuota);
+            decimal num = Calculo2(primaBruta, id_producto, id_spvs1, tipoCuota);
             var lstFormRiesgo = Formula1(id_producto, id_spvs1);
-            double num2 = Convert.ToDouble(lstFormRiesgo.Select(s => s.comis_riesgo).FirstOrDefault());
-            double plus_neta = Convert.ToDouble(lstFormRiesgo.Select(s => s.plus_neta).FirstOrDefault());
-            num2 = (num + plus_neta) * (num2 / 100.0);
+            decimal num2 = lstFormRiesgo.Select(s => s.comis_riesgo).FirstOrDefault();
+            decimal plus_neta = Convert.ToDecimal(lstFormRiesgo.Select(s => s.plus_neta).FirstOrDefault());
+            num2 = (num + plus_neta) * (num2 / 100);
             //DataTable dataTable = Formula1();
             //double num2 = double.Parse(dataTable.Rows[0]["comis_riesgo"].ToString());
             //num2 = (num + double.Parse(dataTable.Rows[0]["plus_neta"].ToString())) * (num2 / 100.0);
             num2 = Math.Round(num2, 2);
-            return double.Parse($"{num2:n}");
+            return decimal.Parse($"{num2:n}");
         }
 
         public pr_polmov ValCom(int id_poliza, int id_mov)
@@ -105,22 +105,21 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        public double Calculo2(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        public decimal Calculo2(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
             try
             {
                 //double num = double.Parse(prima_bruta.Text.Replace(".", "").Replace(",", ""));
                 if (id_spvs1 == "109" && id_producto == 32)
                 {
-                    primaBruta -= 232.56;
+                    primaBruta -= Convert.ToDecimal(232.56);
                 }
-                //var sql = _context.pr_ca
 
-                    return 15.263;
+                var response = _context.pr_calcfrmcred(id_producto, id_spvs1, primaBruta, tipoCuota).FirstOrDefault();
+                return response == null ? 0: response.Value;
             }
             catch (Exception)
             {
-
                 throw;
             }
 

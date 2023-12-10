@@ -12,6 +12,8 @@ namespace ManejadorModelo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class sicproEntities : DbContext
     {
@@ -126,5 +128,141 @@ namespace ManejadorModelo
         public virtual DbSet<vtemp> vtemp { get; set; }
         public virtual DbSet<zrep> zrep { get; set; }
         public virtual DbSet<zrep_estcta1> zrep_estcta1 { get; set; }
+    
+        [DbFunction("sicproEntities", "findcheque")]
+        public virtual IQueryable<findcheque_Result> findcheque(string cheque, string id_spvs)
+        {
+            var chequeParameter = cheque != null ?
+                new ObjectParameter("cheque", cheque) :
+                new ObjectParameter("cheque", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<findcheque_Result>("[sicproEntities].[findcheque](@cheque, @id_spvs)", chequeParameter, id_spvsParameter);
+        }
+    
+        [DbFunction("sicproEntities", "findcheques")]
+        public virtual IQueryable<findcheques_Result> findcheques(string spvs)
+        {
+            var spvsParameter = spvs != null ?
+                new ObjectParameter("spvs", spvs) :
+                new ObjectParameter("spvs", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<findcheques_Result>("[sicproEntities].[findcheques](@spvs)", spvsParameter);
+        }
+    
+        [DbFunction("sicproEntities", "findname")]
+        public virtual IQueryable<findname_Result> findname(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<findname_Result>("[sicproEntities].[findname](@name)", nameParameter);
+        }
+    
+        [DbFunction("sicproEntities", "pagos_rep")]
+        public virtual IQueryable<pagos_rep_Result> pagos_rep(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<pagos_rep_Result>("[sicproEntities].[pagos_rep](@id_perclie, @id_spvs, @id_cartera, @poliza, @liquida)", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        [DbFunction("sicproEntities", "pagos_rep1")]
+        public virtual IQueryable<pagos_rep1_Result> pagos_rep1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<pagos_rep1_Result>("[sicproEntities].[pagos_rep1](@id_perclie, @id_spvs, @id_cartera, @poliza, @liquida)", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
+        {
+            var idproductoParameter = idproducto.HasValue ?
+                new ObjectParameter("idproducto", idproducto) :
+                new ObjectParameter("idproducto", typeof(long));
+    
+            var idspvsParameter = idspvs != null ?
+                new ObjectParameter("idspvs", idspvs) :
+                new ObjectParameter("idspvs", typeof(string));
+    
+            var primatotalParameter = primatotal.HasValue ?
+                new ObjectParameter("primatotal", primatotal) :
+                new ObjectParameter("primatotal", typeof(decimal));
+    
+            var tipocuotaParameter = tipocuota.HasValue ?
+                new ObjectParameter("tipocuota", tipocuota) :
+                new ObjectParameter("tipocuota", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> pr_calcfrmcred_cuo(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota, Nullable<int> cuota, Nullable<int> idmovimiento)
+        {
+            var idproductoParameter = idproducto.HasValue ?
+                new ObjectParameter("idproducto", idproducto) :
+                new ObjectParameter("idproducto", typeof(long));
+    
+            var idspvsParameter = idspvs != null ?
+                new ObjectParameter("idspvs", idspvs) :
+                new ObjectParameter("idspvs", typeof(string));
+    
+            var primatotalParameter = primatotal.HasValue ?
+                new ObjectParameter("primatotal", primatotal) :
+                new ObjectParameter("primatotal", typeof(decimal));
+    
+            var tipocuotaParameter = tipocuota.HasValue ?
+                new ObjectParameter("tipocuota", tipocuota) :
+                new ObjectParameter("tipocuota", typeof(bool));
+    
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(int));
+    
+            var idmovimientoParameter = idmovimiento.HasValue ?
+                new ObjectParameter("idmovimiento", idmovimiento) :
+                new ObjectParameter("idmovimiento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
+        }
     }
 }

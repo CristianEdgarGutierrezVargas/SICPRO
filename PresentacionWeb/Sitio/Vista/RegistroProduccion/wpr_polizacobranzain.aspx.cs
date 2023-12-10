@@ -111,10 +111,13 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    id_producto = this.id_producto,
             //    tipo_cuota = this.tipo_cuota
             //};
-            var id_spvs = "";
-            var prima_bruta = 0;
-            var id_producto = 0;
-            var tipo_cuota = "";
+            var objPoliza = (pr_poliza)Session["POLIZA"];
+            var objPolmov = (pr_polmov)Session["POLIZA_MOVIMIENTO"];
+
+            var id_spvs = objPoliza.id_spvs;
+            var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            var id_producto = objPoliza.id_producto;
+            var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
 
             txtPrimaNeta.Text = _objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
             txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
