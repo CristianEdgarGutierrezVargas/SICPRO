@@ -96,42 +96,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
 
         /// <summary>
-        /// Control a.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField a;
-
-        /// <summary>
-        /// Control b.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField b;
-
-        /// <summary>
-        /// Control ap.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField ap;
-
-        /// <summary>
-        /// Control bp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField bp;
-
-        /// <summary>
         /// Control lblcompania.
         /// </summary>
         /// <remarks>
@@ -139,6 +103,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcompania;
+
+        /// <summary>
+        /// Control CallBCompania.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBCompania;
 
         /// <summary>
         /// Control nomco.
@@ -150,15 +123,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomco;
 
         /// <summary>
-        /// Control btnsercom.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnsercom;
-
-        /// <summary>
         /// Control id_spvs.
         /// </summary>
         /// <remarks>
@@ -166,6 +130,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField id_spvs;
+
+        /// <summary>
+        /// Control btnsercom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnsercom;
 
         /// <summary>
         /// Control lblproducto.
@@ -382,5 +355,41 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
+
+        /// <summary>
+        /// Control pCCompania.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCCompania;
+
+        /// <summary>
+        /// Control nomco1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomco1;
+
+        /// <summary>
+        /// Control btnnomco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnnomco;
+
+        /// <summary>
+        /// Control grdCompania.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdCompania;
     }
 }
