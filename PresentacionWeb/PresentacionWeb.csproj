@@ -120,7 +120,10 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
-    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx" />
     <Content Include="UI\css\acc.css" />
     <Content Include="UI\css\Blue.css" />
@@ -377,12 +380,33 @@
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx.designer.cs">
       <DependentUpon>wpr_poliza.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx.cs">
-      <DependentUpon>wpr_polizacobranza.aspx</DependentUpon>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx.cs">
+      <DependentUpon>wpr_polizacobranzain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx.designer.cs">
-      <DependentUpon>wpr_polizacobranza.aspx</DependentUpon>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx.designer.cs">
+      <DependentUpon>wpr_polizacobranzain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx.cs">
+      <DependentUpon>wpr_polizaexclu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx.designer.cs">
+      <DependentUpon>wpr_polizaexclu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx.cs">
+      <DependentUpon>wpr_polizainclu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx.designer.cs">
+      <DependentUpon>wpr_polizainclu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx.cs">
+      <DependentUpon>wpr_polizareno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx.designer.cs">
+      <DependentUpon>wpr_polizareno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx.cs">
       <DependentUpon>wpr_listacob1.aspx</DependentUpon>
