@@ -108,11 +108,11 @@ p, ol, ul {
 	line-height: 150%;
 }
 
-a:link {
+/*a:link {
 	color: #FFFFFF;
 	font-weight: bold;
 	text-decoration: underline;
-}
+}*/
 a:visited {
 	text-decoration: underline;
 	color: #CCCCCC;

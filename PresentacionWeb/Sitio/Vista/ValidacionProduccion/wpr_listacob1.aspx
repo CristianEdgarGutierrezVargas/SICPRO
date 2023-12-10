@@ -81,7 +81,7 @@
         </script>
 
         <asp:Panel runat="server" ID="panel" CssClass="rounded">
-
+            <div id="msgboxpanel" runat="server"></div>
 
             <div class="card p-3 bg-light rounded">
                 <h6 class="text-info fw-bold fs-8">Listado de Polizas</h6>
@@ -92,7 +92,7 @@
                                 <asp:Label runat="server" ID="lblnumero" Text="N° de Poliza :" CssClass="fs-10"></asp:Label>
                             </div>
                             <div class="col-8">
-                                <dx:BootstrapTextBox runat="server" ID="num_poliza" NullText="%">
+                                <dx:BootstrapTextBox runat="server" ID="num_poliza" NullText="Número de Poliza" Text="%">
                                     <CssClasses Input="form-control-sm fs-10" />
                                 </dx:BootstrapTextBox>
                             </div>
@@ -106,16 +106,16 @@
                                     <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" Width="150px">
                                         <CssClasses Input="form-control-sm fs-10" />
                                     </dx:BootstrapTextBox>
-                                    <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="...">
+                                    <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="..." OnClick="btnserper_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
                                     </dx:BootstrapButton>
                                 </div>
                                 <asp:HiddenField runat="server" ID="id_per" Value="" />
-                                <asp:HiddenField runat="server" ID="a" Value="" />
-                                <asp:HiddenField runat="server" ID="b" Value="" />
-                                <asp:HiddenField runat="server" ID="ap" Value="" />
-                                <asp:HiddenField runat="server" ID="bp" Value="" />
+                                <asp:HiddenField runat="server" ID="a" Value="0" />
+                                <asp:HiddenField runat="server" ID="b" Value="10" />
+                                <asp:HiddenField runat="server" ID="ap" Value="0" />
+                                <asp:HiddenField runat="server" ID="bp" Value="0" />
                             </div>
                         </div>
                         <div class="row mt-1">
@@ -219,8 +219,15 @@
                     <div class="col-7">
                         <asp:Panel runat="server" ID="gridcontainer" Visible="false">
                             <dx:BootstrapGridView ID="gridpoliza" runat="server">
+                                <CssClasses Control="grid" />
                                 <Columns>
-                                    <dx:BootstrapGridViewDateColumn Caption="Poliza" FieldName="">
+                                    <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="id_poliza">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig">
                                     </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                             </dx:BootstrapGridView>
@@ -239,6 +246,60 @@
 
         </asp:Panel>
 
+        <dx:BootstrapPopupControl ID="pCPersona" runat="server" ShowHeader="false" ShowFooter="false" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+            <SettingsAdaptivity Mode="Always" MaxWidth="500px" />
+            <CssClasses Content="pt-1" />
+            <ContentCollection>
+                <dx:ContentControl>
+                    <div class="row msg_button_class rounded-top-1">
+                        <div class="col-12 fs-10 p-1 ">
+                            <span>Busqueda de Persona por Nombre o Razón Social</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12 text-center mt-2">
+                                    <img src="../../../UI/img/search_user.png" />
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapTextBox runat="server" ID="nomraz1" NullText="" Width="150px">
+                                        <CssClasses Input="form-control-sm fs-10" />
+                                    </dx:BootstrapTextBox>
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <dx:BootstrapButton ID="btnserper1" runat="server" AutoPostBack="false" Text="-->" OnClick="btnserper1_Click">
+                                        <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                        <SettingsBootstrap RenderOption="None" />
+                                    </dx:BootstrapButton>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8 mt-2">
+                            <dx:BootstrapGridView ID="grdPersonas" runat="server" KeyFieldName="id_per"  >
+                                <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
+                                <SettingsText Title="Lista de Personas" />
 
+                                <SettingsBootstrap Striped="true" />
+                                <SettingsBehavior AllowSelectSingleRowOnly="true" AllowSelectByRowClick="true" />
+                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 " Row="" />
+                                <SettingsPager NumericButtonCount="4">
+                                    <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                                </SettingsPager>
+                                <Columns>
+                                    <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
+
+                                </Columns>
+
+                            </dx:BootstrapGridView>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
+                    </div>
+                </dx:ContentControl>
+            </ContentCollection>
+        </dx:BootstrapPopupControl>
     </div>
 </asp:Content>
