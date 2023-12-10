@@ -123,7 +123,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         }
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
-            this.msgboxpanel.Visible = false;
+            //this.msgboxpanel.Visible = false;
             base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
         }
 
@@ -234,6 +234,11 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected void grdProducto_DataBinding(object sender, EventArgs e)
         {
             grdProducto.DataSource = Session["lstProducto"];
+        }
+
+        protected void gridpoliza_DataBinding(object sender, EventArgs e)
+        {
+
         }
     }
 }

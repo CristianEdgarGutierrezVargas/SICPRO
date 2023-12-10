@@ -2,6 +2,16 @@
 Design by SicPro
 */
 
+/* Css utilizados */
+.thTabla th {
+	background: transparent url(../img/blue/thbackground.gif) repeat-x;
+	height: 19px;
+	border: solid 1px #99BBE8;
+	font-weight: normal;
+}
+
+/*********************************************************/
+
 body {
 	margin: 0;
 	padding: 0;
@@ -219,9 +229,9 @@ hr {
 /* Content */
 
 #content {
-	float: left;
-	width: 747px;
-	padding: 0 0 0 25px;
+	/*float: left;*/
+	width: 800px;
+	/*padding: 0 0 0 25px;*/
 }
 
 

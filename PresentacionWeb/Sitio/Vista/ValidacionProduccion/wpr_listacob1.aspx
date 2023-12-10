@@ -189,11 +189,11 @@
                         </div>
                         <div class="row mt-1">
                             <div class="col-12 text-center">
-                                <dx:BootstrapButton ID="btnnuevo" runat="server" AutoPostBack="false" Text="Nuevo">
+                                <dx:BootstrapButton ID="btnnuevo" runat="server" AutoPostBack="false" Text="Nuevo" OnClick="btnnuevo_Click">
                                     <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                     <SettingsBootstrap RenderOption="None" />
                                 </dx:BootstrapButton>
-                                <dx:BootstrapButton ID="btnbuscar" runat="server" AutoPostBack="false" Text="Buscar">
+                                <dx:BootstrapButton ID="btnbuscar" runat="server" AutoPostBack="false" Text="Buscar" OnClick="btnbuscar_Click">
                                     <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                     <SettingsBootstrap RenderOption="None" />
                                 </dx:BootstrapButton>
@@ -202,16 +202,23 @@
                     </div>
                     <div class="col-7">
                         <asp:Panel runat="server" ID="gridcontainer" Visible="false">
-                            <dx:BootstrapGridView ID="gridpoliza" runat="server">
-                                <CssClasses Control="grid" />
+                            <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza" OnDataBinding="gridpoliza_DataBinding">
+                                <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
+                                <SettingsText Title="Pólizas Registradas" />
+                                <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                                <SettingsBootstrap Striped="true" />
+                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
+                                <SettingsPager NumericButtonCount="3">
+                                    <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                                </SettingsPager>
                                 <Columns>
-                                    <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="id_poliza">
+                                    <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="num_poliza" Width="70px">
                                     </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz">
+                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz" Width="100px">
                                     </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig">
+                                    <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Width="50px">
                                     </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig">
+                                    <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="50px">
                                     </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                             </dx:BootstrapGridView>
@@ -222,7 +229,7 @@
 
 
                 <p class="links">
-                    <asp:Label runat="server" ID="lblmensaje" Text="" CssClass="fs-10"></asp:Label>
+                    <asp:Label runat="server" ID="lblmensaje" Text="" CssClass="fs-10 text-danger"></asp:Label>
 
 
                 </p>

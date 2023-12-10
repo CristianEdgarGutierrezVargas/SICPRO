@@ -73,13 +73,14 @@
 				</div>
 				<!-- Fin Barra Izquierda -->
 				<!-- Inicio Contenido -->
-				<div class="col-md-8" style="background: #F3F3F3;color: #0A416B;border-radius:5px">					
+				<%--<div class="col-md-8" style="background: #F3F3F3;color: #0A416B;border-radius:5px">	--%>	
+                    <div class="col-md-9" >	
 					 <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
 					 </asp:ContentPlaceHolder>
 				</div>
 					<!-- Fin Contenido -->
-                <div class="col-md-1">
-                </div>
+                <%--<div class="col-md-1">
+                </div>--%>
                 </div>
 				<!-- Inicio Barra Derecha -->
 				<div style="clear: both;">
