@@ -15,7 +15,7 @@
     <link href="UI/css/Blue.css" rel="stylesheet" />
    
 </head>
-    <script src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.js")%>"></script>
 	<script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.js")%>"></script>
 
 <body>

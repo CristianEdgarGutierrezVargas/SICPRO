@@ -411,37 +411,48 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         {
 
             var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz.Text.ToUpper());
-
-
+            Session["lstPersonas"]= dt;
             grdPersonas.DataSource = dt;
             grdPersonas.DataBind();
+          
             pCPersona.ShowOnPageLoad = true;
-            //this.msgboxpanel.Visible = true;
-            //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox2.tpl"));
-            //messageBox.SetTitle("Busqueda de Persona por Nombre o Razón Social");
-            //messageBox.SetIcon("search_user.png");
-            //messageBox.SetMessage(str);
-            //messageBox.SetOKButton("msg_button_class");
-            //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-            //this.a.Value = "0";
-            //this.b.Value = "10";
+           
+
+        }
+
+
+
+
+
+        protected void CallBPersona_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+                var idPer = grdPersonas.GetRowValues(Convert.ToInt32(index), "id_per").ToString();
+                var nombre = grdPersonas.GetRowValues(Convert.ToInt32(index), "nomraz").ToString();
+                nomraz.Value = nombre;
+                id_per.Value = idPer;
+            
         }
 
         protected void btnserper1_Click(object sender, EventArgs e)
         {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz1.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+            grdPersonas.FocusedRowIndex = -1;
+
 
         }
 
-
-
-        protected void grdPersonas_SelectionChanged(object sender, EventArgs e)
+        protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            return;
+            pCPersona.ShowOnPageLoad = false;
         }
 
-        protected void grdPersonas_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        protected void grdPersonas_DataBinding(object sender, EventArgs e)
         {
-            return;
+            grdPersonas.DataSource = Session["lstPersonas"];
         }
     }
 }

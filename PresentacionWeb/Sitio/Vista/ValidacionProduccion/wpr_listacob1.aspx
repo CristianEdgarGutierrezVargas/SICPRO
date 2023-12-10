@@ -11,74 +11,25 @@
 
 
 
-        <script type="text/javascript" src="scripts/validaciones.js"></script>
-
-        <script type="text/javascript" language="javascript" src="scripts/fieldScripts.js"></script>
+    
 
         <script type="text/javascript">    
-            function toggleDisplay(v) {
-                var rowIndex = v
-                var obj = document.getElementById(rowIndex);
-                obj.style.display = obj.style.display != "none" ? "none" : "";
+            function UpdateDetailGrid(s, e) {
+                var index = e.visibleIndex;
+                
+                CallBPersona.PerformCallback(index);
             }
-            function mOvr(src, clrOver) {
-                if (!src.contains(event.fromElement)) {
-                    src.style.cursor = 'hand';
-                    src.bgColor = clrOver;
-                }
-            }
-            function mOut(src, clrIn) {
-                if (!src.contains(event.toElement)) {
-                    src.style.cursor = 'default';
-                    src.bgColor = clrIn;
-                }
-            }
-            function mClk1(a1, a2) {
-                document.getElementById("ctl00_cpmaster_id_per").value = a1;
-                document.getElementById("ctl00_cpmaster_nomraz").value = a2;
-                document.getElementById("pagedimmer").style.visibility = "hidden";
-                document.getElementById("msgbox").style.visibility = "hidden";
-            }
-            function mClk2(a1, a2) {
-                document.getElementById("ctl00_cpmaster_id_producto").value = a1;
-                document.getElementById("ctl00_cpmaster_desc_producto").value = a2;
-                document.getElementById("pagedimmer").style.visibility = "hidden";
-                document.getElementById("msgbox").style.visibility = "hidden";
-            }
-            function mClk(a1, a2) {
-                document.getElementById("ctl00_cpmaster_id_spvs").value = a1;
-                document.getElementById("ctl00_cpmaster_nomco").value = a2;
-                document.getElementById("pagedimmer").style.visibility = "hidden";
-                document.getElementById("msgbox").style.visibility = "hidden";
-            }
-            function AbrirPoliza(v, b, c) {
-                if (document.aspnetForm.ctl00_cpmaster_id_clamov.value == '42') {
-                    window.open('wpr_polizacobranza.aspx?var=' + v + '&val=' + b + '&ver=' + c, '_self', 'height=300, width=450, top=100, left= 100, status=no, toolbar=no, menubar=no,location=no, scrollbars = yes, resizable = yes');
-                }
-                else if (document.aspnetForm.ctl00_cpmaster_id_clamov.value == '43') {
-                    window.open('wpr_polizacobranza.aspx?var=' + v + '&val=' + b + '&ver=' + c, '_self', 'height=300, width=450, top=100, left= 100, status=no, toolbar=no, menubar=no,location=no, scrollbars = yes, resizable = yes');
-                }
-                else if (document.aspnetForm.ctl00_cpmaster_id_clamov.value == '44') {
-                    window.open('wpr_polizacobranzain.aspx?var=' + v + '&val=' + b + '&ver=' + c, '_self', 'height=300, width=450, top=100, left= 100, status=no, toolbar=no, menubar=no,location=no, scrollbars = yes, resizable = yes');
-                }
-            }
-            function fpr() {
-                __doPostBack("ctl00$cpmaster$btnserprod", "");
-            }
-            function fp() {
-                __doPostBack("ctl00$cpmaster$btnbuscar", "");
-            }
-            function f() {
-                __doPostBack("ctl00$cpmaster$btnserper", "");
-            }
+            function OnEndCallbackPersona(s, e) {
+             
+                pCPersona.Hide();
+            
+            }  
+
+
+           
         </script>
 
-        <script type="text/javascript">
-            //<![CDATA[
-            Sys.WebForms.PageRequestManager._initialize('ctl00$cpmaster$smcontrol', document.getElementById('aspnetForm'));
-            Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$cpmaster$panel'], [], [], 90);
-            //]]>
-        </script>
+       
 
         <asp:Panel runat="server" ID="panel" CssClass="rounded">
             <div id="msgboxpanel" runat="server"></div>
@@ -103,15 +54,23 @@
                             </div>
                             <div class="col-8">
                                 <div class="d-flex flex-row">
-                                    <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" Width="150px">
-                                        <CssClasses Input="form-control-sm fs-10" />
-                                    </dx:BootstrapTextBox>
+                                    <dx:BootstrapCallbackPanel ID="CallBPersona" ClientInstanceName="CallBPersona" runat="server" OnCallback="CallBPersona_Callback"  >
+                                        <ClientSideEvents EndCallback="OnEndCallbackPersona"></ClientSideEvents>  
+                                        <ContentCollection>
+                                            <dx:ContentControl>
+                                                <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" Width="150px">
+                                                    <CssClasses Input="form-control-sm fs-10" />
+                                                </dx:BootstrapTextBox>
+                                                <asp:HiddenField runat="server" ID="id_per" Value="" />
+                                            </dx:ContentControl>
+                                        </ContentCollection>
+                                    </dx:BootstrapCallbackPanel>
                                     <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="..." OnClick="btnserper_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
                                     </dx:BootstrapButton>
                                 </div>
-                                <asp:HiddenField runat="server" ID="id_per" Value="" />
+
                                 <asp:HiddenField runat="server" ID="a" Value="0" />
                                 <asp:HiddenField runat="server" ID="b" Value="10" />
                                 <asp:HiddenField runat="server" ID="ap" Value="0" />
@@ -246,7 +205,7 @@
 
         </asp:Panel>
 
-        <dx:BootstrapPopupControl ID="pCPersona" runat="server" ShowHeader="false" ShowFooter="false" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+        <dx:BootstrapPopupControl ID="pCPersona" runat="server" ClientInstanceName="pCPersona" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small" >
             <SettingsAdaptivity Mode="Always" MaxWidth="500px" />
             <CssClasses Content="pt-1" />
             <ContentCollection>
@@ -263,7 +222,7 @@
                                     <img src="../../../UI/img/search_user.png" />
                                 </div>
                                 <div class="col-12 text-center mt-2">
-                                    <dx:BootstrapTextBox runat="server" ID="nomraz1" NullText="" Width="150px">
+                                    <dx:BootstrapTextBox runat="server" ID="nomraz1" ClientInstanceName="nomraz1" NullText="" Width="150px">
                                         <CssClasses Input="form-control-sm fs-10" />
                                     </dx:BootstrapTextBox>
                                 </div>
@@ -276,14 +235,15 @@
                             </div>
                         </div>
                         <div class="col-8 mt-2">
-                            <dx:BootstrapGridView ID="grdPersonas" runat="server" KeyFieldName="id_per"  >
+                           
+                            <dx:BootstrapGridView ID="grdPersonas" EnableCallBacks="true" runat="server" KeyFieldName="id_per" ClientInstanceName="grdPersonas" OnDataBinding="grdPersonas_DataBinding">
                                 <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
                                 <SettingsText Title="Lista de Personas" />
-
+                                   <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                                <ClientSideEvents  RowClick="UpdateDetailGrid" />
                                 <SettingsBootstrap Striped="true" />
-                                <SettingsBehavior AllowSelectSingleRowOnly="true" AllowSelectByRowClick="true" />
-                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 " Row="" />
-                                <SettingsPager NumericButtonCount="4">
+                                <CssClasses PanelHeading="msg_button_class p-1 fs-10 "  />
+                                <SettingsPager NumericButtonCount="3">
                                     <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                                 </SettingsPager>
                                 <Columns>
@@ -300,6 +260,12 @@
                     </div>
                 </dx:ContentControl>
             </ContentCollection>
+            <FooterContentTemplate>
+                <dx:BootstrapButton runat="server" ID="btnAceptar" OnClick="btnAceptar_Click" Text="Aceptar">
+                    <SettingsBootstrap RenderOption="None" Sizing="Small" />
+                    <CssClasses Control="msg_button_class" Text="fs-9" />
+                </dx:BootstrapButton>
+            </FooterContentTemplate>
         </dx:BootstrapPopupControl>
     </div>
 </asp:Content>

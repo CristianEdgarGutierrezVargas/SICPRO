@@ -60,6 +60,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::System.Web.UI.WebControls.Label lblasegurado;
 
         /// <summary>
+        /// Control CallBPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBPersona;
+
+        /// <summary>
         /// Control nomraz.
         /// </summary>
         /// <remarks>
@@ -69,15 +78,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
 
         /// <summary>
-        /// Control btnserper.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
-
-        /// <summary>
         /// Control id_per.
         /// </summary>
         /// <remarks>
@@ -85,6 +85,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField id_per;
+
+        /// <summary>
+        /// Control btnserper.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
 
         /// <summary>
         /// Control a.
