@@ -25,6 +25,7 @@ namespace Logica.Consumo
         private readonly Cpr_poliza _manejador_pr_poliza;
         private readonly Cpr_cuotapoliza _manejador_pr_cuota_poliza;
         private readonly Cpr_cobranzas _manejador_pr_cobranzas;
+        private readonly Cpr_movimientos _manejador_pr_movimientos;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -41,6 +42,7 @@ namespace Logica.Consumo
             _manejador_pr_poliza = new Cpr_poliza(dbContext);
             _manejador_pr_cuota_poliza = new Cpr_cuotapoliza(dbContext);
             _manejador_pr_cobranzas = new Cpr_cobranzas(dbContext);
+            _manejador_pr_movimientos = new Cpr_movimientos(dbContext);
         }
 
         #endregion
@@ -442,6 +444,22 @@ namespace Logica.Consumo
             }
         }
 
+        public List<vpr_polrenovar> ObtenerTablaPolizaR(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerTablaPolizaR(objObtTablaPolIn);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region pr_cuotas_poliza
@@ -535,6 +553,26 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_pr_cobranzas.Calculo2(primaBruta, id_producto, id_spvs1, tipoCuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region movimiento
+
+        public vpr_polrenovar ObtenerDatosRenPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_movimientos.ObtenerDatosRenPoliza(id_poliza, id_movimiento);
             }
             catch (SecureExceptions secureException)
             {

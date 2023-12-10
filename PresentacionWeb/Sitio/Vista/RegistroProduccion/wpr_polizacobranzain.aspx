@@ -234,7 +234,7 @@
                      <div class="col-md-3">      
                          <span>Prima Neta:</span>
                      </div>
-                     <div class="col-md-8">      
+                     <div class="col-md-9">      
                             <table style="width: 100%;">
                                 <tr>
                                     <td style="width: 125px; height: 18px">          
@@ -246,8 +246,8 @@
                                     <td style="width: 65px; height: 18px">
                                         <span>Porcentaje:</span>
                                     </td>
-                                    <td style="width: 60px; height: 18px">                                          
-                                        <dx:ASPxSpinEdit ID="txtPorcentaje" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                    <td style="width: 70px; height: 18px">                                          
+                                        <dx:ASPxSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                         </dx:ASPxSpinEdit>
   
                                     </td>
@@ -255,10 +255,10 @@
                                          <span>Comision:</span>                            
                                     </td>
                                     <td style="width: 100px; height: 18px">
-                                       <dx:ASPxSpinEdit ID="txtComision" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                       <dx:ASPxSpinEdit ID="txtComision" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                         </dx:ASPxSpinEdit>
                                     </td>
-                                    <td>
+                                    <td style="width: 70px; height: 18px">
                                         <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
                                     </td>
                                 </tr>

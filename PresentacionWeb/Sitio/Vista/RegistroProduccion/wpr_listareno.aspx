@@ -160,7 +160,7 @@
                 </div>
             </div>    
             <div class="col-md-7"> 
-                <dx:ASPxGridView ID="grdListaReno" Width="100%" runat="server" KeyFieldName="cuota" OnDataBinding="grdListaReno_DataBinding" AutoGenerateColumns="False"
+                <dx:ASPxGridView ID="gridpoliza" Width="100%" runat="server" KeyFieldName="cuota" OnDataBinding="gridpoliza_DataBinding" AutoGenerateColumns="False"
                     EnableRowsCache="false">
                     <SettingsPager Visible="False">
                     </SettingsPager>
