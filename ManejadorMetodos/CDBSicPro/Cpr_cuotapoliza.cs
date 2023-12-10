@@ -1,4 +1,5 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using Common;
+using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace ManejadorMetodos.CDBSicPro
 {
-    public class Cpr_cuotas
+    public class Cpr_cuotapoliza
     {
         #region Contructor Principal
 
         readonly sicproEntities _context;
-        public Cpr_cuotas(sicproEntities dbContext)
+        public Cpr_cuotapoliza(sicproEntities dbContext)
         {
             _context = dbContext;
         }
@@ -83,6 +84,24 @@ namespace ManejadorMetodos.CDBSicPro
                     dbContextTransaction.Rollback();
                     return false;
                 }
+            }
+        }
+
+        public List<pr_cuotapoliza> GridCuotasC(long idPoliza, long IdMovimiento)
+        {
+            try
+            {
+                var sql = _context.pr_cuotapoliza.Where(w => w.id_poliza == idPoliza && w.id_movimiento == IdMovimiento).ToList();
+                //string sentenciaSQL = "SELECT pr_cuotapoliza.cuota, pr_cuotapoliza.fecha_pago, pr_cuotapoliza.cuota_total, " +
+                //    "pr_cuotapoliza.cuota_neta, pr_cuotapoliza.cuota_comis FROM pr_cuotapoliza " +
+                //    "WHERE pr_cuotapoliza.id_poliza = " + id_poliza.Value + " " +
+                //    "AND pr_cuotapoliza.id_movimiento = " + id_movimiento.Value + " ORDER BY pr_cuotapoliza.cuota";
+                
+                return sql;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
     }

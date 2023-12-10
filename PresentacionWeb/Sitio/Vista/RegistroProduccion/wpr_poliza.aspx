@@ -146,10 +146,7 @@
                         <span id="lbldireccion">Dirección :</span>
                      </div>
                      <div class="col-md-7">   
-                        <dx:ASPxComboBox ID="cmbDireccion" runat="server" ValueType="System.String" Width="100%">
-                            <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
-                            </ValidationSettings>
+                        <dx:ASPxComboBox ID="cmbDireccion" runat="server" ValueType="System.String" Width="100%">                            
                         </dx:ASPxComboBox>
                      </div>
                     <div class="col-md-1">
@@ -324,7 +321,7 @@
                           <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <asp:GridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                                     <Columns>
                                         <asp:BoundField DataField="cuota" HeaderText="Cuota" >
                                         <ControlStyle Width="20px" />
@@ -356,35 +353,16 @@
                                             <ControlStyle Width="50px" />
                                         </asp:TemplateField>
                                     </Columns>
+                                    <FooterStyle BackColor="White" ForeColor="#000066" />
+                                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                    <RowStyle ForeColor="#000066" />
+                                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                    <SortedDescendingHeaderStyle BackColor="#00547E" />
                                 </asp:GridView>
-
-                                <dx:ASPxGridView ID="grdCuotas" Width="100%" runat="server" KeyFieldName="cuota" OnDataBinding="grdCuotas_DataBinding" AutoGenerateColumns="False"
-                                    EnableRowsCache="false" OnRowUpdating="grdCuotas_RowUpdating" >
-                                    <SettingsPager Visible="False">
-                                    </SettingsPager>
-                                       <SettingsEditing Mode="Batch">
-                                           <BatchEditSettings EditMode="Cell" KeepChangesOnCallbacks="False" StartEditAction="Click" />
-                                    </SettingsEditing>
-                                       <SettingsPopup>
-                                       <FilterControl AutoUpdatePosition="False"></FilterControl>
-                                       </SettingsPopup>
-                                    <Columns>
-                                        <dx:GridViewDataTextColumn VisibleIndex="0" FieldName="cuota" Caption="Nro de Cuota" Width="50">
-                                        </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataDateColumn FieldName="fecha_pago" Caption="Fecha de Pago" VisibleIndex="5" Width="50">
-                                           <PropertiesDateEdit>
-                                               <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                               </ValidationSettings>
-                                           </PropertiesDateEdit>
-                                       </dx:GridViewDataDateColumn>
-                                       <dx:GridViewDataSpinEditColumn  FieldName="cuota_total" VisibleIndex="6">
-                                           <PropertiesSpinEdit DisplayFormatString="c" DisplayFormatInEditMode="true" MinValue="0" Increment="0.1" LargeIncrement ="1" MaxValue="60000" SpinButtons-ShowLargeIncrementButtons="true">
-                                               <ValidationSettings Display="Dynamic" RequiredField-IsRequired="true" />
-                                           </PropertiesSpinEdit>
-                                       </dx:GridViewDataSpinEditColumn>
-                                                                                
-                                    </Columns>
-                                </dx:ASPxGridView>
                             </div>
                           </div>
                         </div>
@@ -400,8 +378,8 @@
                     </div>
                     <div class="col-md-7">   
                         <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                        <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
-                        <dx:ASPxButton ID="btnCuotasPoliza" runat="server" Text="Guardar Poliza y Cuotas" CssClass="msg_button_class" OnClick="btnCuotasPoliza_Click" ></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnCuotasPoliza" runat="server" Text="Guardar Poliza y Cuotas" CssClass="msg_button_class" OnClick="btnCuotasPoliza_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
                        
                         <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
                     </div>
@@ -414,10 +392,7 @@
         <p class="links">
              <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
          </p>
-
-    
-
-                </div>
-            </div>
+       </div>
+    </div>
 
 </asp:Content>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
-    public partial class wpr_polizacobranza : System.Web.UI.Page
+    public partial class wpr_polizainclu : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

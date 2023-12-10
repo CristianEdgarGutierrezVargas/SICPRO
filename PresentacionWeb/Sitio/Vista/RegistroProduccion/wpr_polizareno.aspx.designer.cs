@@ -11,8 +11,17 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
 
 
-    public partial class wpr_poliza
+    public partial class wpr_polizareno
     {
+
+        /// <summary>
+        /// Control lblTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
 
         /// <summary>
         /// Control fc_emision.
@@ -42,22 +51,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxDateEdit fc_inivig;
 
         /// <summary>
-        /// Control fc_finvig.
+        /// Control lblfc_finvig.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fc_finvig;
+        protected global::System.Web.UI.WebControls.Label lblfc_finvig;
 
         /// <summary>
-        /// Control txtNroPoliza.
+        /// Control lblNroPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNroPoliza;
+        protected global::System.Web.UI.WebControls.Label lblNroPoliza;
 
         /// <summary>
         /// Control txtNroLiquidacion.
@@ -69,58 +78,58 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxTextBox txtNroLiquidacion;
 
         /// <summary>
-        /// Control cmbAsegurado.
+        /// Control lblAsegurado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbAsegurado;
+        protected global::System.Web.UI.WebControls.Label lblAsegurado;
 
         /// <summary>
-        /// Control cmbDireccion.
+        /// Control lblDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbDireccion;
+        protected global::System.Web.UI.WebControls.Label lblDireccion;
 
         /// <summary>
-        /// Control cmbGrupo.
+        /// Control lblGrupo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbGrupo;
+        protected global::System.Web.UI.WebControls.Label lblGrupo;
 
         /// <summary>
-        /// Control cmbCiaAseg.
+        /// Control lblCiaAseg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbCiaAseg;
+        protected global::System.Web.UI.WebControls.Label lblCiaAseg;
 
         /// <summary>
-        /// Control cmbProducto.
+        /// Control lblProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbProducto;
+        protected global::System.Web.UI.WebControls.Label lblProducto;
 
         /// <summary>
-        /// Control cmbTipoCartera.
+        /// Control lblTipoCartera.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbTipoCartera;
+        protected global::System.Web.UI.WebControls.Label lblTipoCartera;
 
         /// <summary>
         /// Control cmbEjecutivo.
@@ -132,22 +141,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxComboBox cmbEjecutivo;
 
         /// <summary>
-        /// Control cmbAgente.
+        /// Control lblAgente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbAgente;
+        protected global::System.Web.UI.WebControls.Label lblAgente;
 
         /// <summary>
-        /// Control rbTipoPoliza.
+        /// Control lblTipoPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRadioButtonList rbTipoPoliza;
+        protected global::System.Web.UI.WebControls.Label lblTipoPoliza;
 
         /// <summary>
         /// Control txtPrimaBruta.
@@ -168,13 +177,49 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxSpinEdit txtNumCuotas;
 
         /// <summary>
-        /// Control cmbDivisa.
+        /// Control lblDivisa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbDivisa;
+        protected global::System.Web.UI.WebControls.Label lblDivisa;
+
+        /// <summary>
+        /// Control txtPrimaNeta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxSpinEdit txtPrimaNeta;
+
+        /// <summary>
+        /// Control txtPorcentaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxSpinEdit txtPorcentaje;
+
+        /// <summary>
+        /// Control txtComision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxSpinEdit txtComision;
+
+        /// <summary>
+        /// Control btnCalcular.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCalcular;
 
         /// <summary>
         /// Control tipo_cuota.
@@ -202,42 +247,6 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCuotasPoliza;
-
-        /// <summary>
-        /// Control btnNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnNuevo;
-
-        /// <summary>
-        /// Control btnCuotas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnCuotas;
-
-        /// <summary>
-        /// Control btnCuotasPoliza.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnCuotasPoliza;
-
-        /// <summary>
-        /// Control btnSalir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnSalir;
 
         /// <summary>
         /// Control lblmensaje.

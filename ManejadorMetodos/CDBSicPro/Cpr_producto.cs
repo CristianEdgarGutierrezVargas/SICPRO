@@ -64,7 +64,6 @@ namespace ManejadorMetodos.CDBSicPro
         //}
         public List<pr_producto> GetListProducto()
         {
-
             List<pr_producto> sql = new List<pr_producto>();
             try
             {
@@ -76,6 +75,19 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
             return sql;
+        }
+
+        public pr_producto ObtenerProducto(long varbusqueda)
+        {            
+            try
+            {
+                var sql = _context.pr_producto.Where(w=>w.id_producto == varbusqueda).FirstOrDefault();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
         }
     }
 }

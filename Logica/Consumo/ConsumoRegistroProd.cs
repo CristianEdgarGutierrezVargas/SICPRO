@@ -23,7 +23,8 @@ namespace Logica.Consumo
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cpr_producto _manejador_pr_compania;
         private readonly Cpr_poliza _manejador_pr_poliza;
-        private readonly Cpr_cuotas _manejador_pr_cuota_poliza;
+        private readonly Cpr_cuotapoliza _manejador_pr_cuota_poliza;
+        private readonly Cpr_cobranzas _manejador_pr_cobranzas;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -38,7 +39,8 @@ namespace Logica.Consumo
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_pr_compania = new Cpr_producto(dbContext);
             _manejador_pr_poliza = new Cpr_poliza(dbContext);
-            _manejador_pr_cuota_poliza = new Cpr_cuotas(dbContext);
+            _manejador_pr_cuota_poliza = new Cpr_cuotapoliza(dbContext);
+            _manejador_pr_cobranzas = new Cpr_cobranzas(dbContext);
         }
 
         #endregion
@@ -65,6 +67,22 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_gr_parametro.ParametroA(columna);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public gr_parametro ObtenerParametro(long id_parametro)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ObtenerParametro(id_parametro);
             }
             catch (SecureExceptions secureException)
             {
@@ -259,6 +277,7 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
         #endregion
 
         #region pr_grupo
@@ -279,6 +298,21 @@ namespace Logica.Consumo
             }
         }
 
+        public pr_grupo ObtenerGrupo(long? id_gru)
+        {
+            try
+            {
+                return _manejador_pr_grupo.ObtenerGrupo(id_gru);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         #endregion
 
@@ -356,6 +390,21 @@ namespace Logica.Consumo
             }
         }
 
+        public pr_producto ObtenerProducto(long varbusqueda)
+        {
+            try
+            {
+                return _manejador_pr_compania.ObtenerProducto(varbusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         #endregion
 
@@ -444,6 +493,59 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        #endregion
+
+        #region pr_cobranza
+
+        public string Porco1(long idProducto, string idSpvs)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Porco1(idProducto, idSpvs);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public double Com3(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Com3(primaBruta, id_producto, id_spvs1, tipoCuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public double Calculo2(double primaBruta, long id_producto, string id_spvs1, string tipoCuota)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Calculo2(primaBruta, id_producto, id_spvs1, tipoCuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
     }
 }

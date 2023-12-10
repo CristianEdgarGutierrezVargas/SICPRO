@@ -47,7 +47,7 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        public gr_parametro ObtenerParametro(int id_par)
+        public gr_parametro ObtenerParametro(long id_par)
         {
             try
             {
