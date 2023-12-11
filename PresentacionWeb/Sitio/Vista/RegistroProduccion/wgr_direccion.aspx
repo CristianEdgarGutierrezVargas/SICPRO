@@ -143,7 +143,7 @@
                                                                  <Columns>     
                                                                       <dx:GridViewDataTextColumn FieldName="id_dir" Caption ="Opciones" VisibleIndex="0">
                                                                          <DataItemTemplate>
-                                                                             <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar"></dx:ASPxButton>
+                                                                             <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar" Font-Size="x-Small"></dx:ASPxButton>
                                                                          </DataItemTemplate>
                                                                      </dx:GridViewDataTextColumn>
                                                                      <dx:GridViewDataTextColumn FieldName="id_dir" Caption="Codigo" />  

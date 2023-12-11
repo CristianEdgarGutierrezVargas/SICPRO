@@ -214,7 +214,7 @@
                     <Columns>     
                          <dx:GridViewDataTextColumn FieldName="id_per" Caption ="Opciones" VisibleIndex="0">
                             <DataItemTemplate>
-                                <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar"></dx:ASPxButton>
+                                <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar" Font-Size="x-Small"></dx:ASPxButton>
                             </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="nomraz" Caption="Nombre o Razon Social" />   
@@ -228,8 +228,8 @@
         </div>
       </div>
       <div class="modal-footer" >
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+        
       </div>
     </div>
   </div>
