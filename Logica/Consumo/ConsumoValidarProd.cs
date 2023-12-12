@@ -39,7 +39,6 @@ namespace Logica.Consumo
         }
 
         #endregion
-
         public List<vcb_veripoliza1> ObtenerTablaPolizaNRI(string id_clamov, string num_poliza, string id_per, string id_spvs, string id_producto, bool vigencia, DateTime fc_inivig, DateTime fc_finvig, DateTime fc_polizavencida, bool porvencer)
         {
 
@@ -109,17 +108,17 @@ namespace Logica.Consumo
 
         public List<OcTablaProductoL> ObtenerTablaProductoL(string varbusqueda, string desc_prod)
         {
-            List<OcTablaProductoL> sql=new List<OcTablaProductoL>();
+            List<OcTablaProductoL> sql = new List<OcTablaProductoL>();
             try
             {
                 var producto = _manejador_pr_producto.GetListProducto(desc_prod);
                 var formriesgo = _manejador_pr_formriesgo.GetListFormriesgo();
                 var sql1 = formriesgo.Join(producto, x => x.id_producto, s => s.id_producto, (x, s) => new { s.id_producto, s.desc_prod, x.id_spvs }).Where(x => x.id_spvs == varbusqueda).OrderBy(x => x.desc_prod).Select(x => new { x.id_producto, x.desc_prod });
-                foreach(var dt in sql1)
+                foreach (var dt in sql1)
                 {
                     var dato = new OcTablaProductoL();
                     dato.id_producto = dt.id_producto;
-                    dato.desc_prod= dt.desc_prod;
+                    dato.desc_prod = dt.desc_prod;
                     sql.Add(dato);
                 }
             }
@@ -131,18 +130,18 @@ namespace Logica.Consumo
         }
         public List<OcTablaCompaniaPersona> ObtenerTablaCompania(string varbusqueda)
         {
-            List<OcTablaCompaniaPersona> sql=new List<OcTablaCompaniaPersona>();
+            List<OcTablaCompaniaPersona> sql = new List<OcTablaCompaniaPersona>();
             try
             {
                 var persona = _manejador_gr_persona.ObtenerTablaPersonasC(varbusqueda);
                 var compania = _manejador_gr_compania.ListaCompania();
-                
-                var sql1 = compania.Join(persona, x => x.id_per, s => s.id_per, (x, s) => new { s.nomraz,  x.id_spvs }).Select(x => new { x.id_spvs, x.nomraz });
-                foreach(var dt in sql1)
+
+                var sql1 = compania.Join(persona, x => x.id_per, s => s.id_per, (x, s) => new { s.nomraz, x.id_spvs }).Select(x => new { x.id_spvs, x.nomraz });
+                foreach (var dt in sql1)
                 {
                     var dato = new OcTablaCompaniaPersona();
-                    dato.id_spvs =Convert.ToInt64( dt.id_spvs);
-                    dato.nomraz= dt.nomraz;
+                    dato.id_spvs = Convert.ToInt64(dt.id_spvs);
+                    dato.nomraz = dt.nomraz;
                     sql.Add(dato);
                 }
                 return sql;

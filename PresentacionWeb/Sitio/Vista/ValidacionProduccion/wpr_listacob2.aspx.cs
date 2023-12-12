@@ -10,11 +10,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DevExpress.Web;
 
 namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
-    public partial class wpr_listacob1 : System.Web.UI.Page
+    public partial class wpr_listacob2 : System.Web.UI.Page
     {
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         private long ll = 0;
@@ -26,14 +25,13 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             if (!IsPostBack)
             {
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
                 fc_inivig.Text = DateTime.Now.ToShortDateString();
                 Limpiar();
-                wpr_listacob1.valor = base.Request.QueryString["var"];
-                id_clamov.Value = wpr_listacob1.valor;
+                wpr_listacob2.valor = base.Request.QueryString["var"];
+                id_clamov.Value = wpr_listacob2.valor;
                 Datos();
 
 
@@ -80,7 +78,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
             //RecuperaTablaPolizaNRI(item);
             var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
-            Session["lstGridPoliza"]= dataTable;
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
             this.gridcontainer.Visible = true;
@@ -241,21 +238,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void gridpoliza_DataBinding(object sender, EventArgs e)
         {
-            gridpoliza.DataSource = Session["lstGridPoliza"];
-        }
 
-      
-
-        protected void CallBGridPoliza_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
-        {
-            var index = e.Parameter;
-            var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
-            if (this.IsCallback)
-                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
-            else
-             
-            Response.Redirect("~/wpr_polizareno.aspx");
-           
         }
     }
 }

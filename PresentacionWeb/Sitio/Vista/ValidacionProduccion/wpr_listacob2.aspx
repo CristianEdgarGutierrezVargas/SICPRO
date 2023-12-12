@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_listacob1.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ValidacionProduccion.wpr_listacob1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_listacob2.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ValidacionProduccion.wpr_listacob2" %>
 
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
@@ -11,26 +11,6 @@
 
 
         <script type="text/javascript">    
-            var isDetailRowExpanded = new Array();
-            function OnRowClick(s, e) {
-                if (isDetailRowExpanded[e.visibleIndex] != true)
-                    s.ExpandDetailRow(e.visibleIndex);
-                else
-                    s.CollapseDetailRow(e.visibleIndex);
-            }
-            function OnDetailRowExpanding(s, e) {
-                isDetailRowExpanded[e.visibleIndex] = true;
-            }
-            function OnDetailRowCollapsing(s, e) {
-                isDetailRowExpanded[e.visibleIndex] = false;
-            }
-
-            function OnRowDblClick(s, e) {
-                var index = e.visibleIndex;
-
-                CallBGridPoliza.PerformCallback(index);
-            }
-
             function UpdateDetailGrid(s, e) {
                 var index = e.visibleIndex;
 
@@ -220,56 +200,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7 mt-4 mt-lg-0">
+                    <div class="col-7">
                         <asp:Panel runat="server" ID="gridcontainer" Visible="false">
                             <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza" OnDataBinding="gridpoliza_DataBinding">
                                 <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                                 <SettingsText Title="Pólizas Registradas" />
                                 <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                                <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
                                 <SettingsBootstrap Striped="true" />
                                 <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
                                 <SettingsPager NumericButtonCount="3">
                                     <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                                 </SettingsPager>
-                                <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
-
                                 <Columns>
                                     <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="num_poliza" Width="40px">
                                     </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz" Width="170px">
+                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz" Width="180px">
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Width="30px">
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
                                     </dx:BootstrapGridViewDateColumn>
                                 </Columns>
-                                <Templates>
-                                    <DetailRow>
-                                        <div class="divScroll">
-                                            <div class="divDetails">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <span class="text-info fw-bold fs-8">Datos de Poliza Renovada (Módulo de Cobranzas)</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Inicio de Vigencia: </span><asp:Label runat="server" ID="lblIniVig" Text='<%# Bind("fc_inivig", "{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Vigencia: </span><asp:Label runat="server" ID="lblFinVig" Text='<%# Bind("fc_finvig", "{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Emision: </span><asp:Label runat="server" ID="lblEmision" Text='<%# Bind("fc_emision", "{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </DetailRow>
-                                </Templates>
                             </dx:BootstrapGridView>
-                            <dx:BootstrapCallbackPanel ID="CallBGridPoliza" ClientInstanceName="CallBGridPoliza" runat="server" OnCallback="CallBGridPoliza_Callback"></dx:BootstrapCallbackPanel>
                         </asp:Panel>
 
                     </div>

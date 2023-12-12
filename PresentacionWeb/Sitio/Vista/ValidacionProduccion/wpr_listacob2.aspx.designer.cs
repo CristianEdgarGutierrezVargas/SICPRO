@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
 
 
-    public partial class wpr_listacob1
+    public partial class wpr_listacob2
     {
 
         /// <summary>
@@ -319,15 +319,6 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView gridpoliza;
-
-        /// <summary>
-        /// Control CallBGridPoliza.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBGridPoliza;
 
         /// <summary>
         /// Control lblmensaje.
