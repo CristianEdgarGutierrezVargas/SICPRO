@@ -243,6 +243,20 @@
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
                                     </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn  FieldName="fc_emision" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="no_liquida" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="prima_bruta" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="id_gru" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="id_spvs" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="id_producto" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
+                                      <dx:BootstrapGridViewDateColumn  FieldName="id_poliza" Visible="false">
+  </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                                 <Templates>
                                     <DetailRow>
@@ -255,13 +269,52 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Inicio de Vigencia: </span><asp:Label runat="server" ID="lblIniVig" Text='<%# Bind("fc_inivig", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <span class="fs-11 fw-bold ">Inicio de Vigencia: </span>
+                                                        <asp:Label runat="server" ID="lblIniVig" Text='<%# Bind("fc_inivig","{0:dd/MM/yyyy}") %>'></asp:Label>
                                                     </div>
                                                     <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Vigencia: </span><asp:Label runat="server" ID="lblFinVig" Text='<%# Bind("fc_finvig", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <span class="fs-11 fw-bold ">Fin de Vigencia: </span>
+                                                        <asp:Label runat="server" ID="lblFinVig" Text='<%# Bind("fc_finvig","{0:dd/MM/yyyy}") %>'></asp:Label>
                                                     </div>
                                                     <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Emision: </span><asp:Label runat="server" ID="lblEmision" Text='<%# Bind("fc_emision", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <span class="fs-11 fw-bold ">Fin de Emision: </span>
+                                                        <asp:Label runat="server" ID="lblEmision" Text='<%# Eval("fc_emision","{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <span class="fs-11 fw-bold ">Nº Poliza: </span>
+                                                        <asp:Label runat="server" ID="lblNumPoliza" Text='<%# Bind("num_poliza") %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <span class="fs-11 fw-bold ">Nº Liquidación: </span>
+                                                        <asp:Label runat="server" ID="Label3" Text='<%# Bind("no_liquida") %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <span class="fs-11 fw-bold ">Prima Neta: </span>
+                                                        <asp:Label runat="server" ID="Label4" Text='<%# Bind("prima_bruta") %>'></asp:Label>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <span class="fs-11 fw-bold ">Asegurado: </span>
+                                                        <asp:Label runat="server" ID="lblAsegurado" Text='<%# Bind("nomraz") %>'></asp:Label>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <span class="fs-11 fw-bold ">Grupo: </span>
+                                                        <asp:Label runat="server" ID="lblGrupo" Text='<%#  Grupo(Eval("id_gru")) %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <span class="fs-11 fw-bold ">Cia. Aseguradora: </span>
+                                                        <asp:Label runat="server" ID="lblCompania" Text='<%# CompaniaAseg(Eval("id_spvs")) %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="fs-11 fw-bold ">Producto: </span>
+                                                        <asp:Label runat="server" ID="lblProducto" Text='<%# NombreProducto(Eval("id_producto")) %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="fs-11 fw-bold ">Tipo: </span>
+                                                        <asp:Label runat="server" ID="Label2" Text='<%# TipoPoliza(Eval("id_poliza")) %>'></asp:Label>
                                                     </div>
                                                 </div>
                                             </div>

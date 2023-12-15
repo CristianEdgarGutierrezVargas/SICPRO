@@ -81,5 +81,18 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+        public gr_compania GetCompaniaById(string idCompania)
+        {
+            try
+            {
+                var sql = _context.gr_compania.FirstOrDefault(x=>x.id_spvs== idCompania);
+                return sql;
+
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
     }
 }

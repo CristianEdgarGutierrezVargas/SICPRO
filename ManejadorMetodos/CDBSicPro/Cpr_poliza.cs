@@ -23,13 +23,13 @@ namespace ManejadorMetodos.CDBSicPro
         #endregion
         public bool ExistePol(string numpoliza, string no_liquida)
         {
-            bool flag=false;
+            bool flag = false;
             using (var dbContextTransaccion = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    var sql = _context.pr_poliza.Join(_context.pr_polmov, x=>x.id_poliza,s=>s.id_poliza,((x,s)=> new {x.num_poliza, s.no_liquida })).Where(x=>x.num_poliza==numpoliza.ToUpper() && x.no_liquida== no_liquida);
-                   if(sql!=null && sql.Count()>0)
+                    var sql = _context.pr_poliza.Join(_context.pr_polmov, x => x.id_poliza, s => s.id_poliza, ((x, s) => new { x.num_poliza, s.no_liquida })).Where(x => x.num_poliza == numpoliza.ToUpper() && x.no_liquida == no_liquida);
+                    if (sql != null && sql.Count() > 0)
                     {
                         flag = true;
                         return flag;
@@ -48,7 +48,7 @@ namespace ManejadorMetodos.CDBSicPro
                 {
                     throw new SecureExceptions("Error al Generar la Transacción", secureException);
                 }
-         
+
             }
         }
 
@@ -92,7 +92,7 @@ namespace ManejadorMetodos.CDBSicPro
         //        throw new SecureExceptions("Error al Generar la Transaccion", secureException);
         //    }
         //}
-                
+
         public List<vpr_polrenovar> ObtenerTablaPolizaR(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
         {
             try
@@ -140,6 +140,20 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+        public pr_poliza GetPolizaById(long idPoliza)
+        {
 
+            try
+            {
+                var sql = _context.pr_poliza.FirstOrDefault(x => x.id_poliza == idPoliza);
+
+                return sql;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+
+        }
     }
 }

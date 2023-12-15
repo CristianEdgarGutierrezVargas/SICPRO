@@ -24,6 +24,8 @@ namespace Logica.Consumo
         private readonly Cpr_producto _manejador_pr_producto;
         private readonly Cpr_formriesgo _manejador_pr_formriesgo;
         private readonly Cgr_compania _manejador_gr_compania;
+        private readonly Cpr_grupo _manejador_pr_grupo;
+        private readonly Cgr_parametro _manejador_gr_parametro;
         public static sicproEntities dbContext;
         public ConsumoValidarProd()
         {
@@ -36,6 +38,8 @@ namespace Logica.Consumo
             _manejador_pr_formriesgo = new Cpr_formriesgo(dbContext);
             _manejador_gr_persona = new Cgr_persona(dbContext);
             _manejador_gr_compania = new Cgr_compania(dbContext);
+            _manejador_pr_grupo = new Cpr_grupo(dbContext);
+            _manejador_gr_parametro=new Cgr_parametro(dbContext);
         }
 
         #endregion
@@ -152,6 +156,63 @@ namespace Logica.Consumo
             }
             return sql;
         }
+        public pr_grupo objGrupoById(long? idGrupo)
+        {
+            try
+            {
+                var objGrupo = _manejador_pr_grupo.ObtenerGrupo(idGrupo);
 
+
+                return objGrupo;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public string GetDescCompaniaById(string idSpvs)
+        {
+            var descCompania = "";
+            try
+            {
+                var objCompania = _manejador_gr_compania.GetCompaniaById(idSpvs);
+                if (objCompania != null)
+                {
+                    descCompania = _manejador_gr_persona.ObtenerPersona(objCompania.id_per).nomraz;
+                }
+
+                return descCompania;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public pr_producto GetProductoById(long idProducto)
+        {
+
+            try
+            {
+                var objProducto = _manejador_pr_producto.ObtenerProducto(idProducto);
+                return objProducto;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public pr_poliza GetPolizaByIdPoliza(long idPoliza)
+        {
+
+            try
+            {
+                var objPoliza = _manejador_pr_poliza.GetPolizaById(idPoliza);
+                return objPoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }
