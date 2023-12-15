@@ -188,5 +188,23 @@ namespace ManejadorMetodos.CDBSicPro
         //    }
         //}
 
+
+        public vcb_veripoliza1 ObtenerPolizaI(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var sql = _context.vcb_veripoliza1.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento).FirstOrDefault();
+
+                return sql;                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        
+
     }
 } 

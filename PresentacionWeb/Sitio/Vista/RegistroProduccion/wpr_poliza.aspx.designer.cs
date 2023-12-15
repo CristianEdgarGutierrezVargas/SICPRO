@@ -21,7 +21,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fc_emision;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_emision;
 
         /// <summary>
         /// Control fc_recepcion.
@@ -30,7 +30,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fc_recepcion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_recepcion;
 
         /// <summary>
         /// Control fc_inivig.
@@ -39,7 +39,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fc_inivig;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_inivig;
 
         /// <summary>
         /// Control fc_finvig.
@@ -48,7 +48,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fc_finvig;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_finvig;
 
         /// <summary>
         /// Control txtNroPoliza.
@@ -57,7 +57,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNroPoliza;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNroPoliza;
 
         /// <summary>
         /// Control txtNroLiquidacion.
@@ -66,25 +66,79 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNroLiquidacion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNroLiquidacion;
 
         /// <summary>
-        /// Control cmbAsegurado.
+        /// Control CallBPersona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbAsegurado;
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBPersona;
 
         /// <summary>
-        /// Control cmbDireccion.
+        /// Control nomraz.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbDireccion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
+
+        /// <summary>
+        /// Control id_per.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_per;
+
+        /// <summary>
+        /// Control btnserper.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
+
+        /// <summary>
+        /// Control CallBDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBDireccion;
+
+        /// <summary>
+        /// Control desc_direccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_direccion;
+
+        /// <summary>
+        /// Control id_direccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_direccion;
+
+        /// <summary>
+        /// Control btnserdireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserdireccion;
 
         /// <summary>
         /// Control cmbGrupo.
@@ -93,7 +147,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbGrupo;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbGrupo;
 
         /// <summary>
         /// Control cmbCiaAseg.
@@ -102,7 +156,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbCiaAseg;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbCiaAseg;
 
         /// <summary>
         /// Control cmbProducto.
@@ -111,7 +165,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbProducto;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbProducto;
 
         /// <summary>
         /// Control cmbTipoCartera.
@@ -120,7 +174,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbTipoCartera;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbTipoCartera;
 
         /// <summary>
         /// Control cmbEjecutivo.
@@ -129,7 +183,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEjecutivo;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbEjecutivo;
 
         /// <summary>
         /// Control cmbAgente.
@@ -138,7 +192,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbAgente;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbAgente;
 
         /// <summary>
         /// Control rbTipoPoliza.
@@ -174,7 +228,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbDivisa;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbDivisa;
 
         /// <summary>
         /// Control tipo_cuota.
@@ -247,5 +301,77 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmensaje;
+
+        /// <summary>
+        /// Control pCPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCPersona;
+
+        /// <summary>
+        /// Control nomraz1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz1;
+
+        /// <summary>
+        /// Control btnserper1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper1;
+
+        /// <summary>
+        /// Control grdPersonas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
+
+        /// <summary>
+        /// Control pCDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCDireccion;
+
+        /// <summary>
+        /// Control desc_direccion1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_direccion1;
+
+        /// <summary>
+        /// Control btnDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnDireccion;
+
+        /// <summary>
+        /// Control grdDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdDireccion;
     }
 }

@@ -564,6 +564,22 @@ namespace Logica.Consumo
             }
         }
 
+        public vcb_veripoliza1 ObtenerPolizaI(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.ObtenerPolizaI(id_poliza, id_movimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region movimiento

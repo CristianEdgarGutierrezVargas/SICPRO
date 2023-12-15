@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -17,6 +18,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
     public partial class wpr_poliza : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
+        ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         protected void Page_Load(object sender, EventArgs e)
         {
             //GridViewFeaturesHelper.SetupGlobalGridViewBehavior(Grid);
@@ -50,7 +52,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbGrupo.ValueField = "id_gru";
             cmbGrupo.DataBind();
 
-            var itemLstGrupo = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstGrupo = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbGrupo.Items.Add(itemLstGrupo);
 
             var lstTipoCartera = _objConsumoRegistroProd.listas1();
@@ -59,7 +61,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbTipoCartera.ValueField = "id_par";
             cmbTipoCartera.DataBind();
 
-            var itemTipoCartera = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemTipoCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbTipoCartera.Items.Add(itemTipoCartera);
 
             var lstFuncionarios = _objConsumoRegistroProd.ObtenerEjecutivoClientes();
@@ -68,7 +70,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbEjecutivo.ValueField = "id_per";
             cmbEjecutivo.DataBind();
 
-            var itemLstFuncionarios = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstFuncionarios = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbEjecutivo.Items.Add(itemLstFuncionarios);
 
             var lstCiaAseguradora = _objConsumoRegistroProd.ObtenerListaCompania();
@@ -77,7 +79,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbCiaAseg.ValueField = "id_spvs";
             cmbCiaAseg.DataBind();
 
-            var itemLstCiaAseguradora = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstCiaAseguradora = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbCiaAseg.Items.Add(itemLstCiaAseguradora);
 
 
@@ -87,7 +89,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbAgente.ValueField = "id_per";
             cmbAgente.DataBind();
 
-            var itemLstAgenteCartera = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstAgenteCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbAgente.Items.Add(itemLstAgenteCartera);
 
             var lstDivisa = _objConsumoRegistroProd.ParametroA("id_div");
@@ -96,18 +98,18 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbDivisa.ValueField = "id_par";
             cmbDivisa.DataBind();
 
-            var itemLstDivisa = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstDivisa = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbDivisa.Items.Add(itemLstDivisa);
 
 
-            var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();
-            cmbAsegurado.DataSource = lstPersonas;
-            cmbAsegurado.TextField = "nomraz";
-            cmbAsegurado.ValueField = "id_per";
-            cmbAsegurado.DataBind();
+            //var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();
+            //cmbAsegurado.DataSource = lstPersonas;
+            //cmbAsegurado.TextField = "nomraz";
+            //cmbAsegurado.ValueField = "id_per";
+            //cmbAsegurado.DataBind();
 
-            var itemLstPersonas = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
-            cmbAsegurado.Items.Add(itemLstPersonas);
+            //var itemLstPersonas = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            //cmbAsegurado.Items.Add(itemLstPersonas);
         }
 
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
@@ -187,8 +189,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             txtNroPoliza.Text = string.Empty;
             txtNroLiquidacion.Text = string.Empty;
 
-            cmbAsegurado.Text = string.Empty;
-            cmbDireccion.Text = string.Empty;
+            //cmbAsegurado.Text = string.Empty;
+            //cmbDireccion.Text = string.Empty;
             cmbGrupo.SelectedItem = cmbGrupo.Items.FindByValue("");
 
             //this.id_per.Text = string.Empty;
@@ -322,23 +324,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmbProducto.ValueField = "id_producto";
             cmbProducto.DataBind();
 
-            var itemLstCiaAseguradora = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemLstCiaAseguradora = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbProducto.Items.Add(itemLstCiaAseguradora);
         }
 
-        protected void cmb_nomraz_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var strIdPer = Convert.ToString(cmbAsegurado.SelectedItem.Value);
+        //protected void cmb_nomraz_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    var strIdPer = Convert.ToString(cmbAsegurado.SelectedItem.Value);
 
-            var lstDirecciones = _objConsumoRegistroProd.ObtenerDireccionesPersona(strIdPer.TrimStart().TrimEnd());
-            cmbDireccion.DataSource = lstDirecciones;
-            cmbDireccion.TextField = "direccion";
-            cmbDireccion.ValueField = "id_dir";
-            cmbDireccion.DataBind();
+        //    var lstDirecciones = _objConsumoRegistroProd.ObtenerDireccionesPersona(strIdPer.TrimStart().TrimEnd());
+        //    cmbDireccion.DataSource = lstDirecciones;
+        //    cmbDireccion.TextField = "direccion";
+        //    cmbDireccion.ValueField = "id_dir";
+        //    cmbDireccion.DataBind();
 
-            var itemLstDirecciones = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
-            cmbDireccion.Items.Add(itemLstDirecciones);
-        }
+        //    var itemLstDirecciones = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+        //    cmbDireccion.Items.Add(itemLstDirecciones);
+        //}
 
         protected void btnCuotasPoliza_Click(object sender, EventArgs e)
         {
@@ -366,7 +368,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 var objPoliza = new pr_poliza();
                 objPoliza.num_poliza = txtNroPoliza.Text;
                 objPoliza.id_producto = Convert.ToInt64(cmbProducto.SelectedItem.Value);
-                objPoliza.id_perclie = Convert.ToString(cmbAsegurado.SelectedItem.Value);
+                //objPoliza.id_perclie = Convert.ToString(cmbAsegurado.SelectedItem.Value);
                 objPoliza.id_spvs = Convert.ToString(cmbCiaAseg.SelectedItem.Value);
                 objPoliza.id_gru = Convert.ToInt64(cmbGrupo.SelectedItem.Value);
                 objPoliza.clase_poliza = Convert.ToBoolean(rbTipoPoliza.SelectedItem.Value);
@@ -393,7 +395,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //num_cuota = intNumeroCuotas,
                 prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
                 //estado = this.estado,
-                prPolmov.id_dir = Convert.ToInt64(cmbDireccion.SelectedItem.Value);
+                //prPolmov.id_dir = Convert.ToInt64(cmbDireccion.SelectedItem.Value);
                 prPolmov.fc_recepcion = fc_recepcion.Date;
                 prPolmov.mat_aseg = txtMatAseg.Text;
                 prPolmov.fc_reg = DateTime.Now;
@@ -420,6 +422,41 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
         }
 
+        protected void CallBPersona_Callback(object sender, CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idPer = grdPersonas.GetRowValues(Convert.ToInt32(index), "id_per").ToString();
+            var nombre = grdPersonas.GetRowValues(Convert.ToInt32(index), "nomraz").ToString();
+            nomraz.Value = nombre;
+            id_per.Value = idPer;
+        }
+
+        protected void btnserper_Click(object sender, EventArgs e)
+        {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+
+            pCPersona.ShowOnPageLoad = true;
+        }
+        protected void btnserper1_Click(object sender, EventArgs e)
+        {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz1.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+        }
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            pCPersona.ShowOnPageLoad = false;
+        }
+
+        protected void grdPersonas_DataBinding(object sender, EventArgs e)
+        {
+            grdPersonas.DataSource = Session["lstPersonas"];
+        }
+
         //protected void btnGuardar_Click(object sender, EventArgs e)
         //{
 
@@ -436,6 +473,72 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         //}
 
+        #region direccion
+
+        protected void btnserdireccion_Click(object sender, EventArgs e)
+        {
+            if (nomraz.Text.Trim() == "")
+            {
+                //    //this.msgboxpanel.Visible = true;
+                //    //MessageBox messageBox = new MessageBox(base.Server.MapPath("../msgbox1.tpl"));
+                //    //messageBox.SetTitle("Validación de Datos");
+                //    //messageBox.SetIcon("msg_icon_2.png");
+                //    //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Seleccione una Compañia Existente <br />Para realizar la Busqueda de un Producto</p>");
+                //    //messageBox.SetOKButton("msg_button_class1");
+                //    //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                lblmensaje.Text = "Seleccione una Compañia Existente Para realizar la Busqueda de un Producto";
+                return;
+            }
+            var lstDirecciones = _objConsumoRegistroProd.ObtenerDireccionesPersona(id_per.Value.ToUpper().TrimStart().TrimEnd())
+                .Where(w => w.direccion.Contains(desc_direccion.Text.ToUpper()))
+                .ToList();
+            //var dt = _objConsumoValidarProd.ObtenerTablaProductoL(id_per.Value, desc_direccion.Text.ToUpper());
+            Session["lstDireccion"] = lstDirecciones;
+            grdDireccion.DataSource = lstDirecciones;
+            grdDireccion.DataBind();
+
+            pCDireccion.ShowOnPageLoad = true;
+            ////this.msgboxpanel.Visible = true;
+            ////MessageBox messageBox1 = new MessageBox(base.Server.MapPath("../msgboxprod.tpl"));
+            ////messageBox1.SetTitle("Busqueda de Productos por Compañia");
+            ////messageBox1.SetIcon("search_user.png");
+            ////messageBox1.SetMessage(str);
+            ////messageBox1.SetOKButton("msg_button_class");
+            ////this.msgboxpanel.InnerHtml = messageBox1.ReturnObject();
+            //a.Value = "0";
+            //b.Value = "10";
+        }
+        protected void CallBDireccion_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idProducto = grdDireccion.GetRowValues(Convert.ToInt32(index), "id_dir").ToString();
+            var nombreProducto = grdDireccion.GetRowValues(Convert.ToInt32(index), "direccion").ToString();
+            desc_direccion.Value = nombreProducto;
+            id_direccion.Value = idProducto;
+
+        }
+
+        protected void btnDireccion_Click(object sender, EventArgs e)
+        {
+            var lstDirecciones = _objConsumoRegistroProd.ObtenerDireccionesPersona(id_per.Value.ToUpper().TrimStart().TrimEnd())
+                .Where(w=>w.direccion.Contains(desc_direccion.Text.ToUpper()))
+                .ToList() ;
+            //var dt = _objConsumoValidarProd.ObtenerTablaProductoL(id_per.Value.ToUpper(), desc_direccion1.Text.ToUpper());
+            Session["lstDireccion"] = lstDirecciones;
+            grdDireccion.DataSource = lstDirecciones;
+            grdDireccion.DataBind();
+        }
+
+        protected void btnAceptarDireccion_Click(object sender, EventArgs e)
+        {
+            pCDireccion.ShowOnPageLoad = false;
+        }
+
+        protected void grdDireccion_DataBinding(object sender, EventArgs e)
+        {
+            grdDireccion.DataSource = Session["lstDireccion"];
+        }
+        #endregion
 
     }
 }
