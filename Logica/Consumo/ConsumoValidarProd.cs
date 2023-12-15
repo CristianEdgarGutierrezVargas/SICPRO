@@ -26,6 +26,7 @@ namespace Logica.Consumo
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cpr_grupo _manejador_pr_grupo;
         private readonly Cgr_parametro _manejador_gr_parametro;
+        private readonly Cpr_polmov _manejador_pr_polmov;
         public static sicproEntities dbContext;
         public ConsumoValidarProd()
         {
@@ -40,6 +41,7 @@ namespace Logica.Consumo
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_pr_grupo = new Cpr_grupo(dbContext);
             _manejador_gr_parametro=new Cgr_parametro(dbContext);
+            _manejador_pr_polmov=new Cpr_polmov(dbContext);
         }
 
         #endregion
@@ -208,6 +210,32 @@ namespace Logica.Consumo
             {
                 var objPoliza = _manejador_pr_poliza.GetPolizaById(idPoliza);
                 return objPoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public pr_polmov GetPolizaMovimiento(long idPoliza, long idmovimiento)
+        {
+
+            try
+            {
+                var objPolizaMov = _manejador_pr_polmov.GetPolizaMovimiento(idPoliza, idmovimiento);
+                return objPolizaMov;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public gr_persona GetPersonaById(string idPersona)
+        {
+
+            try
+            {
+                var objPolizaMov = _manejador_gr_persona.ObtenerPersona(idPersona);
+                return objPolizaMov;
             }
             catch (SecureExceptions secureException)
             {
