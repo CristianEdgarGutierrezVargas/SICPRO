@@ -3,6 +3,7 @@ using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,9 +38,19 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
             try
             {
-                Session["LST_USUARIOS"] = logicaConfiguracion.ListaPersonaConPass().OrderBy(x => x.nomraz).ToList(); 
+                Session["LST_USUARIOS"] = logicaConfiguracion.ListaPersonaConPass().OrderBy(x => x.nomraz).ToList();
                 this.grdusuarios.DataSource = Session["LST_USUARIOS"];
                 this.grdusuarios.DataBind();
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+            try
+            {
+                Session["LST_PERSONAS"] = logicaConfiguracion.TablaPersona(string.Empty);
+                this.grdListaPersona.DataSource = Session["LST_PERSONAS"];
+                this.grdListaPersona.DataBind();
             }
             catch (SecureExceptions ex)
             {
@@ -56,140 +67,96 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             }
         }
 
-        //protected void btnguardar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.msgboxpanel.Visible = false;
-        //        string str = "";
-        //        if (string.IsNullOrEmpty(this.login.Text))
-        //        {
-        //            str += "<br /> Debe registrar un Login(Nick)";
-        //            this.sw = true;
-        //        }
-        //        if (this.id_rol.SelectedIndex == -1)
-        //        {
-        //            str += "<br /> Debe seleccionar un Rol";
-        //            this.sw = true;
-        //        }
-        //        if (string.IsNullOrEmpty(this.nomraz.Text))
-        //        {
-        //            str += "<br /> Debe seleccionar un Usuario";
-        //            this.sw = true;
-        //        }
-        //        if (this.sw)
-        //        {
-        //            this.msgboxpanel.Visible = true;
-        //            MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox1.tpl"));
-        //            messageBox.SetTitle("Validación de Datos");
-        //            messageBox.SetIcon("msg_icon_2.png");
-        //            messageBox.SetMessage("<span>Los siguientes valores deben ser verificados antes de proseguir<br /></span><p style='color:#990000; font-weight:bold'>" + str + "</p>");
-        //            messageBox.SetOKButton("msg_button_class1");
-        //            this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-        //            this.sw = false;
-        //        }
-        //        else
-        //        {
-        //            new gr_pass()
-        //            {
-        //                login = this.login,
-        //                id_rol = this.id_rol,
-        //                id_pert = this.id_per
-        //            }.AgregarUsuario();
-        //            this.lblmensaje.Text = "Usuario Agregado Satisfactoriamente";
-        //            this.msgboxpanel.Visible = true;
-        //            MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
-        //            messageBoxButton.SetLocation("wgr_passnuevo.aspx");
-        //            messageBoxButton.SetClass("msg_button_class");
-        //            MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox.tpl"));
-        //            messageBox.SetTitle("Confirmacion");
-        //            messageBox.SetIcon("msg_icon_1.png");
-        //            messageBox.SetMessage("Usuario Agregado Satisfactoriamente");
-        //            messageBox.AddButton(messageBoxButton.ReturnObject());
-        //            this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
+        protected void grdListaPersona_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<gr_persona>)Session["LST_PERSONAS"];
+            if (lstData != null)
+            {
+                this.grdListaPersona.DataSource = lstData;
+            }
+        }
 
-        //protected void btnexaminar_Click(object sender, EventArgs e)
-        //{
-        //    string msg_message = new gr_persona()
-        //    {
-        //        a = this.a,
-        //        b = this.b
-        //    }.TablaPersona(this.nomraz.Text.ToUpper());
-        //    this.msgboxpanel.Visible = true;
-        //    MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox2.tpl"));
-        //    messageBox.SetTitle("Busqueda de Persona por Nombre o Razón Social");
-        //    messageBox.SetIcon("search_user.png");
-        //    messageBox.SetMessage(msg_message);
-        //    messageBox.SetOKButton("msg_button_class");
-        //    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-        //}
+        protected void pnlCallBackBuscaPersona_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            logicaConfiguracion = new ConsumoConfiguracionSistema();
+            Session["LST_PERSONAS"] = logicaConfiguracion.TablaPersona(e.Parameter);
+            this.grdListaPersona.DataSource = Session["LST_PERSONAS"];
+            this.grdListaPersona.DataBind();
+        }
 
-      
+        protected void btnguardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool sw = false;
+                string str = "";
+                if (string.IsNullOrEmpty(login.Text))
+                {
+                    str += "Debe registrar un Login(Nick)\n";
+                    sw = true;
+                }
+                if (id_rol.SelectedIndex == -1)
+                {
+                    str += "Debe seleccionar un Rol\n";
+                    sw = true;
+                }
+                if (string.IsNullOrEmpty(nomraz.Text))
+                {
+                    str += "Debe seleccionar un Usuario";
+                    sw = true;
+                }
+                if (sw)
+                {
+                    lblerror.Text = str;
+                    popUpValidacion.ShowOnPageLoad = true;
+                }
+                else
+                {
+                    decimal idRol = decimal.Parse(id_rol.SelectedValue);
+                    logicaConfiguracion.AgregarUsuario(login.Text, idRol, id_per.Value);
+                    lblMensaje.Text = "Usuario Agregado Satisfactoriamente";
+                    popUpConfirmacion.ShowOnPageLoad = true;
+                }
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
 
+        protected void btnmodificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal idRol = decimal.Parse(id_rol.SelectedValue);
+                logicaConfiguracion.ModificarUsuario1(login.Text, idRol, id_per.Value);
+                lblMensaje.Text = "Usuario Modificado Satisfactoriamente";
+                popUpConfirmacion.ShowOnPageLoad = true;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
 
-        //protected void grdusuarios_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.Pager)
-        //    {
-        //        ((Label)e.Row.FindControl("lbltotalpaginas")).Text = this.grdusuarios.PageCount.ToString();
-        //        ((TextBox)e.Row.FindControl("IraPag")).Text = (this.grdusuarios.PageIndex + 1).ToString();
-        //    }
-        //    if (e.Row.RowType != DataControlRowType.DataRow)
-        //        return;
-        //    e.Row.Attributes.Add("OnMouseOut", "this.className = this.orignalclassName;");
-        //    e.Row.Attributes.Add("OnMouseOver", "this.orignalclassName = this.className;this.className = 'altoverow';");
-        //}
+        protected void Selectgrdusuarios_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                var objSender = (ImageButton)sender;
+                gr_pass passOut;
+                gr_persona personaOut;
+                logicaConfiguracion.ObtenerDatos(objSender.CommandArgument,out personaOut, out passOut);
 
-        //protected void grdusuarios_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (!new gr_pass()
-        //        {
-        //            login = this.login,
-        //            id_rol = this.id_rol,
-        //            id_pert = this.id_per,
-        //            nomraz = this.nomraz
-        //        }.ObtenerDatos(((Label)this.grdusuarios.SelectedRow.FindControl("id_per")).Text))
-        //            return;
-        //        this.btnguardar.Visible = false;
-        //        this.btnmodificar.Visible = true;
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
-
-        //protected void btnmodificar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        new gr_pass()
-        //        {
-        //            login = this.login,
-        //            id_rol = this.id_rol
-        //        }.ModificarUsuario1(this.id_per.Value);
-        //        this.lblmensaje.Text = "Usuario Modificado Satisfactoriamente";
-        //        this.msgboxpanel.Visible = true;
-        //        MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
-        //        messageBoxButton.SetLocation("wgr_passnuevo.aspx");
-        //        messageBoxButton.SetClass("msg_button_class");
-        //        MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox.tpl"));
-        //        messageBox.SetTitle("Confirmación");
-        //        messageBox.SetIcon("msg_icon_1.png");
-        //        messageBox.SetMessage("Usuario Modificado Satisfactoriamente");
-        //        messageBox.AddButton(messageBoxButton.ReturnObject());
-        //        this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-        //    }
-        //    catch
-        //    {
-        //    }
-        //}
+                this.login.Text = passOut.login;
+                this.id_rol.SelectedValue = passOut.id_rol.ToString();
+                this.nomraz.Text = personaOut.nomraz;
+                this.id_per.Value = passOut.id_per;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
     }
 }
