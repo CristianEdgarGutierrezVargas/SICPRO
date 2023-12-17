@@ -210,7 +210,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtPrimaBruta;
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtPrimaBruta;
 
         /// <summary>
         /// Control txtNumCuotas.
@@ -219,7 +219,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtNumCuotas;
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtNumCuotas;
 
         /// <summary>
         /// Control cmbDivisa.
@@ -246,7 +246,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxMemo txtMatAseg;
+        protected global::DevExpress.Web.Bootstrap.BootstrapMemo txtMatAseg;
 
         /// <summary>
         /// Control grdCuotasPoliza.

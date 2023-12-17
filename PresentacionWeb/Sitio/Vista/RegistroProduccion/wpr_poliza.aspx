@@ -358,9 +358,9 @@
                                 <tr>
                                     <td style="width: 125px; height: 18px">          
                                         <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
-                                        <dx:ASPxSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                        <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
-                                        </dx:ASPxSpinEdit>
+                                        </dx:BootstrapSpinEdit>
                                
                                     </td>
                                     <td style="width: 65px; height: 18px">
@@ -369,8 +369,8 @@
                                     <td style="width: 60px; height: 18px">
                                         <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
                                         
-                                        <dx:ASPxSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
-                                        </dx:ASPxSpinEdit>
+                                        <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        </dx:BootstrapSpinEdit>
                 
                                     </td>
                                     <td style="width: 45px; height: 18px">
@@ -407,7 +407,7 @@
                         <span id="lblmat_aseg">Mat. Asegurada:</span>
                     </div>
                     <div class="col-md-8">      
-                         <dx:ASPxMemo ID="txtMatAseg" runat="server" Height="71px" Width="100%"></dx:ASPxMemo>
+                         <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
                     </div>
                 </div>
                 <%--<br />--%>
@@ -434,12 +434,12 @@
                                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
-                                                 <dx:ASPxDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
+                                                 <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
                                                      Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
-                                                     <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                     <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                                              <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                                                        </ValidationSettings>  
-                                                 </dx:ASPxDateEdit>
+                                                 </dx:BootstrapDateEdit>
                                             </ItemTemplate>
                                             <ControlStyle Width="50px" />
                                         </asp:TemplateField>
@@ -448,10 +448,10 @@
                                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>                                                
-                                                <dx:ASPxSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                     Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
                                                     <SpinButtons ShowLargeIncrementButtons="true" />
-                                                </dx:ASPxSpinEdit>
+                                                </dx:BootstrapSpinEdit>
                                             </ItemTemplate>
                                             <ControlStyle Width="50px" />
                                         </asp:TemplateField>

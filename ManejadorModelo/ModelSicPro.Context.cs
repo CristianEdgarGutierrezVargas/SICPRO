@@ -264,5 +264,18 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
+    
+        public virtual ObjectResult<GetDataVeriPoliza_Result> GetDataVeriPoliza(Nullable<long> id_poliza, Nullable<long> id_movimiento)
+        {
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            var id_movimientoParameter = id_movimiento.HasValue ?
+                new ObjectParameter("id_movimiento", id_movimiento) :
+                new ObjectParameter("id_movimiento", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDataVeriPoliza_Result>("GetDataVeriPoliza", id_polizaParameter, id_movimientoParameter);
+        }
     }
 }

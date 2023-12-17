@@ -155,5 +155,21 @@ namespace ManejadorMetodos.CDBSicPro
             }
 
         }
+
+        public GetDataVeriPoliza_Result GetDataVeriPoliza(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var sql = _context.GetDataVeriPoliza(id_poliza, id_movimiento).FirstOrDefault();
+
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacobranzain.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizacobranzain" %>
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
@@ -29,8 +31,9 @@
                         <span>Fecha de Emisión:</span>
                       </div>
                       <div class="col-md-3">      
-                         <dx:ASPxDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server" Width="100%">
-                              <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                         <dx:BootstrapDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server" Width="100%">
+                              <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                             <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                    <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                                </ValidationSettings>  
                                <ClientSideEvents Init="function(s,e){  
@@ -40,14 +43,15 @@
                                                           fc_emision.SetMinDate(new Date(dt3));  
                                                           fc_emision.SetMaxDate(new Date(dt2));  
                                                        }" />  
-                         </dx:ASPxDateEdit>
+                         </dx:BootstrapDateEdit>
                       </div>
                       <div class="col-md-3">      
                          <span>Fecha de Recepción:</span>
                       </div>
                       <div class="col-md-3">      
-                         <dx:ASPxDateEdit ID="fc_recepcion" ClientInstanceName="fc_recepcion" runat="server" Width="100%">
-                              <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                         <dx:BootstrapDateEdit ID="fc_recepcion" ClientInstanceName="fc_recepcion" runat="server" Width="100%">
+                              <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                              <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                               </ValidationSettings>  
                                 <ClientSideEvents Init="function(s,e){  
@@ -57,7 +61,7 @@
                                                            fc_recepcion.SetMinDate(new Date(dt3));  
                                                            fc_recepcion.SetMaxDate(new Date(dt2));  
                                                         }" /> 
-                         </dx:ASPxDateEdit>
+                         </dx:BootstrapDateEdit>
                       </div>
                   </div>
 
@@ -66,8 +70,9 @@
                          <span>Inicio Vigencia:</span>
                       </div>
                       <div class="col-md-3">      
-                         <dx:ASPxDateEdit ID="fc_inivig" ClientInstanceName="fc_inivig" runat="server" Width="100%">
-                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                         <dx:BootstrapDateEdit ID="fc_inivig" ClientInstanceName="fc_inivig" runat="server" Width="100%">
+                             <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                             <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                               </ValidationSettings>  
                                 <ClientSideEvents Init="function(s,e){  
@@ -77,7 +82,7 @@
                                                            fc_inivig.SetMinDate(new Date(dt3));  
                                                            fc_inivig.SetMaxDate(new Date(dt2));  
                                                         }" /> 
-                         </dx:ASPxDateEdit>
+                         </dx:BootstrapDateEdit>
                       </div>
                       <div class="col-md-3">      
                          <span>Fin Vigencia:</span>
@@ -98,11 +103,12 @@
                          <span id="lblnumliquida">Nº Liquidación:</span>
                       </div>
                       <div class="col-md-3">      
-                         <dx:ASPxTextBox ID="txtNroLiquidacion" runat="server" Width="100%">
-                             <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                         <dx:BootstrapTextBox ID="txtNroLiquidacion" runat="server" Width="100%">
+                             <CssClasses Input="form-control-sm fs-10" />
+                             <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
                                    <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
                                </ValidationSettings>
-                         </dx:ASPxTextBox>  
+                         </dx:BootstrapTextBox>  
                       </div>
                   </div>
                   
@@ -171,11 +177,12 @@
                           <span>Ejecutivo:</span>
                        </div>
                        <div class="col-md-8">      
-                            <dx:ASPxComboBox ID="cmbEjecutivo" runat="server" ValueType="System.String" Width="100%">
-                                <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                            <dx:BootstrapComboBox ID="cmbEjecutivo" runat="server" ValueType="System.String" Width="100%">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                   <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                 </ValidationSettings>
-                            </dx:ASPxComboBox>
+                            </dx:BootstrapComboBox>
                        </div>
                    </div>
                   
@@ -205,17 +212,17 @@
                               <table style="width: 100%;">
                                   <tr>
                                       <td style="width: 125px; height: 18px">          
-                                          <dx:ASPxSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                               <SpinButtons ShowLargeIncrementButtons="true" />
-                                          </dx:ASPxSpinEdit>
+                                          </dx:BootstrapSpinEdit>
                  
                                       </td>
                                       <td style="width: 65px; height: 18px">
                                           <span>Nº Cuotas:</span>
                                       </td>
                                       <td style="width: 60px; height: 18px">                                          
-                                          <dx:ASPxSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
-                                          </dx:ASPxSpinEdit>
+                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                          </dx:BootstrapSpinEdit>
   
                                       </td>
                                       <td style="width: 45px; height: 18px">
@@ -238,25 +245,25 @@
                             <table style="width: 100%;">
                                 <tr>
                                     <td style="width: 125px; height: 18px">          
-                                        <dx:ASPxSpinEdit ID="txtPrimaNeta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
-                                        </dx:ASPxSpinEdit>
+                                        </dx:BootstrapSpinEdit>
                  
                                     </td>
                                     <td style="width: 65px; height: 18px">
                                         <span>Porcentaje:</span>
                                     </td>
                                     <td style="width: 70px; height: 18px">                                          
-                                        <dx:ASPxSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
-                                        </dx:ASPxSpinEdit>
+                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        </dx:BootstrapSpinEdit>
   
                                     </td>
                                     <td style="width: 45px; height: 18px">
                                          <span>Comision:</span>                            
                                     </td>
                                     <td style="width: 100px; height: 18px">
-                                       <dx:ASPxSpinEdit ID="txtComision" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
-                                        </dx:ASPxSpinEdit>
+                                       <dx:BootstrapSpinEdit ID="txtComision" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        </dx:BootstrapSpinEdit>
                                     </td>
                                     <td style="width: 70px; height: 18px">
                                         <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
@@ -286,7 +293,7 @@
                           <span id="lblmat_aseg">Mat. Asegurada:</span>
                       </div>
                       <div class="col-md-8">      
-                           <dx:ASPxMemo ID="txtMatAseg" runat="server" Height="71px" Width="100%"></dx:ASPxMemo>
+                           <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
                       </div>
                   </div>
                   
@@ -312,12 +319,12 @@
                                                   <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>
-                                                   <dx:ASPxDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
+                                                   <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
                                                        Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
-                                                       <ValidationSettings SetFocusOnError="True" Display="Dynamic" ErrorTextPosition="Bottom" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                       <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                                                <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                                                          </ValidationSettings>  
-                                                   </dx:ASPxDateEdit>
+                                                   </dx:BootstrapDateEdit>
                                               </ItemTemplate>
                                               <ControlStyle Width="50px" />
                                           </asp:TemplateField>
@@ -326,10 +333,10 @@
                                                   <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>                                                
-                                                  <dx:ASPxSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                  <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                       Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
                                                       <SpinButtons ShowLargeIncrementButtons="true" />
-                                                  </dx:ASPxSpinEdit>
+                                                  </dx:BootstrapSpinEdit>
                                               </ItemTemplate>
                                               <ControlStyle Width="50px" />
                                           </asp:TemplateField>

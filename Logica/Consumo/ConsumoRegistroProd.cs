@@ -460,6 +460,22 @@ namespace Logica.Consumo
             }
         }
 
+        public GetDataVeriPoliza_Result GetDataVeriPoliza(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_poliza.GetDataVeriPoliza(id_poliza, id_movimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region pr_cuotas_poliza
@@ -501,6 +517,22 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_pr_cuota_poliza.ActualizarCuotaPoliza(objPrCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<pr_cuotapoliza> GridCuotasC(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.GridCuotasC(id_poliza, id_movimiento);
             }
             catch (SecureExceptions secureException)
             {
