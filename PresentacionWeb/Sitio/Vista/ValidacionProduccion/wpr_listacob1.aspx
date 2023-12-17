@@ -243,20 +243,22 @@
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
                                     </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn  FieldName="fc_emision" Visible="false">
+                                    <dx:BootstrapGridViewDateColumn FieldName="fc_emision" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="no_liquida" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="prima_bruta" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="id_gru" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="id_spvs" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="id_producto" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
-                                      <dx:BootstrapGridViewDateColumn  FieldName="id_poliza" Visible="false">
-  </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="no_liquida" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="prima_bruta" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_gru" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_spvs" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_producto" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="tipo_cuota" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                       <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
+   </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                                 <Templates>
                                     <DetailRow>
@@ -315,6 +317,14 @@
                                                     <div class="col-6">
                                                         <span class="fs-11 fw-bold ">Tipo: </span>
                                                         <asp:Label runat="server" ID="Label2" Text='<%# TipoPoliza(Eval("id_poliza")) %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <span class="fs-11 fw-bold ">Ejecutivo: </span>
+                                                        <asp:Label runat="server" ID="lblEjecutivo" Text='<%# Ejecutivo(Eval("id_perejec")) %>'></asp:Label>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <span class="fs-11 fw-bold ">Forma de Pago: </span>
+                                                        <asp:Label runat="server" ID="lblFormaPago" Text='<%# FormaPago(Eval("tipo_cuota")) %>'></asp:Label>
                                                     </div>
                                                 </div>
                                             </div>

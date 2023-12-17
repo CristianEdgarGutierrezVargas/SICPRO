@@ -3,6 +3,7 @@ using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -73,6 +74,68 @@ namespace ManejadorMetodos.CDBSicPro
                 sb.Append(resultado[i].ToString("X"));
             }
             return sb.ToString().ToUpper();
+        }
+
+        public void AgregaUsuario(string login, decimal id_rol, string id_pert)
+        {
+            try
+            {
+                //string[] value = new string[] { "INSERT INTO gr_pass VALUES ('", this.id_pert.Value, "','", this.GenerarClave("12345"), "','true','", this.login.Text.ToUpper(), "',default,", this.id_rol.SelectedValue, ")" };
+                gr_pass item = new gr_pass();
+                item.id_per = id_pert;
+                item.clave = GenerarClave("12345".ToUpper()); 
+                item.cambio = true;
+                item.login = login; 
+                item.logged= default(bool);
+                item.id_rol = id_rol;
+                _context.gr_pass.Add(item);
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+
+        public void ModificarUsuario1(string login, decimal id_rol, string id_pert)
+        {
+            try
+            {
+                //string[] str = new string[] { "UPDATE gr_pass SET login='", this.login.Text.ToUpper().ToString(), "', id_rol=", this.id_rol.SelectedValue, " WHERE id_per='", id_per, "'" };
+                var sql = (from pass in _context.gr_pass
+                           where pass.id_per == id_pert
+                           select pass).FirstOrDefault();
+                sql.login = login.ToUpper();
+                sql.id_rol = id_rol;
+
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void ObtenerDatos(string id_per,out gr_persona personaOut, out gr_pass passOut)
+        {
+            personaOut = null; passOut=null;
+            try
+            {
+                //string sql = string.Concat("SELECT gr_pass.id_per, gr_persona.nomraz, gr_pass.login, gr_pass.id_rol FROM gr_persona INNER JOIN gr_pass ON (gr_persona.id_per = gr_pass.id_per) WHERE gr_pass.id_per = '", id_per, "'");
+                var sql = (from pass in _context.gr_pass
+                           join persona in _context.gr_persona on pass.id_per equals persona.id_per
+                           where pass.id_per == id_per
+                           select new
+                           { 
+                               personaOut = persona,
+                               passOut= pass
+                           }).FirstOrDefault();
+                personaOut = sql.personaOut;
+                passOut = sql.passOut;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
         }
     }
 }

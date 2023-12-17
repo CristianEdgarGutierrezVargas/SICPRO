@@ -105,6 +105,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wco_comicart.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx" />
     <Content Include="Sitio\Vista\Default.aspx" />
@@ -276,6 +277,13 @@
       <DependentUpon>Principal.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wco_comicart.aspx.cs">
+      <DependentUpon>wco_comicart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wco_comicart.aspx.designer.cs">
+      <DependentUpon>wco_comicart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx.cs">
       <DependentUpon>wgr_passnuevo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

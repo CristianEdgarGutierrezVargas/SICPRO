@@ -27,7 +27,7 @@ namespace ManejadorMetodos.CDBSicPro
             try
             {
                 var list = new long[] { 42, 43 };
-                var sql = _context.gr_parametro.Where(w=>w.columna == "id_clamov" && list.Contains(w.id_par)).ToList();
+                var sql = _context.gr_parametro.Where(w => w.columna == "id_clamov" && list.Contains(w.id_par)).ToList();
                 return sql;
             }
             catch (SecureExceptions secureException)
@@ -67,5 +67,22 @@ namespace ManejadorMetodos.CDBSicPro
                 }
             }
         }
+        public pr_polmov GetPolizaMovimiento(long idPoliza, long idMovimiento)
+        {
+
+            try
+            {
+                var sql = _context.pr_polmov.FirstOrDefault(x => x.id_poliza == idPoliza && x.id_movimiento == idMovimiento);
+
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
     }
 }

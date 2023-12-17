@@ -311,5 +311,30 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             }
             return descProducto;
         }
+        public string FormaPago(object num)
+        {
+            if (num == null)
+                return "";
+            string formaPago = "";
+            if (Convert.ToBoolean(num.ToString()))
+           
+                    formaPago = "Contado";
+                else formaPago = "Crédito";
+
+          
+            return formaPago;
+        }
+        public string Ejecutivo(object num)
+        {
+            if (num == null)
+                return "";
+            string nomEjecutivo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idEjecutivo = num.ToString();
+                nomEjecutivo = _objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
+            }
+            return nomEjecutivo;
+        }
     }
 }

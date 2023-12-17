@@ -7,56 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentacionWeb
+namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 {
 
 
-    public partial class Principal
+    public partial class wco_comicart
     {
 
         /// <summary>
-        /// head control.
+        /// id_percart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.DropDownList id_percart;
 
         /// <summary>
-        /// form1 control.
+        /// porcentaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::DevExpress.Web.ASPxSpinEdit porcentaje;
 
         /// <summary>
-        /// MasterAjaxScript control.
+        /// factura control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager MasterAjaxScript;
+        protected global::DevExpress.Web.ASPxCheckBox factura;
 
         /// <summary>
-        /// Menu1 control.
+        /// btn_guardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
+        protected global::DevExpress.Web.ASPxButton btn_guardar;
 
         /// <summary>
-        /// ContentPlaceHolderPrincipal control.
+        /// btn_modificar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderPrincipal;
+        protected global::DevExpress.Web.ASPxButton btn_modificar;
+
+        /// <summary>
+        /// btn_borrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn_borrar;
+
+        /// <summary>
+        /// lblmensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblmensaje;
     }
 }
