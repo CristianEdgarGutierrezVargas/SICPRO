@@ -69,6 +69,7 @@
                             <asp:MenuItem Text="Reportes de Sistema" Value="Reportes de Sistema"></asp:MenuItem>
                             <asp:MenuItem Text="Configuracion del Sistema" Value="Configuracion del Sistema">
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_respass.aspx" Text="Reiniciar Contrasena" Value="Reiniciar Contrasena"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wpr_riesgo.aspx" Text="Administración de Riesgos" Value="Administración de Riesgos"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_passnuevo.aspx" Text="Registro de Nuevos Usuarios" Value="Registro de Nuevos Usuarios"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wco_comicart.aspx" Text="Registro de Comisiones X Cartera" Value="Registro de Comisiones X Cartera"></asp:MenuItem>
                             </asp:MenuItem>

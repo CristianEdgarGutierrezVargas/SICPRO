@@ -48,8 +48,8 @@
                         </div>
                         <div class="col-4">
                             <dx:ASPxButton ID="btn_guardar" runat="server" Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
-                            <dx:ASPxButton ID="btn_modificar" runat="server" Text="Modificar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
-                            <dx:ASPxButton ID="btn_borrar" runat="server" Text="Nuevo" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
+                            <dx:ASPxButton ID="btn_modificar" runat="server" Text="Modificar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btn_modificar_Click"></dx:ASPxButton>
+                            <dx:ASPxButton ID="btn_borrar" runat="server" Text="Nuevo" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btn_borrar_Click"></dx:ASPxButton>
                         </div>
                         <div class="col-4">
                         </div>
@@ -58,7 +58,7 @@
                         <div class="col-12">
                             <p class="links">
                                 <a class="error">
-                                    <dx:ASPxLabel ID="lblmensaje" runat="server" Text=""></dx:ASPxLabel>
+                                    <dx:ASPxLabel ID="lblmensajeCarga" runat="server" Text=""></dx:ASPxLabel>
                                     <%--<span id="cpmaster_lblmensaje" class="error"></span>--%>
                                 </a>
                             </p>
@@ -69,86 +69,7 @@
         </div>
     </div>
     <!-- Fin Contenido -->
-    <%-- <dx:ASPxPopupControl ID="popupBusquedaPersona" runat="server" Modal="true" HeaderText="Busqueda de Persona por Nombre o Razón Social" ShowFooter="true" PopupElementID="body" ClientInstanceName="popupBusquedaPersona"
-        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
-        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1.jpg" ForeColor="White" />
-        <FooterStyle HorizontalAlign="Right" />
-        <ContentCollection>
-            <dx:PopupControlContentControl runat="server">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="../../../UI/img/search_user.png" width="48" height="48">
-                        <dx:ASPxTextBox ID="nomraz1" ClientInstanceName="nomraz1" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
-                        <dx:ASPxButton ID="btnserper_modal" runat="server" Text="->" CssClass="msg_button_class" AutoPostBack="false">
-                            <ClientSideEvents Click="function(s,e){
-                                        pnlCallBackBuscaPersona.PerformCallback(nomraz1.GetValue());
-                                        }
-                                        " />
-                        </dx:ASPxButton>
-                    </div>
-                    <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaPersona" ClientInstanceName="pnlCallBackBuscaPersona" runat="server" Width="200px" OnCallback="pnlCallBackBuscaPersona_Callback" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
-                            <PanelCollection>
-                                <dx:PanelContent runat="server">
-                                    <dx:ASPxGridView ID="grdListaPersona" runat="server" OnDataBinding="grdListaPersona_DataBinding"
-                                        Style="width: 340px; border-collapse: collapse;"
-                                        Font-Size="11px"
-                                        Font-Names="Arial, Helvetica, sans-serif"
-                                        Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
-                                        Styles-Header-ForeColor="#15428b"
-                                        Styles-Header-Paddings-Padding="1"
-                                        Styles-Header-HorizontalAlign="Left"
-                                        Styles-Header-Font-Bold="true"
-                                        Styles-Cell-Paddings-Padding="0"
-                                        Styles-Cell-ForeColor="#15428b">
-                                        <Columns>
-                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
-                                            <dx:GridViewDataColumn Caption="Lista de Personas" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
-                                        </Columns>
-                                        <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
-                                            <FirstPageButton Visible="true"></FirstPageButton>
-                                            <LastPageButton Visible="true"></LastPageButton>
-                                            <Summary Visible="false" />
-                                        </SettingsPager>
-                                    </dx:ASPxGridView>
-                                </dx:PanelContent>
-                            </PanelCollection>
-                        </dx:ASPxCallbackPanel>
-                    </div>
-                </div>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-        <FooterContentTemplate>
-            <button type="button" style="background-image: url(../../../UI/img/msg_title_1.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popupBusquedaPersona.Hide()">ACEPTAR</button>
-        </FooterContentTemplate>
-    </dx:ASPxPopupControl>--%>
-
-   <%-- <dx:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validacion de datos" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
-        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
-        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_button_2.jpg" ForeColor="White" />
-        <FooterStyle HorizontalAlign="Right" />
-        <ContentCollection>
-            <dx:PopupControlContentControl>
-                <div class="row">
-                    <div class="col-3">
-                        <img src="../../../UI/img/msg_icon_2.png">
-                    </div>
-                    <div class="col-9">
-                        <br>
-                        Los siguientes valores deben ser verificados antes de proseguir<br />
-                        <p style="color: #990000; font-weight: bold">
-                            <dx:ASPxLabel ID="lblerror" runat="server" Text=""></dx:ASPxLabel>
-                        </p>
-                    </div>
-                </div>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-        <FooterContentTemplate>
-            <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
-        </FooterContentTemplate>
-    </dx:ASPxPopupControl>--%>
-
-   <%-- <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
         CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
         <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" />
         <FooterStyle HorizontalAlign="Right" />
@@ -170,5 +91,5 @@
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
-    </dx:ASPxPopupControl>--%>
+    </dx:ASPxPopupControl>
 </asp:Content>
