@@ -1,4 +1,5 @@
 ﻿using Common;
+using DevExpress.Web;
 using EntidadesClases.ModelSicPro;
 
 using Logica.Consumo;
@@ -78,28 +79,29 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
             //RecuperaTablaPolizaNRI(item);
             var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
+            Session["lstGridPoliza"] = dataTable;
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
             this.gridcontainer.Visible = true;
         }
 
-     
+
 
         protected void btnserprod_Click(object sender, EventArgs e)
         {
             if (nomco.Text.Trim() == "")
             {
-            //    //this.msgboxpanel.Visible = true;
-            //    //MessageBox messageBox = new MessageBox(base.Server.MapPath("../msgbox1.tpl"));
-            //    //messageBox.SetTitle("Validación de Datos");
-            //    //messageBox.SetIcon("msg_icon_2.png");
-            //    //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Seleccione una Compañia Existente <br />Para realizar la Busqueda de un Producto</p>");
-            //    //messageBox.SetOKButton("msg_button_class1");
-            //    //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-            lblmensaje.Text = "Seleccione una Compañia Existente Para realizar la Busqueda de un Producto";
+                //    //this.msgboxpanel.Visible = true;
+                //    //MessageBox messageBox = new MessageBox(base.Server.MapPath("../msgbox1.tpl"));
+                //    //messageBox.SetTitle("Validación de Datos");
+                //    //messageBox.SetIcon("msg_icon_2.png");
+                //    //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Seleccione una Compañia Existente <br />Para realizar la Busqueda de un Producto</p>");
+                //    //messageBox.SetOKButton("msg_button_class1");
+                //    //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                lblmensaje.Text = "Seleccione una Compañia Existente Para realizar la Busqueda de un Producto";
                 return;
             }
-            
+
             var dt = _objConsumoValidarProd.ObtenerTablaProductoL(id_spvs.Value, desc_producto.Text.ToUpper());
             Session["lstProducto"] = dt;
             grdProducto.DataSource = dt;
@@ -129,15 +131,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void btnsercom_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             var dt = _objConsumoValidarProd.ObtenerTablaCompania(nomco.Text.ToUpper());
             Session["lstCompania"] = dt;
             grdCompania.DataSource = dt;
             grdCompania.DataBind();
 
             pCCompania.ShowOnPageLoad = true;
-      
+
         }
 
         protected void btnserper_Click(object sender, EventArgs e)
@@ -184,7 +186,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected void CallBCompania_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
             var index = e.Parameter;
-            var idCompania = grdCompania.GetRowValues(Convert.ToInt32(index), "id_spvs").ToString(); 
+            var idCompania = grdCompania.GetRowValues(Convert.ToInt32(index), "id_spvs").ToString();
             var nombreCompania = grdCompania.GetRowValues(Convert.ToInt32(index), "nomraz").ToString();
             nomco.Value = nombreCompania;
             id_spvs.Value = idCompania;
@@ -220,7 +222,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void btnProd_Click(object sender, EventArgs e)
         {
-            var dt = _objConsumoValidarProd.ObtenerTablaProductoL(id_spvs.Value.ToUpper(),desc_producto1.Text.ToUpper());
+            var dt = _objConsumoValidarProd.ObtenerTablaProductoL(id_spvs.Value.ToUpper(), desc_producto1.Text.ToUpper());
             Session["lstProducto"] = dt;
             grdProducto.DataSource = dt;
             grdProducto.DataBind();
@@ -238,7 +240,100 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void gridpoliza_DataBinding(object sender, EventArgs e)
         {
+            gridpoliza.DataSource = Session["lstGridPoliza"];
+        }
 
+
+
+        protected void CallBGridPoliza_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
+            if (this.IsCallback)
+                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
+            else
+
+                Response.Redirect("~/wpr_polizareno.aspx");
+
+        }
+        public string Grupo(object num)
+        {
+
+            if (num == null)
+                return "";
+
+            string descGrupo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idGrupo = Convert.ToInt64(num.ToString());
+                descGrupo = _objConsumoValidarProd.objGrupoById(idGrupo).desc_grupo;
+            }
+            return descGrupo;
+        }
+        public string CompaniaAseg(object num)
+        {
+            if (num == null)
+                return "";
+            string descCompania = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+
+                descCompania = _objConsumoValidarProd.GetDescCompaniaById(num.ToString());
+            }
+            return descCompania;
+        }
+        public string NombreProducto(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                descProducto = _objConsumoValidarProd.GetProductoById(idProducto).desc_prod;
+            }
+            return descProducto;
+        }
+        public string TipoPoliza(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                var tipo = _objConsumoValidarProd.GetPolizaByIdPoliza(idProducto).clase_poliza;
+                if ((bool)tipo)
+                    descProducto = "Normal";
+                else descProducto = "Flotante";
+
+            }
+            return descProducto;
+        }
+        public string FormaPago(object num)
+        {
+            if (num == null)
+                return "";
+            string formaPago = "";
+            if (Convert.ToBoolean(num.ToString()))
+
+                formaPago = "Contado";
+            else formaPago = "Crédito";
+
+
+            return formaPago;
+        }
+        public string Ejecutivo(object num)
+        {
+            if (num == null)
+                return "";
+            string nomEjecutivo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idEjecutivo = num.ToString();
+                nomEjecutivo = _objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
+            }
+            return nomEjecutivo;
         }
     }
 }
