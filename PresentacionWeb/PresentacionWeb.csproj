@@ -111,6 +111,9 @@
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
@@ -321,6 +324,27 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.cs">
+      <DependentUpon>wpr_listacom3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.designer.cs">
+      <DependentUpon>wpr_listacom3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx.cs">
+      <DependentUpon>wpr_listacom2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx.designer.cs">
+      <DependentUpon>wpr_listacom2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.cs">
+      <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
+      <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
       <DependentUpon>wgr_contactos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -490,7 +514,6 @@
     <Folder Include="Sitio\Entidades\" />
     <Folder Include="Sitio\Vista\Exceptions\" />
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
-    <Folder Include="Sitio\Vista\ModuloComisiones\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />
     <Folder Include="Sitio\Vista\Reportes\" />
