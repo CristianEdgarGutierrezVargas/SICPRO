@@ -277,5 +277,22 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDataVeriPoliza_Result>("GetDataVeriPoliza", id_polizaParameter, id_movimientoParameter);
         }
+    
+        public virtual ObjectResult<GetBisa_Result> GetBisa(string id_spvs, Nullable<long> id_poliza, Nullable<long> id_movimiento)
+        {
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            var id_movimientoParameter = id_movimiento.HasValue ?
+                new ObjectParameter("id_movimiento", id_movimiento) :
+                new ObjectParameter("id_movimiento", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBisa_Result>("GetBisa", id_spvsParameter, id_polizaParameter, id_movimientoParameter);
+        }
     }
 }

@@ -5,6 +5,7 @@ using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -611,6 +612,95 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public decimal Prima_Neta(string id_spvs, long id_poliza, long id_movimiento, decimal num_cuota, decimal prima_neta)
+        {
+            var num = num_cuota;
+            num = num + Convert.ToDecimal(-1.0);
+
+            var num2 = prima_neta; // double.Parse(prima_neta.Text);
+            decimal num3 = 0;
+            if (num == 0)
+            {
+                num3 = num2;
+            }
+            else
+            {
+                var data = _manejador_pr_cobranzas.Bisa(id_spvs, id_poliza, id_movimiento);
+                var num4 = data== null? 0: data.cuota_total_t.Value; //double.Parse(dataTable.Rows[0][0].ToString());
+                num3 = num2 - num4;
+            }
+
+            return num3;
+        }
+
+        //public string Prima_Neta1(int id_poliza, int id_movimiento)
+        //{
+        //    double num = double.Parse(num_cuota.Text);
+        //    num += -1.0;
+        //    double num2 = double.Parse(prima_neta.Text);
+        //    double num3 = 0.0;
+        //    if (num == 0.0)
+        //    {
+        //        num3 = num2;
+        //    }
+        //    else
+        //    {
+        //        DataTable dataTable = Bisa1(id_poliza, id_movimiento);
+        //        double num4 = double.Parse(dataTable.Rows[0][0].ToString());
+        //        num3 = num2 - num4;
+        //    }
+
+        //    return num3.ToString();
+        //}
+
+        public string ComisionTotal(string id_spvs, long id_producto, int id_poliza, int id_movimiento, decimal num_cuota, decimal prima_neta, decimal por_comision)
+        {
+            try
+            {
+                var data = _manejador_pr_cobranzas.ComisionTotal(id_spvs, id_producto);
+
+                var primaNeta = Prima_Neta(id_spvs, id_poliza, id_movimiento, num_cuota, prima_neta);
+
+                return (primaNeta + data.plus_neta * por_comision / 100).ToString();
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            //string sentenciaSQL = "SELECT pr_formriesgo.plus_neta FROM pr_formriesgo " +
+            //    "WHERE pr_formriesgo.id_spvs = '" + id_spvs.SelectedValue + "' " +
+            //    "AND pr_formriesgo.id_producto = " + id_producto;
+            
+        }
+
+        //public string ComisionTotal1(int id_poliza, int id_movimiento, int id_producto)
+        //{
+        //    string sentenciaSQL = "SELECT pr_formriesgo.plus_neta FROM pr_formriesgo WHERE pr_formriesgo.id_spvs = '" + id_spvs1.Value + "' AND pr_formriesgo.id_producto = " + id_producto;
+        //    Acceso acceso = new Acceso();
+        //    acceso.Conectar();
+        //    acceso.CrearComando(sentenciaSQL);
+        //    DataTable dataTable = acceso.Consulta();
+        //    Bisa1(id_poliza, id_movimiento);
+        //    string s = Prima_Neta1(id_poliza, id_movimiento);
+        //    return ((double.Parse(s) + double.Parse(dataTable.Rows[0][0].ToString())) * double.Parse(por_comision.Text) / 100.0).ToString();
+        //}
+
+        public decimal Comision_Neta(string id_spvs, long id_poliza, long id_movimiento, decimal por_comision)
+        {
+            var data = _manejador_pr_cobranzas.Bisa(id_spvs, id_poliza, id_movimiento); ; //Bisa(id_poliza, id_movimiento);
+            var num = data.cuota_total_t;// double.Parse(dataTable.Rows[0][1].ToString());
+            return (num * por_comision / 100).Value;
+        }
+
+        //public string Comision_Neta1(int id_poliza, int id_movimiento)
+        //{
+        //    DataTable dataTable = Bisa1(id_poliza, id_movimiento);
+        //    double num = double.Parse(dataTable.Rows[0][1].ToString());
+        //    return (num * double.Parse(por_comision.Text) / 100.0).ToString();
+        //}
 
         #endregion
 
