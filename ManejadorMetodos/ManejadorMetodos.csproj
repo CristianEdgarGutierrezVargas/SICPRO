@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDBSicPro\CAcceso.cs" />
+    <Compile Include="CDBSicPro\Cgr_cierreregistro.cs" />
     <Compile Include="CDBSicPro\Cgr_compania.cs" />
     <Compile Include="CDBSicPro\Cgr_contactos.cs" />
     <Compile Include="CDBSicPro\Cgr_direccion.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="CDBSicPro\Cpr_poliza.cs" />
     <Compile Include="CDBSicPro\Cpr_polmov.cs" />
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />
+    <Compile Include="CDBSicPro\Cpr_riesgo.cs" />
     <Compile Include="CDBSicPro\Cpr_producto.cs" />
     <Compile Include="CDBSicPro\Cvcb_repcobranzas1.cs" />
     <Compile Include="CDBSicPro\Cvcb_veripoliza1.cs" />

@@ -11,71 +11,89 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 {
 
 
-    public partial class wco_comicart
+    public partial class wpr_riesgo
     {
 
         /// <summary>
-        /// id_percart control.
+        /// cod_mod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList id_percart;
+        protected global::System.Web.UI.WebControls.TextBox cod_mod;
 
         /// <summary>
-        /// porcentaje control.
+        /// cod_ram control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit porcentaje;
+        protected global::System.Web.UI.WebControls.TextBox cod_ram;
 
         /// <summary>
-        /// factura control.
+        /// cod_pol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox factura;
+        protected global::System.Web.UI.WebControls.TextBox cod_pol;
 
         /// <summary>
-        /// btn_guardar control.
+        /// desc_riesgo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btn_guardar;
+        protected global::System.Web.UI.WebControls.TextBox desc_riesgo;
 
         /// <summary>
-        /// btn_modificar control.
+        /// cobertura control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btn_modificar;
+        protected global::System.Web.UI.WebControls.DropDownList cobertura;
 
         /// <summary>
-        /// btn_borrar control.
+        /// btnguardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btn_borrar;
+        protected global::DevExpress.Web.ASPxButton btnguardar;
 
         /// <summary>
-        /// lblmensajeCarga control.
+        /// lblmensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblmensajeCarga;
+        protected global::DevExpress.Web.ASPxLabel lblmensaje;
+
+        /// <summary>
+        /// popUpValidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpValidacion;
+
+        /// <summary>
+        /// lblerror control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblerror;
 
         /// <summary>
         /// popUpConfirmacion control.
