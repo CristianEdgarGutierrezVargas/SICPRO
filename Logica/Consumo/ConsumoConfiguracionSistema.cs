@@ -19,6 +19,7 @@ namespace Logica.Consumo
         private readonly Cgr_parametro _manejador_gr_parametro;
         private readonly Cco_porcomi _manejador_co_porcomi;
         private readonly Cpr_riesgo _manejador_pr_riesgo;
+        private readonly Cgr_cierreregistro _manejador_gr_cierreregistro;
         public static sicproEntities dbContext;
 
         public ConsumoConfiguracionSistema()
@@ -30,6 +31,7 @@ namespace Logica.Consumo
             _manejador_gr_persona=new Cgr_persona(dbContext);
             _manejador_co_porcomi=new Cco_porcomi(dbContext);
             _manejador_pr_riesgo = new Cpr_riesgo(dbContext);
+            _manejador_gr_cierreregistro = new Cgr_cierreregistro(dbContext);
         }
 
         public List<gr_persona> ListaPersonaConPass()
@@ -165,6 +167,30 @@ namespace Logica.Consumo
             try
             {
                 _manejador_pr_riesgo.InsertarRiesgo( cod_mod,  cod_ram,  cod_pol,  desc_riesgo,  cobertura);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+
+        public List<gr_cierreregistro> TablaCierre(string anio)
+        {
+            try
+            {
+                return _manejador_gr_cierreregistro.TablaCierre(anio);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+
+        public void InsertarCierre (string cod_mod, string cod_ram, string cod_pol, string desc_riesgo, string cobertura)
+        {
+            try
+            {
+                _manejador_pr_riesgo.InsertarRiesgo(cod_mod, cod_ram, cod_pol, desc_riesgo, cobertura);
             }
             catch (SecureExceptions secureException)
             {
