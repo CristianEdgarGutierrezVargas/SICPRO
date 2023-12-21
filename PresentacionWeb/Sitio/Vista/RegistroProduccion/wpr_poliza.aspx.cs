@@ -401,7 +401,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 prPolmov.id_div = Convert.ToInt64(cmbDivisa.SelectedItem.Value);
                 //num_cuota = intNumeroCuotas,
                 prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
-                //estado = this.estado,
+                prPolmov.estado = "PRODUCCION"; //this.estado,
                 prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
                 prPolmov.fc_recepcion = fc_recepcion.Date;
                 prPolmov.mat_aseg = txtMatAseg.Text;

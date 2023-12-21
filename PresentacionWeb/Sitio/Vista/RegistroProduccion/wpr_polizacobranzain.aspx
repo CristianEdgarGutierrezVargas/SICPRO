@@ -221,7 +221,7 @@
                                           <span>Nº Cuotas:</span>
                                       </td>
                                       <td style="width: 60px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                           </dx:BootstrapSpinEdit>
   
                                       </td>
@@ -297,11 +297,8 @@
                       </div>
                   </div>
                   
-                  <div class="row">
-                       <div class="col-md-2">      
-           
-                       </div>
-                       <div class="col-md-8"> 
+                  <div class="row">                       
+                       <div class="col-md-12"> 
                            <div class="panel-group">
                             <div class="panel panel-default">
                               <div class="panel-body">Cuotas de la Poliza</div>
@@ -309,7 +306,7 @@
                             <div class="panel panel-default">
                               <div class="panel-body">
 
-                                  <asp:GridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                  <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                                       <Columns>
                                           <asp:BoundField DataField="cuota" HeaderText="Cuota" >
                                           <ControlStyle Width="20px" />
@@ -319,7 +316,7 @@
                                                   <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>
-                                                   <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
+                                                   <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="150px" 
                                                        Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
                                                        <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                                                <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
@@ -333,13 +330,19 @@
                                                   <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>                                                
-                                                  <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                  <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                       Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
                                                       <SpinButtons ShowLargeIncrementButtons="true" />
                                                   </dx:BootstrapSpinEdit>
                                               </ItemTemplate>
                                               <ControlStyle Width="50px" />
                                           </asp:TemplateField>
+                                          <asp:BoundField DataField="cuota_neta" HeaderText="Cuota Neta">
+                                          <ControlStyle Width="100px" />
+                                          </asp:BoundField>
+                                          <asp:BoundField DataField="cuota_comis" HeaderText="Comision" >
+                                          <ControlStyle Width="100px" />
+                                          </asp:BoundField>
                                       </Columns>
                                       <FooterStyle BackColor="White" ForeColor="#000066" />
                                       <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />

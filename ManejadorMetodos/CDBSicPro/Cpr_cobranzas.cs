@@ -1,4 +1,5 @@
 ﻿using Common;
+using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
@@ -204,7 +205,77 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        
 
+        public GetBisa_Result Bisa(string id_spvs, long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var sql = _context.GetBisa(id_spvs, id_poliza, id_movimiento).FirstOrDefault();
+
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            //string sentenciaSQL = "SELECT SUM(pr_cuotapoliza.cuota_total) AS cuota_total_t, pr_polmov.num_cuota " +
+            //    "FROM pr_poliza INNER JOIN pr_cuotapoliza ON (pr_poliza.id_poliza = pr_cuotapoliza.id_poliza) " +
+            //    "INNER JOIN pr_polmov ON (pr_cuotapoliza.id_poliza = pr_polmov.id_poliza) AND (pr_cuotapoliza.id_movimiento = public.pr_polmov.id_movimiento) WHERE pr_poliza.id_spvs = '" + id_spvs.SelectedValue + "' AND pr_poliza.id_poliza = " + id_poliza + " AND pr_cuotapoliza.id_movimiento = " + id_movimiento + " AND pr_cuotapoliza.cuota > 0 GROUP BY public.pr_polmov.num_cuota";
+           
+        }
+
+        //private DataTable Bisa1(int id_poliza, int id_movimiento)
+        //{        //  
+
+        //    string sentenciaSQL = "SELECT SUM(pr_cuotapoliza.cuota_total) AS cuota_total_t, pr_polmov.num_cuota " +
+        //        "FROM pr_poliza INNER JOIN pr_cuotapoliza ON (pr_poliza.id_poliza = pr_cuotapoliza.id_poliza) INNER JOIN pr_polmov ON (pr_cuotapoliza.id_poliza = pr_polmov.id_poliza) AND (pr_cuotapoliza.id_movimiento = public.pr_polmov.id_movimiento) WHERE pr_poliza.id_spvs = '" + id_spvs1.Value + "' AND pr_poliza.id_poliza = " + id_poliza + " AND pr_cuotapoliza.id_movimiento = " + id_movimiento + " AND pr_cuotapoliza.cuota > 0 GROUP BY public.pr_polmov.num_cuota";
+        //    Acceso acceso = new Acceso();
+        //    acceso.Conectar();
+        //    acceso.CrearComando(sentenciaSQL);
+        //    return acceso.Consulta();
+        //}
+
+
+        public pr_formriesgo ComisionTotal(string id_spvs, long id_producto)
+        {
+            try
+            {
+                var sql = _context.pr_formriesgo.Where(w => w.id_spvs == id_spvs && w.id_producto == id_producto).FirstOrDefault();
+                                
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        //public string ComisionTotal1(int id_poliza, int id_movimiento, int id_producto)
+        //{
+        //    string sentenciaSQL = "SELECT pr_formriesgo.plus_neta FROM pr_formriesgo WHERE pr_formriesgo.id_spvs = '" + id_spvs1.Value + "' AND pr_formriesgo.id_producto = " + id_producto;
+        //    Acceso acceso = new Acceso();
+        //    acceso.Conectar();
+        //    acceso.CrearComando(sentenciaSQL);
+        //    DataTable dataTable = acceso.Consulta();
+        //    Bisa1(id_poliza, id_movimiento);
+        //    string s = Prima_Neta1(id_poliza, id_movimiento);
+        //    return ((double.Parse(s) + double.Parse(dataTable.Rows[0][0].ToString())) * double.Parse(por_comision.Text) / 100.0).ToString();
+        //}
+
+        //public string Comision_Neta(int id_poliza, int id_movimiento)
+        //{
+        //    DataTable dataTable = Bisa(id_poliza, id_movimiento);
+        //    double num = double.Parse(dataTable.Rows[0][1].ToString());
+        //    return (num * double.Parse(por_comision.Text) / 100.0).ToString();
+        //}
+
+        //public string Comision_Neta1(int id_poliza, int id_movimiento)
+        //{
+        //    DataTable dataTable = Bisa1(id_poliza, id_movimiento);
+        //    double num = double.Parse(dataTable.Rows[0][1].ToString());
+        //    return (num * double.Parse(por_comision.Text) / 100.0).ToString();
+        //}
     }
 } 

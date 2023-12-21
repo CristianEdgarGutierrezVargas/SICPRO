@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
 
 
-    public partial class wpr_listacob2
+    public partial class wpr_listacom1
     {
 
         /// <summary>

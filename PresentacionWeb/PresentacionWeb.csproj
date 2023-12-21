@@ -112,6 +112,9 @@
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
@@ -126,6 +129,8 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx" />
+    <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx" />
+    <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob3.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob2.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob1.aspx" />
     <Content Include="UI\css\acc.css" />
@@ -327,6 +332,27 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.cs">
+      <DependentUpon>wpr_listacom3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.designer.cs">
+      <DependentUpon>wpr_listacom3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx.cs">
+      <DependentUpon>wpr_listacom2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx.designer.cs">
+      <DependentUpon>wpr_listacom2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.cs">
+      <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
+      <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
       <DependentUpon>wgr_contactos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,6 +451,20 @@
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx.designer.cs">
       <DependentUpon>wpr_polizareno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx.cs">
+      <DependentUpon>wpr_listacob4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx.designer.cs">
+      <DependentUpon>wpr_listacob4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob3.aspx.cs">
+      <DependentUpon>wpr_listacob3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob3.aspx.designer.cs">
+      <DependentUpon>wpr_listacob3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob2.aspx.cs">
       <DependentUpon>wpr_listacob2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,7 +522,6 @@
     <Folder Include="Sitio\Entidades\" />
     <Folder Include="Sitio\Vista\Exceptions\" />
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
-    <Folder Include="Sitio\Vista\ModuloComisiones\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />
     <Folder Include="Sitio\Vista\Reportes\" />

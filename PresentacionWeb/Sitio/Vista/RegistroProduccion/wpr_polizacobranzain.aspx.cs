@@ -1,5 +1,6 @@
 ﻿using DevExpress.Web;
 using DevExpress.Web.Bootstrap;
+using DevExpress.Web.Internal.XmlProcessor;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -191,6 +192,100 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             
         }
 
+        private void CalculaGrilla()
+        {           
+
+            for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
+            {
+                var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
+                if (txtCuotaTotal == null)
+                {
+                    return;
+                }
+                if (txtCuotaTotal.Text == "0,00")
+                {
+                    grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
+                    grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
+                    //text.Text = "0,00";
+                    //str.Text = "0,00";
+                    //textBox1.Text = "0,00";
+                    return;
+                }
+                else
+                {
+                    var cuotaNeta = 2.54;
+                    var comision = 2.31;
+
+                    grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(cuotaNeta);
+                    grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(comision);
+                }
+            }
+
+            //int num = Convert.ToInt32(e.CommandArgument);
+            //GridViewRow item = this.gridcuotas.Rows[num];
+            //TextBox textBox = (TextBox)item.FindControl("fecha_pago");
+            //TextBox textBox1 = (TextBox)item.FindControl("cuota_total");
+            //TextBox text = (TextBox)item.FindControl("cuota_neta");
+            //TextBox str = (TextBox)item.FindControl("cuota_comis");
+            //TextBox textBox2 = (TextBox)this.gridcuotas.FooterRow.FindControl("scuota_total");
+            //TextBox textBox3 = (TextBox)this.gridcuotas.FooterRow.FindControl("scuota_neta");
+            //TextBox textBox4 = (TextBox)this.gridcuotas.FooterRow.FindControl("scuota_comis");
+            //Label label = (Label)item.FindControl("cuota");
+            //if (e.CommandName == "Verificar")
+            //{
+            //    if (textBox1.Text == "0,00")
+            //    {
+            //        text.Text = "0,00";
+            //        str.Text = "0,00";
+            //        textBox1.Text = "0,00";
+            //        return;
+            //    }
+            //    this.msgboxpanel.Visible = false;
+            //    if (label.Text == "0" && this.id_spvs.Value == "109")
+            //    {
+            //        pr_cobranzas prCobranza = new pr_cobranzas()
+            //        {
+            //            id_spvs1 = this.id_spvs,
+            //            prima_neta = this.prima_neta,
+            //            por_comision = this.por_comision,
+            //            num_cuota = this.num_cuota
+            //        };
+            //        string str1 = prCobranza.Prima_Neta1(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value));
+            //        double num1 = Math.Round(double.Parse(str1), 2);
+            //        str1 = num1.ToString();
+            //        text.Text = string.Format("{0:n}", double.Parse(str1));
+            //        prCobranza.comision = this.comision;
+            //        string str2 = prCobranza.ComisionTotal1(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value), int.Parse(this.id_producto.Value));
+            //        double num2 = Math.Round(double.Parse(str2), 2);
+            //        str2 = num2.ToString();
+            //        str.Text = string.Format("{0:n}", double.Parse(str2));
+            //        return;
+            //    }
+            //    if (this.id_spvs.Value == "109")
+            //    {
+            //        text.Text = textBox1.Text;
+            //        double num3 = double.Parse(text.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(this.por_comision.Text.Replace(".", "").Replace(",", "")) / 100;
+            //        str.Text = num3.ToString();
+            //        double num4 = double.Parse(str.Text) / 100;
+            //        str.Text = num4.ToString();
+            //        str.Text = string.Format("{0:n}", double.Parse(str.Text));
+            //        return;
+            //    }
+            //    double num5 = double.Parse(textBox1.Text.Replace(".", "").Replace(",", ""));
+            //    num5 /= 100;
+            //    double num6 = double.Parse(this.prima_bruta.Text.Replace(".", "").Replace(",", ""));
+            //    num6 /= 100;
+            //    double num7 = double.Parse(this.prima_neta.Text.Replace(".", "").Replace(",", ""));
+            //    num7 /= 100;
+            //    double num8 = num5 / num6 * num7;
+            //    num8 = Math.Round(num8, 2);
+            //    text.Text = string.Format("{0:n}", num8);
+            //    double num9 = num8 * (double.Parse(this.por_comision.Text.Replace(".", ",")) / 100);
+            //    num9 = Math.Round(num9, 2);
+            //    str.Text = string.Format("{0:n}", num9);
+            //    return;
+            //}
+        }
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -200,6 +295,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotas_Click(object sender, EventArgs e)
         {
+            CalculaGrilla();
             //var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
             //var lstCuotas = GetDataCuotas(numeroCuotas);
             //Session["LST_CUOTAS"] = lstCuotas;

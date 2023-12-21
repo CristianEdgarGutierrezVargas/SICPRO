@@ -1,5 +1,4 @@
 ﻿using Common;
-using DevExpress.Web;
 using EntidadesClases.ModelSicPro;
 
 using Logica.Consumo;
@@ -11,10 +10,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DevExpress.Web;
 
 namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
-    public partial class wpr_listacob2 : System.Web.UI.Page
+    public partial class wpr_listacom3 : System.Web.UI.Page
     {
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         private long ll = 0;
@@ -26,13 +26,14 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
                 fc_inivig.Text = DateTime.Now.ToShortDateString();
                 Limpiar();
-                wpr_listacob2.valor = base.Request.QueryString["var"];
-                id_clamov.Value = wpr_listacob2.valor;
+                wpr_listacob1.valor = base.Request.QueryString["var"];
+                id_clamov.Value = wpr_listacom3.valor;
                 Datos();
 
 
@@ -316,11 +317,11 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 return "";
             string formaPago = "";
             if (Convert.ToBoolean(num.ToString()))
+           
+                    formaPago = "Contado";
+                else formaPago = "Crédito";
 
-                formaPago = "Contado";
-            else formaPago = "Crédito";
-
-
+          
             return formaPago;
         }
         public string Ejecutivo(object num)
