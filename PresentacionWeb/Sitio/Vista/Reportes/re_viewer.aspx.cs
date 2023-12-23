@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Web;
+using Logica.Consumo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 {
     public partial class re_viewer : System.Web.UI.Page
     {
+        ConsumoReportes _objConsumoReportes = new ConsumoReportes();
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (int.Parse(base.Request.QueryString["r"].ToString()))
@@ -152,7 +154,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             }
         }
 
-        protected void Memo()
+        protected void Memo11()
         {
             string str = base.Server.MapPath("reportes//re_memo.rpt");
             this.CrystalReportViewer1.ReportSource = str;
@@ -163,17 +165,18 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             this.CrystalReportViewer1.RefreshReport();
         }
 
-        protected void Memo11()
+        protected void Memo()
         {
-            ////https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
-            //ReportDocument cryRpt = new ReportDocument();
-            //cryRpt.Load("reportes//re_memo.rpt");
-            //cryRpt.DataSourceConnections.Clear();
-            //cryRpt.SetDataSource(ds.Tables[0]);
+            var response = _objConsumoReportes.GetReportMemo(36165, 63452);
+            //https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load("reportes//re_memo.rpt");
+            cryRpt.DataSourceConnections.Clear();
+            cryRpt.SetDataSource(response);
             //cryRpt.Subreports[0].DataSourceConnections.Clear();
             //cryRpt.Subreports[0].SetDataSource(ds.Tables[0]);
-            //CrystalReportViewer1.ReportSource = cryRpt;
-            //CrystalReportViewer1.RefreshReport();
+            CrystalReportViewer1.ReportSource = cryRpt;
+            CrystalReportViewer1.RefreshReport();
         }
     }
 }
