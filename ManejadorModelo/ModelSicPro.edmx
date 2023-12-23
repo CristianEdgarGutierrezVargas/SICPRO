@@ -2569,6 +2569,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="GetReportMemo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_poliza" Type="bigint" Mode="In" />
+          <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4227,6 +4231,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           </FunctionImport>
           <FunctionImport Name="GetBisa" ReturnType="Collection(sicproModel.GetBisa_Result)">
             <Parameter Name="id_spvs" Mode="In" Type="String" />
+            <Parameter Name="id_poliza" Mode="In" Type="Int64" />
+            <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetReportMemo" ReturnType="Collection(sicproModel.GetReportMemo_Result)">
             <Parameter Name="id_poliza" Mode="In" Type="Int64" />
             <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
           </FunctionImport>
@@ -6767,6 +6775,38 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="Decimal" Name="cuota_total_t" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Double" Name="num_cuota" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="GetReportMemo_Result">
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="no_liquida" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="id_gru" Nullable="true" />
+          <Property Type="String" Name="desc_grupo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cliente" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="desc_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="clase_poliza" Nullable="true" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_percart" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="cartera" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="ejecutivo" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="movimiento" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="fc_inivig" Nullable="false" />
+          <Property Type="DateTime" Name="fc_finvig" Nullable="false" />
+          <Property Type="Decimal" Name="prima_bruta" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="prima_neta" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="por_comision" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="comision" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="String" Name="divisa" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="mat_aseg" Nullable="true" MaxLength="Max" />
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+          <Property Type="Int64" Name="id_movimiento" Nullable="false" />
+          <Property Type="DateTime" Name="fc_reg" Nullable="false" />
+          <Property Type="DateTime" Name="fc_recepcion" Nullable="false" />
+          <Property Type="DateTime" Name="fc_emision" Nullable="false" />
+          <Property Type="Boolean" Name="tipo_cuota" Nullable="false" />
+          <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8819,6 +8859,42 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               <ComplexTypeMapping TypeName="sicproModel.GetBisa_Result">
                 <ScalarProperty Name="cuota_total_t" ColumnName="cuota_total_t" />
                 <ScalarProperty Name="num_cuota" ColumnName="num_cuota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportMemo" FunctionName="sicproModel.Store.GetReportMemo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportMemo_Result">
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="clase_poliza" ColumnName="clase_poliza" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="cartera" ColumnName="cartera" />
+                <ScalarProperty Name="ejecutivo" ColumnName="ejecutivo" />
+                <ScalarProperty Name="movimiento" ColumnName="movimiento" />
+                <ScalarProperty Name="fc_inivig" ColumnName="fc_inivig" />
+                <ScalarProperty Name="fc_finvig" ColumnName="fc_finvig" />
+                <ScalarProperty Name="prima_bruta" ColumnName="prima_bruta" />
+                <ScalarProperty Name="prima_neta" ColumnName="prima_neta" />
+                <ScalarProperty Name="por_comision" ColumnName="por_comision" />
+                <ScalarProperty Name="comision" ColumnName="comision" />
+                <ScalarProperty Name="divisa" ColumnName="divisa" />
+                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="fc_recepcion" ColumnName="fc_recepcion" />
+                <ScalarProperty Name="fc_emision" ColumnName="fc_emision" />
+                <ScalarProperty Name="tipo_cuota" ColumnName="tipo_cuota" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="al" ColumnName="al" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -267,6 +267,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxButton btnCuotas;
 
         /// <summary>
+        /// Control btnMemo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnMemo;
+
+        /// <summary>
         /// Control lblmensaje.
         /// </summary>
         /// <remarks>

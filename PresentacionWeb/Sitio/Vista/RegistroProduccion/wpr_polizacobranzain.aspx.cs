@@ -51,46 +51,46 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var objPolmov = new pr_polmov();
             if (objResponse == null)
             {
-                var objResponseData = _objConsumoRegistroProd.GetDataVeriPoliza(idPoliza, idMov);
+            //    var objResponseData = _objConsumoRegistroProd.GetDataVeriPoliza(idPoliza, idMov);
 
-                Session["vcb_veripoliza1"] = objResponseData;
+            //    Session["vcb_veripoliza1"] = objResponseData;
 
-                objPoliza.id_poliza = objResponseData.id_poliza;
-                objPoliza.num_poliza = objResponseData.num_poliza;
-                objPoliza.id_producto = objResponseData.id_producto;
-                objPoliza.id_perclie = objResponseData.id_perclie;
-                objPoliza.id_spvs = objResponseData.id_spvs;
-                objPoliza.id_gru = objResponseData.id_gru;
-                objPoliza.clase_poliza = objResponseData.clase_poliza;
-                objPoliza.estado = objResponseData.estado;
-                objPoliza.fc_reg = objResponseData.fc_recepcion;
-                objPoliza.id_percart = objResponseData.id_percart;
-                //objPoliza.id_suc = objResponse.id_suc;
+            //    objPoliza.id_poliza = objResponseData.id_poliza;
+            //    objPoliza.num_poliza = objResponseData.num_poliza;
+            //    objPoliza.id_producto = objResponseData.id_producto;
+            //    objPoliza.id_perclie = objResponseData.id_perclie;
+            //    objPoliza.id_spvs = objResponseData.id_spvs;
+            //    objPoliza.id_gru = objResponseData.id_gru;
+            //    objPoliza.clase_poliza = objResponseData.clase_poliza;
+            //    objPoliza.estado = objResponseData.estado;
+            //    objPoliza.fc_reg = objResponseData.fc_recepcion;
+            //    objPoliza.id_percart = objResponseData.id_percart;
+            //    //objPoliza.id_suc = objResponse.id_suc;
 
-                objPolmov.id_poliza = objResponseData.id_poliza;
-                objPolmov.id_movimiento = objResponseData.id_movimiento;
-                objPolmov.id_perejec = objResponseData.id_perejec;
-                objPolmov.fc_emision = objResponseData.fc_emision;
-                objPolmov.fc_inivig = objResponseData.fc_inivig;
+            //    objPolmov.id_poliza = objResponseData.id_poliza;
+            //    objPolmov.id_movimiento = objResponseData.id_movimiento;
+            //    objPolmov.id_perejec = objResponseData.id_perejec;
+            //    objPolmov.fc_emision = objResponseData.fc_emision;
+            //    objPolmov.fc_inivig = objResponseData.fc_inivig;
 
-                objPolmov.fc_finvig = objResponseData.fc_finvig;
-                objPolmov.prima_bruta = objResponseData.prima_bruta;
-                objPolmov.prima_neta = objResponseData.prima_neta;
-                objPolmov.por_comision = objResponseData.por_comision;
-                objPolmov.comision = objResponseData.comision;
+            //    objPolmov.fc_finvig = objResponseData.fc_finvig;
+            //    objPolmov.prima_bruta = objResponseData.prima_bruta;
+            //    objPolmov.prima_neta = objResponseData.prima_neta;
+            //    objPolmov.por_comision = objResponseData.por_comision;
+            //    objPolmov.comision = objResponseData.comision;
 
-                objPolmov.id_div = objResponseData.id_div;
-                objPolmov.tipo_cuota = objResponseData.tipo_cuota;
-                objPolmov.num_cuota = objResponseData.num_cuota;
-                objPolmov.id_clamov = objResponseData.id_poliza;
-                //objPolmov.estado = objResponse.estado;
+            //    objPolmov.id_div = objResponseData.id_div;
+            //    objPolmov.tipo_cuota = objResponseData.tipo_cuota;
+            //    objPolmov.num_cuota = objResponseData.num_cuota;
+            //    objPolmov.id_clamov = objResponseData.id_poliza;
+            //    //objPolmov.estado = objResponse.estado;
 
-                objPolmov.id_dir = objResponseData.id_dir;
-                objPolmov.fc_recepcion = objResponseData.fc_recepcion;
-                objPolmov.mat_aseg = objResponseData.mat_aseg;
-                //objPolmov.fc_reg = objResponse.fc_reg;
-                objPolmov.no_liquida = objResponseData.no_liquida;
-                objPolmov.id_mom = objResponseData.id_mom;
+            //    objPolmov.id_dir = objResponseData.id_dir;
+            //    objPolmov.fc_recepcion = objResponseData.fc_recepcion;
+            //    objPolmov.mat_aseg = objResponseData.mat_aseg;
+            //    //objPolmov.fc_reg = objResponse.fc_reg;
+            //    objPolmov.no_liquida = objResponseData.no_liquida;
+            //    objPolmov.id_mom = objResponseData.id_mom;
             }
             else
             {            
@@ -193,8 +193,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
 
         private void CalculaGrilla()
-        {           
-
+        {
+            var objDataPoliza = (vcb_veripoliza1)Session["vcb_veripoliza1"];
             for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
             {
                 var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
@@ -204,6 +204,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 }
                 if (txtCuotaTotal.Text == "0,00")
                 {
+                    
                     grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
                     grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
                     //text.Text = "0,00";
@@ -213,11 +214,14 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 }
                 else
                 {
-                    var cuotaNeta = 2.54;
-                    var comision = 2.31;
+                    var decPrimaNeta = _objConsumoRegistroProd
+                        .Prima_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtNumCuotas.Text), Convert.ToDecimal(txtPrimaNeta.Text));//"0.00";
+                    //grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+                    var decComision = _objConsumoRegistroProd
+                        .Comision_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtPorcentaje.Text));//"0.00";
 
-                    grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(cuotaNeta);
-                    grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(comision);
+                    grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+                    grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(decComision);
                 }
             }
 
@@ -335,6 +339,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //this.prima_neta.Text = string.Format("{0:n}", double.Parse(this.prima_neta.Text));
             //this.por_comision.Text = string.Format("{0:n}", double.Parse(this.por_comision.Text));
             //this.comision.Text = string.Format("{0:n}", double.Parse(this.comision.Text));
+        }
+
+        protected void btnMemo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />
     <Compile Include="CDBSicPro\Cpr_riesgo.cs" />
     <Compile Include="CDBSicPro\Cpr_producto.cs" />
+    <Compile Include="CDBSicPro\CReportes.cs" />
     <Compile Include="CDBSicPro\Cvcb_repcobranzas1.cs" />
     <Compile Include="CDBSicPro\Cvcb_veripoliza1.cs" />
     <Compile Include="CDBSicPro\Cpr_movimientos.cs" />

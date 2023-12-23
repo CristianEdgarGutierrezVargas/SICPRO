@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -130,6 +133,7 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx" />
+    <Content Include="Sitio\Vista\Reportes\re_viewer.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob3.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob2.aspx" />
@@ -459,6 +463,252 @@
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx.designer.cs">
       <DependentUpon>wpr_polizareno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\reportepagoacia.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\reportepagoacia1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportepagoacia.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_ascii.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_ascii1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_ascii11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_ascii1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_ascii2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_ascii.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_clientes.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_clientes1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_clientes.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cobsXfecha.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cobsXfecha1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_cobsXfecha.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cobsxrango.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cobsxrango1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_cobsxrango.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comicap1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comicap11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_comicap1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comicobr1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comicobr11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_comicobr1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comiefect1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comiefect11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_comiefect1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comisionesxfecha.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_comisionesxfecha1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_comisionesxfecha.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_concipagcia.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_concipagcia1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_concipagcia.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_contable1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_contable11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_contable1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cuotaadias.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_cuotaadias1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_cuotaadias.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_desglosepago.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_desglosepago1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_desglosepago.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_direcciones.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_direcciones1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_direcciones.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_estctaaseg1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg2.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_estctaaseg2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_estctaaseg3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_estctaaseg.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_grupos.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_grupos1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_grupos.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosf1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_histreclamosf.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosh.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosh1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_histreclamosh.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_liqcomiejec.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec2.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_liqcomiejec2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec3.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec31.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_liqcomiejec3.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liquidacion.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_liquidacion1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_liquidacion.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_memo1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo2.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_memo2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memo3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_memo.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagoacia.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagoacia1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagoacia11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_pagoacia1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagoacia2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_pagoacia.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagopendcias.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_pagopendcias1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_pagopendcias.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_prodcap1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_prodcap11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_prodcap1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_prodcap2.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_prodcap21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_prodcap2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_proycartera.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_proycartera1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_proycartera.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_recibosnoaplicados.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_recibosnoaplicados1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_recibosnoaplicados.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_relacion.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_relacion1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_relacion.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumenreclamos.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumenreclamos1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_resumenreclamos.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumprod1.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumprod11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_resumprod1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumprod2.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumprod21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_resumprod2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumsiniestro.cs" />
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_resumsiniestro1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_resumsiniestro.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\re_viewer.aspx.cs">
+      <DependentUpon>re_viewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\re_viewer.aspx.designer.cs">
+      <DependentUpon>re_viewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx.cs">
       <DependentUpon>wpr_listacob4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -532,7 +782,6 @@
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />
-    <Folder Include="Sitio\Vista\Reportes\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
   <ItemGroup>
@@ -550,7 +799,169 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportepagoacia1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_ascii.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_ascii2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_ascii1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_ascii11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_clientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_clientes1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_cobsXfecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_cobsXfecha1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_cobsxrango.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_cobsxrango1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_comicap1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_comicap11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_comicobr1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_comicobr11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_comiefect1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_comiefect11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_comisionesxfecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_comisionesxfecha1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_concipagcia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_concipagcia1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_contable1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_contable11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_cuotaadias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_cuotaadias1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_desglosepago.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_desglosepago1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_direcciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_direcciones1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_estctaaseg.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_estctaaseg3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_estctaaseg1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_estctaaseg11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_estctaaseg2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_estctaaseg21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_grupos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_grupos1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_histreclamosf1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamosh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_histreclamosh1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_liqcomiejec1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_liqcomiejec21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_liqcomiejec3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_liqcomiejec31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_liquidacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_liquidacion1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_memo3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memo1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_memo11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memo2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_memo21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_pagoacia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_pagoacia2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_pagoacia1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_pagoacia11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_pagopendcias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_pagopendcias1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_prodcap1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_prodcap11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_prodcap2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_prodcap21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_proycartera.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_proycartera1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_recibosnoaplicados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_recibosnoaplicados1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_relacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_relacion1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_resumenreclamos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_resumenreclamos1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_resumprod1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_resumprod11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_resumprod2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_resumprod21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_resumsiniestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_resumsiniestro1.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
