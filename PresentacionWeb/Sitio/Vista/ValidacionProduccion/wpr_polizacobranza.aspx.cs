@@ -55,14 +55,14 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstGrupo = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbGrupo.Items.Add(itemLstGrupo);
 
-            var lstTipoCartera = _objConsumoRegistroProd.listas1();
-            cmbTipoCartera.DataSource = lstTipoCartera;
-            cmbTipoCartera.TextField = "desc_param";
-            cmbTipoCartera.ValueField = "id_par";
-            cmbTipoCartera.DataBind();
+            //var lstTipoCartera = _objConsumoRegistroProd.listas1();
+            //cmbTipoCartera.DataSource = lstTipoCartera;
+            //cmbTipoCartera.TextField = "desc_param";
+            //cmbTipoCartera.ValueField = "id_par";
+            //cmbTipoCartera.DataBind();
 
-            var itemTipoCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
-            cmbTipoCartera.Items.Add(itemTipoCartera);
+            //var itemTipoCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            //cmbTipoCartera.Items.Add(itemTipoCartera);
 
             var lstFuncionarios = _objConsumoRegistroProd.ObtenerEjecutivoClientes();
             cmbEjecutivo.DataSource = lstFuncionarios;
@@ -400,7 +400,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //comision = this.comision,
                 prPolmov.id_div = Convert.ToInt64(cmbDivisa.SelectedItem.Value);
                 //num_cuota = intNumeroCuotas,
-                prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
+                //prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
                 prPolmov.estado = "PRODUCCION"; //this.estado,
                 prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
                 prPolmov.fc_recepcion = fc_recepcion.Date;

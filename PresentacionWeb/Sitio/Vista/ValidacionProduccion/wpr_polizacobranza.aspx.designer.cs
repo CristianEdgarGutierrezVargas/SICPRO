@@ -168,15 +168,6 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbProducto;
 
         /// <summary>
-        /// Control cmbTipoCartera.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbTipoCartera;
-
-        /// <summary>
         /// Control cmbEjecutivo.
         /// </summary>
         /// <remarks>
