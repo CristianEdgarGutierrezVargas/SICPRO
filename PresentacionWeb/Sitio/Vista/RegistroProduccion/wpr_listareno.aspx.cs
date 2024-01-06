@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -79,8 +81,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //prCobranza.RecuperaTablaPolizaNRI(item);
 
             //RecuperaTablaPolizaNRI(item);
-            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
-            gridpoliza.DataSource = dataTable;
+            //var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
+            
+            var objTablaPolizaIn = new OC_ObtenerTablaPolizaIn();
+            objTablaPolizaIn.num_poliza = num_poliza.Text;
+            objTablaPolizaIn.id_perclie = id_per.Value;
+            objTablaPolizaIn.id_spvs = id_spvs.Value;
+            objTablaPolizaIn.id_producto = Convert.ToInt64(id_producto.Value);
+            objTablaPolizaIn.vigencia = vigencia.Checked;
+            objTablaPolizaIn.fc_inivig = fc_inivig.Date;
+            objTablaPolizaIn.fc_finvig = fc_finvig.Date;
+            objTablaPolizaIn.fc_polizavencida = fc_polizavencida.Date;
+            objTablaPolizaIn.porvencer = porvencer.Checked;
+
+            var lstResponse = _objConsumoRegistroProd.ObtenerTablaPolizaR(objTablaPolizaIn);
+           
+            Session["lstGridPoliza"] = lstResponse;
+            gridpoliza.DataSource = lstResponse;
             gridpoliza.DataBind();
             this.gridcontainer.Visible = true;
         }
@@ -240,8 +257,122 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void gridpoliza_DataBinding(object sender, EventArgs e)
         {
+   			 gridpoliza.DataSource = Session["lstGridPoliza"];
+        }
+
+
+
+        protected void CallBGridPoliza_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
+            if (this.IsCallback)
+                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
+            else
+
+                Response.Redirect("~/wpr_polizareno.aspx");
 
         }
+
+        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Button _button = sender as Button;
+
+            BootstrapGridView _grid = _button.NamingContainer.NamingContainer.NamingContainer as BootstrapGridView;
+
+            var numPoliza  = _grid.GetRowValues(_grid.FocusedRowIndex, "num_poliza")?.ToString();
+            //var idPoliza = gridpoliza.GetRowValues(_grid.EditingRowVisibleIndex, "id_poliza").ToString();
+            Response.Redirect("wpr_polizareno.aspx?var=" + numPoliza );
+
+            //TextBox _textBox = _grid.GetDataItemControl(_grid.FocusedRowIndex, "CustomCode", "txtCustCode") as TextBox;
+
+            //String _text = _textBox.Text;
+
+            //https://stackoverflow.com/questions/64555062/how-to-access-gridviewdatacolumn-of-detailrow-on-server-side
+            
+        }
+
+        public string Grupo(object num)
+        {
+
+            if (num == null)
+                return "";
+
+            string descGrupo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idGrupo = Convert.ToInt64(num.ToString());
+                descGrupo = _objConsumoValidarProd.objGrupoById(idGrupo).desc_grupo;
+            }
+            return descGrupo;
+        }
+        public string CompaniaAseg(object num)
+        {
+            if (num == null)
+                return "";
+            string descCompania = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+
+                descCompania = _objConsumoValidarProd.GetDescCompaniaById(num.ToString());
+            }
+            return descCompania;
+        }
+        
+ public string NombreProducto(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                descProducto = _objConsumoValidarProd.GetProductoById(idProducto).desc_prod;
+            }
+            return descProducto;
+        }
+        public string TipoPoliza(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                var tipo = _objConsumoValidarProd.GetPolizaByIdPoliza(idProducto).clase_poliza;
+                if ((bool)tipo)
+                    descProducto = "Normal";
+                else descProducto = "Flotante";
+
+            }
+            return descProducto;
+        }
+        public string FormaPago(object num)
+        {
+            if (num == null)
+                return "";
+            string formaPago = "";
+            if (Convert.ToBoolean(num.ToString()))
+           
+                    formaPago = "Contado";
+                else formaPago = "Crédito";
+
+          
+            return formaPago;
+        }
+        public string Ejecutivo(object num)
+        {
+            if (num == null)
+                return "";
+            string nomEjecutivo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idEjecutivo = num.ToString();
+                nomEjecutivo = _objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
+            }
+            return nomEjecutivo;
+        }
+
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -300,6 +431,16 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             this.gridpoliza.DataSource = lstTablaPoliza;
             this.gridpoliza.DataBind();
             //this.gridcontainer.Visible = true;
+        }
+
+        protected void gridpoliza_HtmlDataCellPrepared(object sender, BootstrapGridViewTableDataCellEventArgs e)
+        {
+            if (e.DataColumn.Caption == "Opciones")
+                e.Cell.Attributes.Add("onclick", "event.cancelBubble = true");
+            //if (e.DataColumn.FieldName == "UnitPrice")
+            //    e.Cell.Attributes.Add("onclick", "event.cancelBubble = true");
+
+            //https://supportcenter.devexpress.com/ticket/details/t189804/gridview-how-to-disable-row-click-in-particular-column
         }
     }
 }

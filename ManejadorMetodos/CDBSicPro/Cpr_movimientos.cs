@@ -93,5 +93,20 @@ namespace ManejadorMetodos.CDBSicPro
         //    }
         //}
 
+        public vpr_polrenovar ObtenerRenPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                var sql = _context.vpr_polrenovar.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento).FirstOrDefault();
+
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
     }
 }

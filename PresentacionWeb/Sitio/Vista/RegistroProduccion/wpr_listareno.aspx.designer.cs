@@ -321,6 +321,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView gridpoliza;
 
         /// <summary>
+        /// Control CallBGridPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBGridPoliza;
+
+        /// <summary>
         /// Control lblmensaje.
         /// </summary>
         /// <remarks>

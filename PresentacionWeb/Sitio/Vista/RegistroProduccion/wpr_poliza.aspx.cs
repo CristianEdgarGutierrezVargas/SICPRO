@@ -344,6 +344,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotasPoliza_Click(object sender, EventArgs e)
         {
+            if (DateTime.Parse(this.fc_finvig.Text) < DateTime.Parse(this.fc_inivig.Text))
+            {
+                lblmensaje.Text = "La fecha de Fin de Vigencia no puede ser menor a la fecha de Incio de vigencia";
+                return;
+            }
             if (string.IsNullOrEmpty(txtNumCuotas.Text) || Convert.ToDecimal(txtNumCuotas.Text) == 0)
             {
                 lblmensaje.Text = "El Numero de Cuotas no es valido";

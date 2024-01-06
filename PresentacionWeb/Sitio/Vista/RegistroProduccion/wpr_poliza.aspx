@@ -85,7 +85,7 @@
                              </ValidationSettings>  
                              <ClientSideEvents Init="function(s,e){  
                                                         var dt1 = new Date();  
-                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                        var dt2 = new Date(dt1.getFullYear(), dt1.getMonth(), dt1.getDate());  
                                                         var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
                                                         fc_emision.SetMinDate(new Date(dt3));  
                                                         fc_emision.SetMaxDate(new Date(dt2));  
@@ -103,7 +103,7 @@
                             </ValidationSettings>  
                               <ClientSideEvents Init="function(s,e){  
                                                          var dt1 = new Date();  
-                                                         var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                         var dt2 = new Date(dt1.getFullYear(), dt1.getMonth(), dt1.getDate());  
                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
                                                          fc_recepcion.SetMinDate(new Date(dt3));  
                                                          fc_recepcion.SetMaxDate(new Date(dt2));  
@@ -356,20 +356,20 @@
                      <div class="col-md-8">      
                             <table style="width: 100%;">
                                 <tr>
-                                    <td style="width: 125px; height: 18px">          
+                                    <td style="width: 170px; height: 18px">          
                                         <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
-                                        <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                        <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="170px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                         </dx:BootstrapSpinEdit>
                                
                                     </td>
-                                    <td style="width: 65px; height: 18px">
+                                    <td style="width: 80px; height: 18px">
                                         <span id="ctl00_cpmaster_lblnum_cuota">Nº Cuotas:</span>
                                     </td>
-                                    <td style="width: 60px; height: 18px">
+                                    <td style="width: 80px; height: 18px">
                                         <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
                                         
-                                        <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="60px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                         </dx:BootstrapSpinEdit>
                 
                                     </td>
@@ -377,7 +377,7 @@
                                          <span id="ctl00_cpmaster_lblid_div">Divisa:</span>                            
                                     </td>
                                     <td style="width: 100px; height: 18px">
-                                        <dx:BootstrapComboBox ID="cmbDivisa" runat="server" ValueType="System.String" Width="100px">
+                                        <dx:BootstrapComboBox ID="cmbDivisa" runat="server" ValueType="System.String" Width="90px">
                                             <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                         </dx:BootstrapComboBox>
 
@@ -424,7 +424,7 @@
                           <div class="panel panel-default">
                             <div class="panel-body">
 
-                                <asp:GridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                                     <Columns>
                                         <asp:BoundField DataField="cuota" HeaderText="Cuota" >
                                         <ControlStyle Width="20px" />
@@ -434,7 +434,7 @@
                                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
-                                                 <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="100%" 
+                                                 <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="150px" 
                                                      Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
                                                      <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                                              <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
@@ -448,7 +448,7 @@
                                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>                                                
-                                                <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="100%" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                     Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
                                                     <SpinButtons ShowLargeIncrementButtons="true" />
                                                 </dx:BootstrapSpinEdit>
@@ -566,6 +566,9 @@
         </dx:BootstrapPopupControl>
 
         <dx:BootstrapPopupControl ID="pCDireccion" runat="server" ClientInstanceName="pCDireccion" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+
+<SettingsBootstrap Sizing="Small"></SettingsBootstrap>
+
         <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
         <CssClasses Content="pt-1" />
         <ContentCollection>
@@ -607,7 +610,9 @@
                                 <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                             </SettingsPager>
                             <Columns>
-                                <dx:BootstrapGridViewDataColumn FieldName="direccion" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewDataColumn FieldName="direccion" Width="200px" CssClasses-DataCell="fs-11">
+<CssClasses DataCell="fs-11"></CssClasses>
+                                </dx:BootstrapGridViewDataColumn>
 
                             </Columns>
 

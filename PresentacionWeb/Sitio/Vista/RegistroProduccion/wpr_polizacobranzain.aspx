@@ -27,7 +27,7 @@
                   </div>
               
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                         <span>Fecha de Emisión:</span>
                       </div>
                       <div class="col-md-3">      
@@ -66,7 +66,7 @@
                   </div>
 
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                          <span>Inicio Vigencia:</span>
                       </div>
                       <div class="col-md-3">      
@@ -93,7 +93,7 @@
                   </div>
 
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                          <span id="lblnumero">N° de Poliza:</span>
                       </div>
                       <div class="col-md-3">      
@@ -113,10 +113,10 @@
                   </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                           <span>Asegurado :</span>
                        </div>
-                       <div class="col-md-7">                            
+                       <div class="col-md-8">                            
                            <asp:Label ID="lblAsegurado" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
@@ -125,10 +125,10 @@
                    </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                           <span id="lbldireccion">Dirección :</span>
                        </div>
-                       <div class="col-md-7">   
+                       <div class="col-md-8">   
                           <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
@@ -137,46 +137,46 @@
                    </div>
                   
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                           <span>Grupo :</span>
                       </div>
-                      <div class="col-md-8">      
+                      <div class="col-md-9">      
                           <asp:Label ID="lblGrupo" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
                   
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                           <span>Cia Aseguradora :</span>
                       </div>
-                      <div class="col-md-8">      
+                      <div class="col-md-9">      
                           <asp:Label ID="lblCiaAseg" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                            <span>Producto :</span>
                        </div>
-                       <div class="col-md-8">      
+                       <div class="col-md-9">      
                            <asp:Label ID="lblProducto" runat="server" Text=""></asp:Label>
                        </div>
                    </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                            <span>Tipo de Cartera :</span>
                        </div>
-                       <div class="col-md-8">      
+                       <div class="col-md-9">      
                            <asp:Label ID="lblTipoCartera" runat="server" Text=""></asp:Label>
                        </div>
                    </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                           <span>Ejecutivo:</span>
                        </div>
-                       <div class="col-md-8">      
+                       <div class="col-md-9">      
                             <dx:BootstrapComboBox ID="cmbEjecutivo" runat="server" ValueType="System.String" Width="100%">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
@@ -187,32 +187,32 @@
                    </div>
                   
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                           <span>Agente Cartera:</span>
                       </div>
-                      <div class="col-md-8">      
+                      <div class="col-md-9">      
                           <asp:Label ID="lblAgente" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
                  
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                           <span>Tipo Poliza:</span>
                       </div>
-                      <div class="col-md-8">      
+                      <div class="col-md-9">      
                            <asp:Label ID="lblTipoPoliza" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
                   
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                            <span id="lblprima_bruta">Prima Total:</span>
                        </div>
-                       <div class="col-md-8">      
+                       <div class="col-md-9">      
                               <table style="width: 100%;">
                                   <tr>
-                                      <td style="width: 125px; height: 18px">          
-                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                      <td style="width: 160px; height: 18px">          
+                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                               <SpinButtons ShowLargeIncrementButtons="true" />
                                           </dx:BootstrapSpinEdit>
                  
@@ -220,8 +220,8 @@
                                       <td style="width: 65px; height: 18px">
                                           <span>Nº Cuotas:</span>
                                       </td>
-                                      <td style="width: 60px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                      <td style="width: 70px; height: 18px">                                          
+                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                           </dx:BootstrapSpinEdit>
   
                                       </td>
@@ -237,15 +237,15 @@
                        </div>
                    </div>
                   
-                <div class="row">
-                     <div class="col-md-3">      
+                  <div class="row">
+                     <div class="col-md-2">      
                          <span>Prima Neta:</span>
                      </div>
-                     <div class="col-md-9">      
+                     <div class="col-md-10">      
                             <table style="width: 100%;">
                                 <tr>
-                                    <td style="width: 125px; height: 18px">          
-                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                    <td style="width: 160px; height: 18px">          
+                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                         </dx:BootstrapSpinEdit>
                  
@@ -254,7 +254,7 @@
                                         <span>Porcentaje:</span>
                                     </td>
                                     <td style="width: 70px; height: 18px">                                          
-                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
                                         </dx:BootstrapSpinEdit>
   
                                     </td>
@@ -262,7 +262,7 @@
                                          <span>Comision:</span>                            
                                     </td>
                                     <td style="width: 100px; height: 18px">
-                                       <dx:BootstrapSpinEdit ID="txtComision" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                       <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
                                         </dx:BootstrapSpinEdit>
                                     </td>
                                     <td style="width: 70px; height: 18px">
@@ -275,10 +275,10 @@
                  </div>
 
                   <div class="row">
-                       <div class="col-md-3">      
+                       <div class="col-md-2">      
                            <span id="lbltipo_cuota">Forma de Pago</span>
                        </div>
-                       <div class="col-md-8">      
+                       <div class="col-md-9">      
                            <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
                               <Items>
                                   <dx:ListEditItem Text="Contado" Value="True" Selected></dx:ListEditItem>
@@ -289,10 +289,10 @@
                    </div>
                   
                   <div class="row">
-                      <div class="col-md-3">      
+                      <div class="col-md-2">      
                           <span id="lblmat_aseg">Mat. Asegurada:</span>
                       </div>
-                      <div class="col-md-8">      
+                      <div class="col-md-9">      
                            <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
                       </div>
                   </div>
@@ -384,5 +384,14 @@
              <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
          </p>
        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <iframe id="re_memo_report" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+                </div>
+            </div>
+        </div>
     </div>    
 </asp:Content>
