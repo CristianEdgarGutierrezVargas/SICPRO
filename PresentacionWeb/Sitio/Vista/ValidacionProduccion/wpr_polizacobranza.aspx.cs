@@ -241,7 +241,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            LimpiarFormulario();
+            Response.Redirect("../RegistroProduccion/wpr_poliza.aspx");
+
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)

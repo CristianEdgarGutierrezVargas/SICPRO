@@ -55,12 +55,12 @@
         <div class="card p-3 ">
             <h1 class="fs-8 text-info fw-bold">Datos de Poliza Nueva (Módulo de Cobranzas)</h1>
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
                     <div class="entry">
-                        <img src="../../../UI/img/poliza.gif" alt="" width="128" height="128" class="left">
+                        <img src="../../../UI/img/poliza.gif" alt=""  class="img-fluid">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
                     <div class="row">
                         <div class="col-md-12">
                             <span id="ctl00_cpmaster_fechas" style="font-weight: bold;">Fechas</span>
@@ -72,7 +72,7 @@
                             <span id="lblfecemis">Fecha de Emisión:</span>
                         </div>
                         <div class="col-6 col-sm-6 col-md-3">
-                            <dx:BootstrapDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server" >
+                            <dx:BootstrapDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                 <ValidationSettings SetFocusOnError="True" CausesValidation="true" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                     <%--ErrorDisplayMode="ImageWithTooltip"--%>
@@ -202,9 +202,9 @@
                             </div>
 
                         </div>
-                      
+
                     </div>
-               
+
                     <div class="row mt-1">
                         <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <span id="lbldireccion">Dirección :</span>
@@ -224,16 +224,16 @@
                                         </ContentCollection>
                                     </dx:BootstrapCallbackPanel>
                                 </div>
-                               
-                                    <dx:BootstrapButton ID="btnserdireccion" runat="server" AutoPostBack="false" Text="..." OnClick="btnserdireccion_Click">
-                                        <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
-                                        <SettingsBootstrap RenderOption="None" />
-                                    </dx:BootstrapButton>
-                             
+
+                                <dx:BootstrapButton ID="btnserdireccion" runat="server" AutoPostBack="false" Text="..." OnClick="btnserdireccion_Click">
+                                    <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                    <SettingsBootstrap RenderOption="None" />
+                                </dx:BootstrapButton>
+
                             </div>
-                          
+
                         </div>
-                     
+
                     </div>
                     <%--<br />--%>
                     <div class="row mt-1">
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <%--<br />--%>
-                <%--    <div class="row mt-1">
+                    <%--    <div class="row mt-1">
                         <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <span id="ctl00_cpmaster_Label5">Tipo de Cartera :</span>
                         </div>
@@ -333,51 +333,46 @@
                             </dx:ASPxRadioButtonList>
                         </div>
                     </div>
-                    <%--<br />--%>
+                   
                     <div class="row mt-1">
-                        <div class="col-md-3">
+                        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <span id="lblprima_bruta">Prima Total:</span>
                         </div>
-                        <div class="col-md-8">
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td style="width: 125px; height: 18px">
-                                        <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
-                                        <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="125px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
-                                            <SpinButtons ShowLargeIncrementButtons="true" />
-                                        </dx:BootstrapSpinEdit>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3">
 
-                                    </td>
-                                    <td style="width: 65px; height: 18px">
-                                        <span id="ctl00_cpmaster_lblnum_cuota">Nº Cuotas:</span>
-                                    </td>
-                                    <td style="width: 60px; height: 18px">
-                                        <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
+                            <%--<input name="ctl00$cpmaster$prima_bruta" type="text" value="0,00" maxlength="15" id="ctl00_cpmaster_prima_bruta" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:75px;">--%>
+                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                <SpinButtons ShowLargeIncrementButtons="true" />
+                                <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
+                            </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class=" mt-1 mt-sm-1 mt-md-0 mt-lg-0 col-6 col-sm-6 col-md-2 col-lg-2 col-xl-1 col-xxl-1  ps-xl-0 pe-xl-0 ps-xxl-0 pe-xxl-0 ">
+                            <span id="ctl00_cpmaster_lblnum_cuota">Nº Cuotas:</span>
+                        </div>
+                        <%--<input name="ctl00$cpmaster$num_cuota" type="text" maxlength="2" id="ctl00_cpmaster_num_cuota" onkeydown="return dFilter (event.keyCode, this, '##');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color:#336699;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;height:18px;width:25px;">--%>
+                        <div class="mt-1 mt-sm-1 mt-md-0 mt-lg-0 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-1 col-xxl-1  ps-xl-0 pe-xl-0 ps-xxl-0 pe-xxl-0">
+                            <dx:BootstrapSpinEdit ID="txtNumCuotas" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">
+                                <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
+                            </dx:BootstrapSpinEdit>
 
-                                        <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="50px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">
-                                        </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class="mt-1 mt-sm-1 mt-md-1 mt-lg-1 mt-xl-0 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-1 col-xxl-1  pe-lg-0  pe-xl-0  pe-xxl-0 ">
+                            <span id="ctl00_cpmaster_lblid_div">Divisa:</span>
+                        </div>
+                        <div class="mt-1 mt-sm-1 mt-md-1 mt-lg-1 mt-xl-0 col-6 col-sm-6 col-md-9 col-lg-9 col-xl-3 col-xxl-3  ps-xl-0 ps-xxl-0">
+                            <dx:BootstrapComboBox ID="cmbDivisa" runat="server" ValueType="System.String">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
+                            </dx:BootstrapComboBox>
 
-                                    </td>
-                                    <td style="width: 45px; height: 18px">
-                                        <span id="ctl00_cpmaster_lblid_div">Divisa:</span>
-                                    </td>
-                                    <td style="width: 100px; height: 18px">
-                                        <dx:BootstrapComboBox ID="cmbDivisa" runat="server" ValueType="System.String" Width="100px">
-                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                        </dx:BootstrapComboBox>
-
-                                    </td>
-                                </tr>
-
-                            </table>
                         </div>
                     </div>
-                    <%--<br />--%>
+
+                  
                     <div class="row mt-1">
-                        <div class="col-md-3">
+                        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <span id="lbltipo_cuota">Forma de Pago</span>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
                                 <Items>
                                     <dx:ListEditItem Text="Contado" Value="True" Selected></dx:ListEditItem>
@@ -388,11 +383,11 @@
                     </div>
                     <%--<br />--%>
                     <div class="row mt-1">
-                        <div class="col-md-3">
+                        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <span id="lblmat_aseg">Mat. Asegurada:</span>
                         </div>
-                        <div class="col-md-8">
-                            <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
+                        <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+                            <dx:BootstrapMemo ID="txtMatAseg" runat="server"></dx:BootstrapMemo>
                         </div>
                     </div>
                     <%--<br />--%>
@@ -465,20 +460,16 @@
                         </div>
                         <div class="col-md-7">
                             <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                            <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click"></dx:ASPxButton>
-                            <dx:ASPxButton ID="btnCuotasPoliza" runat="server" Text="Guardar Poliza y Cuotas" CssClass="msg_button_class" OnClick="btnCuotasPoliza_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
-
-                            <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
-                        </div>
+                      </div>
                     </div>
 
                 </div>
-            </div>
         </div>
+    </div>
 
-        <p class="links">
-            <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>
-        </p>
+    <p class="links">
+        <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>
+    </p>
     </div>
 
 
