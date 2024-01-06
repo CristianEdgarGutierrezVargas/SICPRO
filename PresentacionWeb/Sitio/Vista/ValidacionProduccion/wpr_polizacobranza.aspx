@@ -53,7 +53,10 @@
     </script>
     <div class="container">
         <div class="card p-3 ">
-            <h1 class="fs-8 text-info fw-bold">Datos de Poliza Nueva (Módulo de Cobranzas)</h1>
+            <h1 class="fs-8 text-info fw-bold"> <asp:Label runat="server" ID="titulo" Text=""></asp:Label> </h1>
+            <asp:HiddenField runat="server" ID="id_clamov" Value=""/>
+            <asp:HiddenField runat="server" ID="id_poliza" Value=""/>
+            <asp:HiddenField runat="server" ID="id_mov" Value=""/>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
                     <div class="entry">
@@ -327,8 +330,8 @@
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:ASPxRadioButtonList ID="rbTipoPoliza" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None" ValueType="System.Boolean">
                                 <Items>
-                                    <dx:ListEditItem Text="Normal" Value="True" Selected></dx:ListEditItem>
-                                    <dx:ListEditItem Text="Flotante" Value="False"></dx:ListEditItem>
+                                    <dx:ListEditItem Text="Normal" Value="True" ></dx:ListEditItem>
+                                    <dx:ListEditItem Text="Flotante" Value="False" Selected></dx:ListEditItem>
                                 </Items>
                             </dx:ASPxRadioButtonList>
                         </div>

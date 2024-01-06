@@ -66,7 +66,7 @@
 
         <asp:Panel runat="server" ID="panel" CssClass="rounded">
             <div id="msgboxpanel" runat="server"></div>
-                        <div class="card p-3 bg-light rounded">
+            <div class="card p-3 bg-light rounded">
                 <h6 class="text-info fw-bold fs-8">Listado de Polizas</h6>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-5">
@@ -261,6 +261,10 @@
                                     <dx:BootstrapGridViewDateColumn FieldName="tipo_cuota" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_movimiento" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_clamov" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                                 <Templates>

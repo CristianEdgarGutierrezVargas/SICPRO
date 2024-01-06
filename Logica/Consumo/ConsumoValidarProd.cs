@@ -242,5 +242,18 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+        public vcb_veripoliza1 ObtenerPolizaNRI(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objPolizaMov = _manejador_pr_cobranzas.ObtenerPolizaI(id_poliza,id_movimiento);
+
+                return objPolizaMov;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }
