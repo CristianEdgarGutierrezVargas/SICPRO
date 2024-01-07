@@ -18,63 +18,69 @@
             </div>
             <div class="col-10">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-3">
-                            <label>Mes :</label>
-                        </div>
-                        <div class="col-3">
-                            <asp:DropDownList ID="mes" runat="server" Style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                                <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
-                                <asp:ListItem Value="01" Text="ENERO"></asp:ListItem>
-                                <asp:ListItem Value="02" Text="FEBRERO"></asp:ListItem>
-                                <asp:ListItem Value="03" Text="MARZO"></asp:ListItem>
-                                <asp:ListItem Value="04" Text="ABRIL"></asp:ListItem>
-                                <asp:ListItem Value="05" Text="MAYO"></asp:ListItem>
-                                <asp:ListItem Value="06" Text="JUNIO"></asp:ListItem>
-                                <asp:ListItem Value="07" Text="JULIO"></asp:ListItem>
-                                <asp:ListItem Value="08" Text="AGOSTO"></asp:ListItem>
-                                <asp:ListItem Value="09" Text="SEPTIEMBRE"></asp:ListItem>
-                                <asp:ListItem Value="10" Text="OCTUBRE"></asp:ListItem>
-                                <asp:ListItem Value="11" Text="NOVIEMBRE"></asp:ListItem>
-                                <asp:ListItem Value="12" Text="DICIEMBRE"></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="col-3">
-                            <label>Año :</label>
-                        </div>
-                        <div class="col-3">
-                            <asp:DropDownList ID="anio" runat="server" Style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <label>Ini. Registro :</label>
-                        </div>
-                        <div class="col-3">
-                            <dx:BootstrapDateEdit ID="ini_reg" runat="server">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            </dx:BootstrapDateEdit>
-                        </div>
-                        <div class="col-3">
-                            <label>Fin. Registro :</label>
-                        </div>
-                        <div class="col-3">
-                            <dx:BootstrapDateEdit ID="fin_reg" runat="server">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            </dx:BootstrapDateEdit>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <label>T.C. Cierre :</label>
-                        </div>
-                        <div class="col-9">
-                             <dx:ASPxSpinEdit ID="porcentaje" runat="server" Number="0" DecimalPlaces="2" DisplayFormatString="##.##" NumberType="Float">
-                                <SpinButtons ShowIncrementButtons="false" />
-                            </dx:ASPxSpinEdit>
-                        </div>
-                    </div>
+                    <dx:ASPxCallbackPanel ID="pnlCallBackCierreRegistro" ClientInstanceName="pnlCallBackCierreRegistro" runat="server" Width="200px" OnCallback="pnlCallBackCierreRegistro_Callback" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <PanelCollection>
+                            <dx:PanelContent runat="server">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Mes :</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <asp:DropDownList ID="mes" runat="server" Style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                                            <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
+                                            <asp:ListItem Value="01" Text="ENERO"></asp:ListItem>
+                                            <asp:ListItem Value="02" Text="FEBRERO"></asp:ListItem>
+                                            <asp:ListItem Value="03" Text="MARZO"></asp:ListItem>
+                                            <asp:ListItem Value="04" Text="ABRIL"></asp:ListItem>
+                                            <asp:ListItem Value="05" Text="MAYO"></asp:ListItem>
+                                            <asp:ListItem Value="06" Text="JUNIO"></asp:ListItem>
+                                            <asp:ListItem Value="07" Text="JULIO"></asp:ListItem>
+                                            <asp:ListItem Value="08" Text="AGOSTO"></asp:ListItem>
+                                            <asp:ListItem Value="09" Text="SEPTIEMBRE"></asp:ListItem>
+                                            <asp:ListItem Value="10" Text="OCTUBRE"></asp:ListItem>
+                                            <asp:ListItem Value="11" Text="NOVIEMBRE"></asp:ListItem>
+                                            <asp:ListItem Value="12" Text="DICIEMBRE"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Año :</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <asp:DropDownList ID="anio" runat="server" Style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Ini. Registro :</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <dx:BootstrapDateEdit ID="ini_reg" runat="server">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                        </dx:BootstrapDateEdit>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Fin. Registro :</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <dx:BootstrapDateEdit ID="fin_reg" runat="server">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                        </dx:BootstrapDateEdit>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>T.C. Cierre :</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <dx:ASPxSpinEdit ID="porcentaje" runat="server" Number="0" DecimalPlaces="2" DisplayFormatString="##.##" NumberType="Float">
+                                            <SpinButtons ShowIncrementButtons="false" />
+                                        </dx:ASPxSpinEdit>
+                                    </div>
+                                </div>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxCallbackPanel>
                     <div class="row">
                         <div class="col-4">
                         </div>
@@ -105,7 +111,7 @@
                                     <dx:GridViewDataColumn>
                                         <DataItemTemplate>
                                             <%--<asp:ImageButton runat="server" ImageUrl="~/UI/img/front.png" CommandName="UPDATE" CommandArgument='<%# Eval("id_per") %>'  />--%>
-                                            <asp:ImageButton runat="server" ImageUrl="~/UI/img/front.png" CommandName="UPDATE" />
+                                            <asp:ImageButton runat="server" ImageUrl="~/UI/img/front.png" CommandName="UPDATE" OnClick="Unnamed_Click" />
                                         </DataItemTemplate>
                                     </dx:GridViewDataColumn>
                                     <dx:GridViewDataColumn Caption="Mes" FieldName="mes"></dx:GridViewDataColumn>

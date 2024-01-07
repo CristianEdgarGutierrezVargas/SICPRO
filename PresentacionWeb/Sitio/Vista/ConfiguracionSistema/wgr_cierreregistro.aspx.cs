@@ -36,15 +36,16 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
         private void Datos()
         {
-            var lista=logicaConfiguracion.TablaCierre(anio.SelectedValue);
-            if (lista.Count>0)
+            var lista = logicaConfiguracion.TablaCierre(anio.SelectedValue);
+            if (lista.Count > 0)
             {
                 gridcierre.DataSource = lista;
                 gridcierre.DataBind();
             }
-            else{
+            else
+            {
                 popUpValidacion.HeaderText = "Información";
-                lblerror.Text= "Debe Registrar una Fecha para apertura de Registro";
+                lblerror.Text = "Debe Registrar una Fecha para apertura de Registro";
                 popUpValidacion.ShowOnPageLoad = true;
             }
         }
@@ -73,65 +74,71 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 if (sw)
                 {
                     popUpValidacion.HeaderText = "Validación de Datos";
-                    lblerror.Text = "Los siguientes valores deben ser verificados antes de proseguir\n"+str;
+                    lblerror.Text = "Los siguientes valores deben ser verificados antes de proseguir\n" + str;
                     popUpValidacion.ShowOnPageLoad = true;
                 }
                 else
                 {
-                    //    new gr_cierreregistro()
-                    //    {
-                    //        mes = this.mes,
-                    //        anio = this.anio,
-                    //        inireg = this.ini_reg,
-                    //        finreg = this.fin_reg,
-                    //        tcambio = this.tcambio
-                    //    }.InsertarCierre();
-                    //    this.lblmensaje.Text = "Cierre de Registro Agregado Satisfactoriamente";
-                    //    this.msgboxpanel.Visible = true;
-                    //    MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
-                    //    messageBoxButton.SetLocation("wgr_cierreregistro.aspx");
-                    //    messageBoxButton.SetClass("msg_button_class");
-                    //    MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox.tpl"));
-                    //    messageBox.SetTitle("Confirmacion");
-                    //    messageBox.SetIcon("msg_icon_1.png");
-                    //    messageBox.SetMessage("Cierre de Registro Agregado Satisfactoriamente");
-                    //    messageBox.AddButton(messageBoxButton.ReturnObject());
-                    //    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                    logicaConfiguracion.InsertarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)porcentaje.Value);
+                    popUpConfirmacion.HeaderText = "Confirmacion";
+                    lblMensaje.Text = "Cierre de Registro Agregado Satisfactoriamente";
+                    popUpConfirmacion.ShowOnPageLoad = true;
                 }
             }
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
-            } 
+            }
         }
 
         protected void btnmodificar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    new gr_cierreregistro()
-            //    {
-            //        finreg = this.fin_reg,
-            //        mes = this.mes,
-            //        anio = this.anio,
-            //        inireg = this.ini_reg,
-            //        tcambio = this.tcambio
-            //    }.ModificarCierre();
-            //    this.lblmensaje.Text = "Cierre de Registro Modificado Satisfactoriamente";
-            //    this.msgboxpanel.Visible = true;
-            //    MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
-            //    messageBoxButton.SetLocation("wgr_cierreregistro.aspx");
-            //    messageBoxButton.SetClass("msg_button_class");
-            //    MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox.tpl"));
-            //    messageBox.SetTitle("Confirmación");
-            //    messageBox.SetIcon("msg_icon_1.png");
-            //    messageBox.SetMessage("Cierre de Registro Modificado Satisfactoriamente");
-            //    messageBox.AddButton(messageBoxButton.ReturnObject());
-            //    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-            //}
-            //catch
-            //{
-            //}
+            try
+            {
+                logicaConfiguracion.ModificarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)porcentaje.Value);
+                popUpConfirmacion.HeaderText = "Confirmacion";
+                lblMensaje.Text = "Cierre de Registro Modificado Satisfactoriamente";
+                popUpConfirmacion.ShowOnPageLoad = true;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
+
+        protected void Unnamed_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void pnlCallBackCierreRegistro_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            try
+            {
+                //var datos e.Parameter
+
+                //GridViewRow row = this.gridcierre.Rows[Convert.ToInt32(e.CommandArgument)];
+                //if (!(e.CommandName == "Seleccion"))
+                //    return;
+                //this.msgboxpanel.Visible = false;
+                //Label control1 = (Label)row.FindControl("mes");
+                //Label control2 = (Label)row.FindControl("anio");
+                //Label control3 = (Label)row.FindControl("ini_reg");
+                //Label control4 = (Label)row.FindControl("fin_reg");
+                //Label control5 = (Label)row.FindControl("tcambio");
+                //this.anio.SelectedValue = control2.Text;
+                //this.mes.SelectedValue = control1.Text;
+                //this.ini_reg.Text = control3.Text;
+                //this.fin_reg.Text = control4.Text;
+                //this.tcambio.Text = control5.Text;
+                //this.btnguardar.Visible = false;
+                //this.btnmodificar.Visible = true;
+                //popUpConfirmacion.ShowOnPageLoad = true;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             {
                 logicaConfiguracion.ResetPassword(this.id_per.SelectedValue);
                 this.lblmensaje.Text = "Cambio de Clave realizado con éxito";
-                msgboxpanel.Visible = true;
+                popUpConfirmacion.ShowOnPageLoad = true;
             }
             catch (SecureExceptions ex)
             {
