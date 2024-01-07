@@ -280,9 +280,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             BootstrapGridView _grid = _button.NamingContainer.NamingContainer.NamingContainer as BootstrapGridView;
 
-            var numPoliza  = _grid.GetRowValues(_grid.FocusedRowIndex, "num_poliza")?.ToString();
+            var idPoliza  = _grid.GetRowValues(_grid.FocusedRowIndex, "num_poliza")?.ToString();
+            var idMovimiento = _grid.GetRowValues(_grid.FocusedRowIndex, "id_movimiento")?.ToString();
             //var idPoliza = gridpoliza.GetRowValues(_grid.EditingRowVisibleIndex, "id_poliza").ToString();
-            Response.Redirect("wpr_polizareno.aspx?var=" + numPoliza );
+            Response.Redirect("wpr_polizareno.aspx?var=" + idPoliza + "&val=" + idMovimiento);
 
             //TextBox _textBox = _grid.GetDataItemControl(_grid.FocusedRowIndex, "CustomCode", "txtCustCode") as TextBox;
 

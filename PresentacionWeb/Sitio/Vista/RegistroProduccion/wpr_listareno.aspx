@@ -242,6 +242,8 @@
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
                                     </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_movimiento" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn FieldName="fc_emision" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn FieldName="no_liquida" Visible="false">

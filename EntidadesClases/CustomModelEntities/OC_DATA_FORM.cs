@@ -25,7 +25,7 @@ namespace EntidadesClases.CustomModelEntities
 
             public gr_persona objPersonaAgente { get; set; }
 
-            public gr_parametro objParametro { get; set; }
+            public gr_parametro objParametroDivisa { get; set; }
         } 
     }
 }

@@ -739,7 +739,7 @@ namespace Logica.Consumo
             }
         }
 
-        public oc_data_vrenovar ObtenerDataRenPoliza(int id_poliza, int id_movimiento)
+        public oc_data_vrenovar ObtenerDataCompletaRenPoliza(int id_poliza, int id_movimiento)
         {
             try
             {
@@ -761,7 +761,11 @@ namespace Logica.Consumo
                     objDataVrenovar.objCompania = objCompania;
                     objDataVrenovar.objDireccion = objDireccion;
                     objDataVrenovar.objPersonaAgente = objPersonaAgente;
-                    objDataVrenovar.objParametro = objParametro;
+                    objDataVrenovar.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
                 }
                 objDataVrenovar.objRenovar = v_renovar;
                 return objDataVrenovar;

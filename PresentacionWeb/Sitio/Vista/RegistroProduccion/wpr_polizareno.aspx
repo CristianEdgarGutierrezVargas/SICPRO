@@ -11,9 +11,9 @@
          <div class="container">
           <div class="row">
             <div class="col-md-3">      
-                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Datos de Poliza Incluida (Módulo de Cobranzas)"></asp:Label></h1>
+                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Polizas"></asp:Label></h1>
                 <div class="entry">
-                    <img src="../../../UI/img/aplicacion.png" alt="" width="128" height="128" class="left">
+                    <img src="../../../UI/img/renovar.png" alt="" width="128" height="128" class="left">
                 </div>      
             </div>    
             <div class="col-md-9">
@@ -160,16 +160,7 @@
                        <div class="col-md-9">      
                            <asp:Label ID="lblProducto" runat="server" Text=""></asp:Label>
                        </div>
-                   </div>
-                  
-                  <div class="row">
-                       <div class="col-md-2">      
-                           <span>Tipo de Cartera :</span>
-                       </div>
-                       <div class="col-md-9">      
-                           <asp:Label ID="lblTipoCartera" runat="server" Text=""></asp:Label>
-                       </div>
-                   </div>
+                   </div>   
                   
                   <div class="row">
                        <div class="col-md-2">      
@@ -220,7 +211,7 @@
                                           <span>Nº Cuotas:</span>
                                       </td>
                                       <td style="width: 70px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
+                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                           </dx:BootstrapSpinEdit>
   
                                       </td>
@@ -236,42 +227,7 @@
                        </div>
                    </div>
                   
-                  <div class="row">
-                     <div class="col-md-2">      
-                         <span>Prima Neta:</span>
-                     </div>
-                     <div class="col-md-10">      
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td style="width: 160px; height: 18px">          
-                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
-                                            <SpinButtons ShowLargeIncrementButtons="true" />
-                                        </dx:BootstrapSpinEdit>
-                 
-                                    </td>
-                                    <td style="width: 65px; height: 18px">
-                                        <span>Porcentaje:</span>
-                                    </td>
-                                    <td style="width: 70px; height: 18px">                                          
-                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
-                                        </dx:BootstrapSpinEdit>
-  
-                                    </td>
-                                    <td style="width: 45px; height: 18px">
-                                         <span>Comision:</span>                            
-                                    </td>
-                                    <td style="width: 100px; height: 18px">
-                                       <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
-                                        </dx:BootstrapSpinEdit>
-                                    </td>
-                                    <td style="width: 70px; height: 18px">
-                                        <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
-                                    </td>
-                                </tr>
-          
-                            </table>
-                     </div>
-                 </div>
+                  
 
                   <div class="row">
                        <div class="col-md-2">      
@@ -369,8 +325,8 @@
                       <div class="col-md-7">   
                           <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
                           <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
-                          <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
-                           <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
+                          <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
+                           <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>       --%>                   
                          
                       </div>
                   </div>
