@@ -245,7 +245,7 @@
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:BootstrapComboBox ID="cmbGrupo" runat="server" ValueType="System.String" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10"/>
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                     <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                 </ValidationSettings>
@@ -259,7 +259,7 @@
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:BootstrapComboBox ID="cmbCiaAseg" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="id_spvs_SelectedIndexChanged">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10"/>
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                                     <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                 </ValidationSettings>
@@ -273,7 +273,7 @@
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:BootstrapComboBox ID="cmbProducto" runat="server" ValueType="System.String" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                     <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                 </ValidationSettings>
@@ -301,7 +301,7 @@
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:BootstrapComboBox ID="cmbEjecutivo" runat="server" ValueType="System.String" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10"/>
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                     <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                 </ValidationSettings>
@@ -315,7 +315,7 @@
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
                             <dx:BootstrapComboBox ID="cmbAgente" runat="server" ValueType="System.String" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
                                 <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                     <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                 </ValidationSettings>
@@ -364,7 +364,7 @@
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 mt-lg-1 mt-xl-0 col-6 col-sm-6 col-md-9 col-lg-9 col-xl-3 col-xxl-3  ps-xl-0 ps-xxl-0">
                             <dx:BootstrapComboBox ID="cmbDivisa" runat="server" ValueType="System.String">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" Control="fs-10" />
                             </dx:BootstrapComboBox>
 
                         </div>
@@ -376,7 +376,7 @@
                             <span id="lbltipo_cuota">Forma de Pago</span>
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                            <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
+                            <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None" ValueType="System.Boolean">
                                 <Items>
                                     <dx:ListEditItem Text="Contado" Value="True" Selected></dx:ListEditItem>
                                     <dx:ListEditItem Text="Crédito" Value="False"></dx:ListEditItem>
@@ -390,7 +390,9 @@
                             <span id="lblmat_aseg">Mat. Asegurada:</span>
                         </div>
                         <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                            <dx:BootstrapMemo ID="txtMatAseg" runat="server"></dx:BootstrapMemo>
+                            <dx:BootstrapMemo ID="txtMatAseg" runat="server">
+                                <CssClasses Input="form-control-sm fs-10" />
+                            </dx:BootstrapMemo>
                         </div>
                     </div>
                     <%--<br />--%>
