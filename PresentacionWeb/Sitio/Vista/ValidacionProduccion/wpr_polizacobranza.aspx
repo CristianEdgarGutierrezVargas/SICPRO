@@ -75,8 +75,8 @@
                             <span id="lblfecemis">Fecha de Emisión:</span>
                         </div>
                         <div class="col-6 col-sm-6 col-md-3">
-                            <dx:BootstrapDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                            <dx:BootstrapDateEdit ID="fc_emision" ClientInstanceName="fc_emision" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
                                 <ValidationSettings SetFocusOnError="True" CausesValidation="true" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                     <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true" />
@@ -94,8 +94,8 @@
                             <span id="lblfc_recepcion">Fecha de Recepción:</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-0 col-6 col-sm-6 col-md-3">
-                            <dx:BootstrapDateEdit ID="fc_recepcion" ClientInstanceName="fc_recepcion" runat="server" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                            <dx:BootstrapDateEdit ID="fc_recepcion" ClientInstanceName="fc_recepcion" runat="server"  CalendarProperties-CssClasses-Button="btn-sm">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10"  />
                                 <ValidationSettings SetFocusOnError="True" CausesValidation="true" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                     <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true" />
@@ -116,8 +116,8 @@
                             <span id="lblfc_inivig">Inicio Vigencia:</span>
                         </div>
                         <div class="col-6 col-sm-6 col-md-3">
-                            <dx:BootstrapDateEdit ID="fc_inivig" ClientInstanceName="fc_inivig" runat="server" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                            <dx:BootstrapDateEdit ID="fc_inivig" ClientInstanceName="fc_inivig" runat="server"  CalendarProperties-CssClasses-Button="btn-sm">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10"  />
                                 <ValidationSettings SetFocusOnError="True" CausesValidation="true" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                     <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true" />
@@ -135,8 +135,8 @@
                             <span id="ctl00_cpmaster_lblfc_finvig">Fin Vigencia:</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-0 col-6 col-sm-6 col-md-3">
-                            <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                            <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10"  />
                                 <ValidationSettings SetFocusOnError="True" CausesValidation="true" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                     <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                     <RequiredField ErrorText="Campo requerido" IsRequired="true" />

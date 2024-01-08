@@ -682,6 +682,7 @@
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
@@ -912,6 +913,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx.cs">
+      <DependentUpon>wpr_amortizacomis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx.designer.cs">
+      <DependentUpon>wpr_amortizacomis.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.cs">
       <DependentUpon>wpr_listacom3.aspx</DependentUpon>

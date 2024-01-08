@@ -536,7 +536,7 @@
                     </div>
                 </dx:ContentControl>
             </ContentCollection>
-            <FooterContentTemplate>
+            <FooterContentTemplate>                           
                 <dx:BootstrapButton runat="server" ID="btnAceptarProducto" OnClick="btnAceptarProducto_Click" Text="Aceptar">
                     <SettingsBootstrap RenderOption="None" Sizing="Small" />
                     <CssClasses Control="msg_button_class" Text="fs-9" />
