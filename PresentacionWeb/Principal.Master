@@ -170,7 +170,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice-dollar"></i>
-                                                        	Amortización de Anexos</a>
+                                                        Amortización de Anexos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -180,12 +180,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-donate"></i>
-                                                        	Liquidación de Cobranzas</a>
+                                                        Liquidación de Cobranzas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-envelope-open-text"></i>
-                                                        	Registro de Facturas Cia</a>
+                                                        Registro de Facturas Cia</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -220,22 +220,22 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice-dollar"></i>
-                                                        	Polizas Renovadas</a>
+                                                        Polizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-alt"></i>
-                                                        	Aplicaciones a Pólizas </a>
+                                                        Aplicaciones a Pólizas </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-medical"></i>
-                                                        	Inclusiones a Pólizas</a>
+                                                        Inclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-excel"></i>
-                                                        	Exclusiones a Pólizas</a>
+                                                        Exclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -250,27 +250,27 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-receipt"></i>
-                                                        		Registro de Recibos</a>
+                                                        Registro de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-import"></i>
-                                                        		Entrega de Recibos</a>
+                                                        Entrega de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-hand-holding-usd"></i>
-                                                        		Registro Anticipo de Comisiones</a>
+                                                        Registro Anticipo de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-list-alt"></i>
-                                                        			Presupuesto de Producción</a>
+                                                        Presupuesto de Producción</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-money-check-alt"></i>
-                                                        		Registro de Comisiones por Cia</a>
+                                                        Registro de Comisiones por Cia</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -290,19 +290,19 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-signature"></i>
-                                                       	Registro de Reclamos </a>
+                                                        Registro de Reclamos </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-search"></i>
-                                                        	Seguimiento de Reclamos</a>
+                                                        Seguimiento de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-window-close"></i>
-                                                        	Cierre de  Reclamos</a>
+                                                        Cierre de  Reclamos</a>
                                                 </li>
-                                                
+
                                             </ul>
                                         </nav>
                                     </div>
@@ -321,29 +321,29 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-poll"></i>
-                                                       		Reportes de Producción </a>
+                                                        Reportes de Producción </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-poll-h"></i>
-                                                        		Reportes de Cobranzas</a>
+                                                        Reportes de Cobranzas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice"></i>
-                                                        		Reportes de Comisiones</a>
+                                                        Reportes de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-tasks"></i>
-                                                        		Reportes de Reclamos</a>
+                                                        Reportes de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-chart-pie"></i>
-                                                        		Gráficas Gerenciales</a>
+                                                        Gráficas Gerenciales</a>
                                                 </li>
-                                                
+
                                             </ul>
                                         </nav>
                                     </div>
@@ -361,20 +361,65 @@
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
-                                                        <i class="fas fa-file-signature"></i>
-                                                       	Registro de Reclamos </a>
+                                                        <i class="fas fa-user-edit"></i>
+                                                        Reiniciar Contraseña </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
-                                                        <i class="fas fa-search"></i>
-                                                        	Seguimiento de Reclamos</a>
+                                                        <i class="fas fa-file-signature"></i>
+                                                        Modificación de Cuotas</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-desktop"></i>
+                                                        	Administración de Productos</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-file-signature"></i>
+                                                        	Modificación de Productos </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-desktop"></i>
+                                                        	Administración de Riesgos</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-stream"></i>
+                                                        	Rehabilitación de Poliza Anulada</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-user-plus"></i>
+                                                        Registro de Nuevos Usuarios </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-file-medical"></i>
+                                                        	Registro de Parametros</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-sitemap"></i>
+                                                        Administración de Accesos por Rol</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-dollar-sign"></i>
+                                                        	Registro de Tipo de Cambio </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-window-close"></i>
-                                                        	Cierre de  Reclamos</a>
+                                                        	Cierre de Registro</a>
                                                 </li>
-                                                
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <i class="fas fa-pencil-ruler"></i>
+                                                        Registro de Comisiones X Cartera</a>
+                                                </li>
+
                                             </ul>
                                         </nav>
                                     </div>
@@ -393,7 +438,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-door-closed"></i>
-                                                       	Cerrar Sesion </a>
+                                                        Cerrar Sesion </a>
                                                 </li>
                                             </ul>
                                         </nav>
