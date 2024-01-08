@@ -683,9 +683,11 @@
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_entregarecibos.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
@@ -921,6 +923,13 @@
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx.designer.cs">
       <DependentUpon>wpr_amortizacomis.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_entregarecibos.aspx.cs">
+      <DependentUpon>wpr_entregarecibos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_entregarecibos.aspx.designer.cs">
+      <DependentUpon>wpr_entregarecibos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx.cs">
       <DependentUpon>wpr_listacom3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -941,6 +950,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
       <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.cs">
+      <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.designer.cs">
+      <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
       <DependentUpon>wgr_contactos.aspx</DependentUpon>
