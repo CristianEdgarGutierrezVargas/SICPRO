@@ -779,6 +779,26 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public bool InsertarPolizaMovR(pr_polmov objPolizaMovimiento, List<pr_cuotapoliza> lstCuotaPoliza)
+        {
+            try
+            {
+                var objResponse = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolizaMovimiento);
+                lstCuotaPoliza.ForEach(s =>
+                {
+                    s.id_movimiento = objResponse.id_movimiento;
+                    s.id_poliza = objResponse.id_poliza;
+                });
+                var response = _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
+
+                return response;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
         #endregion
     }
 }

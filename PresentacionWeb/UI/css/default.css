@@ -444,6 +444,7 @@ hr {
 	font-weight: bold;
 	color: #FFFFFF;
 	border: 1px solid #DDDDDD;
+    height: 25px;
 }
 
 .msg_button_class1 {

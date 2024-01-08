@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizareno.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizareno" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacobranza.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizacobranza1" %>
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
@@ -8,23 +8,23 @@
     <div class="post">
        <div>                    
 
-         <div class="container">
+        <div class="container">
           <div class="row">
             <div class="col-md-3">      
-                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Polizas"></asp:Label></h1>
+                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Datos de Poliza Incluida (Módulo de Cobranzas)"></asp:Label></h1>
                 <div class="entry">
-                    <img src="../../../UI/img/renovar.png" alt="" width="128" height="128" class="left">
+                    <img src="../../../UI/img/aplicacion.png" alt="" width="128" height="128" class="left">
                 </div>      
             </div>    
             <div class="col-md-9">
-      
+  
                 <br /><br /><br />
                   <div class="row">
                     <div class="col-md-12">      
                         <span id="fechas" style="font-weight:bold;">Fechas</span>
                     </div>
                   </div>
-              
+          
                   <div class="row">
                       <div class="col-md-2">      
                         <span>Fecha de Emisión:</span>
@@ -87,19 +87,7 @@
                          <span>Fin Vigencia:</span>
                       </div>
                       <div class="col-md-3">      
-                          <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
-                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                   <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
-                             </ValidationSettings>  
-                               <ClientSideEvents Init="function(s,e){  
-                                                          var dt1 = new Date();  
-                                                          var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
-                                                          fc_finvig.SetMinDate(new Date(dt3));  
-                                                          fc_finvig.SetMaxDate(new Date(dt2));  
-                                                       }" /> 
-                        </dx:BootstrapDateEdit>
+                          <asp:Label ID="lblfc_finvig" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
 
@@ -122,7 +110,7 @@
                          </dx:BootstrapTextBox>  
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span>Asegurado :</span>
@@ -131,10 +119,10 @@
                            <asp:Label ID="lblAsegurado" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
-                          
+                      
                       </div>
                    </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span id="lbldireccion">Dirección :</span>
@@ -143,10 +131,10 @@
                           <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
-                        
+                    
                       </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Grupo :</span>
@@ -155,7 +143,7 @@
                           <asp:Label ID="lblGrupo" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Cia Aseguradora :</span>
@@ -164,7 +152,7 @@
                           <asp:Label ID="lblCiaAseg" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                            <span>Producto :</span>
@@ -172,8 +160,17 @@
                        <div class="col-md-9">      
                            <asp:Label ID="lblProducto" runat="server" Text=""></asp:Label>
                        </div>
-                   </div>   
-                  
+                   </div>
+              
+                  <div class="row">
+                       <div class="col-md-2">      
+                           <span>Tipo de Cartera :</span>
+                       </div>
+                       <div class="col-md-9">      
+                           <asp:Label ID="lblTipoCartera" runat="server" Text=""></asp:Label>
+                       </div>
+                   </div>
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span>Ejecutivo:</span>
@@ -187,7 +184,7 @@
                             </dx:BootstrapComboBox>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Agente Cartera:</span>
@@ -196,7 +193,7 @@
                           <asp:Label ID="lblAgente" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                 
+             
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Tipo Poliza:</span>
@@ -205,7 +202,7 @@
                            <asp:Label ID="lblTipoPoliza" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                            <span id="lblprima_bruta">Prima Total:</span>
@@ -214,16 +211,16 @@
                               <table style="width: 100%;">
                                   <tr>
                                       <td style="width: 160px; height: 18px">          
-                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float" ValidationGroup="form_wgr_poliza">
+                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                               <SpinButtons ShowLargeIncrementButtons="true" />
                                           </dx:BootstrapSpinEdit>
-                 
+             
                                       </td>
                                       <td style="width: 65px; height: 18px">
                                           <span>Nº Cuotas:</span>
                                       </td>
                                       <td style="width: 70px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="1" MaxValue="12" Increment="1" NumberType="Float" ValidationGroup="form_wgr_poliza">    
+                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
                                           </dx:BootstrapSpinEdit>
   
                                       </td>
@@ -234,12 +231,47 @@
                                          <asp:Label ID="lblDivisa" runat="server" Text=""></asp:Label>
                                       </td>
                                   </tr>
-          
+      
                               </table>
                        </div>
                    </div>
-                  
-                  
+              
+                  <div class="row">
+                     <div class="col-md-2">      
+                         <span>Prima Neta:</span>
+                     </div>
+                     <div class="col-md-10">      
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 160px; height: 18px">          
+                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                            <SpinButtons ShowLargeIncrementButtons="true" />
+                                        </dx:BootstrapSpinEdit>
+             
+                                    </td>
+                                    <td style="width: 65px; height: 18px">
+                                        <span>Porcentaje:</span>
+                                    </td>
+                                    <td style="width: 70px; height: 18px">                                          
+                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                        </dx:BootstrapSpinEdit>
+  
+                                    </td>
+                                    <td style="width: 45px; height: 18px">
+                                         <span>Comision:</span>                            
+                                    </td>
+                                    <td style="width: 100px; height: 18px">
+                                       <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
+                                        </dx:BootstrapSpinEdit>
+                                    </td>
+                                    <td style="width: 70px; height: 18px">
+                                        <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
+                                    </td>
+                                </tr>
+      
+                            </table>
+                     </div>
+                 </div>
 
                   <div class="row">
                        <div class="col-md-2">      
@@ -254,16 +286,16 @@
                           </dx:ASPxRadioButtonList>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span id="lblmat_aseg">Mat. Asegurada:</span>
                       </div>
                       <div class="col-md-9">      
-                           <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%" ValidationGroup="form_wgr_poliza"></dx:BootstrapMemo>
+                           <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
                       </div>
                   </div>
-                  
+              
                   <div class="row">                       
                        <div class="col-md-12"> 
                            <div class="panel-group">
@@ -303,7 +335,13 @@
                                                   </dx:BootstrapSpinEdit>
                                               </ItemTemplate>
                                               <ControlStyle Width="50px" />
-                                          </asp:TemplateField>                                         
+                                          </asp:TemplateField>
+                                          <asp:BoundField DataField="cuota_neta" HeaderText="Cuota Neta">
+                                          <ControlStyle Width="100px" />
+                                          </asp:BoundField>
+                                          <asp:BoundField DataField="cuota_comis" HeaderText="Comision" >
+                                          <ControlStyle Width="100px" />
+                                          </asp:BoundField>
                                       </Columns>
                                       <FooterStyle BackColor="White" ForeColor="#000066" />
                                       <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -318,22 +356,22 @@
                               </div>
                             </div>
                           </div>
-           
+       
 
-            
+        
                        </div>
                    </div>
 
                   <div class="row">
                       <div class="col-md-4">      
-        
+    
                       </div>
                       <div class="col-md-7">   
-                          <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click" CausesValidation="false"></dx:ASPxButton>
-                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" CausesValidation="false"></dx:ASPxButton>                          
-                          <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%> 
-                           <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click" CausesValidation="true" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>                         
-                         
+                          <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
+                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
+                          <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
+                           <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
+                     
                       </div>
                   </div>
 
@@ -345,6 +383,14 @@
              <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
          </p>
        </div>
-    </div>
 
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <iframe id="re_memo_report" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
