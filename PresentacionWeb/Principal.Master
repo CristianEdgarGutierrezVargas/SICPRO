@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="PresentacionWeb.Principal" %>
 
 <!DOCTYPE html>
+
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,10 +11,9 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/UI/css/themes/cerulean.v5.3.css" rel="stylesheet" />
     <link href="~/UI/css/default.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
     <link href="UI/css/Blue.css" rel="stylesheet" />
+
 </head>
 <script src='<%=ResolveUrl("~/crystalreportviewers13/js/crviewer/crv.js")%>' type="text/javascript"></script>
 <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.js")%>"></script>
@@ -26,29 +26,25 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
-        <div class="row">
-            <div class="flex-row ps-5" id="header">
-                <div id="logo" class="pt-lg-4 pt-md-4 mt-md-4 mt-lg-4 float-start float-sm-start float-md-end col-12 col-sm-12 col-md-5">
-                    <h1><a href="#">
-                        <img src="../../../UI/img/img2.png" alt="SICPRO" style="border: 0;"></a></h1>
-                </div>
-                <div id="menu" class="pt-lg-5 pt-md-5 mt-md-4 mt-lg-4 float-end float-sm-end float-md-start col-12 col-sm-12 col-md-7">
 
-                    <blockquote>
-                        <ul>
-                            <li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
-                            <li><a href="#" onclick="abre2();">Acerca de </a></li>
-                            <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
-                        </ul>
-                    </blockquote>
-
-                </div>
+        <div id="header">
+            <div id="logo">
+                <h1><a href="#">
+                    <img src="../../../UI/img/img2.png" alt="SICPRO" style="border: 0;"></a></h1>
             </div>
-
+            <div id="menu">
+                <blockquote>
+                    <ul>
+                        <li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
+                        <li><a href="#" onclick="abre2();">Acerca de </a></li>
+                        <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
+                    </ul>
+                </blockquote>
+            </div>
         </div>
-        <div class="container mt-lg-0 mt-md-0 mt-5">
+        <p></p>
+        <div class="container">
             <div class="row">
-
                 <div class="col-md-1">
                 </div>
                 <!-- Menu Barra Izquierda -->
@@ -174,7 +170,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice-dollar"></i>
-                                                        Amortización de Anexos</a>
+                                                        	Amortización de Anexos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -184,12 +180,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-donate"></i>
-                                                        Liquidación de Cobranzas</a>
+                                                        	Liquidación de Cobranzas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-envelope-open-text"></i>
-                                                        Registro de Facturas Cia</a>
+                                                        	Registro de Facturas Cia</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -224,22 +220,22 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice-dollar"></i>
-                                                        Polizas Renovadas</a>
+                                                        	Polizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-alt"></i>
-                                                        Aplicaciones a Pólizas </a>
+                                                        	Aplicaciones a Pólizas </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-medical"></i>
-                                                        Inclusiones a Pólizas</a>
+                                                        	Inclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-excel"></i>
-                                                        Exclusiones a Pólizas</a>
+                                                        	Exclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
@@ -254,27 +250,27 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-receipt"></i>
-                                                        Registro de Recibos</a>
+                                                        		Registro de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-import"></i>
-                                                        Entrega de Recibos</a>
+                                                        		Entrega de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-hand-holding-usd"></i>
-                                                        Registro Anticipo de Comisiones</a>
+                                                        		Registro Anticipo de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-list-alt"></i>
-                                                        Presupuesto de Producción</a>
+                                                        			Presupuesto de Producción</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-money-check-alt"></i>
-                                                        Registro de Comisiones por Cia</a>
+                                                        		Registro de Comisiones por Cia</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -294,19 +290,19 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-signature"></i>
-                                                        Registro de Reclamos </a>
+                                                       	Registro de Reclamos </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-search"></i>
-                                                        Seguimiento de Reclamos</a>
+                                                        	Seguimiento de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-window-close"></i>
-                                                        Cierre de  Reclamos</a>
+                                                        	Cierre de  Reclamos</a>
                                                 </li>
-
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -325,29 +321,29 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-poll"></i>
-                                                        Reportes de Producción </a>
+                                                       		Reportes de Producción </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-poll-h"></i>
-                                                        Reportes de Cobranzas</a>
+                                                        		Reportes de Cobranzas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-file-invoice"></i>
-                                                        Reportes de Comisiones</a>
+                                                        		Reportes de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-tasks"></i>
-                                                        Reportes de Reclamos</a>
+                                                        		Reportes de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-chart-pie"></i>
-                                                        Gráficas Gerenciales</a>
+                                                        		Gráficas Gerenciales</a>
                                                 </li>
-
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -365,65 +361,20 @@
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
-                                                        <i class="fas fa-user-edit"></i>
-                                                        Reiniciar Contraseña </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
                                                         <i class="fas fa-file-signature"></i>
-                                                        Modificación de Cuotas</a>
+                                                       	Registro de Reclamos </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
-                                                        <i class="fas fa-desktop"></i>
-                                                        	Administración de Productos</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-file-signature"></i>
-                                                        	Modificación de Productos </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-desktop"></i>
-                                                        	Administración de Riesgos</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-stream"></i>
-                                                        	Rehabilitación de Poliza Anulada</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-user-plus"></i>
-                                                        Registro de Nuevos Usuarios </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-file-medical"></i>
-                                                        	Registro de Parametros</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-sitemap"></i>
-                                                        Administración de Accesos por Rol</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-dollar-sign"></i>
-                                                        	Registro de Tipo de Cambio </a>
+                                                        <i class="fas fa-search"></i>
+                                                        	Seguimiento de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-window-close"></i>
-                                                        	Cierre de Registro</a>
+                                                        	Cierre de  Reclamos</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <i class="fas fa-pencil-ruler"></i>
-                                                        Registro de Comisiones X Cartera</a>
-                                                </li>
-
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -442,7 +393,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <i class="fas fa-door-closed"></i>
-                                                        Cerrar Sesion </a>
+                                                       	Cerrar Sesion </a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -458,48 +409,11 @@
                 </div>
                 <!-- Inicio Barra Izquierda -->
 
-
                 <!-- Inicio Barra Izquierda -->
-                <div class="col-12 col-sm-12 col-md-4 col-lg-3">
-                    <asp:Menu ID="Menu1" runat="server" RenderingMode="List">
-                        <Items>
-                            <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wgr_persona.aspx" Text="Registro de Persona" Value="Registro de Persona"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_poliza.aspx" Text="Registro Polizas nuevas" Value="Registro Polizas nuevas"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listareno.aspx" Text="Registro de Polizas Renovadas" Value="Registro de Polizas Renovadas"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx" Text="Registro de Aplicaciones a polizas" Value="Registro de Aplicaciones a polizas"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listainclu.aspx" Text="Registro de Inclusiones a Poliza" Value="Registro de Inclusiones a Poliza"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaexclu.aspx" Text="Registro a Exclusiones a Poliza" Value="Registro a Exclusiones a Poliza"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_listaanu.aspx" Text="Registro de Anulaciones de Poliza" Value="Registro de Anulaciones de Poliza"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/RegistroProduccion/wpr_grupo.aspx" Text="Registro de Grupos" Value="Registro de Grupos"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Validacion de Produccion" Value="Validacion de Produccion"></asp:MenuItem>
-                            <asp:MenuItem Text="Modulo de Cobranzas" Value="Modulo de Cobranzas"></asp:MenuItem>
-                            <asp:MenuItem Text="Modulo de Comisiones" Value="Modulo de Comisiones">
-                                <asp:MenuItem Text="Nuevo elemento" Value="Nuevo elemento"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Modulo de Reclamos" Value="Modulo de Reclamos"></asp:MenuItem>
-                            <asp:MenuItem Text="Reportes de Sistema" Value="Reportes de Sistema"></asp:MenuItem>
-                            <asp:MenuItem Text="Configuracion del Sistema" Value="Configuracion del Sistema">
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_respass.aspx" Text="Reiniciar Contrasena" Value="Reiniciar Contrasena"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wpr_riesgo.aspx" Text="Administración de Riesgos" Value="Administración de Riesgos"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_passnuevo.aspx" Text="Registro de Nuevos Usuarios" Value="Registro de Nuevos Usuarios"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wgr_cierreregistro.aspx" Text="Cierre de Registro" Value="Cierre de Registro"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Sitio/Vista/ConfiguracionSistema/wco_comicart.aspx" Text="Registro de Comisiones X Cartera" Value="Registro de Comisiones X Cartera"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Opciones del Sistema" Value="Opciones del Sistema"></asp:MenuItem>
-                        </Items>
-                    </asp:Menu>
-                </div>
+              
                 <!-- Fin Barra Izquierda -->
                 <!-- Inicio Contenido -->
                 <%--<div class="col-md-8" style="background: #F3F3F3;color: #0A416B;border-radius:5px">	--%>
-
-                <div class="col-12 col-md-12 col-md-8 col-lg-9">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
-
                 <!-- Fin Contenido -->
                 <%--<div class="col-md-1">
                 </div>--%>
