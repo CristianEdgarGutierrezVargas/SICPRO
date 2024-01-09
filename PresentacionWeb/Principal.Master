@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="PresentacionWeb.Principal" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,9 +10,10 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/UI/css/themes/cerulean.v5.3.css" rel="stylesheet" />
     <link href="~/UI/css/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="UI/css/Blue.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link href="UI/css/Blue.css" rel="stylesheet" />
 </head>
 <script src='<%=ResolveUrl("~/crystalreportviewers13/js/crviewer/crv.js")%>' type="text/javascript"></script>
 <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.js")%>"></script>
@@ -26,25 +26,29 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
+        <div class="row">
+            <div class="flex-row ps-5" id="header">
+                <div id="logo" class="pt-lg-4 pt-md-4 mt-md-4 mt-lg-4 float-start float-sm-start float-md-end col-12 col-sm-12 col-md-5">
+                    <h1><a href="#">
+                        <img src="../../../UI/img/img2.png" alt="SICPRO" style="border: 0;"></a></h1>
+                </div>
+                <div id="menu" class="pt-lg-5 pt-md-5 mt-md-4 mt-lg-4 float-end float-sm-end float-md-start col-12 col-sm-12 col-md-7">
 
-        <div id="header">
-            <div id="logo">
-                <h1><a href="#">
-                    <img src="../../../UI/img/img2.png" alt="SICPRO" style="border: 0;"></a></h1>
+                    <blockquote>
+                        <ul>
+                            <li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
+                            <li><a href="#" onclick="abre2();">Acerca de </a></li>
+                            <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
+                        </ul>
+                    </blockquote>
+
+                </div>
             </div>
-            <div id="menu">
-                <blockquote>
-                    <ul>
-                        <li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
-                        <li><a href="#" onclick="abre2();">Acerca de </a></li>
-                        <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
-                    </ul>
-                </blockquote>
-            </div>
+
         </div>
-        <p></p>
-        <div class="container">
+        <div class="container mt-lg-0 mt-md-0 mt-5">
             <div class="row">
+
                 <div class="col-md-1">
                 </div>
                 <!-- Menu Barra Izquierda -->
@@ -454,8 +458,9 @@
                 </div>
                 <!-- Inicio Barra Izquierda -->
 
+
                 <!-- Inicio Barra Izquierda -->
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <asp:Menu ID="Menu1" runat="server" RenderingMode="List">
                         <Items>
                             <asp:MenuItem Text="Registro de Produccion" Value="Registro de Produccion">
@@ -489,6 +494,12 @@
                 <!-- Fin Barra Izquierda -->
                 <!-- Inicio Contenido -->
                 <%--<div class="col-md-8" style="background: #F3F3F3;color: #0A416B;border-radius:5px">	--%>
+
+                <div class="col-12 col-md-12 col-md-8 col-lg-9">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
                 <!-- Fin Contenido -->
                 <%--<div class="col-md-1">
                 </div>--%>

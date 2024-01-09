@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacobranzain.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizacobranzain" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacobranza.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizacobranza1" %>
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-
     <div class="post">
        <div>                    
 
@@ -18,14 +17,14 @@
                 </div>      
             </div>    
             <div class="col-md-9">
-      
+  
                 <br /><br /><br />
                   <div class="row">
                     <div class="col-md-12">      
                         <span id="fechas" style="font-weight:bold;">Fechas</span>
                     </div>
                   </div>
-              
+          
                   <div class="row">
                       <div class="col-md-2">      
                         <span>Fecha de Emisión:</span>
@@ -111,7 +110,7 @@
                          </dx:BootstrapTextBox>  
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span>Asegurado :</span>
@@ -120,10 +119,10 @@
                            <asp:Label ID="lblAsegurado" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
-                          
+                      
                       </div>
                    </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span id="lbldireccion">Dirección :</span>
@@ -132,10 +131,10 @@
                           <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
                        </div>
                       <div class="col-md-1">
-                        
+                    
                       </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Grupo :</span>
@@ -144,7 +143,7 @@
                           <asp:Label ID="lblGrupo" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Cia Aseguradora :</span>
@@ -153,7 +152,7 @@
                           <asp:Label ID="lblCiaAseg" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                            <span>Producto :</span>
@@ -162,7 +161,7 @@
                            <asp:Label ID="lblProducto" runat="server" Text=""></asp:Label>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                            <span>Tipo de Cartera :</span>
@@ -171,7 +170,7 @@
                            <asp:Label ID="lblTipoCartera" runat="server" Text=""></asp:Label>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                           <span>Ejecutivo:</span>
@@ -185,7 +184,7 @@
                             </dx:BootstrapComboBox>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Agente Cartera:</span>
@@ -194,7 +193,7 @@
                           <asp:Label ID="lblAgente" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                 
+             
                   <div class="row">
                       <div class="col-md-2">      
                           <span>Tipo Poliza:</span>
@@ -203,7 +202,7 @@
                            <asp:Label ID="lblTipoPoliza" runat="server" Text=""></asp:Label>
                       </div>
                   </div>
-                  
+              
                   <div class="row">
                        <div class="col-md-2">      
                            <span id="lblprima_bruta">Prima Total:</span>
@@ -215,7 +214,7 @@
                                           <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                               <SpinButtons ShowLargeIncrementButtons="true" />
                                           </dx:BootstrapSpinEdit>
-                 
+             
                                       </td>
                                       <td style="width: 65px; height: 18px">
                                           <span>Nº Cuotas:</span>
@@ -232,11 +231,11 @@
                                          <asp:Label ID="lblDivisa" runat="server" Text=""></asp:Label>
                                       </td>
                                   </tr>
-          
+      
                               </table>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                      <div class="col-md-2">      
                          <span>Prima Neta:</span>
@@ -248,7 +247,7 @@
                                         <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                         </dx:BootstrapSpinEdit>
-                 
+             
                                     </td>
                                     <td style="width: 65px; height: 18px">
                                         <span>Porcentaje:</span>
@@ -269,7 +268,7 @@
                                         <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
                                     </td>
                                 </tr>
-          
+      
                             </table>
                      </div>
                  </div>
@@ -287,7 +286,7 @@
                           </dx:ASPxRadioButtonList>
                        </div>
                    </div>
-                  
+              
                   <div class="row">
                       <div class="col-md-2">      
                           <span id="lblmat_aseg">Mat. Asegurada:</span>
@@ -296,7 +295,7 @@
                            <dx:BootstrapMemo ID="txtMatAseg" runat="server" Rows="3" Width="100%"></dx:BootstrapMemo>
                       </div>
                   </div>
-                  
+              
                   <div class="row">                       
                        <div class="col-md-12"> 
                            <div class="panel-group">
@@ -357,22 +356,22 @@
                               </div>
                             </div>
                           </div>
-           
+       
 
-            
+        
                        </div>
                    </div>
 
                   <div class="row">
                       <div class="col-md-4">      
-        
+    
                       </div>
                       <div class="col-md-7">   
                           <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
                           <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
                           <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
                            <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
-                         
+                     
                       </div>
                   </div>
 
@@ -393,5 +392,5 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </asp:Content>

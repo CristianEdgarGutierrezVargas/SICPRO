@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
 
 
-    public partial class wpr_polizacobranzain
+    public partial class wpr_polizacobranza
     {
 
         /// <summary>
@@ -22,6 +22,33 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label titulo;
+
+        /// <summary>
+        /// Control id_clamov.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_clamov;
+
+        /// <summary>
+        /// Control id_poliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_poliza;
+
+        /// <summary>
+        /// Control id_mov.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_mov;
 
         /// <summary>
         /// Control fc_emision.
@@ -51,22 +78,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_inivig;
 
         /// <summary>
-        /// Control lblfc_finvig.
+        /// Control fc_finvig.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblfc_finvig;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_finvig;
 
         /// <summary>
-        /// Control lblNroPoliza.
+        /// Control txtNroPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNroPoliza;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNroPoliza;
 
         /// <summary>
         /// Control txtNroLiquidacion.
@@ -78,58 +105,103 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNroLiquidacion;
 
         /// <summary>
-        /// Control lblAsegurado.
+        /// Control CallBPersona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAsegurado;
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBPersona;
 
         /// <summary>
-        /// Control lblDireccion.
+        /// Control nomraz.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
 
         /// <summary>
-        /// Control lblGrupo.
+        /// Control id_per.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrupo;
+        protected global::System.Web.UI.WebControls.HiddenField id_per;
 
         /// <summary>
-        /// Control lblCiaAseg.
+        /// Control btnserper.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiaAseg;
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
 
         /// <summary>
-        /// Control lblProducto.
+        /// Control CallBDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProducto;
+        protected global::DevExpress.Web.Bootstrap.BootstrapCallbackPanel CallBDireccion;
 
         /// <summary>
-        /// Control lblTipoCartera.
+        /// Control desc_direccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoCartera;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_direccion;
+
+        /// <summary>
+        /// Control id_direccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_direccion;
+
+        /// <summary>
+        /// Control btnserdireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserdireccion;
+
+        /// <summary>
+        /// Control cmbGrupo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbGrupo;
+
+        /// <summary>
+        /// Control cmbCiaAseg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbCiaAseg;
+
+        /// <summary>
+        /// Control cmbProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbProducto;
 
         /// <summary>
         /// Control cmbEjecutivo.
@@ -141,22 +213,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbEjecutivo;
 
         /// <summary>
-        /// Control lblAgente.
+        /// Control cmbAgente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgente;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbAgente;
 
         /// <summary>
-        /// Control lblTipoPoliza.
+        /// Control rbTipoPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoPoliza;
+        protected global::DevExpress.Web.ASPxRadioButtonList rbTipoPoliza;
 
         /// <summary>
         /// Control txtPrimaBruta.
@@ -177,49 +249,13 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtNumCuotas;
 
         /// <summary>
-        /// Control lblDivisa.
+        /// Control cmbDivisa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDivisa;
-
-        /// <summary>
-        /// Control txtPrimaNeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtPrimaNeta;
-
-        /// <summary>
-        /// Control txtPorcentaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtPorcentaje;
-
-        /// <summary>
-        /// Control txtComision.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtComision;
-
-        /// <summary>
-        /// Control btnCalcular.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCalcular;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbDivisa;
 
         /// <summary>
         /// Control tipo_cuota.
@@ -258,24 +294,6 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxButton btnNuevo;
 
         /// <summary>
-        /// Control btnCuotas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnCuotas;
-
-        /// <summary>
-        /// Control btnMemo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnMemo;
-
-        /// <summary>
         /// Control lblmensaje.
         /// </summary>
         /// <remarks>
@@ -285,12 +303,75 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.Label lblmensaje;
 
         /// <summary>
-        /// Control re_memo_report.
+        /// Control pCPersona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlIframe re_memo_report;
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCPersona;
+
+        /// <summary>
+        /// Control nomraz1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz1;
+
+        /// <summary>
+        /// Control btnserper1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper1;
+
+        /// <summary>
+        /// Control grdPersonas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
+
+        /// <summary>
+        /// Control pCDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCDireccion;
+
+        /// <summary>
+        /// Control desc_direccion1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox desc_direccion1;
+
+        /// <summary>
+        /// Control btnDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnDireccion;
+
+        /// <summary>
+        /// Control grdDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdDireccion;
     }
 }

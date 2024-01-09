@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Reflection.Emit;
@@ -15,31 +16,71 @@ using System.Web.UI.WebControls;
 
 namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
-    public partial class wpr_poliza : System.Web.UI.Page
+    public partial class wpr_polizacobranza : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //GridViewFeaturesHelper.SetupGlobalGridViewBehavior(Grid);
-            //DemoHelper.Instance.PrepareControlOptions(OptionsFormLayout, new ControlOptionsSettings
-            //{
-            //    ColumnMinWidth = 380,
-            //    RightBlockWidth = 410,
-            //    ColumnCountMode = RecalculateColumnCountMode.RootGroup
-            //});
-
-            //Grid.SettingsPager.Mode = (GridViewPagerMode)Enum.Parse(typeof(GridViewPagerMode), PagerModeCombo.Text, true);
-            //grdCuotas.SettingsEditing.BatchEditSettings.EditMode = (GridViewBatchEditMode)Enum.Parse(typeof(GridViewBatchEditMode), "Row", true);
-            //grdCuotas.SettingsEditing.BatchEditSettings.StartEditAction = (GridViewBatchStartEditAction)Enum.Parse(typeof(GridViewBatchStartEditAction), "Click", true);
-            //grdCuotas.SettingsEditing.BatchEditSettings.HighlightDeletedRows = true;
-            //grdCuotas.SettingsEditing.BatchEditSettings.KeepChangesOnCallbacks = false;
-
-            if (IsPostBack)
+            CargaInicial();
+            if (!IsPostBack && base.Request.QueryString["var"] != "")
             {
+                int num = int.Parse(base.Request.QueryString["var"]);
+                int num1 = int.Parse(base.Request.QueryString["val"]);
+                Movimiento(base.Request.QueryString["ver"]);
+
+         
+
+                var consumoValidar= _objConsumoValidarProd.ObtenerPolizaNRI(num, num1);
+                fc_emision.Value = consumoValidar.fc_emision;
+                fc_recepcion.Value = consumoValidar.fc_recepcion;
+                fc_inivig.Value = consumoValidar.fc_inivig;
+                fc_finvig.Value = consumoValidar.fc_finvig;
+                txtNroPoliza.Text = consumoValidar.num_poliza;
+                txtNroLiquidacion.Text = consumoValidar.no_liquida;
+                nomraz.Text = consumoValidar.nomraz;
+                id_per.Value = consumoValidar.id_perclie;
+                desc_direccion.Text = consumoValidar.direccion;
+                id_direccion.Value = consumoValidar.id_dir.ToString();
+                cmbGrupo.Value = consumoValidar.id_gru.ToString();
+                cmbCiaAseg.Value = consumoValidar.id_spvs;
+               
+                cmbEjecutivo.Value = consumoValidar.id_perejec;
+                cmbAgente.Value=consumoValidar.id_percart.ToString();
+                rbTipoPoliza.Value = consumoValidar.clase_poliza;
+                txtPrimaBruta.Value = consumoValidar.prima_bruta;
+                txtNumCuotas.Value = consumoValidar.num_cuota;
+                cmbDivisa.Value = consumoValidar.id_div.ToString();
+                tipo_cuota.Value = consumoValidar.tipo_cuota;
+                txtMatAseg.Value = consumoValidar.mat_aseg;
+
+                id_poliza.Value = num.ToString();
+                id_mov.Value = num1.ToString();
+
+                var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
+                cmbProducto.DataSource = lstProducto;
+                cmbProducto.TextField = "desc_prod";
+                cmbProducto.ValueField = "id_producto";
+                cmbProducto.DataBind();
+                cmbProducto.Value = consumoValidar.id_producto.ToString();
+
+
+            }
+            
+        }
+        private void Movimiento(string mov)
+        {
+            if (mov == "42")
+            {
+                titulo.Text = "Datos de Poliza Nueva (Módulo de Cobranzas)";
+                id_clamov.Value = "42";
                 return;
             }
-            CargaInicial();
+            if (mov == "43")
+            {
+                titulo.Text = "Datos de Poliza Renovada (Módulo de Cobranzas)";
+                id_clamov.Value = "43";
+            }
         }
 
         #region Metodos
@@ -55,14 +96,18 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstGrupo = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbGrupo.Items.Add(itemLstGrupo);
 
-            var lstTipoCartera = _objConsumoRegistroProd.listas1();
-            cmbTipoCartera.DataSource = lstTipoCartera;
-            cmbTipoCartera.TextField = "desc_param";
-            cmbTipoCartera.ValueField = "id_par";
-            cmbTipoCartera.DataBind();
+          
+       
+           
 
-            var itemTipoCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
-            cmbTipoCartera.Items.Add(itemTipoCartera);
+            //var lstTipoCartera = _objConsumoRegistroProd.listas1();
+            //cmbTipoCartera.DataSource = lstTipoCartera;
+            //cmbTipoCartera.TextField = "desc_param";
+            //cmbTipoCartera.ValueField = "id_par";
+            //cmbTipoCartera.DataBind();
+
+            //var itemTipoCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            //cmbTipoCartera.Items.Add(itemTipoCartera);
 
             var lstFuncionarios = _objConsumoRegistroProd.ObtenerEjecutivoClientes();
             cmbEjecutivo.DataSource = lstFuncionarios;
@@ -241,7 +286,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            LimpiarFormulario();
+            Response.Redirect("../RegistroProduccion/wpr_poliza.aspx");
+
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)
@@ -344,11 +390,6 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotasPoliza_Click(object sender, EventArgs e)
         {
-            if (DateTime.Parse(this.fc_finvig.Text) < DateTime.Parse(this.fc_inivig.Text))
-            {
-                lblmensaje.Text = "La fecha de Fin de Vigencia no puede ser menor a la fecha de Incio de vigencia";
-                return;
-            }
             if (string.IsNullOrEmpty(txtNumCuotas.Text) || Convert.ToDecimal(txtNumCuotas.Text) == 0)
             {
                 lblmensaje.Text = "El Numero de Cuotas no es valido";
@@ -405,7 +446,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //comision = this.comision,
                 prPolmov.id_div = Convert.ToInt64(cmbDivisa.SelectedItem.Value);
                 //num_cuota = intNumeroCuotas,
-                prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
+                //prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
                 prPolmov.estado = "PRODUCCION"; //this.estado,
                 prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
                 prPolmov.fc_recepcion = fc_recepcion.Date;

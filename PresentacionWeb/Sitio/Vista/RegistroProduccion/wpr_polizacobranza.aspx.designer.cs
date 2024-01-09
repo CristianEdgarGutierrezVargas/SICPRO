@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
 
 
-    public partial class wpr_polizacobranzain
+    public partial class wpr_polizacobranza1
     {
 
         /// <summary>

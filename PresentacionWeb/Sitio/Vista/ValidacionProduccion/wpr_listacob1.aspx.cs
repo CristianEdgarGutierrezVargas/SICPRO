@@ -11,17 +11,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DevExpress.Web;
+using System.Security.Cryptography.X509Certificates;
+using DevExpress.Web.Internal.XmlProcessor;
 
 namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
     public partial class wpr_listacob1 : System.Web.UI.Page
     {
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
-        private long ll = 0;
-        private long aa = 0;
-        private long bb = 0;
-        private long cc = 0;
-        private long dd = 0;
+ 
         public static string valor;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -250,11 +248,40 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         {
             var index = e.Parameter;
             var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
+            var idMovimiento = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_movimiento").ToString();
+            var idClamov = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_clamov").ToString();
             if (this.IsCallback)
-                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
+            {
+                if (id_clamov.Value == "42")
+                {
+                    ASPxWebControl.RedirectOnCallback("~/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "43")
+                {
+                    ASPxWebControl.RedirectOnCallback("~/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "44")
+                {
+                    ASPxWebControl.RedirectOnCallback("../RegistroProduccion/wpr_polizacobranzain.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+            }
+                //ASPxWebControl.RedirectOnCallback(ResolveUrl("~/Sitio/Vista/ValidacionProduccion/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov));
             else
-
-                Response.Redirect("~/wpr_polizareno.aspx");
+            {
+                if (id_clamov.Value == "42")
+                {
+                    Response.Redirect("~/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "43")
+                {
+                    Response.Redirect("~/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "44")
+                {
+                    Response.Redirect("../RegistroProduccion/wpr_polizacobranzain.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+            }
+            //Response.Redirect(ResolveUrl("/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov));
 
         }
         public string Grupo(object num)
@@ -267,7 +294,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             if (!string.IsNullOrEmpty(num.ToString()))
             {
                 var idGrupo = Convert.ToInt64(num.ToString());
-                descGrupo = _objConsumoValidarProd.objGrupoById(idGrupo).desc_grupo;
+                ConsumoValidarProd objConsumoValidarProd = new ConsumoValidarProd();
+                descGrupo = objConsumoValidarProd.objGrupoById(idGrupo).desc_grupo;
             }
             return descGrupo;
         }
@@ -278,8 +306,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             string descCompania = "";
             if (!string.IsNullOrEmpty(num.ToString()))
             {
-
-                descCompania = _objConsumoValidarProd.GetDescCompaniaById(num.ToString());
+                ConsumoValidarProd objConsumoValidarProd = new ConsumoValidarProd();
+                descCompania = objConsumoValidarProd.GetDescCompaniaById(num.ToString());
             }
             return descCompania;
         }
@@ -291,7 +319,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             if (!string.IsNullOrEmpty(num.ToString()))
             {
                 var idProducto = Convert.ToInt64(num.ToString());
-                descProducto = _objConsumoValidarProd.GetProductoById(idProducto).desc_prod;
+                ConsumoValidarProd objConsumoValidarProd = new ConsumoValidarProd();
+                descProducto = objConsumoValidarProd.GetProductoById(idProducto).desc_prod;
             }
             return descProducto;
         }
@@ -303,7 +332,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             if (!string.IsNullOrEmpty(num.ToString()))
             {
                 var idProducto = Convert.ToInt64(num.ToString());
-                var tipo = _objConsumoValidarProd.GetPolizaByIdPoliza(idProducto).clase_poliza;
+                ConsumoValidarProd objConsumoValidarProd = new ConsumoValidarProd();
+                var tipo = objConsumoValidarProd.GetPolizaByIdPoliza(idProducto).clase_poliza;
                 if ((bool)tipo)
                     descProducto = "Normal";
                 else descProducto = "Flotante";
@@ -332,9 +362,25 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             if (!string.IsNullOrEmpty(num.ToString()))
             {
                 var idEjecutivo = num.ToString();
-                nomEjecutivo = _objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
+                ConsumoValidarProd objConsumoValidarProd = new ConsumoValidarProd();
+                nomEjecutivo = objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
             }
             return nomEjecutivo;
+        }
+        private void AbrirPoliza(string v, string b, string c)
+        {
+            if (id_clamov.Value == "42")
+            {
+                Response.Redirect("~/wpr_polizacobranza.aspx?var=" + v + "&val=" + b + "&ver=" + c);
+            }
+            else if (id_clamov.Value == "43")
+            {
+                Response.Redirect("~/wpr_polizacobranza.aspx?var=" + v + "&val=" + b + "&ver=" + c);
+            }
+            else if (id_clamov.Value == "44")
+            {
+                Response.Redirect("../RegistroProduccion/wpr_polizacobranzain.aspx?var=" + v + "&val=" + b + "&ver=" + c);
+            }
         }
     }
 }

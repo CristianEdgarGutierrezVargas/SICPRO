@@ -162,8 +162,6 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             }
         }
 
-
-
         private void Memo()
         {            
             ReportDocument rptDoc = new ReportDocument();
@@ -226,95 +224,90 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
         }
 
 
-
-
-
-
-
-        protected void Memo11()
-        {
-            string str = base.Server.MapPath("reportes//re_memo.rpt");
-            this.CrystalReportViewer1.ReportSource = str;
-            string str1 = string.Concat("{Comando.id_poliza}=", base.Request.QueryString["p"], " and");
-            str1 = string.Concat(str1, "{Comando.id_movimiento}= ", base.Request.QueryString["m"]);
-            this.CrystalReportViewer1.SelectionFormula = str1;
+        //protected void Memo11()
+        //{
+        //    string str = base.Server.MapPath("reportes//re_memo.rpt");
+        //    this.CrystalReportViewer1.ReportSource = str;
+        //    string str1 = string.Concat("{Comando.id_poliza}=", base.Request.QueryString["p"], " and");
+        //    str1 = string.Concat(str1, "{Comando.id_movimiento}= ", base.Request.QueryString["m"]);
+        //    this.CrystalReportViewer1.SelectionFormula = str1;
             
-            this.CrystalReportViewer1.RefreshReport();
-        }
-        public DataSet ToDataSet(List<GetReportMemo_Result> list)
-        {
-            Type elementType = typeof(GetReportMemo_Result);
-            DataSet ds = new DataSet();
-            DataTable t = new DataTable();
-            ds.Tables.Add(t);
-            //add a column to table for each public property on T
-            foreach (var propInfo in elementType.GetProperties())
-            {
-                t.Columns.Add(propInfo.Name, propInfo.PropertyType);
-            }
-            //go through each property on T and add each value to the table
-            foreach (GetReportMemo_Result item in list)
-            {
-                DataRow row = t.NewRow();
-                foreach (var propInfo in elementType.GetProperties())
-                {
-                    row[propInfo.Name] = propInfo.GetValue(item, null);
-                }
-                //This line was missing:
-                t.Rows.Add(row);
-            }
-            return ds;
-        }
+        //    this.CrystalReportViewer1.RefreshReport();
+        //}
+        //public DataSet ToDataSet(List<GetReportMemo_Result> list)
+        //{
+        //    Type elementType = typeof(GetReportMemo_Result);
+        //    DataSet ds = new DataSet();
+        //    DataTable t = new DataTable();
+        //    ds.Tables.Add(t);
+        //    //add a column to table for each public property on T
+        //    foreach (var propInfo in elementType.GetProperties())
+        //    {
+        //        t.Columns.Add(propInfo.Name, propInfo.PropertyType);
+        //    }
+        //    //go through each property on T and add each value to the table
+        //    foreach (GetReportMemo_Result item in list)
+        //    {
+        //        DataRow row = t.NewRow();
+        //        foreach (var propInfo in elementType.GetProperties())
+        //        {
+        //            row[propInfo.Name] = propInfo.GetValue(item, null);
+        //        }
+        //        //This line was missing:
+        //        t.Rows.Add(row);
+        //    }
+        //    return ds;
+        //}
 
-            protected void Memo3()
-        {
-            //List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
+        //    protected void Memo3()
+        //{
+        //    //List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
 
-            //CrystalReport cr = new CrystalReport1();
-            //CrystalReportViewer1.ReportSource = cr;
+        //    //CrystalReport cr = new CrystalReport1();
+        //    //CrystalReportViewer1.ReportSource = cr;
 
-            //cr.SetDataSource(response);
-
-
-            ////var ds = ToDataSet(response);
+        //    //cr.SetDataSource(response);
 
 
-            //string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
-            ////https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
-            //ReportDocument cryRpt = new ReportDocument();
-            //cryRpt.Load(reportPath);
-            //cryRpt.DataSourceConnections.Clear();
+        //    ////var ds = ToDataSet(response);
+
+
+        //    //string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
+        //    ////https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
+        //    //ReportDocument cryRpt = new ReportDocument();
+        //    //cryRpt.Load(reportPath);
+        //    //cryRpt.DataSourceConnections.Clear();
             
-            //cryRpt.SetDataSource(ds);
-            //cryRpt.SetParameterValue("clapol", "1");
-            //cryRpt.SetParameterValue("tipocuota", "1");
-            ////cryRpt.Subreports[0].DataSourceConnections.Clear();
-            ////cryRpt.Subreports[0].SetDataSource(ds.Tables[0]);
-            //CrystalReportViewer1.ReportSource = cryRpt;
-            //CrystalReportViewer1.RefreshReport();
-        }
+        //    //cryRpt.SetDataSource(ds);
+        //    //cryRpt.SetParameterValue("clapol", "1");
+        //    //cryRpt.SetParameterValue("tipocuota", "1");
+        //    ////cryRpt.Subreports[0].DataSourceConnections.Clear();
+        //    ////cryRpt.Subreports[0].SetDataSource(ds.Tables[0]);
+        //    //CrystalReportViewer1.ReportSource = cryRpt;
+        //    //CrystalReportViewer1.RefreshReport();
+        //}
 
 
-        protected void Memo2()
-        {
-            List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
+        //protected void Memo2()
+        //{
+        //    List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
 
-            //var ds = ToDataSet(response);
+        //    //var ds = ToDataSet(response);
 
 
-            string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
-            //https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(reportPath);
-            cryRpt.DataSourceConnections.Clear();
+        //    string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
+        //    //https://stackoverflow.com/questions/8006245/how-to-set-datasource-of-sub-crystal-report-in-c-sharp-win-form-app
+        //    ReportDocument cryRpt = new ReportDocument();
+        //    cryRpt.Load(reportPath);
+        //    cryRpt.DataSourceConnections.Clear();
 
-            cryRpt.SetDataSource(response);
-            cryRpt.SetParameterValue("clapol", "1");
-            cryRpt.SetParameterValue("tipocuota", "1");
-            //cryRpt.Subreports[0].DataSourceConnections.Clear();
-            //cryRpt.Subreports[0].SetDataSource(ds.Tables[0]);
-            CrystalReportViewer1.ReportSource = cryRpt;
-            CrystalReportViewer1.RefreshReport();
-        }
+        //    cryRpt.SetDataSource(response);
+        //    cryRpt.SetParameterValue("clapol", "1");
+        //    cryRpt.SetParameterValue("tipocuota", "1");
+        //    //cryRpt.Subreports[0].DataSourceConnections.Clear();
+        //    //cryRpt.Subreports[0].SetDataSource(ds.Tables[0]);
+        //    CrystalReportViewer1.ReportSource = cryRpt;
+        //    CrystalReportViewer1.RefreshReport();
+        //}
     }
 }
