@@ -87,7 +87,19 @@
                             <td align="center" colspan="4" style="height: 22px">
                                 <div class="gridcontainer" style="width: 500px">
                                     <div>
-
+                                        <dx:ASPxGridView ID="grdContactos" KeyFieldName="id_dir" runat="server" Width="100%"
+                                           OnDataBinding="grdContactos_DataBinding" OnRowCommand="grdContactos_RowCommand">
+                                            <Columns>     
+                                                 <dx:GridViewDataTextColumn FieldName="id_dir" Caption ="Opciones" VisibleIndex="0">
+                                                    <DataItemTemplate>
+                                                        <dx:ASPxButton ID="btn" runat="server" Text="Seleccionar" Font-Size="x-Small"></dx:ASPxButton>
+                                                    </DataItemTemplate>
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="id_dir" Caption="Codigo" />  
+                                                <dx:GridViewDataTextColumn FieldName="relacion" Caption="Relacion"/>   
+                                            </Columns>
+                                             <SettingsPager Mode="ShowPager" PageSize="10" />
+                                        </dx:ASPxGridView>
                                     </div>
                                 </div>
                             </td>

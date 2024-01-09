@@ -44,6 +44,7 @@
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
     <Compile Include="CustomModelEntities\OC_DATA_FORM.cs" />
+    <Compile Include="CustomModelEntities\OC_DIRECCION_CONTACTO.cs" />
     <Compile Include="CustomModelEntities\OC_DIRECCION_PARAMETRO.cs" />
     <Compile Include="CustomModelEntities\OC_ObtenerTablaPolizaIn.cs" />
     <Compile Include="ModelSicPro\co_anticom.cs">

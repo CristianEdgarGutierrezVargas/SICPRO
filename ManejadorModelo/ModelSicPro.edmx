@@ -4211,20 +4211,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <Parameter Name="poliza" Mode="In" Type="String" />
             <Parameter Name="liquida" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pr_calcfrmcred" ReturnType="Collection(Decimal)">
-            <Parameter Name="idproducto" Mode="In" Type="Int64" />
-            <Parameter Name="idspvs" Mode="In" Type="String" />
-            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
-            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="pr_calcfrmcred_cuo" ReturnType="Collection(Decimal)">
-            <Parameter Name="idproducto" Mode="In" Type="Int64" />
-            <Parameter Name="idspvs" Mode="In" Type="String" />
-            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
-            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
-            <Parameter Name="cuota" Mode="In" Type="Int32" />
-            <Parameter Name="idmovimiento" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="GetDataVeriPoliza" ReturnType="Collection(sicproModel.GetDataVeriPoliza_Result)">
             <Parameter Name="id_poliza" Mode="In" Type="Int64" />
             <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
@@ -4237,6 +4223,20 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <FunctionImport Name="GetReportMemo" ReturnType="Collection(sicproModel.GetReportMemo_Result)">
             <Parameter Name="id_poliza" Mode="In" Type="Int64" />
             <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="pr_calcfrmcred">
+            <Parameter Name="idproducto" Mode="In" Type="Int64" />
+            <Parameter Name="idspvs" Mode="In" Type="String" />
+            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
+            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="pr_calcfrmcred_cuo">
+            <Parameter Name="idproducto" Mode="In" Type="Int64" />
+            <Parameter Name="idspvs" Mode="In" Type="String" />
+            <Parameter Name="primatotal" Mode="In" Type="Decimal" />
+            <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
+            <Parameter Name="cuota" Mode="In" Type="Int32" />
+            <Parameter Name="idmovimiento" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
@@ -8817,8 +8817,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pr_calcfrmcred" FunctionName="sicproModel.Store.pr_calcfrmcred" />
-          <FunctionImportMapping FunctionImportName="pr_calcfrmcred_cuo" FunctionName="sicproModel.Store.pr_calcfrmcred_cuo" />
           <FunctionImportMapping FunctionImportName="GetDataVeriPoliza" FunctionName="sicproModel.Store.GetDataVeriPoliza">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicproModel.GetDataVeriPoliza_Result">
@@ -8898,6 +8896,8 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pr_calcfrmcred" FunctionName="sicproModel.Store.pr_calcfrmcred" />
+          <FunctionImportMapping FunctionImportName="pr_calcfrmcred_cuo" FunctionName="sicproModel.Store.pr_calcfrmcred_cuo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

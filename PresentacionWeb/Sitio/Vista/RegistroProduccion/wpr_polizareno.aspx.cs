@@ -48,7 +48,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 var itemLstFuncionarios = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
                 cmbEjecutivo.Items.Add(itemLstFuncionarios);
                 var objDataCompletaRenPoliza = _objConsumoRegistroProd.ObtenerDataCompletaRenPoliza(par1, par2);
-                ViewState["DATA_POLIZA"] = objDataCompletaRenPoliza;
+                Session["DATA_POLIZA"] = objDataCompletaRenPoliza;
                 if (objDataCompletaRenPoliza != null)
                 {
                     lblNroPoliza.Text = objDataCompletaRenPoliza.objRenovar.num_poliza;
@@ -127,7 +127,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            var objData = (OC_DATA_FORM.oc_data_vrenovar)ViewState["DATA_POLIZA"];
+            var objData = (OC_DATA_FORM.oc_data_vrenovar)Session["DATA_POLIZA"];
 
             var objPolizaMovimiento = new pr_polmov();
             objPolizaMovimiento.id_poliza = objData.objRenovar.id_poliza;// id_poliza.Value;

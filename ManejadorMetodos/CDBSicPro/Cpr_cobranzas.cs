@@ -116,8 +116,8 @@ namespace ManejadorMetodos.CDBSicPro
                     primaBruta -= Convert.ToDecimal(232.56);
                 }
 
-                var response = _context.pr_calcfrmcred(id_producto, id_spvs1, primaBruta, tipoCuota).FirstOrDefault();
-                return response == null ? 0: response.Value;
+                var response = _context.pr_calcfrmcred(id_producto, id_spvs1, primaBruta, tipoCuota);
+                return response == null ? 0 :  1;
             }
             catch (Exception)
             {

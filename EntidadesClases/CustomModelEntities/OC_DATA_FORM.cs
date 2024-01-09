@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace EntidadesClases.CustomModelEntities
 {
+    [Serializable]
     public class OC_DATA_FORM
     {
+        [Serializable]
         public class oc_data_vrenovar
         {
             public vpr_polrenovar objRenovar { get; set; }

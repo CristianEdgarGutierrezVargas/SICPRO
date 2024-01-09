@@ -215,56 +215,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<pagos_rep1_Result>("[sicproEntities].[pagos_rep1](@id_perclie, @id_spvs, @id_cartera, @poliza, @liquida)", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
-        {
-            var idproductoParameter = idproducto.HasValue ?
-                new ObjectParameter("idproducto", idproducto) :
-                new ObjectParameter("idproducto", typeof(long));
-    
-            var idspvsParameter = idspvs != null ?
-                new ObjectParameter("idspvs", idspvs) :
-                new ObjectParameter("idspvs", typeof(string));
-    
-            var primatotalParameter = primatotal.HasValue ?
-                new ObjectParameter("primatotal", primatotal) :
-                new ObjectParameter("primatotal", typeof(decimal));
-    
-            var tipocuotaParameter = tipocuota.HasValue ?
-                new ObjectParameter("tipocuota", tipocuota) :
-                new ObjectParameter("tipocuota", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<decimal>> pr_calcfrmcred_cuo(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota, Nullable<int> cuota, Nullable<int> idmovimiento)
-        {
-            var idproductoParameter = idproducto.HasValue ?
-                new ObjectParameter("idproducto", idproducto) :
-                new ObjectParameter("idproducto", typeof(long));
-    
-            var idspvsParameter = idspvs != null ?
-                new ObjectParameter("idspvs", idspvs) :
-                new ObjectParameter("idspvs", typeof(string));
-    
-            var primatotalParameter = primatotal.HasValue ?
-                new ObjectParameter("primatotal", primatotal) :
-                new ObjectParameter("primatotal", typeof(decimal));
-    
-            var tipocuotaParameter = tipocuota.HasValue ?
-                new ObjectParameter("tipocuota", tipocuota) :
-                new ObjectParameter("tipocuota", typeof(bool));
-    
-            var cuotaParameter = cuota.HasValue ?
-                new ObjectParameter("cuota", cuota) :
-                new ObjectParameter("cuota", typeof(int));
-    
-            var idmovimientoParameter = idmovimiento.HasValue ?
-                new ObjectParameter("idmovimiento", idmovimiento) :
-                new ObjectParameter("idmovimiento", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
-        }
-    
         public virtual ObjectResult<GetDataVeriPoliza_Result> GetDataVeriPoliza(Nullable<long> id_poliza, Nullable<long> id_movimiento)
         {
             var id_polizaParameter = id_poliza.HasValue ?
@@ -306,6 +256,56 @@ namespace ManejadorModelo
                 new ObjectParameter("id_movimiento", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo_Result>("GetReportMemo", id_polizaParameter, id_movimientoParameter);
+        }
+    
+        public virtual int pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
+        {
+            var idproductoParameter = idproducto.HasValue ?
+                new ObjectParameter("idproducto", idproducto) :
+                new ObjectParameter("idproducto", typeof(long));
+    
+            var idspvsParameter = idspvs != null ?
+                new ObjectParameter("idspvs", idspvs) :
+                new ObjectParameter("idspvs", typeof(string));
+    
+            var primatotalParameter = primatotal.HasValue ?
+                new ObjectParameter("primatotal", primatotal) :
+                new ObjectParameter("primatotal", typeof(decimal));
+    
+            var tipocuotaParameter = tipocuota.HasValue ?
+                new ObjectParameter("tipocuota", tipocuota) :
+                new ObjectParameter("tipocuota", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
+        }
+    
+        public virtual int pr_calcfrmcred_cuo(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota, Nullable<int> cuota, Nullable<int> idmovimiento)
+        {
+            var idproductoParameter = idproducto.HasValue ?
+                new ObjectParameter("idproducto", idproducto) :
+                new ObjectParameter("idproducto", typeof(long));
+    
+            var idspvsParameter = idspvs != null ?
+                new ObjectParameter("idspvs", idspvs) :
+                new ObjectParameter("idspvs", typeof(string));
+    
+            var primatotalParameter = primatotal.HasValue ?
+                new ObjectParameter("primatotal", primatotal) :
+                new ObjectParameter("primatotal", typeof(decimal));
+    
+            var tipocuotaParameter = tipocuota.HasValue ?
+                new ObjectParameter("tipocuota", tipocuota) :
+                new ObjectParameter("tipocuota", typeof(bool));
+    
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(int));
+    
+            var idmovimientoParameter = idmovimiento.HasValue ?
+                new ObjectParameter("idmovimiento", idmovimiento) :
+                new ObjectParameter("idmovimiento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
     }
 }

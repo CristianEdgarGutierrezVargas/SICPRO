@@ -34,3 +34,16 @@
 /ManejadorMetodos/ManejadorMetodos.csproj.user
 /PresentacionWeb/.vs/PresentacionWeb.csproj.dtbcache.json
 /EntidadesClases/.vs/EntidadesClases.csproj.dtbcache.json
+/Common/bin/Release
+/Common/obj/Release
+/EntidadesClases/bin/Release
+/EntidadesClases/obj/Release
+/Logica/bin/Release
+/Logica/obj/Release
+/ManejadorMetodos/bin/Release
+/ManejadorMetodos/obj/Release
+/ManejadorMetodosSql/obj/Release
+/ManejadorModelo/bin/Release
+/ManejadorModelo/obj/Release
+/PresentacionWeb/obj/Release
+/PresentacionWeb/Properties/PublishProfiles

@@ -1,5 +1,6 @@
 ﻿using Common;
 using DevExpress.Web;
+using EntidadesClases.CustomModelEntities;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
@@ -61,11 +62,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLugarContactos = new ListEditItem { Text = "Seleccione...", Value = 0, Selected = true, Index = 0 };
             cmb_id_emis.Items.Add(itemLugarContactos);
 
-           
-            //var lstDireccionParametro = _objConsumoRegistroProd.ObtenerListaDireccion(id_per);
-            //grdDirecciones.DataSource = lstDireccionParametro;
-            //grdDirecciones.DataBind();
-            //Session["LST_DIRECCIONES"] = lstDireccionParametro;
+            var idPersona = (string)ViewState["id_per"];
+            var lstDireccionParametro = _objConsumoRegistroProd.ObtenerListaContactosByIdPer(idPersona);
+            //grdContactos.DataSource = lstDireccionParametro;
+            grdContactos.DataBind();
+            Session["LST_CONTACTOS"] = lstDireccionParametro;
         }
 
         private void Limpiarform()
@@ -75,7 +76,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             relacion.Text = string.Empty;            
         }
 
-        private void SetFormDireccion(long strIdDir)
+        private void SetFormContactos(long strIdDir)
         {
             //var objDireccion = _objConsumoRegistroProd.ObtenerDireccion(strIdDir);
             //direccion.Text = objDireccion.direccion;
@@ -118,6 +119,24 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnSalir_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void grdContactos_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<OC_DIRECCION_PARAMETRO>)Session["LST_CONTACTOS"];
+
+            if (lstData != null)
+            {
+                grdContactos.DataSource = lstData;
+            }
+        }
+
+        protected void grdContactos_RowCommand(object sender, ASPxGridViewRowCommandEventArgs e)
+        {
+            ASPxGridView grid = (ASPxGridView)sender;
+            object str_id_dir = e.KeyValue;
+            ViewState["id_dir"] = Convert.ToInt64(str_id_dir);
+            SetFormContactos(Convert.ToInt64(str_id_dir));
         }
     }
 }
