@@ -425,9 +425,9 @@
             <!-- Inicio Barra Derecha -->
             <div style="clear: both;">
                 <p style="text-align: center;" class="right">
-                    ©2008 All Rights Reserved. &nbsp;•&nbsp; Design by <a href="http://www.eisbol.com/">Enterprise Integrated Solutions Bolivia</a>.
+                    ©2024 All Rights Reserved. <%--&nbsp;•&nbsp; Design by <a href="http://www.eisbol.com/">Enterprise Integrated Solutions Bolivia</a>.--%>
 				<br>
-                    EISBOL
+                    <%--EISBOL--%>
                 </p>
             </div>
             <!--Fin Barra Derecha-->
