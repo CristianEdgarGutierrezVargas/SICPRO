@@ -186,11 +186,22 @@ namespace Logica.Consumo
             }
         }
 
-        public void InsertarCierre (string cod_mod, string cod_ram, string cod_pol, string desc_riesgo, string cobertura)
+        public void InsertarCierre (string mes,string anio, DateTime inireg, DateTime finreg, decimal tcambio)
         {
             try
             {
-                _manejador_pr_riesgo.InsertarRiesgo(cod_mod, cod_ram, cod_pol, desc_riesgo, cobertura);
+                _manejador_gr_cierreregistro.InsertarCierre( mes,  anio,  inireg,  finreg,  tcambio);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void ModificarCierre(string mes, string anio, DateTime inireg, DateTime finreg, decimal tcambio)
+        {
+            try
+            {
+                _manejador_gr_cierreregistro.ModificarCierre(mes, anio, inireg, finreg, tcambio);
             }
             catch (SecureExceptions secureException)
             {

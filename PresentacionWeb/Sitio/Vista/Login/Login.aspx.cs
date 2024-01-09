@@ -68,7 +68,8 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     }
                     else
                     {
-                        Response.Redirect("~/wgr_pass.aspx");
+                        //Response.Redirect("~/Sitio/Vista/ConfiguracionSistema/wgr_pass.aspx");
+                        Response.Redirect("../Default.aspx");
                     }
                 }
             }
