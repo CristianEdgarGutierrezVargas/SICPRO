@@ -37,7 +37,7 @@
 
                     <blockquote>
                         <ul>
-                            <li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>
+                            <%--<li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>--%>
                             <li><a href="#" onclick="abre2();">Acerca de </a></li>
                             <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
                         </ul>
