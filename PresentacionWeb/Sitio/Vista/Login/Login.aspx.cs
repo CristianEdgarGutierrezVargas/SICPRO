@@ -16,9 +16,9 @@ namespace PresentacionWeb.Sitio.Vista.Login
         private long tiempo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Principal aaa = Page.Master as Principal;
-            //var d= aaa.FindControl("Menu1");
-            //d.Visible = false;
+            Principal aaa = Page.Master as Principal;
+            var d = aaa.FindControl("accordionFlushExample");
+            d.Visible = false;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -41,13 +41,13 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     this.Session["roles"] = str1;
                     string str2 = _consumoAuth.ObtenerId(this.txtusuario.Text.ToUpper(), this.txtpassword.Text.ToUpper());
                     this.Session["id"] = str2;
-                    if (this.sesion.Value.ToString()!= "0")
+                    if (sesion.Value!= "0")
                     {
-                        this.tiempo = int.Parse(sesion.Value.ToString());
+                        tiempo = int.Parse(sesion.Value.ToString());
                     }
                     else
                     {
-                        this.tiempo = 30;
+                        tiempo = 30;
                     }
                     string text = this.txtusuario.Text;
                     DateTime now = DateTime.Now;
