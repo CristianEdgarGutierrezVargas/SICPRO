@@ -796,6 +796,8 @@
     <Content Include="UI\img\logo1.png" />
     <Content Include="UI\img\logo2.png" />
     <Content Include="UI\img\logo3.png" />
+    <Content Include="UI\img\logoPrev.png" />
+    <Content Include="UI\img\logoPrevicor_01.png" />
     <Content Include="UI\img\msg_button_1.jpg" />
     <Content Include="UI\img\msg_button_2.jpg" />
     <Content Include="UI\img\msg_icon_1-.png" />
@@ -808,6 +810,7 @@
     <Content Include="UI\img\Nextg.gif" />
     <Content Include="UI\img\pile.png" />
     <Content Include="UI\img\poliza.gif" />
+    <Content Include="UI\img\previcor_logo.png" />
     <Content Include="UI\img\Previous.gif" />
     <Content Include="UI\img\Previousg.gif" />
     <Content Include="UI\img\recibos1.png" />
