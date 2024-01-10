@@ -48,6 +48,9 @@
     <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -55,6 +58,7 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Web.ASPxThemes.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -687,6 +691,7 @@
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_riesgo.aspx" />
     <Content Include="Sitio\Vista\Default.aspx" />
+    <Content Include="Sitio\Vista\Exceptions\Error.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx" />
@@ -798,6 +803,7 @@
     <Content Include="UI\img\logo3.png" />
     <Content Include="UI\img\logoPrev.png" />
     <Content Include="UI\img\logoPrevicor_01.png" />
+    <Content Include="UI\img\logo_Previcor.png" />
     <Content Include="UI\img\msg_button_1.jpg" />
     <Content Include="UI\img\msg_button_2.jpg" />
     <Content Include="UI\img\msg_icon_1-.png" />
@@ -911,6 +917,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Exceptions\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\Exceptions\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1441,7 +1454,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />
     <Folder Include="Sitio\Entidades\" />
-    <Folder Include="Sitio\Vista\Exceptions\" />
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="Sitio\Vista\ReportesSistema\" />

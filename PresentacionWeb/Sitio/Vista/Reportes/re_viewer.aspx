@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <cr:crystalreportviewer runat="server" autodatabind="true" ID="CrystalReportViewer1"></cr:crystalreportviewer>
+            <cr:crystalreportviewer runat="server" autodatabind="true" ID="CrystalReportViewer1" GroupTreeStyle-ShowLines="False" Height="50px" ToolPanelView="None" Width="350px"></cr:crystalreportviewer>
         </div>
     </form>
 </body>

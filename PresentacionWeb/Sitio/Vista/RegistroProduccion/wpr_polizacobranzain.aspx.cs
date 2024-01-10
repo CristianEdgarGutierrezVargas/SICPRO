@@ -31,7 +31,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
                 CargaInicial(idPoliza, idMov);
             }
-            
+            re_memo_report.Visible = false;
         }
 
         #region Metodos
@@ -343,6 +343,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnMemo_Click(object sender, EventArgs e)
         {
+            re_memo_report.Visible = true;
             re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
         }
     }

@@ -13,5 +13,16 @@ namespace PresentacionWeb
         {
 
         }
+
+        public void Page_Error(object sender, EventArgs e)
+        {
+            string mensajeError = string.Empty;
+            Exception objErr = Server.GetLastError();
+            if (objErr.InnerException == null)
+                mensajeError = objErr.Message;
+            else
+                mensajeError = objErr.InnerException.Message;
+            Response.Redirect("~/Sitio/Vista/Exceptions/Error.aspx?error=" + mensajeError.Replace("\r\n", ""));
+        }
     }
 }

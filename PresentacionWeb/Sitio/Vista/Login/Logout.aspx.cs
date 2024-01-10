@@ -11,7 +11,13 @@ namespace PresentacionWeb.Sitio.Vista.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Clear();
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Abandon();
+            HttpContext.Current.User = null;
+            System.Web.Security.FormsAuthentication.SignOut(); // if forms auth is used
 
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

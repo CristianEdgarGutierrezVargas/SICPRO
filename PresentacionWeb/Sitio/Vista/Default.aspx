@@ -17,7 +17,7 @@
         <br>
 
     <span id="ctl00_cpmaster_Label1" style="font-size:Small;font-weight:bold;">SISTEMA INTEGRADO DE CONTROL DE PRODUCCION</span><br>
-        <span id="ctl00_cpmaster_Label2" style="font-weight:bold;">Ver 1.0</span>
+        <span id="ctl00_cpmaster_Label2" style="font-weight:bold;">Ver 2.0</span>
 
     <br>
     <br>
@@ -27,7 +27,7 @@
 
 </div>
 <p class="links" style="text-align:center">
-    <span id="ctl00_cpmaster_Label3">ENTERPRISE INTEGRATED SOLUTIONS BOLIVIA (C) 2008</span>
+    <span id="ctl00_cpmaster_Label3">(C) 2024</span>
 
 </p>
 
