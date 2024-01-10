@@ -711,7 +711,6 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx" />
-    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
@@ -1057,13 +1056,6 @@
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx.designer.cs">
       <DependentUpon>wpr_polizaapli.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx.cs">
-      <DependentUpon>wpr_polizacobranza.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranza.aspx.designer.cs">
-      <DependentUpon>wpr_polizacobranza.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx.cs">
       <DependentUpon>wpr_polizacobranzain.aspx</DependentUpon>
@@ -1477,6 +1469,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

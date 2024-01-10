@@ -162,7 +162,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var idPoliza = objPolizaMovimiento.id_poliza;
             var idMovimiento = objPolizaMovimiento.id_movimiento;
             var idClaMov = objPolizaMovimiento.id_clamov;
-            Response.Redirect("wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" +idClaMov);
+            Response.Redirect("../ValidacionProduccion/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" +idClaMov);
         }
     }
 }

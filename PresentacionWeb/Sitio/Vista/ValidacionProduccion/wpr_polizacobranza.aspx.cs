@@ -29,9 +29,19 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 int num1 = int.Parse(base.Request.QueryString["val"]);
                 Movimiento(base.Request.QueryString["ver"]);
 
-         
+
+                id_poliza.Value = num.ToString();
+                id_mov.Value = num1.ToString();
+
+                var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
+                cmbProducto.DataSource = lstProducto;
+                cmbProducto.TextField = "desc_prod";
+                cmbProducto.ValueField = "id_producto";
+                cmbProducto.DataBind();
 
                 var consumoValidar= _objConsumoValidarProd.ObtenerPolizaNRI(num, num1);
+                if (consumoValidar != null)
+                {                
                 fc_emision.Value = consumoValidar.fc_emision;
                 fc_recepcion.Value = consumoValidar.fc_recepcion;
                 fc_inivig.Value = consumoValidar.fc_inivig;
@@ -52,19 +62,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 txtNumCuotas.Value = consumoValidar.num_cuota;
                 cmbDivisa.Value = consumoValidar.id_div.ToString();
                 tipo_cuota.Value = consumoValidar.tipo_cuota;
-                txtMatAseg.Value = consumoValidar.mat_aseg;
-
-                id_poliza.Value = num.ToString();
-                id_mov.Value = num1.ToString();
-
-                var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
-                cmbProducto.DataSource = lstProducto;
-                cmbProducto.TextField = "desc_prod";
-                cmbProducto.ValueField = "id_producto";
-                cmbProducto.DataBind();
+                txtMatAseg.Value = consumoValidar.mat_aseg;                                  
                 cmbProducto.Value = consumoValidar.id_producto.ToString();
 
-
+                }
             }
             
         }

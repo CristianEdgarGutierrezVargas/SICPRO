@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
     <div id="content">
             <div class="post">
@@ -12,8 +12,7 @@
 
         <br>
 
-        <img id="ctl00_cpmaster_Image1" src="../../UI/img/logo-s.png" style="border-width:0px;">
-        <br>
+        &nbsp;<img src="../../UI/img/previcor_logo.png" width="200"/><br>
         <br>
 
     <span id="ctl00_cpmaster_Label1" style="font-size:Small;font-weight:bold;">SISTEMA INTEGRADO DE CONTROL DE PRODUCCION</span><br>

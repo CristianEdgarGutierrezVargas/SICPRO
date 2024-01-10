@@ -320,7 +320,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             return descCompania;
         }
         
- public string NombreProducto(object num)
+        public string NombreProducto(object num)
         {
             if (num == null)
                 return "";
