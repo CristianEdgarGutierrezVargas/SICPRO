@@ -70,43 +70,43 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav  ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link fs-9 rounded ps-3  " href="RegistroProduccion/RegistroPersonas.aspx">
+                                                    <a class="nav-link fs-9 rounded ps-3  " href="/Sitio/Vista/RegistroProduccion/wgr_persona.aspx">
                                                         <i class="fas fa-user text-primary "></i>
                                                         Registro de Persona
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3  " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3  " href="/Sitio/Vista/RegistroProduccion/wpr_poliza.aspx">
                                                         <i class="fas fa-file-contract text-primary "></i>
                                                         Registro Pólizas nuevas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_listareno.aspx">
                                                         <i class="fas fa-file-signature text-primary "></i>
                                                         Registro de Pólizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link fs-9  rounded ps-3 " href="#">
+                                                    <a class="nav-link fs-9  rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx">
                                                         <i class="fas fa-file-alt text-primary "></i>
                                                         Registro de Aplicaciones a Pólizas </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_listainclu.aspx">
                                                         <i class="fas fa-file-medical text-primary "></i>
                                                         Registro de Inclusiones a Póliza</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_listaexclu.aspx">
                                                         <i class="fas fa-file-excel text-primary "></i>
                                                         Registro a Exclusiones a Póliza </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link fs-9  rounded ps-3 " href="#">
+                                                    <a class="nav-link fs-9  rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_listaanu.aspx">
                                                         <i class="fas fa-file-invoice text-primary "></i>
                                                         Registro de Anulaciones de Póliza</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link fs-9  rounded ps-3 " href="#">
+                                                    <a class="nav-link fs-9  rounded ps-3 " href="/Sitio/Vista/RegistroProduccion/wpr_grupo.aspx">
                                                         <i class="fas fa-users text-primary "></i>
                                                         Registro de Grupos </a>
                                                 </li>
@@ -126,32 +126,32 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ValidacionProduccion/wpr_listacob1.aspx">
                                                         <i class="fas fa-file-contract text-primary "></i>
                                                         Verificación Polizas Nuevas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3" href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3" href="/Sitio/Vista/ValidacionProduccion/wpr_listacob1.aspx">
                                                         <i class="fas fa-file-signature text-primary "></i>
                                                         Verificación Pólizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ValidacionProduccion/wpr_listacob2.aspx">
                                                         <i class="fas fa-file-alt text-primary "></i>
                                                         Verificación Aplicaciones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ValidacionProduccion/wpr_listacob1.aspx">
                                                         <i class="fas fa-file-medical text-primary "></i>
                                                         Verificación de Inclusiones a Póliza</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ValidacionProduccion/wpr_listacob3.aspx">
                                                         <i class="fas fa-file-excel text-primary "></i>
                                                         Verificación a Exclusiones a Póliza </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ValidacionProduccion/wpr_listacob3.aspx">
                                                         <i class="fas fa-file-invoice text-primary "></i>
                                                         Verificación de Anulaciones de Póliza</a>
                                                 </li>
@@ -221,47 +221,47 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
                                                         <i class="fas fa-file-signature text-primary "></i>
                                                         Polizas Nuevas </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
                                                         <i class="fas fa-file-invoice-dollar text-primary "></i>
                                                         	Polizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom2.aspx">
                                                         <i class="fas fa-file-alt text-primary "></i>
                                                         	Aplicaciones a Pólizas </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
                                                         <i class="fas fa-file-medical text-primary "></i>
                                                         	Inclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx">
                                                         <i class="fas fa-file-excel text-primary "></i>
                                                         	Exclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx">
                                                         <i class="fas fa-ban text-primary "></i>
                                                         Anulaciones de Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_amortizacomis.aspx">
                                                         <i class="fas fa-money-check-alt text-primary "></i>
                                                         Registro Cheques de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_recibocomisiones.aspx">
                                                         <i class="fas fa-receipt text-primary "></i>
                                                         		Registro de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_entregarecibos.aspx">
                                                         <i class="fas fa-file-import text-primary "></i>
                                                         		Entrega de Recibos</a>
                                                 </li>
@@ -368,21 +368,65 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item ">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wgr_respass.aspx">
                                                         <i class="fas fa-file-signature text-primary "></i>
-                                                       	Registro de Reclamos </a>
+                                                       	Reiniciar Contraseña</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link  fs-9 rounded ps-3 " href="#">
                                                         <i class="fas fa-search text-primary "></i>
-                                                        	Seguimiento de Reclamos</a>
+                                                        	Modificación de Cuotas</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link  fs-9 rounded ps-3 " href="#">
                                                         <i class="fas fa-window-close text-primary "></i>
-                                                        	Cierre de  Reclamos</a>
+                                                        	Administración de Productos</a>
                                                 </li>
-                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Modificación de Productos</a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wpr_riesgo.aspx">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Administración de Riesgos</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Rehabilitación de Poliza Anulada</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wgr_passnuevo.aspx">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Registro de Nuevos Usuarios</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Registro de Parametros</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Administración de Accesos por Rol</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Registro de Tipo de Cambio</a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wgr_cierreregistro.aspx">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Cierre de Registro</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wco_comicart.aspx">
+                                                        <i class="fas fa-window-close text-primary "></i>
+                                                        	Registro de Comisiones X Cartera</a>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -399,7 +443,7 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/Login/Login.aspx">
                                                         <i class="fas fa-door-closed text-primary "></i>
                                                        	Cerrar Sesion </a>
                                                 </li>
