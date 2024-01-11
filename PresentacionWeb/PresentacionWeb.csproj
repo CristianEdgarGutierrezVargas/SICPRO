@@ -710,6 +710,7 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_listareno.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaanu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
@@ -1049,6 +1050,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx.designer.cs">
       <DependentUpon>wpr_poliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaanu.aspx.cs">
+      <DependentUpon>wpr_polizaanu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaanu.aspx.designer.cs">
+      <DependentUpon>wpr_polizaanu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx.cs">
       <DependentUpon>wpr_polizaapli.aspx</DependentUpon>
@@ -1469,7 +1477,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

@@ -1,4 +1,6 @@
-﻿using Logica.Consumo;
+﻿using DevExpress.Web.Bootstrap;
+using EntidadesClases.CustomModelEntities;
+using Logica.Consumo;
 using PresentacionWeb.Sitio.Vista.ValidacionProduccion;
 using System;
 using System.Collections.Generic;
@@ -12,11 +14,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
     public partial class wpr_listaapli : System.Web.UI.Page
     {
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
-        private long ll = 0;
-        private long aa = 0;
-        private long bb = 0;
-        private long cc = 0;
-        private long dd = 0;
+        ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
+        //private long ll = 0;
+        //private long aa = 0;
+        //private long bb = 0;
+        //private long cc = 0;
+        //private long dd = 0;
         public static string valor;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,13 +29,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
                 fc_inivig.Text = DateTime.Now.ToShortDateString();
                 Limpiar();
-                wpr_listacob1.valor = base.Request.QueryString["var"];
-                id_clamov.Value = wpr_listacob1.valor;
-                Datos();
-
-
             }
         }
+
+        #region metodos
         private void Limpiar()
         {
             id_per.Value = "";
@@ -52,34 +52,109 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>Introduzca Criterios de Búsqueda</p>");
                 //messageBox.SetOKButton("msg_button_class1");
                 //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-                //this.lblmensaje.Text = "Introduzca Criterios de Búsqueda";
+                this.lblmensaje.Text = "Introduzca Criterios de Búsqueda";
                 return;
             }
-            //Cpr_cobranzas prCobranza = new Cpr_cobranzas();
+            var objTablaPolizaIn = new OC_ObtenerTablaPolizaIn();
+            objTablaPolizaIn.num_poliza = num_poliza.Text;
+            objTablaPolizaIn.id_perclie = id_per.Value;
+            objTablaPolizaIn.id_spvs = id_spvs.Value;
+            objTablaPolizaIn.id_producto = Convert.ToInt64(id_producto.Value);
+            objTablaPolizaIn.vigencia = vigencia.Checked;
+            objTablaPolizaIn.fc_inivig = fc_inivig.Date;
+            objTablaPolizaIn.fc_finvig = fc_finvig.Date;
+            objTablaPolizaIn.fc_polizavencida = fc_polizavencida.Date;
+            objTablaPolizaIn.porvencer = porvencer.Checked;
 
-            string item = base.Request.QueryString["var"];
-            //prCobranza.lblmensaje = this.lblmensaje;
-            //prCobranza.num_poliza = this.num_poliza;
-            //prCobranza.id_perclie = this.id_per;
-            //prCobranza.fc_inivig = this.fc_inivig;
-            //prCobranza.fc_finivig = this.fc_finvig;
-            //prCobranza.fc_finvig = this.fc_polizavencida;
-            //prCobranza.id_spvs1 = this.id_spvs;
-            //prCobranza.id_producto = this.id_producto;
-            //prCobranza.vigencia = this.vigencia;
-            //prCobranza.porvencer = this.porvencer;
-            //prCobranza.a = this.ap;
-            //prCobranza.b = this.bp;
-            //prCobranza.RecuperaTablaPolizaNRI(item);
+            var lstResponse = _objConsumoRegistroProd.ObtenerTablaPolizaAp(objTablaPolizaIn);
 
-            //RecuperaTablaPolizaNRI(item);
-            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
-            gridpoliza.DataSource = dataTable;
+            gridpoliza.DataSource = lstResponse;
             gridpoliza.DataBind();
             this.gridcontainer.Visible = true;
         }
 
+        public string Grupo(object num)
+        {
 
+            if (num == null)
+                return "";
+
+            string descGrupo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idGrupo = Convert.ToInt64(num.ToString());
+                descGrupo = _objConsumoValidarProd.objGrupoById(idGrupo).desc_grupo;
+            }
+            return descGrupo;
+        }
+        public string CompaniaAseg(object num)
+        {
+            if (num == null)
+                return "";
+            string descCompania = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+
+                descCompania = _objConsumoValidarProd.GetDescCompaniaById(num.ToString());
+            }
+            return descCompania;
+        }
+
+        public string NombreProducto(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                descProducto = _objConsumoValidarProd.GetProductoById(idProducto).desc_prod;
+            }
+            return descProducto;
+        }
+        public string TipoPoliza(object num)
+        {
+            if (num == null)
+                return "";
+            string descProducto = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idProducto = Convert.ToInt64(num.ToString());
+                var tipo = _objConsumoValidarProd.GetPolizaByIdPoliza(idProducto).clase_poliza;
+                if ((bool)tipo)
+                    descProducto = "Normal";
+                else descProducto = "Flotante";
+
+            }
+            return descProducto;
+        }
+        public string FormaPago(object num)
+        {
+            if (num == null)
+                return "";
+            string formaPago = "";
+            if (Convert.ToBoolean(num.ToString()))
+
+                formaPago = "Contado";
+            else formaPago = "Crédito";
+
+
+            return formaPago;
+        }
+        public string Ejecutivo(object num)
+        {
+            if (num == null)
+                return "";
+            string nomEjecutivo = "";
+            if (!string.IsNullOrEmpty(num.ToString()))
+            {
+                var idEjecutivo = num.ToString();
+                nomEjecutivo = _objConsumoValidarProd.GetPersonaById(idEjecutivo).nomraz;
+            }
+            return nomEjecutivo;
+        }
+
+        #endregion
 
         protected void btnserprod_Click(object sender, EventArgs e)
         {
@@ -177,6 +252,25 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             grdPersonas.DataSource = Session["lstPersonas"];
         }
 
+        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Button _button = sender as Button;
+
+            BootstrapGridView _grid = _button.NamingContainer.NamingContainer.NamingContainer as BootstrapGridView;
+
+            var idPoliza = _grid.GetRowValues(_grid.FocusedRowIndex, "id_poliza")?.ToString();
+            var idMovimiento = _grid.GetRowValues(_grid.FocusedRowIndex, "id_movimiento")?.ToString();
+            ////var idPoliza = gridpoliza.GetRowValues(_grid.EditingRowVisibleIndex, "id_poliza").ToString();
+            Response.Redirect("wpr_polizaapli.aspx?var=" + idPoliza + "&val=" + idMovimiento);
+
+            ////TextBox _textBox = _grid.GetDataItemControl(_grid.FocusedRowIndex, "CustomCode", "txtCustCode") as TextBox;
+
+            ////String _text = _textBox.Text;
+
+            ////https://stackoverflow.com/questions/64555062/how-to-access-gridviewdatacolumn-of-detailrow-on-server-side
+
+        }
+
         protected void CallBCompania_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
             var index = e.Parameter;
@@ -236,5 +330,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         {
 
         }
+
+
     }
 }

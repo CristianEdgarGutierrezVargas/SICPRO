@@ -20,11 +20,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
 
-        private long ll = 0;
-        private long aa = 0;
-        private long bb = 0;
-        private long cc = 0;
-        private long dd = 0;
+        //private long ll = 0;
+        //private long aa = 0;
+        //private long bb = 0;
+        //private long cc = 0;
+        //private long dd = 0;
         public static string valor;
 
         protected void Page_Load(object sender, EventArgs e)

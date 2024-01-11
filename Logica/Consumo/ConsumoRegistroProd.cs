@@ -485,6 +485,70 @@ namespace Logica.Consumo
             }
         }
 
+        public List<vpr_polaplivar> ObtenerTablaPolizaAp(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerTablaPolizaAp(objObtTablaPolIn);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vpr_polincluvar> ObtenerTablaPolizaI(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerTablaPolizaI(objObtTablaPolIn);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vpr_polexcluvar> ObtenerTablaPolizaEx(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerTablaPolizaEx(objObtTablaPolIn);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vpr_polanuvar> ObtenerTablaPolizaAn(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerTablaPolizaAn(objObtTablaPolIn);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public GetDataVeriPoliza_Result GetDataVeriPoliza(long id_poliza, long id_movimiento)
         {
             try

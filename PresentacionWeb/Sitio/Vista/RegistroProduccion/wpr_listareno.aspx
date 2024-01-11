@@ -225,7 +225,7 @@
                             <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                             <SettingsText Title="Pólizas Registradas" />
                             <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                                <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
+                            <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
                             <SettingsBootstrap Striped="true" />
                             <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
                             <SettingsPager NumericButtonCount="3">

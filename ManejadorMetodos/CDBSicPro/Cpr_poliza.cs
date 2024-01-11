@@ -140,6 +140,201 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+
+        public List<vpr_polaplivar> ObtenerTablaPolizaAp(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                var sql1 = _context.vpr_polaplivar.Where(w => w.estado == true).ToList();
+
+                if (objObtTablaPolIn.num_poliza != null & (objObtTablaPolIn.num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(objObtTablaPolIn.num_poliza.ToUpper())).ToList();
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_perclie))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(objObtTablaPolIn.id_perclie.ToUpper())).ToList();
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_spvs))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(objObtTablaPolIn.id_spvs)).ToList();
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+
+                if (objObtTablaPolIn.id_producto != 0)
+                {
+                    sql1 = sql1.Where(x => x.id_producto == objObtTablaPolIn.id_producto).ToList();
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+
+                if (objObtTablaPolIn.vigencia && objObtTablaPolIn.fc_inivig != null && objObtTablaPolIn.fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= objObtTablaPolIn.fc_inivig && x.fc_inivig <= objObtTablaPolIn.fc_finvig).ToList();
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (objObtTablaPolIn.porvencer & objObtTablaPolIn.fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= objObtTablaPolIn.fc_polizavencida).ToList();
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+                return sql1;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+
+        public List<vpr_polincluvar> ObtenerTablaPolizaI(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                var sql1 = _context.vpr_polincluvar.Where(w => w.estado == true).ToList();
+
+                if (objObtTablaPolIn.num_poliza != null & (objObtTablaPolIn.num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(objObtTablaPolIn.num_poliza.ToUpper())).ToList();
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_perclie))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(objObtTablaPolIn.id_perclie.ToUpper())).ToList();
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_spvs))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(objObtTablaPolIn.id_spvs)).ToList();
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+
+                if (objObtTablaPolIn.id_producto != 0)
+                {
+                    sql1 = sql1.Where(x => x.id_producto == objObtTablaPolIn.id_producto).ToList();
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+
+                if (objObtTablaPolIn.vigencia && objObtTablaPolIn.fc_inivig != null && objObtTablaPolIn.fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= objObtTablaPolIn.fc_inivig && x.fc_inivig <= objObtTablaPolIn.fc_finvig).ToList();
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (objObtTablaPolIn.porvencer & objObtTablaPolIn.fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= objObtTablaPolIn.fc_polizavencida).ToList();
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+                return sql1;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+        public List<vpr_polexcluvar> ObtenerTablaPolizaEx(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                var sql1 = _context.vpr_polexcluvar.Where(w => w.estado == true).ToList();
+
+                if (objObtTablaPolIn.num_poliza != null & (objObtTablaPolIn.num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(objObtTablaPolIn.num_poliza.ToUpper())).ToList();
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_perclie))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(objObtTablaPolIn.id_perclie.ToUpper())).ToList();
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_spvs))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(objObtTablaPolIn.id_spvs)).ToList();
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+
+                if (objObtTablaPolIn.id_producto != 0)
+                {
+                    sql1 = sql1.Where(x => x.id_producto == objObtTablaPolIn.id_producto).ToList();
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+
+                if (objObtTablaPolIn.vigencia && objObtTablaPolIn.fc_inivig != null && objObtTablaPolIn.fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= objObtTablaPolIn.fc_inivig && x.fc_inivig <= objObtTablaPolIn.fc_finvig).ToList();
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (objObtTablaPolIn.porvencer & objObtTablaPolIn.fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= objObtTablaPolIn.fc_polizavencida).ToList();
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+                return sql1;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+        public List<vpr_polanuvar> ObtenerTablaPolizaAn(OC_ObtenerTablaPolizaIn objObtTablaPolIn)
+        {
+            try
+            {
+                var sql1 = _context.vpr_polanuvar.Where(w => w.estado == true).ToList();
+
+                if (objObtTablaPolIn.num_poliza != null & (objObtTablaPolIn.num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(objObtTablaPolIn.num_poliza.ToUpper())).ToList();
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_perclie))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(objObtTablaPolIn.id_perclie.ToUpper())).ToList();
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+
+                if (!string.IsNullOrEmpty(objObtTablaPolIn.id_spvs))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(objObtTablaPolIn.id_spvs)).ToList();
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+
+                if (objObtTablaPolIn.id_producto != 0)
+                {
+                    sql1 = sql1.Where(x => x.id_producto == objObtTablaPolIn.id_producto).ToList();
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+
+                if (objObtTablaPolIn.vigencia && objObtTablaPolIn.fc_inivig != null && objObtTablaPolIn.fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= objObtTablaPolIn.fc_inivig && x.fc_inivig <= objObtTablaPolIn.fc_finvig).ToList();
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (objObtTablaPolIn.porvencer & objObtTablaPolIn.fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= objObtTablaPolIn.fc_polizavencida).ToList();
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+                return sql1;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+                
+
         public pr_poliza GetPolizaById(long idPoliza)
         {
 

@@ -11,7 +11,13 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.Page.IsPostBack && base.Request.QueryString["var"] != "")
+            {
+                int num = int.Parse(base.Request.QueryString["var"]);
+                int num1 = int.Parse(base.Request.QueryString["val"]);
+                //this.Buscar(num, num1);
+                //this.fc_reg.Value = DateTime.Today.Date.ToShortDateString();
+            }
         }
     }
 }

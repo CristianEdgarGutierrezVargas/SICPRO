@@ -6,10 +6,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-            <div class="container">
+    <div class="container">
 
 
-    <script type="text/javascript">
+    <script type="text/javascript"> 
         var isDetailRowExpanded = new Array();
         function OnRowClick(s, e) {
             if (isDetailRowExpanded[e.visibleIndex] != true)
@@ -24,12 +24,11 @@
             isDetailRowExpanded[e.visibleIndex] = false;
         }
 
-        function OnRowDblClick(s, e) {            
+        function OnRowDblClick(s, e) {
             var index = e.visibleIndex;
 
             CallBGridPoliza.PerformCallback(index);
         }
-
         function UpdateDetailGrid(s, e) {
             var index = e.visibleIndex;
 
@@ -199,7 +198,7 @@
                     <div class="row mt-1">
                         <div class="col-4 pe-0">
                             <asp:Label runat="server" ID="lblcuotavencidas" Text="Polizas Vencidas:" CssClass="fs-10"></asp:Label>
-                        </div>                       
+                        </div>
                         <div class="col-8">
                             <dx:BootstrapDateEdit ID="fc_polizavencida" runat="server">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
@@ -221,127 +220,125 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7 mt-4 mt-lg-0">
                     <asp:Panel runat="server" ID="gridcontainer" Visible="false">
-                        <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza" OnDataBinding="gridpoliza_DataBinding" OnHtmlDataCellPrepared="gridpoliza_HtmlDataCellPrepared">
+                        <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza" OnDataBinding="gridpoliza_DataBinding">
                             <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                             <SettingsText Title="Pólizas Registradas" />
                             <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                                <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
+                            <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
                             <SettingsBootstrap Striped="true" />
                             <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
                             <SettingsPager NumericButtonCount="3">
                                 <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                             </SettingsPager>
-                                <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
-
-                                <Columns>
-                                    <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="num_poliza" Width="40px">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz" Width="170px">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Width="30px">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_movimiento" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_poliza" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="fc_emision" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="no_liquida" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="prima_bruta" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_gru" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_spvs" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_producto" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="tipo_cuota" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
-                                    </dx:BootstrapGridViewDateColumn>
-                                    <dx:BootstrapGridViewDataColumn Caption="Opciones" Width="20px">
-                                        <DataItemTemplate>
-                                            <asp:Button ID="btnSeleccionar" runat="server" Text=">" OnClick="btnSeleccionar_Click" />
-                                        </DataItemTemplate>
-                                    </dx:BootstrapGridViewDataColumn>
-                                </Columns>
-                                <Templates>
-                                    <DetailRow>
-                                        <div class="divScroll">
-                                            <div class="divDetails">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <span class="text-info fw-bold fs-8">Datos de Poliza Renovada (Módulo de Cobranzas)</span>
-                                                    </div>
+                            <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
+                            <Columns>
+                                 <dx:BootstrapGridViewDateColumn Caption="N° Póliza" FieldName="num_poliza" Width="40px">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn Caption="Cliente" FieldName="nomraz" Width="170px">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Width="30px">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn Caption="Fin Vigencia" FieldName="fc_finvig" Width="30px">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_movimiento" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_poliza" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="fc_emision" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="no_liquida" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="prima_bruta" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_gru" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_spvs" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_producto" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="tipo_cuota" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
+                                 </dx:BootstrapGridViewDateColumn>
+                                 <dx:BootstrapGridViewDataColumn Caption="Opciones" Width="20px">
+                                     <DataItemTemplate>
+                                         <asp:Button ID="btnSeleccionar" runat="server" Text=">" OnClick="btnSeleccionar_Click" />
+                                     </DataItemTemplate>
+                                 </dx:BootstrapGridViewDataColumn>
+                            </Columns>
+                            <Templates>
+                                <DetailRow>
+                                    <div class="divScroll">
+                                        <div class="divDetails">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <span class="text-info fw-bold fs-8">Datos de Poliza Renovada (Módulo de Cobranzas)</span>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Inicio de Vigencia: </span>
-                                                        <asp:Label runat="server" ID="lblIniVig" Text='<%# Bind("fc_inivig","{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Vigencia: </span>
-                                                        <asp:Label runat="server" ID="lblFinVig" Text='<%# Bind("fc_finvig","{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Fin de Emision: </span>
-                                                        <asp:Label runat="server" ID="lblEmision" Text='<%# Eval("fc_emision","{0:dd/MM/yyyy}") %>'></asp:Label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Inicio de Vigencia: </span>
+                                                    <asp:Label runat="server" ID="lblIniVig" Text='<%# Bind("fc_inivig","{0:dd/MM/yyyy}") %>'></asp:Label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Nº Poliza: </span>
-                                                        <asp:Label runat="server" ID="lblNumPoliza" Text='<%# Bind("num_poliza") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Nº Liquidación: </span>
-                                                        <asp:Label runat="server" ID="Label3" Text='<%# Bind("no_liquida") %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Prima Neta: </span>
-                                                        <asp:Label runat="server" ID="Label4" Text='<%# Bind("prima_bruta") %>'></asp:Label>
-                                                    </div>
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Fin de Vigencia: </span>
+                                                    <asp:Label runat="server" ID="lblFinVig" Text='<%# Bind("fc_finvig","{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Fin de Emision: </span>
+                                                    <asp:Label runat="server" ID="lblEmision" Text='<%# Eval("fc_emision","{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Nº Poliza: </span>
+                                                    <asp:Label runat="server" ID="lblNumPoliza" Text='<%# Bind("num_poliza") %>'></asp:Label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Nº Liquidación: </span>
+                                                    <asp:Label runat="server" ID="Label3" Text='<%# Bind("no_liquida") %>'></asp:Label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <span class="fs-11 fw-bold ">Prima Neta: </span>
+                                                    <asp:Label runat="server" ID="Label4" Text='<%# Bind("prima_bruta") %>'></asp:Label>
+                                                </div>
 
-                                                    <div class="col-12">
-                                                        <span class="fs-11 fw-bold ">Asegurado: </span>
-                                                        <asp:Label runat="server" ID="Label2" Text='<%# Bind("nomraz") %>'></asp:Label>
-                                                    </div>
+                                                <div class="col-12">
+                                                    <span class="fs-11 fw-bold ">Asegurado: </span>
+                                                    <asp:Label runat="server" ID="lblAsegurado" Text='<%# Bind("nomraz") %>'></asp:Label>
+                                                </div>
 
-                                                    <div class="col-12">
-                                                        <span class="fs-11 fw-bold ">Grupo: </span>
-                                                        <asp:Label runat="server" ID="lblGrupo" Text='<%#  Grupo(Eval("id_gru")) %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="fs-11 fw-bold ">Cia. Aseguradora: </span>
-                                                        <asp:Label runat="server" ID="Label5" Text='<%# CompaniaAseg(Eval("id_spvs")) %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <span class="fs-11 fw-bold ">Producto: </span>
-                                                        <asp:Label runat="server" ID="Label6" Text='<%# NombreProducto(Eval("id_producto")) %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <span class="fs-11 fw-bold ">Tipo: </span>
-                                                        <asp:Label runat="server" ID="Label7" Text='<%# TipoPoliza(Eval("id_poliza")) %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="fs-11 fw-bold ">Ejecutivo: </span>
-                                                        <asp:Label runat="server" ID="lblEjecutivo" Text='<%# Ejecutivo(Eval("id_perejec")) %>'></asp:Label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <span class="fs-11 fw-bold ">Forma de Pago: </span>
-                                                        <asp:Label runat="server" ID="lblFormaPago" Text='<%# FormaPago(Eval("tipo_cuota")) %>'></asp:Label>
-                                                    </div>
+                                                <div class="col-12">
+                                                    <span class="fs-11 fw-bold ">Grupo: </span>
+                                                    <asp:Label runat="server" ID="lblGrupo" Text='<%#  Grupo(Eval("id_gru")) %>'></asp:Label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <span class="fs-11 fw-bold ">Cia. Aseguradora: </span>
+                                                    <asp:Label runat="server" ID="lblCompania" Text='<%# CompaniaAseg(Eval("id_spvs")) %>'></asp:Label>
+                                                </div>
+                                                <div class="col-6">
+                                                    <span class="fs-11 fw-bold ">Producto: </span>
+                                                    <asp:Label runat="server" ID="lblProducto" Text='<%# NombreProducto(Eval("id_producto")) %>'></asp:Label>
+                                                </div>
+                                                <div class="col-6">
+                                                    <span class="fs-11 fw-bold ">Tipo: </span>
+                                                    <asp:Label runat="server" ID="Label2" Text='<%# TipoPoliza(Eval("id_poliza")) %>'></asp:Label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <span class="fs-11 fw-bold ">Ejecutivo: </span>
+                                                    <asp:Label runat="server" ID="lblEjecutivo" Text='<%# Ejecutivo(Eval("id_perejec")) %>'></asp:Label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <span class="fs-11 fw-bold ">Forma de Pago: </span>
+                                                    <asp:Label runat="server" ID="lblFormaPago" Text='<%# FormaPago(Eval("tipo_cuota")) %>'></asp:Label>
                                                 </div>
                                             </div>
                                         </div>
-                                    </DetailRow>
-                                </Templates>
-                            </dx:BootstrapGridView>
-                            <dx:BootstrapCallbackPanel ID="CallBGridPoliza" ClientInstanceName="CallBGridPoliza" runat="server" OnCallback="CallBGridPoliza_Callback"></dx:BootstrapCallbackPanel>
-                        </asp:Panel>
+                                    </div>
+                                </DetailRow>
+                            </Templates>
+                        </dx:BootstrapGridView>
+                    </asp:Panel>
 
                 </div>
             </div>
@@ -357,9 +354,6 @@
     </asp:Panel>
 
     <dx:BootstrapPopupControl ID="pCPersona" runat="server" ClientInstanceName="pCPersona" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
-
-<SettingsBootstrap Sizing="Small"></SettingsBootstrap>
-
         <SettingsAdaptivity Mode="Always" MaxWidth="500px" />
         <CssClasses Content="pt-1" />
         <ContentCollection>
@@ -401,9 +395,7 @@
                                 <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                             </SettingsPager>
                             <Columns>
-                                <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11">
-<CssClasses DataCell="fs-11"></CssClasses>
-                                </dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
 
                             </Columns>
 
@@ -425,9 +417,6 @@
     </dx:BootstrapPopupControl>
 
     <dx:BootstrapPopupControl ID="pCCompania" runat="server" ClientInstanceName="pCCompania" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
-
-<SettingsBootstrap Sizing="Small"></SettingsBootstrap>
-
         <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
         <CssClasses Content="pt-1" />
         <ContentCollection>
@@ -469,9 +458,7 @@
                                 <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                             </SettingsPager>
                             <Columns>
-                                <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11">
-<CssClasses DataCell="fs-11"></CssClasses>
-                                </dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
 
                             </Columns>
 
@@ -493,9 +480,6 @@
     </dx:BootstrapPopupControl>
 
     <dx:BootstrapPopupControl ID="pCProducto" runat="server" ClientInstanceName="pCProducto" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
-
-<SettingsBootstrap Sizing="Small"></SettingsBootstrap>
-
         <SettingsAdaptivity Mode="Always" MaxWidth="600px" />
         <CssClasses Content="pt-1" />
         <ContentCollection>
@@ -537,9 +521,7 @@
                                 <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
                             </SettingsPager>
                             <Columns>
-                                <dx:BootstrapGridViewDataColumn FieldName="desc_prod" Width="200px" CssClasses-DataCell="fs-11">
-<CssClasses DataCell="fs-11"></CssClasses>
-                                </dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewDataColumn FieldName="desc_prod" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
 
                             </Columns>
 
