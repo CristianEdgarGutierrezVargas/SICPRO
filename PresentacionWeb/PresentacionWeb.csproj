@@ -716,6 +716,11 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx" />
+    <Content Include="Sitio\Vista\ReportesSistema\wcm_reportes.aspx" />
+    <Content Include="Sitio\Vista\ReportesSistema\wco_reportes.aspx" />
+    <Content Include="Sitio\Vista\ReportesSistema\wger_grafica.aspx" />
+    <Content Include="Sitio\Vista\ReportesSistema\wpr_reportes.aspx" />
+    <Content Include="Sitio\Vista\ReportesSistema\wre_reportes.aspx" />
     <Content Include="Sitio\Vista\Reportes\re_viewer.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob4.aspx" />
     <Content Include="Sitio\Vista\ValidacionProduccion\wpr_listacob3.aspx" />
@@ -1093,6 +1098,41 @@
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizareno.aspx.designer.cs">
       <DependentUpon>wpr_polizareno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wcm_reportes.aspx.cs">
+      <DependentUpon>wcm_reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wcm_reportes.aspx.designer.cs">
+      <DependentUpon>wcm_reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wco_reportes.aspx.cs">
+      <DependentUpon>wco_reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wco_reportes.aspx.designer.cs">
+      <DependentUpon>wco_reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wger_grafica.aspx.cs">
+      <DependentUpon>wger_grafica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wger_grafica.aspx.designer.cs">
+      <DependentUpon>wger_grafica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wpr_reportes.aspx.cs">
+      <DependentUpon>wpr_reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wpr_reportes.aspx.designer.cs">
+      <DependentUpon>wpr_reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wre_reportes.aspx.cs">
+      <DependentUpon>wre_reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ReportesSistema\wre_reportes.aspx.designer.cs">
+      <DependentUpon>wre_reportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_memo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1456,7 +1496,6 @@
     <Folder Include="Sitio\Entidades\" />
     <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
-    <Folder Include="Sitio\Vista\ReportesSistema\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
   <ItemGroup>
