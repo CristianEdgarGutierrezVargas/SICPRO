@@ -65,7 +65,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
             //Cpr_cobranzas prCobranza = new Cpr_cobranzas();
 
-            string item = base.Request.QueryString["var"];
+            //string item = base.Request.QueryString["var"];
             //prCobranza.lblmensaje = this.lblmensaje;
             //prCobranza.num_poliza = this.num_poliza;
             //prCobranza.id_perclie = this.id_per;
@@ -143,7 +143,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
             //this.msgboxpanel.Visible = false;
-            base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
+            base.Response.Redirect("~/wpr_listareno.aspx");
         }
 
         protected void btnsercom_Click(object sender, EventArgs e)
@@ -297,6 +297,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         {
 
             if (num == null)
+                return "";
+            if (Convert.ToInt64(num) == 0)
                 return "";
 
             string descGrupo = "";

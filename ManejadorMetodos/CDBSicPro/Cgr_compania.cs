@@ -84,8 +84,8 @@ namespace ManejadorMetodos.CDBSicPro
         public gr_compania GetCompaniaById(string idCompania)
         {
             try
-            {
-                var sql = _context.gr_compania.FirstOrDefault(x=>x.id_spvs== idCompania);
+            {                
+                var sql = _context.gr_compania.AsEnumerable().FirstOrDefault(x=>x.id_spvs== idCompania);
                 return sql;
 
             }

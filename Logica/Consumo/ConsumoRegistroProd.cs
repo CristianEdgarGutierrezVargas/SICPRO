@@ -33,7 +33,7 @@ namespace Logica.Consumo
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
         {
-            if (dbContext != null) dbContext.Dispose();
+            //if (dbContext != null) dbContext.Dispose();
             dbContext = new sicproEntities();
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
             _manejador_gr_persona = new Cgr_persona(dbContext);
@@ -341,6 +341,69 @@ namespace Logica.Consumo
             }
         }
 
+        public List<pr_grupo> TablaGrupo()
+        {
+            try
+            {
+                return _manejador_pr_grupo.TablaGrupo();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public pr_grupo InsertarGrupo(pr_grupo objGrupo)
+        {
+            try
+            {
+                return _manejador_pr_grupo.InsertarGrupo(objGrupo);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public pr_grupo ModificarGrupo(pr_grupo objGrupo)
+        {
+            try
+            {
+                return _manejador_pr_grupo.ModificarGrupo(objGrupo);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool EliminarGrupo(decimal decIdGrupo)
+        {
+            try
+            {
+                return _manejador_pr_grupo.EliminarGrupo(decIdGrupo);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
 
         #region pr_polmov
