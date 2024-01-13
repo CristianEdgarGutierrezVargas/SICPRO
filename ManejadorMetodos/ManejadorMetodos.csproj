@@ -60,6 +60,7 @@
     <Compile Include="CDBSicPro\Cpr_cobranzas.cs" />
     <Compile Include="CDBSicPro\Cpr_cuotapoliza.cs" />
     <Compile Include="CDBSicPro\Cpr_formriesgo.cs" />
+    <Compile Include="CDBSicPro\Cpr_pagocompania.cs" />
     <Compile Include="CDBSicPro\Cpr_poliza.cs" />
     <Compile Include="CDBSicPro\Cpr_polmov.cs" />
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />

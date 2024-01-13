@@ -26,8 +26,11 @@
                             <span id="Label10">Cheque :</span>
                         </div>
                         <div class="col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">
-                            <dx:BootstrapTextBox runat="server" ID="cheque" NullText="cheque" Text="">
+                            <dx:BootstrapTextBox runat="server" ID="cheque" NullText="" Text="">
                                 <CssClasses Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Registrar un Cheque" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-0 col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2">
@@ -36,6 +39,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-0 col-8 col-sm-8 col-md-3 col-lg-3 col-xl-4">
                             <dx:BootstrapDateEdit ID="fecha" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Seleccionar una Fecha"/>
+                                </ValidationSettings>
                             </dx:BootstrapDateEdit>
                         </div>
                     </div>
@@ -44,10 +50,10 @@
                             <span id="Label17">Cia Aseguradora :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-9 col-lg-9 col-xl-10">
-                            <dx:BootstrapComboBox ID="id_spvs" runat="server" ValueType="System.String" Width="100%">
+                            <dx:BootstrapComboBox ID="id_spvs" runat="server" ValueType="System.String" NullText="Seleccione una compañia...">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
-                                <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                    <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                <ValidationSettings >
+                                    <RequiredField ErrorText="Debe Seleccionar una Compañia" IsRequired="true" />
                                 </ValidationSettings>
                             </dx:BootstrapComboBox>
 
@@ -59,18 +65,24 @@
                             <span id="Label18">Monto :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-9 col-lg-9 col-xl-4">
-                            <dx:BootstrapSpinEdit ID="monto_pc" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                            <dx:BootstrapSpinEdit ID="monto_pc" runat="server" NullText="0.00" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                 <SpinButtons ShowLargeIncrementButtons="true" />
                                 <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Registrar un Monto" />
+                                </ValidationSettings>
                             </dx:BootstrapSpinEdit>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2 col-xxl-3">
                             <span id="Label19">Comisión :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-9 col-lg-9 col-xl-4 col-xxl-3">
-                            <dx:BootstrapSpinEdit ID="comision_pc" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                            <dx:BootstrapSpinEdit ID="comision_pc" runat="server" NullText="0.00" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                 <SpinButtons ShowLargeIncrementButtons="true" />
                                 <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Registrar una ComisiónDato requerido" />
+                                </ValidationSettings>
                             </dx:BootstrapSpinEdit>
                         </div>
                     </div>
@@ -81,14 +93,20 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-3">
                             <dx:BootstrapComboBox ID="id_div" runat="server" ValueType="System.String">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" Control="fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Dato requerido" />
+                                </ValidationSettings>
                             </dx:BootstrapComboBox>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 col-xxl-3">
                             <span id="Label20">Factura :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-3 col-lg-3 col-xl-4 col-xxl-3">
-                            <dx:BootstrapTextBox runat="server" ID="factura_pc" NullText="cheque" Text="%">
+                            <dx:BootstrapTextBox runat="server" ID="factura_pc" NullText="cheque" Text="">
                                 <CssClasses Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Registrar una Factura" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                     </div>
@@ -99,12 +117,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-3">
                             <dx:BootstrapComboBox ID="pc_anio" runat="server" ValueType="System.String">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" Control="fs-10" />
-                                <Items>
-                                    <%-- <dx:BootstrapListEditItem Text="2023" Value="2023" ></dx:BootstrapListEditItem>--%>
-                                    <dx:BootstrapListEditItem Text="SEL. UNA OPCIÓN..." Value="SEL. UNA OPCIÓN"></dx:BootstrapListEditItem>
-                                    <dx:BootstrapListEditItem Text="2024" Value="2025"></dx:BootstrapListEditItem>
-                                    <dx:BootstrapListEditItem Text="2025" Value="2026"></dx:BootstrapListEditItem>
-                                </Items>
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Seleccionar un Año" />
+                                </ValidationSettings>
                             </dx:BootstrapComboBox>
                             <%-- <select name="ctl00$cpmaster$pc_anio" id="ctl00_cpmaster_pc_anio" class="general" style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width: 100px;">
                                 <option value="SEL. UNA OPCIÓN">SEL. UNA OPCIÓN</option>
@@ -118,10 +133,12 @@
                             <span id="ctl00_cpmaster_Label21">Mes :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-3">
-                            <dx:BootstrapComboBox ID="pc_mes" runat="server" ValueType="System.String">
+                            <dx:BootstrapComboBox ID="pc_mes" runat="server" ValueType="System.String" NullText="Seleccione una opción">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-11" ListBox="fs-10" Control="fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Seleccionar un Mes" />
+                                </ValidationSettings>
                                 <Items>
-                                    <dx:BootstrapListEditItem Text="SEL. UNA OPCIÓN" Value="-1"></dx:BootstrapListEditItem>
                                     <dx:BootstrapListEditItem Text="ENERO" Value="1"></dx:BootstrapListEditItem>
                                     <dx:BootstrapListEditItem Text="FEBRERO" Value="2"></dx:BootstrapListEditItem>
                                     <dx:BootstrapListEditItem Text="MARZO" Value="3"></dx:BootstrapListEditItem>
@@ -156,7 +173,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <dx:BootstrapButton runat="server" ID="btncuotas"  Text="Aceptar">
+                            <dx:BootstrapButton runat="server" ID="btncuotas" Text="Aceptar" OnClick="btncuotas_Click">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>
