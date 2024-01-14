@@ -515,3 +515,15 @@ th, td {
 }
 
 /*********************/
+
+
+
+/***********dv tabs*/
+.dxTab a{
+	color:black!important;
+}
+
+.dxActTab a{
+	color: lightslategrey !important
+}
+/**************/
