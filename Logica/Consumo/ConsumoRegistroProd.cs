@@ -29,6 +29,7 @@ namespace Logica.Consumo
         private readonly Cpr_cuotapoliza _manejador_pr_cuota_poliza;
         private readonly Cpr_cobranzas _manejador_pr_cobranzas;
         private readonly Cpr_movimientos _manejador_pr_movimientos;
+        private readonly Cpr_numaplicas _manejador_pr_num_aplicas;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -47,6 +48,7 @@ namespace Logica.Consumo
             _manejador_pr_cuota_poliza = new Cpr_cuotapoliza(dbContext);
             _manejador_pr_cobranzas = new Cpr_cobranzas(dbContext);
             _manejador_pr_movimientos = new Cpr_movimientos(dbContext);
+            _manejador_pr_num_aplicas = new Cpr_numaplicas(dbContext);
         }
 
         #endregion
@@ -949,6 +951,122 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+
+        public oc_data_vpr_polaplivar ObtenerDataCompletaRenPolaplivar(int id_poliza, int id_movimiento)
+        {
+            
+            try
+            {
+                var objDataVrenovar = new oc_data_vpr_polaplivar();
+                var v_renovar = _manejador_pr_movimientos.ObtenerApPoliza(id_poliza, id_movimiento);
+                if (v_renovar != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_renovar.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_renovar.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_renovar.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_renovar.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_renovar.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_renovar.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_renovar.id_div);
+
+                    objDataVrenovar.objPersona = objPersona;
+                    objDataVrenovar.objGrupo = objGrupo;
+                    objDataVrenovar.objProducto = objProducto;
+                    objDataVrenovar.objCompania = objCompania;
+                    objDataVrenovar.objDireccion = objDireccion;
+                    objDataVrenovar.objPersonaAgente = objPersonaAgente;
+                    objDataVrenovar.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataVrenovar.objRenovar = v_renovar;
+                return objDataVrenovar;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        
+        public vpr_polaplivar ObtenerApPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_movimientos.ObtenerApPoliza(id_poliza, id_movimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool InsertarPolizaMovAp(pr_polmov objPolMov, List<pr_cuotapoliza> lstCuotaPoliza, pr_numaplicas objNumAplicas)
+        {
+            try
+            {
+                var objResponsePolMov = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolMov);
+                lstCuotaPoliza.ForEach(s =>
+                {
+                    s.id_movimiento = objResponsePolMov.id_movimiento;
+                });
+                var response = _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
+                objNumAplicas.id_movimiento = objResponsePolMov.id_movimiento;
+                var objResponmNumAplicas = _manejador_pr_num_aplicas.InsertarNumAplicas(objNumAplicas);
+
+                return true;
+                //string sentenciaSQL = "INSERT INTO pr_polmov VALUES (" + id_poliza.Value + ",default,'" 
+                //    + id_perejec.SelectedValue.ToString() + "','" + Funciones.fc(fc_emision.Text) + "','" + 
+                //    Funciones.fc(fc_inivig.Text) + "','" + Funciones.fc(fc_finvig1.Text) + "'," + 
+                //    prima_bruta.Text.Replace(".", "").Replace(",", ".") + ","
+                //    + prima_neta.Value + "," + por_comision.Value + "," + comision.Value + "," 
+                //    + id_div1.Value + ",'" + variable + "'," + num_cuota.Text + "," + id_clamov.Value + ",'"
+                //    + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" 
+                //    + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" 
+                //    + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
+                //Acceso acceso = new Acceso();
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+                //for (int i = 0; i < int.Parse(num_cuota.Text); i++)
+                //{
+                //    sentenciaSQL = "INSERT INTO pr_cuotapoliza VALUES(" + id_poliza.Value + "," +
+                //        "(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza " +
+                //        "FROM pr_poliza INNER JOIN pr_polmov ON (pr_poliza.id_poliza = pr_polmov.id_poliza) " +
+                //        "WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')," + i + ")";
+                //    acceso.Conectar();
+                //    acceso.CrearComando(sentenciaSQL);
+                //    acceso.EjecutarComando();
+                //    acceso.Desconectar();
+                //}
+
+                //sentenciaSQL = "INSERT INTO pr_numaplicas VALUES(" + id_poliza.Value + "," +
+                //    "(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza " +
+                //    "FROM pr_poliza INNER JOIN pr_polmov ON (pr_poliza.id_poliza = pr_polmov.id_poliza) " +
+                //    "WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')," 
+                //    + del.Text + "," + al.Text + "," + id_mom.Value + ")";
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
         #endregion
     }
 }

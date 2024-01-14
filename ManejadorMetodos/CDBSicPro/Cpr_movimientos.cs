@@ -166,11 +166,11 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        public List<vpr_polaplivar> ObtenerApPoliza(int id_poliza, int id_movimiento)
+        public vpr_polaplivar ObtenerApPoliza(int id_poliza, int id_movimiento)
         {
             try
             {
-                var response = _context.vpr_polaplivar.Where(w=>w.id_poliza == id_poliza & w.id_movimiento == id_movimiento).ToList();
+                var response = _context.vpr_polaplivar.Where(w=>w.id_poliza == id_poliza & w.id_movimiento == id_movimiento).FirstOrDefault();
                 _context.SaveChanges();
                 return response;
             }

@@ -712,6 +712,9 @@
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_poliza.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaanu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaan.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaap.aspx" />
+    <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaea.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizaexclu.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wpr_polizainclu.aspx" />
@@ -1069,6 +1072,27 @@
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizaapli.aspx.designer.cs">
       <DependentUpon>wpr_polizaapli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaan.aspx.cs">
+      <DependentUpon>wpr_polizacobranzaan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaan.aspx.designer.cs">
+      <DependentUpon>wpr_polizacobranzaan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaap.aspx.cs">
+      <DependentUpon>wpr_polizacobranzaap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaap.aspx.designer.cs">
+      <DependentUpon>wpr_polizacobranzaap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaea.aspx.cs">
+      <DependentUpon>wpr_polizacobranzaea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzaea.aspx.designer.cs">
+      <DependentUpon>wpr_polizacobranzaea.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wpr_polizacobranzain.aspx.cs">
       <DependentUpon>wpr_polizacobranzain.aspx</DependentUpon>
@@ -1516,6 +1540,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

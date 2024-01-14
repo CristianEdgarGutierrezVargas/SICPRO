@@ -24,6 +24,42 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.Label titulo;
 
         /// <summary>
+        /// Control fc_emision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_emision;
+
+        /// <summary>
+        /// Control fc_recepcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_recepcion;
+
+        /// <summary>
+        /// Control fc_inivig.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_inivig;
+
+        /// <summary>
+        /// Control fc_finvig.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_finvig;
+
+        /// <summary>
         /// Control lblNroPoliza.
         /// </summary>
         /// <remarks>
@@ -31,6 +67,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNroPoliza;
+
+        /// <summary>
+        /// Control txtNroLiquidacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNroLiquidacion;
 
         /// <summary>
         /// Control lblAsegurado.
@@ -78,6 +123,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.Label lblProducto;
 
         /// <summary>
+        /// Control cmbEjecutivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbEjecutivo;
+
+        /// <summary>
         /// Control lblAgente.
         /// </summary>
         /// <remarks>
@@ -96,6 +150,24 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.Label lblTipoPoliza;
 
         /// <summary>
+        /// Control txtPrimaBruta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtPrimaBruta;
+
+        /// <summary>
+        /// Control txtNumCuotas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtNumCuotas;
+
+        /// <summary>
         /// Control lblDivisa.
         /// </summary>
         /// <remarks>
@@ -105,6 +177,42 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.Label lblDivisa;
 
         /// <summary>
+        /// Control tipo_cuota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRadioButtonList tipo_cuota;
+
+        /// <summary>
+        /// Control txtDel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtDel;
+
+        /// <summary>
+        /// Control txtAl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit txtAl;
+
+        /// <summary>
+        /// Control txtMatAseg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapMemo txtMatAseg;
+
+        /// <summary>
         /// Control grdCuotasPoliza.
         /// </summary>
         /// <remarks>
@@ -112,6 +220,33 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCuotasPoliza;
+
+        /// <summary>
+        /// Control btnNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnNuevo;
+
+        /// <summary>
+        /// Control btnCuotas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnCuotas;
+
+        /// <summary>
+        /// Control btnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnGuardar;
 
         /// <summary>
         /// Control lblmensaje.

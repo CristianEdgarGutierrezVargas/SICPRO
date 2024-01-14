@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizaapli.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.RegistroProduccion.wpr_polizaapli" %>
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
@@ -252,6 +255,23 @@
                        </div>
                    </div>
               
+                    <div class="row">
+                        <div class="col-md-2">      
+                          <span>Del:</span>
+                        </div>
+                        <div class="col-md-2">      
+                           <dx:BootstrapSpinEdit ID="txtDel" Width="100%" runat="server" Number="0" MinValue="1" MaxValue="1000" Increment="1" NumberType="Integer" ValidationGroup="form_wgr_poliza">    
+                            </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">      
+                           <span>Al:</span>
+                        </div>
+                        <div class="col-md-2">      
+                           <dx:BootstrapSpinEdit ID="txtAl" Width="100%" runat="server" Number="0" MinValue="1" MaxValue="1000" Increment="1" NumberType="Integer" ValidationGroup="form_wgr_poliza">    
+                            </dx:BootstrapSpinEdit>
+                        </div>
+                    </div>
                   <div class="row">
                       <div class="col-md-2">      
                           <span id="lblmat_aseg">Mat. Asegurada:</span>

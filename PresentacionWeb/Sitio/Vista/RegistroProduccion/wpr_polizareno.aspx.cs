@@ -80,6 +80,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             {
             }
         }
+
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
         {
             var lstCuotas = new List<pr_cuotapoliza>();
@@ -95,12 +96,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             return lstCuotas;
         }
 
-
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wgr_listareno.aspx", false);
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Web.Bootstrap;
 using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
+using Logica.Consumo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
     public partial class wpr_polizaapli : System.Web.UI.Page
     {
+        ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.Page.IsPostBack && base.Request.QueryString["var"] != "")
@@ -37,7 +39,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
                 var itemLstFuncionarios = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
                 cmbEjecutivo.Items.Add(itemLstFuncionarios);
-                var objDataCompletaRenPoliza = _objConsumoRegistroProd.ObtenerDataCompletaRenPoliza(par1, par2);
+                var objDataCompletaRenPoliza = _objConsumoRegistroProd.ObtenerDataCompletaRenPolaplivar(par1, par2);
                 Session["DATA_POLIZA"] = objDataCompletaRenPoliza;
                 if (objDataCompletaRenPoliza != null)
                 {
@@ -90,7 +92,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx", false);
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)
@@ -117,7 +119,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            var objData = (OC_DATA_FORM.oc_data_vrenovar)Session["DATA_POLIZA"];
+            var objData = (OC_DATA_FORM.oc_data_vpr_polaplivar)Session["DATA_POLIZA"];
 
             var objPolizaMovimiento = new pr_polmov();
             objPolizaMovimiento.id_poliza = objData.objRenovar.id_poliza;// id_poliza.Value;
@@ -142,7 +144,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
 
-            var response = _objConsumoRegistroProd.InsertarPolizaMovR(objPolizaMovimiento, lstCuotas);
+            var objNumAplicas = new pr_numaplicas();
+            objNumAplicas.id_poliza = objData.objRenovar.id_poliza;
+            objNumAplicas.del = Convert.ToDecimal(txtDel.Text);
+            objNumAplicas.al = Convert.ToDecimal(txtAl.Text);
+
+            var response = _objConsumoRegistroProd.InsertarPolizaMovAp(objPolizaMovimiento, lstCuotas, objNumAplicas);
 
             if (response == false)
             {
@@ -152,7 +159,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var idPoliza = objPolizaMovimiento.id_poliza;
             var idMovimiento = objPolizaMovimiento.id_movimiento;
             var idClaMov = objPolizaMovimiento.id_clamov;
-            Response.Redirect("../ValidacionProduccion/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
+            Response.Redirect("../ValidacionProduccion/wpr_polizacobranzaap.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
         }
     }
 }
