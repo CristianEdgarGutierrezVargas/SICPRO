@@ -60,7 +60,6 @@ namespace ManejadorModelo
         public virtual DbSet<re_siniestro> re_siniestro { get; set; }
         public virtual DbSet<co_sueldo> co_sueldo { get; set; }
         public virtual DbSet<gr_acceso> gr_acceso { get; set; }
-        public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
         public virtual DbSet<v_gr_cont_dir> v_gr_cont_dir { get; set; }
         public virtual DbSet<v_pr_cias_resum> v_pr_cias_resum { get; set; }
         public virtual DbSet<v_tipopersona> v_tipopersona { get; set; }
@@ -128,6 +127,7 @@ namespace ManejadorModelo
         public virtual DbSet<vtemp> vtemp { get; set; }
         public virtual DbSet<zrep> zrep { get; set; }
         public virtual DbSet<zrep_estcta1> zrep_estcta1 { get; set; }
+        public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
     
         [DbFunction("sicproEntities", "findcheque")]
         public virtual IQueryable<findcheque_Result> findcheque(string cheque, string id_spvs)

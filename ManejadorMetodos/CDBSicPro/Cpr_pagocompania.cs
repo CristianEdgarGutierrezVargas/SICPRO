@@ -1,10 +1,15 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using Common;
+using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntidadesClases.CustomModelEntities;
+
 
 namespace ManejadorMetodos.CDBSicPro
 {
@@ -21,16 +26,20 @@ namespace ManejadorMetodos.CDBSicPro
         #endregion
         public pr_pagocompania InsertarPagoComp(pr_pagocompania objPr_Pagocompania)
         {
-            try
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
             {
-                var response = _context.pr_pagocompania.Add(objPr_Pagocompania);
-                _context.SaveChanges();
-                return response;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return null;
+                try
+                {
+                    var response = _context.pr_pagocompania.Add(objPr_Pagocompania);
+                    _context.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return response;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return null;
+                }
             }
         }
     }

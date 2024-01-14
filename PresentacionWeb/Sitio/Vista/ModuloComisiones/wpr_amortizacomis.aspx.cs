@@ -14,7 +14,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoModComision _objConsumoModComision = new ConsumoModComision();
-        ConsumoValidarProd _objValidarProd= new ConsumoValidarProd();
+        ConsumoValidarProd _objValidarProd = new ConsumoValidarProd();
         public bool sw;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +22,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         }
         private void CargaInicial()
         {
-            
+
 
             var lstDivisa = _objConsumoRegistroProd.ParametroA("id_div");
             id_div.DataSource = lstDivisa;
@@ -41,10 +41,10 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             this.pc_anio.Items.Add(year.ToString());
             int num1 = year + 1;
             this.pc_anio.Items.Add(num1.ToString());
-           
+
             var objTablaCompania = _objValidarProd.ObtenerTablaCompania("");
-            
-            id_spvs.DataSource= objTablaCompania;
+
+            id_spvs.DataSource = objTablaCompania;
             id_spvs.TextField = "nomraz";
             id_spvs.ValueField = "id_spvs";
             id_spvs.DataBind();
@@ -53,38 +53,63 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         {
             try
             {
-                
-                    pr_pagocompania prAmortizacione = new pr_pagocompania()
-                    {
-                        
-                        cheque = this.cheque.Text,
-                        id_spvs = id_spvs.Value.ToString(),
-                        fecha = (DateTime)this.fecha.Value,
-                        monto_pc =(decimal) this.monto_pc.Value,
-                        comision_pc = (decimal)this.comision_pc.Value,
-                        factura_pc = this.factura_pc.Text,
-                        pc_mes =Convert.ToDecimal( this.pc_mes.Text),
-                        pc_anio = Convert.ToDecimal(this.pc_anio.Text),
-                        id_div = (long)this.id_div.Value
-                    };
-                    var pagoCompania= _objConsumoModComision.InsertarPagoComp(prAmortizacione);
-                    //this.msgboxpanel.Visible = true;
-                    //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
-                    //messageBox.SetTitle("Confirmación");
-                    //messageBox.SetIcon("msg_icon_1.png");
-                    //messageBox.SetMessage("Cheque para pago de comisiones registrado correctamente ");
-                    //MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
-                    //messageBoxButton.SetLocation("wpr_amortizacomis.aspx");
-                    //messageBoxButton.SetClass("msg_button_class");
-                    //messageBox.AddButton(messageBoxButton.ReturnObject());
-                    //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-              
+               
+                pr_pagocompania prAmortizacione = new pr_pagocompania()
+                {
+
+                    cheque = cheque.Text,
+                    id_spvs = id_spvs.Value.ToString(),
+                    fecha = (DateTime)fecha.Value,
+                    monto_pc = Convert.ToDecimal(monto_pc.Value),
+                    comision_pc = Convert.ToDecimal(comision_pc.Value),
+                    factura_pc = factura_pc.Text,
+                    pc_mes = Convert.ToDecimal(this.pc_mes.Value),
+                    pc_anio = Convert.ToDecimal(this.pc_anio.Text),
+                    id_div = Convert.ToInt64(id_div.Value),
+                    comision_spc = 0,
+                    comisaldo_pc = 0
+                };
+                var pagoCompania = _objConsumoModComision.InsertarPagoComp(prAmortizacione);
+                if (pagoCompania != null)
+                {
+                    cheque.Text = "";
+                    fecha.Text = "";
+                    id_spvs.Text = "";
+                    monto_pc.Text = "";
+                    comision_pc.Text = "";
+                    factura_pc.Text = "";
+                    pc_mes.Text = "";
+                    pc_anio.Text = "";
+                    id_div.Text = "";
+                    lblMensaje.Text = "Cheque para pago de comisiones registrado correctamente!";
+                    imagenFail.Visible= false;
+                    imagenOk.Visible= true;
+                    pnlMensaje.ShowOnPageLoad = true;
+                }
+                else
+                {
+                    imagenFail.Visible = true;
+                    imagenOk.Visible = false;
+                    lblMensaje.Text = "Hubo un error al registrar los datos!";
+                    pnlMensaje.ShowOnPageLoad = true;
+                }
+                //this.msgboxpanel.Visible = true;
+                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
+                //messageBox.SetTitle("Confirmación");
+                //messageBox.SetIcon("msg_icon_1.png");
+                //messageBox.SetMessage("Cheque para pago de comisiones registrado correctamente ");
+                //MessageBoxButton messageBoxButton = new MessageBoxButton("Aceptar");
+                //messageBoxButton.SetLocation("wpr_amortizacomis.aspx");
+                //messageBoxButton.SetClass("msg_button_class");
+                //messageBox.AddButton(messageBoxButton.ReturnObject());
+                //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+
             }
             catch
             {
             }
         }
 
-       
+
     }
 }

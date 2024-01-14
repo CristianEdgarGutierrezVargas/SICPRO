@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_amortizacomis.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ModuloComisiones.wpr_amortizacomis" %>
 
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -40,7 +41,7 @@
                             <dx:BootstrapDateEdit ID="fecha" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
                                 <ValidationSettings>
-                                    <RequiredField IsRequired="true" ErrorText="Debe Seleccionar una Fecha"/>
+                                    <RequiredField IsRequired="true" ErrorText="Debe Seleccionar una Fecha" />
                                 </ValidationSettings>
                             </dx:BootstrapDateEdit>
                         </div>
@@ -52,7 +53,7 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-9 col-lg-9 col-xl-10">
                             <dx:BootstrapComboBox ID="id_spvs" runat="server" ValueType="System.String" NullText="Seleccione una compañia...">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
-                                <ValidationSettings >
+                                <ValidationSettings>
                                     <RequiredField ErrorText="Debe Seleccionar una Compañia" IsRequired="true" />
                                 </ValidationSettings>
                             </dx:BootstrapComboBox>
@@ -102,7 +103,7 @@
                             <span id="Label20">Factura :</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-3 col-lg-3 col-xl-4 col-xxl-3">
-                            <dx:BootstrapTextBox runat="server" ID="factura_pc" NullText="cheque" Text="">
+                            <dx:BootstrapTextBox runat="server" ID="factura_pc" NullText="" Text="">
                                 <CssClasses Input="form-control-sm fs-10" />
                                 <ValidationSettings>
                                     <RequiredField IsRequired="true" ErrorText="Debe Registrar una Factura" />
@@ -193,5 +194,22 @@
             <span id="ctl00_cpmaster_lblmensaje" class="error">Introduzca Valores</span>
         </p>
     </div>
+    <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+        Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+        <ContentCollection>
+            <dx:ContentControl>
+                <div class="row">
+                    <div class="offset-3 col-9">
+                        <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
+                        <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
 
+                    </div>
+                    <div class="col-12">
+                        <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                    </div>
+                </div>
+            </dx:ContentControl>
+        </ContentCollection>
+    </dx:BootstrapPopupControl>
 </asp:Content>

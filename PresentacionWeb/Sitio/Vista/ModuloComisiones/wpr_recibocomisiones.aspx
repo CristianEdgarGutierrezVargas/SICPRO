@@ -21,8 +21,11 @@
                         </div>
                         <div class="col-4">
 
-                            <dx:BootstrapTextBox runat="server" ID="del" NullText="cheque" Text="">
+                            <dx:BootstrapTextBox runat="server" ID="del" NullText="" Text="1">
                                 <CssClasses Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Dato requerido" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-2">
@@ -31,6 +34,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-4">
                             <dx:BootstrapTextBox runat="server" ID="al" NullText="cheque" Text="">
                                 <CssClasses Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Dato requerido" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                     </div>
@@ -39,8 +45,11 @@
                             <span id="lblanio">Año :</span>
                         </div>
                         <div class="col-4">
-                            <dx:BootstrapTextBox runat="server" ID="anio" NullText="cheque" Text="">
+                            <dx:BootstrapTextBox runat="server" ID="anio" NullText="" Text="">
                                 <CssClasses Input="form-control-sm fs-10" />
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="true" ErrorText="Dato requerido" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
 
@@ -66,4 +75,22 @@
             </p>
         </div>
     </div>
+        <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
+    PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+    Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+    <ContentCollection>
+        <dx:ContentControl>
+            <div class="row">
+                <div class="offset-3 col-9">
+                    <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
+                    <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
+
+                </div>
+                <div class="col-12">
+                    <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                </div>
+            </div>
+        </dx:ContentControl>
+    </ContentCollection>
+</dx:BootstrapPopupControl>
 </asp:Content>
