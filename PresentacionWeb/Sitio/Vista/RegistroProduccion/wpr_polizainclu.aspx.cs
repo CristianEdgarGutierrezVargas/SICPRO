@@ -144,7 +144,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
 
-            var response = _objConsumoRegistroProd.InsertarPolizaMovR(objPolizaMovimiento, lstCuotas);
+            var response = _objConsumoRegistroProd.InsertarPolizaMovI(objPolizaMovimiento, lstCuotas);
 
             if (response == false)
             {

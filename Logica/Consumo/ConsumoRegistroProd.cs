@@ -30,6 +30,7 @@ namespace Logica.Consumo
         private readonly Cpr_cobranzas _manejador_pr_cobranzas;
         private readonly Cpr_movimientos _manejador_pr_movimientos;
         private readonly Cpr_numaplicas _manejador_pr_num_aplicas;
+        private readonly Cpr_anulada _manejador_pr_anulada;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -49,6 +50,7 @@ namespace Logica.Consumo
             _manejador_pr_cobranzas = new Cpr_cobranzas(dbContext);
             _manejador_pr_movimientos = new Cpr_movimientos(dbContext);
             _manejador_pr_num_aplicas = new Cpr_numaplicas(dbContext);
+            _manejador_pr_anulada = new Cpr_anulada(dbContext);
         }
 
         #endregion
@@ -1019,6 +1021,7 @@ namespace Logica.Consumo
                 lstCuotaPoliza.ForEach(s =>
                 {
                     s.id_movimiento = objResponsePolMov.id_movimiento;
+                    s.id_poliza = objResponsePolMov.id_poliza;
                 });
                 var response = _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
                 objNumAplicas.id_movimiento = objResponsePolMov.id_movimiento;
@@ -1067,6 +1070,107 @@ namespace Logica.Consumo
             }
         }
 
+        public bool InsertarPolizaMovI(pr_polmov objPolizaMovimiento, List<pr_cuotapoliza> lstCuotaPoliza)
+        {
+            try
+            {
+                var objResponse = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolizaMovimiento);
+                lstCuotaPoliza.ForEach(s =>
+                {
+                    s.id_movimiento = objResponse.id_movimiento;
+                    s.id_poliza = objResponse.id_poliza;
+                });
+                var response = _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
+
+                return response;
+                //string sentenciaSQL = "INSERT INTO pr_polmov VALUES (" + id_poliza.Value + ",default,'" + id_perejec.SelectedValue.ToString() + "','" + Funciones.fc(fc_emision.Text) + "','" + Funciones.fc(fc_inivig.Text) + "','" + Funciones.fc(fc_finvig1.Text) + "'," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "," + prima_neta.Value + "," + por_comision.Value + "," + comision.Value + "," + id_div1.Value + ",'" + variable + "'," + num_cuota.Text + "," + id_clamov.Value + ",'" + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
+                //Acceso acceso = new Acceso();
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+                //for (int i = 0; i < int.Parse(num_cuota.Text); i++)
+                //{
+                //    sentenciaSQL = "INSERT INTO pr_cuotapoliza VALUES(" + id_poliza.Value + ",(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza FROM pr_poliza INNER JOIN pr_polmov ON (pr_poliza.id_poliza = pr_polmov.id_poliza) WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')," + i + ")";
+                //    acceso.Conectar();
+                //    acceso.CrearComando(sentenciaSQL);
+                //    acceso.EjecutarComando();
+                //    acceso.Desconectar();
+                //}
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+        public pr_polmov InsertarPolizaMovEx(pr_polmov objPolizaMovimiento)
+        {
+            try
+            {
+                var objResponse = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolizaMovimiento);
+                return objResponse;
+                //string sentenciaSQL = "INSERT INTO pr_polmov VALUES (" + id_poliza.Value + ",default,'" + id_perejec.SelectedValue.ToString() + "','" + Funciones.fc(fc_emision.Text) + "','" + Funciones.fc(fc_inivig.Text) + "','" + Funciones.fc(fc_finvig1.Text) + "'," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1)," + prima_neta.Value + "," + por_comision.Value + "," + comision.Value + "," + id_div1.Value + ",'" + variable + "',0," + id_clamov.Value + ",'" + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
+                //Acceso acceso = new Acceso();
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+        public bool InsertarPolizaMovAn(pr_polmov objPolizaMovimiento, pr_anulada objPrAnulada)
+        {
+            try
+            {
+                var objResponsePolMov = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolizaMovimiento);
+                objPrAnulada.id_poliza = objResponsePolMov.id_poliza;
+                objPrAnulada.id_movimiento = objResponsePolMov.id_movimiento;
+
+                var objResponsePrAnulada = _manejador_pr_anulada.InsertarPrAnulada(objPrAnulada);
+
+                var responseActPoliza = _manejador_pr_poliza.ActualizarEstadoPoliza(objPrAnulada.id_poliza, false);
+
+                return true;
+                //string sentenciaSQL = "INSERT INTO pr_polmov " +
+                //    "VALUES (" + id_poliza.Value + ",default,'" + id_perejec.SelectedValue.ToString() + "','" 
+                //    + Funciones.fc(fc_emision.Text) + "','" + Funciones.fc(fc_inivig.Text) + "','" 
+                //    + Funciones.fc(fc_finvig.Text) + "'," + prima_bruta.Text.Replace(".", "").Replace(",", ".") 
+                //    + "*(-1)," + prima_neta.Value + "," + por_comision.Value + "," + comision.Value 
+                //    + "," + id_div1.Value + ",'" + variable + "',0," + id_clamov.Value + ",'" 
+                //    + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" 
+                //    + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" 
+                //    + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
+                //Acceso acceso = new Acceso();
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+                //sentenciaSQL = "INSERT INTO pr_anulada VALUES(" + id_poliza.Value + "," +
+                //    "(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza " +
+                //    "FROM pr_poliza INNER JOIN pr_polmov " +
+                //    "ON (pr_poliza.id_poliza = pr_polmov.id_poliza) " +
+                //    "WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')," 
+                //    + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1))";
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+                //sentenciaSQL = "UPDATE pr_poliza SET estado=false WHERE id_poliza=" + id_poliza.Value;
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //acceso.EjecutarComando();
+                //acceso.Desconectar();
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
         #endregion
     }
 }

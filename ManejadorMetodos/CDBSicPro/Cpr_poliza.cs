@@ -366,5 +366,28 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        public bool ActualizarEstadoPoliza(long id_poliza, bool bolEstado)
+        {            
+            using (var dbContextTransaccion = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_poliza.Where(w=>w.id_poliza == id_poliza).FirstOrDefault();
+                    if (sql != null)
+                    {
+                        sql.estado = bolEstado;
+                        _context.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                   
+                }
+                catch (SecureExceptions secureException)
+                {
+                    throw new SecureExceptions("Error al Generar la Transacción", secureException);
+                }
+
+            }
+        }
     }
 }

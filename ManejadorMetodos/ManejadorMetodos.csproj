@@ -57,6 +57,7 @@
     <Compile Include="CDBSicPro\Cgr_parametro.cs" />
     <Compile Include="CDBSicPro\Cgr_pass.cs" />
     <Compile Include="CDBSicPro\Cgr_persona.cs" />
+    <Compile Include="CDBSicPro\Cpr_anulada.cs" />
     <Compile Include="CDBSicPro\Cpr_cobranzas.cs" />
     <Compile Include="CDBSicPro\Cpr_cuotapoliza.cs" />
     <Compile Include="CDBSicPro\Cpr_formriesgo.cs" />

@@ -142,9 +142,13 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolizaMovimiento.tipo_cuota = Convert.ToBoolean(tipo_cuota.SelectedItem.Value);
             //objPolizaMovimiento.id_mom = objData.;
 
-            var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            //var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
 
-            var response = _objConsumoRegistroProd.InsertarPolizaMovR(objPolizaMovimiento, lstCuotas);
+            var objPolizaAnulada = new pr_anulada();
+            objPolizaAnulada.monto_anulada = Convert.ToDecimal(txtPrimaBruta.Text) * -1;
+            //objPolizaAnulada.neta_anulada
+
+            var response = _objConsumoRegistroProd.InsertarPolizaMovAn(objPolizaMovimiento, objPolizaAnulada);
 
             if (response == false)
             {

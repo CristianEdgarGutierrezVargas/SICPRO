@@ -142,11 +142,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolizaMovimiento.tipo_cuota = Convert.ToBoolean(tipo_cuota.SelectedItem.Value);
             //objPolizaMovimiento.id_mom = objData.;
 
-            var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            //var lstCuotas = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
 
-            var response = _objConsumoRegistroProd.InsertarPolizaMovR(objPolizaMovimiento, lstCuotas);
+            var response = _objConsumoRegistroProd.InsertarPolizaMovEx(objPolizaMovimiento);
 
-            if (response == false)
+            if (response == null)
             {
                 lblmensaje.Text = "Ocurrio un error";
                 return;
