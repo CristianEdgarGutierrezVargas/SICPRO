@@ -104,7 +104,21 @@ namespace Logica.Consumo
             }
         }
 
-
+        public List<gr_parametro> ParametroRE(string columna)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ParametroRE(columna);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
 
         #region gr_persona
@@ -500,6 +514,21 @@ namespace Logica.Consumo
             }
         }
 
+        public List<pr_riesgo> ObtenerRiesgo()
+        {
+            try
+            {
+                return _manejador_pr_producto.ObtenerRiesgo();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
 
         #region pr_poliza
