@@ -77,22 +77,22 @@
             </p>
         </div>
     </div>
-        <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
-    PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
-    Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
-    <ContentCollection>
-        <dx:ContentControl>
-            <div class="row">
-                <div class="offset-3 col-9">
-                    <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
-                    <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
+    <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+        Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+        <ContentCollection>
+            <dx:ContentControl>
+                <div class="row">
+                    <div class="offset-3 col-9">
+                        <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
+                        <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
 
+                    </div>
+                    <div class="col-12">
+                        <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                    </div>
                 </div>
-                <div class="col-12">
-                    <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
-                </div>
-            </div>
-        </dx:ContentControl>
-    </ContentCollection>
-</dx:BootstrapPopupControl>
+            </dx:ContentControl>
+        </ContentCollection>
+    </dx:BootstrapPopupControl>
 </asp:Content>

@@ -19,6 +19,7 @@ namespace Logica.Consumo
         private readonly Cpr_pagocompania cpr_Pagocompania;
         private readonly Cpr_recibo cpr_Recibo;
         private readonly Cgr_persona cgr_Persona;
+        private readonly Cco_anticom cco_anticom;
         public static sicproEntities dbContext;
         public ConsumoModComision()
         {
@@ -27,7 +28,7 @@ namespace Logica.Consumo
             cpr_Pagocompania = new Cpr_pagocompania(dbContext);
             cpr_Recibo = new Cpr_recibo(dbContext);
             cgr_Persona = new Cgr_persona(dbContext);
-
+            cco_anticom=new Cco_anticom(dbContext);
 
         }
 
@@ -143,7 +144,42 @@ namespace Logica.Consumo
             }
         }
 
+        public List<gr_persona> Persona(int parametro)
+        {
+            try
+            {
+                var persona= cgr_Persona.Persona(parametro);
+                var found = persona.Find(x => x.id_per == "0");
+                persona.Remove(found);
+                
+                return persona;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+        public bool InsAnticomi(co_anticom objCo_anticom)
+        {
 
+            try
+            {
+                var dt = cco_anticom.InsAnticomi(objCo_anticom);
+                return true;
+            }
+            catch (SecureExceptions secureException)
+            {
+                return false;
+                //throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+
+
+        }
 
     }
 }
