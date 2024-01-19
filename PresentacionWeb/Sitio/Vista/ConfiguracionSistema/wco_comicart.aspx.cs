@@ -19,7 +19,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             if (this.Page.IsPostBack)
                 return;
             this.Datos();
-        } 
+        }
         protected void Datos()
         {
             try
@@ -37,38 +37,59 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         }
         protected void id_percart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var listado = logicaConfiguracion.ObtPorcart(id_percart.SelectedValue);
-            if (listado.Count <= 0)
+            try
             {
-                this.porcentaje.Value = 0;
-                this.factura.Checked = false;
-                this.btn_guardar.Enabled = true;
-                this.btn_modificar.Enabled = false;
-                this.lblmensajeCarga.Text = "La Solicitud no devolvio registros ";
+                var listado = logicaConfiguracion.ObtPorcart(id_percart.SelectedValue);
+                if (listado.Count <= 0)
+                {
+                    this.porcentaje.Value = 0;
+                    this.factura.Checked = false;
+                    this.btn_guardar.Enabled = true;
+                    this.btn_modificar.Enabled = false;
+                    this.lblmensajeCarga.Text = "La Solicitud no devolvio registros ";
+                }
+                else
+                {
+                    var item = listado.FirstOrDefault();
+                    this.porcentaje.Value = item.porcentaje;//dt.Rows[0]["porcentaje"].ToString();
+                    this.factura.Checked = item.factura;//bool.Parse(dt.Rows[0]["factura"].ToString());
+                    this.btn_guardar.Enabled = false;
+                    this.btn_modificar.Enabled = true;
+                    this.lblmensajeCarga.Text = "Datos Recuperados";
+                }
             }
-            else
+            catch (SecureExceptions ex)
             {
-                var item= listado.FirstOrDefault();
-                this.porcentaje.Value = item.porcentaje;//dt.Rows[0]["porcentaje"].ToString();
-                this.factura.Checked = item.factura;//bool.Parse(dt.Rows[0]["factura"].ToString());
-                this.btn_guardar.Enabled = false;
-                this.btn_modificar.Enabled = true;
-                this.lblmensajeCarga.Text = "Datos Recuperados";
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
             }
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            logicaConfiguracion.InsPorcart(this.id_percart.SelectedValue, (decimal)this.porcentaje.Value, this.factura.Checked);
-            this.lblMensaje.Text = "Comision Insertada";
-            //messageBox.SetMessage("Se han registrado correctamente los valores para la comisión de cartera");
-            popUpConfirmacion.ShowOnPageLoad = true;
+            try
+            {
+                logicaConfiguracion.InsPorcart(this.id_percart.SelectedValue, (decimal)this.porcentaje.Value, this.factura.Checked);
+                this.popUpConfirmacion.HeaderText = "Comision Insertada";
+                this.lblMensaje.Text = "Se han registrado correctamente los valores para la comisión de cartera";
+                popUpConfirmacion.ShowOnPageLoad = true;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
         }
         protected void btn_modificar_Click(object sender, EventArgs e)
         {
-            logicaConfiguracion.UpdPorcart(this.id_percart.SelectedValue, (decimal)this.porcentaje.Value, this.factura.Checked);
-            this.lblMensaje.Text = "Comision Modificada";
-            //messageBox.SetMessage("Se han modificado correctamente los valores para la comision de cartera");
-            popUpConfirmacion.ShowOnPageLoad = true;
+            try
+            {
+                logicaConfiguracion.UpdPorcart(this.id_percart.SelectedValue, (decimal)this.porcentaje.Value, this.factura.Checked);
+                this.popUpConfirmacion.HeaderText = "Comision Modificada";
+                this.lblMensaje.Text = "Se han modificado correctamente los valores para la comision de cartera";
+                popUpConfirmacion.ShowOnPageLoad = true;
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
         }
         protected void btn_borrar_Click(object sender, EventArgs e)
         {
