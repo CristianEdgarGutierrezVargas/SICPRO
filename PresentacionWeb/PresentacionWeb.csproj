@@ -1158,6 +1158,16 @@
     <Compile Include="Sitio\Vista\ReportesSistema\wre_reportes.aspx.designer.cs">
       <DependentUpon>wre_reportes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\Reportes\datasets\re_clientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_clientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\Reportes\datasets\re_direcciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_direcciones.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_memo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1486,6 +1496,28 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Sitio\Vista\Reportes\datasets\re_memo.xsc">
       <DependentUpon>re_memo.xsd</DependentUpon>
+    </Content>
+    <Content Include="Sitio\Vista\Reportes\datasets\re_clientes.xsc">
+      <DependentUpon>re_clientes.xsd</DependentUpon>
+    </Content>
+    <None Include="Sitio\Vista\Reportes\datasets\re_clientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>re_clientes.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Sitio\Vista\Reportes\datasets\re_clientes.xss">
+      <DependentUpon>re_clientes.xsd</DependentUpon>
+    </Content>
+    <Content Include="Sitio\Vista\Reportes\datasets\re_direcciones.xsc">
+      <DependentUpon>re_direcciones.xsd</DependentUpon>
+    </Content>
+    <None Include="Sitio\Vista\Reportes\datasets\re_direcciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>re_direcciones.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Sitio\Vista\Reportes\datasets\re_direcciones.xss">
+      <DependentUpon>re_direcciones.xsd</DependentUpon>
     </Content>
     <None Include="Sitio\Vista\Reportes\datasets\re_memo.xsd">
       <SubType>Designer</SubType>

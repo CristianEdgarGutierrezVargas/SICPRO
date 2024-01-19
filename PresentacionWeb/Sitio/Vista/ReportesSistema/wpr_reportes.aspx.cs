@@ -1,5 +1,6 @@
 ﻿using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
+using PresentacionWeb.Parametros;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +14,7 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
     public partial class wpr_reportes : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
+        CParametros _cParametros = new CParametros();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,12 +42,19 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
                 var lstGrupo = _objConsumoRegistroProd.ObtenerGrupo();
 
+                var lstMeses = _cParametros.GetListMeses();
+
                 #region tabClientes
 
                 cmbOficina.DataSource = lstParametroRe;
                 cmbOficina.ValueField = "id_par";
                 cmbOficina.TextField = "desc_param";
                 cmbOficina.DataBind();
+
+                cmbAniv.DataSource = lstMeses;
+                cmbAniv.TextField = "value";
+                cmbAniv.ValueField = "key";
+                cmbAniv.DataBind();
 
                 #endregion
 
@@ -141,7 +150,11 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
-
+            reportTabClientes.Visible = true;
+            reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
+            //string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
         }
     }
 }

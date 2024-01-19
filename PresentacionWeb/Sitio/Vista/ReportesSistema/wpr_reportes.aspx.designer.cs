@@ -42,13 +42,13 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbOficina;
 
         /// <summary>
-        /// Control cmdAniv.
+        /// Control cmbAniv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmdAniv;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbAniv;
 
         /// <summary>
         /// Control btnGenerarReporteClientes.
@@ -58,5 +58,14 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnGenerarReporteClientes;
+
+        /// <summary>
+        /// Control reportTabClientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe reportTabClientes;
     }
 }

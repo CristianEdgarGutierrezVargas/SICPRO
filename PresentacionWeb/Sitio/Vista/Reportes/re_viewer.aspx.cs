@@ -85,11 +85,11 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                 //        this.Listadias();
                 //        return;
                 //    }
-                //case 13:
-                //    {
-                //        this.Clientes();
-                //        return;
-                //    }
+                case 13:
+                    {
+                        Clientes();
+                        return;
+                    }
                 //case 14:
                 //    {
                 //        this.CarteraComi();
@@ -197,6 +197,65 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
+        }
+
+        private void Clientes()
+        {
+            ReportDocument rptDoc = new ReportDocument();
+
+            SqlConnection sqlCon;
+
+
+            List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
+            List<pr_cuotapoliza> lstCuota = _objConsumoRegistroProd.GridCuotasC(36165, 63452);
+
+            re_memo ds = new re_memo();
+            DataTable dt = new DataTable();
+            dt.TableName = "Crystal Report Example";
+            dt = ToDataTable<GetReportMemo_Result>(response);
+            //sqlCon = new SqlConnection(@"server='servername'; Initial Catalog='databasename';user id='userid';password='password'");
+            //SqlDataAdapter da = new SqlDataAdapter(@"select Stud_Name, Class, Subject, Marks from stud_details", sqlCon);
+            //da.Fill(dt);
+            //ds.Tables[0].Merge(dt);
+            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            re_memocuotas ds1 = new re_memocuotas();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "Crystal Report Example";
+            dt1 = ToDataTable<pr_cuotapoliza>(lstCuota);
+            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_clientes.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        private void Clientes2()
+        {
+            string str = base.Server.MapPath("reportes//re_clientes.rpt");
+            this.CrystalReportViewer1.ReportSource = str;
+            if (this.Session["roles"].ToString() != "36")
+            {
+                this.CrystalReportViewer1.HasPrintButton = false;
+                this.CrystalReportViewer1.HasExportButton = false;
+                this.l1.Text = "<script language=\"JavaScript\" type=\"text/javascript\"> \n function click(){ \n if(event.button==2)\n{\nalert('No esta permitido el click derecho en este reporte \\n Gracias por su comprensión');\n}\n}\n document.onmousedown=click \n //-->\n</script> \n";
+                Label label = this.l1;
+                label.Text = string.Concat(label.Text, "<script language=\"JavaScript\"> \n function disableselect(e) \n { \n return false \n } \n function reEnable() \n { \n return true \n } \n //if IE4+ \n document.onselectstart=new Function (\"return false\") \n //if NS6 \n if (window.sidebar) \n { \n document.onmousedown=disableselect \n   document.onclick=reEnable \n } \n </script>");
+            }
+            string str1 = "{Comando.id_per} <> '' ";
+            if (base.Request.QueryString["fc"] != "")
+            {
+                str1 = string.Concat(str1, " AND Month({Comando.fechaaniv}) = ", base.Request.QueryString["fc"]);
+            }
+            str1 = string.Concat(str1, " AND {Comando.nomraz} like '*", base.Request.QueryString["nc"].ToString().ToUpper(), "*'");
+            this.CrystalReportViewer1.SelectionFormula = str1;
+            this.CrystalReportViewer1.RefreshReport();
         }
 
         public DataTable ToDataTable<T>(List<T> items)
