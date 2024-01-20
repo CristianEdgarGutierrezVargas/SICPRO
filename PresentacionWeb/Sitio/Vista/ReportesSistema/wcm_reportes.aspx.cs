@@ -13,5 +13,36 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
 
         }
+
+        protected void btnGenerarReporteComisionesEje_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteSpvs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteComisiones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteContable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteNota_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteComisionesFe_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

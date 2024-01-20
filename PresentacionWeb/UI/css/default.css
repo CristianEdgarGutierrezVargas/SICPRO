@@ -526,4 +526,25 @@ th, td {
 .dxActTab a{
 	color: lightslategrey !important
 }
+
+.nav-tabs button.active {
+	color: #022d4d !important;
+}
+
+.nav-tabs button {
+	color: #0492cb !important;
+}
+
+.nav-pills button.active {
+	color: white !important;
+	min-width:200px;
+	/*padding-left: 30px !important;
+	padding-right: 30px !important;*/
+}
+
+.nav-pills button {
+	color: #0492cb !important;
+	/*padding-left: 30px !important;
+	padding-right: 30px !important;*/
+}
 /**************/

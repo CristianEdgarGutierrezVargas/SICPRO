@@ -13,5 +13,38 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
 
         }
+
+        #region botones tab
+
+        protected void clientes_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-clientes-tab";
+        }
+        protected void vcmto_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-vcmto-tab";
+        }
+        protected void pagos_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-pagos-tab";
+        }
+        protected void estado_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-estado-tab";
+        }
+        protected void reimp_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-reimp-tab";
+        }
+        protected void cobranzas_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-cobranzas-tab";
+        }
+        protected void recibos_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "v-pills-recibos-tab";
+        }
+
+        #endregion
     }
 }

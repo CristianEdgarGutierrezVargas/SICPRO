@@ -1,5 +1,273 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wcm_reportes.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ReportesSistema.wcm_reportes" %>
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
+    <div class="post">
+      <div>         
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">      
+                  <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Comisiones"></asp:Label></h1>
+                  <div class="entry">
+                      <img src="../../../UI/img/edit.png" alt="" width="128" height="128" class="left">
+                  </div>      
+              </div>    
+            </div>  
+
+        <div class="row">
+            <div class="col-md-12"> 
+                  <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="padding:20px">
+                      <button class="nav-link active" id="nav-comisionesEje-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesEje" type="button" role="tab" aria-controls="nav-comisionesEje" aria-selected="true">Comisiones por Ejecutivo</button>
+                      <button class="nav-link" id="nav-spvs-tab" data-bs-toggle="tab" data-bs-target="#nav-spvs" type="button" role="tab" aria-controls="nav-spvs" aria-selected="false">ASCII - SPVS</button>
+                      <button class="nav-link" id="nav-comisiones-tab" data-bs-toggle="tab" data-bs-target="#nav-comisiones" type="button" role="tab" aria-controls="nav-comisiones" aria-selected="false">Comisiones</button>
+                      <button class="nav-link" id="nav-contable-tab" data-bs-toggle="tab" data-bs-target="#nav-contable" type="button" role="tab" aria-controls="nav-contable" aria-selected="false">Contable 1</button>
+                      <button class="nav-link" id="nav-nota-tab" data-bs-toggle="tab" data-bs-target="#nav-nota" type="button" role="tab" aria-controls="nav-nota" aria-selected="false">Nota Cob. Comis.</button>
+                      <button class="nav-link" id="nav-comisionesFe-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesFe" type="button" role="tab" aria-controls="nav-comisionesFe" aria-selected="false">Comisiones a Fecha</button>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-comisionesEje" role="tabpanel" aria-labelledby="nav-comisionesEje-tab">
+                          <div style="padding:20px">
+                            <div class="row">                         
+                                <div class="col-md-2">Por Nombre</div>
+                                <div class="col-md-8">
+                                    <dx:BootstrapTextBox ID="txtNomclie" runat="server" Width="100%">
+                                          <CssClasses Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_clientes">
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                            </ValidationSettings>
+                                      </dx:BootstrapTextBox>  
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">                         
+                              <div class="col-md-2">Por Oficina</div>
+                              <div class="col-md-8">
+                                  <dx:BootstrapComboBox ID="cmbOficina" runat="server" ValueType="System.String" Width="100%">
+                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                      <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_clientes" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      </ValidationSettings>
+                                  </dx:BootstrapComboBox>
+                              </div>
+                            </div>
+                            <br />
+                            <div class="row">                         
+                              <div class="col-md-2">Mes aniversario</div>
+                              <div class="col-md-8">
+                                  <dx:BootstrapComboBox ID="cmbAniv" runat="server" ValueType="System.String" Width="100%">
+                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                      <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_clientes" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      </ValidationSettings>
+                                  </dx:BootstrapComboBox>
+                              </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                  <div class="col-md-4">      
+    
+                                  </div>
+                                  <div class="col-md-7">   
+                                     <dx:ASPxButton ID="btnGenerarReporteComisionesEje" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteComisionesEje_Click" CausesValidation="true" ValidationGroup="wpr_tab_comisionesEje"></dx:ASPxButton>                            
+                                  </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-spvs" role="tabpanel" aria-labelledby="nav-spvs-tab">
+                          <div style="padding:20px">                         
+        
+                                <div class="row">                         
+                                  <div class="col-md-2">Mes aniversario</div>
+                                  <div class="col-md-8">
+                                      <dx:BootstrapComboBox ID="cmbGrupoGrupos" runat="server" ValueType="System.String" Width="100%">
+                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                          </ValidationSettings>
+                                      </dx:BootstrapComboBox>
+                                  </div>
+                                </div>
+                                <br />
+                                <div class="row">                         
+                                    <div class="col-md-2">Sucursal</div>
+                                    <div class="col-md-8">
+                                        <dx:BootstrapComboBox ID="cmbSucursalGrupos" runat="server" ValueType="System.String" Width="100%">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                            <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                            </ValidationSettings>
+                                        </dx:BootstrapComboBox>
+                                    </div>
+                                  </div>
+                                  <br />
+                                <div class="row">
+                                      <div class="col-md-4">      
+    
+                                      </div>
+                                      <div class="col-md-7">   
+                                         <dx:ASPxButton ID="btnGenerarReporteSpvs" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteSpvs_Click" CausesValidation="true" ValidationGroup="wpr_tab_spvs"></dx:ASPxButton>                            
+                                      </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-comisiones" role="tabpanel" aria-labelledby="nav-comisiones-tab">
+                          <div style="padding:20px">                         
+        
+                                <div class="row">                         
+                                  <div class="col-md-2">Mes aniversario</div>
+                                  <div class="col-md-8">
+                                      <dx:BootstrapComboBox ID="BootstrapComboBox1" runat="server" ValueType="System.String" Width="100%">
+                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                          </ValidationSettings>
+                                      </dx:BootstrapComboBox>
+                                  </div>
+                                </div>
+                                <br />
+                                <div class="row">                         
+                                    <div class="col-md-2">Sucursal</div>
+                                    <div class="col-md-8">
+                                        <dx:BootstrapComboBox ID="BootstrapComboBox2" runat="server" ValueType="System.String" Width="100%">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                            <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                            </ValidationSettings>
+                                        </dx:BootstrapComboBox>
+                                    </div>
+                                  </div>
+                                  <br />
+                                <div class="row">
+                                      <div class="col-md-4">      
+    
+                                      </div>
+                                      <div class="col-md-7">   
+                                         <dx:ASPxButton ID="btnGenerarReporteComisiones" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteComisiones_Click" CausesValidation="true" ValidationGroup="wpr_tab_comisiones"></dx:ASPxButton>                            
+                                      </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-contable" role="tabpanel" aria-labelledby="nav-contable-tab">
+                          <div style="padding:20px">                         
+        
+                                <div class="row">                         
+                                  <div class="col-md-2">Mes aniversario</div>
+                                  <div class="col-md-8">
+                                      <dx:BootstrapComboBox ID="BootstrapComboBox3" runat="server" ValueType="System.String" Width="100%">
+                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                          </ValidationSettings>
+                                      </dx:BootstrapComboBox>
+                                  </div>
+                                </div>
+                                <br />
+                                <div class="row">                         
+                                    <div class="col-md-2">Sucursal</div>
+                                    <div class="col-md-8">
+                                        <dx:BootstrapComboBox ID="BootstrapComboBox4" runat="server" ValueType="System.String" Width="100%">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                            <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                            </ValidationSettings>
+                                        </dx:BootstrapComboBox>
+                                    </div>
+                                  </div>
+                                  <br />
+                                <div class="row">
+                                      <div class="col-md-4">      
+    
+                                      </div>
+                                      <div class="col-md-7">   
+                                         <dx:ASPxButton ID="btnGenerarReporteContable" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteContable_Click" CausesValidation="true" ValidationGroup="wpr_tab_contable"></dx:ASPxButton>                            
+                                      </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-nota" role="tabpanel" aria-labelledby="nav-v-tab">
+                          <div style="padding:20px">                         
+        
+                                <div class="row">                         
+                                  <div class="col-md-2">Mes aniversario</div>
+                                  <div class="col-md-8">
+                                      <dx:BootstrapComboBox ID="BootstrapComboBox5" runat="server" ValueType="System.String" Width="100%">
+                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                          </ValidationSettings>
+                                      </dx:BootstrapComboBox>
+                                  </div>
+                                </div>
+                                <br />
+                                <div class="row">                         
+                                    <div class="col-md-2">Sucursal</div>
+                                    <div class="col-md-8">
+                                        <dx:BootstrapComboBox ID="BootstrapComboBox6" runat="server" ValueType="System.String" Width="100%">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                            <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                            </ValidationSettings>
+                                        </dx:BootstrapComboBox>
+                                    </div>
+                                  </div>
+                                  <br />
+                                <div class="row">
+                                      <div class="col-md-4">      
+    
+                                      </div>
+                                      <div class="col-md-7">   
+                                         <dx:ASPxButton ID="btnGenerarReporteNota" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteNota_Click" CausesValidation="true" ValidationGroup="wpr_tab_nota"></dx:ASPxButton>                            
+                                      </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-comisionesFe" role="tabpanel" aria-labelledby="nav-comisionesFe-tab">
+                          <div style="padding:20px">                         
+        
+                                <div class="row">                         
+                                  <div class="col-md-2">Mes aniversario</div>
+                                  <div class="col-md-8">
+                                      <dx:BootstrapComboBox ID="BootstrapComboBox7" runat="server" ValueType="System.String" Width="100%">
+                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                            <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                          </ValidationSettings>
+                                      </dx:BootstrapComboBox>
+                                  </div>
+                                </div>
+                                <br />
+                                <div class="row">                         
+                                    <div class="col-md-2">Sucursal</div>
+                                    <div class="col-md-8">
+                                        <dx:BootstrapComboBox ID="BootstrapComboBox8" runat="server" ValueType="System.String" Width="100%">
+                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                            <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                              <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                            </ValidationSettings>
+                                        </dx:BootstrapComboBox>
+                                    </div>
+                                  </div>
+                                  <br />
+                                <div class="row">
+                                      <div class="col-md-4">      
+    
+                                      </div>
+                                      <div class="col-md-7">   
+                                         <dx:ASPxButton ID="btnGenerarReporteComisionesFe" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteComisionesFe_Click" CausesValidation="true" ValidationGroup="wpr_tab_comisionesFe"></dx:ASPxButton>                            
+                                      </div>
+                                </div>
+                              </div>
+                      </div>
+
+                  </div>
+            </div> 
+        </div>
+      </div>
+    </div>
+    </div>
 </asp:Content>

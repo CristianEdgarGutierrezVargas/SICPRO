@@ -11,6 +11,9 @@ namespace PresentacionWeb.Parametros
         {
             var lstMeses = new List<keyValue>();
 
+            var sel = new keyValue { key = 0, value = "Seleccione" };
+            lstMeses.Add(sel);
+
             var enero = new keyValue { key = 1, value = "Enero" };
             lstMeses.Add(enero);
 
@@ -50,11 +53,66 @@ namespace PresentacionWeb.Parametros
             return lstMeses;
         }
 
+        public List<keyValueS> GetListRangoFechas()
+        {
+            var lstCom = new List<keyValueS>();
+
+            var sel = new keyValueS { key = "selected", value = "Seleccione" };
+            lstCom.Add(sel);
+
+            var val1 = new keyValueS { key = "fc_recepcion", value = "Recepcion" };
+            lstCom.Add(val1);
+
+            var val2 = new keyValueS { key = "fc_reg", value = "Producción" };
+            lstCom.Add(val2);
+
+            var val3 = new keyValueS { key = "fc_emision", value = "Emisión" };
+            lstCom.Add(val3);
+
+            var val4 = new keyValueS { key = "fc_inivig", value = "Inicio Vigencia" };
+            lstCom.Add(val4);
+
+            var val5 = new keyValueS { key = "fc_finvig", value = "Fin Vigencia" };
+            lstCom.Add(val5);
+
+            return lstCom;
+        }
+        public List<keyValue> GetListComparaPrima()
+        {
+            var lstCom = new List<keyValue>();
+
+            var sel = new keyValue { key = 0, value = "Seleccione" };
+            lstCom.Add(sel);
+
+            var val1 = new keyValue { key = 1, value = "Igual a" };
+            lstCom.Add(val1);
+
+            var val2 = new keyValue { key = 2, value = "Mayor a" };
+            lstCom.Add(val2);
+
+            var val3 = new keyValue { key = 3, value = "Menor a" };
+            lstCom.Add(val3);
+
+            var val4 = new keyValue { key = 4, value = "Mayor igual a" };
+            lstCom.Add(val4);
+
+            var val5 = new keyValue { key = 5, value = "Menor Igual a" };
+            lstCom.Add(val5);
+
+            return lstCom;
+        }
         public class keyValue
         {
             public int key { get; set; }
 
             public string value { get; set; }
-        } 
+        }
+
+        public class keyValueS
+        {
+            public string key { get; set; }
+
+            public string value { get; set; }
+        }
     }
 }

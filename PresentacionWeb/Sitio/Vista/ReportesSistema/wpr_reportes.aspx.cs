@@ -1,4 +1,5 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using DevExpress.Web;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using PresentacionWeb.Parametros;
 using System;
@@ -14,6 +15,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
     public partial class wpr_reportes : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
+        ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
+
         CParametros _cParametros = new CParametros();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,17 +47,148 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
                 var lstMeses = _cParametros.GetListMeses();
 
-                #region tabClientes
+                var lstRangoFechas = _cParametros.GetListRangoFechas();
+
+                var lstComparaPrima = _cParametros.GetListComparaPrima();
+
+                #region Clientes
 
                 cmbOficina.DataSource = lstParametroRe;
                 cmbOficina.ValueField = "id_par";
                 cmbOficina.TextField = "desc_param";
                 cmbOficina.DataBind();
 
+                cmbOficina.SelectedIndex = 0;
+
                 cmbAniv.DataSource = lstMeses;
                 cmbAniv.TextField = "value";
                 cmbAniv.ValueField = "key";
                 cmbAniv.DataBind();
+                cmbAniv.SelectedIndex = 0;
+                #endregion
+
+                #region Grupos
+
+                cmbGrupoGrupos.DataSource = lstGrupo;
+                cmbGrupoGrupos.ValueField = "id_gru";
+                cmbGrupoGrupos.TextField = "desc_grupo";
+                cmbGrupoGrupos.DataBind();
+
+                cmbGrupoGrupos.SelectedIndex = 0;
+
+                cmbSucursalGrupos.DataSource = lstParametroRe;
+                cmbSucursalGrupos.ValueField = "id_par";
+                cmbSucursalGrupos.TextField = "desc_param";
+                cmbSucursalGrupos.DataBind();
+
+                cmbSucursalGrupos.SelectedIndex = 0;
+
+                #endregion
+
+                #region Proy Cartera
+
+                cmbSucursalCartera.DataSource = lstParametroRe;
+                cmbSucursalCartera.ValueField = "id_par";
+                cmbSucursalCartera.TextField = "desc_param";
+                cmbSucursalCartera.DataBind();
+
+                cmbSucursalCartera.SelectedIndex = 0;
+
+                #endregion
+
+                #region Produccion general
+
+                cmbSucursalProd.DataSource = lstParametroRe;
+                cmbSucursalProd.ValueField = "id_par";
+                cmbSucursalProd.TextField = "desc_param";
+                cmbSucursalProd.DataBind();
+
+                cmbSucursalProd.SelectedIndex = 0;
+
+                cmbDivisaProd.DataSource = lstParametroA;
+                cmbDivisaProd.ValueField = "id_par";
+                cmbDivisaProd.TextField = "desc_param";
+                cmbDivisaProd.DataBind();
+
+                cmbDivisaProd.SelectedIndex = 0;
+
+                cmbCarteraProd.DataSource = lstPersona60;
+                cmbCarteraProd.ValueField = "id_per";
+                cmbCarteraProd.TextField = "nomraz";
+                cmbCarteraProd.DataBind();
+
+                cmbCarteraProd.SelectedIndex = 0;
+
+                cmbEjecutivoProd.DataSource = lstPersona30;
+                cmbEjecutivoProd.ValueField = "id_per";
+                cmbEjecutivoProd.TextField = "nomraz";
+                cmbEjecutivoProd.DataBind();
+
+                cmbEjecutivoProd.SelectedIndex = 0;
+
+                cmbCompaniaProd.DataSource = lstCompanias;
+                cmbCompaniaProd.ValueField = "id_spvs";
+                cmbCompaniaProd.TextField = "nomraz";
+                cmbCompaniaProd.DataBind();
+
+                cmbCompaniaProd.SelectedIndex = 0;
+
+                cmbRamoProd.DataSource = lstRiesgo;
+                cmbRamoProd.ValueField = "id_riesgo";
+                cmbRamoProd.TextField = "desc_riesgo";
+                cmbRamoProd.DataBind();
+
+                cmbRamoProd.SelectedIndex = 0;
+
+                cmbGrupoProd.DataSource = lstGrupo;
+                cmbGrupoProd.ValueField = "id_gru";
+                cmbGrupoProd.TextField = "desc_grupo";
+                cmbGrupoProd.DataBind();
+                cmbGrupoProd.SelectedIndex = 0;
+
+                cmbMovimientoProd.DataSource = lstParametro;
+                cmbMovimientoProd.ValueField = "id_par";
+                cmbMovimientoProd.TextField = "desc_param";
+                cmbMovimientoProd.DataBind();
+                cmbMovimientoProd.SelectedIndex = 0;
+
+                cmbRangosFechasProd.DataSource = lstRangoFechas;
+                cmbRangosFechasProd.ValueField = "key";
+                cmbRangosFechasProd.TextField = "value";
+                cmbRangosFechasProd.DataBind();
+                cmbRangosFechasProd.SelectedIndex = 0;
+
+
+                cmbPrimaTotal.DataSource = lstComparaPrima;
+                cmbPrimaTotal.ValueField = "key";
+                cmbPrimaTotal.TextField = "value";
+                cmbPrimaTotal.DataBind();
+
+                cmbPrimaTotal.SelectedIndex = 0;
+
+                cmbPrimaNeta.DataSource = lstComparaPrima;
+                cmbPrimaNeta.ValueField = "key";
+                cmbPrimaNeta.TextField = "value";
+                cmbPrimaNeta.DataBind();
+
+                cmbPrimaNeta.SelectedIndex = 0;
+
+                #endregion
+
+                #region Memos
+
+                cmbCarteraMemo.DataSource = lstPersona60;
+                cmbCarteraMemo.ValueField = "id_per";
+                cmbCarteraMemo.TextField = "nomraz";
+                cmbCarteraMemo.DataBind();
+
+                cmbCarteraMemo.SelectedIndex = 0;
+
+                cmbFechasMemo.DataSource = lstRangoFechas;
+                cmbFechasMemo.ValueField = "key";
+                cmbFechasMemo.TextField = "value";
+                cmbFechasMemo.DataBind();
+                cmbFechasMemo.SelectedIndex = 0;
 
                 #endregion
 
@@ -148,6 +282,80 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         #endregion
 
+
+        protected void CallBPersona_Callback(object sender, CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idPer = grdPersonas.GetRowValues(Convert.ToInt32(index), "id_per").ToString();
+            var nombre = grdPersonas.GetRowValues(Convert.ToInt32(index), "nomraz").ToString();
+            nomraz.Value = nombre;
+            id_per.Value = idPer;
+        }
+
+        protected void btnserper_Click(object sender, EventArgs e)
+        {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+
+            pCPersona.ShowOnPageLoad = true;
+
+
+        }
+
+        protected void btnserper1_Click(object sender, EventArgs e)
+        {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz1.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            pCPersona.ShowOnPageLoad = false;
+        }
+
+        protected void grdPersonas_DataBinding(object sender, EventArgs e)
+        {
+            grdPersonas.DataSource = Session["lstPersonas"];
+        }
+
+
+        protected void clientes_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-clientes-tab";
+        }
+        protected void grupos_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-grupos-tab";
+        }
+        protected void cartera_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-cartera-tab";
+        }
+        protected void produccion_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-produccion-tab";
+        }
+        protected void memo_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-memo-tab";
+        }
+
+
+        protected void cmbCompaniaProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var response = _objConsumoRegistroProd.ObtenerTablaProducto(Convert.ToString(cmbCompaniaProd.SelectedItem.Value));
+            cmbProductoProd.DataSource = response;
+            cmbProductoProd.TextField = "desc_prod";
+            cmbProductoProd.ValueField = "id_producto";
+            cmbProductoProd.DataBind();
+        }
+
+
+
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
             reportTabClientes.Visible = true;
@@ -156,5 +364,43 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
             //string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
         }
+
+        protected void btnGenerarReporteGrupos_Click(object sender, EventArgs e)
+        {
+            //reportTabClientes.Visible = true;
+            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
+            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+        }
+
+        protected void btnGenerarReporteCartera_Click(object sender, EventArgs e)
+        {
+            //reportTabClientes.Visible = true;
+            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
+            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+        }
+
+        protected void btnGenerarReporteProduccion_Click(object sender, EventArgs e)
+        {
+            //reportTabClientes.Visible = true;
+            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
+            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+        }
+
+        protected void btnGenerarReporteMemo_Click(object sender, EventArgs e)
+        {
+            //reportTabClientes.Visible = true;
+            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
+            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+        }
+
+        
     }
 }

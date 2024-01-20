@@ -13,5 +13,26 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
 
         }
+
+
+        protected void hist_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-hist-tab";
+        }
+        protected void gen_tab_Click(object sender, EventArgs e)
+        {
+            hidtab.Value = "nav-gen-tab";
+        }
+
+
+        protected void btnGenerarReporteHist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGenerarReporteGen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
