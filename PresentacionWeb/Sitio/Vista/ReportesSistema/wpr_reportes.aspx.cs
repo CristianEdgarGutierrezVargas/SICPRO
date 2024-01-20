@@ -358,8 +358,14 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
+            var mesAniv = Convert.ToString(cmbAniv.SelectedItem.Value);
+            var nomcli = txtNomclie.Text;
+            var suc = cmbOficina.SelectedItem.Value;
+
             reportTabClientes.Visible = true;
-            reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
+            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13&fc=");
+            reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=13&fc=" + mesAniv + "&nc=" + nomcli + "&sc=" + suc);
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
             //string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
@@ -367,38 +373,101 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteGrupos_Click(object sender, EventArgs e)
         {
-            //reportTabClientes.Visible = true;
-            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
-            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+            var idGrupo = Convert.ToString(cmbGrupoGrupos.SelectedItem.Value);
+            var suc = Convert.ToString(cmbSucursalGrupos.SelectedItem.Value);
+            reportTabClientes.Visible = true;
+            reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=15&ig=" + idGrupo + "&sc=" + suc);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteCartera_Click(object sender, EventArgs e)
         {
-            //reportTabClientes.Visible = true;
-            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
-            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+            var suc = Convert.ToString(cmbSucursalCartera.SelectedItem.Value);
+            reportTabClientes.Visible = true;
+            reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=16&sc=" + suc);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteProduccion_Click(object sender, EventArgs e)
         {
-            //reportTabClientes.Visible = true;
-            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
-            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+            var s = "";
+            var ca = "";
+            var ej = "";
+            var sp = "";
+            var ip = "";
+
+            var iv1 = "";
+            var iv2 = "";
+            var ipc = "";
+            var nup = "";
+            var pt = "";
+
+            var pn = "";
+            var fc = "";
+            var nl = "";
+            var de1 = "";
+            var de2 = "";
+
+            var idi = "";
+            var idr = "";
+            var ve = "";
+            var ve0 = "";
+            var mv = "";
+            var g = "";
+
+            reportTabClientes.Visible = true;
+            reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=2" +
+            "&s=" + s + 
+			"&ca=" + ca +
+			"&ej=" + ej + 
+			"&sp=" + sp + 
+			"&ip=" + ip + 
+
+			"&iv1=" + iv1 + 
+			"&iv2=" + iv2 + 
+			"&ipc=" + ipc + 
+			"&nup=" + nup + 
+			"&pt=" + pt + 
+
+			"&pn=" + pn + 
+			"&fc=" + fc + 
+			"&nl=" + nl + 
+			"&de1=" + de1 + 
+			"&de2=" + de2 + 
+
+			"&idi=" + idi +  
+			"&idr=" + idr +  
+			"&ve=" + ve +  
+			"&ve0=" +  ve0 +  
+			"&mv=" +  mv +  
+			"&g=" +  g
+                );
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteMemo_Click(object sender, EventArgs e)
         {
-            //reportTabClientes.Visible = true;
-            //reportTabClientes.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=13");
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#exampleModal').modal('show');</script>", false);
-            ////string[] str = new string[] { "<iframe src='re_viewer.aspx?r=13&fc=", this.mes_aniv.SelectedValue.ToString(), "&nc=", this.nomclie.Text, "&sc=", this.id_suc1.SelectedValue.ToString(), "' runat='server' name='repo' width='100%' scrolling='auto' border='0' marginwidth='0' height='100%'></iframe>" };
+            var numPoliza = txtNumPolizaMemo.Text;
+            var numLiquidacion = txtNumLiquidacionMemo.Text;
+            var cartera = Convert.ToString(cmbCarteraMemo.SelectedItem.Value);
+            var fechaMemo = Convert.ToString(cmbFechasMemo.SelectedItem.Value);
+            var fechaDe = fechaDel.Date.ToShortDateString();
+            var fechaA = fechaAl.Date.ToShortDateString();
+            string str = "";
+            str = (this.cmbCopiasMemo.SelectedItem.Value.ToString() != "1" ? "10" : "9");
+
+            reportTabClientes.Visible = true;
+            reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=" + str + "&np=" + numPoliza + 
+                "&nl=" + numLiquidacion +
+                "&fc=" + fechaDe +
+                "&fc2=" + fechaA +
+                "&fb=" + fechaMemo +
+                "&ca=" + cartera
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         

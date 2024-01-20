@@ -1514,6 +1514,12 @@
       <DependentUpon>re_memo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_memocuotas - copia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>re_memocuotas - copia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Sitio\Vista\Reportes\reportes\re_memocuotas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2252,6 +2258,10 @@
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>re_memo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memocuotas - copia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_memocuotas - copia.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_memocuotas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

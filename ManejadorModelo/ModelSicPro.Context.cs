@@ -307,5 +307,32 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
+    
+        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes(string nomraz, Nullable<int> fecha_aniv, Nullable<int> id_suc)
+        {
+            var nomrazParameter = nomraz != null ?
+                new ObjectParameter("nomraz", nomraz) :
+                new ObjectParameter("nomraz", typeof(string));
+    
+            var fecha_anivParameter = fecha_aniv.HasValue ?
+                new ObjectParameter("fecha_aniv", fecha_aniv) :
+                new ObjectParameter("fecha_aniv", typeof(int));
+    
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, fecha_anivParameter, id_sucParameter);
+        }
+    
+        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
+        }
+    
+        public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
+        }
     }
 }

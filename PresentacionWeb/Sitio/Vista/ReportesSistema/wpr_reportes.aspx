@@ -113,10 +113,7 @@
                           <div class="col-md-2">Por Nombre</div>
                           <div class="col-md-8">
                               <dx:BootstrapTextBox ID="txtNomclie" runat="server" Width="100%">
-                                    <CssClasses Input="form-control-sm fs-10" />
-                                    <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_clientes">
-                                          <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
-                                      </ValidationSettings>
+                                    <CssClasses Input="form-control-sm fs-10" />                                    
                                 </dx:BootstrapTextBox>  
                           </div>
                       </div>

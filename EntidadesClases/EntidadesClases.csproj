@@ -77,6 +77,15 @@
     <Compile Include="ModelSicPro\GetDataVeriPoliza_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportClientes_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportDirecciones_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportMemo1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportMemo_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

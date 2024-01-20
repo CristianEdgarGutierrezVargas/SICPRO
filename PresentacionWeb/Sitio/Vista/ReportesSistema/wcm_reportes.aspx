@@ -5,6 +5,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
+        <script type="text/javascript">    
+    
+            $(document).ready(function () {
+                var st = $(this).find("input[id*='hidtab']").val();
+                if (st == null)
+                    st = 0;
+
+                //$('[id$=tabs]').tabs({ selected: st });
+                console.log(st);
+                var someTabTriggerEl = document.querySelector('#' + st + '')
+                var tab = new bootstrap.Tab(someTabTriggerEl)
+                tab.show()
+            });
+
+        </script>
     <div class="post">
       <div>         
         <div class="container">
@@ -19,18 +34,27 @@
 
         <div class="row">
             <div class="col-md-12"> 
+             <asp:HiddenField ID="hidtab" Value="nav-comisionesEje-tab" runat="server" />
+
+             <asp:Button ID="comisionesEje_tab" style="display:none" runat="server" OnClick="comisionesEje_tab_Click"/>
+             <asp:Button ID="spvs_tab" style="display:none" runat="server" OnClick="spvs_tab_Click"/>
+             <asp:Button ID="comisiones_tab" style="display:none" runat="server" OnClick="comisiones_tab_Click"/>
+             <asp:Button ID="contable_tab" style="display:none" runat="server" OnClick="contable_tab_Click"/>
+             <asp:Button ID="nota_tab" style="display:none" runat="server" OnClick="nota_tab_Click"/>
+             <asp:Button ID="comisionesFe_tab" style="display:none" runat="server" OnClick="comisionesFe_tab_Click"/>
+
                   <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist" style="padding:20px">
-                      <button class="nav-link active" id="nav-comisionesEje-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesEje" type="button" role="tab" aria-controls="nav-comisionesEje" aria-selected="true">Comisiones por Ejecutivo</button>
-                      <button class="nav-link" id="nav-spvs-tab" data-bs-toggle="tab" data-bs-target="#nav-spvs" type="button" role="tab" aria-controls="nav-spvs" aria-selected="false">ASCII - SPVS</button>
-                      <button class="nav-link" id="nav-comisiones-tab" data-bs-toggle="tab" data-bs-target="#nav-comisiones" type="button" role="tab" aria-controls="nav-comisiones" aria-selected="false">Comisiones</button>
-                      <button class="nav-link" id="nav-contable-tab" data-bs-toggle="tab" data-bs-target="#nav-contable" type="button" role="tab" aria-controls="nav-contable" aria-selected="false">Contable 1</button>
-                      <button class="nav-link" id="nav-nota-tab" data-bs-toggle="tab" data-bs-target="#nav-nota" type="button" role="tab" aria-controls="nav-nota" aria-selected="false">Nota Cob. Comis.</button>
-                      <button class="nav-link" id="nav-comisionesFe-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesFe" type="button" role="tab" aria-controls="nav-comisionesFe" aria-selected="false">Comisiones a Fecha</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= comisionesEje_tab.ClientID %>').click()"  id="nav-comisionesEje-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesEje" type="button" role="tab" aria-controls="nav-comisionesEje" aria-selected="true">Comisiones por Ejecutivo</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= spvs_tab.ClientID %>').click()" id="nav-spvs-tab" data-bs-toggle="tab" data-bs-target="#nav-spvs" type="button" role="tab" aria-controls="nav-spvs" aria-selected="false">ASCII - SPVS</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= comisiones_tab.ClientID %>').click()" id="nav-comisiones-tab" data-bs-toggle="tab" data-bs-target="#nav-comisiones" type="button" role="tab" aria-controls="nav-comisiones" aria-selected="false">Comisiones</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= contable_tab.ClientID %>').click()" id="nav-contable-tab" data-bs-toggle="tab" data-bs-target="#nav-contable" type="button" role="tab" aria-controls="nav-contable" aria-selected="false">Contable 1</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= nota_tab.ClientID %>').click()" id="nav-nota-tab" data-bs-toggle="tab" data-bs-target="#nav-nota" type="button" role="tab" aria-controls="nav-nota" aria-selected="false">Nota Cob. Comis.</button>
+                      <button class="nav-link" onclick="document.getElementById('<%= comisionesFe_tab.ClientID %>').click()" id="nav-comisionesFe-tab" data-bs-toggle="tab" data-bs-target="#nav-comisionesFe" type="button" role="tab" aria-controls="nav-comisionesFe" aria-selected="false">Comisiones a Fecha</button>
                     </div>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
-                      <div class="tab-pane fade show active" id="nav-comisionesEje" role="tabpanel" aria-labelledby="nav-comisionesEje-tab">
+                      <div class="tab-pane fade" id="nav-comisionesEje" role="tabpanel" aria-labelledby="nav-comisionesEje-tab">
                           <div style="padding:20px">
                             <div class="row">                         
                                 <div class="col-md-2">Por Nombre</div>

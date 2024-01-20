@@ -16,14 +16,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class re_memocuotas : ReportClass {
+    public class re_memocuotas___copia : ReportClass {
         
-        public re_memocuotas() {
+        public re_memocuotas___copia() {
         }
         
         public override string ResourceName {
             get {
-                return "re_memocuotas.rpt";
+                return "re_memocuotas - copia.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.reportes {
         
         public override string FullResourceName {
             get {
-                return "PresentacionWeb.Sitio.Vista.Reportes.reportes.re_memocuotas.rpt";
+                return "PresentacionWeb.Sitio.Vista.Reportes.reportes.re_memocuotas - copia.rpt";
             }
             set {
                 // Do nothing
@@ -87,28 +87,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.reportes {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Pm_Comandoid_poliza {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Pm_Comandoid_movimiento {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedre_memocuotas : Component, ICachedReport {
+    public class Cachedre_memocuotas___copia : Component, ICachedReport {
         
-        public Cachedre_memocuotas() {
+        public Cachedre_memocuotas___copia() {
         }
         
         [Browsable(false)]
@@ -145,7 +129,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            re_memocuotas rpt = new re_memocuotas();
+            re_memocuotas___copia rpt = new re_memocuotas___copia();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -27,14 +27,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             {
                 case 1:
                     {
-                        this.Memo();
+                        Memo();
                         return;
                     }
-                //case 2:
-                //    {
-                //        this.Reporteprod1();
-                //        return;
-                //    }
+                case 2:
+                    {
+                        Reporteprod1();
+                        return;
+                    }
                 //case 3:
                 //    {
                 //        this.RecDetallado();
@@ -65,16 +65,16 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                 //        this.Rascii();
                 //        return;
                 //    }
-                //case 9:
-                //    {
-                //        this.Memo2(1);
-                //        return;
-                //    }
-                //case 10:
-                //    {
-                //        this.Memo2(2);
-                //        return;
-                //    }
+                case 9:
+                    {
+                        Memo2(1);
+                        return;
+                    }
+                case 10:
+                    {
+                        Memo2(2);
+                        return;
+                    }
                 //case 11:
                 //    {
                 //        this.Estcta1();
@@ -95,16 +95,16 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                 //        this.CarteraComi();
                 //        return;
                 //    }
-                //case 15:
-                //    {
-                //        this.Grupos();
-                //        return;
-                //    }
-                //case 16:
-                //    {
-                //        this.ProyCartera();
-                //        return;
-                //    }
+                case 15:
+                    {
+                        Grupos();
+                        return;
+                    }
+                case 16:
+                    {
+                        ProyCartera();
+                        return;
+                    }
                 //case 17:
                 //    {
                 //        this.ProdCaptada(17);
@@ -199,7 +199,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.RefreshReport();
         }
 
-        private void Clientes()
+        private void Reporteprod1()
         {
             ReportDocument rptDoc = new ReportDocument();
 
@@ -228,6 +228,78 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        private void Memo2(int tipo)
+        {
+            var numPoliza = Convert.ToInt64(Request.QueryString["np"]);
+            var numLiquidacion = Convert.ToInt64(Request.QueryString["nl"]);
+            var fechaDe = Convert.ToString(Request.QueryString["fc"]);
+            var fechaA = Convert.ToString(Request.QueryString["fc2"]);
+            var fechaMemo = Convert.ToString(Request.QueryString["fb"]);
+            var cartera = Request.QueryString["ca"];
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportMemo1(numPoliza, numLiquidacion, fechaMemo, fechaDe, fechaA, cartera);
+            var responseSubReporte  = _objConsumoRegistroProd.GridCuotasC(36165, 63452);
+
+            //Reporte Principal
+            re_memo ds = new re_memo();
+            DataTable dt = new DataTable();
+            dt.TableName = "Crystal Report Example";
+            dt = ToDataTable(responseReporte);
+            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            re_memocuotas ds1 = new re_memocuotas();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "Crystal Report Example";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_memo1.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        private void Clientes()
+        {
+            var mesAniv = Convert.ToInt32(Request.QueryString["fc"]);
+            var nomcli = Request.QueryString["nc"];
+            var suc = Convert.ToInt32(Request.QueryString["sc"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportClientes(nomcli, mesAniv, suc);
+            var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
+
+            //Reporte Principal
+            re_clientes ds = new re_clientes();
+            DataTable dt = new DataTable();
+            dt.TableName = "Reporte";
+            dt = ToDataTable(responseReporte);            
+            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Sub Reporte
+            re_direcciones ds1 = new re_direcciones();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "SubReporte";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+
             string reportPath = base.Server.MapPath("reportes//re_clientes.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
@@ -236,26 +308,72 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.RefreshReport();
         }
 
-        private void Clientes2()
+        private void Grupos()
         {
-            //string str = base.Server.MapPath("reportes//re_clientes.rpt");
-            //this.CrystalReportViewer1.ReportSource = str;
-            //if (this.Session["roles"].ToString() != "36")
-            //{
-            //    this.CrystalReportViewer1.HasPrintButton = false;
-            //    this.CrystalReportViewer1.HasExportButton = false;
-            //    this.l1.Text = "<script language=\"JavaScript\" type=\"text/javascript\"> \n function click(){ \n if(event.button==2)\n{\nalert('No esta permitido el click derecho en este reporte \\n Gracias por su comprensión');\n}\n}\n document.onmousedown=click \n //-->\n</script> \n";
-            //    Label label = this.l1;
-            //    label.Text = string.Concat(label.Text, "<script language=\"JavaScript\"> \n function disableselect(e) \n { \n return false \n } \n function reEnable() \n { \n return true \n } \n //if IE4+ \n document.onselectstart=new Function (\"return false\") \n //if NS6 \n if (window.sidebar) \n { \n document.onmousedown=disableselect \n   document.onclick=reEnable \n } \n </script>");
-            //}
-            //string str1 = "{Comando.id_per} <> '' ";
-            //if (base.Request.QueryString["fc"] != "")
-            //{
-            //    str1 = string.Concat(str1, " AND Month({Comando.fechaaniv}) = ", base.Request.QueryString["fc"]);
-            //}
-            //str1 = string.Concat(str1, " AND {Comando.nomraz} like '*", base.Request.QueryString["nc"].ToString().ToUpper(), "*'");
-            //this.CrystalReportViewer1.SelectionFormula = str1;
-            //this.CrystalReportViewer1.RefreshReport();
+            var mesAniv = Convert.ToInt32(Request.QueryString["fc"]);
+            var nomcli = Request.QueryString["nc"];
+            var suc = Convert.ToInt32(Request.QueryString["sc"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportClientes(nomcli, mesAniv, suc);
+            var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
+
+            //Reporte Principal
+            re_clientes ds = new re_clientes();
+            DataTable dt = new DataTable();
+            dt.TableName = "Reporte";
+            dt = ToDataTable(responseReporte);
+            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Sub Reporte
+            re_direcciones ds1 = new re_direcciones();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "SubReporte";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            string reportPath = base.Server.MapPath("reportes//re_clientes.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        private void ProyCartera()
+        {
+            var mesAniv = Convert.ToInt32(Request.QueryString["fc"]);
+            var nomcli = Request.QueryString["nc"];
+            var suc = Convert.ToInt32(Request.QueryString["sc"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportClientes(nomcli, mesAniv, suc);
+            var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
+
+            //Reporte Principal
+            re_clientes ds = new re_clientes();
+            DataTable dt = new DataTable();
+            dt.TableName = "Reporte";
+            dt = ToDataTable(responseReporte);
+            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Sub Reporte
+            re_direcciones ds1 = new re_direcciones();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "SubReporte";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            string reportPath = base.Server.MapPath("reportes//re_clientes.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
         }
 
         public DataTable ToDataTable<T>(List<T> items)

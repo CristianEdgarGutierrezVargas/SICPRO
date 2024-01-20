@@ -2571,10 +2571,17 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="GetReportClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nomraz" Type="varchar" Mode="In" />
+          <Parameter Name="fecha_aniv" Type="int" Mode="In" />
+          <Parameter Name="id_suc" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetReportDirecciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetReportMemo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="GetReportMemo1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4226,6 +4233,13 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <End Role="pr_pagocompania" EntitySet="pr_pagocompania" />
             <End Role="pr_pagocompania1" EntitySet="pr_pagocompania" />
           </AssociationSet>
+          <FunctionImport Name="GetReportClientes" ReturnType="Collection(sicproModel.GetReportClientes_Result)">
+            <Parameter Name="nomraz" Mode="In" Type="String" />
+            <Parameter Name="fecha_aniv" Mode="In" Type="Int32" />
+            <Parameter Name="id_suc" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetReportDirecciones" ReturnType="Collection(sicproModel.GetReportDirecciones_Result)" />
+          <FunctionImport Name="GetReportMemo1" ReturnType="Collection(sicproModel.GetReportMemo1_Result)" />
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -6799,6 +6813,72 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetReportClientes_Result">
+          <Property Type="String" Name="id_per" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="Int64" Name="id_tper" Nullable="false" />
+          <Property Type="String" Name="tpersona" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="fechaaniv" Nullable="true" />
+          <Property Type="Int64" Name="id_sal" Nullable="true" />
+          <Property Type="String" Name="salutacion" Nullable="true" MaxLength="5" />
+          <Property Type="Int64" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="id_tdoc" Nullable="false" />
+          <Property Type="String" Name="tipdoc" Nullable="true" MaxLength="5" />
+          <Property Type="Int64" Name="id_emis" Nullable="false" />
+          <Property Type="String" Name="emision" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nit_fac" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="id_suc" Nullable="true" />
+          <Property Type="String" Name="sucursal" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="GetReportDirecciones_Result">
+          <Property Type="String" Name="id_per" Nullable="false" MaxLength="15" />
+          <Property Type="Int64" Name="id_dir" Nullable="false" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="Double" Name="id_tpdir" Nullable="false" />
+          <Property Type="String" Name="tipo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="int_dire" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_cel" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_fax" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="casilla" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="web" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="id_emis" Nullable="false" Precision="8" Scale="0" />
+          <Property Type="String" Name="ciudad" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="GetReportMemo1_Result">
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="no_liquida" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="id_gru" Nullable="true" />
+          <Property Type="String" Name="desc_grupo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cliente" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="desc_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="clase_poliza" Nullable="true" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_percart" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="cartera" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="ejecutivo" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="movimiento" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="fc_inivig" Nullable="false" />
+          <Property Type="DateTime" Name="fc_finvig" Nullable="false" />
+          <Property Type="Decimal" Name="prima_bruta" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="prima_neta" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="por_comision" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="comision" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="String" Name="divisa" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="mat_aseg" Nullable="true" MaxLength="Max" />
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+          <Property Type="Int64" Name="id_movimiento" Nullable="false" />
+          <Property Type="DateTime" Name="fc_reg" Nullable="false" />
+          <Property Type="DateTime" Name="fc_recepcion" Nullable="false" />
+          <Property Type="DateTime" Name="fc_emision" Nullable="false" />
+          <Property Type="Boolean" Name="tipo_cuota" Nullable="false" />
+          <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8890,6 +8970,84 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetReportClientes" FunctionName="sicproModel.Store.GetReportClientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportClientes_Result">
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="id_tper" ColumnName="id_tper" />
+                <ScalarProperty Name="tpersona" ColumnName="tpersona" />
+                <ScalarProperty Name="fechaaniv" ColumnName="fechaaniv" />
+                <ScalarProperty Name="id_sal" ColumnName="id_sal" />
+                <ScalarProperty Name="salutacion" ColumnName="salutacion" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="id_tdoc" ColumnName="id_tdoc" />
+                <ScalarProperty Name="tipdoc" ColumnName="tipdoc" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="emision" ColumnName="emision" />
+                <ScalarProperty Name="nit_fac" ColumnName="nit_fac" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportDirecciones" FunctionName="sicproModel.Store.GetReportDirecciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportDirecciones_Result">
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="id_dir" ColumnName="id_dir" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_tpdir" ColumnName="id_tpdir" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="int_dire" ColumnName="int_dire" />
+                <ScalarProperty Name="telf_cel" ColumnName="telf_cel" />
+                <ScalarProperty Name="telf_fax" ColumnName="telf_fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="casilla" ColumnName="casilla" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportMemo1" FunctionName="sicproModel.Store.GetReportMemo1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportMemo1_Result">
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="desc_prod" ColumnName="desc_prod" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="clase_poliza" ColumnName="clase_poliza" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="cartera" ColumnName="cartera" />
+                <ScalarProperty Name="ejecutivo" ColumnName="ejecutivo" />
+                <ScalarProperty Name="movimiento" ColumnName="movimiento" />
+                <ScalarProperty Name="fc_inivig" ColumnName="fc_inivig" />
+                <ScalarProperty Name="fc_finvig" ColumnName="fc_finvig" />
+                <ScalarProperty Name="prima_bruta" ColumnName="prima_bruta" />
+                <ScalarProperty Name="prima_neta" ColumnName="prima_neta" />
+                <ScalarProperty Name="por_comision" ColumnName="por_comision" />
+                <ScalarProperty Name="comision" ColumnName="comision" />
+                <ScalarProperty Name="divisa" ColumnName="divisa" />
+                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="fc_reg" ColumnName="fc_reg" />
+                <ScalarProperty Name="fc_recepcion" ColumnName="fc_recepcion" />
+                <ScalarProperty Name="fc_emision" ColumnName="fc_emision" />
+                <ScalarProperty Name="tipo_cuota" ColumnName="tipo_cuota" />
+                <ScalarProperty Name="del" ColumnName="del" />
+                <ScalarProperty Name="al" ColumnName="al" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
