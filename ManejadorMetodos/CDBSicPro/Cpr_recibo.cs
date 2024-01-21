@@ -41,7 +41,8 @@ namespace ManejadorMetodos.CDBSicPro
             try
             {
                 var año = Convert.ToInt64(anio);
-                var sql = _context.pr_recibo.GroupBy(x => x.anio_recibo).Select(x => x.FirstOrDefault()).Where(w => w.id_perclie == null && w.anio_recibo==año && w.fecha_entregado==null).OrderBy(x => x.id_recibo).ToList();
+                var sql = _context.pr_recibo.Where(w => w.id_perclie == null && w.anio_recibo==año && w.fecha_entregado==null).OrderBy(x => x.id_recibo).ToList();
+               // var sql = _context.pr_recibo.GroupBy(x => x.anio_recibo).Select(x => x.FirstOrDefault()).Where(w => w.id_perclie == null && w.anio_recibo==año && w.fecha_entregado==null).OrderBy(x => x.id_recibo).ToList();
                 return sql;
 
                 
@@ -82,19 +83,10 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-
-                
                 var sql = _context.pr_recibo.Where(w=> w.anio_recibo == anio ).OrderByDescending(x => x.id_recibo ).ToList();
+             
                 return sql;
-
-                //string sql = string.Concat("SELECT public.pr_recibo.id_recibo, public.pr_recibo.anio_recibo FROM public.pr_recibo WHERE public.pr_recibo.anio_recibo = ", anio, " ORDER BY public.pr_recibo.id_recibo DESC");
-                //Acceso db = new Acceso();
-                //db.Conectar();
-                //db.CrearComando(sql);
-                //DataTable dt = db.Consulta();
-                //db.Desconectar();
-               
-            }
+ }
             catch (SecureExceptions secureException)
             {
                 throw new SecureExceptions("Error al generar la Consulta", secureException);

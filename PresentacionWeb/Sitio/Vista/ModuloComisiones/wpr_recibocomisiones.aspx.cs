@@ -55,6 +55,8 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                     imagenFail.Visible = false;
                     imagenOk.Visible = true;
                     pnlMensaje.ShowOnPageLoad = true;
+                    GenerarRecibo();
+                    al.Text = "";
                 }
                 else
                 {
@@ -62,12 +64,20 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                     imagenOk.Visible = false;
                     lblMensaje.Text = "Hubo un error al registrar los datos!";
                     pnlMensaje.ShowOnPageLoad = true;
+                    GenerarRecibo();
+                    al.Text = "";
                 }
 
 
             }
             catch
             {
+                imagenFail.Visible = true;
+                imagenOk.Visible = false;
+                lblMensaje.Text = "Hubo un error al almacenar el registro";
+                pnlMensaje.ShowOnPageLoad = true;
+                GenerarRecibo();
+                al.Text = "";
             }
         }
     }

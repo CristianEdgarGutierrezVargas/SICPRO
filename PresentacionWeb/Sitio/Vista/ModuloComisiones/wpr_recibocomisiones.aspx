@@ -60,7 +60,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <dx:BootstrapButton runat="server" ID="btnguardar" Text="Aceptar">
+                            <dx:BootstrapButton runat="server" ID="btnguardar" Text="Aceptar" OnClick="btnguardar_Click">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>
