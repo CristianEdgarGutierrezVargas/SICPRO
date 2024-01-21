@@ -104,5 +104,18 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+
+        public List<pr_cuotapoliza> GridCuotas()
+        {
+            try
+            {
+                var sql = _context.pr_cuotapoliza.ToList();               
+                return sql;
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
     }
 }

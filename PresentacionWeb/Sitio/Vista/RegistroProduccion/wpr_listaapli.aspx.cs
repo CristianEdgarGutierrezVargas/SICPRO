@@ -24,6 +24,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                return;
+            }
             if (!IsPostBack)
             {
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
@@ -67,8 +71,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objTablaPolizaIn.porvencer = porvencer.Checked;
 
             var lstResponse = _objConsumoRegistroProd.ObtenerTablaPolizaAp(objTablaPolizaIn);
-
-            gridpoliza.DataSource = lstResponse;
+            Session["LST_LISTA_APLI"] = lstResponse;
+            //gridpoliza.DataSource = lstResponse;
             gridpoliza.DataBind();
             this.gridcontainer.Visible = true;
         }
@@ -77,6 +81,9 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         {
 
             if (num == null)
+                return "";
+
+            if (Convert.ToInt64(num) == 0)
                 return "";
 
             string descGrupo = "";
@@ -195,7 +202,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
             //this.msgboxpanel.Visible = false;
-            base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
+            base.Response.Redirect("~/wpr_listaapli.aspx");
         }
 
         protected void btnsercom_Click(object sender, EventArgs e)
@@ -328,9 +335,20 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void gridpoliza_DataBinding(object sender, EventArgs e)
         {
-
+            if (Session["LST_LISTA_APLI"] != null)
+            {
+                gridpoliza.DataSource = Session["LST_LISTA_APLI"];                
+            }
         }
 
+        protected void gridpoliza_HtmlDataCellPrepared(object sender, BootstrapGridViewTableDataCellEventArgs e)
+        {
+            if (e.DataColumn.Caption == "Opciones")
+                e.Cell.Attributes.Add("onclick", "event.cancelBubble = true");
+            //if (e.DataColumn.FieldName == "UnitPrice")
+            //    e.Cell.Attributes.Add("onclick", "event.cancelBubble = true");
 
+            ////https://supportcenter.devexpress.com/ticket/details/t189804/gridview-how-to-disable-row-click-in-particular-column
+        }
     }
 }

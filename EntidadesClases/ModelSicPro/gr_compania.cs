@@ -18,7 +18,6 @@ namespace EntidadesClases.ModelSicPro
         public gr_compania()
         {
             this.pr_formriesgo = new HashSet<pr_formriesgo>();
-            this.pr_pagocompania = new HashSet<pr_pagocompania>();
         }
     
         public string id_spvs { get; set; }
@@ -30,7 +29,5 @@ namespace EntidadesClases.ModelSicPro
         public virtual gr_persona gr_persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<pr_formriesgo> pr_formriesgo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pr_pagocompania> pr_pagocompania { get; set; }
     }
 }

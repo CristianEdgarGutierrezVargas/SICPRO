@@ -30,7 +30,7 @@ namespace Logica.Consumo
         public static sicproEntities dbContext;
         public ConsumoValidarProd()
         {
-            if (dbContext != null) dbContext.Dispose();
+            //if (dbContext != null) dbContext.Dispose();
             dbContext = new sicproEntities();
             _manejador_pr_poliza = new Cpr_poliza(dbContext);
             _manejador_pr_cobranzas = new Cpr_cobranzas(dbContext);

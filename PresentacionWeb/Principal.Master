@@ -221,32 +221,32 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx?var=42">
                                                         <i class="fas fa-file-signature text-primary "></i>
                                                         Polizas Nuevas </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx?var=43">
                                                         <i class="fas fa-file-invoice-dollar text-primary "></i>
                                                         	Polizas Renovadas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom2.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom2.aspx?var=47">
                                                         <i class="fas fa-file-alt text-primary "></i>
                                                         	Aplicaciones a Pólizas </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom1.aspx?var=44">
                                                         <i class="fas fa-file-medical text-primary "></i>
                                                         	Inclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx?var=46">
                                                         <i class="fas fa-file-excel text-primary "></i>
                                                         	Exclusiones a Pólizas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wpr_listacom3.aspx?var=49">
                                                         <i class="fas fa-ban text-primary "></i>
                                                         Anulaciones de Pólizas</a>
                                                 </li>
@@ -327,27 +327,27 @@
                                         <nav class="navbar">
                                             <ul class="nav navbar-nav ">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ReportesSistema/wpr_reportes.aspx">
                                                         <i class="fas fa-poll text-primary "></i>
                                                        		Reportes de Producción </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ReportesSistema/wco_reportes.aspx">
                                                         <i class="fas fa-poll-h text-primary "></i>
                                                         		Reportes de Cobranzas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ReportesSistema/wcm_reportes.aspx">
                                                         <i class="fas fa-file-invoice text-primary "></i>
                                                         		Reportes de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ReportesSistema/wre_reportes.aspx">
                                                         <i class="fas fa-tasks text-primary "></i>
                                                         		Reportes de Reclamos</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ReportesSistema/wger_grafica.aspx">
                                                         <i class="fas fa-chart-pie text-primary "></i>
                                                         		Gráficas Gerenciales</a>
                                                 </li>

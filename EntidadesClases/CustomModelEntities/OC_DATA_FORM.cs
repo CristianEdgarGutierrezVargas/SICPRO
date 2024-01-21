@@ -28,6 +28,25 @@ namespace EntidadesClases.CustomModelEntities
             public gr_persona objPersonaAgente { get; set; }
 
             public gr_parametro objParametroDivisa { get; set; }
-        } 
+        }
+
+        public class oc_data_vpr_polaplivar
+        {
+            public vpr_polaplivar objRenovar { get; set; }
+
+            public gr_persona objPersona { get; set; }
+
+            public pr_grupo objGrupo { get; set; }
+
+            public pr_producto objProducto { get; set; }
+
+            public gr_compania objCompania { get; set; }
+
+            public gr_direccion objDireccion { get; set; }
+
+            public gr_persona objPersonaAgente { get; set; }
+
+            public gr_parametro objParametroDivisa { get; set; }
+        }
     }
 }

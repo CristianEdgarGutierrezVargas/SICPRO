@@ -26,6 +26,7 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> comisaldo_pc { get; set; }
         public Nullable<long> id_div { get; set; }
     
-        public virtual gr_compania gr_compania { get; set; }
+        public virtual pr_pagocompania pr_pagocompania1 { get; set; }
+        public virtual pr_pagocompania pr_pagocompania2 { get; set; }
     }
 }

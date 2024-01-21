@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDBSicPro\CAcceso.cs" />
+    <Compile Include="CDBSicPro\Cco_anticom.cs" />
     <Compile Include="CDBSicPro\Cgr_cierreregistro.cs" />
     <Compile Include="CDBSicPro\Cgr_compania.cs" />
     <Compile Include="CDBSicPro\Cgr_contactos.cs" />
@@ -57,12 +58,17 @@
     <Compile Include="CDBSicPro\Cgr_parametro.cs" />
     <Compile Include="CDBSicPro\Cgr_pass.cs" />
     <Compile Include="CDBSicPro\Cgr_persona.cs" />
+    <Compile Include="CDBSicPro\Cpr_anulada.cs" />
     <Compile Include="CDBSicPro\Cpr_cobranzas.cs" />
     <Compile Include="CDBSicPro\Cpr_cuotapoliza.cs" />
     <Compile Include="CDBSicPro\Cpr_formriesgo.cs" />
+    <Compile Include="CDBSicPro\Cpr_numaplicas.cs" />
+    <Compile Include="CDBSicPro\Cpr_pago.cs" />
+    <Compile Include="CDBSicPro\Cpr_pagocompania.cs" />
     <Compile Include="CDBSicPro\Cpr_poliza.cs" />
     <Compile Include="CDBSicPro\Cpr_polmov.cs" />
     <Compile Include="CDBSicPro\Cpr_grupo.cs" />
+    <Compile Include="CDBSicPro\Cpr_recibo.cs" />
     <Compile Include="CDBSicPro\Cpr_riesgo.cs" />
     <Compile Include="CDBSicPro\Cpr_producto.cs" />
     <Compile Include="CDBSicPro\CReportes.cs" />

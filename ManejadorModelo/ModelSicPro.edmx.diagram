@@ -38,12 +38,10 @@
         <EntityTypeShape EntityType="sicproModel.re_siniestro" Width="1.5" PointX="7.75" PointY="15.75" />
         <EntityTypeShape EntityType="sicproModel.co_sueldo" Width="1.5" PointX="16.75" PointY="0.75" />
         <EntityTypeShape EntityType="sicproModel.gr_acceso" Width="1.5" PointX="16.75" PointY="3.75" />
-        <EntityTypeShape EntityType="sicproModel.pr_pagocompania" Width="1.5" PointX="5.25" PointY="20.75" />
         <AssociationConnector Association="sicproModel.fk_co_anticom" />
         <AssociationConnector Association="sicproModel.fk_comicio_persona" />
         <AssociationConnector Association="sicproModel.gr_compania_fk" />
         <AssociationConnector Association="sicproModel.pr_formriesgo_spvs_fk" />
-        <AssociationConnector Association="sicproModel.pr_pagocompania_fk" />
         <AssociationConnector Association="sicproModel.gr_pass_fk" />
         <AssociationConnector Association="sicproModel.pr_poliza_fk" />
         <AssociationConnector Association="sicproModel.pr_calculo_riesgo_fk" />
@@ -116,6 +114,8 @@
         <EntityTypeShape EntityType="sicproModel.vtemp" Width="1.5" PointX="31.75" PointY="25.75" />
         <EntityTypeShape EntityType="sicproModel.zrep" Width="1.5" PointX="25.75" PointY="31.75" />
         <EntityTypeShape EntityType="sicproModel.zrep_estcta1" Width="1.5" PointX="31.75" PointY="28.75" />
+        <EntityTypeShape EntityType="sicproModel.pr_pagocompania" Width="1.5" PointX="5.375" PointY="32.75" />
+        <AssociationConnector Association="sicproModel.FK_pr_pagocompania_pr_pagocompania" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

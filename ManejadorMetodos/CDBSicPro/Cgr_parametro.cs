@@ -92,6 +92,7 @@ namespace ManejadorMetodos.CDBSicPro
             try
             {
                 var sql = _context.gr_parametro.Where(w => w.columna == columna).ToList();
+
                 if (sql == null)
                 {
                     return null;
@@ -128,5 +129,40 @@ namespace ManejadorMetodos.CDBSicPro
         //        throw new SecureExceptions("Error al Generar la Consulta", original);
         //    }
         //}
+
+        public List<gr_parametro> ParametroRE(string columna)
+        {
+            try
+            {
+                //string sentenciaSQL = "SELECT gr_parametro.id_par, gr_parametro.desc_param as desc_param1
+                //, gr_parametro.desc_param FROM gr_parametro
+                //WHERE gr_parametro.columna
+                //LIKE '" + columna + "' UNION SELECT 0,'', 'SELECCIONE UNA OPCIÓN' UNION SELECT 1,'*', 'SELECCIONE TODAS' ORDER BY id_par";
+                var sql = _context.gr_parametro.Where(w => w.columna == columna).ToList();
+               
+                if (sql == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    var objSelect = new gr_parametro();
+                    objSelect.id_par = 0;
+                    objSelect.desc_param = "SELECCIONE UNA OPCIÓN";
+                    sql.Add(objSelect);
+
+                    var objSelectTodas = new gr_parametro();
+                    objSelectTodas.id_par = 1;
+                    objSelectTodas.desc_param = "SELECCIONE TODAS";
+                    sql.Add(objSelectTodas);
+
+                    return sql.OrderBy(o => o.id_par).ToList();
+                }
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
     }
 }

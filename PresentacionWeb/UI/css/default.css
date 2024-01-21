@@ -250,15 +250,15 @@ hr {
 	color: #0A416B;
 }
 
-.post a {
+/*.post a {
 	color: #ffffff;
 	text-decoration: none;
-}
+}*/
 
-.post a:hover {
+/*.post a:hover {
 	color: #ffffff;
 	text-decoration: none;
-}
+}*/
 
 .post .title {
 	/*margin: 0;*/
@@ -515,3 +515,36 @@ th, td {
 }
 
 /*********************/
+
+
+
+/***********dv tabs*/
+.dxTab a{
+	color:black!important;
+}
+
+.dxActTab a{
+	color: lightslategrey !important
+}
+
+.nav-tabs button.active {
+	color: #022d4d !important;
+}
+
+.nav-tabs button {
+	color: #0492cb !important;
+}
+
+.nav-pills button.active {
+	color: white !important;
+	min-width:200px;
+	/*padding-left: 30px !important;
+	padding-right: 30px !important;*/
+}
+
+.nav-pills button {
+	color: #0492cb !important;
+	/*padding-left: 30px !important;
+	padding-right: 30px !important;*/
+}
+/**************/

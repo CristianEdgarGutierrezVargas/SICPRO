@@ -56,7 +56,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     txtNroLiquidacion.Text = string.Empty;
                     lblAsegurado.Text = objDataCompletaRenPoliza.objPersona.nomraz;
                     lblDireccion.Text = objDataCompletaRenPoliza.objDireccion == null? string.Empty : objDataCompletaRenPoliza.objDireccion.direccion;
-                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo.desc_grupo;
+                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo == null ? string.Empty : objDataCompletaRenPoliza.objGrupo.desc_grupo;
 
                     lblProducto.Text = objDataCompletaRenPoliza.objProducto.desc_prod;
 
@@ -80,6 +80,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             {
             }
         }
+
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
         {
             var lstCuotas = new List<pr_cuotapoliza>();
@@ -95,12 +96,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             return lstCuotas;
         }
 
-
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wgr_listareno.aspx", false);
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)

@@ -91,5 +91,32 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+
+        public List<pr_riesgo> ObtenerRiesgo()
+        {
+            try
+            {
+                //string sentenciaSQL = "SELECT pr_riesgo.id_riesgo, pr_riesgo.desc_riesgo FROM pr_riesgo
+                //UNION SELECT '-1', ' SELECCIONE UNA OPCIÓN' ORDER BY desc_riesgo";
+                var sql = _context.pr_riesgo.ToList();
+
+                if (sql == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    var objSelec = new pr_riesgo();
+                    objSelec.id_riesgo = "-1";
+                    objSelec.desc_riesgo = "SELECCIONE UNA OPCIÓN";
+                    sql.Add(objSelec);
+                    return sql.OrderBy(o=>o.desc_riesgo).ToList();
+                }
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
     }
 }

@@ -60,7 +60,6 @@ namespace ManejadorModelo
         public virtual DbSet<re_siniestro> re_siniestro { get; set; }
         public virtual DbSet<co_sueldo> co_sueldo { get; set; }
         public virtual DbSet<gr_acceso> gr_acceso { get; set; }
-        public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
         public virtual DbSet<v_gr_cont_dir> v_gr_cont_dir { get; set; }
         public virtual DbSet<v_pr_cias_resum> v_pr_cias_resum { get; set; }
         public virtual DbSet<v_tipopersona> v_tipopersona { get; set; }
@@ -128,6 +127,7 @@ namespace ManejadorModelo
         public virtual DbSet<vtemp> vtemp { get; set; }
         public virtual DbSet<zrep> zrep { get; set; }
         public virtual DbSet<zrep_estcta1> zrep_estcta1 { get; set; }
+        public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
     
         [DbFunction("sicproEntities", "findcheque")]
         public virtual IQueryable<findcheque_Result> findcheque(string cheque, string id_spvs)
@@ -306,6 +306,51 @@ namespace ManejadorModelo
                 new ObjectParameter("idmovimiento", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
+        }
+    
+        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes(string nomraz, Nullable<int> fecha_aniv, Nullable<int> id_suc)
+        {
+            var nomrazParameter = nomraz != null ?
+                new ObjectParameter("nomraz", nomraz) :
+                new ObjectParameter("nomraz", typeof(string));
+    
+            var fecha_anivParameter = fecha_aniv.HasValue ?
+                new ObjectParameter("fecha_aniv", fecha_aniv) :
+                new ObjectParameter("fecha_aniv", typeof(int));
+    
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, fecha_anivParameter, id_sucParameter);
+        }
+    
+        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
+        }
+    
+        public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
+        }
+    
+        public virtual ObjectResult<GetReportGrupos_Result> GetReportGrupos(Nullable<long> id_grupo, Nullable<long> id_sucursal)
+        {
+            var id_grupoParameter = id_grupo.HasValue ?
+                new ObjectParameter("id_grupo", id_grupo) :
+                new ObjectParameter("id_grupo", typeof(long));
+    
+            var id_sucursalParameter = id_sucursal.HasValue ?
+                new ObjectParameter("id_sucursal", id_sucursal) :
+                new ObjectParameter("id_sucursal", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos", id_grupoParameter, id_sucursalParameter);
+        }
+    
+        public virtual ObjectResult<GetReportProyCartera_Result> GetReportProyCartera()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCartera_Result>("GetReportProyCartera");
         }
     }
 }
