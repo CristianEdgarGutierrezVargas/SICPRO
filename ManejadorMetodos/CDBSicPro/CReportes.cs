@@ -80,5 +80,35 @@ namespace ManejadorMetodos.CDBSicPro
             }
 
         }
+
+        public List<GetReportGrupos_Result> GetReportGrupos(long idGrupo, long idSucursal)
+        {
+            try
+            {
+                var sql = _context.GetReportGrupos(idGrupo, idSucursal).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportProyCartera_Result> GetReportProyCartera()
+        {
+            try
+            {
+                var sql = _context.GetReportProyCartera().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
     }
 }

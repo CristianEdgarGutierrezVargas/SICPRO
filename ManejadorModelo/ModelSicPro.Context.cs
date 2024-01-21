@@ -334,5 +334,23 @@ namespace ManejadorModelo
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
         }
+    
+        public virtual ObjectResult<GetReportGrupos_Result> GetReportGrupos(Nullable<long> id_grupo, Nullable<long> id_sucursal)
+        {
+            var id_grupoParameter = id_grupo.HasValue ?
+                new ObjectParameter("id_grupo", id_grupo) :
+                new ObjectParameter("id_grupo", typeof(long));
+    
+            var id_sucursalParameter = id_sucursal.HasValue ?
+                new ObjectParameter("id_sucursal", id_sucursal) :
+                new ObjectParameter("id_sucursal", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos", id_grupoParameter, id_sucursalParameter);
+        }
+    
+        public virtual ObjectResult<GetReportProyCartera_Result> GetReportProyCartera()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCartera_Result>("GetReportProyCartera");
+        }
     }
 }

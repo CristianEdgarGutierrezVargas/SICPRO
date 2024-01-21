@@ -2577,11 +2577,16 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="id_suc" Type="int" Mode="In" />
         </Function>
         <Function Name="GetReportDirecciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReportGrupos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_grupo" Type="bigint" Mode="In" />
+          <Parameter Name="id_sucursal" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="GetReportMemo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
         <Function Name="GetReportMemo1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReportProyCartera" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4240,6 +4245,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           </FunctionImport>
           <FunctionImport Name="GetReportDirecciones" ReturnType="Collection(sicproModel.GetReportDirecciones_Result)" />
           <FunctionImport Name="GetReportMemo1" ReturnType="Collection(sicproModel.GetReportMemo1_Result)" />
+          <FunctionImport Name="GetReportGrupos" ReturnType="Collection(sicproModel.GetReportGrupos_Result)">
+            <Parameter Name="id_grupo" Mode="In" Type="Int64" />
+            <Parameter Name="id_sucursal" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetReportProyCartera" ReturnType="Collection(sicproModel.GetReportProyCartera_Result)" />
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -6879,6 +6889,32 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
           <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
         </ComplexType>
+        <ComplexType Name="GetReportGrupos_Result">
+          <Property Type="String" Name="desc_grupo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="id_per" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="Int32" Name="id_suc" Nullable="true" />
+          <Property Type="String" Name="sucursal" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="id_gru" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Decimal" Name="field_1" Nullable="true" Precision="10" Scale="0" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="telf_dir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="telf_cel" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetReportProyCartera_Result">
+          <Property Type="String" Name="id_per" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="Int64" Name="id_tper" Nullable="false" />
+          <Property Type="DateTime" Name="fechaaniv" Nullable="true" />
+          <Property Type="Int64" Name="id_sal" Nullable="true" />
+          <Property Type="Int64" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="rolper" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="id_tdoc" Nullable="false" />
+          <Property Type="Int64" Name="id_emis" Nullable="false" />
+          <Property Type="String" Name="nit_fac" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="id_suc" Nullable="true" />
+          <Property Type="String" Name="sucursal" Nullable="true" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9045,6 +9081,40 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
                 <ScalarProperty Name="tipo_cuota" ColumnName="tipo_cuota" />
                 <ScalarProperty Name="del" ColumnName="del" />
                 <ScalarProperty Name="al" ColumnName="al" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportGrupos" FunctionName="sicproModel.Store.GetReportGrupos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportGrupos_Result">
+                <ScalarProperty Name="desc_grupo" ColumnName="desc_grupo" />
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+                <ScalarProperty Name="id_gru" ColumnName="id_gru" />
+                <ScalarProperty Name="field_1" ColumnName="field_1" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telf_dir" ColumnName="telf_dir" />
+                <ScalarProperty Name="telf_cel" ColumnName="telf_cel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportProyCartera" FunctionName="sicproModel.Store.GetReportProyCartera">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportProyCartera_Result">
+                <ScalarProperty Name="id_per" ColumnName="id_per" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="id_tper" ColumnName="id_tper" />
+                <ScalarProperty Name="fechaaniv" ColumnName="fechaaniv" />
+                <ScalarProperty Name="id_sal" ColumnName="id_sal" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="rolper" ColumnName="rolper" />
+                <ScalarProperty Name="id_tdoc" ColumnName="id_tdoc" />
+                <ScalarProperty Name="id_emis" ColumnName="id_emis" />
+                <ScalarProperty Name="nit_fac" ColumnName="nit_fac" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

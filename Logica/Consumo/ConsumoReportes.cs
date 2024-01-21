@@ -4,7 +4,9 @@ using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,49 +41,55 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportMemo1_Result> GetReportMemo1(long idPoliza, long idMovimiento, string strTipoFecha, string strFechaDe, string strFechaA, string strIdCartera)
+        public List<GetReportMemo1_Result> GetReportMemo1(string num_poliza, string numLiquidacion, string strTipoFecha, string strFechaDe, string strFechaA, string strIdCartera)
         {
             try
             {
-                return _manejador_reportes.GetReportMemo1();
+                var sql1 = _manejador_reportes.GetReportMemo1().ToList();
 
-                //var sql1 = _manejador_vcb_veripoliza1.GetListVeripolizaByEstado(true).Where(x => x.id_clamov == Convert.ToInt64(id_clamov)).Select(x => x);
-                ////  string sql1 = string.Concat("SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado='true'", sql);
+                if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).ToList();
+                }
 
-                ////string sql = "";
-                //if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
-                //{
-                //    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).Select(x => x);
-                //    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
-                //}
-                //if (id_per != null & (id_per != ""))
-                //{
-                //    sql1 = sql1.Where(x => x.id_perclie.Contains(id_per.ToUpper())).Select(x => x);
-                //    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
-                //}
-                //if (id_spvs != null & (id_spvs != ""))
-                //{
-                //    sql1 = sql1.Where(x => x.id_spvs.Contains(id_spvs)).Select(x => x);
-                //    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
-                //}
-                //if (id_producto != "0")
-                //{
-                //    sql1 = sql1.Where(x => x.id_producto == Convert.ToInt64(id_producto)).Select(x => x);
-                //    //sql = string.Concat(sql, "AND id_producto=", id_producto);
-                //}
-                //if (vigencia && fc_inivig != null && fc_finvig != null)
-                //{
-                //    sql1 = sql1.Where(x => x.fc_inivig >= fc_inivig && x.fc_inivig <= fc_finvig).Select(x => x);
-                //    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
-                //    //sql = string.Concat(strArrays);
-                //}
-                //if (porvencer & fc_polizavencida != null)
-                //{
-                //    sql1.Where(x => x.fc_finvig <= fc_polizavencida).Select(x => x);
-                //    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
-                //}
+                if (numLiquidacion != null & (numLiquidacion.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.no_liquida.Contains(numLiquidacion.ToUpper())).ToList();
+                }
+                var dtFechaDe = (DateTime)SqlDateTime.MinValue;
+                var dtFechaA = (DateTime)SqlDateTime.MaxValue;
+                dtFechaDe = Convert.ToDateTime(dtFechaDe);
+                dtFechaA = Convert.ToDateTime(dtFechaA);
 
-               // return sql1.ToList();
+                switch (strTipoFecha)
+                {
+                    case "fc_recepcion":
+                        sql1 = sql1.Where(x => x.fc_recepcion >= dtFechaDe && x.fc_recepcion <= dtFechaA).ToList();
+                        break;
+                    case "fc_reg":
+                        sql1 = sql1.Where(x => x.fc_reg >= dtFechaDe && x.fc_reg <= dtFechaA).ToList();
+                        break;
+                    case "fc_emision":
+                        sql1 = sql1.Where(x => x.fc_emision >= dtFechaDe && x.fc_emision <= dtFechaA).ToList();
+                        break;
+                    case "fc_inivig":
+                        sql1 = sql1.Where(x => x.fc_inivig >= dtFechaDe && x.fc_inivig <= dtFechaA).ToList();
+                        break;
+                    case "fc_finvig":
+                        sql1 = sql1.Where(x => x.fc_finvig >= dtFechaDe && x.fc_finvig <= dtFechaA).ToList();
+                        break;
+                    default:
+                        // code block
+                        break;
+                }
+
+                if (strIdCartera != null & (strIdCartera != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_percart.Contains(strIdCartera.ToUpper())).ToList();
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }                
+
+                return sql1;
 
             }
             catch (SecureExceptions secureException)
@@ -116,6 +124,38 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_reportes.GetReportDirecciones();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportGrupos_Result> GetReportGrupos(long idGrupo, long idSucursal)
+        {
+            try
+            {
+                return _manejador_reportes.GetReportGrupos(idGrupo, idSucursal);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportProyCartera_Result> GetReportProyCartera()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportProyCartera();
             }
             catch (SecureExceptions secureException)
             {

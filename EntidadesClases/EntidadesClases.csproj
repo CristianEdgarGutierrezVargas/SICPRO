@@ -83,10 +83,16 @@
     <Compile Include="ModelSicPro\GetReportDirecciones_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportGrupos_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportMemo1_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportMemo_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\gr_acceso.cs">

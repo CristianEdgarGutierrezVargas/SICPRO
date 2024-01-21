@@ -729,6 +729,22 @@ namespace Logica.Consumo
             }
         }
 
+        public List<pr_cuotapoliza> GridCuotas()
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.GridCuotas();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region pr_cobranza
