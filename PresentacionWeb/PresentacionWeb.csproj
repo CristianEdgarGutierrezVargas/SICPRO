@@ -694,6 +694,7 @@
     <Content Include="Sitio\Vista\Exceptions\Error.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_entregarecibos.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
@@ -947,6 +948,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx.cs">
+      <DependentUpon>wco_modifactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx.designer.cs">
+      <DependentUpon>wco_modifactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx.cs">
       <DependentUpon>wpr_amortizacomis.aspx</DependentUpon>
@@ -2132,7 +2140,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />
     <Folder Include="Sitio\Entidades\" />
-    <Folder Include="Sitio\Vista\ModuloCobranzas\" />
     <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
