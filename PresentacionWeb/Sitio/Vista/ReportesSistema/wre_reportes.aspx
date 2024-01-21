@@ -7,7 +7,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
 
     <script type="text/javascript">    
-    
+        function UpdateDetailGrid(s, e) {
+            var index = e.visibleIndex;
+
+            CallBPersona.PerformCallback(index);
+        }
+
+        function OnEndCallbackPersona(s, e) {
+
+            pCPersona.Hide();
+
+
+        }
     $(document).ready(function () {
         var st = $(this).find("input[id*='hidtab']").val();
         if (st == null)
@@ -72,6 +83,7 @@
                             </div>
                         </div>
                         <br />
+
                         <div class="row">
                               <div class="col-md-4">      
 
@@ -86,9 +98,9 @@
                       <div style="padding:20px">                         
     
                             <div class="row">                         
-                              <div class="col-md-2">Mes aniversario</div>
+                              <div class="col-md-2">Por Oficina</div>
                               <div class="col-md-8">
-                                  <dx:BootstrapComboBox ID="cmbGrupoGrupos" runat="server" ValueType="System.String" Width="100%">
+                                  <dx:BootstrapComboBox ID="cmbOficina" runat="server" ValueType="System.String" Width="100%">
                                       <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                       <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                         <RequiredField ErrorText="Dato requerido" IsRequired="true" />
@@ -96,11 +108,10 @@
                                   </dx:BootstrapComboBox>
                               </div>
                             </div>
-                            <br />
                             <div class="row">                         
-                                <div class="col-md-2">Sucursal</div>
+                                <div class="col-md-2">Por Cartera</div>
                                 <div class="col-md-8">
-                                    <dx:BootstrapComboBox ID="cmbSucursalGrupos" runat="server" ValueType="System.String" Width="100%">
+                                    <dx:BootstrapComboBox ID="cmbCartera" runat="server" ValueType="System.String" Width="100%">
                                         <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                         <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_grupos" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                           <RequiredField ErrorText="Dato requerido" IsRequired="true" />
@@ -108,7 +119,112 @@
                                     </dx:BootstrapComboBox>
                                 </div>
                               </div>
-                              <br />
+                              <div class="row">                         
+                                <div class="col-md-2">Por Cliente</div>
+                                <div class="col-md-8">
+                                    <div class="d-flex">
+                                          <div class="flex-grow-1">
+                                              <dx:BootstrapCallbackPanel ID="CallBPersona" ClientInstanceName="CallBPersona" runat="server" OnCallback="CallBPersona_Callback">
+                                                  <ClientSideEvents EndCallback="OnEndCallbackPersona"></ClientSideEvents>
+                                                  <ContentCollection>
+                                                      <dx:ContentControl>
+                                                          <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" Width="100%">
+                                                              <CssClasses Input="form-control-sm fs-10" />
+                                                          </dx:BootstrapTextBox>
+                                                          <asp:HiddenField runat="server" ID="id_per" Value="" />
+                                                      </dx:ContentControl>
+                                                  </ContentCollection>
+                                              </dx:BootstrapCallbackPanel>
+                                          </div>
+
+                                          <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="..." OnClick="btnserper_Click">
+                                              <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                              <SettingsBootstrap RenderOption="None" />
+                                          </dx:BootstrapButton>
+
+                                      </div>
+                                </div>
+                              </div>
+                              <div class="row">                         
+                                    <div class="col-md-2">Nro Poliza</div>
+                                    <div class="col-md-4">
+                                        <dx:BootstrapTextBox ID="txtNumPolizaProd" runat="server" Width="100%">
+                                              <CssClasses Input="form-control-sm fs-10" />
+                                              <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_produccion">
+                                                    <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                              </ValidationSettings>
+                                        </dx:BootstrapTextBox>  
+                                    </div>
+                              </div>
+
+                            <div class="row">                         
+                              <div class="col-md-2">Por Compañia</div>
+                              <div class="col-md-8">
+                                  <dx:BootstrapComboBox ID="cmbCompaniaProd" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbCompaniaProd_SelectedIndexChanged">
+                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                      <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="False">
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      </ValidationSettings>
+                                  </dx:BootstrapComboBox>
+                              </div>
+                            </div>
+
+                            <div class="row">                         
+                                <div class="col-md-2">Por Producto</div>
+                                <div class="col-md-8">
+                                    <dx:BootstrapComboBox ID="cmbProductoProd" runat="server" ValueType="System.String" Width="100%">
+                                        <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                        <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                          <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                        </ValidationSettings>
+                                    </dx:BootstrapComboBox>
+                                </div>
+                              </div>
+
+                            <div class="row">                         
+                                  <div class="col-md-2">Por Fecha de Siniestro :</div>
+                                  <div class="col-md-3">
+                                      <dx:BootstrapDateEdit ID="fechaDelProd" ClientInstanceName="fechaDelProd" runat="server" Width="100%" Caption="Del">
+                                           <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                            </ValidationSettings>  
+                                            <ClientSideEvents Init="function(s,e){  
+                                                                       var dt1 = new Date();  
+                                                                       var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       fechaDelProd.SetMinDate(new Date(dt3));  
+                                                                       fechaDelProd.SetMaxDate(new Date(dt2));  
+                                                                    }" />  
+                                      </dx:BootstrapDateEdit>  
+                                  </div>                                
+                                  <div class="col-md-3">
+                                      <dx:BootstrapDateEdit ID="fechaAlProd" ClientInstanceName="fechaAlProd" runat="server" Width="100%" Caption="Al">
+                                           <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                          <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                            </ValidationSettings>  
+                                            <ClientSideEvents Init="function(s,e){  
+                                                                       var dt1 = new Date();  
+                                                                       var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       fechaAlProd.SetMinDate(new Date(dt3));  
+                                                                       fechaAlProd.SetMaxDate(new Date(dt2));  
+                                                                    }" />  
+                                      </dx:BootstrapDateEdit>  
+                                    </div>
+                              </div>     
+                            <div class="row">                         
+                              <div class="col-md-2">Por estado del caso</div>
+                              <div class="col-md-8">
+                                  <dx:BootstrapComboBox ID="cmbRangosFechasProd" runat="server" ValueType="System.String" Width="100%">
+                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                      <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      </ValidationSettings>
+                                  </dx:BootstrapComboBox>
+                              </div>
+                            </div>
                             <div class="row">
                                   <div class="col-md-4">      
 
@@ -126,4 +242,71 @@
 </div>
 </div>
 
+
+    <dx:BootstrapPopupControl ID="pCPersona" runat="server" ClientInstanceName="pCPersona" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+        <SettingsBootstrap Sizing="Small"></SettingsBootstrap>
+
+        <SettingsAdaptivity Mode="Always" MaxWidth="500px" />
+        <CssClasses Content="pt-1" />
+        <ContentCollection>
+            <dx:ContentControl>
+                <div class="row msg_button_class rounded-top-1">
+                    <div class="col-12 fs-10 p-1 ">
+                        <span>Busqueda de Persona por Nombre o Razón Social</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-12 text-center mt-2">
+                                <img src="../../../UI/img/search_user.png" />
+                            </div>
+                            <div class="col-12 text-center mt-2">
+                                <dx:BootstrapTextBox runat="server" ID="nomraz1" ClientInstanceName="nomraz1" NullText="" Width="150px">
+                                    <CssClasses Input="form-control-sm fs-10" />
+                                </dx:BootstrapTextBox>
+                            </div>
+                            <div class="col-12 text-center mt-2">
+                                <dx:BootstrapButton ID="btnserper1" runat="server" AutoPostBack="false" Text="-->" OnClick="btnserper1_Click">
+                                    <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                    <SettingsBootstrap RenderOption="None" />
+                                </dx:BootstrapButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 mt-2">
+
+                        <dx:BootstrapGridView ID="grdPersonas" EnableCallBacks="true" runat="server" KeyFieldName="id_per" ClientInstanceName="grdPersonas" OnDataBinding="grdPersonas_DataBinding">
+                            <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
+                            <SettingsText Title="Lista de Personas" />
+                            <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                            <ClientSideEvents RowClick="UpdateDetailGrid" />
+                            <SettingsBootstrap Striped="true" />
+                            <CssClasses PanelHeading="msg_button_class p-1 fs-10 " />
+                            <SettingsPager NumericButtonCount="3">
+                                <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                            </SettingsPager>
+                            <Columns>
+                                <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11">
+                                    <CssClasses DataCell="fs-11"></CssClasses>
+                                </dx:BootstrapGridViewDataColumn>
+
+                            </Columns>
+
+                        </dx:BootstrapGridView>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                    </div>
+                </div>
+            </dx:ContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <dx:BootstrapButton runat="server" ID="btnAceptar" OnClick="btnAceptar_Click" Text="Aceptar">
+                <SettingsBootstrap RenderOption="None" Sizing="Small" />
+                <CssClasses Control="msg_button_class" Text="fs-9" />
+            </dx:BootstrapButton>
+        </FooterContentTemplate>
+    </dx:BootstrapPopupControl>
 </asp:Content>

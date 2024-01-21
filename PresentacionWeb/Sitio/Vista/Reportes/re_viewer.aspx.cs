@@ -228,7 +228,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
-            string reportPath = base.Server.MapPath("reportes//re_memo.rpt");
+            string reportPath = base.Server.MapPath("reportes//re_resumprod2.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
             rptDoc.Subreports[0].SetDataSource(ds1);

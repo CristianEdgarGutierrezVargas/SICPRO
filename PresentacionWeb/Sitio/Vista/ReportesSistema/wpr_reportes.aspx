@@ -19,37 +19,37 @@
 
         }
 
-        function UpdateDetailGridCompania(s, e) {
-            var index = e.visibleIndex;
+        //function UpdateDetailGridCompania(s, e) {
+        //    var index = e.visibleIndex;
 
-            CallBCompania.PerformCallback(index);
-        }
-        function OnEndCallbackCompania(s, e) {
+        //    CallBCompania.PerformCallback(index);
+        //}
+        //function OnEndCallbackCompania(s, e) {
 
-            pCCompania.Hide();
+        //    pCCompania.Hide();
 
-        }
-        function UpdateDetailGridProducto(s, e) {
-            var index = e.visibleIndex;
+        //}
+        //function UpdateDetailGridProducto(s, e) {
+        //    var index = e.visibleIndex;
 
-            CallBProducto.PerformCallback(index);
-        }
-        function OnEndCallbackProducto(s, e) {
+        //    CallBProducto.PerformCallback(index);
+        //}
+        //function OnEndCallbackProducto(s, e) {
 
-            pCProducto.Hide();
+        //    pCProducto.Hide();
 
-        }
+        //}
 
-        function UpdateDetailGridDireccion(s, e) {
-            var index = e.visibleIndex;
+        //function UpdateDetailGridDireccion(s, e) {
+        //    var index = e.visibleIndex;
 
-            CallBDireccion.PerformCallback(index);
-        }
-        function OnEndCallbackDireccion(s, e) {
+        //    CallBDireccion.PerformCallback(index);
+        //}
+        //function OnEndCallbackDireccion(s, e) {
 
-            pCDireccion.Hide();
+        //    pCDireccion.Hide();
 
-        }
+        //}
 
         //function activeTab(tab) {
         //    console.log(tab);

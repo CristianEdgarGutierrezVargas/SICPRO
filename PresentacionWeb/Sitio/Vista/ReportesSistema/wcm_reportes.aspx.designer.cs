@@ -87,31 +87,49 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected global::System.Web.UI.WebControls.Button comisionesFe_tab;
 
         /// <summary>
-        /// Control txtNomclie.
+        /// Control fechaDelProd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox txtNomclie;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fechaDelProd;
 
         /// <summary>
-        /// Control cmbOficina.
+        /// Control fechaAlProd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbOficina;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fechaAlProd;
 
         /// <summary>
-        /// Control cmbAniv.
+        /// Control cmbCarteraProd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbAniv;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbCarteraProd;
+
+        /// <summary>
+        /// Control cmbSucursalCartera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbSucursalCartera;
+
+        /// <summary>
+        /// Control cmbEjecutivoCuenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbEjecutivoCuenta;
 
         /// <summary>
         /// Control btnGenerarReporteComisionesEje.
@@ -123,22 +141,22 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected global::DevExpress.Web.ASPxButton btnGenerarReporteComisionesEje;
 
         /// <summary>
-        /// Control cmbGrupoGrupos.
+        /// Control cmbMesSpvs.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbGrupoGrupos;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbMesSpvs;
 
         /// <summary>
-        /// Control cmbSucursalGrupos.
+        /// Control cmbAnioSpvs.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbSucursalGrupos;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbAnioSpvs;
 
         /// <summary>
         /// Control btnGenerarReporteSpvs.
