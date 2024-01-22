@@ -3219,6 +3219,11 @@
     <Compile Include="Sitio\Vista\ReportesSistema\wre_reportes.aspx.designer.cs">
       <DependentUpon>wre_reportes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\Reportes\datasets\DS_SicPro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_SicPro.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\reportepagoacia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3533,6 +3538,12 @@
       <DependentUpon>re_grupos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamoshf.cs">
+      <DependentUpon>re_histreclamoshf.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3752,6 +3763,17 @@
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\reportepagoacia.xsc">
       <DependentUpon>reportepagoacia.xsd</DependentUpon>
+    </Content>
+    <Content Include="Sitio\Vista\Reportes\datasets\DS_SicPro.xsc">
+      <DependentUpon>DS_SicPro.xsd</DependentUpon>
+    </Content>
+    <None Include="Sitio\Vista\Reportes\datasets\DS_SicPro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_SicPro.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Sitio\Vista\Reportes\datasets\DS_SicPro.xss">
+      <DependentUpon>DS_SicPro.xsd</DependentUpon>
     </Content>
     <None Include="Sitio\Vista\Reportes\datasets\reportepagoacia.xsd">
       <SubType>Designer</SubType>
@@ -4294,6 +4316,10 @@
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_grupos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>re_grupos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamoshf.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>re_histreclamoshf.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

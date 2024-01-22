@@ -110,5 +110,35 @@ namespace ManejadorMetodos.CDBSicPro
             }
 
         }
+
+        public List<GetReportHistreclamosh_Result> GetReportHistreclamosh()
+        {
+            try
+            {
+                var sql = _context.GetReportHistreclamosh().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        {
+            try
+            {
+                var sql = _context.GetReportHistreclamoshf().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
     }
 }

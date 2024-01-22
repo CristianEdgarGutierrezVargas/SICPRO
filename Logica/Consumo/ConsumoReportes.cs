@@ -15,6 +15,8 @@ namespace Logica.Consumo
     public class ConsumoReportes
     {
         private readonly CReportes _manejador_reportes;
+        private readonly Cpr_recibo cpr_Recibo;
+        private readonly Cpr_liqrec _manejador_liqrec;
 
         public static sicproEntities dbContext;
         public ConsumoReportes()
@@ -22,7 +24,9 @@ namespace Logica.Consumo
             if (dbContext != null) dbContext.Dispose();
             dbContext = new sicproEntities();
 
-            _manejador_reportes = new CReportes(dbContext);           
+            _manejador_reportes = new CReportes(dbContext);
+            cpr_Recibo = new Cpr_recibo(dbContext);
+            _manejador_liqrec = new Cpr_liqrec(dbContext);
         }
 
         public List<GetReportMemo_Result> GetReportMemo(long idPoliza, long idMovimiento)
@@ -166,5 +170,88 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public List<GetReportHistreclamosh_Result> GetReportHistreclamosh(decimal id_caso, decimal anio_caso)
+        {
+            try
+            {
+                //return _manejador_reportes.GetReportHistreclamosh();
+
+                var sql1 = _manejador_reportes.GetReportHistreclamosh().ToList();
+
+                if (id_caso != 0 )
+                {
+                    sql1 = sql1.Where(x => x.id_caso == id_caso).ToList();
+                }
+
+                if (anio_caso != 0)
+                {
+                    sql1 = sql1.Where(x => x.anio_caso == anio_caso).ToList();
+                }
+
+                return sql1.ToList();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportHistreclamoshf();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #region recibos
+        public List<gr_persona> ObtenerCobrador(long id_suc)
+        {
+
+            try
+            {
+                var dt = cpr_Recibo.ObtenerCobrador(id_suc);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+
+        #endregion
+
+        #region liqrec
+
+        public List<pr_liqrec> ListTop(string id_perucb)
+        {
+
+            try
+            {
+                var dt = _manejador_liqrec.ListTop(id_perucb);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+
+        #endregion
     }
 }

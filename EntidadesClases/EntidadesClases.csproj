@@ -87,6 +87,12 @@
     <Compile Include="ModelSicPro\GetReportGrupos_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportHistreclamoshf_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportHistreclamosh_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportMemo1_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

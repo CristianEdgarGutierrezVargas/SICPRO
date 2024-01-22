@@ -263,8 +263,13 @@
                             <div class="row">                         
                               <div class="col-md-2">Dias Entre</div>
                               <div class="col-md-8">
-                                  <dx:BootstrapComboBox ID="cmbDiasVcmto" runat="server" ValueType="System.String" Width="100%">
+                                  <dx:BootstrapComboBox ID="cmbDiasVcmto" runat="server" Width="100%" SelectedIndex="0">
                                       <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                      <Items>
+                                          <dx:BootstrapListEditItem Selected="True" Text="Vencidas" Value="1"></dx:BootstrapListEditItem>
+                                          <dx:BootstrapListEditItem Text="Por Vencer" Value="2"></dx:BootstrapListEditItem>
+                                      </Items>
+
                                       <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_vcmto" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                         <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                       </ValidationSettings>
@@ -366,9 +371,9 @@
                         <div class="row">                         
                             <div class="col-md-2">Sucursal</div>
                             <div class="col-md-8">
-                                <dx:BootstrapComboBox ID="cmbSucursalReimp" runat="server" ValueType="System.String" Width="100%">
+                                <dx:BootstrapComboBox ID="cmbSucursalReimp" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbSucursalReimp_SelectedIndexChanged" >
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                    <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                    <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                                       <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
@@ -378,9 +383,9 @@
                          <div class="row">                         
                              <div class="col-md-2">Cobrador</div>
                              <div class="col-md-8">
-                                 <dx:BootstrapComboBox ID="cmbCobradorReimp" runat="server" ValueType="System.String" Width="100%">
+                                 <dx:BootstrapComboBox ID="cmbCobradorReimp" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbCobradorReimp_SelectedIndexChanged">
                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                      </ValidationSettings>
                                  </dx:BootstrapComboBox>
@@ -392,7 +397,7 @@
                              <div class="col-md-8">
                                  <dx:BootstrapComboBox ID="cmbLiquidacionReimp" runat="server" ValueType="System.String" Width="100%">
                                      <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="true">
+                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_cartera" ErrorDisplayMode="ImageWithText" CausesValidation="false">
                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
                                      </ValidationSettings>
                                  </dx:BootstrapComboBox>
@@ -571,4 +576,27 @@
         </FooterContentTemplate>
     </dx:BootstrapPopupControl>
 
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <iframe id="ifrReport" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+               </div>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+      </div>
+    </div>
+  </div>
+</div>
 </asp:Content>

@@ -35,11 +35,11 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                         Reporteprod1();
                         return;
                     }
-                //case 3:
-                //    {
-                //        this.RecDetallado();
-                //        return;
-                //    }
+                case 3:
+                    {
+                        RecDetallado();
+                        return;
+                    }
                 //case 4:
                 //    {
                 //        this.RecResum();
@@ -229,6 +229,47 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_resumprod2.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        protected void RecDetallado()
+        {
+            //string str = base.Server.MapPath("reportes//re_histreclamosh.rpt");
+            //this.CrystalReportViewer1.ReportSource = str;
+            //string str1 = string.Concat("{Comando.id_caso}=", base.Request.QueryString["ic"], " and");
+            //str1 = string.Concat(str1, "{Comando.anio_caso}= ", base.Request.QueryString["ac"]);
+            //this.CrystalReportViewer1.SelectionFormula = str1;
+            //this.CrystalReportViewer1.RefreshReport();
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"])? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"])? 0 : Convert.ToDecimal(Request.QueryString["ac"]);           
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_histreclamosh.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
             rptDoc.Subreports[0].SetDataSource(ds1);

@@ -373,5 +373,15 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdatePagosFactura", id_spvsParameter, nro_facturaParameter, fc_facturaParameter, nnro_facturaParameter);
         }
+    
+        public virtual ObjectResult<GetReportHistreclamosh_Result> GetReportHistreclamosh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamosh_Result>("GetReportHistreclamosh");
+        }
+    
+        public virtual ObjectResult<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamoshf_Result>("GetReportHistreclamoshf");
+        }
     }
 }

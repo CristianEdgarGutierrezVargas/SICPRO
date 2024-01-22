@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using PresentacionWeb.Parametros;
@@ -15,6 +16,7 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
+        ConsumoReportes _objConsumoReportes = new ConsumoReportes();
 
         CParametros _cParametros = new CParametros();
         protected void Page_Load(object sender, EventArgs e)
@@ -31,41 +33,123 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
             try
             {
-                //gr_parametro grParametro = new gr_parametro()
-                //{
-                //    ddlgeneral = this.id_suc
-                //};
-                //grParametro.Parametro("id_suc");
-                //grParametro.ddlgeneral = this.id_suc1;
-                //grParametro.Parametro("id_suc");
-                //grParametro.ddlgeneral = this.id_suc2;
-                //grParametro.Parametro("id_suc");
-                //grParametro.ddlgeneral = this.id_suc3;
-                //grParametro.Parametro("id_suc");
-                //grParametro.ddlgeneral = this.id_suc4;
-                //grParametro.Parametro("id_suc");
-                //grParametro.ddlgeneral = this.id_suc5;
-                //grParametro.Parametro("id_suc");
-                //gr_compania grCompanium = new gr_compania()
-                //{
-                //    ddlgeneral = this.id_spvs
-                //};
-                //grCompanium.ObtenerListaCompania();
-                //grCompanium.ddlgeneral = this.id_spvs1;
-                //grCompanium.ObtenerListaCompania();
-                //grCompanium.ddlgeneral = this.id_spvs2;
-                //grCompanium.ObtenerListaCompania();
-                //gr_persona grPersona = new gr_persona()
-                //{
-                //    id_rol = this.id_percart
-                //};
-                //grPersona.Persona(60);
-                //grPersona.id_rol = this.id_percart1;
-                //grPersona.Persona(60);
-                //(new pr_grupo()
-                //{
-                //    ddlgeneral = this.id_gru
-                //}).ObtenerGrupo();
+                var lstCompanias = _objConsumoRegistroProd.ObtenerListaCompania();
+                var lstPersona60 = _objConsumoRegistroProd.Persona(60);
+                var lstGrupo = _objConsumoRegistroProd.ObtenerGrupo();
+                var sucursal = _objConsumoRegistroProd.ObtenerLista("id_suc");
+               
+                #region clientes
+
+                cmbCompaniaClientes.DataSource = lstCompanias;
+                cmbCompaniaClientes.ValueField = "id_spvs";
+                cmbCompaniaClientes.TextField = "nomraz";
+                cmbCompaniaClientes.DataBind();
+
+                cmbCompaniaClientes.SelectedIndex = 0;
+
+                cmbCarteraClientes.DataSource = lstPersona60;
+                cmbCarteraClientes.ValueField = "id_per";
+                cmbCarteraClientes.TextField = "nomraz";
+                cmbCarteraClientes.DataBind();
+
+                cmbCarteraClientes.SelectedIndex = 0;
+
+
+                #endregion
+
+                #region vencimiento
+
+                cmbCompaniaVcmto.DataSource = lstCompanias;
+                cmbCompaniaVcmto.ValueField = "id_spvs";
+                cmbCompaniaVcmto.TextField = "nomraz";
+                cmbCompaniaVcmto.DataBind();
+
+                cmbCompaniaVcmto.SelectedIndex = 0;
+
+                cmbCarteraVcmto.DataSource = lstPersona60;
+                cmbCarteraVcmto.ValueField = "id_per";
+                cmbCarteraVcmto.TextField = "nomraz";
+                cmbCarteraVcmto.DataBind();
+
+                cmbCarteraVcmto.SelectedIndex = 0;
+
+                cmbSucursalVcmto.DataSource = sucursal;
+                cmbSucursalVcmto.TextField = "desc_param";
+                cmbSucursalVcmto.ValueField = "id_par";
+                cmbSucursalVcmto.DataBind();
+
+                cmbSucursalVcmto.SelectedIndex = 0;
+
+                cmbGrupoVcmto.DataSource = lstGrupo;
+                cmbGrupoVcmto.ValueField = "id_gru";
+                cmbGrupoVcmto.TextField = "desc_grupo";
+                cmbGrupoVcmto.DataBind();
+
+                cmbGrupoVcmto.SelectedIndex = 0;
+                #endregion
+
+                #region pagos
+
+                cmbSucursalPagos.DataSource = sucursal;
+                cmbSucursalPagos.TextField = "desc_param";
+                cmbSucursalPagos.ValueField = "id_par";
+                cmbSucursalPagos.DataBind();
+
+                cmbSucursalPagos.SelectedIndex = 0;
+
+
+                #endregion
+
+                #region estado
+
+                cmbCompaniaEstado.DataSource = lstCompanias;
+                cmbCompaniaEstado.ValueField = "id_spvs";
+                cmbCompaniaEstado.TextField = "nomraz";
+                cmbCompaniaEstado.DataBind();
+
+                cmbCompaniaEstado.SelectedIndex = 0;
+
+                cmbSucursalEstado.DataSource = sucursal;
+                cmbSucursalEstado.TextField = "desc_param";
+                cmbSucursalEstado.ValueField = "id_par";
+                cmbSucursalEstado.DataBind();
+
+                cmbSucursalEstado.SelectedIndex = 0;
+
+                #endregion
+
+                #region reimpresion
+
+                cmbSucursalReimp.DataSource = sucursal;
+                cmbSucursalReimp.TextField = "desc_param";
+                cmbSucursalReimp.ValueField = "id_par";
+                cmbSucursalReimp.DataBind();
+
+                cmbSucursalReimp.SelectedIndex = 0;
+
+                #endregion
+
+                #region cobranza
+
+                cmbSucursalCobranza.DataSource = sucursal;
+                cmbSucursalCobranza.TextField = "desc_param";
+                cmbSucursalCobranza.ValueField = "id_par";
+                cmbSucursalCobranza.DataBind();
+
+                cmbSucursalCobranza.SelectedIndex = 0;
+
+                #endregion
+
+                #region recibos
+
+                cmbSucursalRecibos.DataSource = sucursal;
+                cmbSucursalRecibos.TextField = "desc_param";
+                cmbSucursalRecibos.ValueField = "id_par";
+                cmbSucursalRecibos.DataBind();
+
+                cmbSucursalRecibos.SelectedIndex = 0;
+
+                #endregion
             }
             catch
             {
@@ -119,7 +203,35 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
 
 
+        protected void cmbSucursalReimp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var longIdSuc = Convert.ToInt64(cmbSucursalReimp.SelectedItem.Value);
 
+            var lstCobrador = _objConsumoReportes.ObtenerCobrador(longIdSuc);
+            cmbCobradorReimp.DataSource = lstCobrador;
+            cmbCobradorReimp.TextField = "nomraz";
+            cmbCobradorReimp.ValueField = "id_per";
+            cmbCobradorReimp.DataBind();
+
+            var itemSelec = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            cmbCobradorReimp.Items.Add(itemSelec);
+        }
+
+        protected void cmbCobradorReimp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var strIdCobrador = Convert.ToString(cmbCobradorReimp.SelectedItem.Value);
+
+            var lstCiaAseguradora = _objConsumoReportes.ListTop(strIdCobrador);
+            cmbLiquidacionReimp.DataSource = lstCiaAseguradora;
+            cmbLiquidacionReimp.TextField = "id_liq";
+            cmbLiquidacionReimp.ValueField = "id_liq";
+            cmbLiquidacionReimp.DataBind();
+
+            var itemSelec = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            cmbLiquidacionReimp.Items.Add(itemSelec);
+        }
+        
+        
         #region botones tab
 
         protected void clientes_tab_Click(object sender, EventArgs e)
@@ -155,38 +267,123 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
+            var ic = id_per.Value;
+            var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
 
+            var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
+            var np = txtNumPolizaClientes.Text;
+            var nl = txtNumLiquidacionClientes.Text;
+            var h = historicoCliente.SelectedItem.Value;
+
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=11" +
+                "&ic=" +  ic + 
+                "&ci=" +  ci + 
+                "&ca=" +  ca + 
+                "&np=" +  np + 
+                "&nl=" +  nl + 
+                "&h=" +  h
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteVcmto_Click(object sender, EventArgs e)
         {
+            
+            var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
+            var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
+            var isuc = Convert.ToString(cmbSucursalVcmto.SelectedItem.Value);
+            var gr = Convert.ToString(cmbGrupoVcmto.SelectedItem.Value);
 
+            var e1 = txtVenc1Vcmto.Text;
+            var e2 = txtVenc2Vcmto.Text;
+            var vv = Convert.ToString(cmbDiasVcmto.SelectedItem.Value);
+            var fc = listadoVcmto.Date.ToShortDateString();
+
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=12" +                
+                "&ci=" + ci +
+                "&ca=" + ca +
+                "&is=" + isuc +
+                "&e1=" +  e1 + 
+                "&e2=" +  e2 + 
+                "&vv=" +  vv + 
+                "&gr=" +  gr + 
+                "&fc=" +  fc          
+
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReportePagos_Click(object sender, EventArgs e)
         {
+            var isuc = Convert.ToString(cmbSucursalPagos.SelectedItem.Value);            
 
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=6" +                
+                "&is=" + isuc                 
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteEstado_Click(object sender, EventArgs e)
         {
+            var isuc = Convert.ToString(cmbSucursalEstado.SelectedItem.Value);
+            var sp = Convert.ToString(cmbCompaniaEstado.SelectedItem.Value);
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=7" +
+                "&is=" + isuc +
+                "&sp=" + sp
+                );
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteReimp_Click(object sender, EventArgs e)
         {
+            var isuc = Convert.ToString(cmbSucursalReimp.SelectedItem.Value);
+            var il = Convert.ToString(cmbLiquidacionReimp.SelectedItem.Value);
 
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=5" +
+                "&is=" + isuc + 
+                "&il=" + il
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteCobranzas_Click(object sender, EventArgs e)
         {
+            var isuc = Convert.ToString(cmbSucursalCobranza.SelectedItem.Value);
+            var fi = fechaInicioCobranza.Date.ToShortDateString();
+            var ff = fechaFinCobranza.Date.ToShortDateString();
 
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=22" +
+                "&is=" + isuc +
+                "&fi=" + fi +
+                "&ff=" + ff
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnGenerarReporteRecibos_Click(object sender, EventArgs e)
         {
+            var isuc = Convert.ToString(cmbSucursalRecibos.SelectedItem.Value);
 
+            ifrReport.Visible = true;
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=25" +
+                "&is=" + isuc
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
+        
     }
 }
