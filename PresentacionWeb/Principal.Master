@@ -373,7 +373,7 @@
                                                        	Reiniciar Contraseña</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wpr_listacuotas.aspx">
                                                         <i class="fas fa-search text-primary "></i>
                                                         	Modificación de Cuotas</a>
                                                 </li>
@@ -383,7 +383,7 @@
                                                         	Administración de Productos</a>
                                                 </li>
                                                  <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wpr_productom.aspx">
                                                         <i class="fas fa-window-close text-primary "></i>
                                                         	Modificación de Productos</a>
                                                 </li>
