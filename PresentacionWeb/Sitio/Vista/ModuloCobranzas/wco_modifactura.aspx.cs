@@ -15,11 +15,13 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoModComision _objConsumoModComision = new ConsumoModComision();
         ConsumoValidarProd _objValidarProd = new ConsumoValidarProd();
+        ConsumoCobranza conCobranza = new ConsumoCobranza();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var objTablaCompania = _objValidarProd.ObtenerTablaCompania("");
             if (!IsPostBack)
             {
-                var objTablaCompania = _objValidarProd.ObtenerTablaCompania("");
+               
 
                 id_spvs.DataSource = objTablaCompania;
                 id_spvs.TextField = "nomraz";
@@ -32,17 +34,29 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         {
           
                 Grilla();
+            pnlGrid.Visible = true;
                 return;
          
         }
         private void Grilla()
         {
-            
-            var dataTable = prFactura.RecuFacMod(id_spvs, nro_factura);
-            this.gridcuotas.DataSource = dataTable;
+            var sId_spvs = id_spvs.Value.ToString();
+            var sNro_factura =Convert.ToDouble(nro_factura.Text);
+            var data = conCobranza.RecuFacMod(sNro_factura,sId_spvs );
+            this.gridcuotas.DataSource = data;
             this.gridcuotas.DataBind();
         }
         protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gridcuotas_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void img2_Click(object sender, EventArgs e)
         {
 
         }

@@ -333,7 +333,7 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
-                
+
 
         public pr_poliza GetPolizaById(long idPoliza)
         {
@@ -367,12 +367,12 @@ namespace ManejadorMetodos.CDBSicPro
         }
 
         public bool ActualizarEstadoPoliza(long id_poliza, bool bolEstado)
-        {            
+        {
             using (var dbContextTransaccion = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    var sql = _context.pr_poliza.Where(w=>w.id_poliza == id_poliza).FirstOrDefault();
+                    var sql = _context.pr_poliza.Where(w => w.id_poliza == id_poliza).FirstOrDefault();
                     if (sql != null)
                     {
                         sql.estado = bolEstado;
@@ -380,13 +380,26 @@ namespace ManejadorMetodos.CDBSicPro
                         return true;
                     }
                     return false;
-                   
+
                 }
                 catch (SecureExceptions secureException)
                 {
                     throw new SecureExceptions("Error al Generar la Transacción", secureException);
                 }
 
+            }
+        }
+
+        public List<pr_poliza> GetListPoliza()
+        {
+            try
+            {
+                var sql = _context.pr_poliza.Select(w => w).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
     }
