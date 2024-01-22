@@ -352,5 +352,26 @@ namespace ManejadorModelo
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCartera_Result>("GetReportProyCartera");
         }
+    
+        public virtual int UpdatePagosFactura(string id_spvs, Nullable<double> nro_factura, Nullable<System.DateTime> fc_factura, Nullable<double> nnro_factura)
+        {
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var nro_facturaParameter = nro_factura.HasValue ?
+                new ObjectParameter("nro_factura", nro_factura) :
+                new ObjectParameter("nro_factura", typeof(double));
+    
+            var fc_facturaParameter = fc_factura.HasValue ?
+                new ObjectParameter("fc_factura", fc_factura) :
+                new ObjectParameter("fc_factura", typeof(System.DateTime));
+    
+            var nnro_facturaParameter = nnro_factura.HasValue ?
+                new ObjectParameter("nnro_factura", nnro_factura) :
+                new ObjectParameter("nnro_factura", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdatePagosFactura", id_spvsParameter, nro_facturaParameter, fc_facturaParameter, nnro_facturaParameter);
+        }
     }
 }

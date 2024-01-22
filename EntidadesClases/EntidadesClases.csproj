@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomModelEntities\OcRecuFactura.cs" />
+    <Compile Include="CustomModelEntities\OcRecuFac.cs" />
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
     <Compile Include="CustomModelEntities\OC_DATA_FORM.cs" />

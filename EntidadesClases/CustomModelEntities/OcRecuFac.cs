@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EntidadesClases.CustomModelEntities
 {
-    public class OcRecuFactura
+    [Serializable]
+    public class OcRecuFac
     {
         public double id_poliza { get; set; }
         public long id_movimiento { get; set; }
@@ -16,7 +17,5 @@ namespace EntidadesClases.CustomModelEntities
         public DateTime? fecha_factura { get; set; }
         public long id_pago { get; set; }
         public string num_poliza { get; set; }
-
-         
     }
 }

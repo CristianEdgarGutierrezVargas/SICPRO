@@ -45,7 +45,7 @@ namespace Logica.Consumo
         }
         #endregion
 
-        public List<OcRecuFactura> RecuFacMod(double factura, string sId_spvs)
+        public List<OcRecuFac> RecuFacMod(double factura, string sId_spvs)
         {
            
             try
@@ -53,10 +53,10 @@ namespace Logica.Consumo
                 var sql = _manejador_pr_pago.GetObjPagoByFactura(factura);
                 var pol = _manejador_pr_poliza.GetListPoliza();
                 var data = sql.Join(pol, x => x.id_poliza, s => s.id_poliza, (x, s) => new { x.id_poliza, x.id_movimiento, x.cuota, s.id_spvs, x.factura, x.fecha_factura, x.id_pago, s.num_poliza }).Where(x => x.id_spvs == sId_spvs).OrderBy(x => x.id_pago).ToList();
-                var result = new List<OcRecuFactura>();
+                var result = new List<OcRecuFac>();
                 foreach(var odata in data)
                 {
-                    var obj=new OcRecuFactura();
+                    var obj=new OcRecuFac();
                     obj.factura = odata.factura;
                     obj.fecha_factura = odata.fecha_factura;
                     obj.id_pago= odata.id_pago;
@@ -78,5 +78,32 @@ namespace Logica.Consumo
             }
             
         }
+        public bool ModFac1(double? factura, DateTime fechaFactura, long id_pago)
+        {
+
+            try
+            {
+               return _manejador_pr_pago.ActualizarPago(factura, fechaFactura, id_pago);
+           }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+        public bool ModFacM(double? nro_factura, double? nnro_factura, DateTime fechaFactura, string id_spvs)
+        {
+
+            try
+            {
+                return _manejador_pr_pago.ActualizarPagoM(nro_factura,nnro_factura,id_spvs, fechaFactura);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+
     }
 }

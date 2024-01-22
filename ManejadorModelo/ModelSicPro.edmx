@@ -2711,6 +2711,12 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="cuota" Type="int" Mode="In" />
           <Parameter Name="idmovimiento" Type="int" Mode="In" />
         </Function>
+        <Function Name="UpdatePagosFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+          <Parameter Name="nro_factura" Type="float" Mode="In" />
+          <Parameter Name="fc_factura" Type="datetime" Mode="In" />
+          <Parameter Name="nnro_factura" Type="float" Mode="In" />
+        </Function>
         <EntityContainer Name="sicproModelStoreContainer">
           <EntitySet Name="co_anticom" EntityType="Self.co_anticom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_porcomi" EntityType="Self.co_porcomi" Schema="dbo" store:Type="Tables" />
@@ -4250,6 +4256,12 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <Parameter Name="id_sucursal" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="GetReportProyCartera" ReturnType="Collection(sicproModel.GetReportProyCartera_Result)" />
+          <FunctionImport Name="UpdatePagosFactura">
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
+            <Parameter Name="nro_factura" Mode="In" Type="Double" />
+            <Parameter Name="fc_factura" Mode="In" Type="DateTime" />
+            <Parameter Name="nnro_factura" Mode="In" Type="Double" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -9118,6 +9130,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdatePagosFactura" FunctionName="sicproModel.Store.UpdatePagosFactura" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
