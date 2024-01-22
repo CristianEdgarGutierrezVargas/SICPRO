@@ -86,7 +86,7 @@
                 <asp:Button ID="recibos_tab" style="display:none" runat="server" OnClick="recibos_tab_Click"/>
 
              <div class="d-flex align-items-start">
-              <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="width:200px">
                 <button class="nav-link" onclick="document.getElementById('<%= clientes_tab.ClientID %>').click()" id="v-pills-clientes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-clientes" type="button" role="tab" aria-controls="v-pills-clientes" aria-selected="true">Est. Cta. Clientes</button>
                 <button class="nav-link" onclick="document.getElementById('<%= vcmto_tab.ClientID %>').click()" id="v-pills-vcmto-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vcmto" type="button" role="tab" aria-controls="v-pills-vcmto" aria-selected="false">Vcmto. Días</button>
                 <button class="nav-link" onclick="document.getElementById('<%= pagos_tab.ClientID %>').click()" id="v-pills-pagos-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pagos" type="button" role="tab" aria-controls="v-pills-pagos" aria-selected="false">Pagos Pend. Cias.</button>

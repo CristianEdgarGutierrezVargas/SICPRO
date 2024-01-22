@@ -19,8 +19,60 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         CParametros _cParametros = new CParametros();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Combos();
+            }
         }
+
+        #region 
+
+        private void Combos()
+        {
+            try
+            {
+                //gr_parametro grParametro = new gr_parametro()
+                //{
+                //    ddlgeneral = this.id_suc
+                //};
+                //grParametro.Parametro("id_suc");
+                //grParametro.ddlgeneral = this.id_suc1;
+                //grParametro.Parametro("id_suc");
+                //grParametro.ddlgeneral = this.id_suc2;
+                //grParametro.Parametro("id_suc");
+                //grParametro.ddlgeneral = this.id_suc3;
+                //grParametro.Parametro("id_suc");
+                //grParametro.ddlgeneral = this.id_suc4;
+                //grParametro.Parametro("id_suc");
+                //grParametro.ddlgeneral = this.id_suc5;
+                //grParametro.Parametro("id_suc");
+                //gr_compania grCompanium = new gr_compania()
+                //{
+                //    ddlgeneral = this.id_spvs
+                //};
+                //grCompanium.ObtenerListaCompania();
+                //grCompanium.ddlgeneral = this.id_spvs1;
+                //grCompanium.ObtenerListaCompania();
+                //grCompanium.ddlgeneral = this.id_spvs2;
+                //grCompanium.ObtenerListaCompania();
+                //gr_persona grPersona = new gr_persona()
+                //{
+                //    id_rol = this.id_percart
+                //};
+                //grPersona.Persona(60);
+                //grPersona.id_rol = this.id_percart1;
+                //grPersona.Persona(60);
+                //(new pr_grupo()
+                //{
+                //    ddlgeneral = this.id_gru
+                //}).ObtenerGrupo();
+            }
+            catch
+            {
+            }
+        }
+
+        #endregion
 
 
 

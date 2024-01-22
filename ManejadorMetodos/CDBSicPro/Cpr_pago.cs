@@ -62,8 +62,8 @@ namespace ManejadorMetodos.CDBSicPro
         }
         public bool ActualizarPagoM(double? nro_factura, double? nnro_factura, string id_spvs, DateTime fechaFactura)
         {
-            using (var dbContextTransaccion = _context.Database.BeginTransaction())
-            {
+            //using (var dbContextTransaccion = _context.Database.BeginTransaction())
+            //{
                 try
                 {
                     // "UPDATE pr_pago
@@ -76,7 +76,7 @@ namespace ManejadorMetodos.CDBSicPro
                     //          AND   pr_pago.factura = nro_factura.Text
                     //  )"
                     var sql = _context.UpdatePagosFactura(id_spvs, nro_factura, fechaFactura.Date, nnro_factura);
-                    dbContextTransaccion
+                    //dbContextTransaccion
                         return true;
                   
                 }
@@ -85,7 +85,7 @@ namespace ManejadorMetodos.CDBSicPro
                     return false;
                 }
 
-            }
+            //}
         }
 
 
