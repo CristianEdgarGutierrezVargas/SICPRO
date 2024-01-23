@@ -695,6 +695,8 @@
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wco_anticom.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wco_presprod.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_entregarecibos.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
@@ -3009,6 +3011,20 @@
     <Compile Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx.designer.cs">
       <DependentUpon>wco_modifactura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wco_anticom.aspx.cs">
+      <DependentUpon>wco_anticom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wco_anticom.aspx.designer.cs">
+      <DependentUpon>wco_anticom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wco_presprod.aspx.cs">
+      <DependentUpon>wco_presprod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wco_presprod.aspx.designer.cs">
+      <DependentUpon>wco_presprod.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_amortizacomis.aspx.cs">
       <DependentUpon>wpr_amortizacomis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4240,7 +4256,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

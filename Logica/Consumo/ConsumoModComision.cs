@@ -20,6 +20,7 @@ namespace Logica.Consumo
         private readonly Cpr_recibo cpr_Recibo;
         private readonly Cgr_persona cgr_Persona;
         private readonly Cco_anticom cco_anticom;
+        private readonly Cco_presprod cco_presprod;
         public static sicproEntities dbContext;
         public ConsumoModComision()
         {
@@ -29,6 +30,7 @@ namespace Logica.Consumo
             cpr_Recibo = new Cpr_recibo(dbContext);
             cgr_Persona = new Cgr_persona(dbContext);
             cco_anticom=new Cco_anticom(dbContext);
+            cco_presprod=new Cco_presprod(dbContext);
 
         }
 
@@ -180,6 +182,30 @@ namespace Logica.Consumo
 
 
         }
+        public bool modifPres(co_presprod objPresProd)
+        {
+            try
+            {
+                 return cco_presprod.modifPres(objPresProd);
 
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
+
+        public bool InsertarPres(co_presprod objPresProd)
+        {
+            try
+            {
+                return cco_presprod.InsertarPres(objPresProd);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
     }
 }

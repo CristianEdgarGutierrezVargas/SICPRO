@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CDBSicPro\CAcceso.cs" />
     <Compile Include="CDBSicPro\Cco_anticom.cs" />
+    <Compile Include="CDBSicPro\Cco_presprod.cs" />
     <Compile Include="CDBSicPro\Cgr_cierreregistro.cs" />
     <Compile Include="CDBSicPro\Cgr_compania.cs" />
     <Compile Include="CDBSicPro\Cgr_contactos.cs" />
