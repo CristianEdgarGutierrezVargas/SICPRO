@@ -2589,6 +2589,8 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
         </Function>
         <Function Name="GetReportMemo1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetReportProyCartera" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReportResumsiniestro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReportResumsiniestro1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4266,6 +4268,8 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           </FunctionImport>
           <FunctionImport Name="GetReportHistreclamosh" ReturnType="Collection(sicproModel.GetReportHistreclamosh_Result)" />
           <FunctionImport Name="GetReportHistreclamoshf" ReturnType="Collection(sicproModel.GetReportHistreclamoshf_Result)" />
+          <FunctionImport Name="GetReportResumsiniestro" ReturnType="Collection(sicproModel.GetReportResumsiniestro_Result)" />
+          <FunctionImport Name="GetReportResumsiniestro1" ReturnType="Collection(sicproModel.GetReportResumsiniestro1_Result)" />
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -6976,6 +6980,37 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="String" Name="estado" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="obs_histcaso" Nullable="true" MaxLength="Max" />
         </ComplexType>
+        <ComplexType Name="GetReportResumsiniestro_Result">
+          <Property Type="Decimal" Name="id_caso" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="anio_caso" Nullable="false" Precision="4" Scale="0" />
+          <Property Type="String" Name="nomraz" Nullable="false" MaxLength="160" />
+          <Property Type="DateTime" Name="fc_incidente" Nullable="false" />
+          <Property Type="Int64" Name="id_poliza" Nullable="false" />
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="Int64" Name="id_producto" Nullable="false" />
+          <Property Type="String" Name="abrev_prod" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="abrev_cia" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="circunstancia" Nullable="false" MaxLength="Max" />
+          <Property Type="Double" Name="id_estca" Nullable="false" />
+          <Property Type="String" Name="estado_caso" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="id_percart" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="cartera" Nullable="true" MaxLength="160" />
+          <Property Type="Int32" Name="id_suc" Nullable="false" />
+          <Property Type="String" Name="sucursal" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="id_perclie" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="id_spvs" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="GetReportResumsiniestro1_Result">
+          <Property Type="Int64" Name="id_histcaso" Nullable="false" />
+          <Property Type="Decimal" Name="id_caso" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="anio" Nullable="false" Precision="4" Scale="0" />
+          <Property Type="Int32" Name="id_sucur" Nullable="false" />
+          <Property Type="DateTime" Name="fc_iniestado" Nullable="false" />
+          <Property Type="DateTime" Name="fc_finestado" Nullable="true" />
+          <Property Type="Double" Name="id_estca" Nullable="false" />
+          <Property Type="String" Name="estado_caso" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="obs_histcaso" Nullable="true" MaxLength="Max" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9229,6 +9264,45 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
                 <ScalarProperty Name="fc_finestado" ColumnName="fc_finestado" />
                 <ScalarProperty Name="id_estca" ColumnName="id_estca" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="obs_histcaso" ColumnName="obs_histcaso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportResumsiniestro" FunctionName="sicproModel.Store.GetReportResumsiniestro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportResumsiniestro_Result">
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+                <ScalarProperty Name="anio_caso" ColumnName="anio_caso" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="fc_incidente" ColumnName="fc_incidente" />
+                <ScalarProperty Name="id_poliza" ColumnName="id_poliza" />
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="abrev_prod" ColumnName="abrev_prod" />
+                <ScalarProperty Name="abrev_cia" ColumnName="abrev_cia" />
+                <ScalarProperty Name="circunstancia" ColumnName="circunstancia" />
+                <ScalarProperty Name="id_estca" ColumnName="id_estca" />
+                <ScalarProperty Name="estado_caso" ColumnName="estado_caso" />
+                <ScalarProperty Name="id_percart" ColumnName="id_percart" />
+                <ScalarProperty Name="cartera" ColumnName="cartera" />
+                <ScalarProperty Name="id_suc" ColumnName="id_suc" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="id_spvs" ColumnName="id_spvs" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportResumsiniestro1" FunctionName="sicproModel.Store.GetReportResumsiniestro1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetReportResumsiniestro1_Result">
+                <ScalarProperty Name="id_histcaso" ColumnName="id_histcaso" />
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
+                <ScalarProperty Name="fc_iniestado" ColumnName="fc_iniestado" />
+                <ScalarProperty Name="fc_finestado" ColumnName="fc_finestado" />
+                <ScalarProperty Name="id_estca" ColumnName="id_estca" />
+                <ScalarProperty Name="estado_caso" ColumnName="estado_caso" />
                 <ScalarProperty Name="obs_histcaso" ColumnName="obs_histcaso" />
               </ComplexTypeMapping>
             </ResultMapping>

@@ -28,6 +28,10 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         
         private GetReportHistreclamoshDataTable tableGetReportHistreclamosh;
         
+        private GetReportResumsiniestroDataTable tableGetReportResumsiniestro;
+        
+        private GetReportResumsiniestro1DataTable tableGetReportResumsiniestro1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +65,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 }
                 if ((ds.Tables["GetReportHistreclamosh"] != null)) {
                     base.Tables.Add(new GetReportHistreclamoshDataTable(ds.Tables["GetReportHistreclamosh"]));
+                }
+                if ((ds.Tables["GetReportResumsiniestro"] != null)) {
+                    base.Tables.Add(new GetReportResumsiniestroDataTable(ds.Tables["GetReportResumsiniestro"]));
+                }
+                if ((ds.Tables["GetReportResumsiniestro1"] != null)) {
+                    base.Tables.Add(new GetReportResumsiniestro1DataTable(ds.Tables["GetReportResumsiniestro1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +107,26 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         public GetReportHistreclamoshDataTable GetReportHistreclamosh {
             get {
                 return this.tableGetReportHistreclamosh;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetReportResumsiniestroDataTable GetReportResumsiniestro {
+            get {
+                return this.tableGetReportResumsiniestro;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetReportResumsiniestro1DataTable GetReportResumsiniestro1 {
+            get {
+                return this.tableGetReportResumsiniestro1;
             }
         }
         
@@ -173,6 +203,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 if ((ds.Tables["GetReportHistreclamosh"] != null)) {
                     base.Tables.Add(new GetReportHistreclamoshDataTable(ds.Tables["GetReportHistreclamosh"]));
                 }
+                if ((ds.Tables["GetReportResumsiniestro"] != null)) {
+                    base.Tables.Add(new GetReportResumsiniestroDataTable(ds.Tables["GetReportResumsiniestro"]));
+                }
+                if ((ds.Tables["GetReportResumsiniestro1"] != null)) {
+                    base.Tables.Add(new GetReportResumsiniestro1DataTable(ds.Tables["GetReportResumsiniestro1"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +254,18 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                     this.tableGetReportHistreclamosh.InitVars();
                 }
             }
+            this.tableGetReportResumsiniestro = ((GetReportResumsiniestroDataTable)(base.Tables["GetReportResumsiniestro"]));
+            if ((initTable == true)) {
+                if ((this.tableGetReportResumsiniestro != null)) {
+                    this.tableGetReportResumsiniestro.InitVars();
+                }
+            }
+            this.tableGetReportResumsiniestro1 = ((GetReportResumsiniestro1DataTable)(base.Tables["GetReportResumsiniestro1"]));
+            if ((initTable == true)) {
+                if ((this.tableGetReportResumsiniestro1 != null)) {
+                    this.tableGetReportResumsiniestro1.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +280,10 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             base.Tables.Add(this.tableGetReportHistreclamoshf);
             this.tableGetReportHistreclamosh = new GetReportHistreclamoshDataTable();
             base.Tables.Add(this.tableGetReportHistreclamosh);
+            this.tableGetReportResumsiniestro = new GetReportResumsiniestroDataTable();
+            base.Tables.Add(this.tableGetReportResumsiniestro);
+            this.tableGetReportResumsiniestro1 = new GetReportResumsiniestro1DataTable();
+            base.Tables.Add(this.tableGetReportResumsiniestro1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +295,18 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeGetReportHistreclamosh() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeGetReportResumsiniestro() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeGetReportResumsiniestro1() {
             return false;
         }
         
@@ -306,6 +370,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void GetReportHistreclamoshRowChangeEventHandler(object sender, GetReportHistreclamoshRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void GetReportResumsiniestroRowChangeEventHandler(object sender, GetReportResumsiniestroRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void GetReportResumsiniestro1RowChangeEventHandler(object sender, GetReportResumsiniestro1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1443,6 +1513,917 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetReportResumsiniestroDataTable : global::System.Data.TypedTableBase<GetReportResumsiniestroRow> {
+            
+            private global::System.Data.DataColumn columnid_caso;
+            
+            private global::System.Data.DataColumn columnanio_caso;
+            
+            private global::System.Data.DataColumn columnnomraz;
+            
+            private global::System.Data.DataColumn columnfc_incidente;
+            
+            private global::System.Data.DataColumn columnid_poliza;
+            
+            private global::System.Data.DataColumn columnnum_poliza;
+            
+            private global::System.Data.DataColumn columnid_producto;
+            
+            private global::System.Data.DataColumn columnabrev_prod;
+            
+            private global::System.Data.DataColumn columnabrev_cia;
+            
+            private global::System.Data.DataColumn columncircunstancia;
+            
+            private global::System.Data.DataColumn columnid_estca;
+            
+            private global::System.Data.DataColumn columnestado_caso;
+            
+            private global::System.Data.DataColumn columnid_percart;
+            
+            private global::System.Data.DataColumn columncartera;
+            
+            private global::System.Data.DataColumn columnid_suc;
+            
+            private global::System.Data.DataColumn columnsucursal;
+            
+            private global::System.Data.DataColumn columnid_perclie;
+            
+            private global::System.Data.DataColumn columnid_spvs;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroDataTable() {
+                this.TableName = "GetReportResumsiniestro";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetReportResumsiniestroDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected GetReportResumsiniestroDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_casoColumn {
+                get {
+                    return this.columnid_caso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn anio_casoColumn {
+                get {
+                    return this.columnanio_caso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nomrazColumn {
+                get {
+                    return this.columnnomraz;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fc_incidenteColumn {
+                get {
+                    return this.columnfc_incidente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_polizaColumn {
+                get {
+                    return this.columnid_poliza;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn num_polizaColumn {
+                get {
+                    return this.columnnum_poliza;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_productoColumn {
+                get {
+                    return this.columnid_producto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn abrev_prodColumn {
+                get {
+                    return this.columnabrev_prod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn abrev_ciaColumn {
+                get {
+                    return this.columnabrev_cia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn circunstanciaColumn {
+                get {
+                    return this.columncircunstancia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_estcaColumn {
+                get {
+                    return this.columnid_estca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn estado_casoColumn {
+                get {
+                    return this.columnestado_caso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_percartColumn {
+                get {
+                    return this.columnid_percart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn carteraColumn {
+                get {
+                    return this.columncartera;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_sucColumn {
+                get {
+                    return this.columnid_suc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn sucursalColumn {
+                get {
+                    return this.columnsucursal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_perclieColumn {
+                get {
+                    return this.columnid_perclie;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_spvsColumn {
+                get {
+                    return this.columnid_spvs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroRow this[int index] {
+                get {
+                    return ((GetReportResumsiniestroRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestroRowChangeEventHandler GetReportResumsiniestroRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestroRowChangeEventHandler GetReportResumsiniestroRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestroRowChangeEventHandler GetReportResumsiniestroRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestroRowChangeEventHandler GetReportResumsiniestroRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddGetReportResumsiniestroRow(GetReportResumsiniestroRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroRow AddGetReportResumsiniestroRow(
+                        decimal id_caso, 
+                        decimal anio_caso, 
+                        string nomraz, 
+                        System.DateTime fc_incidente, 
+                        string num_poliza, 
+                        long id_producto, 
+                        string abrev_prod, 
+                        string abrev_cia, 
+                        string circunstancia, 
+                        double id_estca, 
+                        string estado_caso, 
+                        string id_percart, 
+                        string cartera, 
+                        int id_suc, 
+                        string sucursal, 
+                        string id_perclie, 
+                        string id_spvs) {
+                GetReportResumsiniestroRow rowGetReportResumsiniestroRow = ((GetReportResumsiniestroRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_caso,
+                        anio_caso,
+                        nomraz,
+                        fc_incidente,
+                        null,
+                        num_poliza,
+                        id_producto,
+                        abrev_prod,
+                        abrev_cia,
+                        circunstancia,
+                        id_estca,
+                        estado_caso,
+                        id_percart,
+                        cartera,
+                        id_suc,
+                        sucursal,
+                        id_perclie,
+                        id_spvs};
+                rowGetReportResumsiniestroRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetReportResumsiniestroRow);
+                return rowGetReportResumsiniestroRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetReportResumsiniestroDataTable cln = ((GetReportResumsiniestroDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetReportResumsiniestroDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid_caso = base.Columns["id_caso"];
+                this.columnanio_caso = base.Columns["anio_caso"];
+                this.columnnomraz = base.Columns["nomraz"];
+                this.columnfc_incidente = base.Columns["fc_incidente"];
+                this.columnid_poliza = base.Columns["id_poliza"];
+                this.columnnum_poliza = base.Columns["num_poliza"];
+                this.columnid_producto = base.Columns["id_producto"];
+                this.columnabrev_prod = base.Columns["abrev_prod"];
+                this.columnabrev_cia = base.Columns["abrev_cia"];
+                this.columncircunstancia = base.Columns["circunstancia"];
+                this.columnid_estca = base.Columns["id_estca"];
+                this.columnestado_caso = base.Columns["estado_caso"];
+                this.columnid_percart = base.Columns["id_percart"];
+                this.columncartera = base.Columns["cartera"];
+                this.columnid_suc = base.Columns["id_suc"];
+                this.columnsucursal = base.Columns["sucursal"];
+                this.columnid_perclie = base.Columns["id_perclie"];
+                this.columnid_spvs = base.Columns["id_spvs"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid_caso = new global::System.Data.DataColumn("id_caso", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_caso);
+                this.columnanio_caso = new global::System.Data.DataColumn("anio_caso", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnanio_caso);
+                this.columnnomraz = new global::System.Data.DataColumn("nomraz", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnomraz);
+                this.columnfc_incidente = new global::System.Data.DataColumn("fc_incidente", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfc_incidente);
+                this.columnid_poliza = new global::System.Data.DataColumn("id_poliza", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_poliza);
+                this.columnnum_poliza = new global::System.Data.DataColumn("num_poliza", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnum_poliza);
+                this.columnid_producto = new global::System.Data.DataColumn("id_producto", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_producto);
+                this.columnabrev_prod = new global::System.Data.DataColumn("abrev_prod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnabrev_prod);
+                this.columnabrev_cia = new global::System.Data.DataColumn("abrev_cia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnabrev_cia);
+                this.columncircunstancia = new global::System.Data.DataColumn("circunstancia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncircunstancia);
+                this.columnid_estca = new global::System.Data.DataColumn("id_estca", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_estca);
+                this.columnestado_caso = new global::System.Data.DataColumn("estado_caso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestado_caso);
+                this.columnid_percart = new global::System.Data.DataColumn("id_percart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_percart);
+                this.columncartera = new global::System.Data.DataColumn("cartera", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncartera);
+                this.columnid_suc = new global::System.Data.DataColumn("id_suc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_suc);
+                this.columnsucursal = new global::System.Data.DataColumn("sucursal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsucursal);
+                this.columnid_perclie = new global::System.Data.DataColumn("id_perclie", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_perclie);
+                this.columnid_spvs = new global::System.Data.DataColumn("id_spvs", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_spvs);
+                this.columnid_caso.AllowDBNull = false;
+                this.columnanio_caso.AllowDBNull = false;
+                this.columnnomraz.AllowDBNull = false;
+                this.columnnomraz.MaxLength = 160;
+                this.columnfc_incidente.AllowDBNull = false;
+                this.columnid_poliza.AutoIncrement = true;
+                this.columnid_poliza.AllowDBNull = false;
+                this.columnid_poliza.ReadOnly = true;
+                this.columnnum_poliza.AllowDBNull = false;
+                this.columnnum_poliza.MaxLength = 30;
+                this.columnid_producto.AllowDBNull = false;
+                this.columnabrev_prod.MaxLength = 5;
+                this.columnabrev_cia.AllowDBNull = false;
+                this.columnabrev_cia.MaxLength = 10;
+                this.columncircunstancia.AllowDBNull = false;
+                this.columncircunstancia.MaxLength = 2147483647;
+                this.columnid_estca.AllowDBNull = false;
+                this.columnestado_caso.ReadOnly = true;
+                this.columnestado_caso.MaxLength = 100;
+                this.columnid_percart.MaxLength = 15;
+                this.columncartera.ReadOnly = true;
+                this.columncartera.MaxLength = 160;
+                this.columnid_suc.AllowDBNull = false;
+                this.columnsucursal.ReadOnly = true;
+                this.columnsucursal.MaxLength = 100;
+                this.columnid_perclie.AllowDBNull = false;
+                this.columnid_perclie.MaxLength = 15;
+                this.columnid_spvs.AllowDBNull = false;
+                this.columnid_spvs.MaxLength = 3;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroRow NewGetReportResumsiniestroRow() {
+                return ((GetReportResumsiniestroRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetReportResumsiniestroRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetReportResumsiniestroRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetReportResumsiniestroRowChanged != null)) {
+                    this.GetReportResumsiniestroRowChanged(this, new GetReportResumsiniestroRowChangeEvent(((GetReportResumsiniestroRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetReportResumsiniestroRowChanging != null)) {
+                    this.GetReportResumsiniestroRowChanging(this, new GetReportResumsiniestroRowChangeEvent(((GetReportResumsiniestroRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetReportResumsiniestroRowDeleted != null)) {
+                    this.GetReportResumsiniestroRowDeleted(this, new GetReportResumsiniestroRowChangeEvent(((GetReportResumsiniestroRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetReportResumsiniestroRowDeleting != null)) {
+                    this.GetReportResumsiniestroRowDeleting(this, new GetReportResumsiniestroRowChangeEvent(((GetReportResumsiniestroRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveGetReportResumsiniestroRow(GetReportResumsiniestroRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DS_SicPro ds = new DS_SicPro();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetReportResumsiniestroDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetReportResumsiniestro1DataTable : global::System.Data.TypedTableBase<GetReportResumsiniestro1Row> {
+            
+            private global::System.Data.DataColumn columnid_histcaso;
+            
+            private global::System.Data.DataColumn columnid_caso;
+            
+            private global::System.Data.DataColumn columnanio;
+            
+            private global::System.Data.DataColumn columnid_sucur;
+            
+            private global::System.Data.DataColumn columnfc_iniestado;
+            
+            private global::System.Data.DataColumn columnfc_finestado;
+            
+            private global::System.Data.DataColumn columnid_estca;
+            
+            private global::System.Data.DataColumn columnestado_caso;
+            
+            private global::System.Data.DataColumn columnobs_histcaso;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1DataTable() {
+                this.TableName = "GetReportResumsiniestro1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetReportResumsiniestro1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected GetReportResumsiniestro1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_histcasoColumn {
+                get {
+                    return this.columnid_histcaso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_casoColumn {
+                get {
+                    return this.columnid_caso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn anioColumn {
+                get {
+                    return this.columnanio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_sucurColumn {
+                get {
+                    return this.columnid_sucur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fc_iniestadoColumn {
+                get {
+                    return this.columnfc_iniestado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fc_finestadoColumn {
+                get {
+                    return this.columnfc_finestado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_estcaColumn {
+                get {
+                    return this.columnid_estca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn estado_casoColumn {
+                get {
+                    return this.columnestado_caso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn obs_histcasoColumn {
+                get {
+                    return this.columnobs_histcaso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1Row this[int index] {
+                get {
+                    return ((GetReportResumsiniestro1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestro1RowChangeEventHandler GetReportResumsiniestro1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestro1RowChangeEventHandler GetReportResumsiniestro1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestro1RowChangeEventHandler GetReportResumsiniestro1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetReportResumsiniestro1RowChangeEventHandler GetReportResumsiniestro1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddGetReportResumsiniestro1Row(GetReportResumsiniestro1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1Row AddGetReportResumsiniestro1Row(decimal id_caso, decimal anio, int id_sucur, System.DateTime fc_iniestado, System.DateTime fc_finestado, double id_estca, string estado_caso, string obs_histcaso) {
+                GetReportResumsiniestro1Row rowGetReportResumsiniestro1Row = ((GetReportResumsiniestro1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        id_caso,
+                        anio,
+                        id_sucur,
+                        fc_iniestado,
+                        fc_finestado,
+                        id_estca,
+                        estado_caso,
+                        obs_histcaso};
+                rowGetReportResumsiniestro1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetReportResumsiniestro1Row);
+                return rowGetReportResumsiniestro1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1Row FindByid_histcaso(long id_histcaso) {
+                return ((GetReportResumsiniestro1Row)(this.Rows.Find(new object[] {
+                            id_histcaso})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetReportResumsiniestro1DataTable cln = ((GetReportResumsiniestro1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetReportResumsiniestro1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnid_histcaso = base.Columns["id_histcaso"];
+                this.columnid_caso = base.Columns["id_caso"];
+                this.columnanio = base.Columns["anio"];
+                this.columnid_sucur = base.Columns["id_sucur"];
+                this.columnfc_iniestado = base.Columns["fc_iniestado"];
+                this.columnfc_finestado = base.Columns["fc_finestado"];
+                this.columnid_estca = base.Columns["id_estca"];
+                this.columnestado_caso = base.Columns["estado_caso"];
+                this.columnobs_histcaso = base.Columns["obs_histcaso"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnid_histcaso = new global::System.Data.DataColumn("id_histcaso", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_histcaso);
+                this.columnid_caso = new global::System.Data.DataColumn("id_caso", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_caso);
+                this.columnanio = new global::System.Data.DataColumn("anio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnanio);
+                this.columnid_sucur = new global::System.Data.DataColumn("id_sucur", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_sucur);
+                this.columnfc_iniestado = new global::System.Data.DataColumn("fc_iniestado", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfc_iniestado);
+                this.columnfc_finestado = new global::System.Data.DataColumn("fc_finestado", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfc_finestado);
+                this.columnid_estca = new global::System.Data.DataColumn("id_estca", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_estca);
+                this.columnestado_caso = new global::System.Data.DataColumn("estado_caso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestado_caso);
+                this.columnobs_histcaso = new global::System.Data.DataColumn("obs_histcaso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnobs_histcaso);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_histcaso}, true));
+                this.columnid_histcaso.AutoIncrement = true;
+                this.columnid_histcaso.AllowDBNull = false;
+                this.columnid_histcaso.ReadOnly = true;
+                this.columnid_histcaso.Unique = true;
+                this.columnid_caso.AllowDBNull = false;
+                this.columnanio.AllowDBNull = false;
+                this.columnid_sucur.AllowDBNull = false;
+                this.columnfc_iniestado.AllowDBNull = false;
+                this.columnid_estca.AllowDBNull = false;
+                this.columnestado_caso.ReadOnly = true;
+                this.columnestado_caso.MaxLength = 100;
+                this.columnobs_histcaso.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1Row NewGetReportResumsiniestro1Row() {
+                return ((GetReportResumsiniestro1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetReportResumsiniestro1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetReportResumsiniestro1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetReportResumsiniestro1RowChanged != null)) {
+                    this.GetReportResumsiniestro1RowChanged(this, new GetReportResumsiniestro1RowChangeEvent(((GetReportResumsiniestro1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetReportResumsiniestro1RowChanging != null)) {
+                    this.GetReportResumsiniestro1RowChanging(this, new GetReportResumsiniestro1RowChangeEvent(((GetReportResumsiniestro1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetReportResumsiniestro1RowDeleted != null)) {
+                    this.GetReportResumsiniestro1RowDeleted(this, new GetReportResumsiniestro1RowChangeEvent(((GetReportResumsiniestro1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetReportResumsiniestro1RowDeleting != null)) {
+                    this.GetReportResumsiniestro1RowDeleting(this, new GetReportResumsiniestro1RowChangeEvent(((GetReportResumsiniestro1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveGetReportResumsiniestro1Row(GetReportResumsiniestro1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DS_SicPro ds = new DS_SicPro();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetReportResumsiniestro1DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class GetReportHistreclamoshfRow : global::System.Data.DataRow {
@@ -2225,6 +3206,477 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetReportResumsiniestroRow : global::System.Data.DataRow {
+            
+            private GetReportResumsiniestroDataTable tableGetReportResumsiniestro;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetReportResumsiniestroRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetReportResumsiniestro = ((GetReportResumsiniestroDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal id_caso {
+                get {
+                    return ((decimal)(this[this.tableGetReportResumsiniestro.id_casoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_casoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal anio_caso {
+                get {
+                    return ((decimal)(this[this.tableGetReportResumsiniestro.anio_casoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.anio_casoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nomraz {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.nomrazColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.nomrazColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fc_incidente {
+                get {
+                    return ((global::System.DateTime)(this[this.tableGetReportResumsiniestro.fc_incidenteColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.fc_incidenteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public long id_poliza {
+                get {
+                    return ((long)(this[this.tableGetReportResumsiniestro.id_polizaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_polizaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string num_poliza {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.num_polizaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.num_polizaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public long id_producto {
+                get {
+                    return ((long)(this[this.tableGetReportResumsiniestro.id_productoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_productoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string abrev_prod {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro.abrev_prodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'abrev_prod\' de la tabla \'GetReportResumsiniestro\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.abrev_prodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string abrev_cia {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.abrev_ciaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.abrev_ciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string circunstancia {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.circunstanciaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.circunstanciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double id_estca {
+                get {
+                    return ((double)(this[this.tableGetReportResumsiniestro.id_estcaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_estcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string estado_caso {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro.estado_casoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estado_caso\' de la tabla \'GetReportResumsiniestro\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.estado_casoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_percart {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro.id_percartColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_percart\' de la tabla \'GetReportResumsiniestro\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_percartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string cartera {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro.carteraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cartera\' de la tabla \'GetReportResumsiniestro\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.carteraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_suc {
+                get {
+                    return ((int)(this[this.tableGetReportResumsiniestro.id_sucColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_sucColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string sucursal {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro.sucursalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'sucursal\' de la tabla \'GetReportResumsiniestro\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.sucursalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_perclie {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.id_perclieColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_perclieColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_spvs {
+                get {
+                    return ((string)(this[this.tableGetReportResumsiniestro.id_spvsColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro.id_spvsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isabrev_prodNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro.abrev_prodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setabrev_prodNull() {
+                this[this.tableGetReportResumsiniestro.abrev_prodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isestado_casoNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro.estado_casoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setestado_casoNull() {
+                this[this.tableGetReportResumsiniestro.estado_casoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_percartNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro.id_percartColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_percartNull() {
+                this[this.tableGetReportResumsiniestro.id_percartColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscarteraNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro.carteraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcarteraNull() {
+                this[this.tableGetReportResumsiniestro.carteraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IssucursalNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro.sucursalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetsucursalNull() {
+                this[this.tableGetReportResumsiniestro.sucursalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetReportResumsiniestro1Row : global::System.Data.DataRow {
+            
+            private GetReportResumsiniestro1DataTable tableGetReportResumsiniestro1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetReportResumsiniestro1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetReportResumsiniestro1 = ((GetReportResumsiniestro1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public long id_histcaso {
+                get {
+                    return ((long)(this[this.tableGetReportResumsiniestro1.id_histcasoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.id_histcasoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal id_caso {
+                get {
+                    return ((decimal)(this[this.tableGetReportResumsiniestro1.id_casoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.id_casoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal anio {
+                get {
+                    return ((decimal)(this[this.tableGetReportResumsiniestro1.anioColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.anioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_sucur {
+                get {
+                    return ((int)(this[this.tableGetReportResumsiniestro1.id_sucurColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.id_sucurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fc_iniestado {
+                get {
+                    return ((global::System.DateTime)(this[this.tableGetReportResumsiniestro1.fc_iniestadoColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.fc_iniestadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fc_finestado {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetReportResumsiniestro1.fc_finestadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fc_finestado\' de la tabla \'GetReportResumsiniestro1\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.fc_finestadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double id_estca {
+                get {
+                    return ((double)(this[this.tableGetReportResumsiniestro1.id_estcaColumn]));
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.id_estcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string estado_caso {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro1.estado_casoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estado_caso\' de la tabla \'GetReportResumsiniestro1\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.estado_casoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string obs_histcaso {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportResumsiniestro1.obs_histcasoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'obs_histcaso\' de la tabla \'GetReportResumsiniestro1\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportResumsiniestro1.obs_histcasoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isfc_finestadoNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro1.fc_finestadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setfc_finestadoNull() {
+                this[this.tableGetReportResumsiniestro1.fc_finestadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isestado_casoNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro1.estado_casoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setestado_casoNull() {
+                this[this.tableGetReportResumsiniestro1.estado_casoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isobs_histcasoNull() {
+                return this.IsNull(this.tableGetReportResumsiniestro1.obs_histcasoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setobs_histcasoNull() {
+                this[this.tableGetReportResumsiniestro1.obs_histcasoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2278,6 +3730,74 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public GetReportHistreclamoshRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class GetReportResumsiniestroRowChangeEvent : global::System.EventArgs {
+            
+            private GetReportResumsiniestroRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroRowChangeEvent(GetReportResumsiniestroRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestroRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class GetReportResumsiniestro1RowChangeEvent : global::System.EventArgs {
+            
+            private GetReportResumsiniestro1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1RowChangeEvent(GetReportResumsiniestro1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetReportResumsiniestro1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -2666,6 +4186,367 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.DS_SicProTableAdapters {
         public virtual DS_SicPro.GetReportHistreclamoshDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DS_SicPro.GetReportHistreclamoshDataTable dataTable = new DS_SicPro.GetReportHistreclamoshDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetReportResumsiniestroTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public GetReportResumsiniestroTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetReportResumsiniestro";
+            tableMapping.ColumnMappings.Add("id_caso", "id_caso");
+            tableMapping.ColumnMappings.Add("anio_caso", "anio_caso");
+            tableMapping.ColumnMappings.Add("nomraz", "nomraz");
+            tableMapping.ColumnMappings.Add("fc_incidente", "fc_incidente");
+            tableMapping.ColumnMappings.Add("id_poliza", "id_poliza");
+            tableMapping.ColumnMappings.Add("num_poliza", "num_poliza");
+            tableMapping.ColumnMappings.Add("id_producto", "id_producto");
+            tableMapping.ColumnMappings.Add("abrev_prod", "abrev_prod");
+            tableMapping.ColumnMappings.Add("abrev_cia", "abrev_cia");
+            tableMapping.ColumnMappings.Add("circunstancia", "circunstancia");
+            tableMapping.ColumnMappings.Add("id_estca", "id_estca");
+            tableMapping.ColumnMappings.Add("estado_caso", "estado_caso");
+            tableMapping.ColumnMappings.Add("id_percart", "id_percart");
+            tableMapping.ColumnMappings.Add("cartera", "cartera");
+            tableMapping.ColumnMappings.Add("id_suc", "id_suc");
+            tableMapping.ColumnMappings.Add("sucursal", "sucursal");
+            tableMapping.ColumnMappings.Add("id_perclie", "id_perclie");
+            tableMapping.ColumnMappings.Add("id_spvs", "id_spvs");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetReportResumsiniestro";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DS_SicPro.GetReportResumsiniestroDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DS_SicPro.GetReportResumsiniestroDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DS_SicPro.GetReportResumsiniestroDataTable dataTable = new DS_SicPro.GetReportResumsiniestroDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetReportResumsiniestro1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public GetReportResumsiniestro1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetReportResumsiniestro1";
+            tableMapping.ColumnMappings.Add("id_histcaso", "id_histcaso");
+            tableMapping.ColumnMappings.Add("id_caso", "id_caso");
+            tableMapping.ColumnMappings.Add("anio", "anio");
+            tableMapping.ColumnMappings.Add("id_sucur", "id_sucur");
+            tableMapping.ColumnMappings.Add("fc_iniestado", "fc_iniestado");
+            tableMapping.ColumnMappings.Add("fc_finestado", "fc_finestado");
+            tableMapping.ColumnMappings.Add("id_estca", "id_estca");
+            tableMapping.ColumnMappings.Add("estado_caso", "estado_caso");
+            tableMapping.ColumnMappings.Add("obs_histcaso", "obs_histcaso");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString1"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetReportResumsiniestro1";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DS_SicPro.GetReportResumsiniestro1DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DS_SicPro.GetReportResumsiniestro1DataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DS_SicPro.GetReportResumsiniestro1DataTable dataTable = new DS_SicPro.GetReportResumsiniestro1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

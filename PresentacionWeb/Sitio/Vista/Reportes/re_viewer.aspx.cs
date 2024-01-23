@@ -40,11 +40,11 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                         RecDetallado();
                         return;
                     }
-                //case 4:
-                //    {
-                //        this.RecResum();
-                //        return;
-                //    }
+                case 4:
+                    {
+                        RecResum();
+                        return;
+                    }
                 //case 5:
                 //    {
                 //        this.LiqRep();
@@ -275,6 +275,50 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
+        }
+
+        protected void RecResum()
+        {
+            var idOfiSucursal = Request.QueryString["s"];
+            var idPer = Request.QueryString["ipc"];
+            var numPoliza = Request.QueryString["np"];
+            var idCompSpvs = Request.QueryString["sp"];
+            var idProducto = Request.QueryString["ip"];
+            var idCartera = Request.QueryString["ca"];
+            var fechaDel = Request.QueryString["iv1"];
+            var fechaAl = Request.QueryString["iv2"];
+            var estadoCaso = Request.QueryString["ec"];
+            
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportResumsiniestro(
+                idOfiSucursal, idPer, numPoliza, idCompSpvs, idProducto, idCartera, fechaDel, fechaAl, estadoCaso
+                );
+            var responseSubReporte = _objConsumoReportes.GetReportResumsiniestro1();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportResumsiniestro";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportResumsiniestro"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportResumsiniestro1";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportResumsiniestro1"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_resumsiniestro.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+
         }
 
         private void Memo2(int tipo)

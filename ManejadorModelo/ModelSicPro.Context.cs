@@ -383,5 +383,15 @@ namespace ManejadorModelo
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamoshf_Result>("GetReportHistreclamoshf");
         }
+    
+        public virtual ObjectResult<GetReportResumsiniestro_Result> GetReportResumsiniestro()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro_Result>("GetReportResumsiniestro");
+        }
+    
+        public virtual ObjectResult<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro1_Result>("GetReportResumsiniestro1");
+        }
     }
 }

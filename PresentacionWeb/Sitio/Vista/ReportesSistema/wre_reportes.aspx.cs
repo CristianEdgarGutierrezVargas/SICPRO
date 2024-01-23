@@ -164,10 +164,10 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             var ipc = id_per.Value;
             var np = txtNumPolizaProd.Text;
             var sp = Convert.ToString(cmbCompaniaProd.SelectedItem.Value);
-            var ip = Convert.ToString(cmbProductoProd.SelectedItem.Value);
+            var ip = cmbProductoProd.SelectedItem ==null ? "": Convert.ToString(cmbProductoProd.SelectedItem.Value);
             var ca = Convert.ToString(cmbCartera.SelectedItem.Value);
-            var iv1 = fechaDelProd.Date.ToShortDateString();
-            var iv2 = fechaAlProd.Date.ToShortDateString();
+            var iv1 = string.IsNullOrEmpty(fechaDelProd.Text)? "": fechaDelProd.Date.ToShortDateString();
+            var iv2 = string.IsNullOrEmpty(fechaAlProd.Text) ? "" : fechaAlProd.Date.ToShortDateString();
             var ec = Convert.ToString(cmbEstadoCaso.SelectedItem.Value);
 
             ifrReport.Visible = true;

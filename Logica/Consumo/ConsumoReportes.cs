@@ -217,6 +217,85 @@ namespace Logica.Consumo
             }
         }
 
+        public List<GetReportResumsiniestro_Result> GetReportResumsiniestro(string strIdOfiSucursal, string strIdPer, string strNumPoliza, string strIdCompSpvs, string strIdProducto, string strIdCartera, string strFechaDel, string strFechaAl, string strEstadoCaso)
+        {
+            try
+            {
+                var sql1 = _manejador_reportes.GetReportResumsiniestro().ToList();
+
+                if (!string.IsNullOrEmpty(strIdOfiSucursal))
+                {
+                    var idOfiSucursal = Convert.ToInt32(strIdOfiSucursal);
+                    sql1 = sql1.Where(x => x.id_suc == idOfiSucursal).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdPer))
+                {
+                    var idPer = Convert.ToString(strIdPer);
+                    sql1 = sql1.Where(x => x.id_perclie == idPer).ToList();
+                }
+                if (!string.IsNullOrEmpty(strNumPoliza))
+                {
+                    var numPoliza = Convert.ToString(strNumPoliza);
+                    sql1 = sql1.Where(x => x.num_poliza == numPoliza).ToList();
+                }
+                if (string.IsNullOrEmpty(strIdCompSpvs))
+                {
+                    var idCompSpvs = Convert.ToString(strIdCompSpvs);
+                    sql1 = sql1.Where(x => x.id_spvs == idCompSpvs).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdProducto))
+                {
+                    var idProducto = Convert.ToInt64(strIdProducto);
+                    sql1 = sql1.Where(x => x.id_producto == idProducto).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdCartera))
+                {
+                    var idCartera = Convert.ToString(strIdCartera);
+                    sql1 = sql1.Where(x => x.id_percart == idCartera).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(strFechaDel) && !string.IsNullOrEmpty(strFechaDel))
+                {
+                    var fechaDel = Convert.ToDateTime(strFechaDel);
+                    var fechaAl = Convert.ToDateTime(strFechaAl);
+                    sql1 = sql1.Where(x => x.fc_incidente >= fechaDel && x.fc_incidente <= fechaAl).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(strEstadoCaso))
+                {
+                    var idEstadoCaso = Convert.ToDouble(strEstadoCaso);
+                    sql1 = sql1.Where(x => x.id_estca == idEstadoCaso).ToList();
+                }
+
+
+                return sql1;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportResumsiniestro1();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #region recibos
         public List<gr_persona> ObtenerCobrador(long id_suc)
         {

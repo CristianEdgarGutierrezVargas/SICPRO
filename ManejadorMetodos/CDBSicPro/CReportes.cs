@@ -140,5 +140,35 @@ namespace ManejadorMetodos.CDBSicPro
             }
 
         }
+
+        public List<GetReportResumsiniestro_Result> GetReportResumsiniestro()
+        {
+            try
+            {
+                var sql = _context.GetReportResumsiniestro().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        {
+            try
+            {
+                var sql = _context.GetReportResumsiniestro1().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
     }
 }

@@ -102,6 +102,12 @@
     <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportResumsiniestro1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportResumsiniestro_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\gr_acceso.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
