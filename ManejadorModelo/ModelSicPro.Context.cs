@@ -393,5 +393,107 @@ namespace ManejadorModelo
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro1_Result>("GetReportResumsiniestro1");
         }
+    
+        public virtual ObjectResult<GetReportCobsxrango_Result> GetReportCobsxrango(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin)
+        {
+            var fecha_iniParameter = fecha_ini.HasValue ?
+                new ObjectParameter("fecha_ini", fecha_ini) :
+                new ObjectParameter("fecha_ini", typeof(System.DateTime));
+    
+            var fecha_finParameter = fecha_fin.HasValue ?
+                new ObjectParameter("fecha_fin", fecha_fin) :
+                new ObjectParameter("fecha_fin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCobsxrango_Result>("GetReportCobsxrango", fecha_iniParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
+        }
+    
+        public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg1_Result>("GetReportEstctaaseg1", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        public virtual ObjectResult<GetReportEstctaaseg2_Result> GetReportEstctaaseg2(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg2_Result>("GetReportEstctaaseg2", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        public virtual ObjectResult<GetReportLiquidacion_Result> GetReportLiquidacion()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiquidacion_Result>("GetReportLiquidacion");
+        }
+    
+        public virtual ObjectResult<GetReportPagoacia1_Result> GetReportPagoacia1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportPagoacia1_Result>("GetReportPagoacia1");
+        }
+    
+        public virtual ObjectResult<GetReportPagopendcias_Result> GetReportPagopendcias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportPagopendcias_Result>("GetReportPagopendcias");
+        }
+    
+        public virtual ObjectResult<GetReportRecibosnoaplicados_Result> GetReportRecibosnoaplicados(string id_suc)
+        {
+            var id_sucParameter = id_suc != null ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportRecibosnoaplicados_Result>("GetReportRecibosnoaplicados", id_sucParameter);
+        }
+    
+        public virtual ObjectResult<GetReportAscii_Result> GetReportAscii()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportAscii_Result>("GetReportAscii");
+        }
+    
+        public virtual ObjectResult<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiqcomiejec3_Result>("GetReportLiqcomiejec3");
+        }
     }
 }

@@ -45,26 +45,26 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                         RecResum();
                         return;
                     }
-                //case 5:
-                //    {
-                //        this.LiqRep();
-                //        return;
-                //    }
-                //case 6:
-                //    {
-                //        this.Reppc();
-                //        return;
-                //    }
-                //case 7:
-                //    {
-                //        this.Repc();
-                //        return;
-                //    }
-                //case 8:
-                //    {
-                //        this.Rascii();
-                //        return;
-                //    }
+                case 5:
+                    {
+                        this.LiqRep();
+                        return;
+                    }
+                case 6:
+                    {
+                        Reppc();
+                        return;
+                    }
+                case 7:
+                    {
+                        Repc();
+                        return;
+                    }
+                case 8:
+                    {
+                        Rascii();
+                        return;
+                    }
                 case 9:
                     {
                         Memo2(1);
@@ -75,26 +75,26 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                         Memo2(2);
                         return;
                     }
-                //case 11:
-                //    {
-                //        this.Estcta1();
-                //        return;
-                //    }
-                //case 12:
-                //    {
-                //        this.Listadias();
-                //        return;
-                //    }
+                case 11:
+                    {
+                        this.Estcta1();
+                        return;
+                    }
+                case 12:
+                    {
+                        this.Listadias();
+                        return;
+                    }
                 case 13:
                     {
                         Clientes();
                         return;
                     }
-                //case 14:
-                //    {
-                //        this.CarteraComi();
-                //        return;
-                //    }
+                case 14:
+                    {
+                        this.CarteraComi();
+                        return;
+                    }
                 case 15:
                     {
                         Grupos();
@@ -105,51 +105,51 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
                         ProyCartera();
                         return;
                     }
-                //case 17:
-                //    {
-                //        this.ProdCaptada(17);
-                //        return;
-                //    }
-                //case 18:
-                //    {
-                //        this.ProdCaptada(18);
-                //        return;
-                //    }
-                //case 19:
-                //    {
-                //        this.ProdCaptada(19);
-                //        return;
-                //    }
-                //case 20:
-                //    {
-                //        this.ProdCaptada(20);
-                //        return;
-                //    }
+                case 17:
+                    {
+                        this.ProdCaptada(17);
+                        return;
+                    }
+                case 18:
+                    {
+                        this.ProdCaptada(18);
+                        return;
+                    }
+                case 19:
+                    {
+                        this.ProdCaptada(19);
+                        return;
+                    }
+                case 20:
+                    {
+                        this.ProdCaptada(20);
+                        return;
+                    }
                 //case 21:
                 //    {
                 //        this.Contable1();
                 //        return;
                 //    }
-                //case 22:
-                //    {
-                //        this.Cobfecha();
-                //        return;
-                //    }
+                case 22:
+                    {
+                        this.Cobfecha();
+                        return;
+                    }
                 //case 23:
                 //    {
                 //        this.NotaCob();
                 //        return;
                 //    }
-                //case 24:
-                //    {
-                //        this.ProdCaptada(24);
-                //        return;
-                //    }
-                //case 25:
-                //    {
-                //        this.RecXCob();
-                //        return;
-                //    }
+                case 24:
+                    {
+                        this.ProdCaptada(24);
+                        return;
+                    }
+                case 25:
+                    {
+                        this.RecXCob();
+                        return;
+                    }
                 //case 26:
                 //    {
                 //        this.ComiXFecha();
@@ -321,6 +321,138 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         }
 
+        protected void LiqRep()
+        {
+            //Acceso acceso = new Acceso();
+            //acceso.Conectar();
+            //string[] str = new string[] { "SELECT  pr_recibo.id_recibo,  pr_recibo.id_suc,  (SELECT gr_parametro.desc_param FROM gr_parametro WHERE gr_parametro.id_par = CAST(pr_recibo.id_suc as numeric)) AS \"Sucursal\",  pr_recibo.id_perucb,  (SELECT gr_persona.nomraz FROM gr_persona WHERE gr_persona.id_per = pr_recibo.id_perucb) AS cobrador,  pr_recibo.id_perclie,  (SELECT vpr_pergrup.nomraz FROM vpr_pergrup WHERE vpr_pergrup.id_per = pr_recibo.id_perclie) AS cliente,  pr_recibo.recibo_por,  (SELECT gr_parametro.desc_param FROM gr_parametro WHERE gr_parametro.id_par = pr_recibo.id_apli) AS aplicado,  (case when pr_recibo.id_div = 39 then pr_recibo.monto_cobro else 0 end) AS monto_cobros,  (case when pr_recibo.id_div = 37 then pr_recibo.monto_cobro else 0 end) AS monto_cobrob,  pr_recibo.id_liq,  pr_recibo.fecha_cobro,  pr_recibo.cont_bs,  pr_recibo.cont_sus,  pr_recibo.cheq_bs,  pr_recibo.cheq_sus FROM  pr_recibo WHERE  pr_recibo.id_perclie IS NOT NULL AND pr_recibo.id_suc = '", base.Request.QueryString["is"].ToString(), "' and  pr_recibo.id_liq = ", base.Request.QueryString["il"].ToString(), " ORDER BY  pr_recibo.anio_recibo,  pr_recibo.id_recibo" };
+            //acceso.CrearComando(string.Concat(str));
+            //DataTable dataTable = acceso.Consulta();
+            //string str1 = base.Server.MapPath("reportes//re_liquidacion.rpt");
+            //ReportDocument reportDocument = new ReportDocument();
+            //reportDocument.Load(str1);
+            //reportDocument.SetDataSource(dataTable);
+            //this.CrystalReportViewer1.ReportSource = reportDocument;
+            //this.CrystalReportViewer1.RefreshReport();
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_liquidacion.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        protected void Reppc()
+        {
+            //string str = base.Server.MapPath("reportes//re_pagopendcias.rpt");
+            //this.CrystalReportViewer1.ReportSource = str;
+            //string str1 = string.Concat("{Comando.id_suc}= ", base.Request.QueryString["is"]);
+            //this.CrystalReportViewer1.SelectionFormula = str1;
+            //this.CrystalReportViewer1.RefreshReport();
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_pagopendcias.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        protected void Repc()
+        {
+            //string str = base.Server.MapPath("reportes//re_pagoacia1.rpt");
+            //this.CrystalReportViewer1.ReportSource = str;
+            //string str1 = string.Concat("{Comando.id_suc}= ", base.Request.QueryString["s"]);
+            //str1 = string.Concat(str1, " and {Comando.id_spvs} = '", base.Request.QueryString["sp"], "'");
+            //this.CrystalReportViewer1.SelectionFormula = str1;
+            //this.CrystalReportViewer1.RefreshReport();
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_pagoacia1.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        //8
+        private void Rascii()
+        { }
+
+        //9
         private void Memo2(int tipo)
         {
             var numPoliza = Convert.ToString(Request.QueryString["np"]);
@@ -359,6 +491,148 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.RefreshReport();
         }
 
+        private void Estcta1()
+        {
+            //string str;
+            //string str1;
+            //string str2;
+            //string str3;
+            //string str4;
+            //string str5;
+            //string str6 = base.Server.MapPath(string.Concat("reportes//re_estctaaseg", base.Request.QueryString["h"], ".rpt"));
+            //str = (base.Request.QueryString["ic"] == "" ? "%" : base.Request.QueryString["ic"].ToString());
+            //str1 = (base.Request.QueryString["ci"] == "0" ? "%" : base.Request.QueryString["ci"].ToString());
+            //str2 = (base.Request.QueryString["ca"] == "0" ? "%" : base.Request.QueryString["ca"].ToString());
+            //str3 = (base.Request.QueryString["np"] == "" ? "%" : base.Request.QueryString["np"].ToString());
+            //str4 = (base.Request.QueryString["nl"] == "" ? "%" : base.Request.QueryString["nl"]);
+            //Acceso acceso = new Acceso();
+            //if (base.Request.QueryString["h"].ToString() != "1")
+            //{
+            //    string[] strArrays = new string[] { "select * from pagos_rep1('", str, "','", str1, "','", str2, "','", str3, "','", str4, "') " };
+            //    str5 = string.Concat(strArrays);
+            //}
+            //else
+            //{
+            //    string[] strArrays1 = new string[] { "select * from pagos_rep ('", str, "','", str1, "','", str2, "','", str3, "','", str4, "') " };
+            //    str5 = string.Concat(strArrays1);
+            //}
+            //acceso.Conectar();
+            //acceso.CrearComando(str5);
+            //DataTable dataTable = acceso.Consulta();
+            //ReportDocument reportDocument = new ReportDocument();
+            //reportDocument.Load(str6);
+            //reportDocument.SetDataSource(dataTable);
+            //acceso.Desconectar();
+            //this.CrystalReportViewer1.ReportSource = reportDocument;
+            //this.CrystalReportViewer1.RefreshReport();
+            var reportHistorico = string.IsNullOrEmpty(Request.QueryString["h"]) ? 0 : Convert.ToInt32(Request.QueryString["h"]);
+            var reportNamePath = string.Concat("reportes//re_estctaaseg", reportHistorico, ".rpt");
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath(reportNamePath);
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
+
+        private void Listadias()
+        {
+            //string str = base.Server.MapPath("reportes//re_cuotaadias.rpt");
+            //this.CrystalReportViewer1.ReportSource = str;
+            //string str1 = "";
+            //if (base.Request.QueryString["vv"] != "1")
+            //{
+            //    string[] item = new string[] { "{vcb_cuotasdias.dias} >= -", base.Request.QueryString["e2"], " and {vcb_cuotasdias.dias} <=-", base.Request.QueryString["e1"], " " };
+            //    str1 = string.Concat(item);
+            //}
+            //else
+            //{
+            //    string[] strArrays = new string[] { "{vcb_cuotasdias.dias} >= ", base.Request.QueryString["e1"], " and {vcb_cuotasdias.dias} <=", base.Request.QueryString["e2"], " " };
+            //    str1 = string.Concat(strArrays);
+            //}
+            //if (!string.IsNullOrEmpty(base.Request.QueryString["fc"].ToString()))
+            //{
+            //    string str2 = base.Request.QueryString["fc"].ToString().Substring(0, 2);
+            //    string str3 = base.Request.QueryString["fc"].ToString().Substring(3, 2);
+            //    string str4 = base.Request.QueryString["fc"].ToString().Substring(6, 4);
+            //    string[] strArrays1 = new string[] { "{vcb_cuotasdias.fecha_pago} <= DateValue('", str4, ",", str3, ",", str2, "')" };
+            //    str1 = string.Concat(strArrays1);
+            //}
+            //if (base.Request.QueryString["ci"] != "0")
+            //{
+            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_spvs}= '", base.Request.QueryString["ci"], "'");
+            //}
+            //if (base.Request.QueryString["ca"] != "0")
+            //{
+            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_percart}= '", base.Request.QueryString["ca"], "'");
+            //}
+            //if (base.Request.QueryString["is"] != "0")
+            //{
+            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_suc} = ", base.Request.QueryString["is"]);
+            //}
+            //if (base.Request.QueryString["gr"] != "-1")
+            //{
+            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+            //}
+            //this.CrystalReportViewer1.SelectionFormula = str1;
+            //this.CrystalReportViewer1.RefreshReport();
+
+            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
+            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+            SqlConnection sqlCon;
+
+            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
+            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportHistreclamosh";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            //Subreporte
+            DS_SicPro ds1 = new DS_SicPro();
+            DataTable dt1 = new DataTable();
+            dt1.TableName = "GetReportHistreclamoshf";
+            dt1 = ToDataTable(responseSubReporte);
+            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_cuotaadias.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
+        }
         private void Clientes()
         {
             var mesAniv = Convert.ToInt32(Request.QueryString["fc"]);
@@ -393,7 +667,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.RefreshReport();
         }
 
-        private void Grupos()
+        //14
+            private void CarteraComi()
+        { }
+
+        //15
+            private void Grupos()
         {
             var idGrupo = Convert.ToInt64(Request.QueryString["ig"]);
             var idSuc = Convert.ToInt64(Request.QueryString["sc"]);
@@ -457,6 +736,35 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
+        //17 18 19 20 24
+        private void ProdCaptada(int a)
+        {
+            string str = "";
+            if (a == 17)
+            {
+                str = "re_prodcap1.rpt";
+            }
+            if (a == 18)
+            {
+                str = "re_comicap1.rpt";
+            }
+            if (a == 19)
+            {
+                str = "re_comiefect1.rpt";
+            }
+            if (a == 20)
+            {
+                str = "re_comicobr1.rpt";
+            }
+            if (a == 24)
+            {
+                str = "re_prodcap2.rpt";
+            }
+        }
+            private void Cobfecha()
+        { }
+        private void RecXCob()
+        { }
 
         public DataTable ToDataTable<T>(List<T> items)
         {

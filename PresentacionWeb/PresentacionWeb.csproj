@@ -3245,11 +3245,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reportepagoacia.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_ascii.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_ascii.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_clientes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3259,11 +3254,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_cobsxrango.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_cobsxrango.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_comicap1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3295,11 +3285,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_contable1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_cuotaadias.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_cuotaadias.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_desglosepago.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3314,16 +3299,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_estctaaseg.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_estctaaseg1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_estctaaseg1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_estctaaseg2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_estctaaseg2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_grupos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3350,16 +3325,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_liqcomiejec2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_liqcomiejec3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_liqcomiejec3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_liquidacion.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_liquidacion.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_memo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3385,16 +3350,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_pagoacia1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_pagoacia1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_pagopendcias.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_pagopendcias.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_prodcap1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3409,11 +3364,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_proycartera.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_recibosnoaplicados.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_recibosnoaplicados.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_relacion.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3774,9 +3724,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_clientes.xsc">
       <DependentUpon>re_clientes.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_ascii.xsc">
-      <DependentUpon>re_ascii.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\reportepagoacia.xsc">
       <DependentUpon>reportepagoacia.xsd</DependentUpon>
     </Content>
@@ -3799,14 +3746,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\reportepagoacia.xss">
       <DependentUpon>reportepagoacia.xsd</DependentUpon>
     </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_ascii.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_ascii.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_ascii.xss">
-      <DependentUpon>re_ascii.xsd</DependentUpon>
-    </Content>
     <None Include="Sitio\Vista\Reportes\datasets\re_clientes.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -3828,17 +3767,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_cobsXfecha.xss">
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_cobsxrango.xsc">
-      <DependentUpon>re_cobsxrango.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_cobsxrango.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_cobsxrango.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_cobsxrango.xss">
-      <DependentUpon>re_cobsxrango.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_comicap1.xsc">
       <DependentUpon>re_comicap1.xsd</DependentUpon>
@@ -3906,17 +3834,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_contable1.xss">
       <DependentUpon>re_contable1.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_cuotaadias.xsc">
-      <DependentUpon>re_cuotaadias.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_cuotaadias.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_cuotaadias.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_cuotaadias.xss">
-      <DependentUpon>re_cuotaadias.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_desglosepago.xsc">
       <DependentUpon>re_desglosepago.xsd</DependentUpon>
     </Content>
@@ -3946,28 +3863,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg.xss">
       <DependentUpon>re_estctaaseg.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg1.xsc">
-      <DependentUpon>re_estctaaseg1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_estctaaseg1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_estctaaseg1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg1.xss">
-      <DependentUpon>re_estctaaseg1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg2.xsc">
-      <DependentUpon>re_estctaaseg2.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_estctaaseg2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_estctaaseg2.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg2.xss">
-      <DependentUpon>re_estctaaseg2.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_grupos.xsc">
       <DependentUpon>re_grupos.xsd</DependentUpon>
@@ -4024,28 +3919,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_liqcomiejec2.xss">
       <DependentUpon>re_liqcomiejec2.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_liqcomiejec3.xsc">
-      <DependentUpon>re_liqcomiejec3.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_liqcomiejec3.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_liqcomiejec3.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_liqcomiejec3.xss">
-      <DependentUpon>re_liqcomiejec3.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_liquidacion.xsc">
-      <DependentUpon>re_liquidacion.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_liquidacion.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_liquidacion.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_liquidacion.xss">
-      <DependentUpon>re_liquidacion.xsd</DependentUpon>
-    </Content>
     <None Include="Sitio\Vista\Reportes\datasets\re_memo.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -4098,28 +3971,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_pagoacia.xss">
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_pagoacia1.xsc">
-      <DependentUpon>re_pagoacia1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_pagoacia1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_pagoacia1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_pagoacia1.xss">
-      <DependentUpon>re_pagoacia1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_pagopendcias.xsc">
-      <DependentUpon>re_pagopendcias.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_pagopendcias.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_pagopendcias.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_pagopendcias.xss">
-      <DependentUpon>re_pagopendcias.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_prodcap1.xsc">
       <DependentUpon>re_prodcap1.xsd</DependentUpon>
     </Content>
@@ -4152,17 +4003,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_proycartera.xss">
       <DependentUpon>re_proycartera.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_recibosnoaplicados.xsc">
-      <DependentUpon>re_recibosnoaplicados.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_recibosnoaplicados.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_recibosnoaplicados.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_recibosnoaplicados.xss">
-      <DependentUpon>re_recibosnoaplicados.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_relacion.xsc">
       <DependentUpon>re_relacion.xsd</DependentUpon>

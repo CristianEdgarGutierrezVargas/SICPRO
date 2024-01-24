@@ -21,6 +21,8 @@ namespace ManejadorMetodos.CDBSicPro
 
         #endregion
 
+        #region wpr reportes - produccion
+
         public List<GetReportMemo_Result> GetReportMemo(long idPoliza, long idMovimiento)
         {
             try
@@ -111,6 +113,9 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        #endregion
+
+        #region wre reportes - reclamos
         public List<GetReportHistreclamosh_Result> GetReportHistreclamosh()
         {
             try
@@ -170,5 +175,164 @@ namespace ManejadorMetodos.CDBSicPro
             }
 
         }
+        #endregion
+
+        #region wco reportes - cobranzas
+        public List<GetReportCobsxrango_Result> GetReportCobsxrango(DateTime dtFechaIni, DateTime dtFechaFin)
+        {
+            try
+            {
+                var sql = _context.GetReportCobsxrango(dtFechaIni, dtFechaFin).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportCuotaadias_Result> GetReportCuotaadias()
+        {
+            try
+            {
+                var sql = _context.GetReportCuotaadias().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string strIdPer, string strIdCompSpvs, string strIdCartera, string strNumPoliza, string strNoLiq )
+        {
+            try
+            {
+                var sql = _context.GetReportEstctaaseg1(strIdPer, strIdCompSpvs, strIdCartera, strNumPoliza, strNoLiq).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportEstctaaseg2_Result> GetReportEstctaaseg2(string strIdPer, string strIdCompSpvs, string strIdCartera, string strNumPoliza, string strNoLiq)
+        {
+            try
+            {
+                var sql = _context.GetReportEstctaaseg2(strIdPer, strIdCompSpvs, strIdCartera, strNumPoliza, strNoLiq).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportLiquidacion_Result> GetReportLiquidacion()
+        {
+            try
+            {
+                var sql = _context.GetReportLiquidacion().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportPagoacia1_Result> GetReportPagoacia1()
+        {
+            try
+            {
+                var sql = _context.GetReportPagoacia1().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportPagopendcias_Result> GetReportPagopendcias()
+        {
+            try
+            {
+                var sql = _context.GetReportPagopendcias().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportRecibosnoaplicados_Result> GetReportRecibosnoaplicados(string strIdSuc)
+        {
+            try
+            {
+                var sql = _context.GetReportRecibosnoaplicados(strIdSuc).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        #endregion
+
+        #region wcm reportes - comisiones
+
+        public List<GetReportAscii_Result> GetReportAscii()
+        {
+            try
+            {
+                var sql = _context.GetReportAscii().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
+        {
+            try
+            {
+                var sql = _context.GetReportLiqcomiejec3().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+
+        #endregion
     }
 }
