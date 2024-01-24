@@ -120,7 +120,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_inivig;
+        protected global::DevExpress.Web.ASPxDateEdit fc_inivig;
 
         /// <summary>
         /// fc_finvig control.
@@ -129,7 +129,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_finvig;
+        protected global::DevExpress.Web.ASPxDateEdit fc_finvig;
 
         /// <summary>
         /// porvencer control.
@@ -147,7 +147,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_polizavencida;
+        protected global::DevExpress.Web.ASPxDateEdit fc_polizavencida;
 
         /// <summary>
         /// btnnuevo control.
@@ -195,13 +195,22 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btnserper_modal;
 
         /// <summary>
-        /// pnlCallBackBuscaPersonas control.
+        /// pnlCallBackBuscaPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaPersonas;
+        protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaPersona;
+
+        /// <summary>
+        /// grdListaPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView grdListaPersona;
 
         /// <summary>
         /// popupBusquedaCompania control.
@@ -238,6 +247,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaCompania;
+
+        /// <summary>
+        /// grdListaCompania control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView grdListaCompania;
 
         /// <summary>
         /// popupBusquedaProducto control.

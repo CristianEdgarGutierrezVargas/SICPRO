@@ -47,21 +47,21 @@ namespace Logica.Consumo
 
         public DataTable RecuFacMod()
         {
-            DataTable dataTable;
-            try
-            {
-                string[] str = new string[] { "SELECT pr_pago.id_poliza, pr_pago.id_movimiento, pr_pago.cuota, pr_poliza.id_spvs, pr_pago.factura, pr_pago.fecha_factura, pr_pago.id_pago, pr_poliza.num_poliza FROM pr_pago INNER JOIN pr_poliza ON (pr_pago.id_poliza = pr_poliza.id_poliza) WHERE pr_poliza.id_spvs = '", this.id_spvs.SelectedValue.ToString(), "' and pr_pago.factura = ", this.nro_factura.Text, " order by pr_pago.id_pago asc" };
-                string sql = string.Concat(str);
-                Acceso db = new Acceso();
-                db.Conectar();
-                db.CrearComando(sql);
-                dataTable = db.Consulta();
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al generar la transacción", secureException);
-            }
-            return dataTable;
+        //    DataTable dataTable;
+        //    try
+        //    {
+        //        //string[] str = new string[] { "SELECT pr_pago.id_poliza, pr_pago.id_movimiento, pr_pago.cuota, pr_poliza.id_spvs, pr_pago.factura, pr_pago.fecha_factura, pr_pago.id_pago, pr_poliza.num_poliza FROM pr_pago INNER JOIN pr_poliza ON (pr_pago.id_poliza = pr_poliza.id_poliza) WHERE pr_poliza.id_spvs = '", this.id_spvs.SelectedValue.ToString(), "' and pr_pago.factura = ", this.nro_factura.Text, " order by pr_pago.id_pago asc" };
+        //        //string sql = string.Concat(str);
+        //        //Acceso db = new Acceso();
+        //        //db.Conectar();
+        //        //db.CrearComando(sql);
+        //        //dataTable = db.Consulta();
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al generar la transacción", secureException);
+        //    }
+            return null;
         }
     }
 }

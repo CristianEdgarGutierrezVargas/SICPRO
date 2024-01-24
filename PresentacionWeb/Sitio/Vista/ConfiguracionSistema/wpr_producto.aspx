@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_producto.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ConfiguracionSistema.wpr_producto" %>
 
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dxA" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -26,13 +26,12 @@
                             <asp:TextBox ID="desc_producto" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
                         </div>
                         <div class="col-2">
-                            <asp:HiddenField ID="cpmaster_b" runat="server" />
-                            <dx:ASPxButton ID="btnserprod" runat="server" Text="..." CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                            <asp:HiddenField ID="id_producto" runat="server" />
+                            <dxA:ASPxButton ID="btnserprod" runat="server" Text="..." CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
                                 <ClientSideEvents Click="function(s, e) {
                                             popupBusquedaProducto.Show();
                                         }" />
-                            </dx:ASPxButton>
-
+                            </dxA:ASPxButton>
                         </div>
                     </div>
                     <div class="row p-2">
@@ -43,40 +42,49 @@
                             <asp:TextBox ID="abrev_prod" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px;"></asp:TextBox>
                         </div>
                         <div class="col-2">
-                            <dx:ASPxButton ID="btnguardar" runat="server" Text="Guardar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
+                            <dxA:ASPxButton ID="btnguardar" runat="server" Text="Guardar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dxA:ASPxButton>
                         </div>
                         <div class="col-2">
-                            <dx:ASPxButton ID="btnbuscar" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
+                            <dxA:ASPxButton ID="btnbuscar" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                                <ClientSideEvents Click="function(s, e) {
+                                            popupBusquedaProducto.Show();
+                                        }" />
+                            </dxA:ASPxButton>
                         </div>
 
+                    </div>
+                    <div class="row p-2">
+                        <p class="links">
+                            <asp:Label ID="lblmensajeA" runat="server" Text="" class="error"></asp:Label>
+                        </p>
                     </div>
                 </div>
             </span>
         </div>
     </div>
 
-    <dx:ASPxPopupControl ID="popupBusquedaProducto" runat="server" Modal="true" HeaderText="Busqueda de Productos por Compañia" ShowFooter="true" PopupElementID="body" ClientInstanceName="popupBusquedaProducto"
+    <dxA:ASPxPopupControl ID="popupBusquedaProducto" runat="server" Modal="true" HeaderText="Busqueda de Productos por Compañia" ShowFooter="true" PopupElementID="body" ClientInstanceName="popupBusquedaProducto"
         CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
         <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1.jpg" ForeColor="White" Font-Bold="true" />
         <FooterStyle HorizontalAlign="Right" />
         <ContentCollection>
-            <dx:PopupControlContentControl runat="server">
+            <dxA:PopupControlContentControl runat="server">
                 <div class="row">
                     <div class="col-3">
                         <img src="../../../UI/img/search_user.png" width="48" height="48">
-                        <dx:ASPxTextBox ID="desc_prod1" ClientInstanceName="nomraz1" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
-                        <dx:ASPxButton ID="btnserprod_modal" runat="server" Text="Buscar" CssClass="msg_button_class" AutoPostBack="false">
-                            <%--<ClientSideEvents Click="function(s,e){
-                                    pnlCallBackBuscaPersona.PerformCallback(nomraz1.GetValue());
+                        <dxA:ASPxTextBox ID="nomraz1" ClientInstanceName="nomraz1" runat="server" AutoCompleteType="None" Size="12"></dxA:ASPxTextBox>
+                        <dxA:ASPxButton ID="btnserprod_modal" runat="server" Text="Buscar" CssClass="msg_button_class" AutoPostBack="false">
+                            <ClientSideEvents Click="function(s,e){
+                                    pnlCallBackBuscaProducto.PerformCallback(nomraz1.GetValue());
                                     }
-                                    " />--%>
-                        </dx:ASPxButton>
+                                    " />
+                        </dxA:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <dxA:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback" >
                             <PanelCollection>
-                                <dx:PanelContent runat="server">
-                                    <%-- <dx:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
+                                <dxA:PanelContent runat="server">
+                                    <dxA:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"
@@ -88,8 +96,8 @@
                                         Styles-Cell-Paddings-Padding="0"
                                         Styles-Cell-ForeColor="#15428b">
                                         <Columns>
-                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
-                                            <dx:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
+                                            <dxA:GridViewDataColumn Caption="ID." FieldName="id_spvs" Visible="false"></dxA:GridViewDataColumn>
+                                            <dxA:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dxA:GridViewDataColumn>
                                         </Columns>
                                         <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
                                             <FirstPageButton Visible="true"></FirstPageButton>
@@ -97,24 +105,25 @@
                                             <Summary Visible="false" />
                                         </SettingsPager>
                                         <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
-                                    </dx:ASPxGridView>--%>
-                                </dx:PanelContent>
+                                    </dxA:ASPxGridView>
+                                </dxA:PanelContent>
                             </PanelCollection>
-                        </dx:ASPxCallbackPanel>
+                        </dxA:ASPxCallbackPanel>
                     </div>
                 </div>
-            </dx:PopupControlContentControl>
+            </dxA:PopupControlContentControl>
         </ContentCollection>
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_title_1.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popupBusquedaProducto.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
-    </dx:ASPxPopupControl>
-    <dx:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validacion de datos" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
+    </dxA:ASPxPopupControl>
+
+    <dxA:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validacion de datos" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
         CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
         <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_button_2.jpg" ForeColor="White" />
         <FooterStyle HorizontalAlign="Right" />
         <ContentCollection>
-            <dx:PopupControlContentControl>
+            <dxA:PopupControlContentControl>
                 <div class="row">
                     <div class="col-3">
                         <img src="../../../UI/img/msg_icon_2.png">
@@ -123,23 +132,23 @@
                         <br>
                         Los siguientes valores deben ser verificados antes de proseguir<br />
                         <p style="color: #990000; font-weight: bold">
-                            <dx:ASPxLabel ID="lblerror" runat="server" Text=""></dx:ASPxLabel>
+                            <dxA:ASPxLabel ID="lblerror" runat="server" Text=""></dxA:ASPxLabel>
                         </p>
                     </div>
                 </div>
-            </dx:PopupControlContentControl>
+            </dxA:PopupControlContentControl>
         </ContentCollection>
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
-    </dx:ASPxPopupControl>
+    </dxA:ASPxPopupControl>
 
-    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+    <dxA:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
         CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
         <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" />
         <FooterStyle HorizontalAlign="Right" />
         <ContentCollection>
-            <dx:PopupControlContentControl>
+            <dxA:PopupControlContentControl>
                 <div class="row">
                     <div class="col-3">
                         <img src="../../../UI/img/msg_icon_1.png">
@@ -147,16 +156,16 @@
                     <div class="col-9">
                         <br>
                         <p style="color: #0A416B; font-weight: bold">
-                            <dx:ASPxLabel ID="lblMensaje" runat="server" Text=""></dx:ASPxLabel>
+                            <dxA:ASPxLabel ID="lblMensaje" runat="server" Text=""></dxA:ASPxLabel>
                         </p>
                     </div>
                 </div>
-            </dx:PopupControlContentControl>
+            </dxA:PopupControlContentControl>
         </ContentCollection>
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
-    </dx:ASPxPopupControl>
+    </dxA:ASPxPopupControl>
 
 
 </asp:Content>

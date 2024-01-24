@@ -24,13 +24,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::System.Web.UI.WebControls.TextBox desc_producto;
 
         /// <summary>
-        /// cpmaster_b control.
+        /// id_producto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField cpmaster_b;
+        protected global::System.Web.UI.WebControls.HiddenField id_producto;
 
         /// <summary>
         /// btnserprod control.
@@ -69,6 +69,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btnbuscar;
 
         /// <summary>
+        /// lblmensajeA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmensajeA;
+
+        /// <summary>
         /// popupBusquedaProducto control.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxPopupControl popupBusquedaProducto;
 
         /// <summary>
-        /// desc_prod1 control.
+        /// nomraz1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox desc_prod1;
+        protected global::DevExpress.Web.ASPxTextBox nomraz1;
 
         /// <summary>
         /// btnserprod_modal control.
@@ -103,6 +112,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaProducto;
+
+        /// <summary>
+        /// grdListaProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView grdListaProducto;
 
         /// <summary>
         /// popUpValidacion control.

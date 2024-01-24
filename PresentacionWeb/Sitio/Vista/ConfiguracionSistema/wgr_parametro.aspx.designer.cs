@@ -33,6 +33,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::System.Web.UI.WebControls.TextBox desc_param;
 
         /// <summary>
+        /// id_para control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_para;
+
+        /// <summary>
         /// abrev_param control.
         /// </summary>
         /// <remarks>
@@ -69,6 +78,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btnguardar;
 
         /// <summary>
+        /// btnmodificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnmodificar;
+
+        /// <summary>
         /// btneliminar control.
         /// </summary>
         /// <remarks>
@@ -78,13 +96,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btneliminar;
 
         /// <summary>
-        /// cobertura control.
+        /// icolumna control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cobertura;
+        protected global::System.Web.UI.WebControls.DropDownList icolumna;
 
         /// <summary>
         /// lblmensaje control.
@@ -94,5 +112,50 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblmensaje;
+
+        /// <summary>
+        /// grdparametro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView grdparametro;
+
+        /// <summary>
+        /// popUpValidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpValidacion;
+
+        /// <summary>
+        /// lblerror control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblerror;
+
+        /// <summary>
+        /// popUpConfirmacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpConfirmacion;
+
+        /// <summary>
+        /// lblMensajePop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblMensajePop;
     }
 }

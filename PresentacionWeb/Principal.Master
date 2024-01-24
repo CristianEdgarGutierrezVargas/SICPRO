@@ -403,7 +403,7 @@
                                                         	Registro de Nuevos Usuarios</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wgr_parametro.aspx">
                                                         <i class="fas fa-window-close text-primary "></i>
                                                         	Registro de Parametros</a>
                                                 </li>

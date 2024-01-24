@@ -38,9 +38,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         private void Grilla()
         {
             
-            var dataTable = prFactura.RecuFacMod(id_spvs, nro_factura);
-            this.gridcuotas.DataSource = dataTable;
-            this.gridcuotas.DataBind();
+            //var dataTable = prFactura.RecuFacMod(id_spvs, nro_factura);
+            //this.gridcuotas.DataSource = dataTable;
+            //this.gridcuotas.DataBind();
         }
         protected void Button2_Click(object sender, EventArgs e)
         {

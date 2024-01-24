@@ -20,6 +20,9 @@ namespace Logica.Consumo
         private readonly Cco_porcomi _manejador_co_porcomi;
         private readonly Cpr_riesgo _manejador_pr_riesgo;
         private readonly Cgr_cierreregistro _manejador_gr_cierreregistro;
+        private readonly Cgr_tc _manejador_gr_tc;
+        private readonly Cpr_producto _manejador_pr_producto;
+        private readonly Cgr_compania _manejador_gr_compania;
         public static sicproEntities dbContext;
 
         public ConsumoConfiguracionSistema()
@@ -28,10 +31,13 @@ namespace Logica.Consumo
             dbContext = new sicproEntities();
             _manejador_gr_pass = new Cgr_pass(dbContext);
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
-            _manejador_gr_persona=new Cgr_persona(dbContext);
-            _manejador_co_porcomi=new Cco_porcomi(dbContext);
+            _manejador_gr_persona = new Cgr_persona(dbContext);
+            _manejador_co_porcomi = new Cco_porcomi(dbContext);
             _manejador_pr_riesgo = new Cpr_riesgo(dbContext);
             _manejador_gr_cierreregistro = new Cgr_cierreregistro(dbContext);
+            _manejador_gr_tc = new Cgr_tc(dbContext);
+            _manejador_pr_producto = new Cpr_producto(dbContext);
+            _manejador_gr_compania = new Cgr_compania(dbContext);
         }
 
         public List<gr_persona> ListaPersonaConPass()
@@ -79,7 +85,7 @@ namespace Logica.Consumo
             }
         }
 
-        public void AgregarUsuario(string login,decimal id_rol,string id_pert)
+        public void AgregarUsuario(string login, decimal id_rol, string id_pert)
         {
             try
             {
@@ -103,11 +109,11 @@ namespace Logica.Consumo
             }
         }
 
-        public void ObtenerDatos( string id_per, out gr_persona personaOut, out gr_pass passOut)
+        public void ObtenerDatos(string id_per, out gr_persona personaOut, out gr_pass passOut)
         {
             try
             {
-               _manejador_gr_pass.ObtenerDatos(id_per, out personaOut, out passOut);
+                _manejador_gr_pass.ObtenerDatos(id_per, out personaOut, out passOut);
             }
             catch (SecureExceptions secureException)
             {
@@ -166,7 +172,7 @@ namespace Logica.Consumo
         {
             try
             {
-                _manejador_pr_riesgo.InsertarRiesgo( cod_mod,  cod_ram,  cod_pol,  desc_riesgo,  cobertura);
+                _manejador_pr_riesgo.InsertarRiesgo(cod_mod, cod_ram, cod_pol, desc_riesgo, cobertura);
             }
             catch (SecureExceptions secureException)
             {
@@ -186,11 +192,11 @@ namespace Logica.Consumo
             }
         }
 
-        public void InsertarCierre (string mes,string anio, DateTime inireg, DateTime finreg, decimal tcambio)
+        public void InsertarCierre(string mes, string anio, DateTime inireg, DateTime finreg, decimal tcambio)
         {
             try
             {
-                _manejador_gr_cierreregistro.InsertarCierre( mes,  anio,  inireg,  finreg,  tcambio);
+                _manejador_gr_cierreregistro.InsertarCierre(mes, anio, inireg, finreg, tcambio);
             }
             catch (SecureExceptions secureException)
             {
@@ -202,6 +208,160 @@ namespace Logica.Consumo
             try
             {
                 _manejador_gr_cierreregistro.ModificarCierre(mes, anio, inireg, finreg, tcambio);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<string> ObtenerListaParametro()
+        {
+            try
+            {
+                return _manejador_gr_parametro.ObtenerListaParametro();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_parametro> ObtenerLista(string columna)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ObtenerLista(columna);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public gr_parametro ObtenerParametro(long id)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ObtenerParametro(id);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void InsertarParametro(gr_parametro item)
+        {
+            try
+            {
+                _manejador_gr_parametro.InsertarParametro(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void ModificarParametro(gr_parametro item)
+        {
+            try
+            {
+                _manejador_gr_parametro.InsertarParametro(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void EliminarParametro(long idPara)
+        {
+            try
+            {
+                _manejador_gr_parametro.EliminarParametro(idPara);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_parametro> Parametro(string columna)
+        {
+            try
+            {
+                return _manejador_gr_parametro.Parametro(columna);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_tc> Tasa(out List<gr_parametro> list_parametro)
+        {
+            try
+            {
+                return _manejador_gr_tc.Tasa(out list_parametro);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void InsertarTC(gr_tc item)
+        {
+            try
+            {
+                _manejador_gr_tc.InsertarTC(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public bool ExisteProducto(string desc_prod, string abrev_prod)
+        {
+            try
+            {
+                return _manejador_pr_producto.ExisteProducto(desc_prod, abrev_prod);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void InsertarProducto(string desc_prod, string abrev_prod)
+        {
+            try
+            {
+                _manejador_pr_producto.InsertarProducto(desc_prod, abrev_prod);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public pr_producto ObtenerProducto(long idProducto)
+        {
+            try
+            {
+                return _manejador_pr_producto.ObtenerProducto(idProducto);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<v_pr_cias_resum> ObtenerListaCompania()
+        {
+            try
+            {
+                return _manejador_gr_compania.ObtenerListaCompania();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_persona> ObtenerListaCompania(string busqueda, out List<gr_compania> listCompania)
+        {
+            try
+            {
+                return _manejador_gr_compania.ObtenerListaCompania(busqueda, out listCompania);
             }
             catch (SecureExceptions secureException)
             {

@@ -48,6 +48,29 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+        public List<gr_persona> ObtenerListaCompania(string busqueda,out List<gr_compania> listCompania)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT gr_compania.id_spvs, gr_persona.nomraz FROM gr_compania INNER JOIN gr_persona ON (gr_compania.id_per = gr_persona.id_per) WHERE gr_persona.nomraz LIKE '%", varbusqueda, "%'");
+                var lista = (from compania in _context.gr_compania
+                             join persona in _context.gr_persona on compania.id_per equals persona.id_per
+                             where persona.nomraz.Contains(busqueda)==true
+                             select persona).ToList();
+
+
+                listCompania = (from compania in _context.gr_compania
+                                    join persona in _context.gr_persona on compania.id_per equals persona.id_per
+                                    where persona.nomraz.Contains(busqueda) == true
+                                    select compania).ToList();
+                return lista;
+
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
         //public void ObtenerListaCompania()
         //{
         //    try
@@ -94,5 +117,7 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+
+        
     }
 }

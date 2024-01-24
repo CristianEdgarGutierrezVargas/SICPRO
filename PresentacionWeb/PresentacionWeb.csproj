@@ -708,6 +708,9 @@
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
@@ -1053,6 +1056,27 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.designer.cs">
       <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx.cs">
+      <DependentUpon>wre_caso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx.designer.cs">
+      <DependentUpon>wre_caso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx.cs">
+      <DependentUpon>wre_cierrecaso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx.designer.cs">
+      <DependentUpon>wre_cierrecaso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx.cs">
+      <DependentUpon>wre_histcaso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx.designer.cs">
+      <DependentUpon>wre_histcaso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
       <DependentUpon>wgr_contactos.aspx</DependentUpon>
@@ -2196,7 +2220,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />
     <Folder Include="Sitio\Entidades\" />
-    <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
   <ItemGroup>

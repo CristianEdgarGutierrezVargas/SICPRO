@@ -61,7 +61,7 @@
                         <div class="col-4">
                         </div>
                         <div class="col-4">
-                            <dx:ASPxButton ID="btnguardar" runat="server" Text="Guardar" CssClass="btn btn-primary" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
+                            <dx:ASPxButton ID="btnguardar" runat="server" Text="Guardar" CssClass="btn btn-primary" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
                         </div>
                         <div class="col-2">
                         </div>
@@ -87,7 +87,8 @@
                     Styles-TitlePanel-Font-Bold="true"
                     Styles-TitlePanel-HorizontalAlign="Left"
                     Styles-TitlePanel-Paddings-Padding="1"
-                    Styles-Cell-Paddings-Padding="0">
+                    Styles-Cell-Paddings-Padding="0"
+                    Styles-Cell-HorizontalAlign="Center">
                     <Columns>
                         <dx:GridViewDataColumn Caption="Fecha" FieldName="fecha"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="Tasa" FieldName="tasa"></dx:GridViewDataColumn>
@@ -103,5 +104,54 @@
             </div>
         </div>
     </div>
+
+    <dx:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validacion de datos" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
+        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_button_2.jpg" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_2.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        Los siguientes valores deben ser verificados antes de proseguir<br />
+                        <p style="color: #990000; font-weight: bold">
+                            <dx:ASPxLabel ID="lblerror" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
+
+    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_1.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        <p style="color: #0A416B; font-weight: bold">
+                            <dx:ASPxLabel ID="lblMensajePop" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
 
 </asp:Content>

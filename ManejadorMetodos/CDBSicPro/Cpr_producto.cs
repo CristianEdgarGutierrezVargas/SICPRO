@@ -4,6 +4,7 @@ using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +27,11 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-                var query = _context.pr_formriesgo    
-                   .Join(_context.pr_producto, 
-                      form => form.id_producto,        
-                      pro => pro.id_producto,   
-                      (form, pro) => new { Form = form, Pro = pro }) 
+                var query = _context.pr_formriesgo
+                   .Join(_context.pr_producto,
+                      form => form.id_producto,
+                      pro => pro.id_producto,
+                      (form, pro) => new { Form = form, Pro = pro })
                    .Where(postAndMeta => postAndMeta.Form.id_spvs == varBusqueda)
                    .Select(s => s.Pro)
                    .ToList();
@@ -66,10 +67,11 @@ namespace ManejadorMetodos.CDBSicPro
         {
             List<pr_producto> sql = new List<pr_producto>();
             try
-            {if(string.IsNullOrEmpty(vBusqueda))
-                sql = _context.pr_producto.ToList();
-            else
-                    sql = _context.pr_producto.Where(w=>w.desc_prod.ToUpper().Contains(vBusqueda.ToUpper()) ).ToList();
+            {
+                if (string.IsNullOrEmpty(vBusqueda))
+                    sql = _context.pr_producto.ToList();
+                else
+                    sql = _context.pr_producto.Where(w => w.desc_prod.ToUpper().Contains(vBusqueda.ToUpper())).ToList();
 
             }
             catch (SecureExceptions secureException)
@@ -80,10 +82,10 @@ namespace ManejadorMetodos.CDBSicPro
         }
 
         public pr_producto ObtenerProducto(long varbusqueda)
-        {            
+        {
             try
             {
-                var sql = _context.pr_producto.Where(w=>w.id_producto == varbusqueda).FirstOrDefault();
+                var sql = _context.pr_producto.Where(w => w.id_producto == varbusqueda).FirstOrDefault();
                 return sql;
             }
             catch (SecureExceptions secureException)
@@ -110,12 +112,48 @@ namespace ManejadorMetodos.CDBSicPro
                     objSelec.id_riesgo = "-1";
                     objSelec.desc_riesgo = "SELECCIONE UNA OPCIÓN";
                     sql.Add(objSelec);
-                    return sql.OrderBy(o=>o.desc_riesgo).ToList();
+                    return sql.OrderBy(o => o.desc_riesgo).ToList();
                 }
             }
             catch (SecureExceptions original)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
+
+        public bool ExisteProducto(string desc_prod, string abrev_prod)
+        {
+            bool flag;
+            try
+            {
+                //string[] upper = new string[] { "SELECT * FROM pr_producto WHERE desc_prod='", this.desc_prod.Text.ToUpper(), "' AND abrev_prod='", this.abrev_prod.Text.ToUpper(), "'" };
+                var list = (from prod in _context.pr_producto
+                            where prod.desc_prod == desc_prod && prod.abrev_prod == abrev_prod
+                            select prod
+                            ).ToList();
+
+                flag = (list.Count <= 0 ? false : true);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+            return flag;
+        }
+        public void InsertarProducto(string desc_prod,string abrev_prod)
+        {
+            try
+            {
+                //string[] upper = new string[] { "INSERT INTO pr_producto VALUES (default, '", this.desc_prod.Text.ToUpper(), "','", this.abrev_prod.Text.ToUpper(), "')" };
+                pr_producto item=new pr_producto();
+                item.desc_prod = desc_prod;
+                item.abrev_prod= abrev_prod;
+                _context.pr_producto.Add(item);
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
     }
