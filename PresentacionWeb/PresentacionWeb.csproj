@@ -3255,21 +3255,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_comicap1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_comicap1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_comicobr1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_comicobr1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_comiefect1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_comiefect1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3349,16 +3334,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_prodcap1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_prodcap1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_prodcap2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_prodcap2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_proycartera.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3768,39 +3743,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_cobsXfecha.xss">
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comicap1.xsc">
-      <DependentUpon>re_comicap1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_comicap1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_comicap1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comicap1.xss">
-      <DependentUpon>re_comicap1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comicobr1.xsc">
-      <DependentUpon>re_comicobr1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_comicobr1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_comicobr1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comicobr1.xss">
-      <DependentUpon>re_comicobr1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comiefect1.xsc">
-      <DependentUpon>re_comiefect1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_comiefect1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_comiefect1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comiefect1.xss">
-      <DependentUpon>re_comiefect1.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xsc">
       <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
     </Content>
@@ -3970,28 +3912,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_pagoacia.xss">
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_prodcap1.xsc">
-      <DependentUpon>re_prodcap1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_prodcap1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_prodcap1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_prodcap1.xss">
-      <DependentUpon>re_prodcap1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_prodcap2.xsc">
-      <DependentUpon>re_prodcap2.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_prodcap2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_prodcap2.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_prodcap2.xss">
-      <DependentUpon>re_prodcap2.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_proycartera.xsc">
       <DependentUpon>re_proycartera.xsd</DependentUpon>
