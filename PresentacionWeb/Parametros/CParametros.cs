@@ -117,7 +117,24 @@ namespace PresentacionWeb.Parametros
 
             return lstAnios;
         }
+        public List<keyValueS> GetListSAnio(int anios)
+        {
+            int year = DateTime.Now.Year;
+            int sanios = anios + 5;
+            var lstAnios = new List<keyValueS>();
 
+            var sel = new keyValueS { key = "0", value = "SEL. UNA OPCIÓN" };
+            lstAnios.Add(sel);
+            for (int i = 0; i < sanios; i++)
+            {
+                var anioAnterior = new keyValueS { key = Convert.ToString(year + (i-3)), value = Convert.ToString(year + (i-3)) };
+                lstAnios.Add(anioAnterior);
+            }
+          
+
+
+            return lstAnios;
+        }
         public List<keyValueS> GetListRangoFechas()
         {
             var lstCom = new List<keyValueS>();

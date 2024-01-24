@@ -10,6 +10,7 @@ using ManejadorModelo;
 using System.Data;
 using Common;
 using System.Security.Cryptography;
+
 namespace Logica.Consumo
 {
     public class ConsumoModComision
@@ -207,5 +208,24 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al generar la Transacción", secureException);
             }
         }
+        public List<co_presprod> GridCuotas(string strIdPerCat, string strAnioProy)
+        {
+            try
+            {
+                var persona = cco_presprod.GetListPresProd(strIdPerCat, strAnioProy);
+               
+
+                return persona;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+     
     }
 }

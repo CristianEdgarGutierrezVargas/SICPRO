@@ -112,6 +112,7 @@
                                 <ValidationSettings>
                                     <RequiredField IsRequired="true" ErrorText="Debe Seleccionar un Año" />
                                 </ValidationSettings>
+                               
                             </dx:BootstrapComboBox>
                             <%-- <select name="ctl00$cpmaster$pc_anio" id="ctl00_cpmaster_pc_anio" class="general" style="color: #0F5B96; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width: 100px;">
                                <option value="SEL. UNA OPCIÓN">SEL. UNA OPCIÓN</option>
@@ -186,7 +187,10 @@
                                         </dx:BootstrapGridViewDataColumn>
                                         <dx:BootstrapGridViewDataColumn  Caption="Comi. Proy" FieldName="monto_cproy" Width="30px">
                                         </dx:BootstrapGridViewDataColumn>
-                                        <dx:BootstrapGridViewDataColumn  Caption="Sucursal" FieldName="id_suc" Width="30px">
+                                        <dx:BootstrapGridViewDataColumn  Caption="Sucursal" Width="30px">
+                                            <DataItemTemplate>
+                                                <%# NameSucursal(Eval("id_suc")) %>
+                                            </DataItemTemplate>
                                         </dx:BootstrapGridViewDataColumn>
 
                                     </Columns>

@@ -1,5 +1,7 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿//using Common;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
+using PresentacionWeb.Parametros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         ConsumoModComision _objModComision=new ConsumoModComision();
+         CParametros cparam=new CParametros();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,6 +32,12 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                 id_suc.TextField = "desc_param";
                 id_suc.ValueField = "id_par";
                 id_suc.DataBind();
+
+                var anios=cparam.GetListSAnio(5);
+                anio_proy.DataSource = anios;
+                anio_proy.TextField = "value";
+                anio_proy.ValueField = "key";
+                anio_proy.DataBind();
             }
         }
 
@@ -103,14 +112,28 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 
         protected void Grilla()
         {
-            return;
+            
             //co_presprod coPresprod = new co_presprod()
             //{
-            //    anio_proy = this.anio_proy,
-            //    id_percart = this.id_percart,
+            var strAanio_proy = this.anio_proy.Value.ToString();
+            var strId_percart = this.id_percart.Value.ToString();
             //    grdcuotas = this.grdproy
             //};
-            //coPresprod.GridCuotas();
+            var dt=_objModComision.GridCuotas(strId_percart,strAanio_proy);
+            this.grdproy.DataSource = dt;
+            this.grdproy.DataBind();
+        }
+        protected string NameSucursal(object obj)
+        {
+            var sucursal = _objConsumoRegistroProd.ObtenerLista("id_suc");
+            if(obj!=null)
+            {
+               var  id_suc =Convert.ToInt32( obj.ToString());
+                var suc= sucursal.Where(x=>x.id_par==id_suc).FirstOrDefault().desc_param;
+                return suc;
+            }
+           
+            return "";
         }
     }
 }
