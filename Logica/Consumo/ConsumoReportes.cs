@@ -467,6 +467,85 @@ namespace Logica.Consumo
             }
         }
 
+        public List<vcm_prodtot> vcm_prodtot()
+        {
+            try
+            {
+                return _manejador_reportes.vcm_prodtot();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vcm_prodcap> vcm_prodcap()
+        {
+            try
+            {
+                return _manejador_reportes.vcm_prodcap();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vcm_comiefect> vcm_comiefect()
+        {
+            try
+            {
+                return _manejador_reportes.vcm_comiefect();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vcm_comicobrada> vcm_comicobrada()
+        {
+            try
+            {
+                return _manejador_reportes.vcm_comicobrada();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<vcm_comicap> vcm_comicap()
+        {
+            try
+            {
+                return _manejador_reportes.vcm_comicap();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         #endregion
 

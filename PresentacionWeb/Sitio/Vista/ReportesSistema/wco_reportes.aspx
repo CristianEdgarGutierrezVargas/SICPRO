@@ -50,7 +50,10 @@
 
     }
 
-
+        function openModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+            myModal.show();
+        }
     $(document).ready(function () {
         var st = $(this).find("input[id*='hidtab']").val();
         if (st == null)

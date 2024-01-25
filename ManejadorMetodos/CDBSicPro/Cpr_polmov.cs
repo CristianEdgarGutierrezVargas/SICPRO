@@ -48,7 +48,18 @@ namespace ManejadorMetodos.CDBSicPro
         //    id_clamov1.DataValueField = "id_par";
         //    id_clamov1.DataBind();
         //}
-
+        public List<pr_polmov> GetListPolMov()
+        {
+            try
+            {
+                var sql = _context.pr_polmov.ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
         public pr_polmov InsertarPolizaMovimiento(pr_polmov objPolizaMov)
         {
             using (var dbContextTransaction = _context.Database.BeginTransaction())

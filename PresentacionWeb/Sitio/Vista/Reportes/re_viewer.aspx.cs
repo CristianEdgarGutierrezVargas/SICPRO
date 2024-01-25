@@ -493,63 +493,46 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         private void Estcta1()
         {
-            //string str;
-            //string str1;
-            //string str2;
-            //string str3;
-            //string str4;
-            //string str5;
-            //string str6 = base.Server.MapPath(string.Concat("reportes//re_estctaaseg", base.Request.QueryString["h"], ".rpt"));
-            //str = (base.Request.QueryString["ic"] == "" ? "%" : base.Request.QueryString["ic"].ToString());
-            //str1 = (base.Request.QueryString["ci"] == "0" ? "%" : base.Request.QueryString["ci"].ToString());
-            //str2 = (base.Request.QueryString["ca"] == "0" ? "%" : base.Request.QueryString["ca"].ToString());
-            //str3 = (base.Request.QueryString["np"] == "" ? "%" : base.Request.QueryString["np"].ToString());
-            //str4 = (base.Request.QueryString["nl"] == "" ? "%" : base.Request.QueryString["nl"]);
-            //Acceso acceso = new Acceso();
-            //if (base.Request.QueryString["h"].ToString() != "1")
-            //{
-            //    string[] strArrays = new string[] { "select * from pagos_rep1('", str, "','", str1, "','", str2, "','", str3, "','", str4, "') " };
-            //    str5 = string.Concat(strArrays);
-            //}
-            //else
-            //{
-            //    string[] strArrays1 = new string[] { "select * from pagos_rep ('", str, "','", str1, "','", str2, "','", str3, "','", str4, "') " };
-            //    str5 = string.Concat(strArrays1);
-            //}
-            //acceso.Conectar();
-            //acceso.CrearComando(str5);
-            //DataTable dataTable = acceso.Consulta();
-            //ReportDocument reportDocument = new ReportDocument();
-            //reportDocument.Load(str6);
-            //reportDocument.SetDataSource(dataTable);
-            //acceso.Desconectar();
-            //this.CrystalReportViewer1.ReportSource = reportDocument;
-            //this.CrystalReportViewer1.RefreshReport();
-            var reportHistorico = string.IsNullOrEmpty(Request.QueryString["h"]) ? 0 : Convert.ToInt32(Request.QueryString["h"]);
-            var reportNamePath = string.Concat("reportes//re_estctaaseg", reportHistorico, ".rpt");
-
-            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
-            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+            var idPersona = Request.QueryString["ic"] == "" ? "%" : Request.QueryString["ic"].ToString();
+            var idCompaniaSpvs = string.IsNullOrEmpty(Request.QueryString["ci"]) ? "%" : Request.QueryString["ci"].ToString();
+            var idCartera = string.IsNullOrEmpty(Request.QueryString["ca"]) ? "%" : Request.QueryString["ca"].ToString();
+            var numPoliza = Request.QueryString["np"] == "" ? "%" : Request.QueryString["np"].ToString();
+            var numLiquidacion = Request.QueryString["nl"] == "" ? "%" : Request.QueryString["nl"];
+           
+            var reportHistorico = string.IsNullOrEmpty(Request.QueryString["h"]) ? true : Convert.ToBoolean(Request.QueryString["h"]);
+            var reportNamePath = string.Empty;
 
             ReportDocument rptDoc = new ReportDocument();
             SqlConnection sqlCon;
-
-            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
-            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
-
+                        
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "GetReportHistreclamosh";
-            dt = ToDataTable(responseReporte);
-            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+            if (reportHistorico)
+            {
+                var responseReporte = _objConsumoReportes.GetReportEstctaaseg1(idPersona, idCompaniaSpvs, idCartera, numPoliza, numLiquidacion);
+                reportNamePath = string.Concat("reportes//re_estctaaseg1.rpt");
+                dt.TableName = "GetReportEstctaaseg1";
+                dt = ToDataTable(responseReporte);
+                ds.Tables["GetReportEstctaaseg1"].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+            else
+            {
+                var responseReporte = _objConsumoReportes.GetReportEstctaaseg2(idPersona, idCompaniaSpvs, idCartera, numPoliza, numLiquidacion);
+                reportNamePath = string.Concat("reportes//re_estctaaseg2.rpt");
+                dt.TableName = "GetReportEstctaaseg2";
+                dt = ToDataTable(responseReporte);
+                ds.Tables["GetReportEstctaaseg2"].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+
+            var responseSubReporte = _objConsumoRegistroProd.GetListPolMov();
 
             //Subreporte
             DS_SicPro ds1 = new DS_SicPro();
             DataTable dt1 = new DataTable();
-            dt1.TableName = "GetReportHistreclamoshf";
+            dt1.TableName = "pr_polmov";
             dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ds1.Tables["pr_polmov"].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath(reportNamePath);

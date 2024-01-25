@@ -332,6 +332,80 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        public List<vcm_prodtot> vcm_prodtot()
+        {
+            try
+            {
+                var sql = _context.vcm_prodtot.ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<vcm_prodcap> vcm_prodcap()
+        {
+            try
+            {
+                var sql = _context.vcm_prodcap.ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<vcm_comiefect> vcm_comiefect()
+        {
+            try
+            {
+                var sql = _context.vcm_comiefect.ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<vcm_comicobrada> vcm_comicobrada()
+        {
+            try
+            {
+                var sql = _context.vcm_comicobrada.ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public List<vcm_comicap> vcm_comicap()
+        {
+            try
+            {
+                var sql = _context.vcm_comicap.ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
 
         #endregion
     }
