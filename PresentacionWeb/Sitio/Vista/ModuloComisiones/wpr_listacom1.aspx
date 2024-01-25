@@ -273,7 +273,7 @@
                                             <div class="divDetails">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <span class="text-info fw-bold fs-8">Datos de Poliza Renovada (Módulo de Cobranzas)</span>
+                                                        <span class="text-info fw-bold fs-8">Datos de Poliza Nueva (Módulo de Comisiones)</span>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -300,7 +300,7 @@
                                                         <asp:Label runat="server" ID="Label3" Text='<%# Bind("no_liquida") %>'></asp:Label>
                                                     </div>
                                                     <div class="col-4">
-                                                        <span class="fs-11 fw-bold ">Prima Neta: </span>
+                                                        <span class="fs-11 fw-bold ">Prima Total: </span>
                                                         <asp:Label runat="server" ID="Label4" Text='<%# Bind("prima_bruta") %>'></asp:Label>
                                                     </div>
 

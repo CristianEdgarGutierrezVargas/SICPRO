@@ -103,6 +103,58 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
         protected void grdListaCompania_SelectionChanged(object sender, EventArgs e)
         {
+            var grilla = (DevExpress.Web.ASPxGridView)sender;
+            var lista = grilla.GetSelectedFieldValues("id_spvs");
+            var objeto = (string)lista[0];
+            this.id_spvs.Value = objeto.ToString();
+
+            lista = grilla.GetSelectedFieldValues("nomraz");
+            objeto = (string)lista[0];
+            this.nomco.Text = objeto.ToString();
+            popupBusquedaCompania.ShowOnPageLoad = false;
+        }
+
+        protected void pnlCallBackBuscaCompania_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            logicaConfiguracion = new ConsumoConfiguracionSistema();
+            List<gr_compania> listCompania;
+            List<gr_persona> listPer = logicaConfiguracion.ObtenerListaCompania(e.Parameter, out listCompania);
+
+            List<gridCompania> listGrilla = new List<gridCompania>();
+            for (int i = 0; i < listPer.Count; i++)
+            {
+                listGrilla.Add(new gridCompania
+                {
+                    nomraz = listPer[i].nomraz,
+                    id_spvs = listCompania[i].id_spvs,
+                    abrev = listCompania[i].abrev_cia
+                });
+            }
+            Session["LST_PER_COMPANIA"] = logicaConfiguracion.TablaPersona(e.Parameter);
+            this.grdListaPersona.DataSource = Session["LST_PER_COMPANIA"];
+            this.grdListaPersona.DataBind();
+        }
+
+        private void CargaGrillaProducto(string busqueda)
+        {
+            var listPersona = new List<gridCompania>();//logicaConfiguracion.TablaProductoL(busqueda.ToUpper());
+            Session["LST_PERSONA"] = listPersona;
+            grdListaPersona.DataSource = listPersona;
+            grdListaPersona.DataBind();
+        }
+
+        protected void pnlCallBackBuscaProducto_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+
+        }
+
+        protected void grdListaProducto_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdListaProducto_SelectionChanged(object sender, EventArgs e)
+        {
 
         }
     }

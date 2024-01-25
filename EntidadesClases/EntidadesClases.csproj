@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModelEntities\OcRecuFac.cs" />
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
     <Compile Include="CustomModelEntities\OC_DATA_FORM.cs" />
@@ -77,13 +78,40 @@
     <Compile Include="ModelSicPro\GetDataVeriPoliza_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportAscii_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportClientes_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportCobsxrango_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportCuotaadias_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportDirecciones_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportEstctaaseg1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportEstctaaseg2_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportGrupos_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportHistreclamoshf_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportHistreclamosh_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportLiqcomiejec3_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportLiquidacion_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportMemo1_Result.cs">
@@ -92,7 +120,22 @@
     <Compile Include="ModelSicPro\GetReportMemo_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportPagoacia1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportPagopendcias_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportRecibosnoaplicados_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportResumsiniestro1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportResumsiniestro_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\gr_acceso.cs">

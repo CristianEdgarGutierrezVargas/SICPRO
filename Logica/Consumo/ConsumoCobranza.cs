@@ -45,23 +45,67 @@ namespace Logica.Consumo
         }
         #endregion
 
-        public DataTable RecuFacMod()
+        public List<OcRecuFac> RecuFacMod(double factura, string sId_spvs)
         {
-        //    DataTable dataTable;
-        //    try
-        //    {
-        //        //string[] str = new string[] { "SELECT pr_pago.id_poliza, pr_pago.id_movimiento, pr_pago.cuota, pr_poliza.id_spvs, pr_pago.factura, pr_pago.fecha_factura, pr_pago.id_pago, pr_poliza.num_poliza FROM pr_pago INNER JOIN pr_poliza ON (pr_pago.id_poliza = pr_poliza.id_poliza) WHERE pr_poliza.id_spvs = '", this.id_spvs.SelectedValue.ToString(), "' and pr_pago.factura = ", this.nro_factura.Text, " order by pr_pago.id_pago asc" };
-        //        //string sql = string.Concat(str);
-        //        //Acceso db = new Acceso();
-        //        //db.Conectar();
-        //        //db.CrearComando(sql);
-        //        //dataTable = db.Consulta();
-        //    }
-        //    catch (SecureExceptions secureException)
-        //    {
-        //        throw new SecureExceptions("Error al generar la transacción", secureException);
-        //    }
-            return null;
+
+           
+            try
+            {
+                var sql = _manejador_pr_pago.GetObjPagoByFactura(factura);
+                var pol = _manejador_pr_poliza.GetListPoliza();
+                var data = sql.Join(pol, x => x.id_poliza, s => s.id_poliza, (x, s) => new { x.id_poliza, x.id_movimiento, x.cuota, s.id_spvs, x.factura, x.fecha_factura, x.id_pago, s.num_poliza }).Where(x => x.id_spvs == sId_spvs).OrderBy(x => x.id_pago).ToList();
+                var result = new List<OcRecuFac>();
+                foreach(var odata in data)
+                {
+                    var obj=new OcRecuFac();
+                    obj.factura = odata.factura;
+                    obj.fecha_factura = odata.fecha_factura;
+                    obj.id_pago= odata.id_pago;
+                    obj.id_poliza = odata.id_poliza;
+                    obj.id_spvs = odata.id_spvs;
+                    obj.cuota = odata.cuota;
+                    obj.id_movimiento = odata.id_movimiento;
+                    obj.num_poliza=odata.num_poliza;
+                    result.Add(obj);
+                }
+                return result;
+                //string[] str = new string[] { "SELECT pr_pago.id_poliza, pr_pago.id_movimiento, pr_pago.cuota, pr_poliza.id_spvs, pr_pago.factura, pr_pago.fecha_factura, pr_pago.id_pago, pr_poliza.num_poliza FROM pr_pago INNER JOIN pr_poliza ON (pr_pago.id_poliza = pr_poliza.id_poliza) WHERE pr_poliza.id_spvs = '", this.id_spvs.SelectedValue.ToString(), "' and pr_pago.factura = ", this.nro_factura.Text, " order by pr_pago.id_pago asc" };
+
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+            
         }
+        public bool ModFac1(double? factura, DateTime fechaFactura, long id_pago)
+        {
+
+            try
+            {
+               return _manejador_pr_pago.ActualizarPago(factura, fechaFactura, id_pago);
+           }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+        public bool ModFacM(double? nro_factura, double? nnro_factura, DateTime fechaFactura, string id_spvs)
+        {
+
+            try
+            {
+                return _manejador_pr_pago.ActualizarPagoM(nro_factura,nnro_factura,id_spvs, fechaFactura);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+
     }
 }
