@@ -137,7 +137,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
         private void CargaGrillaProducto(string busqueda)
         {
-            var listPersona = logicaConfiguracion.TablaProductoL(busqueda.ToUpper());
+            var listPersona = new List<gridCompania>();//logicaConfiguracion.TablaProductoL(busqueda.ToUpper());
             Session["LST_PERSONA"] = listPersona;
             grdListaPersona.DataSource = listPersona;
             grdListaPersona.DataBind();
