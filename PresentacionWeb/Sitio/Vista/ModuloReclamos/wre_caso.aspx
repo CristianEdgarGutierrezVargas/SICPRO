@@ -17,7 +17,7 @@
                 <img src="../../../UI/img/caso.png" alt="" width="122" height="122">
             </div>
             <span class="border border-3 rounded w-75 pt-2">
-                <div class="col-10">
+                <div class="col-10 ">
                     <div class="row p-2">
                         <div class="col-2">
                             Sucursal:
