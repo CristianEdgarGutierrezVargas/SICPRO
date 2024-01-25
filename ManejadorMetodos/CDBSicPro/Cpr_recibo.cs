@@ -113,5 +113,21 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al generar la Consulta", secureException);
             }
         }
+
+        public List<gr_persona> ObtenerCobrador(long id_suc)
+        {
+            try
+            {
+                var sql = _context.gr_persona.Where(w => w.id_suc == id_suc && w.id_rol == 41).ToList();
+                 return sql;
+                //string sentenciaSQL = "SELECT gr_persona.id_per, gr_persona.nomraz " +
+                //    "FROM gr_persona WHERE gr_persona.id_rol = 41 AND gr_persona.id_suc = " + id_suc + " UNION SELECT '0', 'SELECCIONE UNA OPCIÓN'";
+                
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al generar la Consulta", original);
+            }
+        }
     }
 }

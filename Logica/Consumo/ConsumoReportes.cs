@@ -15,6 +15,8 @@ namespace Logica.Consumo
     public class ConsumoReportes
     {
         private readonly CReportes _manejador_reportes;
+        private readonly Cpr_recibo cpr_Recibo;
+        private readonly Cpr_liqrec _manejador_liqrec;
 
         public static sicproEntities dbContext;
         public ConsumoReportes()
@@ -22,9 +24,12 @@ namespace Logica.Consumo
             if (dbContext != null) dbContext.Dispose();
             dbContext = new sicproEntities();
 
-            _manejador_reportes = new CReportes(dbContext);           
+            _manejador_reportes = new CReportes(dbContext);
+            cpr_Recibo = new Cpr_recibo(dbContext);
+            _manejador_liqrec = new Cpr_liqrec(dbContext);
         }
 
+        #region wpr reportes - produccion
         public List<GetReportMemo_Result> GetReportMemo(long idPoliza, long idMovimiento)
         {
             try
@@ -166,5 +171,340 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        #endregion
+
+        #region wre reportes - reclamos
+        public List<GetReportHistreclamosh_Result> GetReportHistreclamosh(decimal id_caso, decimal anio_caso)
+        {
+            try
+            {
+                //return _manejador_reportes.GetReportHistreclamosh();
+
+                var sql1 = _manejador_reportes.GetReportHistreclamosh().ToList();
+
+                if (id_caso != 0 )
+                {
+                    sql1 = sql1.Where(x => x.id_caso == id_caso).ToList();
+                }
+
+                if (anio_caso != 0)
+                {
+                    sql1 = sql1.Where(x => x.anio_caso == anio_caso).ToList();
+                }
+
+                return sql1.ToList();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportHistreclamoshf();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportResumsiniestro_Result> GetReportResumsiniestro(string strIdOfiSucursal, string strIdPer, string strNumPoliza, string strIdCompSpvs, string strIdProducto, string strIdCartera, string strFechaDel, string strFechaAl, string strEstadoCaso)
+        {
+            try
+            {
+                var sql1 = _manejador_reportes.GetReportResumsiniestro().ToList();
+
+                if (!string.IsNullOrEmpty(strIdOfiSucursal))
+                {
+                    var idOfiSucursal = Convert.ToInt32(strIdOfiSucursal);
+                    sql1 = sql1.Where(x => x.id_suc == idOfiSucursal).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdPer))
+                {
+                    var idPer = Convert.ToString(strIdPer);
+                    sql1 = sql1.Where(x => x.id_perclie == idPer).ToList();
+                }
+                if (!string.IsNullOrEmpty(strNumPoliza))
+                {
+                    var numPoliza = Convert.ToString(strNumPoliza);
+                    sql1 = sql1.Where(x => x.num_poliza == numPoliza).ToList();
+                }
+                if (string.IsNullOrEmpty(strIdCompSpvs))
+                {
+                    var idCompSpvs = Convert.ToString(strIdCompSpvs);
+                    sql1 = sql1.Where(x => x.id_spvs == idCompSpvs).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdProducto))
+                {
+                    var idProducto = Convert.ToInt64(strIdProducto);
+                    sql1 = sql1.Where(x => x.id_producto == idProducto).ToList();
+                }
+                if (!string.IsNullOrEmpty(strIdCartera))
+                {
+                    var idCartera = Convert.ToString(strIdCartera);
+                    sql1 = sql1.Where(x => x.id_percart == idCartera).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(strFechaDel) && !string.IsNullOrEmpty(strFechaDel))
+                {
+                    var fechaDel = Convert.ToDateTime(strFechaDel);
+                    var fechaAl = Convert.ToDateTime(strFechaAl);
+                    sql1 = sql1.Where(x => x.fc_incidente >= fechaDel && x.fc_incidente <= fechaAl).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(strEstadoCaso))
+                {
+                    var idEstadoCaso = Convert.ToDouble(strEstadoCaso);
+                    sql1 = sql1.Where(x => x.id_estca == idEstadoCaso).ToList();
+                }
+
+
+                return sql1;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportResumsiniestro1();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region wco reportes - cobranzas
+        public List<GetReportCobsxrango_Result> GetReportCobsxrango(DateTime dtFechaIni, DateTime dtFechaFin)
+        {
+            try
+            {
+                return _manejador_reportes.GetReportCobsxrango(dtFechaIni, dtFechaFin);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportCuotaadias_Result> GetReportCuotaadias()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportCuotaadias();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string strIdPer, string strIdCompSpvs, string strIdCartera, string strNumPoliza, string strNoLiq)
+        {
+            try
+            {
+                return _manejador_reportes.GetReportEstctaaseg1(strIdPer, strIdCompSpvs, strIdCartera, strNumPoliza, strNoLiq);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportEstctaaseg2_Result> GetReportEstctaaseg2(string strIdPer, string strIdCompSpvs, string strIdCartera, string strNumPoliza, string strNoLiq)
+        {
+            try
+            {
+                return _manejador_reportes.GetReportEstctaaseg2(strIdPer, strIdCompSpvs, strIdCartera, strNumPoliza, strNoLiq);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportLiquidacion_Result> GetReportLiquidacion()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportLiquidacion();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportPagoacia1_Result> GetReportPagoacia1()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportPagoacia1();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportPagopendcias_Result> GetReportPagopendcias()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportPagopendcias();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportRecibosnoaplicados_Result> GetReportRecibosnoaplicados(string strIdSuc)
+        {
+            try
+            {
+                return _manejador_reportes.GetReportRecibosnoaplicados(strIdSuc);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region wcm reportes - comisiones
+
+        public List<GetReportAscii_Result> GetReportAscii()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportAscii();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportLiqcomiejec3();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+
+        #endregion
+
+        #region recibos
+        public List<gr_persona> ObtenerCobrador(long id_suc)
+        {
+
+            try
+            {
+                var dt = cpr_Recibo.ObtenerCobrador(id_suc);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+
+        #endregion
+
+        #region liqrec
+
+        public List<pr_liqrec> ListTop(string id_perucb)
+        {
+
+            try
+            {
+                var dt = _manejador_liqrec.ListTop(id_perucb);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+
+        #endregion
     }
 }

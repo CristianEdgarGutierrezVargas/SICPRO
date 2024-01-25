@@ -177,13 +177,13 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fechaAlProd;
 
         /// <summary>
-        /// Control cmbRangosFechasProd.
+        /// Control cmbEstadoCaso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbRangosFechasProd;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmbEstadoCaso;
 
         /// <summary>
         /// Control btnGenerarReporteGen.
@@ -193,6 +193,24 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnGenerarReporteGen;
+
+        /// <summary>
+        /// Control divMensajeError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMensajeError;
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// Control pCPersona.
@@ -229,5 +247,14 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
+
+        /// <summary>
+        /// Control ifrReport.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe ifrReport;
     }
 }

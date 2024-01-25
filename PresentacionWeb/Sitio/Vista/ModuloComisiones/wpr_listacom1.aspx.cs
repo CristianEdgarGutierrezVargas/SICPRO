@@ -34,6 +34,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 Limpiar();
                 wpr_listacob1.valor = base.Request.QueryString["var"];
                 id_clamov.Value = wpr_listacom1.valor;
+
                 Datos();
 
 
@@ -61,24 +62,27 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 //this.lblmensaje.Text = "Introduzca Criterios de Búsqueda";
                 return;
             }
-            //Cpr_cobranzas prCobranza = new Cpr_cobranzas();
+        
 
             string item = base.Request.QueryString["var"];
-            //prCobranza.lblmensaje = this.lblmensaje;
-            //prCobranza.num_poliza = this.num_poliza;
-            //prCobranza.id_perclie = this.id_per;
-            //prCobranza.fc_inivig = this.fc_inivig;
-            //prCobranza.fc_finivig = this.fc_finvig;
-            //prCobranza.fc_finvig = this.fc_polizavencida;
-            //prCobranza.id_spvs1 = this.id_spvs;
-            //prCobranza.id_producto = this.id_producto;
-            //prCobranza.vigencia = this.vigencia;
-            //prCobranza.porvencer = this.porvencer;
-            //prCobranza.a = this.ap;
-            //prCobranza.b = this.bp;
-            //prCobranza.RecuperaTablaPolizaNRI(item);
+            if (!vigencia.Checked)
+            {
+                vigencia.Checked = false;
+            }
+            else
+            {
+               vigencia.Checked = true;
+            }
+           
+            if (!this.porvencer.Checked)
+            {
+               porvencer.Checked = false;
+            }
+            else
+            {
+               porvencer.Checked = true;
+            }
 
-            //RecuperaTablaPolizaNRI(item);
             var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
             Session["lstGridPoliza"] = dataTable;
             gridpoliza.DataSource = dataTable;
