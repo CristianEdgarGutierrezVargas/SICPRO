@@ -233,7 +233,7 @@
                                 <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                                 <SettingsText Title="Pólizas Registradas" />
                                 <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                                <ClientSideEvents  RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
+                                <ClientSideEvents RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
                                 <SettingsBootstrap Striped="true" />
                                 <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
                                 <SettingsPager NumericButtonCount="3">
@@ -273,7 +273,7 @@
                                     <dx:BootstrapGridViewDataColumn Caption="Opciones" Width="20px">
                                         <DataItemTemplate>
                                             <dx:BootstrapButton ID="btnSelect" runat="server" OnClick="btnSelect_Click">
-                                                <CssClasses Icon="bi bi-floppy-fill text-primary" />
+                                                <CssClasses Icon="bi bi-check2-circle text-primary" />
                                                 <SettingsBootstrap RenderOption="None" />
                                             </dx:BootstrapButton>
                                         </DataItemTemplate>
@@ -352,7 +352,7 @@
                                     </DetailRow>
                                 </Templates>
                             </dx:BootstrapGridView>
-                         
+
                         </asp:Panel>
 
                     </div>

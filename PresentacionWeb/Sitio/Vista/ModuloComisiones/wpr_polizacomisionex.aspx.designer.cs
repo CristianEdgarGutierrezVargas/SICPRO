@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 {
 
 
-    public partial class wpr_polizacomision
+    public partial class wpr_polizacomisionex
     {
 
         /// <summary>

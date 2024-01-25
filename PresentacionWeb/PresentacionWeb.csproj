@@ -709,6 +709,8 @@
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
     <Content Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx" />
@@ -3119,6 +3121,20 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
       <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx.cs">
+      <DependentUpon>wpr_polizacomisionex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomisionex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx.cs">
+      <DependentUpon>wpr_polizacomisionap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomisionap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx.cs">
       <DependentUpon>wpr_polizacomision.aspx</DependentUpon>

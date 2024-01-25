@@ -16,7 +16,7 @@ using System.Web.UI.WebControls;
 
 namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 {
-    public partial class wpr_polizacomision : System.Web.UI.Page
+    public partial class wpr_polizacomisionex : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
@@ -36,7 +36,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 
 
 
-                var consumoValidar = _objConsumoModCom.VcoObtenerPolizaNRI(num, num1);
+                var consumoValidar = _objConsumoModCom.VcoObtenerPolizaNRI3(num, num1);
                 if (consumoValidar != null)
                 {
                     fc_emision.Text = consumoValidar.fc_emision.ToString("dd/MM/yyyy");

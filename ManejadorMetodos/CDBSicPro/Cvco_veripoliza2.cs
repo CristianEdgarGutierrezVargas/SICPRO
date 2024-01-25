@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace ManejadorMetodos.CDBSicPro
 {
-    public class Cvco_veripoliza1
+    public class Cvco_veripoliza2
     {
         #region Contructor Principal
 
         readonly sicproEntities _context;
-        public Cvco_veripoliza1(sicproEntities dbContext)
+        public Cvco_veripoliza2(sicproEntities dbContext)
         {
             _context = dbContext;
         }
 
         #endregion
-        public List<vco_veripoliza1> GetListVeripolizaByEstado(bool estado)
+        public List<vco_veripoliza2> GetListVeripolizaByEstado(bool estado)
         {
             try
             {
                 //SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado = 'true'
-                var sql = _context.vco_veripoliza1.Where(x => x.estado == estado).ToList();
+                var sql = _context.vco_veripoliza2.Where(x => x.estado == estado).ToList();
                 
                 return sql;
             }
@@ -34,11 +34,11 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
-        public vco_veripoliza1 VcoObtenerPolizaI(long id_poliza, long id_movimiento)
+        public vco_veripoliza2 VcoObtenerPolizaI(long id_poliza, long id_movimiento)
         {
             try
             {
-                var sql = _context.vco_veripoliza1.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento).FirstOrDefault();
+                var sql = _context.vco_veripoliza2.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento).FirstOrDefault();
 
                 return sql;
             }

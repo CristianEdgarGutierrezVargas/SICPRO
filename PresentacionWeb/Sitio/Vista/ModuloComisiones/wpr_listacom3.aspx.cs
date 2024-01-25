@@ -11,12 +11,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 
 namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 {
     public partial class wpr_listacom3 : System.Web.UI.Page
     {
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
+        ConsumoModComision _objConsumoModCom = new ConsumoModComision();
         private long ll = 0;
         private long aa = 0;
         private long bb = 0;
@@ -32,7 +34,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
                 fc_inivig.Text = DateTime.Now.ToShortDateString();
                 Limpiar();
-                wpr_listacob1.valor = base.Request.QueryString["var"];
+                wpr_listacom3.valor = base.Request.QueryString["var"];
                 id_clamov.Value = wpr_listacom3.valor;
                 Datos();
 
@@ -79,7 +81,17 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //prCobranza.RecuperaTablaPolizaNRI(item);
 
             //RecuperaTablaPolizaNRI(item);
-            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
+            bool estado = false;
+            if (item == "46")
+            {
+                estado = true;
+            }
+            else if (item == "49")
+            {
+                estado = false;
+            }
+
+            var dataTable = _objConsumoModCom.VcoObtenerTablaPolizaNRI3(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked, estado);
             Session["lstGridPoliza"] = dataTable;
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
@@ -246,22 +258,15 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
 
 
-        protected void CallBGridPoliza_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
-        {
-            var index = e.Parameter;
-            var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
-            if (this.IsCallback)
-                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
-            else
-
-                Response.Redirect("~/wpr_polizareno.aspx");
-
-        }
+       
         public string Grupo(object num)
         {
 
+
             if (num == null)
-                return "";
+                return "SIN GRUPO";
+            if (Convert.ToInt32(num) == 0)
+                return "SIN GRUPO";
 
             string descGrupo = "";
             if (!string.IsNullOrEmpty(num.ToString()))
@@ -336,5 +341,29 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             }
             return nomEjecutivo;
         }
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            BootstrapButton button = sender as BootstrapButton;
+            var container = button.NamingContainer as GridViewDataItemTemplateContainer;
+            string[] valores = container.KeyValue.ToString().Split('|');
+
+
+            var idPoliza = valores[0];
+            var idMovimiento = valores[1];
+            var idClamov = valores[2];
+
+            if (id_clamov.Value == "46")
+            {
+                Response.Redirect("~/Sitio/Vista/ModuloComisiones/wpr_polizacomisionex.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+            }
+            else if (id_clamov.Value == "49")
+            {
+                Response.Redirect("~/Sitio/Vista/ModuloComisiones/wpr_polizacomisionex.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+            }
+           
+
+
+        }
+
     }
 }

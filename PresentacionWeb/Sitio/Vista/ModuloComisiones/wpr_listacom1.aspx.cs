@@ -358,7 +358,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             {
                 Response.Redirect("~/Sitio/Vista/ModuloComisiones/wpr_polizacomision.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
             }
-            
+         
+
         }
     }
 }
