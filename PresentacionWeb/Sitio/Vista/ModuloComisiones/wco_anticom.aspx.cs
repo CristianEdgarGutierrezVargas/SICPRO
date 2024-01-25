@@ -43,12 +43,21 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                 pnlMensaje.ShowOnPageLoad = true;
                 imagenOk.Visible = true;
                 imagenFail.Visible = false;
-                return;
+                //return;
+                id_percart.Text = "";
+               imp_anticipo.Text = "";
+                fc_solicitud.Text = "";
+                doc_cont.Text = "";
+                desc_anti.Text = "";
             }
-            imagenOk.Visible = false;
-            imagenFail.Visible = true;
-            lblMensaje.Text = "No Insertado";
-            pnlMensaje.ShowOnPageLoad = true;
+            else
+            {
+                imagenOk.Visible = false;
+                imagenFail.Visible = true;
+                lblMensaje.Text = "No Insertado";
+                pnlMensaje.ShowOnPageLoad = true;
+            }
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)

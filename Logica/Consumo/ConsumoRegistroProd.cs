@@ -31,6 +31,7 @@ namespace Logica.Consumo
         private readonly Cpr_movimientos _manejador_pr_movimientos;
         private readonly Cpr_numaplicas _manejador_pr_num_aplicas;
         private readonly Cpr_anulada _manejador_pr_anulada;
+        private readonly Cpr_recibo cpr_Recibo;
 
         public static sicproEntities dbContext;
         public ConsumoRegistroProd()
@@ -51,6 +52,7 @@ namespace Logica.Consumo
             _manejador_pr_movimientos = new Cpr_movimientos(dbContext);
             _manejador_pr_num_aplicas = new Cpr_numaplicas(dbContext);
             _manejador_pr_anulada = new Cpr_anulada(dbContext);
+            cpr_Recibo = new Cpr_recibo(dbContext);
         }
 
         #endregion
@@ -1216,6 +1218,24 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+        #endregion
+
+        #region recibos
+        public List<gr_persona> ObtenerCobrador(long id_suc)
+        {
+
+            try
+            {
+                var dt = cpr_Recibo.ObtenerCobrador(id_suc);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+
         #endregion
     }
 }

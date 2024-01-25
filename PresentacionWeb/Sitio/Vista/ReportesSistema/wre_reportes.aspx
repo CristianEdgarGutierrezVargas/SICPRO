@@ -19,6 +19,11 @@
 
 
         }
+
+        function openModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+            myModal.show();
+        }
     $(document).ready(function () {
         var st = $(this).find("input[id*='hidtab']").val();
         if (st == null)
@@ -63,10 +68,7 @@
                             <div class="col-md-2">Nro de caso</div>
                             <div class="col-md-8">
                                 <dx:BootstrapTextBox ID="txtNroCasoHist" runat="server" Width="100%">
-                                      <CssClasses Input="form-control-sm fs-10" />
-                                      <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_hist">
-                                            <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
-                                        </ValidationSettings>
+                                      <CssClasses Input="form-control-sm fs-10" />                                     
                                   </dx:BootstrapTextBox>  
                             </div>
                         </div>
@@ -75,10 +77,7 @@
                             <div class="col-md-2">Año de Registro</div>
                             <div class="col-md-8">
                                 <dx:BootstrapTextBox ID="txtAnioRegHist" runat="server" Width="100%">
-                                      <CssClasses Input="form-control-sm fs-10" />
-                                      <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_hist">
-                                            <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
-                                        </ValidationSettings>
+                                      <CssClasses Input="form-control-sm fs-10" />                                      
                                   </dx:BootstrapTextBox>  
                             </div>
                         </div>
@@ -89,9 +88,12 @@
 
                               </div>
                               <div class="col-md-7">   
-                                 <dx:ASPxButton ID="btnGenerarReporteHist" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteHist_Click" CausesValidation="true" ValidationGroup="wpr_tab_hist"></dx:ASPxButton>                            
+                                 <dx:ASPxButton ID="btnGenerarReporteHist" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteHist_Click" ></dx:ASPxButton>                            
                               </div>
                         </div>
+
+                          
+                         
                       </div>
                   </div>
                   <div class="tab-pane fade" id="nav-gen" role="tabpanel" aria-labelledby="nav-gen-tab">
@@ -217,7 +219,7 @@
                             <div class="row">                         
                               <div class="col-md-2">Por estado del caso</div>
                               <div class="col-md-8">
-                                  <dx:BootstrapComboBox ID="cmbRangosFechasProd" runat="server" ValueType="System.String" Width="100%">
+                                  <dx:BootstrapComboBox ID="cmbEstadoCaso" runat="server" ValueType="System.String" Width="100%">
                                       <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                       <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
                                         <RequiredField ErrorText="Dato requerido" IsRequired="true" />
@@ -233,11 +235,21 @@
                                      <dx:ASPxButton ID="btnGenerarReporteGen" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteGen_Click" CausesValidation="true" ValidationGroup="wpr_tab_gen"></dx:ASPxButton>                            
                                   </div>
                             </div>
-                          </div>
+
+                         
                   </div>
+              </div>
               </div>
         </div> 
     </div>
+
+    <div class="row">
+         <div class="col-12">
+             <div class="alert alert-danger" role="alert" runat="server" id="divMensajeError">
+                 <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+             </div>
+         </div>
+     </div>
   </div>
 </div>
 </div>
@@ -296,10 +308,7 @@
                         </dx:BootstrapGridView>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                    </div>
-                </div>
+                
             </dx:ContentControl>
         </ContentCollection>
         <FooterContentTemplate>
@@ -309,4 +318,28 @@
             </dx:BootstrapButton>
         </FooterContentTemplate>
     </dx:BootstrapPopupControl>
+
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <iframe id="ifrReport" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+               </div>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+      </div>
+    </div>
+  </div>
+</div>
 </asp:Content>
