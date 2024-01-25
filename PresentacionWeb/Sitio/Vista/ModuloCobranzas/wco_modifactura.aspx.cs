@@ -49,7 +49,6 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             ViewState["cuotas"] = data;
             this.gridcuotas.DataSource = data;
             this.gridcuotas.DataBind();
-
         }
         protected void Button2_Click(object sender, EventArgs e)
         {

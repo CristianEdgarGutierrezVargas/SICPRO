@@ -686,9 +686,16 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wco_comicart.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_acceso.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_cierreregistro.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_parametro.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_tc.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_listaanur.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_listacuotas.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_producto.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_productom.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_riesgo.aspx" />
     <Content Include="Sitio\Vista\Default.aspx" />
     <Content Include="Sitio\Vista\Exceptions\Error.aspx" />
@@ -703,6 +710,9 @@
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx" />
+    <Content Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_persona.aspx" />
     <Content Include="Sitio\Vista\RegistroProduccion\wgr_direccion.aspx" />
@@ -2948,12 +2958,26 @@
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wco_comicart.aspx.designer.cs">
       <DependentUpon>wco_comicart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_acceso.aspx.cs">
+      <DependentUpon>wgr_acceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_acceso.aspx.designer.cs">
+      <DependentUpon>wgr_acceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_cierreregistro.aspx.cs">
       <DependentUpon>wgr_cierreregistro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_cierreregistro.aspx.designer.cs">
       <DependentUpon>wgr_cierreregistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_parametro.aspx.cs">
+      <DependentUpon>wgr_parametro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_parametro.aspx.designer.cs">
+      <DependentUpon>wgr_parametro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx.cs">
       <DependentUpon>wgr_passnuevo.aspx</DependentUpon>
@@ -2968,6 +2992,41 @@
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx.designer.cs">
       <DependentUpon>wgr_respass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_tc.aspx.cs">
+      <DependentUpon>wgr_tc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_tc.aspx.designer.cs">
+      <DependentUpon>wgr_tc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_listaanur.aspx.cs">
+      <DependentUpon>wpr_listaanur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_listaanur.aspx.designer.cs">
+      <DependentUpon>wpr_listaanur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_listacuotas.aspx.cs">
+      <DependentUpon>wpr_listacuotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_listacuotas.aspx.designer.cs">
+      <DependentUpon>wpr_listacuotas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_producto.aspx.cs">
+      <DependentUpon>wpr_producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_producto.aspx.designer.cs">
+      <DependentUpon>wpr_producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_productom.aspx.cs">
+      <DependentUpon>wpr_productom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_productom.aspx.designer.cs">
+      <DependentUpon>wpr_productom.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_riesgo.aspx.cs">
       <DependentUpon>wpr_riesgo.aspx</DependentUpon>
@@ -3066,6 +3125,27 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.designer.cs">
       <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx.cs">
+      <DependentUpon>wre_caso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx.designer.cs">
+      <DependentUpon>wre_caso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx.cs">
+      <DependentUpon>wre_cierrecaso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx.designer.cs">
+      <DependentUpon>wre_cierrecaso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx.cs">
+      <DependentUpon>wre_histcaso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloReclamos\wre_histcaso.aspx.designer.cs">
+      <DependentUpon>wre_histcaso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\RegistroProduccion\wgr_contactos.aspx.cs">
       <DependentUpon>wgr_contactos.aspx</DependentUpon>
@@ -3995,7 +4075,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Sitio\Controladores\" />
     <Folder Include="Sitio\Entidades\" />
-    <Folder Include="Sitio\Vista\ModuloReclamos\" />
     <Folder Include="UI\fonts\" />
   </ItemGroup>
   <ItemGroup>

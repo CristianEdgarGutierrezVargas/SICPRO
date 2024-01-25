@@ -25,11 +25,11 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         {
             try
             {
-                this.id_rol.DataSource = logicaConfiguracion.ListaRoles();
+                this.id_rol.DataSource = logicaConfiguracion.ListaRoles().OrderBy(x=>x.id_par).ToList();
                 this.id_rol.DataTextField = "desc_param";
                 this.id_rol.DataValueField = "id_par";
                 this.id_rol.DataBind();
-
+                this.id_rol.SelectedValue = "0";
             }
             catch (SecureExceptions ex)
             {
@@ -152,11 +152,31 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.id_rol.SelectedValue = passOut.id_rol.ToString();
                 this.nomraz.Text = personaOut.nomraz;
                 this.id_per.Value = passOut.id_per;
+
+                this.btnguardar.Visible = false;
+                this.btnmodificar.Visible = true;
             }
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
             }
+        }
+
+        protected void grdListaPersona_SelectionChanged(object sender, EventArgs e)
+        {
+            var grilla = (DevExpress.Web.ASPxGridView)sender;
+            var lista = grilla.GetSelectedFieldValues("id_per");
+            var objeto = (string)lista[0];
+            this.id_per.Value = objeto.ToString();
+
+            lista = grilla.GetSelectedFieldValues("nomraz");
+            objeto = (string)lista[0];
+            this.nomraz.Text = objeto.ToString();
+            
+            this.btnguardar.Visible = true;
+            this.btnmodificar.Visible = false;
+
+            popupBusquedaPersona.ShowOnPageLoad = false;
         }
     }
 }

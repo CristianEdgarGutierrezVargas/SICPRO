@@ -37,16 +37,20 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         private void Datos()
         {
             var lista = logicaConfiguracion.TablaCierre(anio.SelectedValue);
+            Session["LST_CIERRE"]=lista;    
+            
             if (lista.Count > 0)
             {
                 gridcierre.DataSource = lista;
                 gridcierre.DataBind();
+                gridcierre.Visible = true;
             }
             else
             {
                 popUpValidacion.HeaderText = "Información";
                 lblerror.Text = "Debe Registrar una Fecha para apertura de Registro";
                 popUpValidacion.ShowOnPageLoad = true;
+                gridcierre.Visible = false;
             }
         }
 
@@ -79,7 +83,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 }
                 else
                 {
-                    logicaConfiguracion.InsertarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)porcentaje.Value);
+                    logicaConfiguracion.InsertarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)tcambio.Value);
                     popUpConfirmacion.HeaderText = "Confirmacion";
                     lblMensaje.Text = "Cierre de Registro Agregado Satisfactoriamente";
                     popUpConfirmacion.ShowOnPageLoad = true;
@@ -95,7 +99,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         {
             try
             {
-                logicaConfiguracion.ModificarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)porcentaje.Value);
+                logicaConfiguracion.ModificarCierre(mes.SelectedValue, anio.SelectedValue, (DateTime)ini_reg.Value, (DateTime)fin_reg.Value, (decimal)tcambio.Value);
                 popUpConfirmacion.HeaderText = "Confirmacion";
                 lblMensaje.Text = "Cierre de Registro Modificado Satisfactoriamente";
                 popUpConfirmacion.ShowOnPageLoad = true;
@@ -108,7 +112,16 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
         protected void Unnamed_Click(object sender, ImageClickEventArgs e)
         {
+            var objSender = (ImageButton)sender;
+            string[]datos=objSender.CommandArgument.Replace(" 12:00:00 AM", "").Split('|');
+            this.mes.SelectedValue = datos[0];
+            this.anio.SelectedValue = datos[1];
+            this.ini_reg.Text = datos[2];
+            this.fin_reg.Text = datos[3];
+            this.tcambio.Text = datos[4];
 
+            this.btnguardar.Visible = false;
+            this.btnmodificar.Visible = true;
         }
 
         protected void pnlCallBackCierreRegistro_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
@@ -138,6 +151,20 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
+
+        protected void anio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Datos();
+        }
+
+        protected void gridcierre_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<gr_cierreregistro>)Session["LST_CIERRE"];
+            if (lstData != null)
+            {
+                this.gridcierre.DataSource = lstData;
             }
         }
     }

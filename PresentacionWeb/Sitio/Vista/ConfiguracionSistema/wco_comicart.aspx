@@ -69,7 +69,7 @@
         </div>
     </div>
     <!-- Fin Contenido -->
-    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
         CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
         <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" />
         <FooterStyle HorizontalAlign="Right" />

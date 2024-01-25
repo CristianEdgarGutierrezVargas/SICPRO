@@ -60,13 +60,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fin_reg;
 
         /// <summary>
-        /// porcentaje control.
+        /// tcambio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit porcentaje;
+        protected global::DevExpress.Web.ASPxSpinEdit tcambio;
 
         /// <summary>
         /// btnguardar control.
@@ -76,6 +76,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnguardar;
+
+        /// <summary>
+        /// btnmodificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnmodificar;
 
         /// <summary>
         /// gridcierre control.

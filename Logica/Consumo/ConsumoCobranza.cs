@@ -47,6 +47,7 @@ namespace Logica.Consumo
 
         public List<OcRecuFac> RecuFacMod(double factura, string sId_spvs)
         {
+
            
             try
             {
@@ -102,6 +103,7 @@ namespace Logica.Consumo
             {
                 throw new SecureExceptions("Error al generar la transacción", secureException);
             }
+
 
         }
 

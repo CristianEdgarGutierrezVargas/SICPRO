@@ -54,6 +54,7 @@
                         </div>
                         <div class="col-4">
                             <dx:ASPxButton ID="btnguardar" runat="server" Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
+                            <dx:ASPxButton ID="btnmodificar" runat="server" Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnmodificar_Click" Visible="false"></dx:ASPxButton>
                         </div>
                         <div class="col-4">
                         </div>
@@ -124,10 +125,10 @@
                         </dx:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaPersona" ClientInstanceName="pnlCallBackBuscaPersona" runat="server" Width="200px" OnCallback="pnlCallBackBuscaPersona_Callback" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaPersona" ClientInstanceName="pnlCallBackBuscaPersona" runat="server" Width="200px" OnCallback="pnlCallBackBuscaPersona_Callback" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" >
                             <PanelCollection>
                                 <dx:PanelContent runat="server">
-                                    <dx:ASPxGridView ID="grdListaPersona" runat="server" OnDataBinding="grdListaPersona_DataBinding"
+                                    <dx:ASPxGridView ID="grdListaPersona" runat="server" OnDataBinding="grdListaPersona_DataBinding" OnSelectionChanged="grdListaPersona_SelectionChanged"  EnableCallBacks="false"  KeyFieldName="id_per"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"
@@ -137,7 +138,8 @@
                                         Styles-Header-HorizontalAlign="Left"
                                         Styles-Header-Font-Bold="true"
                                         Styles-Cell-Paddings-Padding="0"
-                                        Styles-Cell-ForeColor="#15428b">
+                                        Styles-Cell-ForeColor="#15428b"
+                                        >
                                         <Columns>
                                             <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
                                             <dx:GridViewDataColumn Caption="Lista de Personas" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
@@ -147,6 +149,7 @@
                                             <LastPageButton Visible="true"></LastPageButton>
                                             <Summary Visible="false" />
                                         </SettingsPager>
+                                        <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>  
                                     </dx:ASPxGridView>
                                 </dx:PanelContent>
                             </PanelCollection>

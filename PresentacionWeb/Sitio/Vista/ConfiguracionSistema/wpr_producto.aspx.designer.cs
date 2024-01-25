@@ -11,53 +11,44 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 {
 
 
-    public partial class wgr_passnuevo
+    public partial class wpr_producto
     {
 
         /// <summary>
-        /// login control.
+        /// desc_producto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox login;
+        protected global::System.Web.UI.WebControls.TextBox desc_producto;
 
         /// <summary>
-        /// id_rol control.
+        /// id_producto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList id_rol;
+        protected global::System.Web.UI.WebControls.HiddenField id_producto;
 
         /// <summary>
-        /// nomraz control.
+        /// btnserprod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomraz;
+        protected global::DevExpress.Web.ASPxButton btnserprod;
 
         /// <summary>
-        /// id_per control.
+        /// abrev_prod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_per;
-
-        /// <summary>
-        /// btnserper control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnserper;
+        protected global::System.Web.UI.WebControls.TextBox abrev_prod;
 
         /// <summary>
         /// btnguardar control.
@@ -69,31 +60,31 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btnguardar;
 
         /// <summary>
-        /// btnmodificar control.
+        /// btnbuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnmodificar;
+        protected global::DevExpress.Web.ASPxButton btnbuscar;
 
         /// <summary>
-        /// grdusuarios control.
+        /// lblmensajeA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView grdusuarios;
+        protected global::System.Web.UI.WebControls.Label lblmensajeA;
 
         /// <summary>
-        /// popupBusquedaPersona control.
+        /// popupBusquedaProducto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl popupBusquedaPersona;
+        protected global::DevExpress.Web.ASPxPopupControl popupBusquedaProducto;
 
         /// <summary>
         /// nomraz1 control.
@@ -105,31 +96,31 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxTextBox nomraz1;
 
         /// <summary>
-        /// btnserper_modal control.
+        /// btnserprod_modal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnserper_modal;
+        protected global::DevExpress.Web.ASPxButton btnserprod_modal;
 
         /// <summary>
-        /// pnlCallBackBuscaPersona control.
+        /// pnlCallBackBuscaProducto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaPersona;
+        protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaProducto;
 
         /// <summary>
-        /// grdListaPersona control.
+        /// grdListaProducto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView grdListaPersona;
+        protected global::DevExpress.Web.ASPxGridView grdListaProducto;
 
         /// <summary>
         /// popUpValidacion control.
