@@ -368,5 +368,18 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
+
+        public List<gr_persona> TablaProductoL(string busqueda, out List<gr_compania> listCompania)
+        {
+            try
+            {
+                listCompania = null;
+                return null;//_manejador_pr_producto.(busqueda, out listCompania);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
     }
 }

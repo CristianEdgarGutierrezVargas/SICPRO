@@ -214,40 +214,40 @@
                 <div class="row">
                     <div class="col-3">
                         <img src="../../../UI/img/search_user.png" width="48" height="48">
-                        <dx:ASPxTextBox ID="nomco1" ClientInstanceName="nomraz1sdfsd" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
+                        <dx:ASPxTextBox ID="nomco1" ClientInstanceName="nomco1" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
                         <dx:ASPxButton ID="btnsercom_modal" runat="server" Text="Buscar" CssClass="msg_button_class" AutoPostBack="false">
-                            <%--<ClientSideEvents Click="function(s,e){
-                             pnlCallBackBuscaPersona.PerformCallback(nomraz1.GetValue());
+                            <ClientSideEvents Click="function(s,e){
+                             pnlCallBackBuscaCompania.PerformCallback(nomco1.GetValue());
                              }
-                             " />--%>
+                             " />
                         </dx:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaCompania" ClientInstanceName="pnlCallBackBuscaCompania" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaCompania" ClientInstanceName="pnlCallBackBuscaCompania" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaCompania_Callback">
                             <PanelCollection>
                                 <dx:PanelContent runat="server">
-                                  <dx:ASPxGridView ID="grdListaCompania" runat="server" OnDataBinding="grdListaCompania_DataBinding" OnSelectionChanged="grdListaCompania_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
-                                 Style="width: 340px; border-collapse: collapse;"
-                                 Font-Size="11px"
-                                 Font-Names="Arial, Helvetica, sans-serif"
-                                 Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
-                                 Styles-Header-ForeColor="#15428b"
-                                 Styles-Header-Paddings-Padding="1"
-                                 Styles-Header-HorizontalAlign="Left"
-                                 Styles-Header-Font-Bold="true"
-                                 Styles-Cell-Paddings-Padding="0"
-                                 Styles-Cell-ForeColor="#15428b">
-                                 <Columns>
-                                     <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
-                                     <dx:GridViewDataColumn Caption="Lista de Compañias" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
-                                 </Columns>
-                                 <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
-                                     <FirstPageButton Visible="true"></FirstPageButton>
-                                     <LastPageButton Visible="true"></LastPageButton>
-                                     <Summary Visible="false" />
-                                 </SettingsPager>
-                                 <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
-                             </dx:ASPxGridView>
+                                    <dx:ASPxGridView ID="grdListaCompania" runat="server" OnDataBinding="grdListaCompania_DataBinding" OnSelectionChanged="grdListaCompania_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_spvs"
+                                        Style="width: 340px; border-collapse: collapse;"
+                                        Font-Size="11px"
+                                        Font-Names="Arial, Helvetica, sans-serif"
+                                        Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
+                                        Styles-Header-ForeColor="#15428b"
+                                        Styles-Header-Paddings-Padding="1"
+                                        Styles-Header-HorizontalAlign="Left"
+                                        Styles-Header-Font-Bold="true"
+                                        Styles-Cell-Paddings-Padding="0"
+                                        Styles-Cell-ForeColor="#15428b">
+                                        <Columns>
+                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_spvs" Visible="false"></dx:GridViewDataColumn>
+                                            <dx:GridViewDataColumn Caption="Lista de Compañias" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
+                                        </Columns>
+                                        <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
+                                            <FirstPageButton Visible="true"></FirstPageButton>
+                                            <LastPageButton Visible="true"></LastPageButton>
+                                            <Summary Visible="false" />
+                                        </SettingsPager>
+                                        <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
+                                    </dx:ASPxGridView>
                                 </dx:PanelContent>
                             </PanelCollection>
                         </dx:ASPxCallbackPanel>
@@ -268,40 +268,40 @@
                 <div class="row">
                     <div class="col-3">
                         <img src="../../../UI/img/search_user.png" width="48" height="48">
-                        <dx:ASPxTextBox ID="ASPxTextBox1" ClientInstanceName="nomraz1sdfsdf" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
-                        <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Buscar" CssClass="msg_button_class" AutoPostBack="false">
-                            <%--<ClientSideEvents Click="function(s,e){
-                         pnlCallBackBuscaPersona.PerformCallback(nomraz1.GetValue());
-                         }
-                         " />--%>
+                        <dx:ASPxTextBox ID="desc_prod1" ClientInstanceName="desc_prod1" runat="server" AutoCompleteType="None" Size="12"></dx:ASPxTextBox>
+                        <dx:ASPxButton ID="btnserprod_modal" runat="server" Text="Buscar" CssClass="msg_button_class" AutoPostBack="false">
+                            <ClientSideEvents Click="function(s,e){
+                                         pnlCallBackBuscaProducto.PerformCallback(desc_prod1.GetValue());
+                                         }
+                         " />
                         </dx:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback">
                             <PanelCollection>
                                 <dx:PanelContent runat="server">
-                                    <%-- <dx:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
-                             Style="width: 340px; border-collapse: collapse;"
-                             Font-Size="11px"
-                             Font-Names="Arial, Helvetica, sans-serif"
-                             Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
-                             Styles-Header-ForeColor="#15428b"
-                             Styles-Header-Paddings-Padding="1"
-                             Styles-Header-HorizontalAlign="Left"
-                             Styles-Header-Font-Bold="true"
-                             Styles-Cell-Paddings-Padding="0"
-                             Styles-Cell-ForeColor="#15428b">
-                             <Columns>
-                                 <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
-                                 <dx:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
-                             </Columns>
-                             <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
-                                 <FirstPageButton Visible="true"></FirstPageButton>
-                                 <LastPageButton Visible="true"></LastPageButton>
-                                 <Summary Visible="false" />
-                             </SettingsPager>
-                             <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
-                         </dx:ASPxGridView>--%>
+                                    <dx:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
+                                        Style="width: 340px; border-collapse: collapse;"
+                                        Font-Size="11px"
+                                        Font-Names="Arial, Helvetica, sans-serif"
+                                        Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
+                                        Styles-Header-ForeColor="#15428b"
+                                        Styles-Header-Paddings-Padding="1"
+                                        Styles-Header-HorizontalAlign="Left"
+                                        Styles-Header-Font-Bold="true"
+                                        Styles-Cell-Paddings-Padding="0"
+                                        Styles-Cell-ForeColor="#15428b">
+                                        <Columns>
+                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
+                                            <dx:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
+                                        </Columns>
+                                        <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
+                                            <FirstPageButton Visible="true"></FirstPageButton>
+                                            <LastPageButton Visible="true"></LastPageButton>
+                                            <Summary Visible="false" />
+                                        </SettingsPager>
+                                        <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
+                                    </dx:ASPxGridView>
                                 </dx:PanelContent>
                             </PanelCollection>
                         </dx:ASPxCallbackPanel>
