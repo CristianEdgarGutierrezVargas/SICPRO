@@ -709,6 +709,7 @@
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
     <Content Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx" />
     <Content Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx" />
@@ -3118,6 +3119,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
       <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx.cs">
+      <DependentUpon>wpr_polizacomision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomision.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.cs">
       <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>

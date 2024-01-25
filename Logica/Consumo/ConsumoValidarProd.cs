@@ -28,6 +28,7 @@ namespace Logica.Consumo
         private readonly Cgr_parametro _manejador_gr_parametro;
         private readonly Cpr_polmov _manejador_pr_polmov;
         public static sicproEntities dbContext;
+      
         public ConsumoValidarProd()
         {
             //if (dbContext != null) dbContext.Dispose();
@@ -42,6 +43,7 @@ namespace Logica.Consumo
             _manejador_pr_grupo = new Cpr_grupo(dbContext);
             _manejador_gr_parametro=new Cgr_parametro(dbContext);
             _manejador_pr_polmov=new Cpr_polmov(dbContext);
+
         }
 
         #endregion
@@ -95,6 +97,8 @@ namespace Logica.Consumo
             }
 
         }
+   
+
         public List<gr_persona> ObtenerTablaPersonasC(string varbusqueda)
         {
             List<gr_persona> dt;
