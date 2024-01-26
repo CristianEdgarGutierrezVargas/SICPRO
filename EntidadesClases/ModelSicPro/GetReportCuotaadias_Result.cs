@@ -20,6 +20,10 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> cuota_total { get; set; }
         public decimal monto_exclusion { get; set; }
         public string nomraz { get; set; }
+        public string id_spvs { get; set; }
+        public string id_percart { get; set; }
+        public Nullable<long> id_suc { get; set; }
+        public Nullable<long> id_gru { get; set; }
         public string abrev_cia { get; set; }
         public string abrev_prod { get; set; }
         public Nullable<System.DateTime> fecha_pago { get; set; }

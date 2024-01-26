@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -319,11 +320,50 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportCuotaadias_Result> GetReportCuotaadias()
+        public List<GetReportCuotaadias_Result> GetReportCuotaadias(string strIdCartera, string strIdSucursal, string strIdCompaniaSpvs, string strIdGrupo, string strVenc1, string strVenc2, string strDiasVcmto, string strFechaListado)
         {
             try
             {
-                return _manejador_reportes.GetReportCuotaadias();
+                var lstReporte = _manejador_reportes.GetReportCuotaadias();
+
+                if (strDiasVcmto != "1")
+                {
+                    lstReporte.Where(w => w.dias >= (Convert.ToInt32(strVenc2)*(-1)) && w.dias <= (Convert.ToInt32(strVenc1) * (-1)));
+                    //string[] item = new string[] { "{vcb_cuotasdias.dias} >= -", base.Request.QueryString["e2"], " and {vcb_cuotasdias.dias} <=-", base.Request.QueryString["e1"], " " };                    
+                }
+                else
+                {
+                    lstReporte.Where(w => w.dias >= Convert.ToInt32(strVenc1) && w.dias <= Convert.ToInt32(strVenc2));
+                    //string[] strArrays = new string[] { "{vcb_cuotasdias.dias} >= ", base.Request.QueryString["e1"], " and {vcb_cuotasdias.dias} <=", base.Request.QueryString["e2"], " " };                    
+                }
+
+                if (!string.IsNullOrEmpty(strFechaListado) && strFechaListado != "0")
+                {
+                    var dtFechaListado = Convert.ToDateTime(strFechaListado);
+                    lstReporte.Where(w => w.fecha_pago <= dtFechaListado);                  
+                }
+                if (!string.IsNullOrEmpty(strIdCompaniaSpvs) && strIdCompaniaSpvs != "0")
+                {
+                    lstReporte.Where(w => w.id_spvs == strIdCompaniaSpvs);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_spvs}= '", base.Request.QueryString["ci"], "'");
+                }
+                if (!string.IsNullOrEmpty(strIdCartera) && strIdCartera != "0")
+                {
+                    lstReporte.Where(w => w.id_percart == strIdCartera);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_percart}= '", base.Request.QueryString["ca"], "'");
+                }
+                if (!string.IsNullOrEmpty(strIdSucursal) && strIdSucursal != "0")
+                {
+                    lstReporte.Where(w => w.id_suc == Convert.ToInt64(strIdSucursal));
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_suc} = ", base.Request.QueryString["is"]);
+                }
+                if (!string.IsNullOrEmpty(strIdGrupo) && strIdGrupo != "0")
+                {
+                    lstReporte.Where(w => w.id_gru == Convert.ToInt64(strIdGrupo));
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+                
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -367,11 +407,23 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportLiquidacion_Result> GetReportLiquidacion()
+        public List<GetReportLiquidacion_Result> GetReportLiquidacion(string idSucursal, long idLiquidacion)
         {
             try
             {
-                return _manejador_reportes.GetReportLiquidacion();
+                var lstReporte = _manejador_reportes.GetReportLiquidacion();
+                if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
+                {
+                    lstReporte.Where(w => w.id_suc == idSucursal);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (idLiquidacion != 0)
+                {
+                    lstReporte.Where(w => w.id_liq == idLiquidacion);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -383,11 +435,24 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportPagoacia1_Result> GetReportPagoacia1()
+        public List<GetReportPagoacia1_Result> GetReportPagoacia1(long idSucursal,string idCompania)
         {
             try
             {
-                return _manejador_reportes.GetReportPagoacia1();
+                var lstReporte = _manejador_reportes.GetReportPagoacia1();
+
+                if (idSucursal != 0)
+                {
+                    lstReporte.Where(w => w.id_suc == idSucursal);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (!string.IsNullOrEmpty(idCompania) && idCompania != "0")
+                {
+                    lstReporte.Where(w => w.id_spvs == idCompania);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -399,11 +464,19 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportPagopendcias_Result> GetReportPagopendcias()
+        public List<GetReportPagopendcias_Result> GetReportPagopendcias(long longIdSuc)
         {
             try
             {
-                return _manejador_reportes.GetReportPagopendcias();
+                var lstReporte = _manejador_reportes.GetReportPagopendcias();
+
+                if (longIdSuc != 0)
+                {
+                    lstReporte.Where(w => w.id_suc == longIdSuc);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {

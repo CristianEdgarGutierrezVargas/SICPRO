@@ -5440,6 +5440,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             private global::System.Data.DataColumn columntelf_cel;
             
+            private global::System.Data.DataColumn columnid_spvs;
+            
+            private global::System.Data.DataColumn columnid_percart;
+            
+            private global::System.Data.DataColumn columnid_suc;
+            
+            private global::System.Data.DataColumn columnid_gru;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public GetReportCuotaadiasDataTable() {
@@ -5643,6 +5651,38 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_spvsColumn {
+                get {
+                    return this.columnid_spvs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_percartColumn {
+                get {
+                    return this.columnid_percart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_sucColumn {
+                get {
+                    return this.columnid_suc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_gruColumn {
+                get {
+                    return this.columnid_gru;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5699,7 +5739,11 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         decimal monto_devolucion, 
                         string no_cuota, 
                         string telf_dir, 
-                        string telf_cel) {
+                        string telf_cel, 
+                        string id_spvs, 
+                        string id_percart, 
+                        string id_suc, 
+                        string id_gru) {
                 GetReportCuotaadiasRow rowGetReportCuotaadiasRow = ((GetReportCuotaadiasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         num_poliza,
@@ -5722,7 +5766,11 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         monto_devolucion,
                         no_cuota,
                         telf_dir,
-                        telf_cel};
+                        telf_cel,
+                        id_spvs,
+                        id_percart,
+                        id_suc,
+                        id_gru};
                 rowGetReportCuotaadiasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetReportCuotaadiasRow);
                 return rowGetReportCuotaadiasRow;
@@ -5766,6 +5814,10 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columnno_cuota = base.Columns["no_cuota"];
                 this.columntelf_dir = base.Columns["telf_dir"];
                 this.columntelf_cel = base.Columns["telf_cel"];
+                this.columnid_spvs = base.Columns["id_spvs"];
+                this.columnid_percart = base.Columns["id_percart"];
+                this.columnid_suc = base.Columns["id_suc"];
+                this.columnid_gru = base.Columns["id_gru"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5813,6 +5865,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 base.Columns.Add(this.columntelf_dir);
                 this.columntelf_cel = new global::System.Data.DataColumn("telf_cel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntelf_cel);
+                this.columnid_spvs = new global::System.Data.DataColumn("id_spvs", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_spvs);
+                this.columnid_percart = new global::System.Data.DataColumn("id_percart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_percart);
+                this.columnid_suc = new global::System.Data.DataColumn("id_suc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_suc);
+                this.columnid_gru = new global::System.Data.DataColumn("id_gru", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_gru);
                 this.columnnum_poliza.AllowDBNull = false;
                 this.columnnum_poliza.MaxLength = 30;
                 this.columnno_liquida.MaxLength = 30;
@@ -14856,6 +14916,70 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_spvs {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportCuotaadias.id_spvsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_spvs\' de la tabla \'GetReportCuotaadias\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportCuotaadias.id_spvsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_percart {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportCuotaadias.id_percartColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_percart\' de la tabla \'GetReportCuotaadias\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportCuotaadias.id_percartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_suc {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportCuotaadias.id_sucColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_suc\' de la tabla \'GetReportCuotaadias\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportCuotaadias.id_sucColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string id_gru {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetReportCuotaadias.id_gruColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_gru\' de la tabla \'GetReportCuotaadias\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetReportCuotaadias.id_gruColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isno_liquidaNull() {
                 return this.IsNull(this.tableGetReportCuotaadias.no_liquidaColumn);
             }
@@ -15068,6 +15192,54 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settelf_celNull() {
                 this[this.tableGetReportCuotaadias.telf_celColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_spvsNull() {
+                return this.IsNull(this.tableGetReportCuotaadias.id_spvsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_spvsNull() {
+                this[this.tableGetReportCuotaadias.id_spvsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_percartNull() {
+                return this.IsNull(this.tableGetReportCuotaadias.id_percartColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_percartNull() {
+                this[this.tableGetReportCuotaadias.id_percartColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_sucNull() {
+                return this.IsNull(this.tableGetReportCuotaadias.id_sucColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_sucNull() {
+                this[this.tableGetReportCuotaadias.id_sucColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_gruNull() {
+                return this.IsNull(this.tableGetReportCuotaadias.id_gruColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_gruNull() {
+                this[this.tableGetReportCuotaadias.id_gruColumn] = global::System.Convert.DBNull;
             }
         }
         

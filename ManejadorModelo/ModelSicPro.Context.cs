@@ -407,11 +407,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCobsxrango_Result>("GetReportCobsxrango", fecha_iniParameter, fecha_finParameter);
         }
     
-        public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
-        }
-    
         public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
         {
             var id_perclieParameter = id_perclie != null ?
@@ -494,6 +489,11 @@ namespace ManejadorModelo
         public virtual ObjectResult<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiqcomiejec3_Result>("GetReportLiqcomiejec3");
+        }
+    
+        public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
         }
     }
 }

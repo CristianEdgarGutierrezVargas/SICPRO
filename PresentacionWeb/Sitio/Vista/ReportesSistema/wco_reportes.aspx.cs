@@ -304,8 +304,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected void btnGenerarReporteVcmto_Click(object sender, EventArgs e)
         {
             
-            var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
-            var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
+            var ci = Convert.ToString(cmbCompaniaVcmto.SelectedItem.Value);
+            var ca = Convert.ToString(cmbCarteraVcmto.SelectedItem.Value);
             var isuc = Convert.ToString(cmbSucursalVcmto.SelectedItem.Value);
             var gr = Convert.ToString(cmbGrupoVcmto.SelectedItem.Value);
 

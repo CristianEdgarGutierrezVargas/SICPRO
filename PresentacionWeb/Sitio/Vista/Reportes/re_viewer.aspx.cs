@@ -167,7 +167,6 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var idPoliza = Convert.ToInt64(Request.QueryString["np"]);
             var idMovimiento = Convert.ToInt64(Request.QueryString["nl"]);
             ReportDocument rptDoc = new ReportDocument();            
-            SqlConnection sqlCon;
             
             List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(idPoliza, idMovimiento);
             List<pr_cuotapoliza> lstCuota = _objConsumoRegistroProd.GridCuotasC(idPoliza, idMovimiento);
@@ -202,10 +201,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
         private void Reporteprod1()
         {
             ReportDocument rptDoc = new ReportDocument();
-
-            SqlConnection sqlCon;
-
-
+             
             List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
             List<pr_cuotapoliza> lstCuota = _objConsumoRegistroProd.GridCuotasC(36165, 63452);
 
@@ -249,8 +245,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"])? 0 : Convert.ToDecimal(Request.QueryString["ac"]);           
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
             var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
 
@@ -290,8 +285,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var estadoCaso = Request.QueryString["ec"];
             
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportResumsiniestro(
                 idOfiSucursal, idPer, numPoliza, idCompSpvs, idProducto, idCartera, fechaDel, fechaAl, estadoCaso
                 );
@@ -321,6 +315,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         }
 
+        //5
         protected void LiqRep()
         {
             //Acceso acceso = new Acceso();
@@ -335,38 +330,38 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //this.CrystalReportViewer1.ReportSource = reportDocument;
             //this.CrystalReportViewer1.RefreshReport();
 
-            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
-            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+            var idSucursal = string.IsNullOrEmpty(Request.QueryString["is"]) ? "" : Convert.ToString(Request.QueryString["is"]);
+            var idLiquidacion = string.IsNullOrEmpty(Request.QueryString["il"]) ? 0 : Convert.ToInt64(Request.QueryString["il"]);
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
-            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
-            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+            
+            var responseReporte = _objConsumoReportes.GetReportLiquidacion(idSucursal, idLiquidacion);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
 
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "GetReportHistreclamosh";
+            dt.TableName = "GetReportLiquidacion";
             dt = ToDataTable(responseReporte);
-            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+            ds.Tables["GetReportLiquidacion"].Merge(dt, true, MissingSchemaAction.Ignore);
 
-            //Subreporte
-            DS_SicPro ds1 = new DS_SicPro();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "GetReportHistreclamoshf";
-            dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_liquidacion.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
 
+        //6
         protected void Reppc()
         {
             //string str = base.Server.MapPath("reportes//re_pagopendcias.rpt");
@@ -375,38 +370,37 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //this.CrystalReportViewer1.SelectionFormula = str1;
             //this.CrystalReportViewer1.RefreshReport();
 
-            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
-            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
-
+            var idSuc = string.IsNullOrEmpty(Request.QueryString["is"]) ? 0 : Convert.ToInt64(Request.QueryString["ic"]);
+            
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
-            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
-            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+            
+            var responseReporte = _objConsumoReportes.GetReportPagopendcias(idSuc);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
 
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "GetReportHistreclamosh";
+            dt.TableName = "GetReportPagopendcias";
             dt = ToDataTable(responseReporte);
-            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+            ds.Tables["GetReportPagopendcias"].Merge(dt, true, MissingSchemaAction.Ignore);
 
-            //Subreporte
-            DS_SicPro ds1 = new DS_SicPro();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "GetReportHistreclamoshf";
-            dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_pagopendcias.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
 
+        //7
         protected void Repc()
         {
             //string str = base.Server.MapPath("reportes//re_pagoacia1.rpt");
@@ -416,34 +410,33 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //this.CrystalReportViewer1.SelectionFormula = str1;
             //this.CrystalReportViewer1.RefreshReport();
 
-            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
-            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+            var idSucursal = string.IsNullOrEmpty(Request.QueryString["is"]) ? 0 : Convert.ToInt64(Request.QueryString["is"]);
+            var idCompania = string.IsNullOrEmpty(Request.QueryString["sp"]) ? "" : Convert.ToString(Request.QueryString["sp"]);
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
-            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
-            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+            
+            var responseReporte = _objConsumoReportes.GetReportPagoacia1(idSucursal, idCompania);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
 
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "GetReportHistreclamosh";
+            dt.TableName = "GetReportPagoacia1";
             dt = ToDataTable(responseReporte);
-            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+            ds.Tables["GetReportPagoacia1"].Merge(dt, true, MissingSchemaAction.Ignore);
 
-            //Subreporte
-            DS_SicPro ds1 = new DS_SicPro();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "GetReportHistreclamoshf";
-            dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_pagoacia1.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
@@ -463,8 +456,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var cartera = Request.QueryString["ca"];
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportMemo1(numPoliza, numLiquidacion, fechaMemo, fechaDe, fechaA, cartera);
             var responseSubReporte  = _objConsumoRegistroProd.GridCuotas();
 
@@ -503,7 +495,6 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var reportNamePath = string.Empty;
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
                         
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
@@ -545,74 +536,41 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         private void Listadias()
         {
-            //string str = base.Server.MapPath("reportes//re_cuotaadias.rpt");
-            //this.CrystalReportViewer1.ReportSource = str;
-            //string str1 = "";
-            //if (base.Request.QueryString["vv"] != "1")
-            //{
-            //    string[] item = new string[] { "{vcb_cuotasdias.dias} >= -", base.Request.QueryString["e2"], " and {vcb_cuotasdias.dias} <=-", base.Request.QueryString["e1"], " " };
-            //    str1 = string.Concat(item);
-            //}
-            //else
-            //{
-            //    string[] strArrays = new string[] { "{vcb_cuotasdias.dias} >= ", base.Request.QueryString["e1"], " and {vcb_cuotasdias.dias} <=", base.Request.QueryString["e2"], " " };
-            //    str1 = string.Concat(strArrays);
-            //}
-            //if (!string.IsNullOrEmpty(base.Request.QueryString["fc"].ToString()))
-            //{
-            //    string str2 = base.Request.QueryString["fc"].ToString().Substring(0, 2);
-            //    string str3 = base.Request.QueryString["fc"].ToString().Substring(3, 2);
-            //    string str4 = base.Request.QueryString["fc"].ToString().Substring(6, 4);
-            //    string[] strArrays1 = new string[] { "{vcb_cuotasdias.fecha_pago} <= DateValue('", str4, ",", str3, ",", str2, "')" };
-            //    str1 = string.Concat(strArrays1);
-            //}
-            //if (base.Request.QueryString["ci"] != "0")
-            //{
-            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_spvs}= '", base.Request.QueryString["ci"], "'");
-            //}
-            //if (base.Request.QueryString["ca"] != "0")
-            //{
-            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_percart}= '", base.Request.QueryString["ca"], "'");
-            //}
-            //if (base.Request.QueryString["is"] != "0")
-            //{
-            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_suc} = ", base.Request.QueryString["is"]);
-            //}
-            //if (base.Request.QueryString["gr"] != "-1")
-            //{
-            //    str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
-            //}
-            //this.CrystalReportViewer1.SelectionFormula = str1;
-            //this.CrystalReportViewer1.RefreshReport();
+            var idCartera = Request.QueryString["ca"];
+            var idSucursal = Request.QueryString["is"];
+            var idCompaniaSpvs = Request.QueryString["ci"];            
+            var idGrupo = Request.QueryString["gr"];
 
-            var id_caso = string.IsNullOrEmpty(Request.QueryString["ic"]) ? 0 : Convert.ToDecimal(Request.QueryString["ic"]);
-            var anio_caso = string.IsNullOrEmpty(Request.QueryString["ac"]) ? 0 : Convert.ToDecimal(Request.QueryString["ac"]);
+            var venc1 = Request.QueryString["e1"];
+            var venc2 = Request.QueryString["e2"];
+
+            var diasVcmto = Request.QueryString["vv"];
+            var fechaListado = Request.QueryString["fc"];
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
-            var responseReporte = _objConsumoReportes.GetReportHistreclamosh(id_caso, anio_caso);
-            var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+            
+            var responseReporte = _objConsumoReportes.GetReportCuotaadias(idCartera, idSucursal, idCompaniaSpvs, idGrupo, venc1, venc2, diasVcmto, fechaListado);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
 
             //Reporte Principal
             DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "GetReportHistreclamosh";
+            dt.TableName = "GetReportCuotaadias";
             dt = ToDataTable(responseReporte);
-            ds.Tables["GetReportHistreclamosh"].Merge(dt, true, MissingSchemaAction.Ignore);
+            ds.Tables["GetReportCuotaadias"].Merge(dt, true, MissingSchemaAction.Ignore);
 
-            //Subreporte
-            DS_SicPro ds1 = new DS_SicPro();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "GetReportHistreclamoshf";
-            dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_cuotaadias.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
@@ -623,8 +581,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var suc = Convert.ToInt32(Request.QueryString["sc"]);
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportClientes(nomcli, mesAniv, suc);
             var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
 
@@ -661,8 +618,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var idSuc = Convert.ToInt64(Request.QueryString["sc"]);
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportGrupos(idGrupo, idSuc);
             //var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
 
@@ -693,8 +649,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             var suc = Convert.ToString(Request.QueryString["sc"]);
 
             ReportDocument rptDoc = new ReportDocument();
-            SqlConnection sqlCon;
-
+            
             var responseReporte = _objConsumoReportes.GetReportProyCartera().Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
             var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
 
