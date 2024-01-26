@@ -855,6 +855,38 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //this.CrystalReportViewer1.ReportSource = str2;
             //this.CrystalReportViewer1.SelectionFormula = str;
             //this.CrystalReportViewer1.RefreshReport();
+
+            var mes = string.IsNullOrEmpty(Request.QueryString["m"]) ? 0 : Convert.ToInt32(Request.QueryString["m"]);
+            var anio = string.IsNullOrEmpty(Request.QueryString["a"]) ? 0 : Convert.ToInt32(Request.QueryString["a"]);
+
+            var idCompania = Request.QueryString["c"];            
+            
+            ReportDocument rptDoc = new ReportDocument();
+
+            var responseReporte = _objConsumoReportes.GetReportContable1(mes, anio, idCompania);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportContable1";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportContable1"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_contable1.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
         }
 
         //22
@@ -923,6 +955,38 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //    Value = base.Request.QueryString["is"].ToString()
             //};
             //parameterField1.CurrentValues.Add(parameterDiscreteValue3);
+
+            var strFechaInicio = Request.QueryString["if"];
+            var strFechaFin = Request.QueryString["ff"];
+            var idCompania = Request.QueryString["s"];
+            var idSucursal = string.IsNullOrEmpty(Request.QueryString["is"]) ? 0 : Convert.ToInt64(Request.QueryString["is"]);
+
+            ReportDocument rptDoc = new ReportDocument();
+
+            var responseReporte = _objConsumoReportes.GetReportConcipagcia(strFechaInicio, strFechaFin, idCompania, idSucursal);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportConcipagcia";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportConcipagcia"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_concipagcia.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
         }
 
         //25
@@ -986,6 +1050,36 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //    Value = Funciones.fc(base.Request.QueryString["ff"])
             //};
             //parameterField.CurrentValues.Add(parameterDiscreteValue1);
+                        
+            var strFechaInicio = Request.QueryString["if"];
+            var strFechaFin = Request.QueryString["ff"];
+                        
+            ReportDocument rptDoc = new ReportDocument();
+
+            var responseReporte = _objConsumoReportes.GetReportComisionesxfecha(strFechaInicio, strFechaFin);
+            //var responseSubReporte = _objConsumoReportes.GetReportHistreclamoshf();
+
+            //Reporte Principal
+            DS_SicPro ds = new DS_SicPro();
+            DataTable dt = new DataTable();
+            dt.TableName = "GetReportComisionesxfecha";
+            dt = ToDataTable(responseReporte);
+            ds.Tables["GetReportComisionesxfecha"].Merge(dt, true, MissingSchemaAction.Ignore);
+
+            ////Subreporte
+            //DS_SicPro ds1 = new DS_SicPro();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "GetReportHistreclamoshf";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables["GetReportHistreclamoshf"].Merge(dt1, true, MissingSchemaAction.Ignore);
+
+            //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
+            string reportPath = base.Server.MapPath("reportes//re_comisionesxfecha.rpt");
+            rptDoc.Load(reportPath);
+            rptDoc.SetDataSource(ds);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
+            CrystalReportViewer1.ReportSource = rptDoc;
+            CrystalReportViewer1.RefreshReport();
         }
 
         public DataTable ToDataTable<T>(List<T> items)

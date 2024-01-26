@@ -87,6 +87,15 @@
     <Compile Include="ModelSicPro\GetReportCobsxrango_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportComisionesxfecha_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportConcipagcia_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSicPro\GetReportContable1_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportCuotaadias_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

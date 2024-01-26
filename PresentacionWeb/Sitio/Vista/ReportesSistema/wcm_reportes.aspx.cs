@@ -228,8 +228,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected void btnGenerarReporteContable_Click(object sender, EventArgs e)
         {
             var s = Convert.ToString(cmbCompaniaCont.SelectedItem.Value);
-            var m = Convert.ToString(cmbMesCom.SelectedItem.Value);
-            var a = Convert.ToString(cmbAnioCom.SelectedItem.Value);
+            var m = Convert.ToString(cmbMesCont.SelectedItem.Value);
+            var a = Convert.ToString(cmbAnioCont.SelectedItem.Value);
 
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=21"+

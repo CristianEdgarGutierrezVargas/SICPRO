@@ -407,6 +407,48 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        public List<GetReportConcipagcia_Result> GetReportConcipagcia(DateTime dtFechaIni,DateTime dtFechafin, string strIdCompania, long longIdSucursal)
+        {
+            try
+            {
+                var sql = _context.GetReportConcipagcia(dtFechaIni, dtFechafin, strIdCompania, longIdSucursal).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public List<GetReportContable1_Result> GetReportContable1()
+        {
+            try
+            {
+                var sql = _context.GetReportContable1().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public List<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(DateTime dtFechaIni, DateTime dtFechafin)
+        {
+            try
+            {
+                var sql = _context.GetReportComisionesxfecha(dtFechaIni, dtFechafin).ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        
         #endregion
     }
 }

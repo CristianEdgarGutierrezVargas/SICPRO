@@ -750,6 +750,101 @@ namespace Logica.Consumo
             }
         }
 
+        public List<GetReportContable1_Result> GetReportContable1(int mes, int anio,string strIdCompania )
+        {
+            try
+            {
+                var lstReporte = _manejador_reportes.GetReportContable1();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (!string.IsNullOrEmpty(strIdCompania) && strIdCompania != "0")
+                {
+                    lstReporte.Where(w => w.id_spvs == strIdCompania);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportConcipagcia_Result> GetReportConcipagcia(string strFechaIni, string strFechaFin, string strIdCompania, long strIdSucursal)
+        {
+            try
+            {
+                var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
+                var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
+                if (!string.IsNullOrEmpty(strFechaIni))
+                {
+                    dtFechaInicio = Convert.ToDateTime(strFechaIni);
+                }
+                if (!string.IsNullOrEmpty(strFechaFin))
+                {
+                    dtFechaFin = Convert.ToDateTime(strFechaFin);
+                }
+
+                var lstReporte = _manejador_reportes.GetReportConcipagcia(dtFechaInicio, dtFechaFin, strIdCompania, strIdSucursal);
+
+                return lstReporte;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+
+        public List<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(string strFechaIni, string strFechaFin)
+        {
+            try
+            {
+                var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
+                var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
+                if (!string.IsNullOrEmpty(strFechaIni))
+                {
+                    dtFechaInicio = Convert.ToDateTime(strFechaIni);
+                }
+                if (!string.IsNullOrEmpty(strFechaFin))
+                {
+                    dtFechaFin = Convert.ToDateTime(strFechaFin);
+                }
+                
+                var lstReporte = _manejador_reportes.GetReportComisionesxfecha(dtFechaInicio, dtFechaFin);
+                
+                return lstReporte;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+
         #endregion
 
         #region recibos
