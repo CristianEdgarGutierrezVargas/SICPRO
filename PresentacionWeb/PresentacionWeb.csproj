@@ -3359,21 +3359,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_concipagcia.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_contable1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_contable1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_desglosepago.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3846,39 +3831,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_cobsXfecha.xss">
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xsc">
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_comisionesxfecha.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xss">
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xsc">
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_concipagcia.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xss">
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_contable1.xsc">
-      <DependentUpon>re_contable1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_contable1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_contable1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_contable1.xss">
-      <DependentUpon>re_contable1.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_desglosepago.xsc">
       <DependentUpon>re_desglosepago.xsd</DependentUpon>

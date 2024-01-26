@@ -304,11 +304,30 @@ namespace Logica.Consumo
         #endregion
 
         #region wco reportes - cobranzas
-        public List<GetReportCobsxrango_Result> GetReportCobsxrango(DateTime dtFechaIni, DateTime dtFechaFin)
+        public List<GetReportCobsxrango_Result> GetReportCobsxrango(string idSucursal, string strFechaIni, string strFechaFin)
         {
             try
             {
-                return _manejador_reportes.GetReportCobsxrango(dtFechaIni, dtFechaFin);
+                var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
+                var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
+                if (!string.IsNullOrEmpty(strFechaIni))
+                {
+                    dtFechaInicio = Convert.ToDateTime(strFechaIni);
+                }
+                if (!string.IsNullOrEmpty(strFechaFin))
+                {
+                    dtFechaFin = Convert.ToDateTime(strFechaFin);
+                }
+
+                var lstReporte = _manejador_reportes.GetReportCobsxrango(dtFechaInicio, dtFechaFin);
+
+                if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
+                {
+                    lstReporte.Where(w => w.id_suc == idSucursal);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -508,11 +527,24 @@ namespace Logica.Consumo
 
         #region wcm reportes - comisiones
 
-        public List<GetReportAscii_Result> GetReportAscii()
+        public List<GetReportAscii_Result> GetReportAscii(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.GetReportAscii();
+                var lstReporte =  _manejador_reportes.GetReportAscii();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -524,11 +556,43 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
+        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3(string strFechaIni, string strFechaFin, string idCartera, string idSucursal, string idEjecutivo)
         {
             try
             {
-                return _manejador_reportes.GetReportLiqcomiejec3();
+                var lstReporte =  _manejador_reportes.GetReportLiqcomiejec3();
+
+                var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
+                var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
+                if (!string.IsNullOrEmpty(strFechaIni))
+                {
+                    dtFechaInicio = Convert.ToDateTime(strFechaIni);
+                }
+                if (!string.IsNullOrEmpty(strFechaFin))
+                {
+                    dtFechaFin = Convert.ToDateTime(strFechaFin);
+                }
+                lstReporte.Where(w => w.fecha_factura >= dtFechaInicio && w.fecha_factura <= dtFechaFin);
+
+                if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
+                {
+                    lstReporte.Where(w => w.id_suc == Convert.ToInt64(idSucursal));
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
+                {
+                    lstReporte.Where(w => w.id_percart == idCartera);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
+                {
+                    lstReporte.Where(w => w.id_perejec == idEjecutivo);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -540,11 +604,25 @@ namespace Logica.Consumo
             }
         }
 
-        public List<vcm_prodtot> vcm_prodtot()
+        
+        public List<vcm_prodcap> GetReportVcm_prodcap(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.vcm_prodtot();
+                var lstReporte = _manejador_reportes.vcm_prodcap();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -556,11 +634,24 @@ namespace Logica.Consumo
             }
         }
 
-        public List<vcm_prodcap> vcm_prodcap()
+        public List<vcm_comiefect> GetReportVcm_comiefect(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.vcm_prodcap();
+                var lstReporte = _manejador_reportes.vcm_comiefect();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -572,11 +663,24 @@ namespace Logica.Consumo
             }
         }
 
-        public List<vcm_comiefect> vcm_comiefect()
+        public List<vcm_comicobrada> GetReportVcm_comicobrada(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.vcm_comiefect();
+                var lstReporte = _manejador_reportes.vcm_comicobrada();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -588,11 +692,24 @@ namespace Logica.Consumo
             }
         }
 
-        public List<vcm_comicobrada> vcm_comicobrada()
+        public List<vcm_comicap> GetReportVcm_comicap(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.vcm_comicobrada();
+                var lstReporte = _manejador_reportes.vcm_comicap();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {
@@ -604,11 +721,24 @@ namespace Logica.Consumo
             }
         }
 
-        public List<vcm_comicap> vcm_comicap()
+        public List<vcm_prodtot> GetReportVcm_prodtot(int mes, int anio)
         {
             try
             {
-                return _manejador_reportes.vcm_comicap();
+                var lstReporte = _manejador_reportes.vcm_prodtot();
+                if (mes != 0)
+                {
+                    lstReporte.Where(w => w.mes == mes);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                if (anio != 0)
+                {
+                    lstReporte.Where(w => w.anio == anio);
+                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                }
+
+                return lstReporte;
             }
             catch (SecureExceptions secureException)
             {

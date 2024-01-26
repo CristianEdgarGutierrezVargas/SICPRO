@@ -1,4 +1,5 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using DevExpress.Web.Bootstrap;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using PresentacionWeb.Parametros;
 using System;
@@ -37,19 +38,25 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCarteraEje.ValueField = "id_per";
                 cmbCarteraEje.TextField = "nomraz";
                 cmbCarteraEje.DataBind();
-                cmbCarteraEje.SelectedIndex = 0;
+                var itemSelecCarteraEje = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCarteraEje.Items.Add(itemSelecCarteraEje);
+                //cmbCarteraEje.SelectedIndex = 0;
 
                 cmbSucursalEje.DataSource = lstParametroSuc;
                 cmbSucursalEje.ValueField = "id_par";
                 cmbSucursalEje.TextField = "desc_param";
                 cmbSucursalEje.DataBind();
-                cmbSucursalEje.SelectedIndex = 0;
+                var itemSelecSucursalEje = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalEje.Items.Add(itemSelecSucursalEje);
+                //cmbSucursalEje.SelectedIndex = 0;
 
                 cmbEjecutivoEje.DataSource = lstPersona30;
                 cmbEjecutivoEje.ValueField = "id_per";
                 cmbEjecutivoEje.TextField = "nomraz";
                 cmbEjecutivoEje.DataBind();
-                cmbEjecutivoEje.SelectedIndex = 0;
+                var itemSelecEjeEje = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbEjecutivoEje.Items.Add(itemSelecEjeEje);
+                // cmbEjecutivoEje.SelectedIndex = 0;
 
                 #endregion
 
@@ -108,8 +115,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCompaniaCont.ValueField = "id_spvs";
                 cmbCompaniaCont.TextField = "nomraz";
                 cmbCompaniaCont.DataBind();
-
-                cmbCompaniaCont.SelectedIndex = 0;
+                var itemSelecCompCont = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCompaniaCont.Items.Add(itemSelecCompCont);
+                //cmbCompaniaCont.SelectedIndex = 0;
                 #endregion
 
                 #region Nota
@@ -118,15 +126,17 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCompaniaNota.ValueField = "id_spvs";
                 cmbCompaniaNota.TextField = "nomraz";
                 cmbCompaniaNota.DataBind();
-
-                cmbCompaniaNota.SelectedIndex = 0;
+                var itemSelecCompNota = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCompaniaNota.Items.Add(itemSelecCompNota);
+                //cmbCompaniaNota.SelectedIndex = 0;
 
                 cmbSucursalNota.DataSource = lstParametroSuc;
                 cmbSucursalNota.ValueField = "id_par";
                 cmbSucursalNota.TextField = "desc_param";
                 cmbSucursalNota.DataBind();
-
-                cmbSucursalNota.SelectedIndex = 0;
+                var itemSelecSucNota = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalNota.Items.Add(itemSelecSucNota);
+                //cmbSucursalNota.SelectedIndex = 0;
 
                 #endregion
 
