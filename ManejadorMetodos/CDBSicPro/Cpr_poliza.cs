@@ -402,5 +402,6 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
+
     }
 }
