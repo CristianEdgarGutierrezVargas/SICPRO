@@ -11,9 +11,9 @@
          <div class="container">
           <div class="row">
             <div class="col-md-3">      
-                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Polizas"></asp:Label></h1>
+                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Aplicacion de Polizas"></asp:Label></h1>
                 <div class="entry">
-                    <img src="../../../UI/img/renovar.png" alt="" width="128" height="128" class="left">
+                    <img src="../../../UI/img/aplicacion.png" alt="" width="128" height="128" class="left">
                 </div>      
             </div>    
             <div class="col-md-9">
@@ -282,7 +282,7 @@
                   </div>
               
                   <div class="row">                       
-                       <div class="col-md-12"> 
+                       <div class="col-md-12" runat="server" id="pnlCuotas"> 
                            <div class="panel-group">
                             <div class="panel panel-default">
                               <div class="panel-body">Cuotas de la Poliza</div>

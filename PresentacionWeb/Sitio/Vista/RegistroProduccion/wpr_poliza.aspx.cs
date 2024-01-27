@@ -110,6 +110,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             //var itemLstPersonas = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             //cmbAsegurado.Items.Add(itemLstPersonas);
+
+            pnlCuotas.Visible = false;
+            btnCuotas.Visible = true;
+            btnCuotasPoliza.Visible = false;
         }
 
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
@@ -245,20 +249,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)
-        {            
-                var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
-                var lstCuotas = GetDataCuotas(numeroCuotas);
-                Session["LST_CUOTAS"] = lstCuotas;
+        {
+            var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
+            var lstCuotas = GetDataCuotas(numeroCuotas);
+            Session["LST_CUOTAS"] = lstCuotas;
 
-                grdCuotasPoliza.DataSource = lstCuotas;
-                grdCuotasPoliza.DataBind();
+            grdCuotasPoliza.DataSource = lstCuotas;
+            grdCuotasPoliza.DataBind();
 
-                //int id = 0;
-                //lstCoutasTest.ForEach(s =>
-                //{
-                //    s.id_movimiento = 3;                
-                //    s.cuota = id++;
-                //});           
+            pnlCuotas.Visible = true;
+            btnCuotas.Visible = false;
+            btnCuotasPoliza.Visible = true;
+            //int id = 0;
+            //lstCoutasTest.ForEach(s =>
+            //{
+            //    s.id_movimiento = 3;                
+            //    s.cuota = id++;
+            //});           
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
@@ -354,6 +361,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 lblmensaje.Text = "El Numero de Cuotas no es valido";
                 return;
             }
+            if ( string.IsNullOrEmpty(Convert.ToString(cmbDivisa.SelectedItem.Value)))
+            {
+                lblmensaje.Text = "Seleccione una divisa valida";
+                return;
+            }
 
             var montoTotalSuma = ActualizaSessionCuotas();
             var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
@@ -430,7 +442,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //}
                 Session["POLIZA"] = objPoliza;
                 Session["POLIZA_MOVIMIENTO"] = prPolmov;
-                Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzain.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
+                Response.Redirect("~/Sitio/Vista/ValidacionProduccion/wpr_polizacobranza.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
+                //Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzain.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
             }
         }
 

@@ -22,6 +22,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 int idMovimiento = int.Parse(base.Request.QueryString["val"]);
                 this.Buscar(idPoliza, idMovimiento);
                 //this.fc_reg.Value = DateTime.Today.Date.ToShortDateString();
+
+                pnlCuotas.Visible = false;
+                btnCuotas.Visible = true;
+                btnGuardar.Visible = false;
             }
         }
 

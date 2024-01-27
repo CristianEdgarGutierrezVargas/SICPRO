@@ -416,7 +416,7 @@
                      <div class="col-md-2">      
                          
                      </div>
-                     <div class="col-md-8"> 
+                     <div class="col-md-8" runat="server" id="pnlCuotas"> 
                          <div class="panel-group">
                           <div class="panel panel-default">
                             <div class="panel-body">Cuotas de la Poliza</div>
@@ -480,11 +480,11 @@
         
                     </div>
                     <div class="col-md-7">   
-                        <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                        <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click" CausesValidation="false"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" CausesValidation="false"></dx:ASPxButton>
                         <dx:ASPxButton ID="btnCuotasPoliza" runat="server" Text="Guardar Poliza y Cuotas" CssClass="msg_button_class" OnClick="btnCuotasPoliza_Click" ValidationGroup="form_wgr_poliza"></dx:ASPxButton>
                        
-                        <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click" CausesValidation="false"></dx:ASPxButton>
                     </div>
                 </div>
 

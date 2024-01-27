@@ -33,11 +33,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 id_poliza.Value = num.ToString();
                 id_mov.Value = num1.ToString();
 
-                var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
-                cmbProducto.DataSource = lstProducto;
-                cmbProducto.TextField = "desc_prod";
-                cmbProducto.ValueField = "id_producto";
-                cmbProducto.DataBind();
+                
 
                 var consumoValidar= _objConsumoValidarProd.ObtenerPolizaNRI(num, num1);
                 if (consumoValidar != null)
@@ -65,6 +61,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 txtMatAseg.Value = consumoValidar.mat_aseg;                                  
                 cmbProducto.Value = consumoValidar.id_producto.ToString();
 
+                    var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
+                    cmbProducto.DataSource = lstProducto;
+                    cmbProducto.TextField = "desc_prod";
+                    cmbProducto.ValueField = "id_producto";
+                    cmbProducto.DataBind();
                 }
             }
             
