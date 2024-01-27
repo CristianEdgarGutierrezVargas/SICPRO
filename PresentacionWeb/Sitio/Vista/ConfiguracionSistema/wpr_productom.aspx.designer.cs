@@ -33,6 +33,15 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::System.Web.UI.WebControls.DropDownList id_producto;
 
         /// <summary>
+        /// operar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField operar;
+
+        /// <summary>
         /// id_riesgo control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,24 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::System.Web.UI.WebControls.TextBox form_riesgo1;
 
         /// <summary>
+        /// Hform_riesgo1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Hform_riesgo1;
+
+        /// <summary>
+        /// ib1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ib1;
+
+        /// <summary>
         /// form_riesgo2 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,24 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox form_riesgo2;
+
+        /// <summary>
+        /// Hform_riesgo2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Hform_riesgo2;
+
+        /// <summary>
+        /// ib2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ib2;
 
         /// <summary>
         /// btnnuevo control.
@@ -114,13 +159,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         protected global::DevExpress.Web.ASPxButton btnnuevo;
 
         /// <summary>
-        /// btnguardarr control.
+        /// btnguardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnguardarr;
+        protected global::DevExpress.Web.ASPxButton btnguardar;
 
         /// <summary>
         /// btnsalir control.
@@ -130,5 +175,50 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnsalir;
+
+        /// <summary>
+        /// lblmensajeGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblmensajeGuardar;
+
+        /// <summary>
+        /// popUpValidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpValidacion;
+
+        /// <summary>
+        /// lblerror control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblerror;
+
+        /// <summary>
+        /// popUpConfirmacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpConfirmacion;
+
+        /// <summary>
+        /// lblMensajePop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblMensajePop;
     }
 }

@@ -394,7 +394,7 @@
                                                         	Administración de Riesgos</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wpr_listaanur.aspx">
                                                         <i class="fas fa-window-close text-primary "></i>
                                                         	Rehabilitación de Poliza Anulada</a>
                                                 </li>
@@ -409,7 +409,7 @@
                                                         	Registro de Parametros</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ConfiguracionSistema/wgr_acceso.aspx">
                                                         <i class="fas fa-window-close text-primary "></i>
                                                         	Administración de Accesos por Rol</a>
                                                 </li>
