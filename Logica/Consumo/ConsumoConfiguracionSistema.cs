@@ -4,6 +4,7 @@ using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -368,17 +369,60 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
-
-        public List<gr_persona> TablaProductoL(string busqueda, out List<gr_compania> listCompania)
+        public List<pr_producto> TablaProductoL(string busqueda, string desc_prod)
         {
             try
             {
-                listCompania = null;
-                return null;//_manejador_pr_producto.(busqueda, out listCompania);
+                return _manejador_pr_producto.TablaProductoL(busqueda, desc_prod);
             }
             catch (SecureExceptions secureException)
             {
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<pr_riesgo> ObtenerRiesgo()
+        {
+            try
+            {
+                return _manejador_pr_producto.ObtenerRiesgo();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<pr_producto> ObtenerTablaProducto(string varbusqueda)
+        {
+            try
+            {
+                return _manejador_pr_producto.ObtenerTablaProducto(varbusqueda);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<pr_formriesgo> ObtenerFormRiesgo(string id_spvs, long id_producto)
+        {
+            try
+            {
+                var idSpvs = _manejador_pr_producto.ObtenerFormRiesgo(id_spvs, id_producto);
+                return idSpvs;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void ModificarFormRiesgo(pr_formriesgo item)
+        {
+            try
+            {
+                _manejador_pr_producto.ModificarFormRiesgo(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
     }

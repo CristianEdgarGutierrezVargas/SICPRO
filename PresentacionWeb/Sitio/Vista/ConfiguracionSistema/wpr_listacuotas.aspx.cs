@@ -100,7 +100,6 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.grdListaCompania.DataSource = lstData;
             }
         }
-
         protected void grdListaCompania_SelectionChanged(object sender, EventArgs e)
         {
             var grilla = (DevExpress.Web.ASPxGridView)sender;
@@ -113,7 +112,6 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             this.nomco.Text = objeto.ToString();
             popupBusquedaCompania.ShowOnPageLoad = false;
         }
-
         protected void pnlCallBackBuscaCompania_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
             logicaConfiguracion = new ConsumoConfiguracionSistema();
@@ -130,32 +128,90 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                     abrev = listCompania[i].abrev_cia
                 });
             }
-            Session["LST_PER_COMPANIA"] = logicaConfiguracion.TablaPersona(e.Parameter);
-            this.grdListaPersona.DataSource = Session["LST_PER_COMPANIA"];
-            this.grdListaPersona.DataBind();
+            Session["LST_PER_COMPANIA"] = listGrilla;
+            this.grdListaCompania.DataSource = listGrilla;
+            this.grdListaCompania.DataBind();
         }
-
-        private void CargaGrillaProducto(string busqueda)
-        {
-            var listPersona = new List<gridCompania>();//logicaConfiguracion.TablaProductoL(busqueda.ToUpper());
-            Session["LST_PERSONA"] = listPersona;
-            grdListaPersona.DataSource = listPersona;
-            grdListaPersona.DataBind();
-        }
-
         protected void pnlCallBackBuscaProducto_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
-
+            logicaConfiguracion = new ConsumoConfiguracionSistema();
+            Session["LST_PRODUCTO"] = logicaConfiguracion.TablaProductoL(id_spvs.Value.ToString(), e.Parameter.ToUpper());
+            this.grdListaProducto.DataSource = Session["LST_PRODUCTO"];
+            this.grdListaProducto.DataBind();
         }
-
         protected void grdListaProducto_DataBinding(object sender, EventArgs e)
         {
-
+            var lstData = (List<pr_producto>)Session["LST_PRODUCTO"];
+            if (lstData != null)
+            {
+                this.grdListaProducto.DataSource = lstData;
+            }
         }
-
         protected void grdListaProducto_SelectionChanged(object sender, EventArgs e)
         {
+            var grilla = (DevExpress.Web.ASPxGridView)sender;
+            var lista = grilla.GetSelectedFieldValues("id_producto");
+            var objeto = (string)lista[0];
+            this.id_producto.Value = objeto.ToString();
 
+            lista = grilla.GetSelectedFieldValues("desc_prod");
+            objeto = (string)lista[0];
+            this.desc_producto.Text = objeto.ToString();
+
+            popupBusquedaProducto.ShowOnPageLoad = false;
+        }
+        protected void btnserprod_Click(object sender, EventArgs e)
+        {
+            if (this.nomco.Text == "")
+            {
+                lblerror.Text = "Seleccione una Compañia Existente";
+                popUpValidacion.ShowOnPageLoad = true;
+            }
+            else
+            {
+                var listProducto = logicaConfiguracion.TablaProductoL(id_spvs.Value.ToString(), this.desc_producto.Text.ToUpper());
+                Session["LST_PRODUCTO"] = listProducto;
+                grdListaProducto.DataSource = listProducto;
+                grdListaProducto.DataBind();
+                popupBusquedaProducto.ShowOnPageLoad = true;
+            }
+        }
+        protected void Datos()
+        {
+            if (!this.vigencia.Checked & this.num_poliza.Text == "" & this.nomraz.Text == "" & this.nomco.Text == "" & this.desc_producto.Text == "" & !this.porvencer.Checked)
+            {
+                lblerror.Text = "Introduzca Criterios de Búsqueda";
+                popUpValidacion.ShowOnPageLoad = true;
+            }
+            else
+            {
+                //pr_cuotas prCuotas = new pr_cuotas();
+                //string str = this.Request.QueryString["var"];
+                //prCuotas.vigencia = this.vigencia;
+                //prCuotas.vigencia.Checked = this.vigencia.Checked;
+                //prCuotas.porvencer = this.porvencer;
+                //prCuotas.porvencer.Checked = this.porvencer.Checked;
+                //prCuotas.num_poliza = this.num_poliza;
+                //prCuotas.id_perclie = this.id_per;
+                //prCuotas.id_spvs = this.id_spvs;
+                //prCuotas.id_producto = this.id_producto;
+                //prCuotas.fc_inivig = this.fc_inivig;
+                //prCuotas.fc_finivig = this.fc_finvig;
+                //prCuotas.fc_finvig = this.fc_polizavencida;
+                //prCuotas.lblmensaje = this.lblmensaje;
+                //prCuotas.a = this.ap;
+                //prCuotas.b = this.bp;
+                //prCuotas.RecuperaTabla();
+                //this.gridpoliza.DataSource = (object)prCuotas.ObtenerTablaPoliza();
+                //this.gridpoliza.DataBind();
+                //this.gridcontainer.Visible = true;
+            }
+        }
+
+
+        protected void btnnuevo_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("wpr_listacuotas.aspx");
         }
     }
 }

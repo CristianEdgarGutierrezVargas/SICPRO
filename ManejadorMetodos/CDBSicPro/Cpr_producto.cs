@@ -44,7 +44,6 @@ namespace ManejadorMetodos.CDBSicPro
             }
             return null;
         }
-
         //public DataTable ObtenerTablaProducto(int varbusqueda)
         //{
         //    try
@@ -80,7 +79,6 @@ namespace ManejadorMetodos.CDBSicPro
             }
             return sql;
         }
-
         public pr_producto ObtenerProducto(long varbusqueda)
         {
             try
@@ -93,13 +91,11 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
-
         public List<pr_riesgo> ObtenerRiesgo()
         {
             try
             {
-                //string sentenciaSQL = "SELECT pr_riesgo.id_riesgo, pr_riesgo.desc_riesgo FROM pr_riesgo
-                //UNION SELECT '-1', ' SELECCIONE UNA OPCIÓN' ORDER BY desc_riesgo";
+                //string sql = "SELECT pr_riesgo.id_riesgo, pr_riesgo.desc_riesgo FROM pr_riesgo UNION SELECT '-1', ' SELECCIONE UNA OPCIÓN' ORDER BY desc_riesgo";
                 var sql = _context.pr_riesgo.ToList();
 
                 if (sql == null)
@@ -120,7 +116,6 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
-
         public bool ExisteProducto(string desc_prod, string abrev_prod)
         {
             bool flag;
@@ -156,6 +151,80 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+        public List<pr_producto> TablaProductoL(string id_spvs, string desc_prod)
+        {
+            try
+            {
+                //string[] strArrays = new string[] { "SELECT pr_producto.id_producto, pr_producto.desc_prod FROM pr_formriesgo INNER JOIN pr_producto ON (pr_formriesgo.id_producto = pr_producto.id_producto) WHERE pr_formriesgo.id_spvs = '", varbusqueda, "' AND pr_producto.desc_prod LIKE '%", desc_prod, "%' ORDER BY desc_prod" };
+                //(string varbusqueda, string desc_prod)
+                var list = (from formriesgo in _context.pr_formriesgo
+                           join producto in _context.pr_producto on formriesgo.id_producto equals producto.id_producto
+                           where formriesgo.id_spvs==id_spvs && producto.desc_prod.Contains(desc_prod)
+                           orderby producto.desc_prod ascending
+                           select producto
+                           ).ToList();
 
+                           //pr_formriesgo.id_spvs = '", varbusqueda, "' AND pr_producto.desc_prod LIKE '%", desc_prod, "%' ORDER BY desc_prod"
+                return list;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public List<pr_formriesgo> ObtenerFormRiesgo(string id_spvs, long id_producto)
+        {
+            try
+            {
+                //object[] idSpvs = new object[] { "SELECT pr_formriesgo.id_riesgo, pr_formriesgo.form_riesgo1, pr_formriesgo.form_riesgo2, pr_formriesgo.comis_riesgo, pr_formriesgo.opera, pr_formriesgo.evaluar, pr_formriesgo.por_cred, pr_formriesgo.plus_neta
+                //FROM pr_formriesgo
+                //WHERE pr_formriesgo.id_spvs = '", id_spvs, "' AND pr_formriesgo.id_producto = ", id_producto };
+                var sql = (from riesgo in _context.pr_formriesgo
+                           where riesgo.id_spvs == id_spvs && riesgo.id_producto == id_producto
+                           select riesgo
+                        ).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public void ModificarFormRiesgo(pr_formriesgo item)
+        {
+            try
+            {
+                //object[] selectedValue = new object[] { "UPDATE pr_formriesgo SET   id_riesgo='", this.id_riesgo.SelectedValue     , "'
+                //                                                                  , comis_riesgo=", this.comis_riesgo.Text.Replace(".", "").Replace(",", "."), "
+                //                                                                  , opera='", this.opera.SelectedValue, "'
+                //                                                                  , evaluar=", this.evaluar.Text.Replace(".", "").Replace(",", "."), "
+                //                                                                  , por_cred=", this.por_cred.Text.Replace(".", "").Replace(",", "."), "
+                //                                                                  , plus_neta=", this.plus_neta.Text.Replace(".", "").Replace(",", "."), "
+                //                                                                  , form_riesgo1 = '", this.form_riesgo1.Text, "'
+                //                                                                  , form_riesgo2 = '", this.form_riesgo2.Text, "'
+                //                                        WHERE  id_producto=", id_producto, " AND id_spvs='", this.id_spvs.SelectedValue, "'" };
+                var bdItem= (from riesgo in _context.pr_formriesgo
+                             where riesgo.id_producto==item.id_producto && riesgo.id_spvs==item.id_spvs
+                             select riesgo
+                            ).FirstOrDefault();
+                
+                bdItem.id_riesgo=item.id_riesgo;
+                bdItem.comis_riesgo =item.comis_riesgo;
+                bdItem.opera =item.opera;
+                bdItem.evaluar =item.evaluar;
+                bdItem.por_cred =item.por_cred;
+                bdItem.plus_neta =item.plus_neta;
+                bdItem.form_riesgo1 =item.form_riesgo1;
+                bdItem.form_riesgo2 =item.form_riesgo2;
+
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
     }
 }

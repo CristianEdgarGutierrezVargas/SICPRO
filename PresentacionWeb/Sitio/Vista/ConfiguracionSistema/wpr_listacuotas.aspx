@@ -67,10 +67,10 @@
                     </div>
                     <div class="col-2">
                         <asp:HiddenField ID="id_producto" runat="server" />
-                        <dx:ASPxButton ID="btnserprod" runat="server" Text="..." CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                            <ClientSideEvents Click="function(s, e) {
+                        <dx:ASPxButton ID="btnserprod" runat="server" Text="..." CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnserprod_Click">
+                                            <%--<ClientSideEvents Click="function(s, e) {
                                                         popupBusquedaProducto.Show();
-                                                    }" />
+                                                    }" />--%>
                         </dx:ASPxButton>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                     <div class="col-2">
                     </div>
                     <div class="col-2">
-                        <dx:ASPxButton ID="btnnuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnnuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnnuevo_Click"></dx:ASPxButton>
                     </div>
                     <div class="col-2">
                         <dx:ASPxButton ID="btnbuscar" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
@@ -280,7 +280,7 @@
                         <dx:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback">
                             <PanelCollection>
                                 <dx:PanelContent runat="server">
-                                    <dx:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
+                                    <dx:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_producto"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"
@@ -292,8 +292,8 @@
                                         Styles-Cell-Paddings-Padding="0"
                                         Styles-Cell-ForeColor="#15428b">
                                         <Columns>
-                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>
-                                            <dx:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
+                                            <dx:GridViewDataColumn Caption="ID." FieldName="id_producto" Visible="false"></dx:GridViewDataColumn>
+                                            <dx:GridViewDataColumn Caption="Lista de Productos" FieldName="desc_prod" Visible="true"></dx:GridViewDataColumn>
                                         </Columns>
                                         <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
                                             <FirstPageButton Visible="true"></FirstPageButton>
@@ -311,6 +311,31 @@
         </ContentCollection>
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_title_1.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popupBusquedaProducto.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
+
+    <dx:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validacion de datos" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
+        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_button_2.jpg" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_2.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        <p style="color: #990000; font-weight: bold">
+                            <dx:ASPxLabel ID="lblerror" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
+                        Para realizar la Busqueda de un Producto<br />
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
     </dx:ASPxPopupControl>
 </asp:Content>
