@@ -460,6 +460,22 @@ namespace Logica.Consumo
             }
         }
 
+
+        public List<pr_polmov> GetListPolMov()
+        {
+            try
+            {
+                return _manejador_pr_polmov.GetListPolMov();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
         #endregion
 
         #region gr_compania

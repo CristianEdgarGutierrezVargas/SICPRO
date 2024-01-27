@@ -701,6 +701,8 @@
     <Content Include="Sitio\Vista\Exceptions\Error.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wco_anticom.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wco_presprod.aspx" />
@@ -709,6 +711,9 @@
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom3.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom2.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx" />
+    <Content Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx" />
     <Content Include="Sitio\Vista\ModuloReclamos\wre_caso.aspx" />
     <Content Include="Sitio\Vista\ModuloReclamos\wre_cierrecaso.aspx" />
@@ -3063,6 +3068,20 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx.cs">
+      <DependentUpon>wpr_factura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx.designer.cs">
+      <DependentUpon>wpr_factura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx.cs">
+      <DependentUpon>wpr_liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx.designer.cs">
+      <DependentUpon>wpr_liquidacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx.cs">
       <DependentUpon>wco_modifactura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3118,6 +3137,27 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_listacom1.aspx.designer.cs">
       <DependentUpon>wpr_listacom1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx.cs">
+      <DependentUpon>wpr_polizacomisionex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionex.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomisionex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx.cs">
+      <DependentUpon>wpr_polizacomisionap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomisionap.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomisionap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx.cs">
+      <DependentUpon>wpr_polizacomision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloComisiones\wpr_polizacomision.aspx.designer.cs">
+      <DependentUpon>wpr_polizacomision.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloComisiones\wpr_recibocomisiones.aspx.cs">
       <DependentUpon>wpr_recibocomisiones.aspx</DependentUpon>
@@ -3334,21 +3374,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_concipagcia.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_contable1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_contable1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_desglosepago.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3823,39 +3848,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_cobsXfecha.xss">
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xsc">
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_comisionesxfecha.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_comisionesxfecha.xss">
-      <DependentUpon>re_comisionesxfecha.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xsc">
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_concipagcia.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_concipagcia.xss">
-      <DependentUpon>re_concipagcia.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_contable1.xsc">
-      <DependentUpon>re_contable1.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_contable1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_contable1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_contable1.xss">
-      <DependentUpon>re_contable1.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_desglosepago.xsc">
       <DependentUpon>re_desglosepago.xsd</DependentUpon>
     </Content>
@@ -4095,6 +4087,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

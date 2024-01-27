@@ -265,7 +265,7 @@
                   </div>
                   
                   <div class="row">                       
-                       <div class="col-md-12"> 
+                       <div class="col-md-12"  runat="server" id="pnlCuotas"> 
                            <div class="panel-group">
                             <div class="panel panel-default">
                               <div class="panel-body">Cuotas de la Poliza</div>

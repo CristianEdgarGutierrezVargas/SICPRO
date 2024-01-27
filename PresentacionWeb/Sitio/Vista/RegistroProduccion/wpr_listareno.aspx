@@ -270,7 +270,7 @@
                                 </Columns>
                                 <Templates>
                                     <DetailRow>
-                                        <div class="divScroll">
+                                        <div><%-- class="divScroll"--%>
                                             <div class="divDetails">
                                                 <div class="row">
                                                     <div class="col-12">

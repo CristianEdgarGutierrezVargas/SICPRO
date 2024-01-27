@@ -276,13 +276,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            Button _button = sender as Button;
-
-            BootstrapGridView _grid = _button.NamingContainer.NamingContainer.NamingContainer as BootstrapGridView;
-
-            var idPoliza  = _grid.GetRowValues(_grid.FocusedRowIndex, "id_poliza")?.ToString();
-            var idMovimiento = _grid.GetRowValues(_grid.FocusedRowIndex, "id_movimiento")?.ToString();
-            //var idPoliza = gridpoliza.GetRowValues(_grid.EditingRowVisibleIndex, "id_poliza").ToString();
+            Button control = (Button)sender;
+            GridViewDataItemTemplateContainer container = (GridViewDataItemTemplateContainer)control.NamingContainer;
+            var index = container.VisibleIndex;
+                        
+            var idPoliza  = gridpoliza.GetRowValues(index, "id_poliza")?.ToString();
+            var idMovimiento = gridpoliza.GetRowValues(index, "id_movimiento")?.ToString();
             Response.Redirect("wpr_polizareno.aspx?var=" + idPoliza + "&val=" + idMovimiento);
 
             //TextBox _textBox = _grid.GetDataItemControl(_grid.FocusedRowIndex, "CustomCode", "txtCustCode") as TextBox;

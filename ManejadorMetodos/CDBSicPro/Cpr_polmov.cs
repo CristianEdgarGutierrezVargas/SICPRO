@@ -48,7 +48,18 @@ namespace ManejadorMetodos.CDBSicPro
         //    id_clamov1.DataValueField = "id_par";
         //    id_clamov1.DataBind();
         //}
-
+        public List<pr_polmov> GetListPolMov()
+        {
+            try
+            {
+                var sql = _context.pr_polmov.ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
         public pr_polmov InsertarPolizaMovimiento(pr_polmov objPolizaMov)
         {
             using (var dbContextTransaction = _context.Database.BeginTransaction())
@@ -84,5 +95,24 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        //public string TempAP()
+        //{
+        //    try
+        //    {
+        //        var sql = _context.sq_aplitemp.FirstOrDefault(x => x.id_poliza == idPoliza && x.id_movimiento == idMovimiento);
+        //        return sql;
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", secureException);
+        //    }
+        //    //string sentenciaSQL = "select nextval('sq_aplitemp')";
+        //    //Acceso acceso = new Acceso();
+        //    //acceso.Conectar();
+        //    //acceso.CrearComando(sentenciaSQL);
+        //    //DataTable dataTable = acceso.Consulta();
+        //    //acceso.Desconectar();
+        //    //return "PT" + dataTable.Rows[0][0].ToString().PadLeft(5, '0');
+        //}
     }
 }

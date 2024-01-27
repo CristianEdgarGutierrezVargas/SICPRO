@@ -31,6 +31,9 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //this.fc_reg.Value = DateTime.Today.Date.ToShortDateString();
             }
             lblmensaje.Text = string.Empty;
+            pnlCuotas.Visible = false;
+            btnCuotas.Visible = true;
+            btnGuardar.Visible = false;
         }
 
         #region Metodos
@@ -100,7 +103,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wgr_listareno.aspx", false);
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_listareno.aspx", false);
         }
 
         protected void btnCuotas_Click(object sender, EventArgs e)
@@ -123,6 +126,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             grdCuotasPoliza.DataSource = lstCuotas;
             grdCuotasPoliza.DataBind();
+
+            pnlCuotas.Visible = true;
+            btnCuotas.Visible = false;
+            btnGuardar.Visible = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

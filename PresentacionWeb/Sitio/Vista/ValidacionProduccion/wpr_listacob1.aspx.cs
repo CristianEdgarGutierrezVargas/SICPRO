@@ -289,6 +289,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
             if (num == null)
                 return "";
+            if (Convert.ToInt32(num) == 0)
+                return "SIN GRUPO";
 
             string descGrupo = "";
             if (!string.IsNullOrEmpty(num.ToString()))

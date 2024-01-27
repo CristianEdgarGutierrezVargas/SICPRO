@@ -22,6 +22,10 @@ namespace Logica.Consumo
         private readonly Cgr_persona cgr_Persona;
         private readonly Cco_anticom cco_anticom;
         private readonly Cco_presprod cco_presprod;
+        private readonly Cvco_veripoliza1 _manejador_vco_veripoliza1;
+        private readonly Cvco_veripoliza2 _manejador_vco_veripoliza2;
+        private readonly Cvco_veripoliza3 _manejador_vco_veripoliza3;
+        private readonly Cgr_parametro _manejador_gr_parametro;
         public static sicproEntities dbContext;
         public ConsumoModComision()
         {
@@ -32,11 +36,77 @@ namespace Logica.Consumo
             cgr_Persona = new Cgr_persona(dbContext);
             cco_anticom=new Cco_anticom(dbContext);
             cco_presprod=new Cco_presprod(dbContext);
-
+            _manejador_vco_veripoliza1 = new Cvco_veripoliza1(dbContext);
+            _manejador_gr_parametro=new Cgr_parametro(dbContext);
+            _manejador_vco_veripoliza2 = new Cvco_veripoliza2(dbContext);
+            _manejador_vco_veripoliza3 = new Cvco_veripoliza3(dbContext);
         }
 
         #endregion
+        public List<vco_veripoliza1> VcoObtenerTablaPolizaNRI(string id_clamov, string num_poliza, string id_per, string id_spvs, string id_producto, bool vigencia, DateTime fc_inivig, DateTime fc_finvig, DateTime fc_polizavencida, bool porvencer)
+        {
 
+            try
+            {
+                var sql1 = _manejador_vco_veripoliza1.GetListVeripolizaByEstado(true).Where(x => x.id_clamov == Convert.ToInt64(id_clamov)).Select(x => x);
+                //  string sql1 = string.Concat("SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado='true'", sql);
+
+                //string sql = "";
+                if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).Select(x => x);
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (id_per != null & (id_per != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(id_per.ToUpper())).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+                if (id_spvs != null & (id_spvs != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(id_spvs)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+                if (id_producto != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_producto == Convert.ToInt64(id_producto)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+                if (vigencia && fc_inivig != null && fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= fc_inivig && x.fc_inivig <= fc_finvig).Select(x => x);
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (porvencer & fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= fc_polizavencida).Select(x => x);
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+
+                return sql1.ToList();
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public vco_veripoliza1 VcoObtenerPolizaNRI(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objPolizaMov = _manejador_vco_veripoliza1.VcoObtenerPolizaI(id_poliza, id_movimiento);
+
+                return objPolizaMov;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
         public pr_pagocompania InsertarPagoComp(pr_pagocompania objPagoComision)
         {
 
@@ -126,6 +196,21 @@ namespace Logica.Consumo
             {
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
 
+            }
+        }
+        public gr_parametro ObtenerParametro(long id_parametro)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ObtenerParametro(id_parametro);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
             }
         }
 
@@ -226,6 +311,135 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
-     
+
+        public List<vco_veripoliza2> VcoObtenerTablaPolizaNRI2(string id_clamov, string num_poliza, string id_per, string id_spvs, string id_producto, bool vigencia, DateTime fc_inivig, DateTime fc_finvig, DateTime fc_polizavencida, bool porvencer)
+        {
+
+            try
+            {
+                var sql1 = _manejador_vco_veripoliza2.GetListVeripolizaByEstado(true).Where(x => x.id_clamov == Convert.ToInt64(id_clamov)).Select(x => x);
+                //  string sql1 = string.Concat("SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado='true'", sql);
+
+                //string sql = "";
+                if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).Select(x => x);
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (id_per != null & (id_per != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(id_per.ToUpper())).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+                if (id_spvs != null & (id_spvs != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(id_spvs)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+                if (id_producto != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_producto == Convert.ToInt64(id_producto)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+                if (vigencia && fc_inivig != null && fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= fc_inivig && x.fc_inivig <= fc_finvig).Select(x => x);
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (porvencer & fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= fc_polizavencida).Select(x => x);
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+
+                return sql1.ToList();
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public vco_veripoliza2 VcoObtenerPolizaNRI2(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objPolizaMov = _manejador_vco_veripoliza2.VcoObtenerPolizaI(id_poliza, id_movimiento);
+
+                return objPolizaMov;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public List<vco_veripoliza3> VcoObtenerTablaPolizaNRI3(string id_clamov, string num_poliza, string id_per, string id_spvs, string id_producto, bool vigencia, DateTime fc_inivig, DateTime fc_finvig, DateTime fc_polizavencida, bool porvencer, bool estado)
+        {
+
+            try
+            {
+                var sql1 = _manejador_vco_veripoliza3.GetListVeripolizaByEstado(estado).Where(x => x.id_clamov == Convert.ToInt64(id_clamov)).Select(x => x);
+                //  string sql1 = string.Concat("SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado='true'", sql);
+
+                //string sql = "";
+                if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
+                {
+                    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).Select(x => x);
+                    // sql = string.Concat(sql, "AND num_poliza LIKE '%", num_poliza.ToUpper(), "%'");
+                }
+                if (id_per != null & (id_per != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_perclie.Contains(id_per.ToUpper())).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
+                }
+                if (id_spvs != null & (id_spvs != ""))
+                {
+                    sql1 = sql1.Where(x => x.id_spvs.Contains(id_spvs)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_spvs LIKE '%", id_spvs, "%'");
+                }
+                if (id_producto != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_producto == Convert.ToInt64(id_producto)).Select(x => x);
+                    //sql = string.Concat(sql, "AND id_producto=", id_producto);
+                }
+                if (vigencia && fc_inivig != null && fc_finvig != null)
+                {
+                    sql1 = sql1.Where(x => x.fc_inivig >= fc_inivig && x.fc_inivig <= fc_finvig).Select(x => x);
+                    //string[] strArrays = new string[] { sql, "AND fc_inivig BETWEEN '", Funciones.fc(fc_inivig), "' AND '", Funciones.fc(fc_polizavencida), "'" };
+                    //sql = string.Concat(strArrays);
+                }
+                if (porvencer & fc_polizavencida != null)
+                {
+                    sql1.Where(x => x.fc_finvig <= fc_polizavencida).Select(x => x);
+                    //sql = string.Concat(sql, "AND fc_finvig <= '", Funciones.fc(fc_polizavencida), "'");
+                }
+
+                return sql1.ToList();
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
+        public vco_veripoliza3 VcoObtenerPolizaNRI3(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objPolizaMov = _manejador_vco_veripoliza3.VcoObtenerPolizaI(id_poliza, id_movimiento);
+
+                return objPolizaMov;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

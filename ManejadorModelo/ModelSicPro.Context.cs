@@ -407,11 +407,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCobsxrango_Result>("GetReportCobsxrango", fecha_iniParameter, fecha_finParameter);
         }
     
-        public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
-        }
-    
         public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
         {
             var id_perclieParameter = id_perclie != null ?
@@ -494,6 +489,50 @@ namespace ManejadorModelo
         public virtual ObjectResult<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiqcomiejec3_Result>("GetReportLiqcomiejec3");
+        }
+    
+        public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
+        }
+    
+        public virtual ObjectResult<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin)
+        {
+            var fecha_iniParameter = fecha_ini.HasValue ?
+                new ObjectParameter("fecha_ini", fecha_ini) :
+                new ObjectParameter("fecha_ini", typeof(System.DateTime));
+    
+            var fecha_finParameter = fecha_fin.HasValue ?
+                new ObjectParameter("fecha_fin", fecha_fin) :
+                new ObjectParameter("fecha_fin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportComisionesxfecha_Result>("GetReportComisionesxfecha", fecha_iniParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<GetReportConcipagcia_Result> GetReportConcipagcia(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin, string id_spvs, Nullable<long> id_suc)
+        {
+            var fecha_iniParameter = fecha_ini.HasValue ?
+                new ObjectParameter("fecha_ini", fecha_ini) :
+                new ObjectParameter("fecha_ini", typeof(System.DateTime));
+    
+            var fecha_finParameter = fecha_fin.HasValue ?
+                new ObjectParameter("fecha_fin", fecha_fin) :
+                new ObjectParameter("fecha_fin", typeof(System.DateTime));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportConcipagcia_Result>("GetReportConcipagcia", fecha_iniParameter, fecha_finParameter, id_spvsParameter, id_sucParameter);
+        }
+    
+        public virtual ObjectResult<GetReportContable1_Result> GetReportContable1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportContable1_Result>("GetReportContable1");
         }
     }
 }

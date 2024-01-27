@@ -267,12 +267,12 @@
                                                         		Entrega de Recibos</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 "  href="/Sitio/Vista/ModuloComisiones/wco_anticom.aspx">
                                                         <i class="fas fa-hand-holding-usd text-primary "></i>
                                                         		Registro Anticipo de Comisiones</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link  fs-9 rounded ps-3 " href="#">
+                                                    <a class="nav-link  fs-9 rounded ps-3 " href="/Sitio/Vista/ModuloComisiones/wco_presprod.aspx">
                                                         <i class="fas fa-list-alt text-primary "></i>
                                                         			Presupuesto de Producción</a>
                                                 </li>

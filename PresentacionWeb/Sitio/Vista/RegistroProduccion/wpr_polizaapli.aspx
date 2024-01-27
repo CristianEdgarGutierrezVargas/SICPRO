@@ -11,9 +11,9 @@
          <div class="container">
           <div class="row">
             <div class="col-md-3">      
-                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Polizas"></asp:Label></h1>
+                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Aplicacion de Polizas"></asp:Label></h1>
                 <div class="entry">
-                    <img src="../../../UI/img/renovar.png" alt="" width="128" height="128" class="left">
+                    <img src="../../../UI/img/aplicacion.png" alt="" width="128" height="128" class="left">
                 </div>      
             </div>    
             <div class="col-md-9">
@@ -86,10 +86,11 @@
                       <div class="col-md-3">      
                          <span>Fin Vigencia:</span>
                       </div>
-                      <div class="col-md-3">      
-                          <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
+                      <div class="col-md-3">  
+                          <asp:Label ID="lblFinVigencia" runat="server" Text=""></asp:Label>
+                          <%--<dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
                             <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                    <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                              </ValidationSettings>  
                                <ClientSideEvents Init="function(s,e){  
@@ -99,7 +100,7 @@
                                                           fc_finvig.SetMinDate(new Date(dt3));  
                                                           fc_finvig.SetMaxDate(new Date(dt2));  
                                                        }" /> 
-                        </dx:BootstrapDateEdit>
+                          </dx:BootstrapDateEdit>--%>
                       </div>
                   </div>
 
@@ -282,7 +283,7 @@
                   </div>
               
                   <div class="row">                       
-                       <div class="col-md-12"> 
+                       <div class="col-md-12" runat="server" id="pnlCuotas"> 
                            <div class="panel-group">
                             <div class="panel panel-default">
                               <div class="panel-body">Cuotas de la Poliza</div>

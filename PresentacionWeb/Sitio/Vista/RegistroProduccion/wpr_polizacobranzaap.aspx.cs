@@ -164,23 +164,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             lblNroPoliza.Text = objPoliza.num_poliza;
             txtNroLiquidacion.Text = objPolmov.no_liquida;
-            lblAsegurado.Text = objPersona.nomraz;
-            lblDireccion.Text = objDireccion.direccion;
-            lblGrupo.Text = objGrupo.desc_grupo;
+            lblAsegurado.Text = "";//objPersona.nomraz;
+            lblDireccion.Text = "";// objDireccion.direccion;
+            lblGrupo.Text = "";// objGrupo.desc_grupo;
             //lblCiaAseg.Text = ;
 
-            lblProducto.Text = objProducto.desc_prod;
+            lblProducto.Text = "";// objProducto.desc_prod;
 
             var itemFuncionario = cmbEjecutivo.Items.FindByValue(objPolmov.id_perejec);
             if (itemFuncionario != null)
             {
                 cmbEjecutivo.SelectedItem = itemFuncionario;
             }
-            lblAgente.Text = objPersonaAgente.nomraz;
+            lblAgente.Text = "";// objPersonaAgente.nomraz;
             lblTipoPoliza.Text = objPoliza.clase_poliza == true ? "Normal" : "Flotante";
             txtPrimaBruta.Text = Convert.ToString(objPolmov.prima_bruta);
             txtNumCuotas.Text = Convert.ToString(objPolmov.num_cuota);
-            lblDivisa.Text = objParametroDivisa.desc_param;
+            lblDivisa.Text = "";// objParametroDivisa.desc_param;
 
             txtMatAseg.Text = objPolmov.mat_aseg;
 

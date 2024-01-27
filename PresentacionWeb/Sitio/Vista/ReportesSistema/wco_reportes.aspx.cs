@@ -44,15 +44,17 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCompaniaClientes.ValueField = "id_spvs";
                 cmbCompaniaClientes.TextField = "nomraz";
                 cmbCompaniaClientes.DataBind();
-
-                cmbCompaniaClientes.SelectedIndex = 0;
+                var itemSelecCompaniaCli = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCompaniaClientes.Items.Add(itemSelecCompaniaCli);
+                //cmbCompaniaClientes.SelectedIndex = 0;
 
                 cmbCarteraClientes.DataSource = lstPersona60;
                 cmbCarteraClientes.ValueField = "id_per";
                 cmbCarteraClientes.TextField = "nomraz";
                 cmbCarteraClientes.DataBind();
-
-                cmbCarteraClientes.SelectedIndex = 0;
+                var itemSelecCarteraCli = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCarteraClientes.Items.Add(itemSelecCarteraCli);
+                //cmbCarteraClientes.SelectedIndex = 0;
 
 
                 #endregion
@@ -63,29 +65,34 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCompaniaVcmto.ValueField = "id_spvs";
                 cmbCompaniaVcmto.TextField = "nomraz";
                 cmbCompaniaVcmto.DataBind();
+                var itemSelecCompaniaVcm = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCompaniaVcmto.Items.Add(itemSelecCompaniaVcm);
 
-                cmbCompaniaVcmto.SelectedIndex = 0;
+                //cmbCompaniaVcmto.SelectedIndex = 0;
 
                 cmbCarteraVcmto.DataSource = lstPersona60;
                 cmbCarteraVcmto.ValueField = "id_per";
                 cmbCarteraVcmto.TextField = "nomraz";
                 cmbCarteraVcmto.DataBind();
-
-                cmbCarteraVcmto.SelectedIndex = 0;
+                var itemSelecCarteraVcm = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCarteraVcmto.Items.Add(itemSelecCarteraVcm);
+                //cmbCarteraVcmto.SelectedIndex = 0;
 
                 cmbSucursalVcmto.DataSource = sucursal;
                 cmbSucursalVcmto.TextField = "desc_param";
                 cmbSucursalVcmto.ValueField = "id_par";
                 cmbSucursalVcmto.DataBind();
-
-                cmbSucursalVcmto.SelectedIndex = 0;
+                var itemSelecSucursalVcm = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalVcmto.Items.Add(itemSelecSucursalVcm);
+                //cmbSucursalVcmto.SelectedIndex = 0;
 
                 cmbGrupoVcmto.DataSource = lstGrupo;
                 cmbGrupoVcmto.ValueField = "id_gru";
                 cmbGrupoVcmto.TextField = "desc_grupo";
                 cmbGrupoVcmto.DataBind();
-
-                cmbGrupoVcmto.SelectedIndex = 0;
+                var itemSelecGrupoVcm = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbGrupoVcmto.Items.Add(itemSelecGrupoVcm);
+                //cmbGrupoVcmto.SelectedIndex = 0;
                 #endregion
 
                 #region pagos
@@ -94,8 +101,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbSucursalPagos.TextField = "desc_param";
                 cmbSucursalPagos.ValueField = "id_par";
                 cmbSucursalPagos.DataBind();
-
-                cmbSucursalPagos.SelectedIndex = 0;
+                var itemSelecSucursalPagos = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalPagos.Items.Add(itemSelecSucursalPagos);
+                //cmbSucursalPagos.SelectedIndex = 0;
 
 
                 #endregion
@@ -106,15 +114,17 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCompaniaEstado.ValueField = "id_spvs";
                 cmbCompaniaEstado.TextField = "nomraz";
                 cmbCompaniaEstado.DataBind();
-
-                cmbCompaniaEstado.SelectedIndex = 0;
+                var itemSelecCompaniaEst = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbCompaniaEstado.Items.Add(itemSelecCompaniaEst);
+                //cmbCompaniaEstado.SelectedIndex = 0;
 
                 cmbSucursalEstado.DataSource = sucursal;
                 cmbSucursalEstado.TextField = "desc_param";
                 cmbSucursalEstado.ValueField = "id_par";
                 cmbSucursalEstado.DataBind();
-
-                cmbSucursalEstado.SelectedIndex = 0;
+                var itemSelecSucursalEst = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalEstado.Items.Add(itemSelecSucursalEst);
+                //cmbSucursalEstado.SelectedIndex = 0;
 
                 #endregion
 
@@ -124,8 +134,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbSucursalReimp.TextField = "desc_param";
                 cmbSucursalReimp.ValueField = "id_par";
                 cmbSucursalReimp.DataBind();
-
-                cmbSucursalReimp.SelectedIndex = 0;
+                var itemSelecSucursalReimp = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalReimp.Items.Add(itemSelecSucursalReimp);
+                //cmbSucursalReimp.SelectedIndex = 0;
 
                 #endregion
 
@@ -135,8 +146,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbSucursalCobranza.TextField = "desc_param";
                 cmbSucursalCobranza.ValueField = "id_par";
                 cmbSucursalCobranza.DataBind();
-
-                cmbSucursalCobranza.SelectedIndex = 0;
+                var itemSelecSucursalCob = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalCobranza.Items.Add(itemSelecSucursalCob);
+                //cmbSucursalCobranza.SelectedIndex = 0;
 
                 #endregion
 
@@ -146,8 +158,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbSucursalRecibos.TextField = "desc_param";
                 cmbSucursalRecibos.ValueField = "id_par";
                 cmbSucursalRecibos.DataBind();
-
-                cmbSucursalRecibos.SelectedIndex = 0;
+                var itemSelecSucursalRec = new BootstrapListEditItem { Text = "SELECCIONE...", Value = "", Selected = true, Index = 0 };
+                cmbSucursalRecibos.Items.Add(itemSelecSucursalRec);
+                //cmbSucursalRecibos.SelectedIndex = 0;
 
                 #endregion
             }
@@ -291,8 +304,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         protected void btnGenerarReporteVcmto_Click(object sender, EventArgs e)
         {
             
-            var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
-            var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
+            var ci = Convert.ToString(cmbCompaniaVcmto.SelectedItem.Value);
+            var ca = Convert.ToString(cmbCarteraVcmto.SelectedItem.Value);
             var isuc = Convert.ToString(cmbSucursalVcmto.SelectedItem.Value);
             var gr = Convert.ToString(cmbGrupoVcmto.SelectedItem.Value);
 
