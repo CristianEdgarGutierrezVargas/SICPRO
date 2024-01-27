@@ -86,10 +86,11 @@
                       <div class="col-md-3">      
                          <span>Fin Vigencia:</span>
                       </div>
-                      <div class="col-md-3">      
-                          <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
+                      <div class="col-md-3">  
+                          <asp:Label ID="lblFinVigencia" runat="server" Text=""></asp:Label>
+                          <%--<dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
                             <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
                                    <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                              </ValidationSettings>  
                                <ClientSideEvents Init="function(s,e){  
@@ -99,7 +100,7 @@
                                                           fc_finvig.SetMinDate(new Date(dt3));  
                                                           fc_finvig.SetMaxDate(new Date(dt2));  
                                                        }" /> 
-                        </dx:BootstrapDateEdit>
+                          </dx:BootstrapDateEdit>--%>
                       </div>
                   </div>
 

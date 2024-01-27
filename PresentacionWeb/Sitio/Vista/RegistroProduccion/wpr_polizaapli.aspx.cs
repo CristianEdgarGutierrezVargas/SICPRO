@@ -69,6 +69,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     lblDivisa.Text = objDataCompletaRenPoliza.objParametroDivisa.desc_param;
 
                     txtMatAseg.Text = string.Empty;
+                    lblFinVigencia.Text = objDataCompletaRenPoliza.objRenovar.fc_finvig.ToShortDateString();
                 }
 
             }
@@ -119,6 +120,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             grdCuotasPoliza.DataSource = lstCuotas;
             grdCuotasPoliza.DataBind();
+
+            pnlCuotas.Visible = true;
+            btnCuotas.Visible = false;
+            btnGuardar.Visible = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -130,7 +135,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolizaMovimiento.id_perejec = Convert.ToString(cmbEjecutivo.SelectedItem.Value);
             objPolizaMovimiento.fc_emision = fc_emision.Date;
             objPolizaMovimiento.fc_inivig = fc_inivig.Date;
-            objPolizaMovimiento.fc_finvig = fc_finvig.Date;
+            objPolizaMovimiento.fc_finvig = objData.objRenovar.fc_finvig;//fc_finvig.Date;
             objPolizaMovimiento.prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
             objPolizaMovimiento.prima_neta = 0;
             objPolizaMovimiento.por_comision = 0;
@@ -163,7 +168,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var idPoliza = objPolizaMovimiento.id_poliza;
             var idMovimiento = objPolizaMovimiento.id_movimiento;
             var idClaMov = objPolizaMovimiento.id_clamov;
-            Response.Redirect("../ValidacionProduccion/wpr_polizacobranzaap.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
+            Response.Redirect("../RegistroProduccion/wpr_polizacobranzaap.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
         }
     }
 }

@@ -51,13 +51,13 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_inivig;
 
         /// <summary>
-        /// Control fc_finvig.
+        /// Control lblFinVigencia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fc_finvig;
+        protected global::System.Web.UI.WebControls.Label lblFinVigencia;
 
         /// <summary>
         /// Control lblNroPoliza.

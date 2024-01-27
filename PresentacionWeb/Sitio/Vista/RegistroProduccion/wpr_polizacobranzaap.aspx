@@ -367,8 +367,8 @@
     
                       </div>
                       <div class="col-md-7">   
-                          <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
+                          <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click" CausesValidation="false"></dx:ASPxButton>
+                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" CausesValidation="false"></dx:ASPxButton>                          
                           <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
                            <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
                      
