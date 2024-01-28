@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -205,7 +206,21 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-
+        public vcb_veripoliza2 ObtenerPolizaAp(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var sql = _context.vcb_veripoliza2.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento);//.FirstOrDefault();
+                //string sentenciaSQL = "SELECT * FROM vcb_veripoliza2 WHERE vcb_veripoliza2.id_poliza = " + id_poliza + " AND vcb_veripoliza2.id_movimiento=" + id_movimiento;
+                return sql.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+                
         public GetBisa_Result Bisa(string id_spvs, long id_poliza, long id_movimiento)
         {
             try
@@ -236,7 +251,33 @@ namespace ManejadorMetodos.CDBSicPro
         //    return acceso.Consulta();
         //}
 
+        public decimal? Prima_Neta1(int id_poliza, int id_movimiento, string id_spvs, double numCuota, decimal primaNeta)
+        {
+            double num = numCuota;
+            num += -1.0;
+            decimal num2 = primaNeta;
+            decimal? num3 = 0;
+            if (num == 0.0)
+            {
+                num3 = num2;
+            }
+            else
+            {
+                var response  = Bisa(id_spvs,id_poliza, id_movimiento);
+                decimal? num4 = response.cuota_total_t;// double.Parse(dataTable.Rows[0][0].ToString());
+                num3 = num2 - num4;
+            }
 
+            return num3;
+        }
+
+        public double Comision_Neta1(int id_poliza, int id_movimiento, string id_spvs,double comision)
+        {
+            var dataTable = Bisa(id_spvs, id_poliza, id_movimiento);
+            double num = dataTable.num_cuota;// double.Parse(dataTable.Rows[0][1].ToString());
+            //return (num * double.Parse(por_comision.Text) / 100.0).ToString();
+            return (num * comision / 100.0);
+        }
         public pr_formriesgo ComisionTotal(string id_spvs, long id_producto)
         {
             try

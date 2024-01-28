@@ -39,5 +39,30 @@ namespace ManejadorMetodos.CDBSicPro
                 }
             }
         }
+
+        public SavePrNumAplicas_Result InsertarSpNumAplicas(pr_numaplicas objNumAplicas)
+        {
+            //using (var dbContextTransaction = _context.Database.BeginTransaction())
+            //{
+                try
+                {
+                    var sql = _context.SavePrNumAplicas(
+                        objNumAplicas.id_poliza
+                        , objNumAplicas.id_movimiento
+                        , objNumAplicas.del
+                        , objNumAplicas.al
+                        , objNumAplicas.id_mom
+                        ).FirstOrDefault();
+                    //dbContextTransaction.Commit();
+                    return sql;
+                }
+                catch (Exception ex)
+                {
+                    //dbContextTransaction.Rollback();
+                    return null;
+                }
+            //}
+        }
+
     }
 }

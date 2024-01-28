@@ -88,7 +88,6 @@ namespace ManejadorModelo
         public virtual DbSet<vcb_telfsclie> vcb_telfsclie { get; set; }
         public virtual DbSet<vcb_totalpago> vcb_totalpago { get; set; }
         public virtual DbSet<vcb_veripoliza1> vcb_veripoliza1 { get; set; }
-        public virtual DbSet<vcb_veripoliza2> vcb_veripoliza2 { get; set; }
         public virtual DbSet<vcb_veripoliza3> vcb_veripoliza3 { get; set; }
         public virtual DbSet<vcm_comicap> vcm_comicap { get; set; }
         public virtual DbSet<vcm_comicobrada> vcm_comicobrada { get; set; }
@@ -128,6 +127,7 @@ namespace ManejadorModelo
         public virtual DbSet<zrep> zrep { get; set; }
         public virtual DbSet<zrep_estcta1> zrep_estcta1 { get; set; }
         public virtual DbSet<pr_pagocompania> pr_pagocompania { get; set; }
+        public virtual DbSet<vcb_veripoliza2> vcb_veripoliza2 { get; set; }
     
         [DbFunction("sicproEntities", "findcheque")]
         public virtual IQueryable<findcheque_Result> findcheque(string cheque, string id_spvs)
@@ -243,19 +243,6 @@ namespace ManejadorModelo
                 new ObjectParameter("id_movimiento", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBisa_Result>("GetBisa", id_spvsParameter, id_polizaParameter, id_movimientoParameter);
-        }
-    
-        public virtual ObjectResult<GetReportMemo_Result> GetReportMemo(Nullable<long> id_poliza, Nullable<long> id_movimiento)
-        {
-            var id_polizaParameter = id_poliza.HasValue ?
-                new ObjectParameter("id_poliza", id_poliza) :
-                new ObjectParameter("id_poliza", typeof(long));
-    
-            var id_movimientoParameter = id_movimiento.HasValue ?
-                new ObjectParameter("id_movimiento", id_movimiento) :
-                new ObjectParameter("id_movimiento", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo_Result>("GetReportMemo", id_polizaParameter, id_movimientoParameter);
         }
     
         public virtual int pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
@@ -533,6 +520,44 @@ namespace ManejadorModelo
         public virtual ObjectResult<GetReportContable1_Result> GetReportContable1()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportContable1_Result>("GetReportContable1");
+        }
+    
+        public virtual ObjectResult<SavePrNumAplicas_Result> SavePrNumAplicas(Nullable<long> id_poliza, Nullable<long> id_movimiento, Nullable<decimal> del, Nullable<decimal> al, Nullable<long> id_mom)
+        {
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            var id_movimientoParameter = id_movimiento.HasValue ?
+                new ObjectParameter("id_movimiento", id_movimiento) :
+                new ObjectParameter("id_movimiento", typeof(long));
+    
+            var delParameter = del.HasValue ?
+                new ObjectParameter("del", del) :
+                new ObjectParameter("del", typeof(decimal));
+    
+            var alParameter = al.HasValue ?
+                new ObjectParameter("al", al) :
+                new ObjectParameter("al", typeof(decimal));
+    
+            var id_momParameter = id_mom.HasValue ?
+                new ObjectParameter("id_mom", id_mom) :
+                new ObjectParameter("id_mom", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SavePrNumAplicas_Result>("SavePrNumAplicas", id_polizaParameter, id_movimientoParameter, delParameter, alParameter, id_momParameter);
+        }
+    
+        public virtual ObjectResult<GetReportMemo_Result> GetReportMemo(Nullable<long> id_poliza, Nullable<long> id_movimiento)
+        {
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            var id_movimientoParameter = id_movimiento.HasValue ?
+                new ObjectParameter("id_movimiento", id_movimiento) :
+                new ObjectParameter("id_movimiento", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo_Result>("GetReportMemo", id_polizaParameter, id_movimientoParameter);
         }
     }
 }

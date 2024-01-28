@@ -831,6 +831,48 @@ namespace Logica.Consumo
             }
         }
 
+        public oc_data_vcb_veripoliza2 ObtenerDataCompletaPolizaAp(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objDataVrenovar = new oc_data_vcb_veripoliza2();
+                var v_poliza = _manejador_pr_cobranzas.ObtenerPolizaAp(id_poliza, id_movimiento);
+                if (v_poliza != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_poliza.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_poliza.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_poliza.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_poliza.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_poliza.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_poliza.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_poliza.id_div);
+
+                    objDataVrenovar.objPersona = objPersona;
+                    objDataVrenovar.objGrupo = objGrupo;
+                    objDataVrenovar.objProducto = objProducto;
+                    objDataVrenovar.objCompania = objCompania;
+                    objDataVrenovar.objDireccion = objDireccion;
+                    objDataVrenovar.objPersonaAgente = objPersonaAgente;
+                    objDataVrenovar.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataVrenovar.objDataPoliza = v_poliza;
+                return objDataVrenovar;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+
         public decimal Prima_Neta(string id_spvs, long id_poliza, long id_movimiento, decimal num_cuota, decimal prima_neta)
         {
             var num = num_cuota;
@@ -1088,7 +1130,7 @@ namespace Logica.Consumo
                 });
                 var response = _manejador_pr_cuota_poliza.InsertarLstCuotaPoliza(lstCuotaPoliza);
                 objNumAplicas.id_movimiento = objResponsePolMov.id_movimiento;
-                var objResponmNumAplicas = _manejador_pr_num_aplicas.InsertarNumAplicas(objNumAplicas);
+                var objResponmNumAplicas = _manejador_pr_num_aplicas.InsertarSpNumAplicas(objNumAplicas);//_manejador_pr_num_aplicas.InsertarNumAplicas(objNumAplicas);
 
                 return true;
                 //string sentenciaSQL = "INSERT INTO pr_polmov VALUES (" + id_poliza.Value + ",default,'" 

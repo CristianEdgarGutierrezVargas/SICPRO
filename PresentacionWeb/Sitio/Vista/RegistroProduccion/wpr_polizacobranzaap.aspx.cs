@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.Bootstrap;
+using DevExpress.XtraExport.Helpers;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static EntidadesClases.CustomModelEntities.OC_DATA_FORM;
 
 namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
@@ -28,24 +30,25 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
                 CargaInicial(idPoliza, idMov);
             }
-            re_memo_report.Visible = false;
+           
         }
 
         #region Metodos
 
         private void Movimiento(string mov)
         {
-            if (mov == "44")
+            if (mov == "47")
             {
-                titulo.Text = "Datos de Poliza Incluida (Módulo de Cobranzas)";
-                //this.id_clamov.Value = "44";
+                this.titulo.Text = "Datos de Poliza Aplicada (Módulo de Cobranzas)";
+                //this.id_clamov.Value = "47";
             }
         }
         private void CargaInicial(long idPoliza, long idMov)
         {
-            var objResponse = _objConsumoRegistroProd.ObtenerPolizaI(idPoliza, idMov);
+            var objResponseData = _objConsumoRegistroProd.ObtenerDataCompletaPolizaAp(idPoliza, idMov);
             pr_poliza objPoliza = new pr_poliza();
             var objPolmov = new pr_polmov();
+            var objResponse = objResponseData.objDataPoliza;
             if (objResponse == null)
             {
                 //    var objResponseData = _objConsumoRegistroProd.GetDataVeriPoliza(idPoliza, idMov);
@@ -91,7 +94,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
             else
             {
-                Session["vcb_veripoliza1"] = objResponse;
+                Session["vcb_veripoliza2"] = objResponse;
 
                 objPoliza.id_poliza = objResponse.id_poliza;
                 objPoliza.num_poliza = objResponse.num_poliza;
@@ -164,23 +167,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             lblNroPoliza.Text = objPoliza.num_poliza;
             txtNroLiquidacion.Text = objPolmov.no_liquida;
-            lblAsegurado.Text = "";//objPersona.nomraz;
-            lblDireccion.Text = "";// objDireccion.direccion;
-            lblGrupo.Text = "";// objGrupo.desc_grupo;
+            lblAsegurado.Text = objPersona.nomraz;
+            lblDireccion.Text = objDireccion == null? string.Empty: objDireccion.direccion;
+            lblGrupo.Text = objGrupo == null? string.Empty: objGrupo.desc_grupo;
             //lblCiaAseg.Text = ;
 
-            lblProducto.Text = "";// objProducto.desc_prod;
+            lblProducto.Text = objProducto.desc_prod;
 
             var itemFuncionario = cmbEjecutivo.Items.FindByValue(objPolmov.id_perejec);
             if (itemFuncionario != null)
             {
                 cmbEjecutivo.SelectedItem = itemFuncionario;
             }
-            lblAgente.Text = "";// objPersonaAgente.nomraz;
+            lblAgente.Text = objPersonaAgente.nomraz;
             lblTipoPoliza.Text = objPoliza.clase_poliza == true ? "Normal" : "Flotante";
             txtPrimaBruta.Text = Convert.ToString(objPolmov.prima_bruta);
             txtNumCuotas.Text = Convert.ToString(objPolmov.num_cuota);
-            lblDivisa.Text = "";// objParametroDivisa.desc_param;
+            lblDivisa.Text = objParametroDivisa.desc_param;
 
             txtMatAseg.Text = objPolmov.mat_aseg;
 
@@ -191,7 +194,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         private void CalculaGrilla()
         {
-            var objDataPoliza = (vcb_veripoliza1)Session["vcb_veripoliza1"];
+            var objDataPoliza = (vcb_veripoliza2)Session["vcb_veripoliza2"];
             for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
             {
                 var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
@@ -287,6 +290,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    return;
             //}
         }
+
+
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -340,8 +345,32 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnMemo_Click(object sender, EventArgs e)
         {
-            re_memo_report.Visible = true;
-            re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
+            var objVeriPoliza2 = (vcb_veripoliza2)Session["vcb_veripoliza2"];
+            var idPoliza = objVeriPoliza2.id_poliza;
+            var idMovimiento = objVeriPoliza2.id_movimiento;
+            //re_memo_report.Visible = true;
+            //re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
+            //ifrReport.Visible = true;
+
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=1" +
+                "&p=" + idPoliza +
+                "&m=" + idMovimiento
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
+
+        protected void grdCuotasPoliza_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = grdCuotasPoliza.SelectedIndex;
+            var dtFechaPago = (BootstrapDateEdit)grdCuotasPoliza.Rows[index].Cells[1].FindControl("dtFechaPago");
+            var txtCuotaTotal = (TextBox)grdCuotasPoliza.Rows[index].Cells[2].FindControl("txtCuotaTotal");
+            var txtCuotaNeta = (TextBox)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
+            var txtComision = (TextBox)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
+
+
+        }
+
+
     }
 }

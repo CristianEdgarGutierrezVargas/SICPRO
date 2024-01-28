@@ -141,7 +141,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolizaMovimiento.por_comision = 0;
             objPolizaMovimiento.id_div = objData.objRenovar.id_div;
             objPolizaMovimiento.num_cuota = Convert.ToDouble(txtNumCuotas.Text);
-            objPolizaMovimiento.id_clamov = objData.objRenovar.id_clamov;
+            objPolizaMovimiento.id_clamov = 47;// objData.objRenovar.id_clamov;
             objPolizaMovimiento.estado = "PRODUCCION";
             objPolizaMovimiento.id_dir = objData.objRenovar.id_dir;
             objPolizaMovimiento.fc_recepcion = fc_recepcion.Date;
