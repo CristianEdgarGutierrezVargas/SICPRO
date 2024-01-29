@@ -86,20 +86,21 @@
                       <div class="col-md-3">      
                          <span>Fin Vigencia:</span>
                       </div>
-                      <div class="col-md-3">      
-                          <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
-                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                            <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                   <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
-                             </ValidationSettings>  
-                               <ClientSideEvents Init="function(s,e){  
-                                                          var dt1 = new Date();  
-                                                          var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                          var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
-                                                          fc_finvig.SetMinDate(new Date(dt3));  
-                                                          fc_finvig.SetMaxDate(new Date(dt2));  
-                                                       }" /> 
-                        </dx:BootstrapDateEdit>
+                      <div class="col-md-3">
+                          <asp:Label ID="lblFinVigencia" runat="server" Text=""></asp:Label>
+                         <%-- <dx:BootstrapDateEdit ID="fc_finvig" ClientInstanceName="fc_finvig" runat="server" Width="100%">
+                                <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">
+                                       <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                 </ValidationSettings>  
+                                   <ClientSideEvents Init="function(s,e){  
+                                                              var dt1 = new Date();  
+                                                              var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                              var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                              fc_finvig.SetMinDate(new Date(dt3));  
+                                                              fc_finvig.SetMaxDate(new Date(dt2));  
+                                                           }" /> 
+                            </dx:BootstrapDateEdit>--%>
                       </div>
                   </div>
 
@@ -216,6 +217,10 @@
                                       <td style="width: 160px; height: 18px">          
                                           <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float" ValidationGroup="form_wgr_poliza">
                                               <SpinButtons ShowLargeIncrementButtons="true" />
+                                              <CssClasses Input="form-control-sm fs-10" />
+                                                <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                                    <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                                </ValidationSettings>
                                           </dx:BootstrapSpinEdit>
          
                                       </td>
@@ -223,7 +228,11 @@
                                           <span>Nº Cuotas:</span>
                                       </td>
                                       <td style="width: 70px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="1" MaxValue="12" Increment="1" NumberType="Float" ValidationGroup="form_wgr_poliza">    
+                                          <dx:BootstrapSpinEdit ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="1" MaxValue="40" Increment="1" NumberType="Float" ValidationGroup="form_wgr_poliza">    
+                                              <CssClasses Input="form-control-sm fs-10" />
+                                              <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                                  <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                              </ValidationSettings>
                                           </dx:BootstrapSpinEdit>
   
                                       </td>
@@ -264,7 +273,7 @@
                   </div>
           
                   <div class="row">                       
-                       <div class="col-md-12"> 
+                       <div class="col-md-12" runat="server" id="pnlCuotas"> 
                            <div class="panel-group">
                             <div class="panel panel-default">
                               <div class="panel-body">Cuotas de la Poliza</div>

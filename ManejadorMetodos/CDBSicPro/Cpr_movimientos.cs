@@ -1,4 +1,5 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using Common;
+using EntidadesClases.ModelSicPro;
 using ManejadorModelo;
 using System;
 using System.Collections.Generic;
@@ -235,6 +236,63 @@ namespace ManejadorMetodos.CDBSicPro
         //        return false;
         //    }
         //}
+        public vpr_polincluvar ObtenerInPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                var response = _context.vpr_polincluvar.Where(w => w.id_poliza == id_poliza & w.id_movimiento == id_movimiento).FirstOrDefault();
+                _context.SaveChanges();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        public vpr_polexcluvar1 ObtenerExPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                var response = _context.vpr_polexcluvar1.Where(w => w.id_poliza == id_poliza & w.id_movimiento == id_movimiento).FirstOrDefault();
+                _context.SaveChanges();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        public vpr_polanuvar ObtenerAnPoliza(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                var response = _context.vpr_polanuvar.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento).FirstOrDefault();
+                _context.SaveChanges();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+        public decimal? ObtenerTotalCuotas(int id_poliza)
+        {
+            try
+            {
+                var response = _context.GetTotalCuotas(id_poliza).FirstOrDefault();                
+                return response;                
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", original);
+            }
+        }
 
     }
 }

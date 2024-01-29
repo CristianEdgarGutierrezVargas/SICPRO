@@ -159,7 +159,83 @@ namespace ManejadorMetodos.CDBSicPro
                     return false;
                 }
             }
-        }       
+        }
 
+        public List<pr_polmov> DatosPolizaEA(long id_mom, long longIdPoliza)
+        {
+            try
+            {
+                var sql = _context.pr_polmov.Where(w=>w.id_mom == id_mom && w.id_poliza == longIdPoliza 
+                //&& w.id_clamov != 46 &&w.id_clamov != 49 
+                ).OrderBy(ob=>ob.id_movimiento).ToList();
+                return sql;
+                //string sentenciaSQL = "SELECT pr_polmov.no_liquida, pr_polmov.id_movimiento FROM pr_polmov " +
+                
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al generear la Consulta", original);
+            }
+        }
+
+        public List<pr_cuotapoliza> ListaC(long id_poliza, long id_mov)
+        {
+            try
+            {
+                var sql = _context.pr_cuotapoliza.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_mov).OrderBy(ob => ob.cuota).ToList();
+                return sql;                
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al generear la Consulta", original);
+            }
+            //string sentenciaSQL = "SELECT to_char(pr_cuotapoliza.cuota,'99') AS cuota1, pr_cuotapoliza.cuota FROM pr_cuotapoliza" +
+            //    " WHERE id_poliza =" + id_poliza + " AND id_movimiento=" + id_mov + " " +
+            //    "UNION SELECT 'SEL. UNA OPCIÓN', -1 order by cuota";
+
+        }
+
+        public GetBuscarCuotaPolizaC_Result BuscarCuotaPolizaC(int id_poliza, int id_mov, int cuota)
+        {
+            try
+            {
+                var sql = _context.GetBuscarCuotaPolizaC(id_poliza, id_mov, cuota).FirstOrDefault();
+                return sql;
+
+                //string sentenciaSQL = "SELECT pr_cuotapoliza.cuota, pr_cuotapoliza.fecha_pago" +
+                //    ", pr_cuotapoliza.cuota_total, pr_cuotapoliza.cuota_neta, pr_cuotapoliza.cuota_comis" +
+                //    ", pr_cuotapoliza.cuota_pago, COALESCE(sum(pr_devolucion.monto_devolucion),0) AS monto_devolucion" +
+                //    ", COALESCE(sum(pr_excluida.monto_exclusion),0) AS monto_exclusion" +
+                //    ", COALESCE(SUM(pr_excluida.neta_exclusion),0) AS neta_exclusion" +
+                //    ", COALESCE(SUM(pr_excluida.comision_exclusion),0) AS comision_exclusion " +
+                //    "FROM pr_cuotapoliza LEFT OUTER JOIN pr_excluida " +
+                //    "ON (pr_cuotapoliza.id_poliza = pr_excluida.id_poliza) " +
+                //    "AND (pr_cuotapoliza.id_movimiento = pr_excluida.id_movimiento)" +
+                //    " AND (pr_cuotapoliza.cuota = pr_excluida.excluye_cuota) " +
+                //    "LEFT OUTER JOIN pr_devolucion ON (pr_excluida.id_poliza = pr_devolucion.id_poliza) " +
+                //    "AND (pr_excluida.id_movimiento = pr_devolucion.id_movimiento) " +
+                //    "AND (pr_excluida.id_excluye = pr_devolucion.id_devolucion) " +
+                //    "AND (pr_excluida.excluye_cuota = pr_devolucion.cuota_devolucion) " +
+                //    "WHERE pr_cuotapoliza.id_poliza =" + id_poliza + " " +
+                //    "AND pr_cuotapoliza.id_movimiento=" + id_mov + " AND pr_cuotapoliza.cuota = " + cuota + " GROUP BY pr_cuotapoliza.cuota, pr_cuotapoliza.fecha_pago, pr_cuotapoliza.cuota_total, pr_cuotapoliza.cuota_neta, pr_cuotapoliza.cuota_comis,  pr_cuotapoliza.cuota_pago";
+                //Acceso acceso = new Acceso();
+                //acceso.Conectar();
+                //acceso.CrearComando(sentenciaSQL);
+                //DataTable dataTable = acceso.Consulta();
+                //acceso.Desconectar();
+                //if (dataTable.Rows.Count > 0)
+                //{
+                //    fecha_pago.Text = dataTable.Rows[0]["fecha_pago"].ToString().Substring(0, 10);
+                //    cuota_total.Text = (double.Parse(dataTable.Rows[0]["cuota_total"].ToString()) + double.Parse(dataTable.Rows[0]["monto_exclusion"].ToString())).ToString();
+                //    cuota_neta1.Value = (double.Parse(dataTable.Rows[0]["cuota_neta"].ToString()) + double.Parse(dataTable.Rows[0]["neta_exclusion"].ToString())).ToString();
+                //    cuota_comis1.Value = (double.Parse(dataTable.Rows[0]["cuota_comis"].ToString()) + double.Parse(dataTable.Rows[0]["comision_exclusion"].ToString())).ToString();
+                //    cuota_pago.Text = (double.Parse(dataTable.Rows[0]["cuota_pago"].ToString()) + double.Parse(dataTable.Rows[0]["monto_devolucion"].ToString())).ToString();
+                //}
+            }
+            catch (SecureExceptions original)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", original);
+            }
+        }
     }
 }

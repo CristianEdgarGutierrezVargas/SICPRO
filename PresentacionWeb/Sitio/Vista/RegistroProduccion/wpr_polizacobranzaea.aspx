@@ -5,9 +5,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
+     <script>
+     function openModal() {
+         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+         myModal.show();
+     }
+     </script>
     <div class="post">
        <div>                    
 
+        <asp:HiddenField ID="id_clamov" runat="server" />
+        <asp:HiddenField ID="por_pagar" runat="server" />
         <div class="container">
           <div class="row">
             <div class="col-md-3">      
@@ -160,16 +168,7 @@
                        <div class="col-md-9">      
                            <asp:Label ID="lblProducto" runat="server" Text=""></asp:Label>
                        </div>
-                   </div>
-              
-                  <div class="row">
-                       <div class="col-md-2">      
-                           <span>Tipo de Cartera :</span>
-                       </div>
-                       <div class="col-md-9">      
-                           <asp:Label ID="lblTipoCartera" runat="server" Text=""></asp:Label>
-                       </div>
-                   </div>
+                   </div>              
               
                   <div class="row">
                        <div class="col-md-2">      
@@ -204,89 +203,54 @@
                   </div>
               
                   <div class="row">
-                       <div class="col-md-2">      
-                           <span id="lblprima_bruta">Prima Total:</span>
-                       </div>
-                       <div class="col-md-9">      
-                              <table style="width: 100%;">
-                                  <tr>
-                                      <td style="width: 160px; height: 18px">          
-                                          <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
-                                              <SpinButtons ShowLargeIncrementButtons="true" />
-                                          </dx:BootstrapSpinEdit>
-             
-                                      </td>
-                                      <td style="width: 65px; height: 18px">
-                                          <span>Nº Cuotas:</span>
-                                      </td>
-                                      <td style="width: 70px; height: 18px">                                          
-                                          <dx:BootstrapSpinEdit ReadOnly="true" ID="txtNumCuotas" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="40" Increment="1" NumberType="Float">    
-                                          </dx:BootstrapSpinEdit>
-  
-                                      </td>
-                                      <td style="width: 45px; height: 18px">
-                                           <span>Divisa:</span>                            
-                                      </td>
-                                      <td style="width: 100px; height: 18px">
-                                         <asp:Label ID="lblDivisa" runat="server" Text=""></asp:Label>
-                                      </td>
-                                  </tr>
-      
-                              </table>
-                       </div>
+                        <div class="col-md-2">      
+                           <span>Prima Total:</span>
+                        </div>
+                        <div class="col-md-2">      
+                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                <SpinButtons ShowLargeIncrementButtons="true" />
+                            </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class="col-md-2">      
+                            <span>Divisa:</span>
+                        </div>
+                        <div class="col-md-2">      
+                            <asp:Label ID="lblDivisa" runat="server" Text=""></asp:Label>
+                        </div>                       
                    </div>
               
                   <div class="row">
                      <div class="col-md-2">      
                          <span>Prima Neta:</span>
                      </div>
-                     <div class="col-md-10">      
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td style="width: 160px; height: 18px">          
-                                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
-                                            <SpinButtons ShowLargeIncrementButtons="true" />
-                                        </dx:BootstrapSpinEdit>
-             
-                                    </td>
-                                    <td style="width: 65px; height: 18px">
-                                        <span>Porcentaje:</span>
-                                    </td>
-                                    <td style="width: 70px; height: 18px">                                          
-                                        <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
-                                        </dx:BootstrapSpinEdit>
-  
-                                    </td>
-                                    <td style="width: 45px; height: 18px">
-                                         <span>Comision:</span>                            
-                                    </td>
-                                    <td style="width: 100px; height: 18px">
-                                       <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
-                                        </dx:BootstrapSpinEdit>
-                                    </td>
-                                    <td style="width: 70px; height: 18px">
-                                        <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
-                                    </td>
-                                </tr>
-      
-                            </table>
+                     <div class="col-md-2">      
+                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                            <SpinButtons ShowLargeIncrementButtons="true" />
+                        </dx:BootstrapSpinEdit>
                      </div>
-                 </div>
-
+                  </div>
+                  
                   <div class="row">
                        <div class="col-md-2">      
-                           <span id="lbltipo_cuota">Forma de Pago</span>
+                           <span>Porcentaje:</span>
                        </div>
-                       <div class="col-md-9">      
-                           <dx:ASPxRadioButtonList ID="tipo_cuota" runat="server" RepeatDirection="Horizontal" Border-BorderStyle="None">
-                              <Items>
-                                  <dx:ListEditItem Text="Contado" Value="True" Selected></dx:ListEditItem>
-                                  <dx:ListEditItem Text="Crédito" Value="False"></dx:ListEditItem>
-                              </Items>
-                          </dx:ASPxRadioButtonList>
+                       <div class="col-md-2">      
+                            <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                            </dx:BootstrapSpinEdit>
+  
                        </div>
-                   </div>
-              
+                    </div>
+                    
+                  <div class="row">
+                       <div class="col-md-2">      
+                           <span>Comision:</span>
+                       </div>
+                       <div class="col-md-2">      
+                            <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
+                            </dx:BootstrapSpinEdit>
+                       </div>
+                  </div>                                     
+                                            
                   <div class="row">
                       <div class="col-md-2">      
                           <span id="lblmat_aseg">Mat. Asegurada:</span>
@@ -296,71 +260,128 @@
                       </div>
                   </div>
               
-                  <div class="row">                       
-                       <div class="col-md-12"> 
-                           <div class="panel-group">
-                            <div class="panel panel-default">
-                              <div class="panel-body">Cuotas de la Poliza</div>
+                  <asp:Panel ID="pnlDatosCobranza" runat="server">
+                    <fieldset>
+                      <legend><h4>Datos de Cobranza:</h4></legend>
+ 
+                      <div class="row">
+                         <div class="col-md-2">      
+                            <span>Nro Liquidacion:</span>
+                         </div>
+                         <div class="col-md-4">      
+                              <dx:BootstrapComboBox ID="cmbNroLiquidacion" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbNroLiquidacion_SelectedIndexChanged">
+                                  <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                  <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
+                                    <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                  </ValidationSettings>
+                              </dx:BootstrapComboBox>
+                         </div>
+                          <div class="col-md-2">      
+                               <span>Nro de Cuotas:</span>
                             </div>
-                            <div class="panel panel-default">
-                              <div class="panel-body">
-
-                                  <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
-                                      <Columns>
-                                          <asp:BoundField DataField="cuota" HeaderText="Cuota" >
-                                          <ControlStyle Width="20px" />
-                                          </asp:BoundField>
-                                          <asp:TemplateField HeaderText="Fecha Pago">
-                                              <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
-                                              </EditItemTemplate>
-                                              <ItemTemplate>
-                                                   <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="150px" 
-                                                       Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
-                                                       <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                                               <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
-                                                         </ValidationSettings>  
-                                                   </dx:BootstrapDateEdit>
-                                              </ItemTemplate>
-                                              <ControlStyle Width="50px" />
-                                          </asp:TemplateField>
-                                          <asp:TemplateField HeaderText="Cuota Total">
-                                              <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
-                                              </EditItemTemplate>
-                                              <ItemTemplate>                                                
-                                                  <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
-                                                      Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
-                                                      <SpinButtons ShowLargeIncrementButtons="true" />
-                                                  </dx:BootstrapSpinEdit>
-                                              </ItemTemplate>
-                                              <ControlStyle Width="50px" />
-                                          </asp:TemplateField>
-                                          <asp:BoundField DataField="cuota_neta" HeaderText="Cuota Neta">
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
-                                          <asp:BoundField DataField="cuota_comis" HeaderText="Comision" >
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
-                                      </Columns>
-                                      <FooterStyle BackColor="White" ForeColor="#000066" />
-                                      <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                                      <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                                      <RowStyle ForeColor="#000066" />
-                                      <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                                      <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                      <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                      <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                      <SortedDescendingHeaderStyle BackColor="#00547E" />
-                                  </asp:GridView>
-                              </div>
+                            <div class="col-md-4">      
+                                 <dx:BootstrapComboBox ID="cmbNroCuotas" runat="server" ValueType="System.String" Width="100%" OnSelectedIndexChanged="cmbNroCuotas_SelectedIndexChanged" AutoPostBack="True">
+                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="form_wgr_poliza" ErrorDisplayMode="ImageWithText" CausesValidation="false">
+                                       <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                     </ValidationSettings>
+                                 </dx:BootstrapComboBox>
                             </div>
-                          </div>
-       
-
-        
-                       </div>
-                   </div>
+                     </div>
+                      <div class="row">
+                            <div class="col-md-2">      
+                               <span>Fecha de Pago:</span>
+                            </div>
+                            <div class="col-md-4"> 
+                                <dx:BootstrapDateEdit ID="txtFechaPago" ClientInstanceName="txtFechaPago" runat="server" Width="100%">
+                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
+                                    <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="form_wgr_poliza">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                           <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                     </ValidationSettings>  
+                                       <ClientSideEvents Init="function(s,e){  
+                                                                  var dt1 = new Date();  
+                                                                  var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
+                                                                  var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                  txtFechaPago.SetMinDate(new Date(dt3));  
+                                                                  txtFechaPago.SetMaxDate(new Date(dt2));  
+                                                               }" /> 
+                                </dx:BootstrapDateEdit>
+                            </div>
+                             <div class="col-md-2">      
+                                  <span>Cuota:</span>
+                               </div>
+                               <div class="col-md-4">     
+                                    
+                                   <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                       <CssClasses Input="form-control-sm fs-10" />
+                                      <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">
+                                          <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                      </ValidationSettings>
+                                    </dx:BootstrapSpinEdit>
+                               </div>
+                        </div>
+                      <div class="row">
+                         <div class="col-md-2">      
+                            <span>Monto Pago:</span>
+                         </div>
+                         <div class="col-md-4">      
+                              <dx:BootstrapSpinEdit ID="txtMontoPago" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                  <CssClasses Input="form-control-sm fs-10" />
+                              </dx:BootstrapSpinEdit>
+                         </div>
+                          <div class="col-md-2">      
+                               <span>Monto Excluido:</span>
+                            </div>
+                            <div class="col-md-4">      
+                              <dx:BootstrapSpinEdit ID="txtMontoExcluido" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                  <CssClasses Input="form-control-sm fs-10" />
+                              </dx:BootstrapSpinEdit> 
+                            </div>
+                     </div>
+                      <div class="row">
+                         <div class="col-md-2">      
+                            <span>Monto Pago:</span>
+                         </div>
+                         <div class="col-md-4">      
+                              <dx:BootstrapSpinEdit ID="txtDevolucion" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                  <CssClasses Input="form-control-sm fs-10" />
+                              </dx:BootstrapSpinEdit>
+                         </div>
+                          <div class="col-md-2">      
+                               <dx:ASPxButton ID="btnVerificar" runat="server" Text="Verificar" CssClass="msg_button_class" OnClick="btnVerificar_Click" ></dx:ASPxButton>                                                    
+                            </div>
+                            <div class="col-md-4">      
+                               <dx:ASPxButton ID="btnCuotas" runat="server" Text="Guardar Cuota" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                                                    
+                            </div>
+                     </div>
+                      <div class="row">
+                        <div class="col-md-2">      
+                           <span>Exclusion Total:</span>
+                        </div>
+                        <div class="col-md-2">      
+                             <dx:BootstrapSpinEdit ID="txtExclusionTotal" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                 <CssClasses Input="form-control-sm fs-10" />
+                             </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class="col-md-2">      
+                              <span>Exclusion Neta:</span>
+                        </div>
+                        <div class="col-md-2">      
+                             <dx:BootstrapSpinEdit ID="txtExclusionNeta" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                 <CssClasses Input="form-control-sm fs-10" />
+                             </dx:BootstrapSpinEdit>
+                        </div>
+                        <div class="col-md-2">      
+                             <span>Comision Exclusion:</span>
+                        </div>
+                        <div class="col-md-2">      
+                            <dx:BootstrapSpinEdit ID="txtComisionExclusion" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                <CssClasses Input="form-control-sm fs-10" />
+                            </dx:BootstrapSpinEdit>
+                        </div>
+                    </div>
+                    </fieldset>
+                  </asp:Panel>
 
                   <div class="row">
                       <div class="col-md-4">      
@@ -368,13 +389,14 @@
                       </div>
                       <div class="col-md-7">   
                           <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
-                          <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
-                           <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
-                     
+                           <dx:ASPxButton ID="btnGuardar" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnGuardar_Click" ></dx:ASPxButton>                          
+                          
+                          <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
+                          <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
+                          
                       </div>
                   </div>
-
+            </div>
             </div>
           </div>
         </div>
@@ -385,12 +407,27 @@
        </div>
 
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <iframe id="re_memo_report" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
-                </div>
-            </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <iframe id="ifrReport" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+               </div>
+           </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+      </div>
     </div>
+  </div>
+</div>
+
 </asp:Content>

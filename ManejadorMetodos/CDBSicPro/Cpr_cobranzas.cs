@@ -220,7 +220,23 @@ namespace ManejadorMetodos.CDBSicPro
                 return null;
             }
         }
-                
+
+        public vcb_veripoliza3 ObtenerPolizaEA(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var sql = _context.vcb_veripoliza3.Where(w => w.id_poliza == id_poliza && w.id_movimiento == id_movimiento);//.FirstOrDefault();
+                //string sentenciaSQL = "SELECT * FROM vcb_veripoliza3 WHERE vcb_veripoliza3.id_poliza = " + id_poliza + " AND vcb_veripoliza3.id_movimiento=" + id_movimiento;                
+                return sql.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            
+        }
+
         public GetBisa_Result Bisa(string id_spvs, long id_poliza, long id_movimiento)
         {
             try

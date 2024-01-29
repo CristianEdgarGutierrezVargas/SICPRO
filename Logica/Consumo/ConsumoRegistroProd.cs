@@ -476,6 +476,7 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
         #endregion
 
         #region gr_compania
@@ -763,6 +764,54 @@ namespace Logica.Consumo
             }
         }
 
+        public List<pr_polmov> DatosPolizaEA(long id_mom, long longIdPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.DatosPolizaEA(id_mom, longIdPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<pr_cuotapoliza> ListaC(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.ListaC(id_poliza, id_movimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public GetBuscarCuotaPolizaC_Result BuscarCuotaPolizaC(int id_poliza, int id_mov, int cuota)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.BuscarCuotaPolizaC(id_poliza, id_mov, cuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region pr_cobranza
@@ -861,6 +910,47 @@ namespace Logica.Consumo
                 }
                 objDataVrenovar.objDataPoliza = v_poliza;
                 return objDataVrenovar;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public oc_data_vcb_veripoliza3 ObtenerDataCompletaPolizaEx(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objDataPoliza = new oc_data_vcb_veripoliza3();
+                var v_poliza = _manejador_pr_cobranzas.ObtenerPolizaEA(id_poliza, id_movimiento);
+                if (v_poliza != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_poliza.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_poliza.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_poliza.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_poliza.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_poliza.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_poliza.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_poliza.id_div);
+
+                    objDataPoliza.objPersona = objPersona;
+                    objDataPoliza.objGrupo = objGrupo;
+                    objDataPoliza.objProducto = objProducto;
+                    objDataPoliza.objCompania = objCompania;
+                    objDataPoliza.objDireccion = objDireccion;
+                    objDataPoliza.objPersonaAgente = objPersonaAgente;
+                    objDataPoliza.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataPoliza.objDataPoliza = v_poliza;
+                return objDataPoliza;
             }
             catch (SecureExceptions secureException)
             {
@@ -1101,7 +1191,132 @@ namespace Logica.Consumo
             }
         }
 
-        
+        public oc_data_vpr_polincluvar ObtenerDataCompletaPolIncluvar(int id_poliza, int id_movimiento)
+        {
+
+            try
+            {
+                var objDataPoliza = new oc_data_vpr_polincluvar();
+                var v_data = _manejador_pr_movimientos.ObtenerInPoliza(id_poliza, id_movimiento);
+                if (v_data != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_data.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_data.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_data.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_data.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_data.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_data.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_data.id_div);
+
+                    objDataPoliza.objPersona = objPersona;
+                    objDataPoliza.objGrupo = objGrupo;
+                    objDataPoliza.objProducto = objProducto;
+                    objDataPoliza.objCompania = objCompania;
+                    objDataPoliza.objDireccion = objDireccion;
+                    objDataPoliza.objPersonaAgente = objPersonaAgente;
+                    objDataPoliza.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataPoliza.objRenovar = v_data;
+                return objDataPoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public oc_data_vpr_polexcluvar1 ObtenerDataCompletaPolExcluvar(int id_poliza, int id_movimiento)
+        {
+
+            try
+            {
+                var objDataPoliza = new oc_data_vpr_polexcluvar1();
+                var v_data = _manejador_pr_movimientos.ObtenerExPoliza(id_poliza, id_movimiento);
+                if (v_data != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_data.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_data.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_data.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_data.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_data.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_data.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_data.id_div);
+
+                    objDataPoliza.objPersona = objPersona;
+                    objDataPoliza.objGrupo = objGrupo;
+                    objDataPoliza.objProducto = objProducto;
+                    objDataPoliza.objCompania = objCompania;
+                    objDataPoliza.objDireccion = objDireccion;
+                    objDataPoliza.objPersonaAgente = objPersonaAgente;
+                    objDataPoliza.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataPoliza.objPoliza = v_data;
+                return objDataPoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public oc_data_vpr_polanuvar ObtenerDataCompletaPolAnuvar(int id_poliza, int id_movimiento)
+        {
+
+            try
+            {
+                var objDataPoliza = new oc_data_vpr_polanuvar();
+                var v_data = _manejador_pr_movimientos.ObtenerAnPoliza(id_poliza, id_movimiento);
+                if (v_data != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_data.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_data.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_data.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_data.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_data.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_data.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_data.id_div);
+
+                    objDataPoliza.objPersona = objPersona;
+                    objDataPoliza.objGrupo = objGrupo;
+                    objDataPoliza.objProducto = objProducto;
+                    objDataPoliza.objCompania = objCompania;
+                    objDataPoliza.objDireccion = objDireccion;
+                    objDataPoliza.objPersonaAgente = objPersonaAgente;
+                    objDataPoliza.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataPoliza.objPoliza = v_data;
+                return objDataPoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public vpr_polaplivar ObtenerApPoliza(int id_poliza, int id_movimiento)
         {
             try
@@ -1276,6 +1491,23 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
         }
+
+        public decimal? ObtenerTotalCuotas(int id_poliza)
+        {
+            try
+            {
+                return _manejador_pr_movimientos.ObtenerTotalCuotas(id_poliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region recibos

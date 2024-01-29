@@ -75,6 +75,9 @@
     <Compile Include="ModelSicPro\GetBisa_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetBuscarCuotaPolizaC_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetDataVeriPoliza_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

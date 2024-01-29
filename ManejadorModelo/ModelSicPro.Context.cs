@@ -559,5 +559,31 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo_Result>("GetReportMemo", id_polizaParameter, id_movimientoParameter);
         }
+    
+        public virtual ObjectResult<GetBuscarCuotaPolizaC_Result> GetBuscarCuotaPolizaC(Nullable<decimal> cuota, Nullable<long> id_poliza, Nullable<long> id_movimiento)
+        {
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(decimal));
+    
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            var id_movimientoParameter = id_movimiento.HasValue ?
+                new ObjectParameter("id_movimiento", id_movimiento) :
+                new ObjectParameter("id_movimiento", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBuscarCuotaPolizaC_Result>("GetBuscarCuotaPolizaC", cuotaParameter, id_polizaParameter, id_movimientoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> GetTotalCuotas(Nullable<long> id_poliza)
+        {
+            var id_polizaParameter = id_poliza.HasValue ?
+                new ObjectParameter("id_poliza", id_poliza) :
+                new ObjectParameter("id_poliza", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetTotalCuotas", id_polizaParameter);
+        }
     }
 }

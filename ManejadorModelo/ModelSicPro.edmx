@@ -2566,6 +2566,11 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="GetBuscarCuotaPolizaC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cuota" Type="decimal" Mode="In" />
+          <Parameter Name="id_poliza" Type="bigint" Mode="In" />
+          <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="GetDataVeriPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
@@ -2628,6 +2633,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
         </Function>
         <Function Name="GetReportResumsiniestro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetReportResumsiniestro1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetTotalCuotas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_poliza" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4358,6 +4366,14 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <FunctionImport Name="GetReportMemo" ReturnType="Collection(sicproModel.GetReportMemo_Result)">
             <Parameter Name="id_poliza" Mode="In" Type="Int64" />
             <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetBuscarCuotaPolizaC" ReturnType="Collection(sicproModel.GetBuscarCuotaPolizaC_Result)">
+            <Parameter Name="cuota" Mode="In" Type="Decimal" />
+            <Parameter Name="id_poliza" Mode="In" Type="Int64" />
+            <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetTotalCuotas" ReturnType="Collection(Decimal)">
+            <Parameter Name="id_poliza" Mode="In" Type="Int64" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
@@ -7392,6 +7408,18 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="Decimal" Name="del" Nullable="true" Precision="5" Scale="0" />
           <Property Type="Decimal" Name="al" Nullable="true" Precision="5" Scale="0" />
         </ComplexType>
+        <ComplexType Name="GetBuscarCuotaPolizaC_Result">
+          <Property Type="Decimal" Name="cuota" Nullable="false" Precision="2" Scale="0" />
+          <Property Type="DateTime" Name="fecha_pago" Nullable="true" />
+          <Property Type="Decimal" Name="cuota_total" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="cuota_neta" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="cuota_comis" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="cuota_pago" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="monto_devolucion" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="monto_exclusion" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="neta_exclusion" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="comision_exclusion" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10037,6 +10065,23 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBuscarCuotaPolizaC" FunctionName="sicproModel.Store.GetBuscarCuotaPolizaC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetBuscarCuotaPolizaC_Result">
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="cuota_total" ColumnName="cuota_total" />
+                <ScalarProperty Name="cuota_neta" ColumnName="cuota_neta" />
+                <ScalarProperty Name="cuota_comis" ColumnName="cuota_comis" />
+                <ScalarProperty Name="cuota_pago" ColumnName="cuota_pago" />
+                <ScalarProperty Name="monto_devolucion" ColumnName="monto_devolucion" />
+                <ScalarProperty Name="monto_exclusion" ColumnName="monto_exclusion" />
+                <ScalarProperty Name="neta_exclusion" ColumnName="neta_exclusion" />
+                <ScalarProperty Name="comision_exclusion" ColumnName="comision_exclusion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTotalCuotas" FunctionName="sicproModel.Store.GetTotalCuotas" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
