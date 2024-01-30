@@ -11,9 +11,9 @@
          <div class="container">
           <div class="row">
             <div class="col-md-3">      
-                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Renovacion de Polizas"></asp:Label></h1>
+                <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Anulacion de Polizas"></asp:Label></h1>
                 <div class="entry">
-                    <img src="../../../UI/img/renovar.png" alt="" width="128" height="128" class="left">
+                    <img src="../../../UI/img/anular.png" alt="" width="128" height="128" class="left">
                 </div>      
             </div>    
             <div class="col-md-9">
@@ -218,7 +218,7 @@
                         <span id="lblprima_bruta">Prima Total Anulada:</span>
                     </div>
                     <div class="col-md-3">      
-                         <dx:BootstrapSpinEdit ID="txtPrimaTotalAnulada" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float" ValidationGroup="form_wgr_poliza">
+                         <dx:BootstrapSpinEdit ID="txtPrimaTotalAnulada" runat="server" Number="0" MinValue="0" MaxValue="100000" Increment="0.1" LargeIncrement="1" NumberType="Float" ValidationGroup="form_wgr_poliza">
                             <SpinButtons ShowLargeIncrementButtons="true" />
                              <CssClasses Input="form-control-sm fs-10" />
                                <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="form_wgr_poliza">

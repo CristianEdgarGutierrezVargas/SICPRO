@@ -143,5 +143,12 @@ namespace EntidadesClases.CustomModelEntities
 
             public gr_parametro objParametroDivisa { get; set; }
         }
+
+        public class PorcentajeComisionAnulacion 
+        {
+            public decimal por_neta { get; set; }
+
+            public decimal por_comision { get; set; }
+        }
     }
 }

@@ -1052,11 +1052,28 @@ namespace Logica.Consumo
         //    return (num * double.Parse(por_comision.Text) / 100.0).ToString();
         //}
 
-        #endregion
+        public PorcentajeComisionAnulacion Porcentuales(long idMovimiento)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Porcentuales(idMovimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
 
-        #region movimiento
+        }
 
-        public vpr_polrenovar ObtenerDatosRenPoliza(int id_poliza, int id_movimiento)
+            #endregion
+
+            #region movimiento
+
+            public vpr_polrenovar ObtenerDatosRenPoliza(int id_poliza, int id_movimiento)
         {
             try
             {
@@ -1456,35 +1473,41 @@ namespace Logica.Consumo
                 var responseActPoliza = _manejador_pr_poliza.ActualizarEstadoPoliza(objPrAnulada.id_poliza, false);
 
                 return true;
+
                 //string sentenciaSQL = "INSERT INTO pr_polmov " +
-                //    "VALUES (" + id_poliza.Value + ",default,'" + id_perejec.SelectedValue.ToString() + "','" 
-                //    + Funciones.fc(fc_emision.Text) + "','" + Funciones.fc(fc_inivig.Text) + "','" 
-                //    + Funciones.fc(fc_finvig.Text) + "'," + prima_bruta.Text.Replace(".", "").Replace(",", ".") 
-                //    + "*(-1)," + prima_neta.Value + "," + por_comision.Value + "," + comision.Value 
-                //    + "," + id_div1.Value + ",'" + variable + "',0," + id_clamov.Value + ",'" 
-                //    + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" 
-                //    + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" 
-                //    + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
-                //Acceso acceso = new Acceso();
-                //acceso.Conectar();
-                //acceso.CrearComando(sentenciaSQL);
-                //acceso.EjecutarComando();
-                //acceso.Desconectar();
-                //sentenciaSQL = "INSERT INTO pr_anulada VALUES(" + id_poliza.Value + "," +
-                //    "(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza " +
-                //    "FROM pr_poliza INNER JOIN pr_polmov " +
-                //    "ON (pr_poliza.id_poliza = pr_polmov.id_poliza) " +
-                //    "WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')," 
-                //    + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1))";
-                //acceso.Conectar();
-                //acceso.CrearComando(sentenciaSQL);
-                //acceso.EjecutarComando();
-                //acceso.Desconectar();
+                //    "VALUES (" + id_poliza.Value + "" +
+                //    ",default" +
+                //    ",'" + id_perejec.SelectedValue.ToString() + "'" +
+                //    ",'" + Funciones.fc(fc_emision.Text) + "'" +
+                //    ",'" + Funciones.fc(fc_inivig.Text) + "'" +
+                //    ",'" + Funciones.fc(fc_finvig.Text) + "'" +
+                //    "," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1)" +
+                //    "," + prima_neta.Value + "" +
+                //    "," + por_comision.Value + "" +
+                //    "," + comision.Value + "" +
+                //    "," + id_div1.Value + "" +
+                //    ",'" + variable + "'" +
+                //    ",0" +
+                //    "," + id_clamov.Value + "" +
+                //    ",'" + estado.Value + "'" +
+                //    "," + id_dir.Value + "" +
+                //    ",'" + Funciones.fc(fc_recepcion.Text) + "'" +
+                //    ",'" + mat_aseg.Text.ToUpper() + "'" +
+                //    ",'" + Funciones.fc(fc_reg.Value) + "'" +
+                //    ",'" + no_liquida.Text.ToUpper() + "'" +
+                //    "," + id_mom.Value + ")";
+
+                //sentenciaSQL = "INSERT INTO pr_anulada " +
+                //    "VALUES(" + id_poliza.Value + "" +
+                //    ",(SELECT MAX(pr_polmov.id_movimiento) AS numpoliza " +
+                //    "FROM pr_poliza " +
+                //    "INNER JOIN pr_polmov ON (pr_poliza.id_poliza = pr_polmov.id_poliza) " +
+                //    "WHERE pr_poliza.num_poliza = '" + num_poliza.Text.ToUpper() + "')" +
+                //    "," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1)" +
+                //    ")";
+
                 //sentenciaSQL = "UPDATE pr_poliza SET estado=false WHERE id_poliza=" + id_poliza.Value;
-                //acceso.Conectar();
-                //acceso.CrearComando(sentenciaSQL);
-                //acceso.EjecutarComando();
-                //acceso.Desconectar();
+
             }
             catch (SecureExceptions original)
             {
