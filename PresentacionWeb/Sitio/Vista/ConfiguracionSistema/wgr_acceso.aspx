@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <asp:ListBox ID="ListBox1" runat="server" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:200px;"></asp:ListBox>
+                            <asp:ListBox ID="lstcompo" runat="server" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:200px;"></asp:ListBox>
                         </div>
                     </div>
                 </div>
