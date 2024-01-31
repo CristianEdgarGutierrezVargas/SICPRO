@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.Bootstrap;
+using DevExpress.XtraReports;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static EntidadesClases.CustomModelEntities.OC_DATA_FORM;
 
 namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 {
@@ -28,8 +30,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //this.id_mov.Value = num1.ToString();
 
                 CargaInicial(idPoliza, idMov);
-            }
-            re_memo_report.Visible = false;
+            }            
         }
 
         #region Metodos
@@ -202,6 +203,45 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         //    //    return;
         //    //}
         //}
+
+        protected void Modificar()
+        {
+            var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+            //pr_cobranzas prCobranza = new pr_cobranzas()
+            //{
+            //    id_poliza = this.id_poliza,
+            //    neta_anulada = this.neta_anulada,
+            //    comision_anulada = this.comision_anulada,
+            //    lblmensaje = this.lblmensaje
+            //};
+            var objPrAnulada = new pr_anulada();
+            objPrAnulada.id_poliza = objDataCompletaPoliza.objDataPoliza.id_poliza;
+            objPrAnulada.id_movimiento = objDataCompletaPoliza.objDataPoliza.id_movimiento;
+            objPrAnulada.neta_anulada = Convert.ToDecimal(txtPrimaNeta.Text);
+            objPrAnulada.comision_anulada = Convert.ToDecimal(comision_anulada.Value);
+            if (lblDcAnexoDevol.Text == "0")            {
+               
+                _objConsumoRegistroProd.ModificarAnulacion(objPrAnulada);
+            }
+            //prCobranza.monto_devolucion1 = this.monto_devolucion;
+            //prCobranza.neta_devolucion = this.neta_devolucion;
+            //prCobranza.comision_devolucion = this.comision_devolucion;
+            if (lblDcAnexoDevol.Text != Convert.ToString(0))
+            {                
+                _objConsumoRegistroProd.ModificarAnulacion(objPrAnulada);
+
+                var objPrDevolucion = new pr_devolucion();
+                objPrDevolucion.id_poliza = objDataCompletaPoliza.objDataPoliza.id_poliza;
+                objPrDevolucion.id_movimiento = objDataCompletaPoliza.objDataPoliza.id_movimiento;
+                objPrDevolucion.cuota_devolucion = 0;
+                objPrDevolucion.monto_devolucion = Convert.ToDecimal(lblDcAnexoDevol.Text);
+                objPrDevolucion.neta_devolucion = Convert.ToDecimal(txtDcNetaDev.Text);
+                objPrDevolucion.comision_devolucion = Convert.ToDecimal(txtComision.Text);
+                objPrDevolucion.saldo_devolucion = Math.Abs(Convert.ToDecimal(lblDcAnexoDevol.Text));
+                _objConsumoRegistroProd.ModificarDevolucion(objPrDevolucion);
+            }
+        }
+
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -209,48 +249,94 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //LimpiarFormulario();
         }
 
-        protected void btnCuotas_Click(object sender, EventArgs e)
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //CalculaGrilla();
-            //var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
-            //var lstCuotas = GetDataCuotas(numeroCuotas);
-            //Session["LST_CUOTAS"] = lstCuotas;
+            var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+            var objPrPoliza = new pr_poliza();
+            objPrPoliza.num_poliza = objDataCompletaPoliza.objDataPoliza.num_poliza;
+            objPrPoliza.id_producto = objDataCompletaPoliza.objDataPoliza.id_producto;
+            objPrPoliza.id_perclie = objDataCompletaPoliza.objDataPoliza.id_perclie;
+            objPrPoliza.id_spvs = objDataCompletaPoliza.objDataPoliza.id_spvs;//objDataCompletaPoliza.objDataPoliza.num_poliza;
+            
+            objPrPoliza.id_gru = objDataCompletaPoliza.objDataPoliza.id_gru;
+            objPrPoliza.clase_poliza = objDataCompletaPoliza.objDataPoliza.clase_poliza;
+            objPrPoliza.id_percart = objDataCompletaPoliza.objDataPoliza.id_percart;
+           
+            var objPolmov = new pr_polmov();
+            objPolmov.id_perejec = Convert.ToString(cmbEjecutivo.SelectedItem.Value);
+            objPolmov.fc_emision = fc_emision.Date;
+            objPolmov.fc_inivig = fc_inivig.Date;
+            objPolmov.fc_finvig = objDataCompletaPoliza.objDataPoliza.fc_finvig;
+            objPolmov.prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            objPolmov.prima_neta = Convert.ToDecimal(txtPrimaNeta.Text);
+            objPolmov.por_comision = Convert.ToDecimal(txtPorcentaje.Text);
+            objPolmov.comision = Convert.ToDecimal(txtComision.Text);
 
-            //grdCuotasPoliza.DataSource = lstCuotas;
-            //grdCuotasPoliza.DataBind();
+            objPolmov.tipo_cuota = true;
+            objPolmov.num_cuota = 0;
+            objPolmov.id_clamov = 49;
+            objPolmov.estado = "COBRANZAS";
+            objPolmov.fc_recepcion = fc_recepcion.Date;
+            objPolmov.id_div = objDataCompletaPoliza.objDataPoliza.id_div;
 
-            ////int id = 0;
-            ////lstCoutasTest.ForEach(s =>
-            ////{
-            ////    s.id_movimiento = 3;                
-            ////    s.cuota = id++;
-            ////});           
+            var responsePolCea = _objConsumoRegistroProd.InsertarPolizaCEA(objPrPoliza);
+
+            var responseMovCea = _objConsumoRegistroProd.InsertarPolizaMovCEA1(objPolmov);
+
+            lblmensaje.Text = "Poliza Verificada";
         }
 
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
-            //pr_cobranzas prCobranza = new pr_cobranzas()
-            //{
-            //    id_spvs1 = this.id_spvs,
-            //    prima_bruta = this.prima_bruta,
-            //    id_producto = this.id_producto,
-            //    tipo_cuota = this.tipo_cuota
-            //};
-            var objPoliza = (pr_poliza)Session["POLIZA"];
-            var objPolmov = (pr_polmov)Session["POLIZA_MOVIMIENTO"];
+            txtComision.Text = string.Format("{0:n}", double.Parse(this.txtPorcentaje.Text.Replace(".", "").Replace(",", "")) / 100 / 100 * double.Parse(this.txtPrimaNeta.Text.Replace(".", "").Replace(",", "")) / 100);            
+        }
 
-            var id_spvs = objPoliza.id_spvs;
-            var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
-            var id_producto = objPoliza.id_producto;
-            var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
+        protected void btnDcCalcular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+                
+                var decPrimaBruta = Convert.ToDecimal(txtPrimaBruta.Text);
+                var idProducto = objDataCompletaPoliza.objDataPoliza.id_producto;
+                var idSpvs = objDataCompletaPoliza.objDataPoliza.id_spvs;
 
-            txtPrimaNeta.Text = _objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
-            txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
-            txtComision.Text = _objConsumoRegistroProd.Com3(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
-            //double.Parse(this.prima_neta.Text);
-            //this.prima_neta.Text = string.Format("{0:n}", double.Parse(this.prima_neta.Text));
-            //this.por_comision.Text = string.Format("{0:n}", double.Parse(this.por_comision.Text));
-            //this.comision.Text = string.Format("{0:n}", double.Parse(this.comision.Text));
+                var num = _objConsumoRegistroProd.Calculo1(decPrimaBruta, idProducto, idSpvs);
+
+                txtDcPrimaNeta.Text = Convert.ToString(num);
+                
+                double num1 = Math.Round(double.Parse(txtDcPrimaNeta.Text), 2);
+                //str.Text = num1.ToString();
+                txtDcPrimaNeta.Text = string.Format("{0:n}", double.Parse(txtDcPrimaNeta.Text));
+                //HiddenField comisionAnulada = this.comision_anulada;
+                var num2 = Math.Round(_objConsumoRegistroProd.Com2(decPrimaBruta, idProducto, idSpvs), 2);
+                comision_anulada.Value = num2.ToString();
+                //this.comision_anulada.Value = string.Format("{0:n}", double.Parse(this.comision_anulada.Value));
+                //TextBox netaDevolucion = this.neta_devolucion;
+                var num3 = Math.Round(_objConsumoRegistroProd.Calculo1(Convert.ToDecimal(lblDcAnexoDevol.Text),idProducto,idSpvs), 2);
+                txtDcNetaDev.Text = num3.ToString();
+                //txtDcNetaDev.Text = string.Format("{0:n}", double.Parse(txtDcNetaDev.Text));
+                //HiddenField comisionDevolucion = this.comision_devolucion;
+                var num4 = Math.Round(_objConsumoRegistroProd.Com2(Convert.ToDecimal(lblDcAnexoDevol.Text), idProducto, idSpvs), 2);
+                lblDcAnexoDevol.Text = num4.ToString();
+                //comisionDevolucion.Value = num4.ToString();
+                //this.comision_devolucion.Value = string.Format("{0:n}", double.Parse(this.comision_devolucion.Value));
+                this.Modificar();
+                //this.msgboxpanel.Visible = true;
+                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
+                //messageBox.SetTitle("Confirmación");
+                //messageBox.SetIcon("msg_icon_1.png");
+                //messageBox.SetMessage("Verificación de Anulación de Poliza Realizada Satisfactoriamente");
+                //messageBox.SetOKButton("msg_button_class");
+                //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                btnDcCalcular.Visible = false;
+                btnMemo.Visible = true;
+                lblmensaje.Text = "Validación completada";
+            }
+            catch
+            {
+            }
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
@@ -259,8 +345,19 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnMemo_Click(object sender, EventArgs e)
         {
-            re_memo_report.Visible = true;
-            re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
+            var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+
+            var idPoliza = objDataCompletaPoliza.objDataPoliza.id_poliza;
+            var idMovimiento = objDataCompletaPoliza.objDataPoliza.id_movimiento;
+
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=1" +
+                "&p=" + idPoliza +
+                "&m=" + idMovimiento
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            //re_memo_report.Visible = true;
+            //re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
         }
     }
 }

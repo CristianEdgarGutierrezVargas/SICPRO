@@ -9,6 +9,7 @@
        <div>                    
             <asp:HiddenField ID="id_clamov" runat="server" />
             <asp:HiddenField ID="por_pagar" runat="server" />
+            <asp:HiddenField ID="comision_anulada" runat="server" />
         <div class="container">
           <div class="row">
             <div class="col-md-3">      
@@ -199,8 +200,8 @@
                         <div class="col-md-2">      
                            <span>Prima Total Anulada:</span>
                         </div>
-                        <div class="col-md-2">      
-                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                        <div class="col-md-3">      
+                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" runat="server" Number="0" MinValue="-1000000" MaxValue="1000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                 <SpinButtons ShowLargeIncrementButtons="true" />
                             </dx:BootstrapSpinEdit>
                         </div>
@@ -216,8 +217,8 @@
                      <div class="col-md-2">      
                          <span>Prima Neta:</span>
                      </div>
-                     <div class="col-md-2">      
-                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                     <div class="col-md-3">      
+                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="-1000000" MaxValue="1000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                             <SpinButtons ShowLargeIncrementButtons="true" />
                         </dx:BootstrapSpinEdit>
                      </div>
@@ -225,21 +226,24 @@
                   
                   <div class="row">
                        <div class="col-md-2">      
-                           <span>Porcentaje:</span>
+                           <span>Porcentaje Comision:</span>
                        </div>
-                       <div class="col-md-2">      
-                            <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                       <div class="col-md-3">      
+                            <dx:BootstrapSpinEdit ID="txtPorcentaje" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
                             </dx:BootstrapSpinEdit>
   
                        </div>
+                      <div class="col-md-2">      
+                          <dx:ASPxButton ID="btnCalcular" runat="server" Text="Calcula" CssClass="msg_button_class" OnClick="btnCalcular_Click" CausesValidation="false"></dx:ASPxButton>                          
+                      </div>
                     </div>
                     
                   <div class="row">
                        <div class="col-md-2">      
                            <span>Comision:</span>
                        </div>
-                       <div class="col-md-2">      
-                            <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
+                       <div class="col-md-3">      
+                            <dx:BootstrapSpinEdit ID="txtComision" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
                             </dx:BootstrapSpinEdit>
                        </div>
                   </div>    
@@ -253,72 +257,73 @@
                       </div>
                   </div>
               
-                  <div class="row">                       
-                       <div class="col-md-12"> 
-                           <div class="panel-group">
-                            <div class="panel panel-default">
-                              <div class="panel-body">Cuotas de la Poliza</div>
+                   <asp:Panel ID="pnlDatosCobranza" runat="server">
+                       <fieldset>
+                         <legend><h4>Datos de Cobranza:</h4></legend>
+ 
+                         <div class="row">
+                            <div class="col-md-2">      
+                               <span>Prima Total:</span>
                             </div>
-                            <div class="panel panel-default">
-                              <div class="panel-body">
-
-                                  <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
-                                      <Columns>
-                                          <asp:BoundField DataField="cuota" HeaderText="Cuota" >
-                                          <ControlStyle Width="20px" />
-                                          </asp:BoundField>
-                                          <asp:TemplateField HeaderText="Fecha Pago">
-                                              <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
-                                              </EditItemTemplate>
-                                              <ItemTemplate>
-                                                   <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="150px" 
-                                                       Date='<%# Bind("fecha_pago") %>' DateOnError="Null">
-                                                       <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                                               <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
-                                                         </ValidationSettings>  
-                                                   </dx:BootstrapDateEdit>
-                                              </ItemTemplate>
-                                              <ControlStyle Width="50px" />
-                                          </asp:TemplateField>
-                                          <asp:TemplateField HeaderText="Cuota Total">
-                                              <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
-                                              </EditItemTemplate>
-                                              <ItemTemplate>                                                
-                                                  <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
-                                                      Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
-                                                      <SpinButtons ShowLargeIncrementButtons="true" />
-                                                  </dx:BootstrapSpinEdit>
-                                              </ItemTemplate>
-                                              <ControlStyle Width="50px" />
-                                          </asp:TemplateField>
-                                          <asp:BoundField DataField="cuota_neta" HeaderText="Cuota Neta">
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
-                                          <asp:BoundField DataField="cuota_comis" HeaderText="Comision" >
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
-                                      </Columns>
-                                      <FooterStyle BackColor="White" ForeColor="#000066" />
-                                      <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                                      <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                                      <RowStyle ForeColor="#000066" />
-                                      <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                                      <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                      <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                      <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                      <SortedDescendingHeaderStyle BackColor="#00547E" />
-                                  </asp:GridView>
-                              </div>
+                            <div class="col-md-2">      
+                               <dx:BootstrapSpinEdit ID="txtDcPrimaTotal" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                   <CssClasses Input="form-control-sm fs-10" />
+                               </dx:BootstrapSpinEdit>
                             </div>
-                          </div>
-       
+                            <div class="col-md-2">      
+                                  <span>Prima Pagada:</span>
+                            </div>
+                            <div class="col-md-2">      
+                               <dx:BootstrapSpinEdit ID="txtDcPrimaPagada" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                  <CssClasses Input="form-control-sm fs-10" />
+                               </dx:BootstrapSpinEdit>
+                            </div>
+                            <div class="col-md-2">      
+                               <span>Saldo por pagar:</span>
+                            </div>
+                            <div class="col-md-2"> 
+                                <dx:BootstrapSpinEdit ID="txtDcSaldoPagar" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                   <CssClasses Input="form-control-sm fs-10" />
+                                </dx:BootstrapSpinEdit>
+                            </div>
+                        </div>
 
-        
-                       </div>
-                   </div>
+                        <div class="row">
+                            <div class="col-md-2">      
+                               <span>Prima Neta:</span>
+                            </div>
+                            <div class="col-md-2">      
+                               <dx:BootstrapSpinEdit ID="txtDcPrimaNeta" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                   <CssClasses Input="form-control-sm fs-10" />
+                               </dx:BootstrapSpinEdit>
+                            </div>
+                            <div class="col-md-2">      
+                                  <span>Anexo Devol.:</span>
+                            </div>
+                            <div class="col-md-2">      
+                               <asp:Label ID="lblDcAnexoDevol" runat="server" Text=""></asp:Label>
+                            </div>
+                            <div class="col-md-2">      
+                               <span>Neta Dev.:</span>
+                            </div>
+                            <div class="col-md-2"> 
+                                <dx:BootstrapSpinEdit ID="txtDcNetaDev" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                   <CssClasses Input="form-control-sm fs-10" />
+                                </dx:BootstrapSpinEdit>
+                            </div>
+                        </div>
+                                                  
+                       </fieldset>
+                     </asp:Panel>
 
+                  <div class="row">
+                    <div class="col-md-4">      
+    
+                    </div>
+                    <div class="col-md-7">   
+                        <dx:ASPxButton ID="btnDcCalcular" runat="server" Text="Calcular" CssClass="msg_button_class" OnClick="btnDcCalcular_Click"></dx:ASPxButton>                        
+                    </div>
+                  </div>
                   <div class="row">
                       <div class="col-md-4">      
     
@@ -327,9 +332,9 @@
                           <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
                           <%--<dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>--%>
                           <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnGuardar_Click" ></dx:ASPxButton>                          
-                          
+                          <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>
                           <dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>
-                          <%-- <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>--%>
+                          
                       </div>
                   </div>
 
@@ -341,14 +346,28 @@
              <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
          </p>
        </div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <iframe id="re_memo_report" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
-                </div>
-            </div>
-        </div>
     </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <iframe id="ifrReport" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+               </div>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+      </div>
+    </div>
+  </div>
+</div>
 </asp:Content>

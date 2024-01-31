@@ -40,6 +40,17 @@ namespace ManejadorMetodos.CDBSicPro
         //    value = num * double.Parse(dataTable.Rows[0]["evaluar"].ToString());
         //    return Math.Round(value, 2);
         //}
+
+        public decimal Com2(decimal monto, long idProducto, string idSpvs)
+        {
+            var num = Calculo1(monto, idProducto, idSpvs);
+            var dataTable = Formula1(idProducto, idSpvs).FirstOrDefault();
+            var num2 = dataTable.comis_riesgo;
+            num2 = num * (num2 / 100);
+            num2 = Math.Round(num2, 2);
+            return num2;
+        }
+
         public decimal Com3(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
             decimal num = Calculo2(primaBruta, id_producto, id_spvs1, tipoCuota);
@@ -142,6 +153,21 @@ namespace ManejadorMetodos.CDBSicPro
             //return double.Parse($"{num2:n}");
         }
 
+        public decimal Calculo1(decimal monto, long idProducto, string idSpvs)
+        {
+            var num = monto;
+            var dataTable = Formula1(idProducto, idSpvs).FirstOrDefault();
+            decimal value;
+            if ((bool)dataTable.opera)
+            {
+                value = num / dataTable.evaluar.Value;
+                return Math.Round(value, 2);
+            }
+
+            value = num * dataTable.evaluar.Value;
+            return Math.Round(value, 2);
+        }
+        
         //public bool InsertarPolizaIA(string variable)
         //{
         //    try
@@ -413,6 +439,12 @@ namespace ManejadorMetodos.CDBSicPro
                     sql.por_comision = Math.Abs((objPolMov.por_comision.Value) * (-1));
 
                     sql.comision = Math.Abs((objPolMov.comision.Value) * (-1));
+                    sql.id_div = objPolMov.id_div;
+                    sql.tipo_cuota = objPolMov.tipo_cuota;
+                    sql.num_cuota = objPolMov.num_cuota;
+                    sql.id_clamov = objPolMov.id_clamov;
+                    sql.estado = objPolMov.estado;
+                    sql.fc_recepcion = objPolMov.fc_recepcion;
                     //sql.id_div = objPolMov.clase_poliza;
                     //sql.id_percart = objPolMov.id_percart;
 
@@ -446,6 +478,73 @@ namespace ManejadorMetodos.CDBSicPro
             {
                 throw new SecureExceptions("Error al Generar la Consulta", original);
             }
+        }
+
+        public bool ModificarAnulacion(pr_anulada objPrAnulada)
+        {
+            try
+            {
+                var sql = _context.pr_anulada.Where(w => w.id_poliza == objPrAnulada.id_poliza && w.id_movimiento == objPrAnulada.id_movimiento).FirstOrDefault();
+
+                if (sql != null)
+                {
+                    sql.neta_anulada = objPrAnulada.neta_anulada;
+                    sql.comision_anulada = objPrAnulada.comision_anulada;
+                }
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+            //string text = "UPDATE pr_anulada SET " +
+            //    "neta_anulada=" + neta_anulada.Text.Replace(".", "").Replace(",", ".") + "" +
+            //    ", comision_anulada=" + comision_anulada.Value.Replace(".", "").Replace(",", ".") + " " +
+            //    "WHERE id_poliza=" + id_poliza.Value + " AND id_movimiento=" + id_mov;           
+        }
+
+        public pr_devolucion ModificarDevolucion(pr_devolucion objPrDevolucion)
+        {
+            if (objPrDevolucion != null && objPrDevolucion.monto_devolucion != 0)
+            {
+                try
+                {
+                    var maxIdAnulada = _context.pr_anulada.Where(w => w.id_poliza == objPrDevolucion.id_poliza && w.id_movimiento == objPrDevolucion.id_movimiento).Max(m=>m.id_anulada);
+                    objPrDevolucion.id_devolucion = maxIdAnulada;
+
+                    _context.pr_devolucion.Add(objPrDevolucion);
+
+                    return objPrDevolucion;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    return null;
+                }
+
+                //string sentenciaSQL = "SELECT MAX(pr_anulada.id_anulada) AS idanulada " +
+                //    "FROM pr_anulada WHERE pr_anulada.id_poliza = " + id_poliza.Value + " " +
+                //    "AND pr_anulada.id_movimiento = " + id_mov;
+               
+
+                //string sentenciaSQL2 = "INSERT INTO pr_devolucion " +
+                //    "VALUES(" + id_poliza.Value + "" +
+                //    "," + id_mov + "" +
+                //    "," + int.Parse(sentenciaSQL) + "" +
+                //    ",0" +
+                //    "," + monto_devolucion1.Text.Replace(".", "").Replace(",", ".") + "" +
+                //    "," + neta_devolucion.Text.Replace(".", "").Replace(",", ".") + "" +
+                //    "," + comision_devolucion.Value.Replace(".", "").Replace(",", ".") + "" +
+                //    ",default" +
+                //    ",default" +
+                //    ",default" +
+                //    ",abs(" + monto_devolucion1.Text.Replace(".", "").Replace(",", ".") + "))";
+                
+            }
+            return null;
         }
     }
 } 

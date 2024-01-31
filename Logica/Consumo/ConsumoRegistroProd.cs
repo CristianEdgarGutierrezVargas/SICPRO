@@ -832,6 +832,22 @@ namespace Logica.Consumo
             }
         }
 
+        public decimal Com2(decimal primaBruta, long id_producto, string id_spvs1)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Com2(primaBruta, id_producto, id_spvs1);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public decimal Com3(decimal primaBruta, long id_producto, string id_spvs1, bool tipoCuota)
         {
             try
@@ -863,6 +879,23 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public decimal Calculo1(decimal primaBruta, long id_producto, string id_spvs1)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Calculo1(primaBruta, id_producto, id_spvs1);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
 
         public vcb_veripoliza1 ObtenerPolizaI(long id_poliza, long id_movimiento)
         {
@@ -1069,11 +1102,79 @@ namespace Logica.Consumo
 
         }
 
-            #endregion
+        public bool InsertarPolizaCEA(pr_poliza objPrPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.InsertarPolizaCEA(objPrPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
 
-            #region movimiento
+        }
 
-            public vpr_polrenovar ObtenerDatosRenPoliza(int id_poliza, int id_movimiento)
+        public bool InsertarPolizaMovCEA1(pr_polmov objPolMov)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.InsertarPolizaMovCEA1(objPolMov);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+
+        }
+
+        public bool ModificarAnulacion(pr_anulada objPrAnulada)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.ModificarAnulacion(objPrAnulada);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+
+        }
+
+        public pr_devolucion ModificarDevolucion(pr_devolucion objPrDevolucion)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.ModificarDevolucion(objPrDevolucion);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+
+        }
+
+        #endregion
+
+        #region movimiento
+
+        public vpr_polrenovar ObtenerDatosRenPoliza(int id_poliza, int id_movimiento)
         {
             try
             {
