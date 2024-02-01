@@ -27,6 +27,8 @@ namespace Logica.Consumo
         private readonly Cvco_veripoliza3 _manejador_vco_veripoliza3;
         private readonly Cgr_parametro _manejador_gr_parametro;
         public static sicproEntities dbContext;
+        private readonly Cpr_polmov cpr_polmov;
+        private readonly Cpr_cuotapoliza cpr_cuotapoliza;
         public ConsumoModComision()
         {
             if (dbContext != null) dbContext.Dispose();
@@ -40,6 +42,8 @@ namespace Logica.Consumo
             _manejador_gr_parametro=new Cgr_parametro(dbContext);
             _manejador_vco_veripoliza2 = new Cvco_veripoliza2(dbContext);
             _manejador_vco_veripoliza3 = new Cvco_veripoliza3(dbContext);
+            cpr_polmov=new Cpr_polmov(dbContext);
+            cpr_cuotapoliza=new Cpr_cuotapoliza(dbContext);
         }
 
         #endregion
@@ -439,6 +443,30 @@ namespace Logica.Consumo
             catch (SecureExceptions secureException)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public bool ActualizaPolizaMov(pr_polmov objPolmMov)
+        {
+            try
+            {
+                return cpr_polmov.ActualizaPolizaMov(objPolmMov);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
+        public bool ModificarCuotaPolizaC(pr_cuotapoliza objCuotaPoliza)
+        {
+            try
+            {
+                return cpr_cuotapoliza.ModificarCuotaPolizaC(objCuotaPoliza);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
             }
         }
     }

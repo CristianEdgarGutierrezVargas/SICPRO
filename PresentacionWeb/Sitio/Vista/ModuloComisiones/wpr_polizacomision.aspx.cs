@@ -8,6 +8,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Web;
@@ -21,6 +22,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         ConsumoModComision _objConsumoModCom = new ConsumoModComision();
+        private bool sw = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             // CargaInicial();
@@ -50,17 +52,17 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                     desc_direccion.Text = consumoValidar.direccion;
                     //id_direccion.Text = consumoValidar.id_dir.ToString();
                     cmbGrupo.Text = Grupo(consumoValidar.id_gru.ToString());
-                    id_spvs.Text = CompaniaAseg( consumoValidar.id_spvs);
-                    var objParametro = _objConsumoModCom.ObtenerParametro(Convert.ToInt32( consumoValidar.id_div.ToString()));
-                    id_perejec.Text =Ejecutivo( consumoValidar.id_perejec);
-                    id_percart.Text = AgenteCartera( consumoValidar.id_percart.ToString());
-                    clase_poliza.Text = (bool)consumoValidar.clase_poliza?"Normal":"Flotante";
+                    id_spvs.Text = CompaniaAseg(consumoValidar.id_spvs);
+                    var objParametro = _objConsumoModCom.ObtenerParametro(Convert.ToInt32(consumoValidar.id_div.ToString()));
+                    id_perejec.Text = Ejecutivo(consumoValidar.id_perejec);
+                    id_percart.Text = AgenteCartera(consumoValidar.id_percart.ToString());
+                    clase_poliza.Text = (bool)consumoValidar.clase_poliza ? "Normal" : "Flotante";
                     prima_bruta.Text = consumoValidar.prima_bruta.ToString();
                     num_cuota.Text = consumoValidar.num_cuota.ToString();
                     id_div.Text = objParametro.abrev_param;
-                    tipo_cuota.Text = (bool)consumoValidar.tipo_cuota?"Contado":"Crédito";
+                    tipo_cuota.Text = (bool)consumoValidar.tipo_cuota ? "Contado" : "Crédito";
                     mat_aseg.Text = consumoValidar.mat_aseg;
-                    id_producto.Text =NombreProducto( consumoValidar.id_producto.ToString());
+                    id_producto.Text = NombreProducto(consumoValidar.id_producto.ToString());
                     Grid(num, num1);
                 }
             }
@@ -79,11 +81,16 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                 titulo.Text = "Datos de Poliza Renovada (Módulo de Comisiones)";
                 id_clamov.Value = "43";
             }
+            if (mov == "44")
+            {
+                this.titulo.Text = "Datos de Poliza Incluida (Módulo de Comisiones)";
+                this.id_clamov.Value = "44";
+            }
         }
 
         #region Metodos
 
-      
+
 
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
         {
@@ -164,7 +171,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 
             //cmbAsegurado.Text = string.Empty;
             //cmbDireccion.Text = string.Empty;
-            
+
             //cmbGrupo.SelectedItem = cmbGrupo.Items.FindByValue("");
 
             //this.id_per.Text = string.Empty;
@@ -183,7 +190,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             //btnNuevo.Visible = false;
         }
 
-  
+
 
         //private decimal ActualizaSessionCuotas()
         //{
@@ -207,8 +214,8 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         #endregion
         private void Grid(int par1, int par2)
         {
-            var lstcuotas=_objConsumoRegistroProd.GridCuotasC(par1, par2);
-            
+            var lstcuotas = _objConsumoRegistroProd.GridCuotasC(par1, par2);
+
             this.grdCuotasPoliza.DataSource = lstcuotas;
             this.grdCuotasPoliza.DataBind();
         }
@@ -333,12 +340,128 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             {
                 var idAgente = num.ToString();
                 var lstPersona = _objConsumoModCom.Persona(60);
-                 nomEjecutivo = lstPersona.Where(x => x.id_per == idAgente).FirstOrDefault().nomraz;
+                nomEjecutivo = lstPersona.Where(x => x.id_per == idAgente).FirstOrDefault().nomraz;
             }
             return nomEjecutivo;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
+        {
+            BootstrapButton button = sender as BootstrapButton;
+            var container = button.NamingContainer as GridViewDataItemTemplateContainer;
+            string[] valores = container.KeyValue.ToString().Split('|');
+
+            BootstrapDateEdit textBox = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "fecha_pago") as BootstrapDateEdit;
+            BootstrapSpinEdit textBox1 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_total") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox2 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_neta") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox3 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_comis") as BootstrapSpinEdit;
+
+
+
+            BootstrapSpinEdit textBox4 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_total") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox5 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_neta") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox6 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_comis") as BootstrapSpinEdit;
+
+            var numcuota = valores[0];
+
+
+            pr_cuotapoliza prComisione = new pr_cuotapoliza()
+            {
+                id_poliza = Convert.ToInt64(id_poliza.Value.ToString()),
+                id_movimiento = Convert.ToInt64(id_mov.Value.ToString()),
+                fecha_pago = textBox.Date,
+                cuota_total = textBox1.Number,
+                cuota_neta = textBox2.Number,
+                cuota_comis = textBox3.Number,
+                cuota= Convert.ToDecimal( numcuota)
+            };
+            if (_objConsumoModCom.ModificarCuotaPolizaC(prComisione))
+            {
+                this.grdCuotasPoliza_DataBound(sender, e);
+                string str = "";
+                if (this.prima_bruta.Text != textBox4.Text)
+                {
+                    textBox4.BackColor = Color.FromArgb(255, 196, 196);
+                    str = string.Concat(str, "<br/>La suma de las Cuotas no es igual al Total de la Prima");
+                    this.sw = false;
+                }
+                else
+                {
+                    textBox4.BackColor = Color.FromArgb(168, 255, 168);
+                }
+                if (this.prima_neta.Text != textBox5.Text)
+                {
+                    textBox5.BackColor = Color.FromArgb(255, 196, 196);
+                    str = string.Concat(str, "<br/>La suma de las Primas Netas no es igual al Total de la Prima Neta");
+                    this.sw = false;
+                }
+                else
+                {
+                    textBox5.BackColor = Color.FromArgb(168, 255, 168);
+                }
+                if (this.comision.Text != textBox6.Text)
+                {
+                    textBox6.BackColor = Color.FromArgb(255, 196, 196);
+                    str = string.Concat(str, "<br/>La suma de las Comisiones no es igual al Total de la Comisión");
+                    this.sw = false;
+                }
+                else
+                {
+                    textBox6.BackColor = Color.FromArgb(168, 255, 168);
+                }
+                if ((this.prima_bruta.Text == textBox4.Text) & (this.prima_neta.Text == textBox5.Text) & (this.comision.Text == textBox6.Text))
+                {
+                    this.sw = true;
+                }
+                if (this.sw)
+                {
+                   
+                    var strmensaje="Se han registrado correctamente todos los valores para la Póliza";
+                  //mostrart popup de mensaje
+                    this.btnsalir.Visible = true;
+                }
+                else if (!this.sw && this.grdCuotasPoliza.VisibleRowCount == container.VisibleIndex + 1)
+                {
+                   
+                    var strMensaje="Validación de Valores";
+                   
+                }
+                this.sw = false;
+            }
+            else
+            {
+                return;
+            }
+
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pr_polmov opr_polmov = new pr_polmov()
+                {
+                    estado = estado.Value,
+                    id_movimiento = Convert.ToInt64(id_mov.Value.ToString()),
+                    id_poliza = Convert.ToInt64(id_poliza.Value.ToString())
+                };
+                _objConsumoModCom.ActualizaPolizaMov(opr_polmov);
+
+                this.lblmensaje.Text = "Póliza Verificada";
+                this.grdCuotasPoliza.Columns[5].Visible = false;
+            }
+            catch
+            {
+            }
+        }
+
+        protected void grdCuotasPoliza_DataBound(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnsalir_Click1(object sender, EventArgs e)
         {
 
         }
