@@ -528,12 +528,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             ////messageBox.AddButton(messageBoxButton1.ReturnObject());
             ////this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
 
-            
 
 
-            var objVeriPoliza3 = (vcb_veripoliza3)Session["vcb_veripoliza3"];
-            var idPoliza = objVeriPoliza3.id_poliza;
-            var idMovimiento = objVeriPoliza3.id_movimiento;
+            var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+            //var objVeriPoliza3 = (vcb_veripoliza3)Session["vcb_veripoliza3"];
+            var idPoliza = objDataCompletaPoliza.objDataPoliza.id_poliza;
+            var idMovimiento = objDataCompletaPoliza.objDataPoliza.id_movimiento;
             
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=1" +
                 "&p=" + idPoliza +

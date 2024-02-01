@@ -322,7 +322,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 lblDcAnexoDevol.Text = num4.ToString();
                 //comisionDevolucion.Value = num4.ToString();
                 //this.comision_devolucion.Value = string.Format("{0:n}", double.Parse(this.comision_devolucion.Value));
-                this.Modificar();
+                Modificar();
                 //this.msgboxpanel.Visible = true;
                 //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
                 //messageBox.SetTitle("Confirmación");

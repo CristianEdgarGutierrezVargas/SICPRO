@@ -1548,7 +1548,29 @@ namespace Logica.Consumo
             {
                 var objResponse = _manejador_pr_polmov.InsertarPolizaMovimiento(objPolizaMovimiento);
                 return objResponse;
-                //string sentenciaSQL = "INSERT INTO pr_polmov VALUES (" + id_poliza.Value + ",default,'" + id_perejec.SelectedValue.ToString() + "','" + Funciones.fc(fc_emision.Text) + "','" + Funciones.fc(fc_inivig.Text) + "','" + Funciones.fc(fc_finvig1.Text) + "'," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1)," + prima_neta.Value + "," + por_comision.Value + "," + comision.Value + "," + id_div1.Value + ",'" + variable + "',0," + id_clamov.Value + ",'" + estado.Value + "'," + id_dir.Value + ",'" + Funciones.fc(fc_recepcion.Text) + "','" + mat_aseg.Text.ToUpper() + "','" + Funciones.fc(fc_reg.Value) + "','" + no_liquida.Text.ToUpper() + "'," + id_mom.Value + ")";
+                //string sentenciaSQL = "INSERT INTO pr_polmov
+                //VALUES (" + id_poliza.Value + "
+                //,default
+                //,'" + id_perejec.SelectedValue.ToString() + "'
+                //,'" + Funciones.fc(fc_emision.Text) + "'
+                //,'" + Funciones.fc(fc_inivig.Text) + "'
+                //,'" + Funciones.fc(fc_finvig1.Text) + "'
+                //," + prima_bruta.Text.Replace(".", "").Replace(",", ".") + "*(-1)
+                //," + prima_neta.Value + "
+                //," + por_comision.Value + "
+                //," + comision.Value + "
+                //," + id_div1.Value + "
+                //,'" + variable + "'
+                //,0
+                //," + id_clamov.Value + "
+                //,'" + estado.Value + "'
+                //," + id_dir.Value + "
+                //,'" + Funciones.fc(fc_recepcion.Text) + "'
+                //,'" + mat_aseg.Text.ToUpper() + "'
+                //,'" + Funciones.fc(fc_reg.Value) + "'
+                //,'" + no_liquida.Text.ToUpper() + "'
+                //," + id_mom.Value + ")";
+
                 //Acceso acceso = new Acceso();
                 //acceso.Conectar();
                 //acceso.CrearComando(sentenciaSQL);
