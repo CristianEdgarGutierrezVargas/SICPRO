@@ -2575,6 +2575,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
           <Parameter Name="id_movimiento" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="GetFacturaNombreByIdSpvs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetReportAscii" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetReportClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nomraz" Type="varchar" Mode="In" />
@@ -4373,7 +4376,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <Parameter Name="id_movimiento" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="GetTotalCuotas" ReturnType="Collection(Decimal)">
-            <Parameter Name="id_poliza" Mode="In" Type="Int64" />
+          <Parameter Name="id_poliza" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetFacturaNombreByIdSpvs" ReturnType="Collection(sicproModel.GetFacturaNombreByIdSpvs_Result)">
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
@@ -7420,6 +7426,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="Decimal" Name="neta_exclusion" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="comision_exclusion" Nullable="true" Precision="38" Scale="2" />
         </ComplexType>
+        <ComplexType Name="GetFacturaNombreByIdSpvs_Result">
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="fanom" Nullable="true" MaxLength="78" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10082,6 +10092,14 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTotalCuotas" FunctionName="sicproModel.Store.GetTotalCuotas" />
+          <FunctionImportMapping FunctionImportName="GetFacturaNombreByIdSpvs" FunctionName="sicproModel.Store.GetFacturaNombreByIdSpvs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.GetFacturaNombreByIdSpvs_Result">
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="fanom" ColumnName="fanom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

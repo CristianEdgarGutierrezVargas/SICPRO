@@ -81,6 +81,9 @@
     <Compile Include="ModelSicPro\GetDataVeriPoliza_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetFacturaNombreByIdSpvs_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportAscii_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

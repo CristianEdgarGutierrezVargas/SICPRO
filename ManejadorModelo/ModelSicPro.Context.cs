@@ -585,5 +585,14 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetTotalCuotas", id_polizaParameter);
         }
+    
+        public virtual ObjectResult<GetFacturaNombreByIdSpvs_Result> GetFacturaNombreByIdSpvs(string id_spvs)
+        {
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetFacturaNombreByIdSpvs_Result>("GetFacturaNombreByIdSpvs", id_spvsParameter);
+        }
     }
 }

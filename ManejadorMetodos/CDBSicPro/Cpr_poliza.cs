@@ -402,6 +402,22 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
+        public List< GetFacturaNombreByIdSpvs_Result> GetFacturaNombreByIdSpvs(string id_spv)
+        {
+            try
+            {
+                var sql = _context.GetFacturaNombreByIdSpvs(id_spv).ToList();
+
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
+
 
     }
 }

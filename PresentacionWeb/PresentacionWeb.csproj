@@ -701,6 +701,8 @@
     <Content Include="Sitio\Vista\Exceptions\Error.aspx" />
     <Content Include="Sitio\Vista\Login\Login.aspx" />
     <Content Include="Sitio\Vista\Login\Logout.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_amortizaanexos.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_amortizacuota.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx" />
@@ -3068,6 +3070,20 @@
     <Compile Include="Sitio\Vista\Login\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_amortizaanexos.aspx.cs">
+      <DependentUpon>wpr_amortizaanexos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_amortizaanexos.aspx.designer.cs">
+      <DependentUpon>wpr_amortizaanexos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_amortizacuota.aspx.cs">
+      <DependentUpon>wpr_amortizacuota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_amortizacuota.aspx.designer.cs">
+      <DependentUpon>wpr_amortizacuota.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx.cs">
       <DependentUpon>wpr_factura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4087,7 +4103,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>
