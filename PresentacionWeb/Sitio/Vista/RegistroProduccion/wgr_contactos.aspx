@@ -6,7 +6,58 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
 
+        <script type="text/javascript"> 
+        var isDetailRowExpanded = new Array();
+        function OnRowClick(s, e) {
+            if (isDetailRowExpanded[e.visibleIndex] != true)
+                s.ExpandDetailRow(e.visibleIndex);
+            else
+                s.CollapseDetailRow(e.visibleIndex);
+        }
+        function OnDetailRowExpanding(s, e) {
+            isDetailRowExpanded[e.visibleIndex] = true;
+        }
+        function OnDetailRowCollapsing(s, e) {
+            isDetailRowExpanded[e.visibleIndex] = false;
+        }
 
+        function OnRowDblClick(s, e) {
+            var index = e.visibleIndex;
+
+            CallBGridPoliza.PerformCallback(index);
+        }
+        function UpdateDetailGrid(s, e) {
+            var index = e.visibleIndex;
+
+            CallBPersona.PerformCallback(index);
+        }
+        function OnEndCallbackPersona(s, e) {
+
+            pCPersona.Hide();
+
+        }
+
+        function UpdateDetailGridCompania(s, e) {
+            var index = e.visibleIndex;
+
+            CallBCompania.PerformCallback(index);
+        }
+        function OnEndCallbackCompania(s, e) {
+
+            pCCompania.Hide();
+
+        }
+        function UpdateDetailGridProducto(s, e) {
+            var index = e.visibleIndex;
+
+            CallBProducto.PerformCallback(index);
+        }
+        function OnEndCallbackProducto(s, e) {
+
+            pCProducto.Hide();
+
+        }
+        </script>
     <div class="post">
         <div id="ctl00_cpmaster_panel">
 	
@@ -44,13 +95,27 @@
                             <td style="width: 70px">
                                 <span id="ctl00_cpmaster_lblnombre">Nombre  :</span>
                             </td>
-                            <td id="btnper">                                                
+<%--                            <td id="btnper">                                                
                                 <dx:ASPxTextBox ID="nomraz" runat="server" Width="100%"></dx:ASPxTextBox>  
-                            </td>
-                                <td >    
-                                    <button type="button" name="btnserper" data-bs-toggle="modal" data-bs-target="#modal_btnserper" id="btnserper" class="msg_button_class" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;">
-                                    ...
-                                </button>
+                            </td>--%>
+                            <td >    
+                                  <div class="d-flex flex-row">
+                                    <dx:BootstrapCallbackPanel ID="CallBPersona" ClientInstanceName="CallBPersona" runat="server" OnCallback="CallBPersona_Callback">
+                                        <ClientSideEvents EndCallback="OnEndCallbackPersona"></ClientSideEvents>
+                                        <ContentCollection>
+                                            <dx:ContentControl>
+                                                <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" Width="250px">
+                                                    <CssClasses Input="form-control-sm fs-10" />
+                                                </dx:BootstrapTextBox>
+                                                <asp:HiddenField runat="server" ID="id_per" Value="" />
+                                            </dx:ContentControl>
+                                        </ContentCollection>
+                                    </dx:BootstrapCallbackPanel>
+                                    <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="..." OnClick="btnserper_Click">
+                                        <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                        <SettingsBootstrap RenderOption="None" />
+                                    </dx:BootstrapButton>
+                                </div>
                                 </td>
                         </tr>
                         <tr>
@@ -96,6 +161,8 @@
                                                     </DataItemTemplate>
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="id_dir" Caption="Codigo" />  
+                                                <dx:GridViewDataTextColumn FieldName="id_per" Caption="Codigo" Visible="false"/>  
+                                                <dx:GridViewDataTextColumn FieldName="nomraz" Caption="Nombre" />  
                                                 <dx:GridViewDataTextColumn FieldName="relacion" Caption="Relacion"/>   
                                             </Columns>
                                              <SettingsPager Mode="ShowPager" PageSize="10" />
@@ -117,5 +184,69 @@
             
         </div>
     </div>
+
+
+    <dx:BootstrapPopupControl ID="pCPersona" runat="server" ClientInstanceName="pCPersona" ShowHeader="false" ShowFooter="true" Modal="true" CloseAction="None" SettingsBootstrap-Sizing="Small">
+    <SettingsAdaptivity Mode="Always" MaxWidth="500px" />
+    <CssClasses Content="pt-1" />
+    <ContentCollection>
+        <dx:ContentControl>
+            <div class="row msg_button_class rounded-top-1">
+                <div class="col-12 fs-10 p-1 ">
+                    <span>Busqueda de Persona por Nombre o Razón Social</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 text-center mt-2">
+                            <img src="../../../UI/img/search_user.png" />
+                        </div>
+                        <div class="col-12 text-center mt-2">
+                            <dx:BootstrapTextBox runat="server" ID="nomraz1" ClientInstanceName="nomraz1" NullText="" Width="150px">
+                                <CssClasses Input="form-control-sm fs-10" />
+                            </dx:BootstrapTextBox>
+                        </div>
+                        <div class="col-12 text-center mt-2">
+                            <dx:BootstrapButton ID="btnserper1" runat="server" AutoPostBack="false" Text="-->" OnClick="btnserper1_Click">
+                                <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
+                                <SettingsBootstrap RenderOption="None" />
+                            </dx:BootstrapButton>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 mt-2">
+
+                    <dx:BootstrapGridView ID="grdPersonas" EnableCallBacks="true" runat="server" KeyFieldName="id_per" ClientInstanceName="grdPersonas" OnDataBinding="grdPersonas_DataBinding">
+                        <Settings ShowColumnHeaders="false" ShowTitlePanel="true" />
+                        <SettingsText Title="Lista de Personas" />
+                        <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                        <ClientSideEvents RowClick="UpdateDetailGrid" />
+                        <SettingsBootstrap Striped="true" />
+                        <CssClasses PanelHeading="msg_button_class p-1 fs-10 " />
+                        <SettingsPager NumericButtonCount="3">
+                            <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                        </SettingsPager>
+                        <Columns>
+                            <dx:BootstrapGridViewDataColumn FieldName="nomraz" Width="200px" CssClasses-DataCell="fs-11"></dx:BootstrapGridViewDataColumn>
+
+                        </Columns>
+
+                    </dx:BootstrapGridView>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                </div>
+            </div>
+        </dx:ContentControl>
+    </ContentCollection>
+    <FooterContentTemplate>
+        <dx:BootstrapButton runat="server" ID="btnAceptar" OnClick="btnAceptar_Click" Text="Aceptar">
+            <SettingsBootstrap RenderOption="None" Sizing="Small" />
+            <CssClasses Control="msg_button_class" Text="fs-9" />
+        </dx:BootstrapButton>
+    </FooterContentTemplate>
+</dx:BootstrapPopupControl>
 
 </asp:Content>

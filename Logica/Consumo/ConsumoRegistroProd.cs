@@ -308,7 +308,7 @@ namespace Logica.Consumo
 
         #region gr_contactos
                 
-            public List<OC_DIRECCION_CONTACTO> ObtenerListaContactosByIdPer(string idPer)
+        public List<OC_DIRECCION_CONTACTO> ObtenerListaContactosByIdPer(string idPer)
         {
             try
             {
@@ -324,6 +324,69 @@ namespace Logica.Consumo
             }
         }
 
+        public List<OC_DIRECCION_CONTACTO> ObtenerListaContactosByIdDir(long idDir)
+        {
+            try
+            {
+                return _manejador_gr_contactos.ObtenerListaContactosByIdDir(idDir);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public OC_DIRECCION_CONTACTO ObtenerContactosByIdPerDir(string idPer, long longIdDir)
+        {
+            try
+            {
+                return _manejador_gr_contactos.ObtenerContactosByIdPerDir(idPer, longIdDir);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public gr_contacto InsertarContacto(gr_contacto objContacto)
+        {
+            try
+            {
+                return _manejador_gr_contactos.InsertarContacto(objContacto);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public bool ModificarContacto(gr_contacto objContacto)
+        {
+            try
+            {
+                return _manejador_gr_contactos.ModificarContacto(objContacto);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         #endregion
 
