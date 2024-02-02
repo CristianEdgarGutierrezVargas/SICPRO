@@ -332,7 +332,7 @@
                                           </asp:TemplateField>
                                           <asp:TemplateField HeaderText="Cuota Total">
                                               <EditItemTemplate>
-                                                  <asp:TextBox ID="txtCuotaTotal" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
+                                                  <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>                                                
                                                   <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
@@ -344,7 +344,7 @@
                                           </asp:TemplateField>
                                           <asp:TemplateField HeaderText="Cuota Neta">
                                                 <EditItemTemplate>
-                                                    <asp:TextBox ID="txtCuotaNeta" runat="server" Text='<%# Bind("cuota_neta") %>'></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("cuota_neta") %>'></asp:TextBox>
                                                 </EditItemTemplate>
                                                 <ItemTemplate>                                                
                                                     <dx:BootstrapSpinEdit ID="txtCuotaNeta" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
@@ -357,7 +357,7 @@
 
                                           <asp:TemplateField HeaderText="Comision">
                                               <EditItemTemplate>
-                                                  <asp:TextBox ID="txtComision" runat="server" Text='<%# Bind("cuota_comis") %>'></asp:TextBox>
+                                                  <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("cuota_comis") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>                                                
                                                   <dx:BootstrapSpinEdit ID="txtComision" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 

@@ -194,37 +194,50 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         private void CalculaGrilla()
         {
-            var objDataPoliza = (vcb_veripoliza2)Session["vcb_veripoliza2"];
-            for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
+
+            //var objDataPoliza = (vcb_veripoliza2)Session["vcb_veripoliza2"];
+            //for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
+            //{
+            //    var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
+            //    if (txtCuotaTotal == null)
+            //    {
+            //        return;
+            //    }
+            //    if (txtCuotaTotal.Text == "0,00")
+            //    {
+
+            //        grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
+            //        grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
+            //        //text.Text = "0,00";
+            //        //str.Text = "0,00";
+            //        //textBox1.Text = "0,00";
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        var decPrimaNeta = _objConsumoRegistroProd
+            //            .Prima_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtNumCuotas.Text), Convert.ToDecimal(txtPrimaNeta.Text));//"0.00";
+            //        //grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+            //        var decComision = _objConsumoRegistroProd
+            //            .Comision_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtPorcentaje.Text));//"0.00";
+
+            //        grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+            //        grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(decComision);
+            //    }
+            //}
+
+            var sumaTotal = ActualizaSessionCuotas();
+            if (sumaTotal != Convert.ToDecimal(txtPrimaBruta.Text))
             {
-                var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
-                if (txtCuotaTotal == null)
-                {
-                    return;
-                }
-                if (txtCuotaTotal.Text == "0,00")
-                {
-
-                    grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
-                    grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
-                    //text.Text = "0,00";
-                    //str.Text = "0,00";
-                    //textBox1.Text = "0,00";
-                    return;
-                }
-                else
-                {
-                    var decPrimaNeta = _objConsumoRegistroProd
-                        .Prima_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtNumCuotas.Text), Convert.ToDecimal(txtPrimaNeta.Text));//"0.00";
-                    //grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
-                    var decComision = _objConsumoRegistroProd
-                        .Comision_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtPorcentaje.Text));//"0.00";
-
-                    grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
-                    grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(decComision);
-                }
+                lblmensaje.Text = "La suma de las Cuotas debe ser igual a la prima Total";
+                return;
             }
 
+            foreach (var itemCuotaPoliza in (List<pr_cuotapoliza>)Session["LST_CUOTAS"])
+            {
+                var response = _objConsumoRegistroProd.ModificarCuotaPolizaC(itemCuotaPoliza);
+            }
+            lblmensaje.Text = "Se han registrado correctamente todos los valores para la póliza ahora puede proceder a la verificación de la misma en el módulo de comisiones";
             //int num = Convert.ToInt32(e.CommandArgument);
             //GridViewRow item = this.gridcuotas.Rows[num];
             //TextBox textBox = (TextBox)item.FindControl("fecha_pago");
@@ -290,7 +303,29 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    return;
             //}
         }
+        private decimal ActualizaSessionCuotas()
+        {
+            var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            decimal montoTotalSuma = 0;
+            foreach (GridViewRow item in grdCuotasPoliza.Rows)
+            {
+                var cuota = Convert.ToDecimal(item.Cells[0].Text);
+                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as BootstrapDateEdit;
+                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as BootstrapSpinEdit;
+                var cuotaNeta = item.Cells[3].FindControl("txtCuotaNeta") as BootstrapSpinEdit;
+                var cuotaComis = item.Cells[4].FindControl("txtComision") as BootstrapSpinEdit;
+                var itemSession = lstCuotasSession.Where(w => w.cuota == cuota).FirstOrDefault();
 
+                itemSession.fecha_pago = fechaPago.Date;
+                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal == null? "0" : cuotaTotal.Text);
+                itemSession.cuota_neta = Convert.ToDecimal(cuotaNeta == null ? "0" : cuotaNeta.Text);
+                itemSession.cuota_comis = Convert.ToDecimal(cuotaComis == null ? "0" : cuotaComis.Text);
+
+                montoTotalSuma += Convert.ToDecimal(cuotaTotal.Text);
+            }
+            Session["LST_CUOTAS"] = lstCuotasSession;
+            return montoTotalSuma;
+        }
 
         #endregion
 
@@ -301,20 +336,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotas_Click(object sender, EventArgs e)
         {
-            CalculaGrilla();
-            //var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
-            //var lstCuotas = GetDataCuotas(numeroCuotas);
-            //Session["LST_CUOTAS"] = lstCuotas;
-
-            //grdCuotasPoliza.DataSource = lstCuotas;
-            //grdCuotasPoliza.DataBind();
-
-            ////int id = 0;
-            ////lstCoutasTest.ForEach(s =>
-            ////{
-            ////    s.id_movimiento = 3;                
-            ////    s.cuota = id++;
-            ////});           
+            CalculaGrilla();                   
         }
 
         protected void btnCalcular_Click(object sender, EventArgs e)
@@ -364,9 +386,9 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         {
             var index = grdCuotasPoliza.SelectedIndex;
             var dtFechaPago = (BootstrapDateEdit)grdCuotasPoliza.Rows[index].Cells[1].FindControl("dtFechaPago");
-            var txtCuotaTotal = (TextBox)grdCuotasPoliza.Rows[index].Cells[2].FindControl("txtCuotaTotal");
-            var txtCuotaNeta = (TextBox)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
-            var txtComision = (TextBox)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
+            var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[2].FindControl("txtCuotaTotal");
+            var txtCuotaNeta = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
+            var txtComision = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
 
 
         }

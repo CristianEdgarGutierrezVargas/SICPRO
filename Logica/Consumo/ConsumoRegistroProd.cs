@@ -875,6 +875,22 @@ namespace Logica.Consumo
             }
         }
 
+        public bool ModificarCuotaPolizaC(pr_cuotapoliza objPrCuotaPoliza)
+        {
+            try
+            {
+                return _manejador_pr_cuota_poliza.ModificarCuotaPolizaC(objPrCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         #endregion
 
         #region pr_cobranza

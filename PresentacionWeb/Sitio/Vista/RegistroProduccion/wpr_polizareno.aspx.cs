@@ -59,7 +59,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     txtNroLiquidacion.Text = string.Empty;
                     lblAsegurado.Text = objDataCompletaRenPoliza.objPersona.nomraz;
                     lblDireccion.Text = objDataCompletaRenPoliza.objDireccion == null? string.Empty : objDataCompletaRenPoliza.objDireccion.direccion;
-                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo == null ? string.Empty : objDataCompletaRenPoliza.objGrupo.desc_grupo;
+                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo == null ? "SIN GRUPO" : objDataCompletaRenPoliza.objGrupo.desc_grupo;
 
                     lblProducto.Text = objDataCompletaRenPoliza.objProducto.desc_prod;
 

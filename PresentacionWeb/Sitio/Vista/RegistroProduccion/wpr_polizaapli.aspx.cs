@@ -52,7 +52,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     txtNroLiquidacion.Text = string.Empty;
                     lblAsegurado.Text = objDataCompletaRenPoliza.objPersona.nomraz;
                     lblDireccion.Text = objDataCompletaRenPoliza.objDireccion == null ? string.Empty : objDataCompletaRenPoliza.objDireccion.direccion;
-                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo == null ? string.Empty : objDataCompletaRenPoliza.objGrupo.desc_grupo;
+                    lblGrupo.Text = objDataCompletaRenPoliza.objGrupo == null ? "SIN GRUPO" : objDataCompletaRenPoliza.objGrupo.desc_grupo;
 
                     lblProducto.Text = objDataCompletaRenPoliza.objProducto.desc_prod;
 
@@ -92,7 +92,25 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             return lstCuotas;
         }
 
+        private decimal ActualizaSessionCuotas()
+        {            
+            var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            decimal montoTotalSuma = 0;
+            foreach (GridViewRow item in grdCuotasPoliza.Rows)
+            {
+                var cuota = Convert.ToDecimal(item.Cells[0].Text);
+                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as BootstrapDateEdit;
+                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as BootstrapSpinEdit;
+                var itemSession = lstCuotasSession.Where(w => w.cuota == cuota).FirstOrDefault();
 
+                itemSession.fecha_pago = fechaPago.Date;
+                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal.Text);
+
+                montoTotalSuma += Convert.ToDecimal(cuotaTotal.Text);
+            }
+            Session["LST_CUOTAS"] = lstCuotasSession;
+            return montoTotalSuma;
+        }
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -129,6 +147,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             var objData = (OC_DATA_FORM.oc_data_vpr_polaplivar)Session["DATA_POLIZA"];
+
+            var dtFechaIniVigencia = fc_inivig.Date;
+            var dtFechaFinVigencia = objData.objRenovar.fc_finvig;
+
+            if (dtFechaIniVigencia > dtFechaFinVigencia)
+            {
+                lblmensaje.Text = "La fecha de Fin de Vigencia no puede ser menor que la fecha de Inicio de Vigencia";
+                return;
+            }
+            var sumaTotal = ActualizaSessionCuotas();
+
+            if (sumaTotal != Convert.ToDecimal(txtPrimaBruta.Text))
+            {
+                lblmensaje.Text = "La suma de las Cuotas debe ser igual a la prima Total";
+                return;
+            }
 
             var objPolizaMovimiento = new pr_polmov();
             objPolizaMovimiento.id_poliza = objData.objRenovar.id_poliza;// id_poliza.Value;

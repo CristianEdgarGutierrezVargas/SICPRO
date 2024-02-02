@@ -298,7 +298,7 @@
                                           </asp:BoundField>
                                           <asp:TemplateField HeaderText="Fecha Pago">
                                               <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
+                                                  <asp:TextBox ID="dtFechaPago" runat="server" Text='<%# Bind("fecha_pago") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>
                                                    <dx:BootstrapDateEdit ID="dtFechaPago" ClientInstanceName="dtFechaPago" runat="server" Width="150px" 
@@ -312,7 +312,7 @@
                                           </asp:TemplateField>
                                           <asp:TemplateField HeaderText="Cuota Total">
                                               <EditItemTemplate>
-                                                  <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
+                                                  <asp:TextBox ID="txtCuotaTotal" runat="server" Text='<%# Bind("cuota_total") %>'></asp:TextBox>
                                               </EditItemTemplate>
                                               <ItemTemplate>                                                
                                                   <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
