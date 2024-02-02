@@ -97,7 +97,8 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-                var sql = _context.gr_parametro.Where(w => w.columna == columna).ToList();
+                var sql = _context.gr_parametro.Where(w => w.columna.Contains(columna)).ToList();
+                sql.Add(new gr_parametro {  id_par = 0, abrev_param = "SELECCIONE UNA OPCIÓN" });
                 if (sql == null)
                 {
                     return null;
@@ -232,6 +233,25 @@ namespace ManejadorMetodos.CDBSicPro
                            select para).ToList();
                 list.Add(new gr_parametro { id_par = 0 ,desc_param= "SELECCIONE UNA OPCIÓN" }) ;
                 return list;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<gr_parametro> anio_list()
+        {
+            try
+            {
+                //string sql = "      select 0 as anio_caso, 'SELECCIONE UN VALOR' AS texto
+                //              union select to_number(to_char(current_date,'yyyy'),'9999') as anio_caso, to_char(current_date,'yyyy') as texto
+                //              union select to_number(to_char(current_date,'yyyy'),'9999')-1 as anio_caso, to_char((to_number(to_char(current_date,'yyyy'),'9999')-1),'9999') as texto ";
+                List<gr_parametro> lista = new List<gr_parametro>();
+                lista.Add(new gr_parametro { id_par = 0, valor_param = 0,                       desc_param = "SELECCIONE UN VALOR" });
+                lista.Add(new gr_parametro { id_par = 1, valor_param = DateTime.Now.Year,       desc_param = DateTime.Now.Year.ToString() });
+                lista.Add(new gr_parametro { id_par = 2, valor_param = (DateTime.Now.Year)-1,   desc_param = ((DateTime.Now.Year) - 1).ToString() });
+
+                return lista;
             }
             catch (SecureExceptions secureException)
             {
