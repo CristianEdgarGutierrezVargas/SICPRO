@@ -14,20 +14,20 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class re_caso
     {
-        public decimal id_caso { get; set; }
-        public decimal anio_caso { get; set; }
-        public int id_sucur { get; set; }
-        public string id_perclie { get; set; }
-        public string id_perurc { get; set; }
-        public long id_poliza { get; set; }
-        public decimal aprox_caso { get; set; }
-        public double id_divaprox { get; set; }
+        public decimal id_caso { get; set; }//ok
+        public decimal anio_caso { get; set; }//ok
+        public int id_sucur { get; set; }//ok
+        public string id_perclie { get; set; }//ok
+        public string id_perurc { get; set; }//ok
+        public long id_poliza { get; set; }//ok
+        public decimal aprox_caso { get; set; }//ok
+        public double id_divaprox { get; set; }//ok
         public Nullable<decimal> pago_caso { get; set; }
         public decimal franq_caso { get; set; }
         public decimal indem_caso { get; set; }
-        public string inspector_cia { get; set; }
-        public string atendido_por { get; set; }
-        public string atendido_en { get; set; }
+        public string inspector_cia { get; set; }//ok
+        public string atendido_por { get; set; }//ok
+        public string atendido_en { get; set; }//ok
         public Nullable<System.DateTime> fc_reg { get; set; }
         public Nullable<double> id_recibo { get; set; }
         public Nullable<decimal> anio_recibo { get; set; }
