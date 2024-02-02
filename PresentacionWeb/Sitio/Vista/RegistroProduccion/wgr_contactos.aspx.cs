@@ -1,6 +1,7 @@
 ﻿using Common;
 using DevExpress.Web;
 using EntidadesClases.CustomModelEntities;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
     public partial class wgr_contactos : System.Web.UI.Page
     {
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
+        ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -63,10 +65,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_emis.Items.Add(itemLugarContactos);
 
             var idPersona = (string)ViewState["id_per"];
-            var lstDireccionParametro = _objConsumoRegistroProd.ObtenerListaContactosByIdPer(idPersona);
+            var idDireccion = Convert.ToInt64(ViewState["id_dir"]);
+            var objPersona = _objConsumoRegistroProd.ObtenerPersona(idPersona);
+            nomraz.Text = objPersona.nomraz;
+
+            var lstDireccionParametro = _objConsumoRegistroProd.ObtenerListaContactosByIdDir(idDireccion);
             //grdContactos.DataSource = lstDireccionParametro;
-            grdContactos.DataBind();
+            
             Session["LST_CONTACTOS"] = lstDireccionParametro;
+            grdContactos.DataBind();
         }
 
         private void Limpiarform()
@@ -76,32 +83,57 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             relacion.Text = string.Empty;            
         }
 
-        private void SetFormContactos(long strIdDir)
+        private void SetFormContactos(long strIdDir, string strIdPer)
+        {            
+            var objContacto = _objConsumoRegistroProd.ObtenerContactosByIdPerDir(strIdPer, strIdDir);
+            relacion.Text = objContacto.relacion;
+        }
+
+        #endregion
+
+        #region BuscaPersonas
+
+        protected void btnserper_Click(object sender, EventArgs e)
         {
-            //var objDireccion = _objConsumoRegistroProd.ObtenerDireccion(strIdDir);
-            //direccion.Text = objDireccion.direccion;
 
-            //var itemTipoDir = cmb_tpdir.Items.FindByValue(objDireccion.id_tpdir);
-            //if (itemTipoDir != null)
-            //{
-            //    cmb_tpdir.SelectedItem = itemTipoDir;
-            //}
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
 
-            //var itemLugar = cmb_id_emis.Items.FindByValue(objDireccion.id_emis);
-            //if (itemLugar != null)
-            //{
-            //    cmb_id_emis.SelectedItem = itemLugar;
-            //}
+            pCPersona.ShowOnPageLoad = true;
 
-            //telf_dir.Text = objDireccion.telf_dir;
-            //int_dire.Text = objDireccion.int_dire;
-            //telf_cel.Text = objDireccion.telf_cel;
-            //telf_fax.Text = objDireccion.telf_fax;
-            //email.Text = objDireccion.email;
-            //casilla.Text = objDireccion.casilla;
-            //web.Text = objDireccion.web;
 
         }
+
+        protected void CallBPersona_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            var index = e.Parameter;
+            var idPer = grdPersonas.GetRowValues(Convert.ToInt32(index), "id_per").ToString();
+            var nombre = grdPersonas.GetRowValues(Convert.ToInt32(index), "nomraz").ToString();
+            nomraz.Value = nombre;
+            id_per.Value = idPer;
+
+        }
+
+        protected void btnserper1_Click(object sender, EventArgs e)
+        {
+            var dt = _objConsumoValidarProd.ObtenerTablaPersonasC(nomraz1.Text.ToUpper());
+            Session["lstPersonas"] = dt;
+            grdPersonas.DataSource = dt;
+            grdPersonas.DataBind();
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            pCPersona.ShowOnPageLoad = false;
+        }
+
+        protected void grdPersonas_DataBinding(object sender, EventArgs e)
+        {
+            grdPersonas.DataSource = Session["lstPersonas"];
+        }
+
 
         #endregion
 
@@ -113,17 +145,52 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            lblmensaje.Text = string.Empty;
 
+            var edit = Convert.ToString(ViewState["EDITAR"]);
+                var idPersona = (string)ViewState["id_per"];
+                var idDireccion = Convert.ToDecimal(ViewState["id_dir"]);
+                
+                var objContacto = new gr_contacto();
+                objContacto.id_per = idPersona;
+                objContacto.id_dir = idDireccion;
+                objContacto.relacion = relacion.Text;
+                objContacto.activo = true;
+            if (edit == "EDITAR")
+            {
+                var responseUpdate = _objConsumoRegistroProd.ModificarContacto(objContacto);
+                if (responseUpdate)
+                {
+                    CargaInicial();
+                }
+                else
+                {
+                    lblmensaje.Text = "No se puede Actualizar";
+                }
+            }
+            else
+            {       
+                var response = _objConsumoRegistroProd.InsertarContacto(objContacto);
+                if (response != null)
+                {
+                    CargaInicial();
+                }
+                else
+                {
+                    lblmensaje.Text = "La Persona ya tiene un registro, no se puede registrar";
+                }
+            }
+            ViewState["EDITAR"] = null;
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Sitio/Vista/Default.aspx");
         }
 
         protected void grdContactos_DataBinding(object sender, EventArgs e)
         {
-            var lstData = (List<OC_DIRECCION_PARAMETRO>)Session["LST_CONTACTOS"];
+            var lstData = (List<OC_DIRECCION_CONTACTO>)Session["LST_CONTACTOS"];
 
             if (lstData != null)
             {
@@ -132,11 +199,18 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
 
         protected void grdContactos_RowCommand(object sender, ASPxGridViewRowCommandEventArgs e)
-        {
-            ASPxGridView grid = (ASPxGridView)sender;
+        {            
+            GridViewDataItemTemplateContainer cont = (GridViewDataItemTemplateContainer)(((ASPxButton)e.CommandSource).NamingContainer);
+
+            var idPersona = grdContactos.GetRowValues(cont.VisibleIndex, "id_per").ToString();
+
+            ViewState["EDITAR"] = "EDITAR";
             object str_id_dir = e.KeyValue;
             ViewState["id_dir"] = Convert.ToInt64(str_id_dir);
-            SetFormContactos(Convert.ToInt64(str_id_dir));
+            var idPer = idPersona;
+            ViewState["id_per"] = idPersona;
+
+            SetFormContactos(Convert.ToInt64(str_id_dir), idPer);
         }
     }
 }

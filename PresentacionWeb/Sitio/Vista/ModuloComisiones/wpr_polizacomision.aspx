@@ -59,6 +59,7 @@
             <asp:HiddenField runat="server" ID="id_clamov" Value="" />
             <asp:HiddenField runat="server" ID="id_poliza" Value="" />
             <asp:HiddenField runat="server" ID="id_mov" Value="" />
+             <asp:HiddenField runat="server" ID="estado" Value="COMISIONES" />
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
                     <div class="entry">
@@ -236,7 +237,20 @@
 
                         </div>
                     </div>
-
+                      <div class="row">
+                                <div class="col-2">
+                                    <span id="ctl00_cpmaster_Label5">Prima Neta :</span>
+                                </div>
+                                <div class="col-10">
+                                    <asp:Label ID="prima_neta" runat="server" Text=""></asp:Label>
+                                    &nbsp;<span id="ctl00_cpmaster_Label6">Porcentaje :</span>
+                                      <asp:Label ID="por_comision" runat="server" Text=""></asp:Label>
+                                  
+                                    &nbsp;<span id="ctl00_cpmaster_Label7">Comisión :</span>
+                                     <asp:Label ID="comision" runat="server" Text=""></asp:Label>
+                                    
+                                </div>
+                            </div>
 
                     <div class="row mt-1">
                         <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
@@ -266,9 +280,9 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
 
-                                        <dx:BootstrapGridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False">
-                                          
-                                            <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="true"/>
+                                        <dx:BootstrapGridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False" KeyFieldName="cuota" OnDataBound="grdCuotasPoliza_DataBound">
+
+                                            <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="true" />
                                             <SettingsText Title="Cuotas de la Poliza" />
                                             <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
                                             <SettingsBootstrap Striped="true" />
@@ -330,12 +344,12 @@
                                                     </DataItemTemplate>
                                                 </dx:BootstrapGridViewDataColumn>
                                             </Columns>
-                                            
+
                                             <TotalSummary>
-                                                
-                                                <dx:ASPxSummaryItem FieldName="cuota_total" SummaryType="Sum"   />
+
+                                                <dx:ASPxSummaryItem FieldName="cuota_total" SummaryType="Sum" />
                                                 <dx:ASPxSummaryItem FieldName="cuota_neta" SummaryType="Sum" />
-                                                 <dx:ASPxSummaryItem FieldName="cuota_comis" SummaryType="Sum" />
+                                                <dx:ASPxSummaryItem FieldName="cuota_comis" SummaryType="Sum" />
                                             </TotalSummary>
                                         </dx:BootstrapGridView>
                                     </div>
@@ -351,7 +365,18 @@
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-7">
-                            <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
+                            <dx:BootstrapButton ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click">
+                                <SettingsBootstrap RenderOption="None" />
+                                <CssClasses Control="msg_button_class" />
+                            </dx:BootstrapButton>
+                            <dx:BootstrapButton ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click">
+                                <SettingsBootstrap RenderOption="None" />
+                                <CssClasses Control="msg_button_class" />
+                            </dx:BootstrapButton>
+                              <dx:BootstrapButton ID="btnsalir" runat="server" Text="Guardar" OnClick="btnsalir_Click1">
+      <SettingsBootstrap RenderOption="None" />
+      <CssClasses Control="msg_button_class" />
+  </dx:BootstrapButton>
                         </div>
                     </div>
 

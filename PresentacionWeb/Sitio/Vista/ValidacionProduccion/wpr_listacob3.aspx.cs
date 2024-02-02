@@ -32,7 +32,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
                 fc_finvig.Text = DateTime.Now.ToShortDateString();
                 fc_inivig.Text = DateTime.Now.ToShortDateString();
                 Limpiar();
-                wpr_listacob1.valor = base.Request.QueryString["var"];
+                wpr_listacob3.valor = base.Request.QueryString["var"];
                 id_clamov.Value = wpr_listacob3.valor;
                 Datos();
 
@@ -79,7 +79,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //prCobranza.RecuperaTablaPolizaNRI(item);
 
             //RecuperaTablaPolizaNRI(item);
-            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
+            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaEA(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
             Session["lstGridPoliza"] = dataTable;
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
@@ -250,11 +250,33 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         {
             var index = e.Parameter;
             var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
+            var idMovimiento = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_movimiento").ToString();
+            var idClamov = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_clamov").ToString();
             if (this.IsCallback)
-                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
+            {
+                if (id_clamov.Value == "46")
+                {
+                    ASPxWebControl.RedirectOnCallback("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzaea.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "49")
+                {
+                    ASPxWebControl.RedirectOnCallback("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+              
+            }
+            //ASPxWebControl.RedirectOnCallback(ResolveUrl("~/Sitio/Vista/ValidacionProduccion/wpr_polizacobranza.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov));
             else
-
-                Response.Redirect("~/wpr_polizareno.aspx");
+            {
+                if (id_clamov.Value == "46")
+                {
+                    Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzaea.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+                else if (id_clamov.Value == "49")
+                {
+                    Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzaea.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                }
+               
+            }
 
         }
         public string Grupo(object num)
@@ -262,6 +284,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
             if (num == null)
                 return "";
+            if (Convert.ToInt32(num) == 0)
+                return "SIN GRUPO";
 
             string descGrupo = "";
             if (!string.IsNullOrEmpty(num.ToString()))

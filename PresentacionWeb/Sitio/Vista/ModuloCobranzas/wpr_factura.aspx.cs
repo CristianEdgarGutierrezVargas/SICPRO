@@ -46,12 +46,29 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         {
             try
             {
-               
-                //prFactura.ObtenerListaF(this.id_spvs.Value);
+
+              var lstFactura=  conCobranza.ObtenerListaF(this.id_spvs.Value.ToString());
+                this.num_poliza1.DataSource = lstFactura;
+                this.num_poliza1.TextField = "fanom";
+                this.num_poliza1.ValueField = "num_poliza";
+                this.num_poliza1.DataBind();
             }
             catch
             {
             }
+        }
+
+        protected void num_poliza1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            //var dataTable = prFactura.ObtenerTabla(this.id_spvs.SelectedValue, this.num_poliza1.SelectedValue);
+            //if (dataTable.Rows.Count > 0)
+            //{
+            //    this.grid_factura.DataSource = dataTable;
+            //    this.grid_factura.DataBind();
+            //    this.tr4.Visible = false;
+            //    this.tr5.Visible = false;
+            //}
         }
 
 

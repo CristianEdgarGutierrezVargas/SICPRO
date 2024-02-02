@@ -166,8 +166,8 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         private void Memo()
         {
-            var idPoliza = Convert.ToInt64(Request.QueryString["np"]);
-            var idMovimiento = Convert.ToInt64(Request.QueryString["nl"]);
+            var idPoliza = Convert.ToInt64(Request.QueryString["p"]);
+            var idMovimiento = Convert.ToInt64(Request.QueryString["m"]);
             ReportDocument rptDoc = new ReportDocument();            
             
             List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(idPoliza, idMovimiento);
@@ -202,6 +202,9 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
 
         private void Reporteprod1()
         {
+            //var idPoliza = Convert.ToInt64(Request.QueryString["np"]);
+            //var idMovimiento = Convert.ToInt64(Request.QueryString["nl"]);
+
             ReportDocument rptDoc = new ReportDocument();
              
             List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);

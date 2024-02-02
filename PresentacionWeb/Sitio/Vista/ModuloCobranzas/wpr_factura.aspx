@@ -40,7 +40,7 @@
                             <span id="Label10">Factura:</span>
                         </div>
                         <div class="col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">
-                            <dx:BootstrapComboBox ID="num_poliza1" runat="server" ValueType="System.String" NullText="Seleccione una opcion...">
+                            <dx:BootstrapComboBox ID="num_poliza1" runat="server" ValueType="System.String" NullText="Seleccione una opcion..." AutoPostBack="true" OnSelectedIndexChanged="num_poliza1_SelectedIndexChanged">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
                                 <ValidationSettings ValidationGroup="Buscar">
                                     <RequiredField ErrorText="Seleccione un opcion" IsRequired="true" />
@@ -53,7 +53,7 @@
                         <div class="mt-1 mt-sm-1 mt-md-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
                             <asp:Panel runat="server" ID="pnlGrid" Visible="false" CssClass="mt-2">
-                                <dx:BootstrapGridView ID="grid_factura" ClientInstanceName="grid_factura" runat="server" KeyFieldName="id_pago" OnDataBinding="gridcuotas_DataBinding">
+                                <dx:BootstrapGridView ID="grid_factura" ClientInstanceName="grid_factura" runat="server" KeyFieldName="id_pago" >
                                     <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                                     <SettingsText Title="Cantidad de cuotas de la póliza" />
                                     <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
@@ -87,7 +87,7 @@
                                         </dx:BootstrapGridViewDataColumn>
                                         <dx:BootstrapGridViewDataColumn Caption="" Width="20px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapButton ID="img2" runat="server" Text="" OnClick="img2_Click">
+                                                <dx:BootstrapButton ID="img2" runat="server" Text="" >
                                                     <CssClasses Icon="bi bi-floppy-fill text-primary" />
                                                     <SettingsBootstrap RenderOption="None" />
                                                 </dx:BootstrapButton>
@@ -108,11 +108,11 @@
 
                     <div class="row mt-2">
                         <div class="col-12">
-                            <dx:BootstrapButton runat="server" ID="Button1" Text="Buscar Factura" OnClick="Button1_Click" ValidationGroup="Buscar">
+                            <dx:BootstrapButton runat="server" ID="Button1" Text="Buscar Factura"  ValidationGroup="Buscar">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>
-                            <dx:BootstrapButton runat="server" ID="Button2" Text="Cambiar todas" OnClick="Button2_Click" ValidationGroup="Cambiar">
+                            <dx:BootstrapButton runat="server" ID="Button2" Text="Cambiar todas"  ValidationGroup="Cambiar">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>

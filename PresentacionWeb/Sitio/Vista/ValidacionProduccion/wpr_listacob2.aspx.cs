@@ -78,7 +78,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             //prCobranza.RecuperaTablaPolizaNRI(item);
 
             //RecuperaTablaPolizaNRI(item);
-            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaNRI(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
+            var dataTable = _objConsumoValidarProd.ObtenerTablaPolizaAp(item, num_poliza.Text, id_per.Value, id_spvs.Value, id_producto.Value, vigencia.Checked, fc_inivig.Date, fc_finvig.Date, fc_polizavencida.Date, porvencer.Checked);
             Session["lstGridPoliza"] = dataTable;
             gridpoliza.DataSource = dataTable;
             gridpoliza.DataBind();
@@ -249,11 +249,13 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         {
             var index = e.Parameter;
             var idPoliza = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_poliza").ToString();
+            var idMovimiento = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_movimiento").ToString();
+            var idClamov = gridpoliza.GetRowValues(Convert.ToInt32(index), "id_clamov").ToString();
             if (this.IsCallback)
-                ASPxWebControl.RedirectOnCallback("~/wpr_polizareno.aspx");
+                ASPxWebControl.RedirectOnCallback("../RegistroProduccion/wpr_polizacobranzaap.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
             else
 
-                Response.Redirect("~/wpr_polizareno.aspx");
+                Response.Redirect("../RegistroProduccion/wpr_polizacobranzaap.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
 
         }
         public string Grupo(object num)
@@ -261,6 +263,8 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
 
             if (num == null)
                 return "";
+            if (Convert.ToInt32(num) == 0)
+                return "SIN GRUPO";
 
             string descGrupo = "";
             if (!string.IsNullOrEmpty(num.ToString()))

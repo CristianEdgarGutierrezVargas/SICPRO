@@ -106,6 +106,19 @@ namespace Logica.Consumo
 
 
         }
+        public List<GetFacturaNombreByIdSpvs_Result> ObtenerListaF( string id_spvs)
+        {
 
+            try
+            {
+                return _manejador_pr_poliza.GetFacturaNombreByIdSpvs( id_spvs);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
     }
 }

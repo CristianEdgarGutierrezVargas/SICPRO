@@ -14,6 +14,8 @@ namespace EntidadesClases.CustomModelEntities
 
         public string id_per { get; set; }
 
+        public string nomraz { get; set; }
+
         public string relacion { get; set; }
     }
 }

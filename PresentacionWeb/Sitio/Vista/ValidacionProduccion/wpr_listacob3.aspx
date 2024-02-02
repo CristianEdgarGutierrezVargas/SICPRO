@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-    <div  class="container">
+    <div class="container">
 
 
         <script type="text/javascript">    
@@ -87,21 +87,21 @@
                             <div class="col-4">
                                 <asp:Label runat="server" ID="lblasegurado" Text="Asegurado :" CssClass="fs-10"></asp:Label>
                             </div>
-							                      <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                            <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
                                 <div class="d-flex">
-								<div class="flex-grow-1">
-                                    <dx:BootstrapCallbackPanel ID="CallBPersona" ClientInstanceName="CallBPersona" runat="server" OnCallback="CallBPersona_Callback">
-                                        <ClientSideEvents EndCallback="OnEndCallbackPersona"></ClientSideEvents>
-                                        <ContentCollection>
-                                            <dx:ContentControl>
-                                                <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="" >
-                                                    <CssClasses Input="form-control-sm fs-10" />
-                                                </dx:BootstrapTextBox>
-                                                <asp:HiddenField runat="server" ID="id_per" Value="" />
-                                            </dx:ContentControl>
-                                        </ContentCollection>
-                                    </dx:BootstrapCallbackPanel>
-</div>
+                                    <div class="flex-grow-1">
+                                        <dx:BootstrapCallbackPanel ID="CallBPersona" ClientInstanceName="CallBPersona" runat="server" OnCallback="CallBPersona_Callback">
+                                            <ClientSideEvents EndCallback="OnEndCallbackPersona"></ClientSideEvents>
+                                            <ContentCollection>
+                                                <dx:ContentControl>
+                                                    <dx:BootstrapTextBox runat="server" ID="nomraz" NullText="">
+                                                        <CssClasses Input="form-control-sm fs-10" />
+                                                    </dx:BootstrapTextBox>
+                                                    <asp:HiddenField runat="server" ID="id_per" Value="" />
+                                                </dx:ContentControl>
+                                            </ContentCollection>
+                                        </dx:BootstrapCallbackPanel>
+                                    </div>
                                     <dx:BootstrapButton ID="btnserper" runat="server" AutoPostBack="false" Text="..." OnClick="btnserper_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
@@ -116,19 +116,19 @@
                             </div>
                             <div class="col-8">
                                 <div class="d-flex">
-								<div class="flex-grow-1">
-                                    <dx:BootstrapCallbackPanel ID="CallBCompania" ClientInstanceName="CallBCompania" runat="server" OnCallback="CallBCompania_Callback">
-                                        <ClientSideEvents EndCallback="OnEndCallbackCompania"></ClientSideEvents>
-                                        <ContentCollection>
-                                            <dx:ContentControl>
-                                                <dx:BootstrapTextBox runat="server" ID="nomco" NullText="" >
-                                                    <CssClasses Input="form-control-sm fs-10" />
-                                                </dx:BootstrapTextBox>
-                                                <asp:HiddenField runat="server" ID="id_spvs" Value="" />
-                                            </dx:ContentControl>
-                                        </ContentCollection>
-                                    </dx:BootstrapCallbackPanel>
-</div>
+                                    <div class="flex-grow-1">
+                                        <dx:BootstrapCallbackPanel ID="CallBCompania" ClientInstanceName="CallBCompania" runat="server" OnCallback="CallBCompania_Callback">
+                                            <ClientSideEvents EndCallback="OnEndCallbackCompania"></ClientSideEvents>
+                                            <ContentCollection>
+                                                <dx:ContentControl>
+                                                    <dx:BootstrapTextBox runat="server" ID="nomco" NullText="">
+                                                        <CssClasses Input="form-control-sm fs-10" />
+                                                    </dx:BootstrapTextBox>
+                                                    <asp:HiddenField runat="server" ID="id_spvs" Value="" />
+                                                </dx:ContentControl>
+                                            </ContentCollection>
+                                        </dx:BootstrapCallbackPanel>
+                                    </div>
                                     <dx:BootstrapButton ID="btnsercom" runat="server" AutoPostBack="false" Text="..." OnClick="btnsercom_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
@@ -142,20 +142,20 @@
                                 <asp:Label runat="server" ID="lblproducto" Text="Producto :" CssClass="fs-10"></asp:Label>
                             </div>
                             <div class="col-8">
-							 <div class="d-flex">
-								<div class="flex-grow-1">
-                                    <dx:BootstrapCallbackPanel ID="CallBProducto" ClientInstanceName="CallBProducto" runat="server" OnCallback="CallBProducto_Callback">
-                                        <ClientSideEvents EndCallback="OnEndCallbackProducto"></ClientSideEvents>
-                                        <ContentCollection>
-                                            <dx:ContentControl>
-                                                <dx:BootstrapTextBox runat="server" ID="desc_producto" NullText="" >
-                                                    <CssClasses Input="form-control-sm fs-10" />
-                                                </dx:BootstrapTextBox>
-                                                <asp:HiddenField runat="server" ID="id_producto" Value="" />
-                                            </dx:ContentControl>
-                                        </ContentCollection>
-                                    </dx:BootstrapCallbackPanel>
-</div>
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <dx:BootstrapCallbackPanel ID="CallBProducto" ClientInstanceName="CallBProducto" runat="server" OnCallback="CallBProducto_Callback">
+                                            <ClientSideEvents EndCallback="OnEndCallbackProducto"></ClientSideEvents>
+                                            <ContentCollection>
+                                                <dx:ContentControl>
+                                                    <dx:BootstrapTextBox runat="server" ID="desc_producto" NullText="">
+                                                        <CssClasses Input="form-control-sm fs-10" />
+                                                    </dx:BootstrapTextBox>
+                                                    <asp:HiddenField runat="server" ID="id_producto" Value="" />
+                                                </dx:ContentControl>
+                                            </ContentCollection>
+                                        </dx:BootstrapCallbackPanel>
+                                    </div>
                                     <dx:BootstrapButton ID="btnserprod" runat="server" AutoPostBack="false" Text="..." OnClick="btnserprod_Click">
                                         <CssClasses Control="ms-1 msg_button_class btn-sm fs-10" />
                                         <SettingsBootstrap RenderOption="None" />
@@ -179,7 +179,7 @@
                             </div>
                             <div class="col-8">
                                 <dx:BootstrapDateEdit ID="fc_inivig" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
-                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10"/>
+                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
                                 </dx:BootstrapDateEdit>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                             </div>
                             <div class="col-8">
                                 <dx:BootstrapDateEdit ID="fc_finvig" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
-                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10"   />
+                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
                                 </dx:BootstrapDateEdit>
                                 <asp:HiddenField runat="server" ID="id_clamov" Value="" />
                             </div>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col-8">
                                 <dx:BootstrapDateEdit ID="fc_polizavencida" runat="server" CalendarProperties-CssClasses-Button="btn-sm">
-                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10"  Calendar="fs-10"  />
+                                    <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
                                 </dx:BootstrapDateEdit>
                             </div>
                         </div>
@@ -263,8 +263,12 @@
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn FieldName="tipo_cuota" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
-                                       <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
-   </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_perejec" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_movimiento" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDateColumn FieldName="id_clamov" Visible="false">
+                                    </dx:BootstrapGridViewDateColumn>
                                 </Columns>
                                 <Templates>
                                     <DetailRow>

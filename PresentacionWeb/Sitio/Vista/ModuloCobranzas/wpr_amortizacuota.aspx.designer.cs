@@ -7,111 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
+namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 {
 
 
-    public partial class wpr_polizacomision
+    public partial class wpr_amortizacuota
     {
-
-        /// <summary>
-        /// Control titulo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titulo;
-
-        /// <summary>
-        /// Control id_clamov.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_clamov;
-
-        /// <summary>
-        /// Control id_poliza.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_poliza;
-
-        /// <summary>
-        /// Control id_mov.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_mov;
-
-        /// <summary>
-        /// Control estado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField estado;
-
-        /// <summary>
-        /// Control fc_emision.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fc_emision;
-
-        /// <summary>
-        /// Control fc_recepcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fc_recepcion;
-
-        /// <summary>
-        /// Control fc_inivig.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fc_inivig;
-
-        /// <summary>
-        /// Control fc_finvig.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fc_finvig;
-
-        /// <summary>
-        /// Control num_poliza.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label num_poliza;
-
-        /// <summary>
-        /// Control no_liquidacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label no_liquidacion;
 
         /// <summary>
         /// Control nomraz.
@@ -120,7 +21,34 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nomraz;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
+
+        /// <summary>
+        /// Control btnserper.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper;
+
+        /// <summary>
+        /// Control a.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField a;
+
+        /// <summary>
+        /// Control b.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField b;
 
         /// <summary>
         /// Control id_per.
@@ -132,192 +60,228 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         protected global::System.Web.UI.WebControls.HiddenField id_per;
 
         /// <summary>
-        /// Control desc_direccion.
+        /// Control id_perclie.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label desc_direccion;
+        protected global::System.Web.UI.WebControls.HiddenField id_perclie;
 
         /// <summary>
-        /// Control id_direccion.
+        /// Control cuota_neta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_direccion;
+        protected global::System.Web.UI.WebControls.HiddenField cuota_neta;
 
         /// <summary>
-        /// Control cmbGrupo.
+        /// Control cuota_total.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cmbGrupo;
+        protected global::System.Web.UI.WebControls.HiddenField cuota_total;
 
         /// <summary>
-        /// Control id_spvs.
+        /// Control comision_cuota.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label id_spvs;
+        protected global::System.Web.UI.WebControls.HiddenField comision_cuota;
 
         /// <summary>
-        /// Control id_producto.
+        /// Control anio_recibo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label id_producto;
+        protected global::System.Web.UI.WebControls.HiddenField anio_recibo;
 
         /// <summary>
-        /// Control id_perejec.
+        /// Control neta_pago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label id_perejec;
+        protected global::System.Web.UI.WebControls.HiddenField neta_pago;
 
         /// <summary>
-        /// Control id_percart.
+        /// Control comision_pago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label id_percart;
+        protected global::System.Web.UI.WebControls.HiddenField comision_pago;
 
         /// <summary>
-        /// Control clase_poliza.
+        /// Control id_liq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label clase_poliza;
+        protected global::System.Web.UI.WebControls.HiddenField id_liq;
 
         /// <summary>
-        /// Control prima_bruta.
+        /// Control num_poliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prima_bruta;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox num_poliza;
 
         /// <summary>
-        /// Control num_cuota.
+        /// Control no_liquida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label num_cuota;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox no_liquida;
 
         /// <summary>
-        /// Control id_div.
+        /// Control desc_grupo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label id_div;
+        protected global::System.Web.UI.WebControls.Label desc_grupo;
 
         /// <summary>
-        /// Control prima_neta.
+        /// Control id_gru.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prima_neta;
+        protected global::System.Web.UI.WebControls.HiddenField id_gru;
 
         /// <summary>
-        /// Control por_comision.
+        /// Control cuota.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label por_comision;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cuota;
 
         /// <summary>
-        /// Control comision.
+        /// Control id_tpago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label comision;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox id_tpago;
 
         /// <summary>
-        /// Control tipo_cuota.
+        /// Control recibo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tipo_cuota;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox recibo;
 
         /// <summary>
-        /// Control mat_aseg.
+        /// Control btnrec.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mat_aseg;
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnrec;
 
         /// <summary>
-        /// Control grdCuotasPoliza.
+        /// Control monto_resto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdCuotasPoliza;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_resto;
 
         /// <summary>
-        /// Control btnNuevo.
+        /// Control monto_exclusion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnNuevo;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_exclusion;
 
         /// <summary>
-        /// Control btnGuardar.
+        /// Control monto_devolucion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnGuardar;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_devolucion;
 
         /// <summary>
-        /// Control btnsalir.
+        /// Control monto_pago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnsalir;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_pago;
 
         /// <summary>
-        /// Control lblmensaje.
+        /// Control idliq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmensaje;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox idliq;
+
+        /// <summary>
+        /// Control pago_por.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapMemo pago_por;
+
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton Button1;
+
+        /// <summary>
+        /// Control b1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton b1;
+
+        /// <summary>
+        /// Control btnguardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnguardar;
     }
 }

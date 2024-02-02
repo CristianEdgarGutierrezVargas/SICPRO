@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ManejadorMetodosSql
 {
-    public class Class1
+    public class CParameter
     {
+        public string Key { get; set; }
+        public object Value { get; set; }
     }
 }

@@ -847,7 +847,6 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columndesc_prod.MaxLength = 5;
                 this.columnnomraz.AllowDBNull = false;
                 this.columnnomraz.MaxLength = 160;
-                this.columndireccion.AllowDBNull = false;
                 this.columndireccion.MaxLength = 200;
                 this.columntelf_dir.MaxLength = 20;
                 this.columnid_percart.MaxLength = 15;
@@ -1120,7 +1119,12 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string direccion {
                 get {
-                    return ((string)(this[this.tableComando.direccionColumn]));
+                    try {
+                        return ((string)(this[this.tableComando.direccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'direccion\' de la tabla \'Comando\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableComando.direccionColumn] = value;
@@ -1496,6 +1500,18 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdireccionNull() {
+                return this.IsNull(this.tableComando.direccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdireccionNull() {
+                this[this.tableComando.direccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isclase_polizaNull() {
                 return this.IsNull(this.tableComando.clase_polizaColumn);
             }
@@ -1847,7 +1863,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_memoTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString"].ConnectionString;
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString1"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
