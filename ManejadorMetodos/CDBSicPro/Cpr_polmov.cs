@@ -114,5 +114,29 @@ namespace ManejadorMetodos.CDBSicPro
         //    //acceso.Desconectar();
         //    //return "PT" + dataTable.Rows[0][0].ToString().PadLeft(5, '0');
         //}
+
+        public bool ActualizaPolizaMov(pr_polmov objPr_polmov)
+        {
+            using (var dbContextTransaccion = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_polmov.Where(w => w.id_poliza == objPr_polmov.id_poliza && w.id_movimiento== objPr_polmov.id_movimiento).FirstOrDefault();
+                    if (sql != null)
+                    {
+                        sql.estado = objPr_polmov.estado;
+                        _context.SaveChanges();
+                        return true;
+                    }
+                    return false;
+
+                }
+                catch (SecureExceptions secureException)
+                {
+                    throw new SecureExceptions("Error al Generar la Transacción", secureException);
+                }
+
+            }
+        }
     }
 }
