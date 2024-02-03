@@ -191,6 +191,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            lblmensaje.Text = string.Empty;
             var itemIdPer = Convert.ToString(ViewState["id_per"]);
             if (!string.IsNullOrEmpty(itemIdPer))
             {
@@ -253,6 +254,31 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             {
                 try
                 {
+                    gr_persona grPersona = new gr_persona()
+                    {
+                        id_per = id_per.Text,
+                        nomraz = nomraz.Text,
+                        id_tper = Convert.ToInt64(cmb_tper.SelectedItem.Value),
+                        fechaaniv = fechaNacimiento.Date,
+                        id_sal = Convert.ToInt64(cmb_id_sal.SelectedItem.Value),
+                        id_rol = Convert.ToInt64(cmb_id_rol.SelectedItem.Value),
+                        id_tdoc = Convert.ToInt64(cmb_tipodoc.SelectedItem.Value),
+                        id_emis = Convert.ToInt64(cmb_id_emis.SelectedItem.Value),
+                        id_suc = Convert.ToInt32(cmb_id_suc.SelectedItem.Value),
+                        nit_fac = nit_fac.Text,
+                        //lblmensaje = this.lblmensaje
+                    };
+
+                    var actualizado = _objConsumoRegistroProd.InsertarPersona(grPersona);
+
+                    if (actualizado == null)
+                    {
+                        this.lblmensaje.Text = "Se genero un error al intentar actualizar el registro";
+                    }
+                    else
+                    {
+                        this.lblmensaje.Text = "Registro Actualizado";
+                    }
                     //string str = "";
                     //bool flag = false;
                     //valid _valid = new valid();
