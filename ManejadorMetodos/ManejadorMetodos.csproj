@@ -80,6 +80,7 @@
     <Compile Include="CDBSicPro\Cvcb_repcobranzas1.cs" />
     <Compile Include="CDBSicPro\Cvcb_veripoliza3.cs" />
     <Compile Include="CDBSicPro\Cvcb_veripoliza2.cs" />
+    <Compile Include="CDBSicPro\Cvcb_cuotaexcludev.cs" />
     <Compile Include="CDBSicPro\Cvco_veripoliza3.cs" />
     <Compile Include="CDBSicPro\Cvco_veripoliza2.cs" />
     <Compile Include="CDBSicPro\Cvco_veripoliza1.cs" />

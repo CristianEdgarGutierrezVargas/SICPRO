@@ -11,7 +11,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 {
 
 
-    public partial class wpr_polizacomisionex
+    public partial class wpr_polizacomisionan
     {
 
         /// <summary>
@@ -58,15 +58,6 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField estado;
-
-        /// <summary>
-        /// Control id_mom.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_mom;
 
         /// <summary>
         /// Control fc_emision.
@@ -283,15 +274,6 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label mat_aseg;
-
-        /// <summary>
-        /// Control num_liquida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox num_liquida;
 
         /// <summary>
         /// Control grdCuotasPoliza.

@@ -61,6 +61,8 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                     num_cuota.Text = consumoValidar.num_cuota.ToString();
                     id_div.Text = objParametro.abrev_param;
                     prima_neta.Text= consumoValidar.prima_neta.ToString();
+                    por_comision.Text = consumoValidar.por_comision.ToString();
+                    comision.Text = consumoValidar.comision.ToString();
                     tipo_cuota.Text = (bool)consumoValidar.tipo_cuota ? "Contado" : "Crédito";
                     mat_aseg.Text = consumoValidar.mat_aseg;
                     id_producto.Text = NombreProducto(consumoValidar.id_producto.ToString());

@@ -358,7 +358,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             }
             else if (id_clamov.Value == "49")
             {
-                Response.Redirect("~/Sitio/Vista/ModuloComisiones/wpr_polizacomisionex.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
+                Response.Redirect("~/Sitio/Vista/ModuloComisiones/wpr_polizacomisionan.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClamov);
             }
            
 

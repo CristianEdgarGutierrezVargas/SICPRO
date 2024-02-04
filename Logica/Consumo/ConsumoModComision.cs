@@ -25,10 +25,13 @@ namespace Logica.Consumo
         private readonly Cvco_veripoliza1 _manejador_vco_veripoliza1;
         private readonly Cvco_veripoliza2 _manejador_vco_veripoliza2;
         private readonly Cvco_veripoliza3 _manejador_vco_veripoliza3;
+        private readonly Cvcb_cuotaexcludev _manejador_vcb_cuotaex;
         private readonly Cgr_parametro _manejador_gr_parametro;
         public static sicproEntities dbContext;
         private readonly Cpr_polmov cpr_polmov;
         private readonly Cpr_cuotapoliza cpr_cuotapoliza;
+        private readonly Cpr_anulada cpr_anulada;
+
         public ConsumoModComision()
         {
             if (dbContext != null) dbContext.Dispose();
@@ -44,6 +47,8 @@ namespace Logica.Consumo
             _manejador_vco_veripoliza3 = new Cvco_veripoliza3(dbContext);
             cpr_polmov=new Cpr_polmov(dbContext);
             cpr_cuotapoliza=new Cpr_cuotapoliza(dbContext);
+            cpr_anulada= new Cpr_anulada(dbContext);
+            _manejador_vcb_cuotaex = new Cvcb_cuotaexcludev(dbContext);
         }
 
         #endregion
@@ -469,5 +474,68 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al generar la Transacción", secureException);
             }
         }
+        public List<pr_anulada> ObtenerGridA(long idPoliza, long idMov)
+        {
+
+            try
+            {
+                var dt = cpr_anulada.ObtenerGridA( idPoliza,  idMov);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+
+
+        }
+        public bool ModificarCuotaPolizaCA(pr_anulada objPrAnulada)
+        {
+            try
+            {
+                return cpr_anulada.ModificarCuotaPolizaCA(objPrAnulada);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
+        public List<pr_polmov> DatosPolizaEA(long idPoliza, long id_mom)
+        {
+
+            try
+            {
+                var dt = cpr_polmov.DatosPolizaEA(idPoliza, id_mom);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+
+
+        }
+      
+        public List<vcb_cuotaexcludev> GrillaCuotasC(long idPoliza, long idMom, long idMovi, long idliquida)
+        {
+
+            try
+            {
+                var sql1 = _manejador_vcb_cuotaex.GetListCuotaexcludev(idPoliza, idMom, idMovi, idliquida);
+              
+
+                return sql1.ToList();
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
     }
 }

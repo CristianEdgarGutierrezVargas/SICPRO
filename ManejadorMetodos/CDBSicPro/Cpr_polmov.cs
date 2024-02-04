@@ -138,5 +138,17 @@ namespace ManejadorMetodos.CDBSicPro
 
             }
         }
+        public List<pr_polmov> DatosPolizaEA(long idPoliza, long id_mom)
+        {
+            try
+            {
+                var sql = _context.pr_polmov.Where(x=>x.id_poliza==idPoliza && x.id_mom==id_mom  && x.id_clamov !=46 &&  x.id_clamov != 49).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

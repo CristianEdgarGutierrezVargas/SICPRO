@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacomisionex.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ModuloComisiones.wpr_polizacomisionex" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_polizacomisionan.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ModuloComisiones.wpr_polizacomisionan" %>
 
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
@@ -60,8 +60,6 @@
             <asp:HiddenField runat="server" ID="id_poliza" Value="" />
             <asp:HiddenField runat="server" ID="id_mov" Value="" />
             <asp:HiddenField runat="server" ID="estado" Value="COMISIONES" />
-            <asp:HiddenField runat="server" ID="id_mom" Value="" />
-
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
                     <div class="entry">
@@ -272,19 +270,7 @@
                         </div>
                     </div>
                     <%--<br />--%>
-                    <div class="row mt-1">
-                        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            <span id="lblLiquidacion" class="fw-bold">Num. Liquidacion:</span>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                            <dx:BootstrapComboBox ID="num_liquida" runat="server" ValueType="System.String" NullText="Seleccione una opción" AutoPostBack="true" OnSelectedIndexChanged="num_liquida_SelectedIndexChanged1" >
-                                <CssClasses Button="btn-sm" Input="form-control-sm fs-11" ListBox="fs-10" Control="fs-10" />
-                                <ValidationSettings>
-                                    <RequiredField IsRequired="true" ErrorText="Dato requerido" />
-                                </ValidationSettings>
-                            </dx:BootstrapComboBox>
-                        </div>
-                    </div>
+
                     <div class="row mt-1">
 
                         <div class="col-md-12">
@@ -295,8 +281,8 @@
                                     <div class="panel-body">
 
                                         <dx:BootstrapGridView ID="grdCuotasPoliza" runat="server" AutoGenerateColumns="False" KeyFieldName="cuota" OnDataBound="grdCuotasPoliza_DataBound">
-
-                                            <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="true" />
+                                          
+                                            <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="true"/>
                                             <SettingsText Title="Cuotas de la Poliza" />
                                             <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
                                             <SettingsBootstrap Striped="true" />
@@ -307,27 +293,12 @@
                                             <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
 
                                             <Columns>
-                                                <dx:BootstrapGridViewDataColumn FieldName="cuota" Caption="Cuota">
-                                                </dx:BootstrapGridViewDataColumn>
-                                                <dx:BootstrapGridViewDateColumn Caption="Fecha Pago" FieldName="fecha_pago">
+                                               
+                                               
+                                                <dx:BootstrapGridViewDataColumn Caption="M. Anulacion" FieldName="monto_anulada">
 
                                                     <DataItemTemplate>
-                                                        <dx:BootstrapDateEdit ID="dtFechaPago" CalendarProperties-CssClasses-Button="btn-sm" runat="server" Date='<%# Bind("fecha_pago") %>'>
-
-                                                            <CssClasses Button="btn-sm" Input="form-control-sm fs-10" Calendar="fs-10" />
-                                                        </dx:BootstrapDateEdit>
-                                                    </DataItemTemplate>
-                                                    <FooterTemplate>
-                                                        <div class="text-end">
-                                                            <span class="text-info fs-8 fw-bold">Totales</span>
-
-                                                        </div>
-                                                    </FooterTemplate>
-                                                </dx:BootstrapGridViewDateColumn>
-                                                <dx:BootstrapGridViewDataColumn Caption="Cuota Total" FieldName="cuota_total">
-
-                                                    <DataItemTemplate>
-                                                        <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("cuota_total") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                                        <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("monto anulada") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
                                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                                             <CssClasses Input="form-control-sm fs-10" />
                                                         </dx:BootstrapSpinEdit>
@@ -341,10 +312,10 @@
                                                             Value='<%# GetTotalCuotaTotalValue() %>' />
                                                     </FooterTemplate>
                                                 </dx:BootstrapGridViewDataColumn>
-                                                <dx:BootstrapGridViewDataColumn Caption="Cuota Neta" FieldName="cuota_neta">
+                                                <dx:BootstrapGridViewDataColumn Caption="Neta Anulación" FieldName="neta_anulada">
 
                                                     <DataItemTemplate>
-                                                        <dx:BootstrapSpinEdit ID="txtCuotaNeta" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("cuota_neta") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                                        <dx:BootstrapSpinEdit ID="txtCuotaNeta" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("neta_anulada") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
                                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                                             <CssClasses Input="form-control-sm fs-10" />
                                                         </dx:BootstrapSpinEdit>
@@ -358,9 +329,9 @@
                                                             Value='<%# GetTotalCuotaNetaValue() %>' />
                                                     </FooterTemplate>
                                                 </dx:BootstrapGridViewDataColumn>
-                                                <dx:BootstrapGridViewSpinEditColumn Caption="Cuota Comision" FieldName="cuota_comis">
+                                                <dx:BootstrapGridViewSpinEditColumn Caption="Com. Anulación" FieldName="comision_anulada">
                                                     <DataItemTemplate>
-                                                        <dx:BootstrapSpinEdit ID="txtCuotaComis" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("cuota_comis") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
+                                                        <dx:BootstrapSpinEdit ID="txtCuotaComis" Width="125px" runat="server" MinValue="0" MaxValue="10000000000" Number='<%# Bind("comision_anulada") %>' Increment="0.1" LargeIncrement="1" NumberType="Float">
                                                             <SpinButtons ShowLargeIncrementButtons="true" />
                                                             <CssClasses Input="form-control-sm fs-10" />
                                                         </dx:BootstrapSpinEdit>
@@ -372,8 +343,9 @@
                                                     <FooterTemplate>
                                                         <dx:BootstrapSpinEdit ID="TotalCuotaComis" runat="server" CustomDisplayFormat="Avg={0}" DisplayFormatString="{0:N2}"
                                                             Value='<%# GetTotalCuotaComisValue() %>'>
+                                                            
                                                         </dx:BootstrapSpinEdit>
-
+                                                        
                                                     </FooterTemplate>
                                                 </dx:BootstrapGridViewSpinEditColumn>
                                                 <dx:BootstrapGridViewDataColumn Caption="Opciones" Width="20px">
@@ -385,7 +357,7 @@
                                                     </DataItemTemplate>
                                                 </dx:BootstrapGridViewDataColumn>
                                             </Columns>
-
+                                            
                                             <TotalSummary>
 
                                                 <dx:ASPxSummaryItem FieldName="cuota_total" SummaryType="Sum" Tag="TotalCuotaTotal" />
@@ -393,9 +365,9 @@
                                                 <dx:ASPxSummaryItem FieldName="cuota_comis" SummaryType="Sum" Tag="TotalCuotaComis" />
                                             </TotalSummary>
                                             <GroupSummary>
-                                                <dx:ASPxSummaryItem FieldName="cuota_total" ShowInGroupFooterColumn="cuota_total" SummaryType="Sum" Tag="GroupCuotaTotal" />
-                                                <dx:ASPxSummaryItem FieldName="cuota_neta" ShowInGroupFooterColumn="cuota_neta" SummaryType="Sum" Tag="GroupCuotaNeta" />
-                                                <dx:ASPxSummaryItem FieldName="cuota_comis" ShowInGroupFooterColumn="cuota_comis" SummaryType="Sum" Tag="GroupCuotaComis" />
+                                                <dx:ASPxSummaryItem FieldName="monto_anulada" ShowInGroupFooterColumn="monto_anulada" SummaryType="Sum" Tag="GroupCuotaTotal" />
+                                                <dx:ASPxSummaryItem FieldName="neta_anulada" ShowInGroupFooterColumn="neta_anulada" SummaryType="Sum" Tag="GroupCuotaNeta" />
+                                                <dx:ASPxSummaryItem FieldName="comision_anulada" ShowInGroupFooterColumn="comision_anulada" SummaryType="Sum" Tag="GroupCuotaComis" />
                                             </GroupSummary>
                                         </dx:BootstrapGridView>
                                     </div>
@@ -436,24 +408,24 @@
     </div>
 
 
-    <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
-        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
-        Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
-        <ContentCollection>
-            <dx:ContentControl>
-                <div class="row">
-                    <div class="offset-3 col-9">
-                        <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
-                        <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
+     <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlMensaje"
+     PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+     Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+     <ContentCollection>
+         <dx:ContentControl>
+             <div class="row">
+                 <div class="offset-3 col-9">
+                     <asp:Image ImageUrl="../../../UI/img/ok.png" Width="70px" runat="server" ID="imagenOk" />
+                     <asp:Image ImageUrl="../../../UI/img/msg_icon_2.png" Width="70px" runat="server" ID="imagenFail" />
 
-                    </div>
-                    <div class="col-12">
-                        <asp:Label runat="server" ID="Label1" Text=""></asp:Label>
-                    </div>
-                </div>
-            </dx:ContentControl>
-        </ContentCollection>
-    </dx:BootstrapPopupControl>
+                 </div>
+                 <div class="col-12">
+                     <asp:Label runat="server" ID="Label1" Text=""></asp:Label>
+                 </div>
+             </div>
+         </dx:ContentControl>
+     </ContentCollection>
+ </dx:BootstrapPopupControl>
 
 
 
