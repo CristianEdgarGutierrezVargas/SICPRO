@@ -60,6 +60,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                     prima_bruta.Text = consumoValidar.prima_bruta.ToString();
                     num_cuota.Text = consumoValidar.num_cuota.ToString();
                     id_div.Text = objParametro.abrev_param;
+                    prima_neta.Text= consumoValidar.prima_neta.ToString();
                     tipo_cuota.Text = (bool)consumoValidar.tipo_cuota ? "Contado" : "Crédito";
                     mat_aseg.Text = consumoValidar.mat_aseg;
                     id_producto.Text = NombreProducto(consumoValidar.id_producto.ToString());
@@ -340,7 +341,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             {
                 var idAgente = num.ToString();
                 var lstPersona = _objConsumoModCom.Persona(60);
-                nomEjecutivo = lstPersona.Where(x => x.id_per == idAgente).FirstOrDefault().nomraz;
+                var rr = lstPersona.Where(x => x.id_per == idAgente).ToList();
+                if (rr.Count>0)
+                    nomEjecutivo = lstPersona.Where(x => x.id_per == idAgente).FirstOrDefault().nomraz;
             }
             return nomEjecutivo;
         }
@@ -351,16 +354,18 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             var container = button.NamingContainer as GridViewDataItemTemplateContainer;
             string[] valores = container.KeyValue.ToString().Split('|');
 
-            BootstrapDateEdit textBox = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "fecha_pago") as BootstrapDateEdit;
-            BootstrapSpinEdit textBox1 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_total") as BootstrapSpinEdit;
-            BootstrapSpinEdit textBox2 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_neta") as BootstrapSpinEdit;
-            BootstrapSpinEdit textBox3 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "cuota_comis") as BootstrapSpinEdit;
+            BootstrapDateEdit textBox = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "dtFechaPago") as BootstrapDateEdit;
+            BootstrapSpinEdit textBox1 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "txtCuotaTotal") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox2 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "txtCuotaNeta") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox3 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "txtCuotaComis") as BootstrapSpinEdit;
 
-
-
-            BootstrapSpinEdit textBox4 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_total") as BootstrapSpinEdit;
-            BootstrapSpinEdit textBox5 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_neta") as BootstrapSpinEdit;
-            BootstrapSpinEdit textBox6 = grdCuotasPoliza.FindRowCellTemplateControl(container.VisibleIndex, null, "scuota_comis") as BootstrapSpinEdit;
+            ASPxGridView column = grdCuotasPoliza;
+            GridViewColumn columnTotal = column.Columns["cuota_total"];
+            GridViewColumn columnNeta = column.Columns["cuota_neta"];
+            GridViewColumn columnComis = column.Columns["cuota_comis"];
+            BootstrapSpinEdit textBox4 = column.FindFooterCellTemplateControl(columnTotal, "TotalCuotaTotal") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox5 = column.FindFooterCellTemplateControl(columnNeta,"TotalCuotaNeta") as BootstrapSpinEdit;
+            BootstrapSpinEdit textBox6 = column.FindFooterCellTemplateControl(columnComis,"TotalCuotaComis") as BootstrapSpinEdit;
 
             var numcuota = valores[0];
 
@@ -381,34 +386,35 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
                 string str = "";
                 if (this.prima_bruta.Text != textBox4.Text)
                 {
-                    textBox4.BackColor = Color.FromArgb(255, 196, 196);
+                    //textBox4.ControlStyle.BackColor = Color.FromArgb(255, 196, 196);
                     str = string.Concat(str, "<br/>La suma de las Cuotas no es igual al Total de la Prima");
+                   
                     this.sw = false;
                 }
-                else
-                {
-                    textBox4.BackColor = Color.FromArgb(168, 255, 168);
-                }
+                //else
+                //{
+                //    textBox4.ControlStyle.BackColor = Color.FromArgb(168, 255, 168);
+                //}
                 if (this.prima_neta.Text != textBox5.Text)
                 {
-                    textBox5.BackColor = Color.FromArgb(255, 196, 196);
+                   // textBox5.ControlStyle.BackColor = Color.FromArgb(255, 196, 196);
                     str = string.Concat(str, "<br/>La suma de las Primas Netas no es igual al Total de la Prima Neta");
                     this.sw = false;
                 }
-                else
-                {
-                    textBox5.BackColor = Color.FromArgb(168, 255, 168);
-                }
+                //else
+                //{
+                //    textBox5.ControlStyle.BackColor = Color.FromArgb(168, 255, 168);
+                //}
                 if (this.comision.Text != textBox6.Text)
                 {
-                    textBox6.BackColor = Color.FromArgb(255, 196, 196);
+                    //textBox6.ControlStyle.BackColor = Color.FromArgb(255, 196, 196);
                     str = string.Concat(str, "<br/>La suma de las Comisiones no es igual al Total de la Comisión");
                     this.sw = false;
                 }
-                else
-                {
-                    textBox6.BackColor = Color.FromArgb(168, 255, 168);
-                }
+                //else
+                //{
+                //    textBox6.ControlStyle.BackColor = Color.FromArgb(168, 255, 168);
+                //}
                 if ((this.prima_bruta.Text == textBox4.Text) & (this.prima_neta.Text == textBox5.Text) & (this.comision.Text == textBox6.Text))
                 {
                     this.sw = true;
@@ -466,6 +472,37 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
 
         }
         // var lstPersona = consumoMod.Persona(60);
+        protected object GetGroupCuotaComisValue(GridViewGroupFooterCellTemplateContainer container)
+        {
+            var summaryItem = grdCuotasPoliza.GroupSummary.First(i => i.Tag == "GroupCuotaComis");
+            return grdCuotasPoliza.GetGroupSummaryValue(container.VisibleIndex, summaryItem);
+        }
+        protected object GetTotalCuotaComisValue()
+        {
+            var summaryItem = grdCuotasPoliza.TotalSummary.First(i => i.Tag == "TotalCuotaComis");
+            return grdCuotasPoliza.GetTotalSummaryValue(summaryItem);
+        }
 
+        protected object GetGroupCuotaNetaValue(GridViewGroupFooterCellTemplateContainer container)
+        {
+            var summaryItem = grdCuotasPoliza.GroupSummary.First(i => i.Tag == "GroupCuotaNeta");
+            return grdCuotasPoliza.GetGroupSummaryValue(container.VisibleIndex, summaryItem);
+        }
+        protected object GetTotalCuotaNetaValue()
+        {
+            var summaryItem = grdCuotasPoliza.TotalSummary.First(i => i.Tag == "TotalCuotaNeta");
+            return grdCuotasPoliza.GetTotalSummaryValue(summaryItem);
+        }
+
+        protected object GetGroupCuotaTotalValue(GridViewGroupFooterCellTemplateContainer container)
+        {
+            var summaryItem = grdCuotasPoliza.GroupSummary.First(i => i.Tag == "GroupCuotaTotal");
+            return grdCuotasPoliza.GetGroupSummaryValue(container.VisibleIndex, summaryItem);
+        }
+        protected object GetTotalCuotaTotalValue()
+        {
+            var summaryItem = grdCuotasPoliza.TotalSummary.First(i => i.Tag == "TotalCuotaTotal");
+            return grdCuotasPoliza.GetTotalSummaryValue(summaryItem);
+        }
     }
 }

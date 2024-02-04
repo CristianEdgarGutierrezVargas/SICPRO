@@ -139,7 +139,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
             //this.msgboxpanel.Visible = false;
-            base.Response.Redirect(string.Concat("~/wpr_listacob1.aspx?var=", wpr_listacob1.valor));
+            base.Response.Redirect(string.Concat("~/wpr_listacom3.aspx?var=", wpr_listacob1.valor));
         }
 
         protected void btnsercom_Click(object sender, EventArgs e)
