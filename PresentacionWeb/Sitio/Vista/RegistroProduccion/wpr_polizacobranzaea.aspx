@@ -16,6 +16,8 @@
 
         <asp:HiddenField ID="id_clamov" runat="server" />
         <asp:HiddenField ID="por_pagar" runat="server" />
+        <asp:HiddenField ID="cuota_neta1" runat="server" />
+        <asp:HiddenField ID="cuota_comis1" runat="server" />
         <div class="container">
           <div class="row">
             <div class="col-md-3">      
@@ -207,7 +209,7 @@
                            <span>Prima Total:</span>
                         </div>
                         <div class="col-md-2">      
-                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                            <dx:BootstrapSpinEdit ID="txtPrimaBruta" Width="160px" runat="server" Number="0" MinValue="-100000" MaxValue="100000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                 <SpinButtons ShowLargeIncrementButtons="true" />
                             </dx:BootstrapSpinEdit>
                         </div>
@@ -224,7 +226,7 @@
                          <span>Prima Neta:</span>
                      </div>
                      <div class="col-md-2">      
-                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
+                        <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="-100000" MaxValue="100000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                             <SpinButtons ShowLargeIncrementButtons="true" />
                         </dx:BootstrapSpinEdit>
                      </div>
@@ -246,7 +248,7 @@
                            <span>Comision:</span>
                        </div>
                        <div class="col-md-2">      
-                            <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
+                            <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="-100000" MaxValue="100000" Increment="1" NumberType="Float">    
                             </dx:BootstrapSpinEdit>
                        </div>
                   </div>                                     

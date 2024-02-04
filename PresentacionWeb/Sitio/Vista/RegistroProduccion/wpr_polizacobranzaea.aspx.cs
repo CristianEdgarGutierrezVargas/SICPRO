@@ -3,6 +3,7 @@ using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -111,6 +112,16 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //grdCuotasPoliza.DataSource = lstCuotas;
                 //grdCuotasPoliza.DataBind();
                 NLiquidacion(objDataCompletaPoliza.objDataPoliza.id_mom, idPoliza);
+
+                var responsePorcentuales = _objConsumoRegistroProd.Porcentuales(objDataCompletaPoliza.objDataPoliza.id_mom);
+                if (responsePorcentuales == null)
+                {
+                    return;
+                }
+                txtPrimaNeta.Text = string.Format("{0:n}", decimal.Parse(txtPrimaBruta.Text.Replace(".", "").Replace(".", ",")) * responsePorcentuales.por_neta);
+                txtPorcentaje.Text = responsePorcentuales.por_comision.ToString();
+                txtComision.Text = string.Format("{0:n}", decimal.Parse(txtPrimaBruta.Text.Replace(".", "").Replace(".", ",")) * responsePorcentuales.por_neta * (responsePorcentuales.por_comision / 100));
+
             }
             //pr_poliza objPoliza = new pr_poliza();
             //var objPolmov = new pr_polmov();
@@ -218,11 +229,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
 
 
-           
 
-            
 
-            
+
+
+
         }
 
         //private void CalculaGrilla()
@@ -559,6 +570,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void cmbNroCuotas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
+            var idPoliza = objDataCompletaPoliza.objDataPoliza.id_poliza;
+            var idMovimiento = objDataCompletaPoliza.objDataPoliza.id_movimiento;
+            var cuota = Convert.ToInt32(cmbNroCuotas.SelectedItem.Value);
+
             ////this.msgboxpanel.Visible = false;
             ////pr_cuotapoliza prCuotapoliza = new pr_cuotapoliza()
             ////{
@@ -568,7 +584,19 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             ////    cuota_comis1 = this.cuota_comis,
             ////    cuota_pago = this.cuota_pago
             ////};
-            //var response = _objConsumoRegistroProd.BuscarCuotaPolizaC(int.Parse(this.id_poliza.Value), int.Parse(this.num_liquida.SelectedValue), int.Parse(this.cuota.SelectedValue));
+            
+            var response = _objConsumoRegistroProd.BuscarCuotaPolizaC(idPoliza, idMovimiento, cuota);
+
+            txtFechaPago.Text = response.fecha_pago == null? string.Empty: response.fecha_pago.Value.ToShortDateString();// dataTable.Rows[0]["fecha_pago"].ToString().Substring(0, 10);
+            txtCuotaTotal.Text = Convert.ToString(response.cuota_total + response.monto_exclusion);// (double.Parse(dataTable.Rows[0]["cuota_total"].ToString()) + double.Parse(dataTable.Rows[0]["monto_exclusion"].ToString())).ToString();
+            txtMontoPago.Text = Convert.ToString(response.cuota_pago + response.monto_devolucion); // (double.Parse(dataTable.Rows[0]["cuota_pago"].ToString()) + double.Parse(dataTable.Rows[0]["monto_devolucion"].ToString())).ToString();
+            txtMontoExcluido.Text = "0,00";
+            txtDevolucion.Text = "0,00";
+
+            cuota_neta1.Value = Convert.ToString(response.cuota_neta + response.neta_exclusion);
+            cuota_comis1.Value = Convert.ToString(response.cuota_comis + response.comision_exclusion);
+            
+
             //this.txtFechaPago.Text = this.txtFechaPago.Text.Substring(0, 10);
             //this.btnverificar.Visible = true;
             //this.txtCuotaTotal.Text = string.Format("{0:n}", double.Parse(this.txtCuotaTotal.Text));

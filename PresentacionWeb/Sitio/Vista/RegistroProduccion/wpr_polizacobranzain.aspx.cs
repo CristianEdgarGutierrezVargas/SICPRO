@@ -1,6 +1,7 @@
 ﻿using DevExpress.Web;
 using DevExpress.Web.Bootstrap;
 using DevExpress.Web.Internal.XmlProcessor;
+using DevExpress.XtraReports;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -30,8 +31,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //this.id_mov.Value = num1.ToString();
 
                 CargaInicial(idPoliza, idMov);
-            }
-            re_memo_report.Visible = false;
+            }            
         }
 
         #region Metodos
@@ -169,7 +169,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 txtNroLiquidacion.Text = objPolmov.no_liquida;
                 lblAsegurado.Text = objPersona.nomraz;
                 lblDireccion.Text = objDireccion.direccion;
-                lblGrupo.Text = objGrupo.desc_grupo;
+                lblGrupo.Text = objGrupo == null? "SIN GRUPO": objGrupo.desc_grupo;
                 //lblCiaAseg.Text = ;
 
                 lblProducto.Text = objProducto.desc_prod;
@@ -192,38 +192,78 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             
         }
 
+        private decimal ActualizaSessionCuotas()
+        {
+            var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            decimal montoTotalSuma = 0;
+            foreach (GridViewRow item in grdCuotasPoliza.Rows)
+            {
+                var cuota = Convert.ToDecimal(item.Cells[0].Text);
+                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as BootstrapDateEdit;
+                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as BootstrapSpinEdit;
+                var cuotaNeta = item.Cells[3].FindControl("txtCuotaNeta") as BootstrapSpinEdit;
+                var cuotaComis = item.Cells[4].FindControl("txtComision") as BootstrapSpinEdit;
+                var itemSession = lstCuotasSession.Where(w => w.cuota == cuota).FirstOrDefault();
+
+                itemSession.fecha_pago = fechaPago.Date;
+                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal == null ? "0" : cuotaTotal.Text);
+                itemSession.cuota_neta = Convert.ToDecimal(cuotaNeta == null ? "0" : cuotaNeta.Text);
+                itemSession.cuota_comis = Convert.ToDecimal(cuotaComis == null ? "0" : cuotaComis.Text);
+
+                montoTotalSuma += Convert.ToDecimal(cuotaTotal.Text);
+            }
+            Session["LST_CUOTAS"] = lstCuotasSession;
+            return montoTotalSuma;
+        }
+
         private void CalculaGrilla()
         {
-            var objDataPoliza = (vcb_veripoliza1)Session["vcb_veripoliza1"];
-            for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
+            var sumaTotal = ActualizaSessionCuotas();
+            if (sumaTotal != Convert.ToDecimal(txtPrimaBruta.Text))
             {
-                var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
-                if (txtCuotaTotal == null)
-                {
-                    return;
-                }
-                if (txtCuotaTotal.Text == "0,00")
-                {
-                    
-                    grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
-                    grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
-                    //text.Text = "0,00";
-                    //str.Text = "0,00";
-                    //textBox1.Text = "0,00";
-                    return;
-                }
-                else
-                {
-                    var decPrimaNeta = _objConsumoRegistroProd
-                        .Prima_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtNumCuotas.Text), Convert.ToDecimal(txtPrimaNeta.Text));//"0.00";
-                    //grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
-                    var decComision = _objConsumoRegistroProd
-                        .Comision_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtPorcentaje.Text));//"0.00";
-
-                    grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
-                    grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(decComision);
-                }
+                lblmensaje.Text = "La suma de las Cuotas debe ser igual a la prima Total";
+                return;
             }
+
+            foreach (var itemCuotaPoliza in (List<pr_cuotapoliza>)Session["LST_CUOTAS"])
+            {
+                var response = _objConsumoRegistroProd.ModificarCuotaPolizaC(itemCuotaPoliza);
+            }
+            lblmensaje.Text = "Se han registrado correctamente todos los valores para la póliza ahora puede proceder a la verificación de la misma en el módulo de comisiones";
+
+            btnCuotas.Visible = false;
+            btnMemo.Visible = true;
+
+            //var objDataPoliza = (vcb_veripoliza1)Session["vcb_veripoliza1"];
+            //for (int i = 0; i < grdCuotasPoliza.Rows.Count; i++)
+            //{
+            //    var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[i].Cells[2].FindControl("txtCuotaTotal");//cuota_total
+            //    if (txtCuotaTotal == null)
+            //    {
+            //        return;
+            //    }
+            //    if (txtCuotaTotal.Text == "0,00")
+            //    {
+
+            //        grdCuotasPoliza.Rows[i].Cells[3].Text = "0.00";
+            //        grdCuotasPoliza.Rows[i].Cells[4].Text = "0.00";
+            //        //text.Text = "0,00";
+            //        //str.Text = "0,00";
+            //        //textBox1.Text = "0,00";
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        var decPrimaNeta = _objConsumoRegistroProd
+            //            .Prima_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtNumCuotas.Text), Convert.ToDecimal(txtPrimaNeta.Text));//"0.00";
+            //        //grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+            //        var decComision = _objConsumoRegistroProd
+            //            .Comision_Neta(objDataPoliza.id_spvs, objDataPoliza.id_poliza, objDataPoliza.id_movimiento, Convert.ToDecimal(txtPorcentaje.Text));//"0.00";
+
+            //        grdCuotasPoliza.Rows[i].Cells[3].Text = Convert.ToString(decPrimaNeta);
+            //        grdCuotasPoliza.Rows[i].Cells[4].Text = Convert.ToString(decComision);
+            //    }
+            //}
 
             //int num = Convert.ToInt32(e.CommandArgument);
             //GridViewRow item = this.gridcuotas.Rows[num];
@@ -343,8 +383,27 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnMemo_Click(object sender, EventArgs e)
         {
-            re_memo_report.Visible = true;
-            re_memo_report.Attributes.Add("src", "https://localhost:44347/Sitio/Vista/Reportes/re_viewer.aspx?r=1");
+            var objVeriPoliza2 = (vcb_veripoliza1)Session["vcb_veripoliza1"];
+            var idPoliza = objVeriPoliza2.id_poliza;
+            var idMovimiento = objVeriPoliza2.id_movimiento;
+            
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=1" +
+                "&p=" + idPoliza +
+                "&m=" + idMovimiento
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+        }
+               
+        protected void grdCuotasPoliza_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = grdCuotasPoliza.SelectedIndex;
+            var dtFechaPago = (BootstrapDateEdit)grdCuotasPoliza.Rows[index].Cells[1].FindControl("dtFechaPago");
+            var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[2].FindControl("txtCuotaTotal");
+            var txtCuotaNeta = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
+            var txtComision = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
+
+
         }
     }
 }

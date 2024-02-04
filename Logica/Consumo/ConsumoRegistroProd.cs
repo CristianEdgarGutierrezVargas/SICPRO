@@ -859,7 +859,7 @@ namespace Logica.Consumo
             }
         }
 
-        public GetBuscarCuotaPolizaC_Result BuscarCuotaPolizaC(int id_poliza, int id_mov, int cuota)
+        public GetBuscarCuotaPolizaC_Result BuscarCuotaPolizaC(long id_poliza, long id_mov, int cuota)
         {
             try
             {

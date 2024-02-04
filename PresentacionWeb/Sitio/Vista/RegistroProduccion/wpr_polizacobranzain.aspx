@@ -5,7 +5,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderPrincipal" runat="server">
-
+    <script>
+    function openModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+        myModal.show();
+    }
+    </script>
     <div class="post">
        <div>                    
 
@@ -306,7 +311,7 @@
                             <div class="panel panel-default">
                               <div class="panel-body">
 
-                                  <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                                  <asp:GridView ID="grdCuotasPoliza" Width="100%" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="grdCuotasPoliza_SelectedIndexChanged">
                                       <Columns>
                                           <asp:BoundField DataField="cuota" HeaderText="Cuota" >
                                           <ControlStyle Width="20px" />
@@ -337,12 +342,32 @@
                                               </ItemTemplate>
                                               <ControlStyle Width="50px" />
                                           </asp:TemplateField>
-                                          <asp:BoundField DataField="cuota_neta" HeaderText="Cuota Neta">
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
-                                          <asp:BoundField DataField="cuota_comis" HeaderText="Comision" >
-                                          <ControlStyle Width="100px" />
-                                          </asp:BoundField>
+                                          <asp:TemplateField HeaderText="Cuota Neta">
+                                           <EditItemTemplate>
+                                               <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("cuota_neta") %>'></asp:TextBox>
+                                           </EditItemTemplate>
+                                           <ItemTemplate>                                                
+                                               <dx:BootstrapSpinEdit ID="txtCuotaNeta" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                   Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_neta") %>'>
+                                                   <SpinButtons ShowLargeIncrementButtons="true" />
+                                               </dx:BootstrapSpinEdit>
+                                           </ItemTemplate>
+                                           <ControlStyle Width="50px" />
+                                       </asp:TemplateField>
+
+                                     <asp:TemplateField HeaderText="Comision">
+                                         <EditItemTemplate>
+                                             <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("cuota_comis") %>'></asp:TextBox>
+                                         </EditItemTemplate>
+                                         <ItemTemplate>                                                
+                                             <dx:BootstrapSpinEdit ID="txtComision" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
+                                                 Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_comis") %>'>
+                                                 <SpinButtons ShowLargeIncrementButtons="true" />
+                                             </dx:BootstrapSpinEdit>
+                                         </ItemTemplate>
+                                         <ControlStyle Width="50px" />
+                                     </asp:TemplateField>
+                                     <asp:CommandField ButtonType="Image" SelectImageUrl="~/UI/img/lc_checkbox.png" SelectText="-&gt;" ShowSelectButton="True" />
                                       </Columns>
                                       <FooterStyle BackColor="White" ForeColor="#000066" />
                                       <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -369,7 +394,7 @@
                       </div>
                       <div class="col-md-7">   
                           <dx:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="msg_button_class" OnClick="btnNuevo_Click"></dx:ASPxButton>
-                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Cuotas" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
+                          <dx:ASPxButton ID="btnCuotas" runat="server" Text="Guardar" CssClass="msg_button_class" OnClick="btnCuotas_Click" ></dx:ASPxButton>                          
                           <%--<dx:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="msg_button_class" OnClick="btnSalir_Click"></dx:ASPxButton>--%>
                            <dx:ASPxButton ID="btnMemo" runat="server" Text="Memo" CssClass="msg_button_class" OnClick="btnMemo_Click" ></dx:ASPxButton>                          
                          
@@ -384,14 +409,28 @@
              <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
          </p>
        </div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <iframe id="re_memo_report" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
-                </div>
-            </div>
+    </div>   
+    
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <iframe id="ifrReport" runat="server" src="HTMLPage1.htm" height="600" width="100%"></iframe>
+               </div>
+           </div>
         </div>
-    </div>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+      </div>
+    </div>
+  </div>
+</div>
 </asp:Content>

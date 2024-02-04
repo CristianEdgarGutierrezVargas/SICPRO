@@ -10,6 +10,12 @@
             <asp:HiddenField ID="id_clamov" runat="server" />
             <asp:HiddenField ID="por_pagar" runat="server" />
             <asp:HiddenField ID="comision_anulada" runat="server" />
+            <asp:HiddenField ID="primaNeta1" runat="server" />
+            <asp:HiddenField ID="por_comision1" runat="server" />
+            <asp:HiddenField ID="str" runat="server" />
+            <asp:HiddenField ID="prima_neta1" runat="server" />
+            <asp:HiddenField ID="comision1" runat="server" />
+           prima_neta1
         <div class="container">
           <div class="row">
             <div class="col-md-3">      
@@ -243,7 +249,7 @@
                            <span>Comision:</span>
                        </div>
                        <div class="col-md-3">      
-                            <dx:BootstrapSpinEdit ID="txtComision" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
+                            <dx:BootstrapSpinEdit ID="txtComision" runat="server" Number="0" MinValue="-1000000" MaxValue="1000000" Increment="1" NumberType="Float">    
                             </dx:BootstrapSpinEdit>
                        </div>
                   </div>    
@@ -312,18 +318,18 @@
                                 </dx:BootstrapSpinEdit>
                             </div>
                         </div>
-                                                  
+                          <div class="row">
+                            <div class="col-md-4">      
+    
+                            </div>
+                            <div class="col-md-7">   
+                                <dx:ASPxButton ID="btnDcCalcular" runat="server" Text="Calcular" CssClass="msg_button_class" OnClick="btnDcCalcular_Click"></dx:ASPxButton>                        
+                            </div>
+                          </div>               
                        </fieldset>
                      </asp:Panel>
 
-                  <div class="row">
-                    <div class="col-md-4">      
-    
-                    </div>
-                    <div class="col-md-7">   
-                        <dx:ASPxButton ID="btnDcCalcular" runat="server" Text="Calcular" CssClass="msg_button_class" OnClick="btnDcCalcular_Click"></dx:ASPxButton>                        
-                    </div>
-                  </div>
+
                   <div class="row">
                       <div class="col-md-4">      
     

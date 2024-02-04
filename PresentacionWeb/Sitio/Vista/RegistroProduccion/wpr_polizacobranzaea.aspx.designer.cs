@@ -33,6 +33,24 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.HiddenField por_pagar;
 
         /// <summary>
+        /// Control cuota_neta1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField cuota_neta1;
+
+        /// <summary>
+        /// Control cuota_comis1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField cuota_comis1;
+
+        /// <summary>
         /// Control titulo.
         /// </summary>
         /// <remarks>

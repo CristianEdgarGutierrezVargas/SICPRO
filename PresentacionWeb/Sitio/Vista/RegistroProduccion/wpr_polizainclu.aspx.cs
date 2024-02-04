@@ -23,8 +23,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 this.Buscar(idPoliza, idMovimiento);
                 //this.fc_reg.Value = DateTime.Today.Date.ToShortDateString();
                 pnlCuotas.Visible = false;
-                btnCuotas.Visible = false;
-                btnGuardar.Visible = true;
+                btnCuotas.Visible = true;
+                btnGuardar.Visible = false;
             }
         }
 
@@ -51,7 +51,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     txtNroLiquidacion.Text = string.Empty;
                     lblAsegurado.Text = objDataCompletaPoliza.objPersona.nomraz;
                     lblDireccion.Text = objDataCompletaPoliza.objDireccion == null ? string.Empty : objDataCompletaPoliza.objDireccion.direccion;
-                    lblGrupo.Text = objDataCompletaPoliza.objGrupo == null ? string.Empty : objDataCompletaPoliza.objGrupo.desc_grupo;
+                    lblGrupo.Text = objDataCompletaPoliza.objGrupo == null ? "SIN GRUPO" : objDataCompletaPoliza.objGrupo.desc_grupo;
 
                     lblProducto.Text = objDataCompletaPoliza.objProducto.desc_prod;
 
@@ -92,7 +92,29 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             return lstCuotas;
         }
 
+        private decimal ActualizaSessionCuotas()
+        {
+            var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            decimal montoTotalSuma = 0;
+            foreach (GridViewRow item in grdCuotasPoliza.Rows)
+            {
+                var cuota = Convert.ToDecimal(item.Cells[0].Text);
+                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as BootstrapDateEdit;
+                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as BootstrapSpinEdit;
+                //var cuotaNeta = item.Cells[3].FindControl("txtCuotaNeta") as BootstrapSpinEdit;
+                //var cuotaComis = item.Cells[4].FindControl("txtComision") as BootstrapSpinEdit;
+                var itemSession = lstCuotasSession.Where(w => w.cuota == cuota).FirstOrDefault();
 
+                itemSession.fecha_pago = fechaPago.Date;
+                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal == null ? "0" : cuotaTotal.Text);
+                //itemSession.cuota_neta = Convert.ToDecimal(cuotaNeta == null ? "0" : cuotaNeta.Text);
+                //itemSession.cuota_comis = Convert.ToDecimal(cuotaComis == null ? "0" : cuotaComis.Text);
+
+                montoTotalSuma += Convert.ToDecimal(cuotaTotal.Text);
+            }
+            Session["LST_CUOTAS"] = lstCuotasSession;
+            return montoTotalSuma;
+        }
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -128,7 +150,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
-        {
+        {           
             var objData = (OC_DATA_FORM.oc_data_vpr_polincluvar)Session["DATA_POLIZA"];
 
             var objPolizaMovimiento = new pr_polmov();
@@ -158,6 +180,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
                 lstCuotas = GetDataCuotas(numeroCuotas);
             }
+
+            //actualizamos la session de las cuotas con los datos de la grilla
+            var sumaTotal = ActualizaSessionCuotas();
+
+            if (sumaTotal != Convert.ToDecimal(txtPrimaBruta.Text))
+            {
+                lblmensaje.Text = "La suma de las Cuotas debe ser igual a la prima Total";
+                return;
+            }
             var response = _objConsumoRegistroProd.InsertarPolizaMovI(objPolizaMovimiento, lstCuotas);
 
             if (response == false)
@@ -168,12 +199,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             else
             {
                 lblmensaje.Text = "Poliza Incluida";
-                return;
+                //return;
             }
-            //var idPoliza = objPolizaMovimiento.id_poliza;
-            //var idMovimiento = objPolizaMovimiento.id_movimiento;
-            //var idClaMov = objPolizaMovimiento.id_clamov;
-            //Response.Redirect("../ValidacionProduccion/wpr_polizacobranzain.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
+            var idPoliza = objPolizaMovimiento.id_poliza;
+            var idMovimiento = objPolizaMovimiento.id_movimiento;
+            var idClaMov = objPolizaMovimiento.id_clamov;
+            Response.Redirect("../RegistroProduccion/wpr_polizacobranzain.aspx?var=" + idPoliza + "&val=" + idMovimiento + "&ver=" + idClaMov);
         }
     }
 }

@@ -101,6 +101,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
                 //grdCuotasPoliza.DataSource = lstCuotas;
                 //grdCuotasPoliza.DataBind();
+                btnNuevo.Visible = true;
+                btnGuardar.Visible = true;
+                btnSalir.Visible = true;
+                btnMemo.Visible = false;
+                pnlDatosCobranza.Visible = false;
 
             }
 
@@ -242,6 +247,27 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
         }
 
+        private void Calculos(decimal primabruta, long idProducto, string idSpvs)
+        {
+            //pr_cobranzas prCobranza = new pr_cobranzas()
+            //{
+            //    id_spvs1 = this.id_spvs,
+            //    prima_bruta = this.prima_bruta,
+            //    id_producto = this.id_producto
+            //};
+            //HiddenField primaNeta1 = this.prima_neta1;
+            decimal num = _objConsumoRegistroProd.Calculo1(primabruta, idProducto, idSpvs);
+            primaNeta1.Value = num.ToString();
+            por_comision1.Value = _objConsumoRegistroProd.Porco1(idProducto, idSpvs).ToString();
+            //HiddenField str = this.comision1;
+            decimal num1 = _objConsumoRegistroProd.Com2(primabruta, idProducto, idSpvs);
+            str.Value = num1.ToString();
+            //txtDcPrimaTotal.Text = string.Format("{0:n}", double.Parse(txtDcPrimaTotal.Text));
+            //prima_neta1.Value = string.Format("{0:n}", double.Parse(prima_neta1.Value));
+            //por_comision1.Value = string.Format("{0:n}", double.Parse(por_comision1.Value));
+            //comision1.Value = string.Format("{0:n}", double.Parse(comision1.Value));
+        }
+
         #endregion
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -252,6 +278,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            var dcPrimaBruta = Convert.ToDecimal(txtPrimaBruta.Text);
+
             var objDataCompletaPoliza = (oc_data_vcb_veripoliza3)Session["DATA_POLIZA"];
             var objPrPoliza = new pr_poliza();
             objPrPoliza.num_poliza = objDataCompletaPoliza.objDataPoliza.num_poliza;
@@ -268,7 +296,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolmov.fc_emision = fc_emision.Date;
             objPolmov.fc_inivig = fc_inivig.Date;
             objPolmov.fc_finvig = objDataCompletaPoliza.objDataPoliza.fc_finvig;
-            objPolmov.prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            objPolmov.prima_bruta = dcPrimaBruta; // Convert.ToDecimal(txtPrimaBruta.Text);
             objPolmov.prima_neta = Convert.ToDecimal(txtPrimaNeta.Text);
             objPolmov.por_comision = Convert.ToDecimal(txtPorcentaje.Text);
             objPolmov.comision = Convert.ToDecimal(txtComision.Text);
@@ -281,15 +309,19 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolmov.id_div = objDataCompletaPoliza.objDataPoliza.id_div;
 
             var responsePolCea = _objConsumoRegistroProd.InsertarPolizaCEA(objPrPoliza);
-
+            Calculos(dcPrimaBruta, objDataCompletaPoliza.objDataPoliza.id_producto, objDataCompletaPoliza.objDataPoliza.id_spvs);
             var responseMovCea = _objConsumoRegistroProd.InsertarPolizaMovCEA1(objPolmov);
 
             lblmensaje.Text = "Poliza Verificada";
+
+            pnlDatosCobranza.Visible = true;
+            btnGuardar.Visible = false;
         }
 
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
-            txtComision.Text = string.Format("{0:n}", double.Parse(this.txtPorcentaje.Text.Replace(".", "").Replace(",", "")) / 100 / 100 * double.Parse(this.txtPrimaNeta.Text.Replace(".", "").Replace(",", "")) / 100);            
+            txtComision.Text = string.Format("{0:n}", double.Parse(this.txtPorcentaje.Text.Replace(".", "").Replace(",", "")) / 100 / 100 * double.Parse(this.txtPrimaNeta.Text.Replace(".", "").Replace(",", "")) / 100);
+            
         }
 
         protected void btnDcCalcular_Click(object sender, EventArgs e)
@@ -334,7 +366,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 btnMemo.Visible = true;
                 lblmensaje.Text = "Validación completada";
             }
-            catch
+            catch (Exception ex)
             {
             }
         }

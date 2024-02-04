@@ -136,7 +136,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             objPolizaMovimiento.fc_emision = fc_emision.Date;
             objPolizaMovimiento.fc_inivig = fc_inivig.Date;
             objPolizaMovimiento.fc_finvig = objData.objPoliza.fc_finvig.Value;// fc_finvig.Date;
-            objPolizaMovimiento.prima_bruta = objData.objPoliza.prima_bruta.Value;// Convert.ToDecimal(txtPrimaBruta.Text);
+            objPolizaMovimiento.prima_bruta = Convert.ToDecimal(txtPrimaTotalExcluida.Text);// objData.objPoliza.prima_bruta.Value;// Convert.ToDecimal(txtPrimaBruta.Text);
             objPolizaMovimiento.prima_neta = 0;
             objPolizaMovimiento.por_comision = 0;
             objPolizaMovimiento.id_div = objData.objPoliza.id_div;
