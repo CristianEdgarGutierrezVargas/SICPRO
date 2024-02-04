@@ -53,6 +53,7 @@
     <Compile Include="CDBSicPro\Cco_presprod.cs" />
     <Compile Include="CDBSicPro\Cgr_cierreregistro.cs" />
     <Compile Include="CDBSicPro\Cgr_compania.cs" />
+    <Compile Include="CDBSicPro\Cgr_componente.cs" />
     <Compile Include="CDBSicPro\Cgr_contactos.cs" />
     <Compile Include="CDBSicPro\Cgr_tc.cs" />
     <Compile Include="CDBSicPro\Cgr_direccion.cs" />

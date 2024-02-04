@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Consumo\ConsumoAuth.cs" />
     <Compile Include="Consumo\ConsumoCobranza.cs" />
+    <Compile Include="Consumo\ConsumoCommon.cs" />
     <Compile Include="Consumo\ConsumoConfiguracionSistema.cs" />
     <Compile Include="Consumo\ConsumoModComision.cs" />
     <Compile Include="Consumo\ConsumoReclamos.cs" />
