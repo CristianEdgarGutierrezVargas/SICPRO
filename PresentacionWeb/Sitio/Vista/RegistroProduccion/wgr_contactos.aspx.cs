@@ -65,7 +65,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_emis.Items.Add(itemLugarContactos);
 
             var idPersona = (string)ViewState["id_per"];
-            var idDireccion = Convert.ToInt64(ViewState["id_dir"]);
+            var idDireccion = ViewState["id_dir"] == null? 0 : Convert.ToInt64(ViewState["id_dir"]);
             var objPersona = _objConsumoRegistroProd.ObtenerPersona(idPersona);
             nomraz.Text = objPersona.nomraz;
 

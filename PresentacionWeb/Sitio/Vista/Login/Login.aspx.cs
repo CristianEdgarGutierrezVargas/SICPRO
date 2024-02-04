@@ -16,16 +16,13 @@ namespace PresentacionWeb.Sitio.Vista.Login
         private long tiempo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Principal aaa = Page.Master as Principal;
-            var d = aaa.FindControl("accordionFlushExample");
-            d.Visible = false;
+            //Principal aaa = Page.Master as Principal;
+            //var d = aaa.FindControl("accordionFlushExample");
+            //d.Visible = false;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            //Session["suc"] = 54;
-    
             try
             {
                 

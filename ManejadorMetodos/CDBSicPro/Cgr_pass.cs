@@ -150,7 +150,7 @@ namespace ManejadorMetodos.CDBSicPro
                           join pass in _context.gr_pass on persona.id_per equals pass.id_per
                           where pass.clave == strClave && pass.login == usuario
                           select persona;
-                //var t = sql.ToList();
+                var t = sql.ToList();
                 if (sql.ToList().Count() > 0)
                 {
                     return true;
@@ -202,6 +202,7 @@ namespace ManejadorMetodos.CDBSicPro
                           join pass in _context.gr_pass on persona.id_per equals pass.id_per
                           where pass.clave == strClave && pass.login == usuario
                           select pass;
+                var t = sql.ToList();
                 if (sql.ToList().Count() == 0)
                 {
                     return "";

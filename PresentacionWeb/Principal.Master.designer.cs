@@ -42,13 +42,13 @@ namespace PresentacionWeb
         protected global::System.Web.UI.ScriptManager MasterAjaxScript;
 
         /// <summary>
-        /// Control accordionFlushExample.
+        /// Control dxMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordionFlushExample;
+        protected global::DevExpress.Web.Bootstrap.BootstrapAccordion dxMenu;
 
         /// <summary>
         /// Control ContentPlaceHolderPrincipal.

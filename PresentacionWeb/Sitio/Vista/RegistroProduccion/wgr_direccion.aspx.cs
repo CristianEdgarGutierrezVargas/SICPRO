@@ -35,6 +35,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //this.DireccionPersona();
            
             ViewState["id_per"] = itemIdPer;
+            btnContactos.Visible = false;
         }
 
         #region Metodos
@@ -232,6 +233,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             object str_id_dir = e.KeyValue;
             ViewState["id_dir"] = Convert.ToInt64(str_id_dir);
             SetFormDireccion(Convert.ToInt64(str_id_dir));
+            btnContactos.Visible = true;
         }
     }
 }
