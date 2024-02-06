@@ -53,11 +53,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportClientes_Result> GetReportClientes(string strNombre, int intMesAniv, int intSuc)
+        public List<GetReportClientes_Result> GetReportClientes()
         {
             try
             {
-                var sql = _context.GetReportClientes(strNombre, intMesAniv, intSuc).ToList();
+                var sql = _context.GetReportClientes().ToList();
 
                 return sql;
             }
@@ -83,11 +83,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportGrupos_Result> GetReportGrupos(long idGrupo, long idSucursal)
+        public List<GetReportGrupos_Result> GetReportGrupos()
         {
             try
             {
-                var sql = _context.GetReportGrupos(idGrupo, idSucursal).ToList();
+                var sql = _context.GetReportGrupos().ToList();
 
                 return sql;
             }

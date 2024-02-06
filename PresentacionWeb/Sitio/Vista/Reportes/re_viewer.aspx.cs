@@ -24,7 +24,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
         ConsumoReportes _objConsumoReportes = new ConsumoReportes();
         ConsumoRegistroProd _objConsumoRegistroProd = new ConsumoRegistroProd();
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {            
             switch (int.Parse(base.Request.QueryString["r"].ToString()))
             {
                 case 1:
@@ -213,7 +213,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             re_memo ds = new re_memo();
             DataTable dt = new DataTable();
             dt.TableName = "Crystal Report Example";
-            dt = ToDataTable<GetReportMemo_Result>(response);
+            dt = ToDataTable(response);
             //sqlCon = new SqlConnection(@"server='servername'; Initial Catalog='databasename';user id='userid';password='password'");
             //SqlDataAdapter da = new SqlDataAdapter(@"select Stud_Name, Class, Subject, Marks from stud_details", sqlCon);
             //da.Fill(dt);
@@ -223,7 +223,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             re_memocuotas ds1 = new re_memocuotas();
             DataTable dt1 = new DataTable();
             dt1.TableName = "Crystal Report Example";
-            dt1 = ToDataTable<pr_cuotapoliza>(lstCuota);
+            dt1 = ToDataTable(lstCuota);
             ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
 
 
@@ -616,6 +616,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
+        //13
         private void Clientes()
         {
             var mesAniv = Convert.ToInt32(Request.QueryString["fc"]);
@@ -716,7 +717,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             private void Grupos()
         {
             var idGrupo = Convert.ToInt64(Request.QueryString["ig"]);
-            var idSuc = Convert.ToInt64(Request.QueryString["sc"]);
+            var idSuc = Convert.ToInt64(Request.QueryString["sc"] == "*"? 0 : Convert.ToInt64(Request.QueryString["sc"]));
 
             ReportDocument rptDoc = new ReportDocument();
             
@@ -724,12 +725,20 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             //var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
 
             //Reporte Principal
-            re_clientes ds = new re_clientes();
+            re_grupos ds = new re_grupos();
             DataTable dt = new DataTable();
             dt.TableName = "Reporte";
             dt = ToDataTable(responseReporte);
-            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
-
+            try
+            {
+                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+            catch (Exception)
+            {
+                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+            
+                       
             ////Sub Reporte
             //re_direcciones ds1 = new re_direcciones();
             //DataTable dt1 = new DataTable();
@@ -744,14 +753,20 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
-
+        //16
         private void ProyCartera()
         {            
             var suc = Convert.ToString(Request.QueryString["sc"]);
 
             ReportDocument rptDoc = new ReportDocument();
+
+            var responseReporte = _objConsumoReportes.GetReportProyCartera();
+
+            if (suc != "0")
+            {
+                responseReporte = responseReporte.Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
+            }
             
-            var responseReporte = _objConsumoReportes.GetReportProyCartera().Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
             var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
 
             //Reporte Principal
@@ -759,7 +774,15 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             DataTable dt = new DataTable();
             dt.TableName = "Reporte";
             dt = ToDataTable(responseReporte);
-            ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+            try
+            {
+                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+            catch (Exception)
+            {
+                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
+            }
+            
 
             //Sub Reporte
             re_direcciones ds1 = new re_direcciones();

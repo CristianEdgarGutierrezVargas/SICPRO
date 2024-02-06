@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using PresentacionWeb.Parametros;
@@ -24,6 +25,7 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             {
                 Combos();
             }
+            return;
         }
 
         #region metodos
@@ -74,14 +76,20 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbGrupoGrupos.TextField = "desc_grupo";
                 cmbGrupoGrupos.DataBind();
 
-                cmbGrupoGrupos.SelectedIndex = 0;
+                //cmbGrupoGrupos.SelectedIndex = 0;
+                var itemSeleccioneGrupos = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbGrupoGrupos.Items.Add(itemSeleccioneGrupos);
+
 
                 cmbSucursalGrupos.DataSource = lstParametroRe;
                 cmbSucursalGrupos.ValueField = "id_par";
                 cmbSucursalGrupos.TextField = "desc_param";
                 cmbSucursalGrupos.DataBind();
 
-                cmbSucursalGrupos.SelectedIndex = 0;
+                //cmbSucursalGrupos.SelectedIndex = 0;
+
+                var itemSeleccioneTodosSucursal = new BootstrapListEditItem { Text = "SELECCIONE TODAS", Value = "*", Selected = true, Index = 0 };
+                cmbSucursalGrupos.Items.Add(itemSeleccioneTodosSucursal);
 
                 #endregion
 

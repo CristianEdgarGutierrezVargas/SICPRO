@@ -156,10 +156,10 @@ namespace ManejadorMetodos.CDBSicPro
                     objSelect.desc_param = "SELECCIONE UNA OPCIÓN";
                     sql.Add(objSelect);
 
-                    var objSelectTodas = new gr_parametro();
-                    objSelectTodas.id_par = 1;
-                    objSelectTodas.desc_param = "SELECCIONE TODAS";
-                    sql.Add(objSelectTodas);
+                    //var objSelectTodas = new gr_parametro();
+                    //objSelectTodas.id_par = "";
+                    //objSelectTodas.desc_param = "SELECCIONE TODAS";
+                    //sql.Add(objSelectTodas);
 
                     return sql.OrderBy(o => o.id_par).ToList();
                 }

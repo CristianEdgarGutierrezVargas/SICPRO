@@ -112,7 +112,22 @@ namespace Logica.Consumo
         {
             try
             {
-                return _manejador_reportes.GetReportClientes(strNombre, intMesAniv, intSuc);
+                var response = _manejador_reportes.GetReportClientes();
+
+                if (!string.IsNullOrEmpty(strNombre))
+                {
+                    response = response.Where(x => x.nomraz.Contains(strNombre.ToUpper())).ToList();
+                }
+                if (intMesAniv != 0)
+                {
+                    response = response.Where(x => x.fechaaniv.Value.Month == intMesAniv).ToList();
+                }
+                if (intSuc != 0)
+                {
+                    response = response.Where(x => x.id_suc == intSuc).ToList();
+                }
+
+                return response;
             }
             catch (SecureExceptions secureException)
             {
@@ -145,7 +160,18 @@ namespace Logica.Consumo
         {
             try
             {
-                return _manejador_reportes.GetReportGrupos(idGrupo, idSucursal);
+                var response =  _manejador_reportes.GetReportGrupos();
+
+                if (idGrupo != 0)
+                {
+                    response = response.Where(x => x.id_gru == idGrupo).ToList();
+                }
+
+                if (idSucursal != 0)
+                {
+                    response = response.Where(x => x.id_suc == idSucursal).ToList();
+                }
+                return response;
             }
             catch (SecureExceptions secureException)
             {

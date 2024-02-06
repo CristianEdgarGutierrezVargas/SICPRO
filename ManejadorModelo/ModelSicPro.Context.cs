@@ -295,23 +295,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
     
-        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes(string nomraz, Nullable<int> fecha_aniv, Nullable<int> id_suc)
-        {
-            var nomrazParameter = nomraz != null ?
-                new ObjectParameter("nomraz", nomraz) :
-                new ObjectParameter("nomraz", typeof(string));
-    
-            var fecha_anivParameter = fecha_aniv.HasValue ?
-                new ObjectParameter("fecha_aniv", fecha_aniv) :
-                new ObjectParameter("fecha_aniv", typeof(int));
-    
-            var id_sucParameter = id_suc.HasValue ?
-                new ObjectParameter("id_suc", id_suc) :
-                new ObjectParameter("id_suc", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, fecha_anivParameter, id_sucParameter);
-        }
-    
         public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
@@ -320,19 +303,6 @@ namespace ManejadorModelo
         public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
-        }
-    
-        public virtual ObjectResult<GetReportGrupos_Result> GetReportGrupos(Nullable<long> id_grupo, Nullable<long> id_sucursal)
-        {
-            var id_grupoParameter = id_grupo.HasValue ?
-                new ObjectParameter("id_grupo", id_grupo) :
-                new ObjectParameter("id_grupo", typeof(long));
-    
-            var id_sucursalParameter = id_sucursal.HasValue ?
-                new ObjectParameter("id_sucursal", id_sucursal) :
-                new ObjectParameter("id_sucursal", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos", id_grupoParameter, id_sucursalParameter);
         }
     
         public virtual ObjectResult<GetReportProyCartera_Result> GetReportProyCartera()
@@ -593,6 +563,16 @@ namespace ManejadorModelo
                 new ObjectParameter("id_spvs", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetFacturaNombreByIdSpvs_Result>("GetFacturaNombreByIdSpvs", id_spvsParameter);
+        }
+    
+        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes");
+        }
+    
+        public virtual ObjectResult<GetReportGrupos_Result> GetReportGrupos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos");
         }
     }
 }
