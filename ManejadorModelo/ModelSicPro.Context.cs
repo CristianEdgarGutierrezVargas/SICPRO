@@ -574,5 +574,10 @@ namespace ManejadorModelo
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos");
         }
+    
+        public virtual ObjectResult<GetReportResumProd2_Result> GetReportResumProd2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumProd2_Result>("GetReportResumProd2");
+        }
     }
 }

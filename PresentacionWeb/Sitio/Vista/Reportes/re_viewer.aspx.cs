@@ -200,39 +200,61 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             CrystalReportViewer1.RefreshReport();
         }
 
+        //2
         private void Reporteprod1()
         {
-            //var idPoliza = Convert.ToInt64(Request.QueryString["np"]);
-            //var idMovimiento = Convert.ToInt64(Request.QueryString["nl"]);
+            string idSucursal = Request.QueryString["s"]; //Por oficina
+            string idDivisa = Request.QueryString["idi"]; //Divisa
+            string idPersona = Request.QueryString["ipc"]; //por cliente
+            string numPoliza = Request.QueryString["nup"]; //numero de poliza
+            string nroLiquidacion = Request.QueryString["nl"]; //numero de liquidacion
+            
+            string del = Request.QueryString["de1"]; //rango de aplicacion del
+            string al = Request.QueryString["de2"]; //rango de aplicacion al
+            string idCartera = Request.QueryString["ca"]; // id cartera
+            string idEjecutivo = Request.QueryString["ej"]; // id ejecutivo
+            string idSpvs = Request.QueryString["sp"]; //id compañia
 
+            string idProducto = Request.QueryString["ip"]; //id producto            
+            string ramoSpvs = Request.QueryString["idr"]; //riesgo
+            string idGrupo = Request.QueryString["g"]; //id grupo
+            string idMovimiento = Request.QueryString["mv"]; //id movimiento
+            string cmbRangoFecha = Request.QueryString["fc"];  //rango de fecha
+
+            string fechaInicioVig = Request.QueryString["iv1"]; // fecha ini
+            string fechaFinVig = Request.QueryString["iv2"]; //fecha fin
+            string cmbPrimaTotal = Request.QueryString["ve0"]; // combo prima total
+            string primaTotal = Request.QueryString["pt"]; //texto prima total
+            string cmbPrimaNeta = Request.QueryString["ve"];  //combo prima neta
+
+            string primaNeta = Request.QueryString["pn"]; //texto prima neta           
+            
             ReportDocument rptDoc = new ReportDocument();
              
-            List<GetReportMemo_Result> response = _objConsumoReportes.GetReportMemo(36165, 63452);
-            List<pr_cuotapoliza> lstCuota = _objConsumoRegistroProd.GridCuotasC(36165, 63452);
-
-            re_memo ds = new re_memo();
+            List<GetReportResumProd2_Result> response = _objConsumoReportes.GetReportResumProd2(
+                idSucursal, idDivisa, idPersona, numPoliza, nroLiquidacion,
+                del, al, idCartera, idEjecutivo, idSpvs,
+                idProducto, ramoSpvs, idGrupo, idMovimiento, cmbRangoFecha,
+                fechaInicioVig, fechaFinVig, cmbPrimaTotal, primaTotal, cmbPrimaNeta,
+                primaNeta);
+            
+            re_resumprod2 ds = new re_resumprod2();
             DataTable dt = new DataTable();
             dt.TableName = "Crystal Report Example";
-            dt = ToDataTable(response);
-            //sqlCon = new SqlConnection(@"server='servername'; Initial Catalog='databasename';user id='userid';password='password'");
-            //SqlDataAdapter da = new SqlDataAdapter(@"select Stud_Name, Class, Subject, Marks from stud_details", sqlCon);
-            //da.Fill(dt);
-            //ds.Tables[0].Merge(dt);
+            dt = ToDataTable(response);           
             ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
 
-            re_memocuotas ds1 = new re_memocuotas();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "Crystal Report Example";
-            dt1 = ToDataTable(lstCuota);
-            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
-
-
+            //re_memocuotas ds1 = new re_memocuotas();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "Crystal Report Example";
+            //dt1 = ToDataTable(lstCuota);
+            //ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             //rptDoc.Load(Server.MapPath("SimpleCrystal.rpt"));
             string reportPath = base.Server.MapPath("reportes//re_resumprod2.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }

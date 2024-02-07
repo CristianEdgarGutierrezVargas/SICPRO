@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -188,6 +189,238 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_reportes.GetReportProyCartera();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
+        public List<GetReportResumProd2_Result> GetReportResumProd2(
+                string idSucursal, string idDivisa, string idPersona, string numPoliza, string numLiquidacion,
+                string del, string al, string idCartera, string idEjecutivo, string idSpvs,
+                string idProducto, string ramoSpvs, string idGrupo, string idMovimiento, string cmbRangoFecha,
+                string fechaInicioVig, string fechaFinVig, string cmbPrimaTotal, string primaTotal, string cmbPrimaNeta,
+                string primaNeta)
+        {
+            try
+            {
+                var sql1 = _manejador_reportes.GetReportResumProd2();
+
+                if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_suc == Convert.ToInt64(idSucursal)).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idDivisa) && idDivisa != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_div == Convert.ToInt64(idDivisa)).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idPersona) && idPersona != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_perclie == idPersona).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(numPoliza) && numPoliza != "0")
+                {
+                    sql1 = sql1.Where(x => x.num_poliza == numPoliza).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(numLiquidacion) && numLiquidacion != "0")
+                {
+                    sql1 = sql1.Where(x => x.no_liquida == numLiquidacion).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(del) && del != "0")
+                {
+                    if (!string.IsNullOrEmpty(al) && al != "0")
+                    {
+                        sql1 = sql1.Where(x => x.del >= Convert.ToDecimal(del) && x.al <= Convert.ToDecimal(al)).ToList();
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_percart == idCartera).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idEjecutivo) && idEjecutivo != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_perejec == idEjecutivo).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idSpvs) && idSpvs != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_spvs == idSpvs).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idProducto) && idProducto != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_producto == Convert.ToInt64(idProducto)).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(ramoSpvs) && ramoSpvs != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_riesgo == ramoSpvs).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idGrupo) && idGrupo != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_gru == Convert.ToInt64(idGrupo)).ToList();
+                }
+
+                if (!string.IsNullOrEmpty(idMovimiento) && idMovimiento != "0")
+                {
+                    sql1 = sql1.Where(x => x.id_clamov == Convert.ToInt64(idMovimiento)).ToList();
+                }
+
+                var dtFechaDe = (DateTime)SqlDateTime.MinValue;
+                var dtFechaA = (DateTime)SqlDateTime.MaxValue;
+
+                if (!string.IsNullOrEmpty(fechaInicioVig) && fechaInicioVig != "0")
+                {
+                    dtFechaDe = DateTime.Parse(fechaInicioVig);
+                }
+
+                if (!string.IsNullOrEmpty(fechaFinVig) && fechaFinVig != "0")
+                {
+                    dtFechaA = DateTime.Parse(fechaFinVig);
+                }
+
+                switch (cmbRangoFecha)
+                {                    
+                    case "fc_recepcion":
+                        sql1 = sql1.Where(x => x.fc_recepcion >= dtFechaDe && x.fc_recepcion <= dtFechaA).ToList();
+                        break;
+                    case "fc_reg":
+                        sql1 = sql1.Where(x => x.fc_reg >= dtFechaDe && x.fc_reg <= dtFechaA).ToList();
+                        break;
+                    case "fc_emision":
+                        sql1 = sql1.Where(x => x.fc_emision >= dtFechaDe && x.fc_emision <= dtFechaA).ToList();
+                        break;
+                    case "fc_inivig":
+                        sql1 = sql1.Where(x => x.fc_inivig >= dtFechaDe && x.fc_inivig <= dtFechaA).ToList();
+                        break;
+                    case "fc_finvig":
+                        sql1 = sql1.Where(x => x.fc_finvig >= dtFechaDe && x.fc_finvig <= dtFechaA).ToList();
+                        break;
+                    default:
+                        // code block
+                        break;
+                }
+
+                if (!string.IsNullOrEmpty(cmbPrimaTotal) && cmbPrimaTotal != "0")
+                {
+                    int num = int.Parse(cmbPrimaTotal);                    
+                    switch (num)
+                    {
+                        case 1:
+                            {
+                                if (!string.IsNullOrEmpty(primaTotal) && primaTotal != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_bruta == Convert.ToDecimal(primaTotal)).ToList();
+                                }
+                                //str10 = " = ";
+                                break;
+                            }
+                        case 2:
+                            {
+                                if (!string.IsNullOrEmpty(primaTotal) && primaTotal != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_bruta > Convert.ToDecimal(primaTotal)).ToList();
+                                }
+                                //str10 = " > ";
+                                break;
+                            }
+                        case 3:
+                            {
+                                if (!string.IsNullOrEmpty(primaTotal) && primaTotal != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_bruta < Convert.ToDecimal(primaTotal)).ToList();
+                                }
+                                //str10 = " < ";
+                                break;
+                            }
+                        case 4:
+                            {
+                                if (!string.IsNullOrEmpty(primaTotal) && primaTotal != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_bruta >= Convert.ToDecimal(primaTotal)).ToList();
+                                }
+                                //str10 = " >= ";
+                                break;
+                            }
+                        case 5:
+                            {
+                                if (!string.IsNullOrEmpty(primaTotal) && primaTotal != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_bruta <= Convert.ToDecimal(primaTotal)).ToList();
+                                }
+                                //str10 = " <= ";
+                                break;
+                            }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(cmbPrimaNeta) && cmbPrimaNeta != "0")
+                {
+                    int num = int.Parse(cmbPrimaNeta);
+                    switch (num)
+                    {
+                        case 1:
+                            {
+                                if (!string.IsNullOrEmpty(primaNeta) && primaNeta != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_neta == Convert.ToDecimal(primaNeta)).ToList();
+                                }
+                                //str10 = " = ";
+                                break;
+                            }
+                        case 2:
+                            {
+                                if (!string.IsNullOrEmpty(primaNeta) && primaNeta != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_neta > Convert.ToDecimal(primaNeta)).ToList();
+                                }
+                                //str10 = " > ";
+                                break;
+                            }
+                        case 3:
+                            {
+                                if (!string.IsNullOrEmpty(primaNeta) && primaNeta != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_neta < Convert.ToDecimal(primaNeta)).ToList();
+                                }
+                                //str10 = " < ";
+                                break;
+                            }
+                        case 4:
+                            {
+                                if (!string.IsNullOrEmpty(primaNeta) && primaNeta != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_neta >= Convert.ToDecimal(primaNeta)).ToList();
+                                }
+                                //str10 = " >= ";
+                                break;
+                            }
+                        case 5:
+                            {
+                                if (!string.IsNullOrEmpty(primaNeta) && primaNeta != "0")
+                                {
+                                    sql1 = sql1.Where(x => x.prima_neta <= Convert.ToDecimal(primaNeta)).ToList();
+                                }
+                                //str10 = " <= ";
+                                break;
+                            }
+                    }
+                }
+
+                return sql1;
             }
             catch (SecureExceptions secureException)
             {

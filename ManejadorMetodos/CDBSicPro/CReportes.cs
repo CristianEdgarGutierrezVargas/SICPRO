@@ -113,6 +113,21 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        public List<GetReportResumProd2_Result> GetReportResumProd2()
+        {
+            try
+            {
+                var sql = _context.GetReportResumProd2().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
         #endregion
 
         #region wre reportes - reclamos
