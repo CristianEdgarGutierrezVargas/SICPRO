@@ -24,6 +24,7 @@ namespace Logica.Consumo
         private readonly Cgr_tc _manejador_gr_tc;
         private readonly Cpr_producto _manejador_pr_producto;
         private readonly Cgr_compania _manejador_gr_compania;
+        private readonly Cpr_cuotapoliza _manejador_pr_cuotapoliza;
         public static sicproEntities dbContext;
 
         public ConsumoConfiguracionSistema()
@@ -39,6 +40,7 @@ namespace Logica.Consumo
             _manejador_gr_tc = new Cgr_tc(dbContext);
             _manejador_pr_producto = new Cpr_producto(dbContext);
             _manejador_gr_compania = new Cgr_compania(dbContext);
+            _manejador_pr_cuotapoliza = new Cpr_cuotapoliza(dbContext);
         }
 
         public List<gr_persona> ListaPersonaConPass()
@@ -419,6 +421,17 @@ namespace Logica.Consumo
             try
             {
                 _manejador_pr_producto.ModificarFormRiesgo(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<vpr_listasinpago> ObtenerTablaPoliza(string num_poliza, string id_perclie, string id_spvs, long id_producto, bool flagVigencia, DateTime? fc_inivig, DateTime? fc_finivig, bool flagPorVencer, DateTime? fc_finvig)
+        {
+            try
+            {
+                return _manejador_pr_cuotapoliza.ObtenerTablaPoliza( num_poliza,  id_perclie,  id_spvs,  id_producto, flagVigencia,  fc_inivig,  fc_finivig, flagPorVencer,  fc_finvig);
             }
             catch (SecureExceptions secureException)
             {

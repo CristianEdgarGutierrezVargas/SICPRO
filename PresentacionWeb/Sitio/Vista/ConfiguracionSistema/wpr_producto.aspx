@@ -84,7 +84,7 @@
                         <dxA:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback" >
                             <PanelCollection>
                                 <dxA:PanelContent runat="server">
-                                    <dxA:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
+                                    <dxA:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_spvs"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"

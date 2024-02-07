@@ -23,6 +23,7 @@ namespace Logica.Consumo
         private readonly Cpr_producto _manejador_pr_producto;
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cre_caso _manejador_re_caso;
+        private readonly Cpr_poliza _manejador_pr_poliza;
         public static sicproEntities dbContext;
 
         public ConsumoReclamos()
@@ -39,6 +40,7 @@ namespace Logica.Consumo
             _manejador_pr_producto = new Cpr_producto(dbContext);
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_re_caso = new Cre_caso(dbContext);
+            _manejador_pr_poliza = new Cpr_poliza(dbContext);
         }
         public List<gr_persona> Persona(int idSuc)
         {
@@ -122,6 +124,28 @@ namespace Logica.Consumo
             try
             {
                 _manejador_re_caso.add_histcaso1(item);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public List<pr_poliza> ObtenerPolizaP(string id_per)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerPolizaP(id_per);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public List<pr_poliza> ObtenerPolizaPP(string id_poliza)
+        {
+            try
+            {
+                return _manejador_pr_poliza.ObtenerPolizaPP(id_poliza);
             }
             catch (SecureExceptions secureException)
             {
