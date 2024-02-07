@@ -203,7 +203,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnnuevo_Click(object sender, EventArgs e)
         {
             //this.msgboxpanel.Visible = false;
-            base.Response.Redirect("~/wpr_listaapli.aspx");
+            base.Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_listaapli.aspx");
         }
 
         protected void btnsercom_Click(object sender, EventArgs e)
