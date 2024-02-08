@@ -704,6 +704,8 @@
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_amortizaanexos.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_amortizacuota.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_actuarecibos.aspx" />
+    <Content Include="Sitio\Vista\ModuloCobranzas\wpr_recibosmodificaciones.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx" />
     <Content Include="Sitio\Vista\ModuloCobranzas\wco_modifactura.aspx" />
     <Content Include="Sitio\Vista\ModuloComisiones\wco_anticom.aspx" />
@@ -3092,6 +3094,20 @@
     </Compile>
     <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_factura.aspx.designer.cs">
       <DependentUpon>wpr_factura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_actuarecibos.aspx.cs">
+      <DependentUpon>wpr_actuarecibos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_actuarecibos.aspx.designer.cs">
+      <DependentUpon>wpr_actuarecibos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_recibosmodificaciones.aspx.cs">
+      <DependentUpon>wpr_recibosmodificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_recibosmodificaciones.aspx.designer.cs">
+      <DependentUpon>wpr_recibosmodificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ModuloCobranzas\wpr_liquidacion.aspx.cs">
       <DependentUpon>wpr_liquidacion.aspx</DependentUpon>

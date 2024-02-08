@@ -536,6 +536,71 @@ namespace Logica.Consumo
             }
 
         }
+        public List<pr_recibo> ObtenerReciboA(string dato, string idPerucb)
+        {
 
+            try
+            {
+                var dt = cpr_Recibo.ObtenerReciboA(dato, idPerucb);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+        public List<pr_recibo> ObtenerReciboM(string dato, string idPerucb)
+        {
+
+            try
+            {
+                var dt = cpr_Recibo.ObtenerReciboM(dato, idPerucb);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+        public List<pr_recibo> ObtenerReciboMF(pr_recibo objRecibo)
+        {
+
+            try
+            {
+                var dt = cpr_Recibo.ObtenerReciboMF(objRecibo);
+                return dt;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+
+            }
+        }
+        public bool ActualizarRecibo(pr_recibo objRecibo)
+        {
+            try
+            {
+                return cpr_Recibo.ActualizarRecibo(objRecibo);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
+        public bool ActualizarReciboM(pr_recibo objRecibo)
+        {
+            try
+            {
+                return cpr_Recibo.ActualizarReciboM(objRecibo);
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la Transacción", secureException);
+            }
+        }
     }
 }
