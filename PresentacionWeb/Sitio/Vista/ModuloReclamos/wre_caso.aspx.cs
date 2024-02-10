@@ -1,4 +1,5 @@
-﻿using EntidadesClases.ModelSicPro;
+﻿using Common;
+using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using PresentacionWeb.Lib;
 using System;
@@ -13,12 +14,13 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
     public partial class wre_caso : System.Web.UI.Page
     {
         ConsumoReclamos logicaReclamos = new ConsumoReclamos();
+        ConsumoConfiguracionSistema logicaConfiguracion = new ConsumoConfiguracionSistema();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.IsPostBack)
                 return;
             this.id_suc.Focus();
-            this.id_perurc.DataSource = logicaReclamos.Persona(60);
+            this.id_perurc.DataSource = logicaReclamos.Persona(35);
             this.id_perurc.DataTextField = "nomraz";
             this.id_perurc.DataValueField = "id_per";
             this.id_perurc.DataBind();
@@ -35,12 +37,12 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
             this.id_suc.SelectedValue = "0";
 
             this.id_rolate.DataSource = logicaReclamos.Parametro("id_rolate");
-            this.id_rolate.DataTextField = "abrev_param";
+            this.id_rolate.DataTextField = "desc_param";
             this.id_rolate.DataValueField = "id_par";
             this.id_rolate.DataBind();
 
             this.id_uniobj.DataSource = logicaReclamos.Parametro("id_uniobj");
-            this.id_uniobj.DataTextField = "abrev_param";
+            this.id_uniobj.DataTextField = "desc_param";
             this.id_uniobj.DataValueField = "id_par";
             this.id_uniobj.DataBind();
 
@@ -48,17 +50,10 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
             this.anio_caso.DataTextField = "desc_param";
             this.anio_caso.DataValueField = "valor_param";
             this.anio_caso.DataBind();
-            //new gr_persona() { id_rol = this.id_perurc }.Persona(35);
-            //gr_parametro grParametro = new gr_parametro();
-            //grParametro.ddlgeneral = this.id_div;
-            //grParametro.ParametroA("id_div");
-            //grParametro.ddlgeneral = this.id_suc;
-            //grParametro.Parametro("id_suc");
-            //grParametro.ddlgeneral = this.id_rolate;
-            //grParametro.Parametro("id_rolate");
-            //grParametro.ddlgeneral = this.id_uniobj;
-            //grParametro.Parametro("id_uniobj");
-            //new re_caso() { anio_caso = this.anio_caso }.anio_list();
+
+            Session["LST_PERSONAS"] = logicaConfiguracion.TablaPersona(string.Empty);
+            this.grdListaPersona.DataSource = Session["LST_PERSONAS"];
+            this.grdListaPersona.DataBind();
         }
 
         protected void btnsalir_Click(object sender, EventArgs e)
@@ -210,7 +205,6 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
 
                     //if (!reCaso.add_recaso())
                     //    return;
-
                     /*
                     string[] str = new string[] {  };
                     "INSERT INTO re_caso VALUES (" +
@@ -232,9 +226,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
                                                    ")"                                                                             , id_recibo
                                                                                                                               , anio_recibo
                     */
-
                     //this.id_caso.Text = reCaso.numcaso().ToString();
-
                     /*
                     string[] str = new string[] { "SELECT max(re_caso.id_caso) as idcaso " +
                                                   "FROM re_caso " +
@@ -281,52 +273,87 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
 
                     reCaso.add_siniestro();
                     string[] text = new string[] { "INSERT INTO re_siniestro values(" +
-                                                                                        "", this.id_caso.Text, 
-                                                                                        ",", this.anio_caso.SelectedValue.ToString(), 
-                                                                                        ",", this.id_suc.SelectedValue.ToString(), 
-                                                                                        ",'", Funciones.fc(this.fc_incidente.Text), 
-                                                                                       "','", this.denunciante.Text, 
-                                                                                       "','", this.reladenun.Text, 
-                                                                                       "','", this.mat_aseg.Text, 
-                                                                                       "','", this.lugar_siniestro.Text, 
-                                                                                       "','", this.circunstancia.Text, 
-                                                                                       "',", this.id_uniobj.Text, 
-                                                                                        ",'", this.uniobj.Text, 
-                                                                                       "','", Funciones.fc(this.fc_denuncia.Text), "')" };
+                                      "", this.id_caso.Text, 
+                                      ",", this.anio_caso.SelectedValue.ToString(), 
+                                      ",", this.id_suc.SelectedValue.ToString(), 
+                                      ",'", Funciones.fc(this.fc_incidente.Text), 
+                                     "','", this.denunciante.Text, 
+                                     "','", this.reladenun.Text, 
+                                     "','", this.mat_aseg.Text, 
+                                     "','", this.lugar_siniestro.Text, 
+                                     "','", this.circunstancia.Text, 
+                                     "',", this.id_uniobj.Text, 
+                                      ",'", this.uniobj.Text, 
+                                     "','", Funciones.fc(this.fc_denuncia.Text), "')" };
                     */
-                    /*
+                    
                     re_histcaso histocaso = new re_histcaso();
-                    histocaso.id_histcaso =;
+                    histocaso.id_histcaso =0;
                     histocaso.id_caso = id_caso;
-                    histocaso.anio  =;
-                    histocaso.id_sucur  =;
-                    histocaso.fc_iniestado  =;
-                    histocaso.fc_finestado  =;
-                    histocaso.id_estca  =;
-                    histocaso.obs_histcaso =;
+                    histocaso.anio  = reCaso.anio_caso;
+                    histocaso.id_sucur  = reCaso.id_sucur;
+                    histocaso.fc_iniestado  = DateTime.Now;
+                    histocaso.fc_finestado  =null;
+                    histocaso.id_estca  =73;
+                    histocaso.obs_histcaso = "Registro Automatico realizado por el Sistema a momento de Insertar la Denuncia";
 
+                    logicaReclamos.add_histcaso1(histocaso);
+                    //reCaso.add_histcaso1();
+                    //string[] text = new string[] { "INSERT INTO re_histcaso values (default," , this.id_caso.Text, ",", this.anio_caso.SelectedValue.ToString(), ",", this.id_suc.SelectedValue.ToString(), ",current_date ,default         ,73,'Registro Automatico realizado por el Sistema a momento de Insertar la Denuncia')" };
+                    //                                                      " SELECT id_histcaso, id_caso             , anio                                        , id_sucur                                 , fc_iniestado , fc_finestado, id_estca, obs_histcaso "
 
-                    reCaso.add_histcaso1();
-                    string[] text = new string[] { "INSERT INTO re_histcaso values (default,", this.id_caso.Text, ",", this.anio_caso.SelectedValue.ToString(), ",", this.id_suc.SelectedValue.ToString(), ",current_date,default,73,'Registro Automatico realizado por el Sistema a momento de Insertar la Denuncia')" };
+                    popUpConfirmacion.ShowOnPageLoad = true;
 
-
-
-                    this.msgboxpanel.Visible = true;
-                    MessageBox messageBox = new MessageBox(this.Server.MapPath("msgbox.tpl"));
-                    messageBox.SetTitle("Confirmacion");
-                    messageBox.SetIcon("msg_icon_1.png");
-                    messageBox.SetMessage("Se han registrado correctamente todos los valores del incidente de reclamos");
-                    messageBox.SetOKButton("msg_button_class");
-                    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-                    this.btnnuevo.Visible = true;
+                    //this.btnnuevo.Visible = true;
                     this.btnguardar.Visible = false;
-                    this.btnreporte.Visible = true;
-                    */
+                    //this.btnreporte.Visible = true;
                 }
             }
-            catch
+            catch (SecureExceptions ex)
             {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
             }
+        }
+        protected void grdListaPersona_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<gr_persona>)Session["LST_PERSONAS"];
+            if (lstData != null)
+            {
+                this.grdListaPersona.DataSource = lstData;
+            }
+        }
+
+        protected void pnlCallBackBuscaPersona_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            logicaConfiguracion = new ConsumoConfiguracionSistema();
+            Session["LST_PERSONAS"] = logicaConfiguracion.TablaPersona(e.Parameter);
+            this.grdListaPersona.DataSource = Session["LST_PERSONAS"];
+            this.grdListaPersona.DataBind();
+        }
+        protected void grdListaPersona_SelectionChanged(object sender, EventArgs e)
+        {
+            var grilla = (DevExpress.Web.ASPxGridView)sender;
+            var lista = grilla.GetSelectedFieldValues("id_per");
+            var objeto = (string)lista[0];
+            this.id_per.Value = objeto.ToString();
+
+            lista = grilla.GetSelectedFieldValues("nomraz");
+            objeto = (string)lista[0];
+            this.nomraz.Text = objeto.ToString();
+
+            this.id_poliza.DataSource = logicaReclamos.ObtenerPolizaP(objeto.ToString());
+            this.id_poliza.DataTextField = "num_poliza";
+            this.id_poliza.DataValueField = "id_poliza";
+            this.id_poliza.DataBind();
+
+            this.btnguardar.Visible = true;
+            //this.btnmodificar.Visible = false;
+            popupBusquedaPersona.ShowOnPageLoad = false;
+        }
+
+        protected void id_poliza_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

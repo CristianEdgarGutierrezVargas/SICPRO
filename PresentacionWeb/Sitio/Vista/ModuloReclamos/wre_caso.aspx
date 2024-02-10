@@ -24,11 +24,11 @@
                         </div>
                         <div class="col-7">
                             <asp:DropDownList ID="id_suc" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                                <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
+                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="98" Text="COCHABAMBA"></asp:ListItem>
                                 <asp:ListItem Value="54" Text="SANTA CRUZ"></asp:ListItem>
                                 <asp:ListItem Value="95" Text="SUCRE"></asp:ListItem>
-                                <asp:ListItem Value="53" Text="CENTRAL LA PAZ"></asp:ListItem>
+                                <asp:ListItem Value="53" Text="CENTRAL LA PAZ"></asp:ListItem>--%>
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
@@ -41,9 +41,9 @@
                         <div class="col-7">
 
                             <asp:DropDownList ID="anio_caso" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                                <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
+                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="2023" Text="2023"></asp:ListItem>
-                                <asp:ListItem Value="2024" Text="2024"></asp:ListItem>
+                                <asp:ListItem Value="2024" Text="2024"></asp:ListItem>--%>
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-7">
 
-                            <asp:DropDownList ID="id_poliza" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                            <asp:DropDownList ID="id_poliza" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnSelectedIndexChanged="id_poliza_SelectedIndexChanged">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -334,10 +334,10 @@
                         </dx:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaPersona" ClientInstanceName="pnlCallBackBuscaPersona" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
+                        <dx:ASPxCallbackPanel ID="pnlCallBackBuscaPersona" ClientInstanceName="pnlCallBackBuscaPersona" OnCallback="pnlCallBackBuscaPersona_Callback" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true">
                             <PanelCollection>
                                 <dx:PanelContent runat="server">
-                                    <%--<dx:ASPxGridView ID="grdListaPersona" runat="server" OnDataBinding="grdListaPersona_DataBinding" OnSelectionChanged="grdListaPersona_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
+                                    <dx:ASPxGridView ID="grdListaPersona" runat="server" OnDataBinding="grdListaPersona_DataBinding" OnSelectionChanged="grdListaPersona_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_per"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"
@@ -358,7 +358,7 @@
                                             <Summary Visible="false" />
                                         </SettingsPager>
                                         <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
-                                    </dx:ASPxGridView>--%>
+                                    </dx:ASPxGridView>
                                 </dx:PanelContent>
                             </PanelCollection>
                         </dx:ASPxCallbackPanel>
@@ -392,6 +392,29 @@
         </ContentCollection>
         <FooterContentTemplate>
             <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+        CloseAction="None" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px" ShowCloseButton="false">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1.jpg" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl runat="server">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_1.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        <p style="color: #0A416B; font-weight: bold">
+                            <dx:ASPxLabel ID="lblmensajepopup" runat="server" Text="Se han registrado correctamente todos los valores del incidente de reclamos"></dx:ASPxLabel>
+                        </p>
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_title_1.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popupBusquedaPersona.Hide();location.href = '../Default.aspx';">ACEPTAR</button>
         </FooterContentTemplate>
     </dx:ASPxPopupControl>
 </asp:Content>

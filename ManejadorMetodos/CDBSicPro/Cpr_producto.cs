@@ -172,7 +172,6 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
-
         public List<pr_formriesgo> ObtenerFormRiesgo(string id_spvs, long id_producto)
         {
             try
@@ -191,7 +190,6 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
-
         public void ModificarFormRiesgo(pr_formriesgo item)
         {
             try
@@ -224,6 +222,24 @@ namespace ManejadorMetodos.CDBSicPro
             catch (SecureExceptions secureException)
             {
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<pr_producto> TablaProductoP(string desc_prod)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT pr_producto.id_producto, pr_producto.desc_prod , abrev_prod FROM pr_producto WHERE pr_producto.desc_prod LIKE '%", desc_prod, "%' ORDER BY desc_prod");
+
+                var list = (from producto in _context.pr_producto
+                            where producto.desc_prod.Contains(desc_prod)==true
+                            orderby producto.desc_prod ascending
+                            select producto
+                           ).ToList();
+                return list;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
     }

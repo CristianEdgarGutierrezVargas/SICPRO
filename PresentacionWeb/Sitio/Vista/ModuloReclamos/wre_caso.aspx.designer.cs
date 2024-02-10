@@ -303,6 +303,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         protected global::DevExpress.Web.ASPxCallbackPanel pnlCallBackBuscaPersona;
 
         /// <summary>
+        /// grdListaPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView grdListaPersona;
+
+        /// <summary>
         /// popUpValidacion control.
         /// </summary>
         /// <remarks>
@@ -319,5 +328,23 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lblerror;
+
+        /// <summary>
+        /// popUpConfirmacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpConfirmacion;
+
+        /// <summary>
+        /// lblmensajepopup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblmensajepopup;
     }
 }

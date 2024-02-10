@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EntidadesClases.ModelSicPro;
 using EntidadesClases.CustomModelEntities;
+using System.Data.SqlTypes;
 
 namespace ManejadorMetodos.CDBSicPro
 {
@@ -417,7 +418,56 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        public List<pr_poliza> ObtenerPolizaP(string id_per)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT public.pr_poliza.id_poliza
+                //                                  ,public.pr_poliza.num_poliza
+                //                            FROM pr_poliza
+                //                            WHERE pr_poliza.id_perclie = '", id_per, "'
+                //                            UNION SELECT 0, 'SELECCIONE UNA OPCIÓN' ORDER BY id_poliza");
 
+                var sql = ( from poliza in _context.pr_poliza
+                            where poliza.id_perclie==id_per
+                            select poliza
+                           ).ToList();
+                sql.Add(new pr_poliza { id_poliza = 0 ,num_poliza= "SELECCIONE UNA OPCIÓN" });
+                sql=sql.OrderBy(x=>x.id_poliza).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<pr_poliza> ObtenerPolizaPP(string id_poliza)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT  pr_poliza.id_poliza
+                //                                  , pr_poliza.num_poliza
+                //                                  , pr_poliza.id_producto
+                //                                  , pr_producto.desc_prod
+                //                                  , pr_poliza.id_spvs
+                //                                  , v_pr_cias_resum.nomraz
+                //                           FROM pr_poliza
+                //                           INNER JOIN pr_producto ON (pr_poliza.id_producto = pr_producto.id_producto)
+                //                           INNER JOIN v_pr_cias_resum ON (pr_poliza.id_spvs = v_pr_cias_resum.id_spvs)
+                //                           WHERE pr_poliza.id_poliza =", id_poliza);
 
+                var sql = (from poliza in _context.pr_poliza
+                           where poliza.id_perclie == id_poliza
+                           select poliza
+                           ).ToList();
+                sql.Add(new pr_poliza { id_poliza = 0, num_poliza = "SELECCIONE UNA OPCIÓN" });
+                sql = sql.OrderBy(x => x.id_poliza).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
     }
 }

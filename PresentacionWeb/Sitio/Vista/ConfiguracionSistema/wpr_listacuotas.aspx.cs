@@ -151,7 +151,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         {
             var grilla = (DevExpress.Web.ASPxGridView)sender;
             var lista = grilla.GetSelectedFieldValues("id_producto");
-            var objeto = (string)lista[0];
+            var objeto = lista[0].ToString();
             this.id_producto.Value = objeto.ToString();
 
             lista = grilla.GetSelectedFieldValues("desc_prod");
@@ -176,7 +176,12 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 popupBusquedaProducto.ShowOnPageLoad = true;
             }
         }
-        protected void Datos()
+        protected void btnnuevo_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("wpr_listacuotas.aspx");
+        }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
         {
             if (!this.vigencia.Checked & this.num_poliza.Text == "" & this.nomraz.Text == "" & this.nomco.Text == "" & this.desc_producto.Text == "" & !this.porvencer.Checked)
             {
@@ -185,33 +190,35 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             }
             else
             {
-                //pr_cuotas prCuotas = new pr_cuotas();
-                //string str = this.Request.QueryString["var"];
-                //prCuotas.vigencia = this.vigencia;
-                //prCuotas.vigencia.Checked = this.vigencia.Checked;
-                //prCuotas.porvencer = this.porvencer;
-                //prCuotas.porvencer.Checked = this.porvencer.Checked;
-                //prCuotas.num_poliza = this.num_poliza;
-                //prCuotas.id_perclie = this.id_per;
-                //prCuotas.id_spvs = this.id_spvs;
-                //prCuotas.id_producto = this.id_producto;
-                //prCuotas.fc_inivig = this.fc_inivig;
-                //prCuotas.fc_finivig = this.fc_finvig;
-                //prCuotas.fc_finvig = this.fc_polizavencida;
-                //prCuotas.lblmensaje = this.lblmensaje;
-                //prCuotas.a = this.ap;
-                //prCuotas.b = this.bp;
-                //prCuotas.RecuperaTabla();
-                //this.gridpoliza.DataSource = (object)prCuotas.ObtenerTablaPoliza();
-                //this.gridpoliza.DataBind();
-                //this.gridcontainer.Visible = true;
+                string num_poliza= this.num_poliza.Text.ToUpper();
+                string id_perclie= this.id_per.Value.ToString();
+                string id_spvs = this.id_spvs.Value.ToString();
+                long id_producto = long.Parse(this.id_producto.Value.ToString());
+                bool flagVigencia = this.vigencia.Checked;
+                bool flagporVencer = this.porvencer.Checked;
+
+                var fc_inivig = ((DateTime?)this.fc_inivig.Value) == DateTime.MinValue ? null: (DateTime?)this.fc_inivig.Value;
+                var fc_finvig = ((DateTime?)this.fc_finvig.Value) == DateTime.MinValue ? null : (DateTime?)this.fc_finvig.Value;
+                var fc_polizavencida = ((DateTime?)this.fc_polizavencida.Value) == DateTime.MinValue ? null : (DateTime?)this.fc_polizavencida.Value;
+                
+                var sql= logicaConfiguracion.ObtenerTablaPoliza(num_poliza, id_perclie, id_spvs, id_producto, flagVigencia, fc_inivig, fc_finvig, flagporVencer, fc_polizavencida);
+                Session["LST_POLIZA"] = sql;
+                this.gridpoliza.DataSource = sql;
+                this.gridpoliza.DataBind();
+                this.gridpoliza.Visible = true;
             }
         }
-
-
-        protected void btnnuevo_Click(object sender, EventArgs e)
+        protected void grdPolizas_DataBinding(object sender, EventArgs e)
         {
-            this.Response.Redirect("wpr_listacuotas.aspx");
+            var lstData = (List<vpr_listasinpago>)Session["LST_POLIZA"];
+            if (lstData != null)
+            {
+                this.gridpoliza.DataSource = lstData;
+            }
+        }
+        protected void grdPolizas_SelectionChanged(object sender, EventArgs e)
+        {
+             
         }
     }
 }
