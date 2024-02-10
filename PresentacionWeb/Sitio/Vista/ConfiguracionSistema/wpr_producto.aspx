@@ -51,13 +51,67 @@
                                         }" />
                             </dxA:ASPxButton>
                         </div>
-
                     </div>
                     <div class="row p-2">
                         <p class="links">
                             <asp:Label ID="lblmensajeA" runat="server" Text="" class="error"></asp:Label>
                         </p>
                     </div>
+
+                    <asp:Panel ID="pnlControles" runat="server" Visible="false">
+                        <div class="row p-2">
+                            <div class="col-2">
+                                Riesgo :
+                            </div>
+                            <div class="col-4">
+                                <asp:DropDownList ID="id_riesgo" runat="server"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-2">
+                                Compañia :
+                            </div>
+                            <div class="col-4">
+                                <asp:DropDownList ID="id_spvs" runat="server"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-2">
+                                Formula :
+                            </div>
+                            <div class="col-4">
+                                <asp:DropDownList ID="operador" runat="server">
+                                    <asp:ListItem Text="!--" Value="!--"></asp:ListItem>
+                                    <asp:ListItem Text="*" Value="*"></asp:ListItem>
+                                    <asp:ListItem Text="/" Value="/"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-4">
+                                <asp:TextBox ID="evaluar" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-2">
+                                Comisión :
+                            </div>
+                            <div class="col-2">
+                                <asp:TextBox ID="comis_riesgo" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                            </div>
+                            <div class="col-2">
+                                Por. a Crédito :
+                            </div>
+                            <div class="col-2">
+                                <asp:TextBox ID="por_cred" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                            </div>
+                            <div class="col-2">
+                                Plus Neta :
+                            </div>
+                            <div class="col-2">
+                                <asp:TextBox ID="plus_neta" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
                 </div>
             </span>
         </div>
@@ -81,10 +135,10 @@
                         </dxA:ASPxButton>
                     </div>
                     <div class="col-9">
-                        <dxA:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback" >
+                        <dxA:ASPxCallbackPanel ID="pnlCallBackBuscaProducto" ClientInstanceName="pnlCallBackBuscaProducto" runat="server" Width="200px" SettingsLoadingPanel-Delay="2000" EnableCallbackAnimation="true" OnCallback="pnlCallBackBuscaProducto_Callback">
                             <PanelCollection>
                                 <dxA:PanelContent runat="server">
-                                    <dxA:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_spvs"
+                                    <dxA:ASPxGridView ID="grdListaProducto" runat="server" OnDataBinding="grdListaProducto_DataBinding" OnSelectionChanged="grdListaProducto_SelectionChanged" EnableCallBacks="false" KeyFieldName="id_producto"
                                         Style="width: 340px; border-collapse: collapse;"
                                         Font-Size="11px"
                                         Font-Names="Arial, Helvetica, sans-serif"
@@ -96,8 +150,8 @@
                                         Styles-Cell-Paddings-Padding="0"
                                         Styles-Cell-ForeColor="#15428b">
                                         <Columns>
-                                            <dxA:GridViewDataColumn Caption="ID." FieldName="id_spvs" Visible="false"></dxA:GridViewDataColumn>
-                                            <dxA:GridViewDataColumn Caption="Lista de Productos" FieldName="nomraz" Visible="true"></dxA:GridViewDataColumn>
+                                            <dxA:GridViewDataColumn Caption="ID." FieldName="id_producto" Visible="false"></dxA:GridViewDataColumn>
+                                            <dxA:GridViewDataColumn Caption="Lista de Productos" FieldName="desc_prod" Visible="true"></dxA:GridViewDataColumn>
                                         </Columns>
                                         <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
                                             <FirstPageButton Visible="true"></FirstPageButton>

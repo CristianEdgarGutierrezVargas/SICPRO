@@ -3,6 +3,7 @@ using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,42 +18,139 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         {
             if (this.Page.IsPostBack)
                 return;
-            this.Combos();
-
+            this.ListProducto();
         }
-        protected void Combos()
+        protected void ListProducto()
         {
             try
             {
-                //this.id_riesgo.DataSource = (object)new pr_producto().ObtenerRiesgo();
-                //this.id_riesgo.DataTextField = "desc_riesgo";
-                //this.id_riesgo.DataValueField = "id_riesgo";
-                //this.id_riesgo.DataBind();
-
-                //new gr_compania() { ddlgeneral = this.id_spvs }.ObtenerListaCompania();
-                PopupBuscadorCompania(string.Empty);
+                PopupBuscadorProducto(string.Empty);
             }
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
             }
         }
-
-        protected void Buscar()
+        protected void grdListaProducto_SelectionChanged(object sender, EventArgs e)
         {
-            try 
+            try
             {
+                var grilla = (DevExpress.Web.ASPxGridView)sender;
+                var lista = grilla.GetSelectedFieldValues("id_producto");
+                var objeto = lista[0].ToString();
+                id_producto.Value = objeto.ToString();
+
                 pr_producto item = logicaConfiguracion.ObtenerProducto(long.Parse(id_producto.Value));
                 this.id_producto.Value = item.id_producto.ToString();
                 this.desc_producto.Text = item.desc_prod;
                 this.abrev_prod.Text = item.abrev_prod;
+
+                popupBusquedaProducto.ShowOnPageLoad = false;
+
+                panelControles();
+            }
+            catch(Exception ex)
+            {
+                this.lblmensajeA.Text = "Error al Generar la Transacción";
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
+        }
+        protected void pnlCallBackBuscaProducto_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            PopupBuscadorProducto(e.Parameter.ToString());
+        }
+        protected void PopupBuscadorProducto(string valorBusqueda)
+        {
+            try
+            {
+                var listProducto = logicaConfiguracion.TablaProductoP(valorBusqueda);
+                Session["LST_PRODUCTO"] = listProducto;
+                this.grdListaProducto.DataSource = listProducto;
+                this.grdListaProducto.DataBind();
             }
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
             }
         }
+        protected void grdListaProducto_DataBinding(object sender, EventArgs e)
+        {
+            var lstData = (List<pr_producto>)Session["LST_PRODUCTO"];
+            if (lstData != null)
+            {
+                this.grdListaProducto.DataSource = lstData;
+            }
+        }
+        private void panelControles()
+        {
+            pnlControles.Visible = true;
 
+            logicaConfiguracion = new ConsumoConfiguracionSistema();
+            this.id_riesgo.DataSource = logicaConfiguracion.ObtenerRiesgo();
+            this.id_riesgo.DataTextField = "desc_riesgo";
+            this.id_riesgo.DataValueField = "id_riesgo";
+            this.id_riesgo.DataBind();
+
+            List<v_pr_cias_resum> listPer = logicaConfiguracion.ObtenerListaCompania();
+            this.id_spvs.DataSource = listPer;
+            this.id_spvs.DataTextField = "nomraz";
+            this.id_spvs.DataValueField = "id_spvs";
+            this.id_spvs.DataBind();
+
+            //List<gr_compania> listCompania;
+            //List<v_pr_cias_resum> listPer = logicaConfiguracion.ObtenerListaCompania();
+
+            //List<gridCompania> listGrilla = new List<gridCompania>();
+            //for (int i = 0; i < listPer.Count; i++)
+            //{
+            //    listGrilla.Add(new gridCompania
+            //    {
+            //        nomraz = listPer[i].nomraz,
+            //        id_spvs = listCompania[i].id_spvs,
+            //        abrev = listCompania[i].abrev_cia
+            //    });
+            //}
+
+            //this.id_riesgo.DataSource = (object)new pr_producto().ObtenerRiesgo();
+            //this.id_riesgo.DataTextField = "desc_riesgo";
+            //this.id_riesgo.DataValueField = "id_riesgo";
+            //this.id_riesgo.DataBind();
+
+            //new gr_compania() { ddlgeneral = this.id_spvs }.ObtenerListaCompania();
+
+            //this.id_producto.Value = "";
+            //string msg_message = new pr_producto()
+            //{
+            //    a = this.a,
+            //    b = this.b
+            //}.TablaProductoP(this.desc_producto.Text.ToUpper());
+            //this.msgboxpanel.Visible = true;
+            //MessageBox messageBox = new MessageBox(this.Server.MapPath("msgboxprod.tpl"));
+            //messageBox.SetTitle("Busqueda de Productos por Compañia");
+            //messageBox.SetIcon("search_user.png");
+            //messageBox.SetMessage(msg_message);
+            //messageBox.SetOKButton("msg_button_class");
+            //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+            //this.a.Value = "0";
+            //this.b.Value = "10";
+            //this.id_producto.Value = "";
+            //logicaConfiguracion.ta
+            //string msg_message = new pr_producto()
+            //{
+            //    a = this.a,
+            //    b = this.b
+            //}.TablaProductoP(this.desc_producto.Text.ToUpper());
+
+
+            //var listProducto = logicaConfiguracion.TablaProductoP(this.desc_producto.Text.ToUpper());
+            //Session["LST_PRODUCTO"] = listProducto;
+            //this.grdListaProducto.DataSource = listProducto;
+            //this.grdListaProducto.DataBind();
+
+
+
+
+        }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
             try
@@ -93,71 +191,18 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.lblmensajeA.Text = "Error al Generar la Transacción";
             }
         }
-
-        
-
-        protected void grdListaProducto_SelectionChanged(object sender, EventArgs e)
-        {
-            //var grilla = (DevExpress.Web.ASPxGridView)sender;
-            //var lista = grilla.GetSelectedFieldValues("id_spvs");
-            //var objeto = (string)lista[0];
-            //this.id_per.Value = objeto.ToString();
-
-            //lista = grilla.GetSelectedFieldValues("nomraz");
-            //objeto = (string)lista[0];
-            //this.nomraz.Text = objeto.ToString();
-
-            //this.btnguardar.Visible = true;
-            //this.btnmodificar.Visible = false;
-
-            //popupBusquedaPersona.ShowOnPageLoad = false;
-
-
-
-            pr_producto item = logicaConfiguracion.ObtenerProducto(long.Parse(id_producto.Value));
-            this.id_producto.Value = item.id_producto.ToString();
-            this.desc_producto.Text = item.desc_prod;
-            this.abrev_prod.Text = item.abrev_prod;
-        }
-
-        protected void pnlCallBackBuscaProducto_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
-        {
-            PopupBuscadorCompania(e.Parameter.ToString());
-        }
-        protected void PopupBuscadorCompania(string valorBusqueda)
+        protected void Buscar()
         {
             try
             {
-                logicaConfiguracion = new ConsumoConfiguracionSistema();
-                List<gr_compania> listCompania;
-                List<gr_persona> listPer = logicaConfiguracion.ObtenerListaCompania(valorBusqueda, out listCompania);
-
-                List<gridCompania> listGrilla = new List<gridCompania>();
-                for (int i = 0; i < listPer.Count; i++)
-                {
-                    listGrilla.Add(new gridCompania
-                    {
-                        nomraz = listPer[i].nomraz,
-                        id_spvs = listCompania[i].id_spvs,
-                        abrev= listCompania[i].abrev_cia
-                    });
-                }
-
-                Session["LST_PER_COMPANIA"] = listGrilla;
-                this.grdListaProducto.DataSource = listGrilla;
-                this.grdListaProducto.DataBind();
+                pr_producto item = logicaConfiguracion.ObtenerProducto(long.Parse(id_producto.Value));
+                this.id_producto.Value = item.id_producto.ToString();
+                this.desc_producto.Text = item.desc_prod;
+                this.abrev_prod.Text = item.abrev_prod;
             }
             catch (SecureExceptions ex)
             {
                 throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
-            }
-        }
-        protected void grdListaProducto_DataBinding(object sender, EventArgs e)
-        {
-            var lstData = (List<gridCompania>)Session["LST_PER_COMPANIA"];
-            if (lstData != null)
-            {
-                this.grdListaProducto.DataSource = lstData;
             }
         }
     }

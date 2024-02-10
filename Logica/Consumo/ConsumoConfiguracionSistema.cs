@@ -438,5 +438,16 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+        public List<pr_producto> TablaProductoP(string desc_prod)
+        {
+            try
+            {
+                return _manejador_pr_producto.TablaProductoP(desc_prod);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }
