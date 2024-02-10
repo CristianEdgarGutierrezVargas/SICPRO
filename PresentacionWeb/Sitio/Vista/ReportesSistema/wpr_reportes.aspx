@@ -571,7 +571,7 @@
     
                                 </div>
                                 <div class="col-md-7">   
-                                   <dx:ASPxButton ID="btnGenerarReporteMemo" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteMemo_Click" CausesValidation="true" ValidationGroup="wpr_tab_memo"></dx:ASPxButton>                            
+                                   <dx:ASPxButton ID="btnGenerarReporteMemo" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteMemo_Click" CausesValidation="false" ValidationGroup="wpr_tab_memo"></dx:ASPxButton>                            
                                 </div>
                           </div>
                         </div>

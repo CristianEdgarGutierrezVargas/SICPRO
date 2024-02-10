@@ -295,11 +295,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
     
-        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
-        }
-    
         public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
@@ -578,6 +573,16 @@ namespace ManejadorModelo
         public virtual ObjectResult<GetReportResumProd2_Result> GetReportResumProd2()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumProd2_Result>("GetReportResumProd2");
+        }
+    
+        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
+        }
+    
+        public virtual ObjectResult<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCarteraDirec_Result>("GetReportProyCarteraDirec");
         }
     }
 }

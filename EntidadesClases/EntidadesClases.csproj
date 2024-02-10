@@ -141,6 +141,9 @@
     <Compile Include="ModelSicPro\GetReportPagopendcias_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\GetReportProyCarteraDirec_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

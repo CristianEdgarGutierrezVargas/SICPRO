@@ -200,6 +200,22 @@ namespace Logica.Consumo
             }
         }
 
+        public List<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
+        {
+            try
+            {
+                return _manejador_reportes.GetReportProyCarteraDirec();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public List<GetReportResumProd2_Result> GetReportResumProd2(
                 string idSucursal, string idDivisa, string idPersona, string numPoliza, string numLiquidacion,
                 string del, string al, string idCartera, string idEjecutivo, string idSpvs,

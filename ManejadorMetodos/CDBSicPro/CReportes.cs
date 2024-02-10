@@ -113,6 +113,21 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
+        public List<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
+        {
+            try
+            {
+                var sql = _context.GetReportProyCarteraDirec().ToList();
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
+
         public List<GetReportResumProd2_Result> GetReportResumProd2()
         {
             try

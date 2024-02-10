@@ -11,12 +11,23 @@ namespace EntidadesClases.ModelSicPro
 {
     using System;
     
-    public partial class GetReportDirecciones_Result
+    public partial class GetReportProyCarteraDirec_Result
     {
         public string id_per { get; set; }
-        public long id_dir { get; set; }
+        public string nomraz { get; set; }
+        public long id_tper { get; set; }
+        public Nullable<System.DateTime> fechaaniv { get; set; }
+        public Nullable<long> id_sal { get; set; }
+        public long id_rol { get; set; }
+        public string rolper { get; set; }
+        public long id_tdoc { get; set; }
+        public long id_emis { get; set; }
+        public string nit_fac { get; set; }
+        public Nullable<int> id_suc { get; set; }
+        public string sucursal { get; set; }
+        public Nullable<long> id_dir { get; set; }
         public string direccion { get; set; }
-        public double id_tpdir { get; set; }
+        public Nullable<double> id_tpdir { get; set; }
         public string tipo { get; set; }
         public string telf_dir { get; set; }
         public string int_dire { get; set; }
@@ -25,8 +36,7 @@ namespace EntidadesClases.ModelSicPro
         public string email { get; set; }
         public string casilla { get; set; }
         public string web { get; set; }
-        public decimal id_emis { get; set; }
+        public Nullable<decimal> dir_id_emis { get; set; }
         public string ciudad { get; set; }
-        public Nullable<int> id_suc { get; set; }
     }
 }

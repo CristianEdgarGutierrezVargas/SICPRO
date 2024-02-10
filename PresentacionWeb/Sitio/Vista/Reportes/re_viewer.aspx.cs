@@ -1,6 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using CrystalDecisions.Web;
+using DevExpress.Web;
 using DevExpress.Web.Internal.XmlProcessor;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
@@ -777,46 +778,59 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
         }
         //16
         private void ProyCartera()
-        {            
-            var suc = Convert.ToString(Request.QueryString["sc"]);
+        {
+            //var TotalPage = CrystalReportViewer1.Page;
+            var suc = Convert.ToInt64(Request.QueryString["sc"]);
 
             ReportDocument rptDoc = new ReportDocument();
 
-            var responseReporte = _objConsumoReportes.GetReportProyCartera();
+            var responseReporte = _objConsumoReportes.GetReportProyCarteraDirec();
 
-            if (suc != "0")
+            if (suc != 0)
             {
-                responseReporte = responseReporte.Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
+                responseReporte = responseReporte.Where(x => x.id_suc == suc).ToList();
+                //responseReporte = responseReporte.Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
             }
-            
-            var responseSubReporte = _objConsumoReportes.GetReportDirecciones();
+
+            //var responseSubReporte = _objConsumoReportes.GetReportDirecciones().Take(20).ToList();
+            //if (suc != 0)
+            //{
+            //    responseSubReporte = responseSubReporte.Where(x => x.id_suc == suc).ToList();
+            //    //responseReporte = responseReporte.Where(x => x.sucursal.Contains(suc.ToUpper())).ToList();
+            //}
+            ////Reporte Principal
+            //re_clientes ds = new re_clientes();
+            //DataTable dt = new DataTable();
+            //dt.TableName = "Reporte";
+            //dt = ToDataTable(responseReporte);
 
             //Reporte Principal
-            re_clientes ds = new re_clientes();
+            DS_SicPro ds = new DS_SicPro();
             DataTable dt = new DataTable();
-            dt.TableName = "Reporte";
+            dt.TableName = "GetReportProyCarteraDirec";
             dt = ToDataTable(responseReporte);
-            try
-            {
-                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
-            }
-            catch (Exception)
-            {
-                ds.Tables[0].Merge(dt, true, MissingSchemaAction.Ignore);
-            }
+            ds.Tables["GetReportProyCarteraDirec"].Merge(dt, true, MissingSchemaAction.Ignore);
+            //try
+            //{
+            //    ds.Tables[GetReportProyCarteraDirec].Merge(dt, true, MissingSchemaAction.Ignore);
+            //}
+            //catch (Exception)
+            //{
+            //    ds.Tables[GetReportProyCarteraDirec].Merge(dt, true, MissingSchemaAction.Ignore);
+            //}
             
 
-            //Sub Reporte
-            re_direcciones ds1 = new re_direcciones();
-            DataTable dt1 = new DataTable();
-            dt1.TableName = "SubReporte";
-            dt1 = ToDataTable(responseSubReporte);
-            ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
+            ////Sub Reporte
+            //re_direcciones ds1 = new re_direcciones();
+            //DataTable dt1 = new DataTable();
+            //dt1.TableName = "SubReporte";
+            //dt1 = ToDataTable(responseSubReporte);
+            //ds1.Tables[0].Merge(dt1, true, MissingSchemaAction.Ignore);
 
             string reportPath = base.Server.MapPath("reportes//re_proycartera.rpt");
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(ds);
-            rptDoc.Subreports[0].SetDataSource(ds1);
+            //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
             CrystalReportViewer1.RefreshReport();
         }
