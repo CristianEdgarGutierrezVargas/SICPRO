@@ -53,5 +53,10 @@ namespace PresentacionWeb.Sitio.Vista.ModuloComisiones
             //this.RadComboBox1.DataSource = dataTable;
             //this.RadComboBox1.DataBind();
         }
+
+        protected void btncuotas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -129,5 +129,141 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al generar la Consulta", original);
             }
         }
+        public List<pr_recibo> ObtenerReciboA(string anio, string idPercb )
+        {
+            try
+            {
+                var año = Convert.ToInt64(anio);
+                var sql = _context.pr_recibo.Where(w => w.id_perclie == null && w.anio_recibo == año && w.id_perucb== idPercb && w.fecha_entregado == null).OrderBy(x => x.id_recibo).ToList();
+               return sql;
+
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<pr_recibo> ObtenerReciboM(string anio, string idPercb)
+        {
+            try
+            {
+                var año = Convert.ToInt64(anio);
+                var sql = _context.pr_recibo.Where(w => w.id_perclie != null && w.anio_recibo == año && w.id_perucb == idPercb && w.fecha_cobro != null && 
+                w.monto_cobro==w.monto_resto && w.id_liq==null).OrderBy(x => x.id_recibo).ToList();
+               return sql;
+
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<pr_recibo> ObtenerReciboMF(pr_recibo obRecibo)
+        {
+            try
+            {
+                var sql = _context.pr_recibo.Where(w => w.anio_recibo == obRecibo.anio_recibo).OrderBy(x => x.id_recibo).ToList();
+
+                return sql;
+
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public bool ActualizarRecibo(pr_recibo objRecibo)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+
+                  
+                    var sql = _context.pr_recibo.Where(w => w.anio_recibo == objRecibo.anio_recibo && w.id_recibo== objRecibo.id_recibo).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        decimal? montoresto = 0;
+                        if (objRecibo.id_apli != 87)
+                        {
+                            montoresto = objRecibo.monto_resto;
+                        }
+
+                        sql.id_perclie = objRecibo.id_perclie;
+                        sql.fecha_cobro = objRecibo.fecha_cobro;
+                        sql.monto_cobro = objRecibo.monto_cobro;
+                        sql.monto_resto = montoresto;
+                        sql.recibo_por = objRecibo.recibo_por;
+                        sql.id_div = objRecibo.id_div;
+                        sql.id_apli = objRecibo.id_apli;
+                        sql.cont_bs = objRecibo.cont_bs;
+                        sql.cont_sus = objRecibo.cont_sus;
+                        sql.cheq_bs = objRecibo.cheq_bs;
+                        sql.cheq_sus = objRecibo.cheq_sus;
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
+        public bool ActualizarReciboM(pr_recibo objRecibo)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+
+
+                    var sql = _context.pr_recibo.Where(w => w.anio_recibo == objRecibo.anio_recibo && w.id_recibo == objRecibo.id_recibo).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        decimal? montoresto = 0;
+                        if (objRecibo.id_apli != 87)
+                        {
+                            montoresto = objRecibo.monto_cobro;
+                        }
+
+                        
+                        sql.fecha_cobro = objRecibo.fecha_cobro;
+                        sql.monto_cobro = objRecibo.monto_cobro;
+                        sql.monto_resto = montoresto;
+                       
+                        sql.id_div = objRecibo.id_div;
+                        sql.id_apli = objRecibo.id_apli;
+                   
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
     }
 }
