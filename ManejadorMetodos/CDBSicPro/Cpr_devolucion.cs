@@ -36,5 +36,20 @@ namespace ManejadorMetodos.CDBSicPro
             }
            
         }
+        public List<pr_devolucion> DatosDev(long idPol, long idMov, long idDev)
+        {
+
+
+            try
+            {
+                var sql = _context.pr_devolucion.Where(x => x.id_poliza == idPol && x.id_movimiento == idMov && x.id_devolucion==idDev).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
     }
 }

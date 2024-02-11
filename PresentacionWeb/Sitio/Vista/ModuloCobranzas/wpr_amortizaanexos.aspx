@@ -93,7 +93,7 @@
                             <span id="ctl00_cpmaster_lblncuotas">Cuota devolución:</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-9 col-lg-9 col-xl-3">
-                            <dx:BootstrapComboBox ID="cuota_devolucion" runat="server" ValueType="System.String">
+                            <dx:BootstrapComboBox ID="cuota_devolucion" runat="server" ValueType="System.String" AutoPostBack="true" OnSelectedIndexChanged="cuota_devolucion_SelectedIndexChanged">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" Control="fs-10" />
                                 <ValidationSettings ValidationGroup="guardar">
                                     <RequiredField IsRequired="true" />

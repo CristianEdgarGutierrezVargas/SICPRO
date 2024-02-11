@@ -208,5 +208,19 @@ namespace Logica.Consumo
 
 
         }
+        public List<pr_devolucion> DatosDev(long idPol, long idMov, long idDev)
+        {
+
+            try
+            {
+                return _mnejdor_pr_devolucion.DatosDev(idPol, idMov, idDev);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
     }
 }

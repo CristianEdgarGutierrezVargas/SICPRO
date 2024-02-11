@@ -139,5 +139,21 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             {
             }
         }
+
+        protected void cuota_devolucion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var lstCuotas = conCobranza.DatosDev(Convert.ToInt64(num_poliza.Value), Convert.ToInt64(no_liquida.Value), Convert.ToInt64(cuota_devolucion.Value)).FirstOrDefault();
+                if (lstCuotas!=null)
+                {
+                    monto_devolucion.Text = lstCuotas.monto_devolucion.ToString();
+                    saldo_devolucion.Text = lstCuotas.saldo_devolucion.ToString();
+                }
+            }
+            catch
+            {
+            }
+        }
     }
 }
