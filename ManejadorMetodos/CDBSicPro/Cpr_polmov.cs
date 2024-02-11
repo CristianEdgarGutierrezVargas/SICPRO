@@ -150,5 +150,21 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+        public List<pr_polmov> GetPolizaMovimientoByEstado(string estado)
+        {
+
+            try
+            {
+                var sql = _context.pr_polmov.Where(x => x.estado == estado ).ToList();
+
+
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+
+        }
     }
 }

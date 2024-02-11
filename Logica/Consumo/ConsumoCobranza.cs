@@ -26,6 +26,8 @@ namespace Logica.Consumo
         private readonly Cgr_parametro _manejador_gr_parametro;
         private readonly Cpr_polmov _manejador_pr_polmov;
         private readonly Cpr_pago _manejador_pr_pago;
+        private readonly Cvcb_totalpago _manejador_pr_totalpago;
+        private readonly Cpr_devolucion _mnejdor_pr_devolucion;
         public static sicproEntities dbContext;
         public ConsumoCobranza()
         {
@@ -41,31 +43,33 @@ namespace Logica.Consumo
             _manejador_pr_grupo = new Cpr_grupo(dbContext);
             _manejador_gr_parametro = new Cgr_parametro(dbContext);
             _manejador_pr_polmov = new Cpr_polmov(dbContext);
-            _manejador_pr_pago=new Cpr_pago(dbContext);
+            _manejador_pr_pago = new Cpr_pago(dbContext);
+            _manejador_pr_totalpago = new Cvcb_totalpago(dbContext);
+            _mnejdor_pr_devolucion=new Cpr_devolucion(dbContext);
         }
         #endregion
 
         public List<OcRecuFac> RecuFacMod(double factura, string sId_spvs)
         {
 
-           
+
             try
             {
                 var sql = _manejador_pr_pago.GetObjPagoByFactura(factura);
                 var pol = _manejador_pr_poliza.GetListPoliza();
                 var data = sql.Join(pol, x => x.id_poliza, s => s.id_poliza, (x, s) => new { x.id_poliza, x.id_movimiento, x.cuota, s.id_spvs, x.factura, x.fecha_factura, x.id_pago, s.num_poliza }).Where(x => x.id_spvs == sId_spvs).OrderBy(x => x.id_pago).ToList();
                 var result = new List<OcRecuFac>();
-                foreach(var odata in data)
+                foreach (var odata in data)
                 {
-                    var obj=new OcRecuFac();
+                    var obj = new OcRecuFac();
                     obj.factura = odata.factura;
                     obj.fecha_factura = odata.fecha_factura;
-                    obj.id_pago= odata.id_pago;
+                    obj.id_pago = odata.id_pago;
                     obj.id_poliza = odata.id_poliza;
                     obj.id_spvs = odata.id_spvs;
                     obj.cuota = odata.cuota;
                     obj.id_movimiento = odata.id_movimiento;
-                    obj.num_poliza=odata.num_poliza;
+                    obj.num_poliza = odata.num_poliza;
                     result.Add(obj);
                 }
                 return result;
@@ -77,15 +81,15 @@ namespace Logica.Consumo
             {
                 throw new SecureExceptions("Error al generar la transacción", secureException);
             }
-            
+
         }
         public bool ModFac1(double? factura, DateTime fechaFactura, long id_pago)
         {
 
             try
             {
-               return _manejador_pr_pago.ActualizarPago(factura, fechaFactura, id_pago);
-           }
+                return _manejador_pr_pago.ActualizarPago(factura, fechaFactura, id_pago);
+            }
             catch (SecureExceptions secureException)
             {
                 throw new SecureExceptions("Error al generar la transacción", secureException);
@@ -97,7 +101,7 @@ namespace Logica.Consumo
 
             try
             {
-                return _manejador_pr_pago.ActualizarPagoM(nro_factura,nnro_factura,id_spvs, fechaFactura);
+                return _manejador_pr_pago.ActualizarPagoM(nro_factura, nnro_factura, id_spvs, fechaFactura);
             }
             catch (SecureExceptions secureException)
             {
@@ -106,12 +110,96 @@ namespace Logica.Consumo
 
 
         }
-        public List<GetFacturaNombreByIdSpvs_Result> ObtenerListaF( string id_spvs)
+        public List<GetFacturaNombreByIdSpvs_Result> ObtenerListaF(string id_spvs)
         {
 
             try
             {
-                return _manejador_pr_poliza.GetFacturaNombreByIdSpvs( id_spvs);
+                return _manejador_pr_poliza.GetFacturaNombreByIdSpvs(id_spvs);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<pr_poliza> ObtenerPoliza1(string id_per)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_pr_poliza.ObtenerPoliza1(id_per);
+                var pol = cpoliza.Join(_manejador_pr_totalpago.GetListTotalPagoByIdPoliza(), x => x.id_poliza, s => s.id_poliza, ((x, s) => new pr_poliza()
+                {
+
+                    id_poliza = x.id_poliza,
+                    num_poliza = x.num_poliza,
+                    id_producto = x.id_producto,
+                    id_perclie = x.id_perclie,
+                    id_spvs = x.id_spvs,
+                    id_gru = x.id_gru,
+                    clase_poliza = x.clase_poliza,
+                    estado = x.estado,
+                    fc_reg = x.fc_reg,
+                    id_percart = x.id_percart,
+                    id_suc = x.id_suc
+
+                })).ToList();
+                return pol;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<pr_polmov> ObtenerMovimiento1(long idPol)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_pr_poliza.ObtenerPolizaByIdEstado(idPol, true);
+                var pol = cpoliza.Join(_manejador_pr_polmov.GetPolizaMovimientoByEstado("COMISIONES"), x => x.id_poliza, s => s.id_poliza, ((x, s) => new pr_polmov()
+                {
+                    id_poliza = s.id_poliza,
+                    id_movimiento = s.id_movimiento,
+                    id_perejec = s.id_perejec,
+                    fc_emision = s.fc_emision,
+                    fc_inivig = s.fc_inivig,
+                    fc_finvig = s.fc_finvig,
+                    prima_bruta = s.prima_bruta,
+                    prima_neta = s.prima_neta,
+                    por_comision = s.por_comision,
+                    comision = s.comision,
+                    id_div = s.id_div,
+                    tipo_cuota = s.tipo_cuota,
+                    num_cuota = s.num_cuota,
+                    id_clamov = s.id_clamov,
+                    estado = s.estado,
+                    id_dir = s.id_dir,
+                    fc_recepcion = s.fc_recepcion,
+                    mat_aseg = s.mat_aseg,
+                    fc_reg = s.fc_reg,
+                    no_liquida = s.no_liquida,
+                    id_mom=s.id_mom
+                })).ToList();
+                return pol;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<pr_devolucion> GetCuotasDev(long idPol, long idMov)
+        {
+
+            try
+            {
+                return _mnejdor_pr_devolucion.GetCuotasDev(idPol, idMov);
             }
             catch (SecureExceptions secureException)
             {

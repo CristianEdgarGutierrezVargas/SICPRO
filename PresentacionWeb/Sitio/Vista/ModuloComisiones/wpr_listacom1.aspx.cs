@@ -171,6 +171,7 @@ namespace PresentacionWeb.Sitio.Vista.ValidacionProduccion
             nomraz.Value = nombre;
             id_per.Value = idPer;
 
+
         }
 
         protected void btnserper1_Click(object sender, EventArgs e)

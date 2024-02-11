@@ -24,6 +24,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
 
         /// <summary>
+        /// Control id_per.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_per;
+
+        /// <summary>
         /// Control btnserper.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField b;
-
-        /// <summary>
-        /// Control id_per.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_per;
 
         /// <summary>
         /// Control id_perclie.
@@ -150,76 +150,13 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         protected global::DevExpress.Web.Bootstrap.BootstrapComboBox no_liquida;
 
         /// <summary>
-        /// Control desc_grupo.
+        /// Control cuota_devolucion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label desc_grupo;
-
-        /// <summary>
-        /// Control id_gru.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField id_gru;
-
-        /// <summary>
-        /// Control cuota.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cuota;
-
-        /// <summary>
-        /// Control id_tpago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox id_tpago;
-
-        /// <summary>
-        /// Control recibo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox recibo;
-
-        /// <summary>
-        /// Control btnrec.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnrec;
-
-        /// <summary>
-        /// Control monto_resto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_resto;
-
-        /// <summary>
-        /// Control monto_exclusion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_exclusion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cuota_devolucion;
 
         /// <summary>
         /// Control monto_devolucion.
@@ -228,25 +165,34 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_devolucion;
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit monto_devolucion;
 
         /// <summary>
-        /// Control monto_pago.
+        /// Control saldo_devolucion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox monto_pago;
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit saldo_devolucion;
 
         /// <summary>
-        /// Control idliq.
+        /// Control mcheque.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox idliq;
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit mcheque;
+
+        /// <summary>
+        /// Control cheque.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox cheque;
 
         /// <summary>
         /// Control pago_por.
@@ -256,6 +202,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapMemo pago_por;
+
+        /// <summary>
+        /// Control banco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox banco;
 
         /// <summary>
         /// Control Button1.
@@ -283,5 +238,41 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapButton btnguardar;
+
+        /// <summary>
+        /// Control pCPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl pCPersona;
+
+        /// <summary>
+        /// Control nomraz1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz1;
+
+        /// <summary>
+        /// Control btnserper1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnserper1;
+
+        /// <summary>
+        /// Control grdPersonas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPersonas;
     }
 }
