@@ -222,5 +222,18 @@ namespace Logica.Consumo
 
 
         }
+        public bool ActualizarDev(pr_devolucion objDev, decimal mcheque)
+        {
+
+            try
+            {
+                return _mnejdor_pr_devolucion.ActualizarDev(objDev, mcheque);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
     }
 }
