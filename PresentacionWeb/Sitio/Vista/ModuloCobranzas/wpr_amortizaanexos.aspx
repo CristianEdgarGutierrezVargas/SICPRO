@@ -125,7 +125,7 @@
                                 </ValidationSettings>
                             </dx:BootstrapSpinEdit>
                         </div>
-                        <div class="mt-1 mt-sm-1 mt-md-1 col-4 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <div class="mt-1 mt-sm-1 mt-md-1 col-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <span id="ctl00_cpmaster_abel7">Monto Cheque</span>
                         </div>
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-8 col-lg-3 col-xl-3">
@@ -144,6 +144,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                             <dx:BootstrapTextBox ID="cheque" runat="server">
                                 <CssClasses Input="form-control-sm" />
+                                <ValidationSettings ValidationGroup="guardar">
+                                    <RequiredField IsRequired="true" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                     </div>
@@ -154,6 +157,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                             <dx:BootstrapMemo ID="pago_por" runat="server">
                                 <CssClasses Input="form-control-sm" />
+                                <ValidationSettings ValidationGroup="guardar">
+                                    <RequiredField IsRequired="true" />
+                                </ValidationSettings>
                             </dx:BootstrapMemo>
                         </div>
                     </div>
@@ -164,6 +170,9 @@
                         <div class="mt-1 mt-sm-1 mt-md-1 col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                             <dx:BootstrapTextBox ID="banco" runat="server">
                                 <CssClasses Input="form-control-sm" />
+                                <ValidationSettings ValidationGroup="guardar">
+                                    <RequiredField IsRequired="true" />
+                                </ValidationSettings>
                             </dx:BootstrapTextBox>
                         </div>
                     </div>

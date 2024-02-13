@@ -20,7 +20,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         bool sw = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack)
+            if (IsPostBack)
             {
                 return;
             }
@@ -39,7 +39,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
 
         }
-   
+
         protected void btnSelect_Click(object sender, EventArgs e)
         {
             BootstrapButton button = sender as BootstrapButton;
@@ -49,46 +49,49 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
             var idPer = valores[0];
             var nomRaz = valores[1];
-           id_per.Value= idPer;
+            id_per.Value = idPer;
             nomraz.Text = nomRaz;
             Polizas();
             pCPersona.ShowOnPageLoad = false;
         }
-  
-           
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            pCPersona.ShowOnPageLoad = false;
+        }
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            string msg=string.Empty;
+            string msg = string.Empty;
             double num;
             double num1;
-           
+
             if (this.mcheque.Number == 0)
             {
-                
+
                 msg = string.Concat(msg, "<br /> Debe Registrar un Monto");
                 this.sw = true;
             }
             if (string.IsNullOrEmpty(this.cheque.Text))
             {
-              msg = string.Concat(msg, "<br /> Debe Registrar un Cheque");
+                msg = string.Concat(msg, "<br /> Debe Registrar un Cheque");
                 this.sw = true;
             }
             if (string.IsNullOrEmpty(this.pago_por.Text))
             {
-            
-                msg= string.Concat(msg, "<br /> Debe Registrar un Concepto");
+
+                msg = string.Concat(msg, "<br /> Debe Registrar un Concepto");
                 this.sw = true;
             }
             if (string.IsNullOrEmpty(this.banco.Text))
             {
-               msg= string.Concat(msg, "<br /> Debe Registrar un Banco");
+                msg = string.Concat(msg, "<br /> Debe Registrar un Banco");
                 this.sw = true;
             }
             if (this.sw)
             {
-               
-                msg=string.Concat("<span>Los siguientes valores deben ser verificados antes de proseguir<br /></span><p style='color:#990000; font-weight:bold'>", msg, "</p>");
+
+                msg = string.Concat("<span>Los siguientes valores deben ser verificados antes de proseguir<br /></span><p style='color:#990000; font-weight:bold'>", msg, "</p>");
 
                 imagenFail.Visible = true;
                 imagenOk.Visible = false;
@@ -116,7 +119,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             }
             if (num < num1)
             {
-                msg= "El Monto a Pagar tiene que ser menor al Saldo de Devolución";
+                msg = "El Monto a Pagar tiene que ser menor al Saldo de Devolución";
                 imagenFail.Visible = true;
                 imagenOk.Visible = false;
                 lblMensaje.Text = "Hubo un error al registrar los datos!";
@@ -126,15 +129,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             var mcheque = Convert.ToDecimal(this.mcheque.Number);
             pr_devolucion prDev = new pr_devolucion()
             {
-                id_poliza = Convert.ToInt64( num_poliza.Value),
-                id_movimiento =Convert.ToInt64( no_liquida.Value),
-                id_devolucion =Convert.ToInt64( cuota_devolucion),
-               
+                id_poliza = Convert.ToInt64(num_poliza.Value),
+                id_movimiento = Convert.ToInt64(no_liquida.Value),
+                id_devolucion = Convert.ToInt64(cuota_devolucion),
+
                 cheque = cheque.Text,
                 devolucion_por = pago_por.Text,
                 banco = banco.Text
             };
-            if(conCobranza.ActualizarDev(prDev, mcheque))
+            if (conCobranza.ActualizarDev(prDev, mcheque))
             {
                 lblMensaje.Text = "Amortizacion Realizada!";
                 imagenFail.Visible = false;
@@ -149,10 +152,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                 pnlMensaje.ShowOnPageLoad = true;
             }
         }
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            pCPersona.ShowOnPageLoad = false;
-        }
+        
         protected void btnserper1_Click(object sender, EventArgs e)
         {
             var dt = _objValidarProd.ObtenerTablaPersonasC(nomraz1.Text.ToUpper());
@@ -183,8 +183,8 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         private void Polizas()
         {
-            var lstPoliza= conCobranza.ObtenerPoliza1(id_per.Value);
-            num_poliza.DataSource= lstPoliza;
+            var lstPoliza = conCobranza.ObtenerPoliza1(id_per.Value);
+            num_poliza.DataSource = lstPoliza;
             num_poliza.TextField = "num_poliza";
             num_poliza.ValueField = "id_poliza";
             num_poliza.DataBind();
@@ -196,7 +196,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             try
             {
 
-                var lstLiq = conCobranza.ObtenerMovimiento1(Convert.ToInt64( num_poliza.Value));
+                var lstLiq = conCobranza.ObtenerMovimiento1(Convert.ToInt64(num_poliza.Value));
 
                 this.no_liquida.DataSource = lstLiq;
                 this.no_liquida.TextField = "no_liquida";
@@ -214,7 +214,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             {
 
                 var lstCuotas = conCobranza.GetCuotasDev(Convert.ToInt64(num_poliza.Value), Convert.ToInt64(no_liquida.Value));
-             
+
                 this.cuota_devolucion.DataSource = lstCuotas;
                 this.cuota_devolucion.TextField = "cuota_devolucion1";
                 this.cuota_devolucion.ValueField = "id_devolucion";
@@ -230,7 +230,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             try
             {
                 var lstCuotas = conCobranza.DatosDev(Convert.ToInt64(num_poliza.Value), Convert.ToInt64(no_liquida.Value), Convert.ToInt64(cuota_devolucion.Value)).FirstOrDefault();
-                if (lstCuotas!=null)
+                if (lstCuotas != null)
                 {
                     monto_devolucion.Text = lstCuotas.monto_devolucion.ToString();
                     saldo_devolucion.Text = lstCuotas.saldo_devolucion.ToString();
@@ -243,7 +243,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-        
+
             //if ((this.id_perclie.Value == "") | this.id_perclie.Value == null)
             //{
             //    this.Polizas();
