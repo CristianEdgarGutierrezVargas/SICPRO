@@ -29,6 +29,9 @@ namespace Logica.Consumo
         private readonly Cvcb_totalpago _manejador_pr_totalpago;
         private readonly Cpr_devolucion _mnejdor_pr_devolucion;
         public static sicproEntities dbContext;
+        private readonly Cvcb_respolpago1 _manejador_respolpago1;
+        private readonly Cvcb_resumcuotas _manejador_resumcuotas;
+        private readonly Cvcb_listacuoamort _manejador_listacuoamort;
         public ConsumoCobranza()
         {
             //if (dbContext != null) dbContext.Dispose();
@@ -46,6 +49,9 @@ namespace Logica.Consumo
             _manejador_pr_pago = new Cpr_pago(dbContext);
             _manejador_pr_totalpago = new Cvcb_totalpago(dbContext);
             _mnejdor_pr_devolucion=new Cpr_devolucion(dbContext);
+            _manejador_respolpago1 = new Cvcb_respolpago1(dbContext);
+            _manejador_resumcuotas=new Cvcb_resumcuotas(dbContext);
+            _manejador_listacuoamort=new Cvcb_listacuoamort(dbContext);
         }
         #endregion
 
@@ -233,6 +239,98 @@ namespace Logica.Consumo
             {
                 throw new SecureExceptions("Error al generar la transacción", secureException);
             }
+
+        }
+        public List<vcb_respolpago1> ObtenerPoliza(string idPercli)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_respolpago1.ObtenerPoliza(idPercli);
+                return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<vcb_respolpago1> ObtenerMovimiento(long idPoliza)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_respolpago1.ObtenerMovimiento(idPoliza);
+                return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<OcGrupoM> ObtenerGrupoM(long idPol)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_pr_poliza.GetListPoliza().Where(c=>c.id_poliza== idPol);
+                var grupo = _manejador_pr_grupo.ObtenerGrupo();
+                var pol =cpoliza.Join(grupo, w => w.id_gru, s =>(long) s.id_gru, (w,s)=> new OcGrupoM { id_gru =(long) s.id_gru, id_poliza=w.id_poliza, desc_grupo=s.desc_grupo,num_poliza=w.num_poliza}).ToList();
+                return pol;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public vcb_resumcuotas Cuotas(long idPol, long idMov)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_resumcuotas.Cuotas(idPol , idMov);
+              return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<vcb_listacuoamort> GridCuotas(long idPol, long idMov)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_listacuoamort.Listacuoamort(idPol, idMov);
+                return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+
+        }
+        public List<vcb_resumcuotas> DatosCuota(long idPol, long idMov, long cuota)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_resumcuotas.DatosCuota(idPol, idMov, cuota);
+                return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
 
         }
     }
