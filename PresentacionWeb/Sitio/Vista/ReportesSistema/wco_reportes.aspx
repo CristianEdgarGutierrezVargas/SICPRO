@@ -442,7 +442,7 @@
                                         <ClientSideEvents Init="function(s,e){  
                                                                    var dt1 = new Date();  
                                                                    var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                   var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                   var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                    fechaInicioCobranza.SetMinDate(new Date(dt3));  
                                                                    fechaInicioCobranza.SetMaxDate(new Date(dt2));  
                                                                 }" />  
@@ -461,7 +461,7 @@
                                         <ClientSideEvents Init="function(s,e){  
                                                                    var dt1 = new Date();  
                                                                    var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                   var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                   var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                    fechaFinCobranza.SetMinDate(new Date(dt3));  
                                                                    fechaFinCobranza.SetMaxDate(new Date(dt2));  
                                                                 }" />  
@@ -507,6 +507,14 @@
             </div>
           </div>    
         </div> 
+
+         <div class="row">
+             <div class="col-12">
+                 <div class="alert alert-danger" role="alert" runat="server" id="divMensajeError">
+                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+                 </div>
+             </div>
+         </div>
          <br />
         </div>
       </div>

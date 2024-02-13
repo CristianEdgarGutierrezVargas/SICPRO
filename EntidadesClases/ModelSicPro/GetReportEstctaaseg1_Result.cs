@@ -55,5 +55,6 @@ namespace EntidadesClases.ModelSicPro
         public string int_dire { get; set; }
         public decimal id_emis { get; set; }
         public string ciudad { get; set; }
+        public string mat_aseg { get; set; }
     }
 }

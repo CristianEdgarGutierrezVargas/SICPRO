@@ -339,6 +339,20 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             private global::System.Data.DataColumn columnal;
             
+            private global::System.Data.DataColumn columncuota;
+            
+            private global::System.Data.DataColumn columnfecha_pago;
+            
+            private global::System.Data.DataColumn columncuota_total;
+            
+            private global::System.Data.DataColumn columncuota_neta;
+            
+            private global::System.Data.DataColumn columncuota_comis;
+            
+            private global::System.Data.DataColumn columncuota_pago;
+            
+            private global::System.Data.DataColumn columncuota_comicob;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ComandoDataTable() {
@@ -614,6 +628,62 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuotaColumn {
+                get {
+                    return this.columncuota;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fecha_pagoColumn {
+                get {
+                    return this.columnfecha_pago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuota_totalColumn {
+                get {
+                    return this.columncuota_total;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuota_netaColumn {
+                get {
+                    return this.columncuota_neta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuota_comisColumn {
+                get {
+                    return this.columncuota_comis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuota_pagoColumn {
+                get {
+                    return this.columncuota_pago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cuota_comicobColumn {
+                get {
+                    return this.columncuota_comicob;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -678,7 +748,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         System.DateTime fc_emision, 
                         bool tipo_cuota, 
                         decimal del, 
-                        decimal al) {
+                        decimal al, 
+                        decimal cuota, 
+                        System.DateTime fecha_pago, 
+                        decimal cuota_total, 
+                        decimal cuota_neta, 
+                        decimal cuota_comis, 
+                        decimal cuota_pago, 
+                        decimal cuota_comicob) {
                 ComandoRow rowComandoRow = ((ComandoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         num_poliza,
@@ -710,7 +787,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         fc_emision,
                         tipo_cuota,
                         del,
-                        al};
+                        al,
+                        cuota,
+                        fecha_pago,
+                        cuota_total,
+                        cuota_neta,
+                        cuota_comis,
+                        cuota_pago,
+                        cuota_comicob};
                 rowComandoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComandoRow);
                 return rowComandoRow;
@@ -770,6 +854,13 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columntipo_cuota = base.Columns["tipo_cuota"];
                 this.columndel = base.Columns["del"];
                 this.columnal = base.Columns["al"];
+                this.columncuota = base.Columns["cuota"];
+                this.columnfecha_pago = base.Columns["fecha_pago"];
+                this.columncuota_total = base.Columns["cuota_total"];
+                this.columncuota_neta = base.Columns["cuota_neta"];
+                this.columncuota_comis = base.Columns["cuota_comis"];
+                this.columncuota_pago = base.Columns["cuota_pago"];
+                this.columncuota_comicob = base.Columns["cuota_comicob"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -835,6 +926,20 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 base.Columns.Add(this.columndel);
                 this.columnal = new global::System.Data.DataColumn("al", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnal);
+                this.columncuota = new global::System.Data.DataColumn("cuota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota);
+                this.columnfecha_pago = new global::System.Data.DataColumn("fecha_pago", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha_pago);
+                this.columncuota_total = new global::System.Data.DataColumn("cuota_total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota_total);
+                this.columncuota_neta = new global::System.Data.DataColumn("cuota_neta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota_neta);
+                this.columncuota_comis = new global::System.Data.DataColumn("cuota_comis", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota_comis);
+                this.columncuota_pago = new global::System.Data.DataColumn("cuota_pago", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota_pago);
+                this.columncuota_comicob = new global::System.Data.DataColumn("cuota_comicob", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncuota_comicob);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_movimiento}, true));
                 this.columnnum_poliza.AllowDBNull = false;
@@ -862,7 +967,8 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columnprima_bruta.AllowDBNull = false;
                 this.columndivisa.ReadOnly = true;
                 this.columndivisa.MaxLength = 5;
-                this.columnmat_aseg.MaxLength = 1073741823;
+                this.columnmat_aseg.ReadOnly = true;
+                this.columnmat_aseg.MaxLength = 500;
                 this.columnid_poliza.AllowDBNull = false;
                 this.columnid_movimiento.AutoIncrement = true;
                 this.columnid_movimiento.AllowDBNull = false;
@@ -874,6 +980,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columntipo_cuota.AllowDBNull = false;
                 this.columndel.ReadOnly = true;
                 this.columnal.ReadOnly = true;
+                this.columncuota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1436,6 +1543,113 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota {
+                get {
+                    return ((decimal)(this[this.tableComando.cuotaColumn]));
+                }
+                set {
+                    this[this.tableComando.cuotaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fecha_pago {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableComando.fecha_pagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha_pago\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.fecha_pagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota_total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.cuota_totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cuota_total\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.cuota_totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota_neta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.cuota_netaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cuota_neta\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.cuota_netaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota_comis {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.cuota_comisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cuota_comis\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.cuota_comisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota_pago {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.cuota_pagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cuota_pago\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.cuota_pagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal cuota_comicob {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.cuota_comicobColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cuota_comicob\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.cuota_comicobColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isno_liquidaNull() {
                 return this.IsNull(this.tableComando.no_liquidaColumn);
             }
@@ -1649,6 +1863,78 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             public void SetalNull() {
                 this[this.tableComando.alColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isfecha_pagoNull() {
+                return this.IsNull(this.tableComando.fecha_pagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setfecha_pagoNull() {
+                this[this.tableComando.fecha_pagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscuota_totalNull() {
+                return this.IsNull(this.tableComando.cuota_totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcuota_totalNull() {
+                this[this.tableComando.cuota_totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscuota_netaNull() {
+                return this.IsNull(this.tableComando.cuota_netaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcuota_netaNull() {
+                this[this.tableComando.cuota_netaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscuota_comisNull() {
+                return this.IsNull(this.tableComando.cuota_comisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcuota_comisNull() {
+                this[this.tableComando.cuota_comisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscuota_pagoNull() {
+                return this.IsNull(this.tableComando.cuota_pagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcuota_pagoNull() {
+                this[this.tableComando.cuota_pagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscuota_comicobNull() {
+                return this.IsNull(this.tableComando.cuota_comicobColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcuota_comicobNull() {
+                this[this.tableComando.cuota_comicobColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1840,6 +2126,13 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_memo1TableAdapters {
             tableMapping.ColumnMappings.Add("tipo_cuota", "tipo_cuota");
             tableMapping.ColumnMappings.Add("del", "del");
             tableMapping.ColumnMappings.Add("al", "al");
+            tableMapping.ColumnMappings.Add("cuota", "cuota");
+            tableMapping.ColumnMappings.Add("fecha_pago", "fecha_pago");
+            tableMapping.ColumnMappings.Add("cuota_total", "cuota_total");
+            tableMapping.ColumnMappings.Add("cuota_neta", "cuota_neta");
+            tableMapping.ColumnMappings.Add("cuota_comis", "cuota_comis");
+            tableMapping.ColumnMappings.Add("cuota_pago", "cuota_pago");
+            tableMapping.ColumnMappings.Add("cuota_comicob", "cuota_comicob");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1847,7 +2140,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_memo1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString5"].ConnectionString;
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString2"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1856,30 +2149,51 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_memo1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.GetReportMemo";
+            this._commandCollection[0].CommandText = "dbo.GetReportMemo1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_poliza", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_movimiento", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_poliza", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_liquida", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TipoFecha", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaIni", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(re_memo1.ComandoDataTable dataTable, global::System.Nullable<long> id_poliza, global::System.Nullable<long> id_movimiento) {
+        public virtual int Fill(re_memo1.ComandoDataTable dataTable, string num_poliza, string num_liquida, string TipoFecha, global::System.Nullable<global::System.DateTime> fechaIni, global::System.Nullable<global::System.DateTime> fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_poliza.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((long)(id_poliza.Value));
-            }
-            else {
+            if ((num_poliza == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((id_movimiento.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((long)(id_movimiento.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(num_poliza));
+            }
+            if ((num_liquida == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(num_liquida));
+            }
+            if ((TipoFecha == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(TipoFecha));
+            }
+            if ((fechaIni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(fechaIni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((fechaFin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(fechaFin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1892,19 +2206,37 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_memo1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual re_memo1.ComandoDataTable GetData(global::System.Nullable<long> id_poliza, global::System.Nullable<long> id_movimiento) {
+        public virtual re_memo1.ComandoDataTable GetData(string num_poliza, string num_liquida, string TipoFecha, global::System.Nullable<global::System.DateTime> fechaIni, global::System.Nullable<global::System.DateTime> fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_poliza.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((long)(id_poliza.Value));
-            }
-            else {
+            if ((num_poliza == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((id_movimiento.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((long)(id_movimiento.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(num_poliza));
+            }
+            if ((num_liquida == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(num_liquida));
+            }
+            if ((TipoFecha == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(TipoFecha));
+            }
+            if ((fechaIni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(fechaIni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((fechaFin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(fechaFin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             re_memo1.ComandoDataTable dataTable = new re_memo1.ComandoDataTable();
             this.Adapter.Fill(dataTable);

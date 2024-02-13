@@ -139,8 +139,8 @@ namespace PresentacionWeb.Parametros
         {
             var lstCom = new List<keyValueS>();
 
-            var sel = new keyValueS { key = "selected", value = "Seleccione" };
-            lstCom.Add(sel);
+            //var sel = new keyValueS { key = "selected", value = "Seleccione" };
+            //lstCom.Add(sel);
 
             var val1 = new keyValueS { key = "fc_recepcion", value = "Recepcion" };
             lstCom.Add(val1);

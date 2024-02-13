@@ -117,9 +117,6 @@
     <Compile Include="ModelSicPro\GetReportGrupos_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSicPro\GetReportHistreclamoshf_Result.cs">
-      <DependentUpon>ModelSicPro.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelSicPro\GetReportHistreclamosh_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
@@ -144,16 +141,10 @@
     <Compile Include="ModelSicPro\GetReportProyCarteraDirec_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
-      <DependentUpon>ModelSicPro.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelSicPro\GetReportRecibosnoaplicados_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportResumProd2_Result.cs">
-      <DependentUpon>ModelSicPro.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSicPro\GetReportResumsiniestro1_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportResumsiniestro_Result.cs">

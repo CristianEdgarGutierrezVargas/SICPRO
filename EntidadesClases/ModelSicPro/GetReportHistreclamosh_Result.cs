@@ -45,5 +45,14 @@ namespace EntidadesClases.ModelSicPro
         public string id_spvs { get; set; }
         public string cia_aseg { get; set; }
         public long id_producto { get; set; }
+        public long id_histcaso { get; set; }
+        public decimal h_id_caso { get; set; }
+        public decimal anio { get; set; }
+        public int id_sucur { get; set; }
+        public System.DateTime fc_iniestado { get; set; }
+        public Nullable<System.DateTime> fc_finestado { get; set; }
+        public double id_estca { get; set; }
+        public string estado { get; set; }
+        public string obs_histcaso { get; set; }
     }
 }

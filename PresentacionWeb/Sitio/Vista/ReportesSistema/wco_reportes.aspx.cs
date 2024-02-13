@@ -24,6 +24,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             if (!Page.IsPostBack)
             {
                 Combos();
+                divMensajeError.Visible = false;
+                lblMensaje.Text = string.Empty;
             }
         }
 
@@ -249,30 +251,44 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void clientes_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-clientes-tab";
         }
         protected void vcmto_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-vcmto-tab";
         }
         protected void pagos_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-pagos-tab";
         }
         protected void estado_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-estado-tab";
         }
         protected void reimp_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-reimp-tab";
         }
         protected void cobranzas_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-cobranzas-tab";
         }
         protected void recibos_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "v-pills-recibos-tab";
         }
 
@@ -280,13 +296,15 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var ic = id_per.Value;
             var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
 
             var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
             var np = txtNumPolizaClientes.Text;
             var nl = txtNumLiquidacionClientes.Text;
-            var h = historicoCliente.SelectedItem.Value;
+            var h = historicoCliente.SelectedItem == null? true : historicoCliente.SelectedItem.Value;
 
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=11" +
@@ -303,7 +321,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteVcmto_Click(object sender, EventArgs e)
         {
-            
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var ci = Convert.ToString(cmbCompaniaVcmto.SelectedItem.Value);
             var ca = Convert.ToString(cmbCarteraVcmto.SelectedItem.Value);
             var isuc = Convert.ToString(cmbSucursalVcmto.SelectedItem.Value);
@@ -332,6 +351,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReportePagos_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var isuc = Convert.ToString(cmbSucursalPagos.SelectedItem.Value);            
 
             ifrReport.Visible = true;
@@ -344,6 +365,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteEstado_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var isuc = Convert.ToString(cmbSucursalEstado.SelectedItem.Value);
             var sp = Convert.ToString(cmbCompaniaEstado.SelectedItem.Value);
             ifrReport.Visible = true;
@@ -357,8 +380,33 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteReimp_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+
             var isuc = Convert.ToString(cmbSucursalReimp.SelectedItem.Value);
+            if (string.IsNullOrEmpty(isuc) || isuc == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una sucursal";
+                return;
+            }
+            var cob = Convert.ToString(cmbCobradorReimp.SelectedItem.Value);
+
+            if (string.IsNullOrEmpty(cob) || cob == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione un cobrador";
+                return;
+            }
+
             var il = Convert.ToString(cmbLiquidacionReimp.SelectedItem.Value);
+
+            if (string.IsNullOrEmpty(il) || il == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione un numero de liquidacion";
+                return;
+            }
 
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=5" +
@@ -371,9 +419,31 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteCobranzas_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var isuc = Convert.ToString(cmbSucursalCobranza.SelectedItem.Value);
+           if (string.IsNullOrEmpty(isuc) || isuc == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una sucursal";
+                return;
+            }
+
             var fi = fechaInicioCobranza.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaInicioCobranza.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha inicial valida";
+                return;
+            }
+
             var ff = fechaFinCobranza.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaFinCobranza.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha final valida";
+                return;
+            }
 
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=22" +
@@ -387,7 +457,15 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteRecibos_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var isuc = Convert.ToString(cmbSucursalRecibos.SelectedItem.Value);
+            if (string.IsNullOrEmpty(isuc) || isuc == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una sucursal";
+                return;
+            }
 
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=25" +

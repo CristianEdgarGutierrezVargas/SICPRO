@@ -270,7 +270,7 @@
                                     <dx:BootstrapTextBox ID="txtNumPolizaProd" runat="server" Width="100%">
                                           <CssClasses Input="form-control-sm fs-10" />
                                           <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_produccion">
-                                                <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="false"></RequiredField>
                                           </ValidationSettings>
                                     </dx:BootstrapTextBox>  
                                 </div>
@@ -281,7 +281,7 @@
                                     <dx:BootstrapTextBox ID="txtNumLiquidacionProd" runat="server" Width="100%">
                                           <CssClasses Input="form-control-sm fs-10" />
                                           <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_produccion">
-                                                <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="false"></RequiredField>
                                           </ValidationSettings>
                                     </dx:BootstrapTextBox>  
                                 </div>
@@ -292,7 +292,7 @@
                                   <dx:BootstrapTextBox ID="txtDelProd" runat="server" Width="100%" Caption="Del">
                                         <CssClasses Input="form-control-sm fs-10" />
                                         <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_produccion">
-                                              <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                              <RequiredField ErrorText="Campo requerido" IsRequired="false"></RequiredField>
                                         </ValidationSettings>
                                   </dx:BootstrapTextBox>  
                               </div>
@@ -300,7 +300,7 @@
                                     <dx:BootstrapTextBox ID="txtAlProd" runat="server" Width="100%" Caption="Al">
                                           <CssClasses Input="form-control-sm fs-10" />
                                           <ValidationSettings SetFocusOnError="True" RequiredField-IsRequired="true" ValidationGroup="wpr_tab_produccion">
-                                                <RequiredField ErrorText="Campo requerido" IsRequired="True"></RequiredField>
+                                                <RequiredField ErrorText="Campo requerido" IsRequired="false"></RequiredField>
                                           </ValidationSettings>
                                     </dx:BootstrapTextBox>  
                               </div>
@@ -311,7 +311,7 @@
                                 <dx:BootstrapComboBox ID="cmbCarteraProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -322,7 +322,7 @@
                                 <dx:BootstrapComboBox ID="cmbEjecutivoProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -333,7 +333,7 @@
                                 <dx:BootstrapComboBox ID="cmbCompaniaProd" runat="server" ValueType="System.String" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbCompaniaProd_SelectedIndexChanged">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="False">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -344,7 +344,7 @@
                                 <dx:BootstrapComboBox ID="cmbProductoProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -355,7 +355,7 @@
                                 <dx:BootstrapComboBox ID="cmbRamoProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -366,7 +366,7 @@
                                 <dx:BootstrapComboBox ID="cmbGrupoProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -377,7 +377,7 @@
                                 <dx:BootstrapComboBox ID="cmbMovimientoProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -388,7 +388,7 @@
                                 <dx:BootstrapComboBox ID="cmbRangosFechasProd" runat="server" ValueType="System.String" Width="100%">
                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                     <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                      <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                      <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                     </ValidationSettings>
                                 </dx:BootstrapComboBox>
                             </div>
@@ -398,8 +398,8 @@
                                 <div class="col-md-3">
                                     <dx:BootstrapDateEdit ID="fechaDelProd" ClientInstanceName="fechaDelProd" runat="server" Width="100%" Caption="Del">
                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                        <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                              <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                        <ValidationSettings SetFocusOnError="True" CausesValidation="false"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                              <RequiredField ErrorText="Campo requerido" IsRequired="false"  />  
                                           </ValidationSettings>  
                                           <ClientSideEvents Init="function(s,e){  
                                                                      var dt1 = new Date();  
@@ -413,8 +413,8 @@
                                 <div class="col-md-3">
                                     <dx:BootstrapDateEdit ID="fechaAlProd" ClientInstanceName="fechaAlProd" runat="server" Width="100%" Caption="Al">
                                          <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
-                                        <ValidationSettings SetFocusOnError="True" CausesValidation="true"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
-                                              <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
+                                        <ValidationSettings SetFocusOnError="True" CausesValidation="false"  ErrorDisplayMode="ImageWithText" EnableCustomValidation="true" ValidationGroup="wpr_tab_produccion">   <%--ErrorDisplayMode="ImageWithTooltip"--%>
+                                              <RequiredField ErrorText="Campo requerido" IsRequired="false"  />  
                                           </ValidationSettings>  
                                           <ClientSideEvents Init="function(s,e){  
                                                                      var dt1 = new Date();  
@@ -432,7 +432,7 @@
                                   <dx:BootstrapComboBox ID="cmbPrimaTotal" runat="server" ValueType="System.String" Width="100%">
                                       <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                       <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                       </ValidationSettings>
                                   </dx:BootstrapComboBox>
                               </div>
@@ -449,7 +449,7 @@
                                   <dx:BootstrapComboBox ID="cmbPrimaNeta" runat="server" ValueType="System.String" Width="100%">
                                       <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                       <ValidationSettings SetFocusOnError="True" ValidationGroup="wpr_tab_produccion" ErrorDisplayMode="ImageWithText" CausesValidation="true">
-                                        <RequiredField ErrorText="Dato requerido" IsRequired="true" />
+                                        <RequiredField ErrorText="Dato requerido" IsRequired="false" />
                                       </ValidationSettings>
                                   </dx:BootstrapComboBox>
                               </div>
@@ -464,7 +464,7 @@
     
                                 </div>
                                 <div class="col-md-7">   
-                                   <dx:ASPxButton ID="btnGenerarReporteProduccion" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteProduccion_Click" CausesValidation="false" ValidationGroup="wpr_tab_produccion"></dx:ASPxButton>                            
+                                   <dx:ASPxButton ID="btnGenerarReporteProduccion" runat="server" Text="Generar Reporte" CssClass="msg_button_class" OnClick="btnGenerarReporteProduccion_Click" CausesValidation="true" ValidationGroup="wpr_tab_produccion"></dx:ASPxButton>                            
                                 </div>
                           </div>
                         </div>
@@ -602,7 +602,15 @@
                     </Tabs>
                 </dx:BootstrapTabControl>--%>
               </div>    
-            </div> 
+            </div>
+               
+             <div class="row">
+                 <div class="col-12">
+                     <div class="alert alert-danger" role="alert" runat="server" id="divMensajeError">
+                         <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+                     </div>
+                 </div>
+             </div>
            </div>
          </div>
        </div>

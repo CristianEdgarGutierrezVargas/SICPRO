@@ -52,45 +52,47 @@ namespace Logica.Consumo
         {
             try
             {
-                var sql1 = _manejador_reportes.GetReportMemo1().ToList();
+                DateTime dtFechaIni = DateTime.Parse(strFechaDe);
+                DateTime dtFechaFin = DateTime.Parse(strFechaA);
+                var sql1 = _manejador_reportes.GetReportMemo1(num_poliza, numLiquidacion, strTipoFecha, dtFechaIni, dtFechaFin).ToList();
 
-                if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
-                {
-                    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).ToList();
-                }
+                //if (num_poliza != null & (num_poliza.Replace("%", "") != ""))
+                //{
+                //    sql1 = sql1.Where(x => x.num_poliza.Contains(num_poliza.ToUpper())).ToList();
+                //}
 
-                if (numLiquidacion != null & (numLiquidacion.Replace("%", "") != ""))
-                {
-                    sql1 = sql1.Where(x => x.no_liquida.Contains(numLiquidacion.ToUpper())).ToList();
-                }
-                var dtFechaDe = (DateTime)SqlDateTime.MinValue;
-                var dtFechaA = (DateTime)SqlDateTime.MaxValue;
-                dtFechaDe = Convert.ToDateTime(dtFechaDe);
-                dtFechaA = Convert.ToDateTime(dtFechaA);
+                //if (numLiquidacion != null & (numLiquidacion.Replace("%", "") != ""))
+                //{
+                //    sql1 = sql1.Where(x => x.no_liquida.Contains(numLiquidacion.ToUpper())).ToList();
+                //}
+                //var dtFechaDe = (DateTime)SqlDateTime.MinValue;
+                //var dtFechaA = (DateTime)SqlDateTime.MaxValue;
+                //dtFechaDe = Convert.ToDateTime(dtFechaDe);
+                //dtFechaA = Convert.ToDateTime(dtFechaA);
 
-                switch (strTipoFecha)
-                {
-                    case "fc_recepcion":
-                        sql1 = sql1.Where(x => x.fc_recepcion >= dtFechaDe && x.fc_recepcion <= dtFechaA).ToList();
-                        break;
-                    case "fc_reg":
-                        sql1 = sql1.Where(x => x.fc_reg >= dtFechaDe && x.fc_reg <= dtFechaA).ToList();
-                        break;
-                    case "fc_emision":
-                        sql1 = sql1.Where(x => x.fc_emision >= dtFechaDe && x.fc_emision <= dtFechaA).ToList();
-                        break;
-                    case "fc_inivig":
-                        sql1 = sql1.Where(x => x.fc_inivig >= dtFechaDe && x.fc_inivig <= dtFechaA).ToList();
-                        break;
-                    case "fc_finvig":
-                        sql1 = sql1.Where(x => x.fc_finvig >= dtFechaDe && x.fc_finvig <= dtFechaA).ToList();
-                        break;
-                    default:
-                        // code block
-                        break;
-                }
+                //switch (strTipoFecha)
+                //{
+                //    case "fc_recepcion":
+                //        sql1 = sql1.Where(x => x.fc_recepcion >= dtFechaDe && x.fc_recepcion <= dtFechaA).ToList();
+                //        break;
+                //    case "fc_reg":
+                //        sql1 = sql1.Where(x => x.fc_reg >= dtFechaDe && x.fc_reg <= dtFechaA).ToList();
+                //        break;
+                //    case "fc_emision":
+                //        sql1 = sql1.Where(x => x.fc_emision >= dtFechaDe && x.fc_emision <= dtFechaA).ToList();
+                //        break;
+                //    case "fc_inivig":
+                //        sql1 = sql1.Where(x => x.fc_inivig >= dtFechaDe && x.fc_inivig <= dtFechaA).ToList();
+                //        break;
+                //    case "fc_finvig":
+                //        sql1 = sql1.Where(x => x.fc_finvig >= dtFechaDe && x.fc_finvig <= dtFechaA).ToList();
+                //        break;
+                //    default:
+                //        // code block
+                //        break;
+                //}
 
-                if (strIdCartera != null & (strIdCartera != ""))
+                if (string.IsNullOrEmpty(strIdCartera) || (strIdCartera != "0"))
                 {
                     sql1 = sql1.Where(x => x.id_percart.Contains(strIdCartera.ToUpper())).ToList();
                     //sql = string.Concat(sql, "AND id_perclie LIKE '%", id_per.ToUpper(), "%'");
@@ -184,21 +186,21 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportProyCartera_Result> GetReportProyCartera()
-        {
-            try
-            {
-                return _manejador_reportes.GetReportProyCartera();
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al Generar la Transacción", secureException);
-            }
-            finally
-            {
-                //dbContext.Dispose();
-            }
-        }
+        //public List<GetReportProyCartera_Result> GetReportProyCartera()
+        //{
+        //    try
+        //    {
+        //        return _manejador_reportes.GetReportProyCartera();
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Transacción", secureException);
+        //    }
+        //    finally
+        //    {
+        //        //dbContext.Dispose();
+        //    }
+        //}
 
         public List<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
         {
@@ -225,17 +227,20 @@ namespace Logica.Consumo
         {
             try
             {
-                var sql1 = _manejador_reportes.GetReportResumProd2();
+                var intIdSucursal = Convert.ToInt32(idSucursal);
+                var intIdDivisa = Convert.ToInt64(idDivisa);
 
-                if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
-                {
-                    sql1 = sql1.Where(x => x.id_suc == Convert.ToInt64(idSucursal)).ToList();
-                }
+                var sql1 = _manejador_reportes.GetReportResumProd2(intIdSucursal, intIdDivisa);
 
-                if (!string.IsNullOrEmpty(idDivisa) && idDivisa != "0")
-                {
-                    sql1 = sql1.Where(x => x.id_div == Convert.ToInt64(idDivisa)).ToList();
-                }
+                //if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
+                //{
+                //    sql1 = sql1.Where(x => x.id_suc == Convert.ToInt64(idSucursal)).ToList();
+                //}
+
+                //if (!string.IsNullOrEmpty(idDivisa) && idDivisa != "0")
+                //{
+                //    sql1 = sql1.Where(x => x.id_div == Convert.ToInt64(idDivisa)).ToList();
+                //}
 
                 if (!string.IsNullOrEmpty(idPersona) && idPersona != "0")
                 {
@@ -457,17 +462,17 @@ namespace Logica.Consumo
             {
                 //return _manejador_reportes.GetReportHistreclamosh();
 
-                var sql1 = _manejador_reportes.GetReportHistreclamosh().ToList();
+                var sql1 = _manejador_reportes.GetReportHistreclamosh(id_caso, anio_caso).ToList();
 
-                if (id_caso != 0 )
-                {
-                    sql1 = sql1.Where(x => x.id_caso == id_caso).ToList();
-                }
+                //if (id_caso != 0 )
+                //{
+                //    sql1 = sql1.Where(x => x.id_caso == id_caso).ToList();
+                //}
 
-                if (anio_caso != 0)
-                {
-                    sql1 = sql1.Where(x => x.anio_caso == anio_caso).ToList();
-                }
+                //if (anio_caso != 0)
+                //{
+                //    sql1 = sql1.Where(x => x.anio_caso == anio_caso).ToList();
+                //}
 
                 return sql1.ToList();
             }
@@ -481,33 +486,34 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
-        {
-            try
-            {
-                return _manejador_reportes.GetReportHistreclamoshf();
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al Generar la Transacción", secureException);
-            }
-            finally
-            {
-                //dbContext.Dispose();
-            }
-        }
+        //public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        //{
+        //    try
+        //    {
+        //        return _manejador_reportes.GetReportHistreclamoshf();
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Transacción", secureException);
+        //    }
+        //    finally
+        //    {
+        //        //dbContext.Dispose();
+        //    }
+        //}
 
         public List<GetReportResumsiniestro_Result> GetReportResumsiniestro(string strIdOfiSucursal, string strIdPer, string strNumPoliza, string strIdCompSpvs, string strIdProducto, string strIdCartera, string strFechaDel, string strFechaAl, string strEstadoCaso)
         {
             try
             {
-                var sql1 = _manejador_reportes.GetReportResumsiniestro().ToList();
+                var idSuc = string.IsNullOrEmpty(strIdOfiSucursal) ? 0 : Convert.ToInt32(strIdOfiSucursal);
+                var sql1 = _manejador_reportes.GetReportResumsiniestro(idSuc).ToList();
 
-                if (!string.IsNullOrEmpty(strIdOfiSucursal))
-                {
-                    var idOfiSucursal = Convert.ToInt32(strIdOfiSucursal);
-                    sql1 = sql1.Where(x => x.id_suc == idOfiSucursal).ToList();
-                }
+                //if (!string.IsNullOrEmpty(strIdOfiSucursal))
+                //{
+                //    var idOfiSucursal = Convert.ToInt32(strIdOfiSucursal);
+                //    sql1 = sql1.Where(x => x.id_suc == idOfiSucursal).ToList();
+                //}
                 if (!string.IsNullOrEmpty(strIdPer))
                 {
                     var idPer = Convert.ToString(strIdPer);
@@ -560,21 +566,21 @@ namespace Logica.Consumo
             }
         }
 
-        public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
-        {
-            try
-            {
-                return _manejador_reportes.GetReportResumsiniestro1();
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al Generar la Transacción", secureException);
-            }
-            finally
-            {
-                //dbContext.Dispose();
-            }
-        }
+        //public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        //{
+        //    try
+        //    {
+        //        return _manejador_reportes.GetReportResumsiniestro1();
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Transacción", secureException);
+        //    }
+        //    finally
+        //    {
+        //        //dbContext.Dispose();
+        //    }
+        //}
 
         #endregion
 
@@ -835,8 +841,6 @@ namespace Logica.Consumo
         {
             try
             {
-                var lstReporte =  _manejador_reportes.GetReportLiqcomiejec3();
-
                 var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
                 var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
                 if (!string.IsNullOrEmpty(strFechaIni))
@@ -847,7 +851,10 @@ namespace Logica.Consumo
                 {
                     dtFechaFin = Convert.ToDateTime(strFechaFin);
                 }
-                lstReporte.Where(w => w.fecha_factura >= dtFechaInicio && w.fecha_factura <= dtFechaFin);
+                var lstReporte =  _manejador_reportes.GetReportLiqcomiejec3(dtFechaInicio, dtFechaFin, idCartera);
+
+                
+                //lstReporte.Where(w => w.fecha_factura >= dtFechaInicio && w.fecha_factura <= dtFechaFin);
 
                 if (!string.IsNullOrEmpty(idSucursal) && idSucursal != "0")
                 {
@@ -855,11 +862,11 @@ namespace Logica.Consumo
                     //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
                 }
 
-                if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
-                {
-                    lstReporte.Where(w => w.id_percart == idCartera);
-                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
-                }
+                //if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
+                //{
+                //    lstReporte.Where(w => w.id_percart == idCartera);
+                //    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                //}
 
                 if (!string.IsNullOrEmpty(idCartera) && idCartera != "0")
                 {
@@ -1029,24 +1036,24 @@ namespace Logica.Consumo
         {
             try
             {
-                var lstReporte = _manejador_reportes.GetReportContable1();
-                if (mes != 0)
-                {
-                    lstReporte.Where(w => w.mes == mes);
-                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
-                }
+                var lstReporte = _manejador_reportes.GetReportContable1(mes, anio, strIdCompania);
+                //if (mes != 0)
+                //{
+                //    lstReporte.Where(w => w.mes == mes);
+                //    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                //}
 
-                if (anio != 0)
-                {
-                    lstReporte.Where(w => w.anio == anio);
-                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
-                }
+                //if (anio != 0)
+                //{
+                //    lstReporte.Where(w => w.anio == anio);
+                //    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                //}
 
-                if (!string.IsNullOrEmpty(strIdCompania) && strIdCompania != "0")
-                {
-                    lstReporte.Where(w => w.id_spvs == strIdCompania);
-                    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
-                }
+                //if (!string.IsNullOrEmpty(strIdCompania) && strIdCompania != "0")
+                //{
+                //    lstReporte.Where(w => w.id_spvs == strIdCompania);
+                //    //str1 = string.Concat(str1, " and {vcb_cuotasdias.id_gru} = ", base.Request.QueryString["gr"]);
+                //}
 
                 return lstReporte;
             }
@@ -1090,22 +1097,13 @@ namespace Logica.Consumo
         }
 
 
-        public List<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(string strFechaIni, string strFechaFin)
+        public List<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(DateTime dtFechaIni, DateTime dtFechaFin)
         {
             try
             {
-                var dtFechaInicio = (DateTime)SqlDateTime.MinValue;
-                var dtFechaFin = (DateTime)SqlDateTime.MaxValue;
-                if (!string.IsNullOrEmpty(strFechaIni))
-                {
-                    dtFechaInicio = Convert.ToDateTime(strFechaIni);
-                }
-                if (!string.IsNullOrEmpty(strFechaFin))
-                {
-                    dtFechaFin = Convert.ToDateTime(strFechaFin);
-                }
+               
                 
-                var lstReporte = _manejador_reportes.GetReportComisionesxfecha(dtFechaInicio, dtFechaFin);
+                var lstReporte = _manejador_reportes.GetReportComisionesxfecha(dtFechaIni, dtFechaFin);
                 
                 return lstReporte;
             }

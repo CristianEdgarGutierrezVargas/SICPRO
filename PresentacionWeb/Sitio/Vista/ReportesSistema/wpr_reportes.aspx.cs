@@ -24,6 +24,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             if (!IsPostBack)
             {
                 Combos();
+                divMensajeError.Visible = false;
+                lblMensaje.Text = string.Empty;
             }
             return;
         }
@@ -111,60 +113,78 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbSucursalProd.TextField = "desc_param";
                 cmbSucursalProd.DataBind();
 
-                cmbSucursalProd.SelectedIndex = 0;
+                //cmbSucursalProd.SelectedIndex = 0;
+                var itemSucursalProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbSucursalProd.Items.Add(itemSucursalProd);
 
                 cmbDivisaProd.DataSource = lstParametroA;
                 cmbDivisaProd.ValueField = "id_par";
                 cmbDivisaProd.TextField = "desc_param";
                 cmbDivisaProd.DataBind();
 
-                cmbDivisaProd.SelectedIndex = 0;
+                //cmbDivisaProd.SelectedIndex = 0;
+                var itemDivisaProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbDivisaProd.Items.Add(itemDivisaProd);
 
                 cmbCarteraProd.DataSource = lstPersona60;
                 cmbCarteraProd.ValueField = "id_per";
                 cmbCarteraProd.TextField = "nomraz";
                 cmbCarteraProd.DataBind();
 
-                cmbCarteraProd.SelectedIndex = 0;
+                //cmbCarteraProd.SelectedIndex = 0;
+                var itemCarteraProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbCarteraProd.Items.Add(itemCarteraProd);
 
                 cmbEjecutivoProd.DataSource = lstPersona30;
                 cmbEjecutivoProd.ValueField = "id_per";
                 cmbEjecutivoProd.TextField = "nomraz";
                 cmbEjecutivoProd.DataBind();
 
-                cmbEjecutivoProd.SelectedIndex = 0;
+                //cmbEjecutivoProd.SelectedIndex = 0;
+                var itemEjecutivoProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbEjecutivoProd.Items.Add(itemEjecutivoProd);
 
                 cmbCompaniaProd.DataSource = lstCompanias;
                 cmbCompaniaProd.ValueField = "id_spvs";
                 cmbCompaniaProd.TextField = "nomraz";
                 cmbCompaniaProd.DataBind();
 
-                cmbCompaniaProd.SelectedIndex = 0;
+                //cmbCompaniaProd.SelectedIndex = 0;
+                var itemCompaniaProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbCompaniaProd.Items.Add(itemCompaniaProd);
 
                 cmbRamoProd.DataSource = lstRiesgo;
                 cmbRamoProd.ValueField = "id_riesgo";
                 cmbRamoProd.TextField = "desc_riesgo";
                 cmbRamoProd.DataBind();
 
-                cmbRamoProd.SelectedIndex = 0;
+                //cmbRamoProd.SelectedIndex = 0;
+                var itemRamoProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbRamoProd.Items.Add(itemRamoProd);
 
                 cmbGrupoProd.DataSource = lstGrupo;
                 cmbGrupoProd.ValueField = "id_gru";
                 cmbGrupoProd.TextField = "desc_grupo";
                 cmbGrupoProd.DataBind();
-                cmbGrupoProd.SelectedIndex = 0;
+                //cmbGrupoProd.SelectedIndex = 0;
+                var itemGrupoProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbGrupoProd.Items.Add(itemGrupoProd);
 
                 cmbMovimientoProd.DataSource = lstParametro;
                 cmbMovimientoProd.ValueField = "id_par";
                 cmbMovimientoProd.TextField = "desc_param";
                 cmbMovimientoProd.DataBind();
-                cmbMovimientoProd.SelectedIndex = 0;
+                //cmbMovimientoProd.SelectedIndex = 0;
+                var itemMovimientoProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbMovimientoProd.Items.Add(itemMovimientoProd);
 
                 cmbRangosFechasProd.DataSource = lstRangoFechas;
                 cmbRangosFechasProd.ValueField = "key";
                 cmbRangosFechasProd.TextField = "value";
                 cmbRangosFechasProd.DataBind();
-                cmbRangosFechasProd.SelectedIndex = 0;
+                //cmbRangosFechasProd.SelectedIndex = 0;
+                var itemRangosProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbRangosFechasProd.Items.Add(itemRangosProd);
 
 
                 cmbPrimaTotal.DataSource = lstComparaPrima;
@@ -172,14 +192,18 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbPrimaTotal.TextField = "value";
                 cmbPrimaTotal.DataBind();
 
-                cmbPrimaTotal.SelectedIndex = 0;
+                //cmbPrimaTotal.SelectedIndex = 0;
+                var itemPrimaTProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbPrimaTotal.Items.Add(itemPrimaTProd);
 
                 cmbPrimaNeta.DataSource = lstComparaPrima;
                 cmbPrimaNeta.ValueField = "key";
                 cmbPrimaNeta.TextField = "value";
                 cmbPrimaNeta.DataBind();
 
-                cmbPrimaNeta.SelectedIndex = 0;
+                //cmbPrimaNeta.SelectedIndex = 0;
+                var itemPrimaNProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbPrimaNeta.Items.Add(itemPrimaNProd);
 
                 #endregion
 
@@ -190,14 +214,16 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 cmbCarteraMemo.TextField = "nomraz";
                 cmbCarteraMemo.DataBind();
 
-                cmbCarteraMemo.SelectedIndex = 0;
+                //cmbCarteraMemo.SelectedIndex = 0;
+                var itemCarteraMemo = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+                cmbCarteraMemo.Items.Add(itemCarteraMemo);
 
                 cmbFechasMemo.DataSource = lstRangoFechas;
                 cmbFechasMemo.ValueField = "key";
                 cmbFechasMemo.TextField = "value";
                 cmbFechasMemo.DataBind();
                 cmbFechasMemo.SelectedIndex = 0;
-
+                                
                 #endregion
 
                 //gr_parametro grParametro = new gr_parametro()
@@ -333,28 +359,41 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void clientes_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-clientes-tab";
         }
         protected void grupos_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-grupos-tab";
         }
         protected void cartera_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-cartera-tab";
         }
         protected void produccion_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-produccion-tab";
         }
         protected void memo_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-memo-tab";
         }
 
 
         protected void cmbCompaniaProd_SelectedIndexChanged(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+
             var response = _objConsumoRegistroProd.ObtenerTablaProducto(Convert.ToString(cmbCompaniaProd.SelectedItem.Value));
             cmbProductoProd.DataSource = response;
             cmbProductoProd.TextField = "desc_prod";
@@ -366,6 +405,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteClientes_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+
             var mesAniv = Convert.ToString(cmbAniv.SelectedItem.Value);
             var nomcli = txtNomclie.Text;
             var suc = cmbOficina.SelectedItem.Value;
@@ -381,6 +423,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteGrupos_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+
             var idGrupo = Convert.ToString(cmbGrupoGrupos.SelectedItem.Value);
             var suc = Convert.ToString(cmbSucursalGrupos.SelectedItem.Value);
             reportTabClientes.Visible = true;
@@ -391,6 +436,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteCartera_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+
             var suc = Convert.ToString(cmbSucursalCartera.SelectedItem.Value);
             reportTabClientes.Visible = true;
             reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=16&sc=" + suc);
@@ -400,31 +448,58 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteProduccion_Click(object sender, EventArgs e)
         {
-            var s = "";
-            var ca = "";
-            var ej = "";
-            var sp = "";
-            var ip = "";
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
 
-            var iv1 = "";
-            var iv2 = "";
-            var ipc = "";
-            var nup = "";
-            var pt = "";
+            var s = Convert.ToString(cmbSucursalProd.SelectedItem.Value);
 
-            var pn = "";
-            var fc = "";
-            var nl = "";
-            var de1 = "";
-            var de2 = "";
+            if (string.IsNullOrEmpty(s) || s == "0")
+            {
+                //this.sw = 1;
+                //wpr_reportes wprReporte = this;
+                //wprReporte.cad = string.Concat(wprReporte.cad, "Debe Seleccionar una Sucursal <br />");
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Debe Seleccionar una Sucursal";
+                return;
+            }
 
-            var idi = "";
-            var idr = "";
-            var ve = "";
-            var ve0 = "";
-            var mv = "";
-            var g = "";
+            var idi = Convert.ToString(cmbDivisaProd.SelectedItem.Value); //this.id_div.SelectedValue
 
+            if (string.IsNullOrEmpty(idi) || idi == "0")
+            {
+                //this.sw = 1;
+                //wpr_reportes wprReporte = this;
+                //wprReporte.cad = string.Concat(wprReporte.cad, "Debe Seleccionar una Sucursal <br />");
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Debe Seleccionar una Divisa";
+                return;
+            }
+
+            var ipc = Convert.ToString(id_per.Value); //this.id_per.Value.ToString()
+            var nup = Convert.ToString(txtNumPolizaProd.Text); //this.num_poliza.Text
+            var nl = Convert.ToString(txtNumLiquidacionProd.Text); //this.num_liquida.Text
+            var de1 = Convert.ToString(txtDelProd.Text); //this.del1.Text
+            var de2 = Convert.ToString(txtAlProd.Text); //this.del2.Text
+
+            var ca = Convert.ToString(cmbCarteraProd.SelectedItem.Value); //this.id_percart.SelectedValue
+            var ej = Convert.ToString(cmbEjecutivoProd.SelectedItem.Value); //this.id_perejec.SelectedValue
+            var sp = Convert.ToString(cmbCompaniaProd.SelectedItem.Value); //this.id_spvs.SelectedValue
+            var ip = cmbProductoProd.SelectedItem == null? string.Empty:Convert.ToString(cmbProductoProd.SelectedItem.Value); //this.id_producto.SelectedValue
+
+            var idr = Convert.ToString(cmbRamoProd.SelectedItem.Value); //this.id_riesgo.SelectedValue
+            var g = Convert.ToString(cmbGrupoProd.SelectedItem.Value); //this.id_gru.SelectedValue
+            var mv = Convert.ToString(cmbMovimientoProd.SelectedItem.Value); //this.id_clamov.SelectedValue
+            var fc = Convert.ToString(cmbRangosFechasProd.SelectedItem.Value); //this.ddl_fecha.SelectedValue
+
+            var iv1 = string.IsNullOrEmpty(fechaDelProd.Text)? string.Empty : fechaDelProd.Date.ToShortDateString(); //this.inivig1.Text
+            var iv2 = string.IsNullOrEmpty(fechaAlProd.Text) ? string.Empty : fechaAlProd.Date.ToShortDateString(); //this.inivig2.Text
+
+            var ve0 = Convert.ToString(cmbPrimaTotal.SelectedItem.Value); //this.ve0.SelectedValue
+            var pt = Convert.ToString(txtPrimaTotal.Text); //this.ptotal.Text
+
+            var ve = Convert.ToString(cmbPrimaNeta.SelectedItem.Value); //this.ve.SelectedValue
+            var pn = Convert.ToString(txtPrimaNeta.Text); //this.pneta.Text
+            
             reportTabClientes.Visible = true;
             reportTabClientes.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=2" +
             "&s=" + s + 
@@ -457,12 +532,24 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteMemo_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
+            
             var numPoliza = txtNumPolizaMemo.Text;
             var numLiquidacion = txtNumLiquidacionMemo.Text;
             var cartera = Convert.ToString(cmbCarteraMemo.SelectedItem.Value);
             var fechaMemo = Convert.ToString(cmbFechasMemo.SelectedItem.Value);
             var fechaDe = fechaDel.Date.ToShortDateString();
             var fechaA = fechaAl.Date.ToShortDateString();
+
+            if ((!(numPoliza != "") || !(numLiquidacion != "")) && (!(fechaDe != "") || !(fechaA != "")))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "<span>Los siguientes valores deben ser verificados antes de proseguir<br /></span><p style='color:#990000; font-weight:bold'> Debe Registrar Número de Póliza y Liquidación O una fecha de registro para generar los memos</p>";
+                
+                return;
+            }
+
             string str = "";
             str = (this.cmbCopiasMemo.SelectedItem.Value.ToString() != "1" ? "10" : "9");
 

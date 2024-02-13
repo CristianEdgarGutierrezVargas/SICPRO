@@ -26,7 +26,6 @@ namespace EntidadesClases.ModelSicPro
         public Nullable<decimal> monto_resto { get; set; }
         public Nullable<long> id_div { get; set; }
         public string divisa { get; set; }
-        public Nullable<long> id_apli1 { get; set; }
         public string cobrador { get; set; }
     }
 }
