@@ -622,7 +622,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes
             rptDoc.SetDataSource(ds);
             //rptDoc.Subreports[0].SetDataSource(ds1);
             CrystalReportViewer1.ReportSource = rptDoc;
-            CrystalReportViewer1.RefreshReport();
+            CrystalReportViewer1.RefreshReport();            
         }
         //12
         private void Listadias()

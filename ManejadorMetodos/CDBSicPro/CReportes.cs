@@ -53,11 +53,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportClientes_Result> GetReportClientes()
+        public List<GetReportClientes_Result> GetReportClientes(string strNombre, int intMesAniv, int intSuc)
         {
             try
             {
-                var sql = _context.GetReportClientes().ToList();
+                var sql = _context.GetReportClientes(strNombre, intMesAniv, intSuc).ToList();
 
                 return sql;
             }

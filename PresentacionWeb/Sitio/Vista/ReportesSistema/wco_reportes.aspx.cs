@@ -259,7 +259,7 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
             divMensajeError.Visible = false;
             lblMensaje.Text = string.Empty;
-            hidtab.Value = "v-pills-vcmto-tab";
+            hidtab.Value = "v-pills-vcmto-tab";            
         }
         protected void pagos_tab_Click(object sender, EventArgs e)
         {
@@ -298,7 +298,16 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
         {
             divMensajeError.Visible = false;
             lblMensaje.Text = string.Empty;
+
             var ic = id_per.Value;
+
+            if (string.IsNullOrEmpty(ic) || ic == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una persona";
+                return;
+            }
+                       
             var ci = Convert.ToString(cmbCompaniaClientes.SelectedItem.Value);
 
             var ca = Convert.ToString(cmbCarteraClientes.SelectedItem.Value);
@@ -475,6 +484,13 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
-        
+
+        //protected void btnCerrarSession_Click(object sender, EventArgs e)
+        //{
+        //    //if ((bool)Session["clientes_tab"]) return;
+        //    //else 
+        //        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "cerrarModal();", true);
+
+        //}
     }
 }

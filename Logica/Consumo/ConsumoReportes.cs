@@ -115,20 +115,20 @@ namespace Logica.Consumo
         {
             try
             {
-                var response = _manejador_reportes.GetReportClientes();
+                var response = _manejador_reportes.GetReportClientes(strNombre, intMesAniv, intSuc);
 
-                if (!string.IsNullOrEmpty(strNombre))
-                {
-                    response = response.Where(x => x.nomraz.Contains(strNombre.ToUpper())).ToList();
-                }
-                if (intMesAniv != 0)
-                {
-                    response = response.Where(x => x.fechaaniv.Value.Month == intMesAniv).ToList();
-                }
-                if (intSuc != 0)
-                {
-                    response = response.Where(x => x.id_suc == intSuc).ToList();
-                }
+                //if (!string.IsNullOrEmpty(strNombre))
+                //{
+                //    response = response.Where(x => x.nomraz.Contains(strNombre.ToUpper())).ToList();
+                //}
+                //if (intMesAniv != 0)
+                //{
+                //    response = response.Where(x => x.fechaaniv.Value.Month == intMesAniv).ToList();
+                //}
+                //if (intSuc != 0)
+                //{
+                //    response = response.Where(x => x.id_suc == intSuc).ToList();
+                //}
 
                 return response;
             }

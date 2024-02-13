@@ -54,6 +54,11 @@
             var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
             myModal.show();
         }
+
+        function cerrarModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+            myModal.hide();
+        }
     $(document).ready(function () {
         var st = $(this).find("input[id*='hidtab']").val();
         if (st == null)
@@ -606,6 +611,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+        <%--<dx:BootstrapButton runat="server" ID="btnCerrarSession" OnClick="btnCerrarSession_Click" Text="Cerrar Reporte">
+            <SettingsBootstrap RenderOption="None" Sizing="Small" />
+            <CssClasses Control="msg_button_class" Text="fs-9" />
+        </dx:BootstrapButton>--%>
       </div>
     </div>
   </div>

@@ -510,11 +510,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportRecibosnoaplicados_Result>("GetReportRecibosnoaplicados", id_sucParameter);
         }
     
-        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes");
-        }
-    
         public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
         {
             var id_perclieParameter = id_perclie != null ?
@@ -632,6 +627,23 @@ namespace ManejadorModelo
                 new ObjectParameter("fecha_fin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportComisionesxfecha_Result>("GetReportComisionesxfecha", fecha_iniParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes(string nomraz, Nullable<int> mes_aniv, Nullable<int> id_suc)
+        {
+            var nomrazParameter = nomraz != null ?
+                new ObjectParameter("nomraz", nomraz) :
+                new ObjectParameter("nomraz", typeof(string));
+    
+            var mes_anivParameter = mes_aniv.HasValue ?
+                new ObjectParameter("mes_aniv", mes_aniv) :
+                new ObjectParameter("mes_aniv", typeof(int));
+    
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, mes_anivParameter, id_sucParameter);
         }
     }
 }
