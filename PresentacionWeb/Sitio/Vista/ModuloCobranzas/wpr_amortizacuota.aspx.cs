@@ -86,92 +86,35 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         protected void btnrec_Click(object sender, EventArgs e)
         {
-            //if (this.id_tpago.Value.ToString() == "69")
-            //{
-            //    pr_amortizaciones prAmortizacione = new pr_amortizaciones();
-            //    DataTable dataTable = prAmortizacione.ObtenerRD(this.id_tpago.SelectedValue, this.id_per.Value, this.id_gru.Value, 85);
-            //    string str = "";
-            //    str = "<div class=\"gridcontainer\" style=\"width: 350px\">";
-            //    str = string.Concat(str, "<table class=\"grid\" width=\"350\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">");
-            //    str = string.Concat(str, "<caption>Lista</caption>");
-            //    str = string.Concat(str, "<tr><th scope='col'>N° de Recibo</th>");
-            //    str = string.Concat(str, "<th scope='col'>Monto Resto</th>");
-            //    str = string.Concat(str, "<th scope='col'>Año Recibo</th>");
-            //    str = string.Concat(str, "<th>Liquida.</th></tr>");
-            //    for (int i = 0; i <= dataTable.Rows.Count - 1; i++)
-            //    {
-            //        string str1 = str;
-            //        string[] strArrays = new string[] { str1, "<tr OnMouseOut=\"this.className = this.orignalclassName;\" OnMouseOver=\"this.orignalclassName = this.className;this.className = 'altoverow';\" onclick=\"mClk('", dataTable.Rows[i][0].ToString(), "','", string.Format("{0:n}", double.Parse(dataTable.Rows[i][1].ToString())), "','", dataTable.Rows[i][2].ToString(), "','", dataTable.Rows[i][3].ToString(), "');\">" };
-            //        str = string.Concat(strArrays);
-            //        str = string.Concat(str, "<td>");
-            //        str = string.Concat(str, dataTable.Rows[i][0].ToString());
-            //        str = string.Concat(str, "</td>");
-            //        str = string.Concat(str, "<td>");
-            //        str = string.Concat(str, string.Format("{0:n}", double.Parse(dataTable.Rows[i][1].ToString())));
-            //        str = string.Concat(str, "</td>");
-            //        str = string.Concat(str, "<td>");
-            //        str = string.Concat(str, dataTable.Rows[i][2].ToString());
-            //        str = string.Concat(str, "</td>");
-            //        str = string.Concat(str, "<td>");
-            //        str = string.Concat(str, dataTable.Rows[i][3].ToString());
-            //        str = string.Concat(str, "</td>");
-            //        str = string.Concat(str, "</tr>");
-            //    }
-            //    str = string.Concat(str, "</table></div>");
-            //    this.msgboxpanel.Visible = true;
-            //    MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
-            //    messageBox.SetTitle("Busqueda de Montos de Recibos o Compensación");
-            //    messageBox.SetIcon("search_user.png");
-            //    messageBox.SetMessage(str);
-            //    messageBox.SetOKButton("msg_button_class");
-            //    this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-            //    return;
-            //}
-            //if (this.id_tpago.SelectedValue != "70")
-            //{
-            //    this.id_liq.Value = "0";
-            //    this.msgboxpanel.Visible = true;
-            //    MessageBox messageBox1 = new MessageBox(base.Server.MapPath("msgbox1.tpl"));
-            //    messageBox1.SetTitle("Información");
-            //    messageBox1.SetIcon("msg_icon_2.png");
-            //    messageBox1.SetMessage("<p style='color:#990000; font-weight:bold'>Solo se Habilita si Selecciona Recibos o Compensación</p>");
-            //    messageBox1.SetOKButton("msg_button_class1");
-            //    this.msgboxpanel.InnerHtml = messageBox1.ReturnObject();
-            //    return;
-            //}
-            //pr_amortizaciones prAmortizacione1 = new pr_amortizaciones();
-            //DataTable dataTable1 = prAmortizacione1.ObtenerRD(this.id_tpago.SelectedValue, this.id_per.Value, "0", 85);
-            //string str2 = "";
-            //str2 = "<div class=\"gridcontainer\" style=\"width: 350px\">";
-            //str2 = string.Concat(str2, "<table class=\"grid\" width=\"350\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">");
-            //str2 = string.Concat(str2, "<caption>Lista</caption>");
-            //str2 = string.Concat(str2, "<tr><th scope='col'>N° de Recibo</th>");
-            //str2 = string.Concat(str2, "<th scope='col'>Monto Resto</th>");
-            //str2 = string.Concat(str2, "<th scope='col'>Año Recibo</th></tr>");
-            //for (int j = 0; j <= dataTable1.Rows.Count - 1; j++)
-            //{
-            //    string str3 = str2;
-            //    string[] strArrays1 = new string[] { str3, "<tr OnMouseOut=\"this.className = this.orignalclassName;\" OnMouseOver=\"this.orignalclassName = this.className;this.className = 'altoverow';\" onclick=\"mClk('", dataTable1.Rows[j][0].ToString(), "','", string.Format("{0:n}", double.Parse(dataTable1.Rows[j][1].ToString())), "','", dataTable1.Rows[j][2].ToString(), "','0');\">" };
-            //    str2 = string.Concat(strArrays1);
-            //    str2 = string.Concat(str2, "<td>");
-            //    str2 = string.Concat(str2, dataTable1.Rows[j][0].ToString());
-            //    str2 = string.Concat(str2, "</td>");
-            //    str2 = string.Concat(str2, "<td>");
-            //    str2 = string.Concat(str2, string.Format("{0:n}", double.Parse(dataTable1.Rows[j][1].ToString())));
-            //    str2 = string.Concat(str2, "</td>");
-            //    str2 = string.Concat(str2, "<td>");
-            //    str2 = string.Concat(str2, dataTable1.Rows[j][2].ToString());
-            //    str2 = string.Concat(str2, "</td>");
-            //    str2 = string.Concat(str2, "</tr>");
-            //}
-            //str2 = string.Concat(str2, "</table>");
-            //this.msgboxpanel.Visible = true;
-            //MessageBox messageBox2 = new MessageBox(base.Server.MapPath("msgbox.tpl"));
-            //messageBox2.SetTitle("Busqueda de Montos de Recibos o Compensación");
-            //messageBox2.SetIcon("search_user.png");
-            //messageBox2.SetMessage(str2);
-            //messageBox2.SetOKButton("msg_button_class");
-            //this.msgboxpanel.InnerHtml = messageBox2.ReturnObject();
+            if (this.id_tpago.Value.ToString() == "69")
+            {
+               var datar = conCobranza.ObtenerRD69( this.id_per.Value, this.id_gru.Value, 85);
+
+                grdReciboCompensacion.DataSource = datar;
+                grdReciboCompensacion.DataBind();
+                pnlReciboCompensacion.ShowOnPageLoad=true;
+                return;
+            }
+            if (this.id_tpago.Value.ToString() != "70")
+            {
+                this.id_liq.Value = "0";
+                var data = conCobranza.ObtenerRD70(this.id_per.Value, this.id_gru.Value, 85);
+
+                GrdDevolucion.DataSource = data;
+                GrdDevolucion.DataBind();
+                pnlGrdDevolucion.ShowOnPageLoad = true;
+
+                return;
+                
+            }
+           
+            var dataTable = conCobranza.ObtenerRD69(this.id_per.Value, "0", 85);
+
+            grdReciboCompensacion.DataSource = dataTable;
+            grdReciboCompensacion.DataBind();
+            pnlReciboCompensacion.ShowOnPageLoad = true;
+            return;
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -245,72 +188,149 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                         this.anio_recibo.Value = "0";
                         this.recibo.Text = "0";
                         this.monto_resto.Text = "0";
-                        //pr_amortizaciones prAmortizacione = new pr_amortizaciones()
-                        //{
-                        //    num_poliza = this.num_poliza,
-                        //    no_liquida = this.no_liquida,
-                        //    cuota = this.cuota,
-                        //    recibo = this.recibo,
-                        //    anio_recibo = this.anio_recibo,
-                        //    monto_pago = this.monto_pago,
-                        //    neta_pago = this.neta_pago,
-                        //    comision_pago = this.comision_pago,
-                        //    id_tpago = this.id_tpago,
-                        //    pago_por = this.pago_por,
-                        //    cuota_pago = this.monto_devolucion,
-                        //    id_liq = this.id_liq,
-                        //    lblmensaje = this.lblmensaje
-                        //};
-                       // prAmortizacione.Insertar();
+                        pr_pago prPago = new pr_pago()
+                        {
+                            
+                            id_poliza =Convert.ToInt64(num_poliza.Value),
+                            id_movimiento =Convert.ToInt64(no_liquida.Value),
+                            cuota= Convert.ToDecimal( cuota.Value),
+                           anio_recibo =Convert.ToDecimal( anio_recibo.Value),
+                            monto_pago =Convert.ToDecimal( monto_pago.Text),
+                            neta_pago = Convert.ToDecimal(neta_pago.Value),
+                            comision_pago =Convert.ToDecimal( comision_pago.Value),
+                            id_tpago = Convert.ToInt64(id_tpago.Value),
+                            pago_por = pago_por.Text,
+                           id_liq =Convert.ToInt32 (id_liq.Value),
+                          
+                        };
+
+                        var objPagos = conCobranza.InsertarPago(prPago);
+
+                        pr_cuotapoliza objCuotaPoliza = new pr_cuotapoliza()
+                        { 
+                            id_poliza= Convert.ToInt64(num_poliza.Value),
+                            id_movimiento= Convert.ToInt64(no_liquida.Value),
+                            cuota= Convert.ToDecimal(cuota.Value),
+                            cuota_pago =Convert.ToDecimal( monto_pago.Value)
+                        };
+                        var objcuotaPoliza = conCobranza.ActualizarCuotaPago(objCuotaPoliza);
+
+                        if (this.id_tpago.Value.ToString() != "69")
+                        {
+                            if (this.id_tpago.Value.ToString() == "70")
+                            {
+                                pr_devolucion prDev = new pr_devolucion()
+                                { 
+                                    id_devolucion=Convert.ToInt64( recibo.Text),
+                                    id_poliza= Convert.ToInt64(num_poliza.Value),
+                                    
+                                };
+
+                                var objDevo = conCobranza.ActualizarSaldoDev(prDev,Convert.ToDecimal(monto_pago.Text));
+                            
+                            }
+                            return;
+                        }
+                        pr_recibo prRecibo = new pr_recibo()
+                        {
+                            id_liq = Convert.ToInt64(id_liq.Value),
+                            id_recibo = Convert.ToInt64(recibo.Text),
+                            anio_recibo=Convert.ToDecimal( anio_recibo.Value)
+
+                        };
+
+                        var objRec = conCobranza.ActualizarReciboCob(prRecibo, Convert.ToDecimal(monto_pago.Text));
+
                         this.Grilla();
                         this.Limpiar();
-                        //this.polizasel();
+
+                        var lstLiq = conCobranza.ObtenerMovimiento(Convert.ToInt64(num_poliza.Value));
+
+                        this.no_liquida.DataSource = lstLiq;
+                        this.no_liquida.TextField = "no_liquida";
+                        this.no_liquida.ValueField = "id_movimiento";
+                        this.no_liquida.DataBind();
+
+
+                        var lstGrupo = conCobranza.ObtenerGrupoM(Convert.ToInt64(num_poliza.Value));
+                        id_gru.Value = lstGrupo.FirstOrDefault().id_gru.ToString();
+                        desc_grupo.Text = lstGrupo.FirstOrDefault().desc_grupo;
+                      
                     }
                     else if (num1 > num5)
                     {
-                        //this.lblmensaje.Text = "El monto a pagar tiene que ser menor al Monto total";
-                        
-                        //var messageBox = base.Server.MapPath("msgbox1.tpl");
-                        //messageBox.SetTitle("Información");
-                        //messageBox.SetIcon("msg_icon_2.png");
-                        //messageBox.SetMessage("<p style='color:#990000; font-weight:bold'>El monto a pagar tiene que ser menor al Monto total</p>");
-                        //messageBox.SetOKButton("msg_button_class1");
-                        //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                        this.lblMensaje.Text = "El monto a pagar tiene que ser menor al Monto total";
+                        imagenFail.Visible = true;
+                        imagenOk.Visible = false;
+                       
+                        pnlMensaje.ShowOnPageLoad = true;
+                        return;
                     }
                     else
                     {
-                        //this.btnguardar.Enabled = false;
-                        //pr_amortizaciones prAmortizacione1 = new pr_amortizaciones()
-                        //{
-                        //    num_poliza = this.num_poliza,
-                        //    no_liquida = this.no_liquida,
-                        //    cuota = this.cuota,
-                        //    recibo = this.recibo,
-                        //    anio_recibo = this.anio_recibo,
-                        //    monto_pago = this.monto_pago,
-                        //    neta_pago = this.neta_pago,
-                        //    comision_pago = this.comision_pago,
-                        //    id_tpago = this.id_tpago,
-                        //    pago_por = this.pago_por,
-                        //    cuota_pago = this.monto_devolucion,
-                        //    id_liq = this.id_liq,
-                        //    lblmensaje = this.lblmensaje
-                        //};
-                        //prAmortizacione1.Insertar();
+                        pr_pago prPago = new pr_pago()
+                        {
+
+                            id_poliza = Convert.ToInt64(num_poliza.Value),
+                            id_movimiento = Convert.ToInt64(no_liquida.Value),
+                            cuota = Convert.ToDecimal(cuota.Value),
+                            anio_recibo = Convert.ToDecimal(anio_recibo.Value),
+                            monto_pago = Convert.ToDecimal(monto_pago.Text),
+                            neta_pago = Convert.ToDecimal(neta_pago.Value),
+                            comision_pago = Convert.ToDecimal(comision_pago.Value),
+                            id_tpago = Convert.ToInt64(id_tpago.Value),
+                            pago_por = pago_por.Text,
+                            id_liq = Convert.ToInt32(id_liq.Value),
+
+                        };
+
+                        var objPagos = conCobranza.InsertarPago(prPago);
+
+                        pr_cuotapoliza objCuotaPoliza = new pr_cuotapoliza()
+                        {
+                            id_poliza = Convert.ToInt64(num_poliza.Value),
+                            id_movimiento = Convert.ToInt64(no_liquida.Value),
+                            cuota = Convert.ToDecimal(cuota.Value),
+                            cuota_pago = Convert.ToDecimal(monto_pago.Value)
+                        };
+                        var objcuotaPoliza = conCobranza.ActualizarCuotaPago(objCuotaPoliza);
+
+                        if (this.id_tpago.Value.ToString() != "69")
+                        {
+                            if (this.id_tpago.Value.ToString() == "70")
+                            {
+                                pr_devolucion prDev = new pr_devolucion()
+                                {
+                                    id_devolucion = Convert.ToInt64(recibo.Text),
+                                    id_poliza = Convert.ToInt64(num_poliza.Value),
+
+                                };
+
+                                var objDevo = conCobranza.ActualizarSaldoDev(prDev, Convert.ToDecimal(monto_pago.Text));
+
+                            }
+                            return;
+                        }
+                        pr_recibo prRecibo = new pr_recibo()
+                        {
+                            id_liq = Convert.ToInt64(id_liq.Value),
+                            id_recibo = Convert.ToInt64(recibo.Text),
+                            anio_recibo = Convert.ToDecimal(anio_recibo.Value)
+
+                        };
+
+                        var objRec = conCobranza.ActualizarReciboCob(prRecibo, Convert.ToDecimal(monto_pago.Text));
                         this.Grilla();
                         this.Limpiar();
                     }
                 }
                 else
                 {
-                    //this.msgboxpanel.Visible = true;
-                    //MessageBox messageBox1 = new MessageBox(base.Server.MapPath("msgbox1.tpl"));
-                    //messageBox1.SetTitle("Validación de Datos");
-                    //messageBox1.SetIcon("msg_icon_2.png");
-                    //messageBox1.SetMessage(string.Concat("<span>Los siguientes valores deben ser verificados antes de proseguir<br /></span><p style='color:#990000; font-weight:bold'>", str, "</p>"));
-                    //messageBox1.SetOKButton("msg_button_class1");
-                    //this.msgboxpanel.InnerHtml = messageBox1.ReturnObject();
-                    //this.sw = false;
+                    imagenFail.Visible = true;
+                    imagenOk.Visible = false;
+                    lblMensaje.Text = "Hubo un error al registrar los datos!";
+                    pnlMensaje.ShowOnPageLoad = true;
+                    return;
                 }
             }
             catch

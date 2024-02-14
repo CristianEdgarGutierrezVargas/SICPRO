@@ -305,5 +305,30 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", original);
             }
         }
+
+
+        public bool ActualizarCuotaPago(pr_cuotapoliza objPrCuotaPoliza)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_cuotapoliza.Where(w => w.id_poliza == objPrCuotaPoliza.id_poliza
+                    && w.id_movimiento == objPrCuotaPoliza.id_movimiento && w.cuota == objPrCuotaPoliza.cuota).FirstOrDefault();
+                                     
+                    sql.cuota_pago = sql.cuota_pago+ objPrCuotaPoliza.cuota_pago;
+               
+
+                    _context.SaveChanges();
+                    dbContextTransaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
     }
 }

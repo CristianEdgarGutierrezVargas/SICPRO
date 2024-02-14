@@ -264,6 +264,51 @@ namespace ManejadorMetodos.CDBSicPro
                 }
             }
         }
+        public bool ActualizarReciboCob(pr_recibo objRecibo,decimal montoPago)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
 
+
+                    var sql = _context.pr_recibo.Where(w => w.anio_recibo == objRecibo.anio_recibo && w.id_recibo == objRecibo.id_recibo).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        sql.monto_resto=sql.monto_resto- montoPago;
+                        sql.id_liq= objRecibo.id_liq;
+
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
+        public List<pr_recibo> ObtenerRecibo(string idPer, string idGru, long idApli)
+        {
+            try
+            {
+                var sql = _context.pr_recibo.Where(w => w.monto_resto>0 && ( w.id_perclie == idPer || w.id_perclie == idGru) && w.id_apli== idApli && w.id_liq != null).ToList();
+                return sql;
+
+
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

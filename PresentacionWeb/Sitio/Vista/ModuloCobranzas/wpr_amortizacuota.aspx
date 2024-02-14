@@ -219,7 +219,7 @@
                                     </dx:BootstrapGridViewSpinEditColumn>
                                     <dx:BootstrapGridViewDataColumn Caption="Fecha Factura" FieldName="fecha_factura">
                                     </dx:BootstrapGridViewDataColumn>
-                                   
+
                                 </Columns>
 
                             </dx:BootstrapGridView>
@@ -335,5 +335,82 @@
             </dx:ContentControl>
         </ContentCollection>
     </dx:BootstrapPopupControl>
+    <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlReciboCompensacion"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+        Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+        <ContentCollection>
+            <dx:ContentControl>
+                <div class="row">
+                    <div class="col-12">
+                        <dx:BootstrapGridView ID="grdReciboCompensacion" runat="server" AutoGenerateColumns="False" KeyFieldName="cuota" Visible="false">
+
+                            <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="false" ShowFilterRow="false" />
+                            <SettingsText Title="Cuotas de la Poliza" />
+                            <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                            <SettingsBootstrap Striped="true" />
+                            <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
+                            <SettingsPager NumericButtonCount="3">
+                                <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                            </SettingsPager>
+                            <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
+
+                            <Columns>
+                                <dx:BootstrapGridViewDataColumn Caption="Nº de Recibo" FieldName="id_recibo">
+                                </dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewDataColumn Caption="Monto Resto" FieldName="monto_resto">
+                                </dx:BootstrapGridViewDataColumn>
+                                <dx:BootstrapGridViewSpinEditColumn Caption="Año Recibo" FieldName="anio_recibo">
+                                </dx:BootstrapGridViewSpinEditColumn>
+                                <dx:BootstrapGridViewDataColumn Caption="Liquidacion" FieldName="id_liq">
+                                </dx:BootstrapGridViewDataColumn>
+
+                            </Columns>
+
+                        </dx:BootstrapGridView>
+                    </div>
+                </div>
+            </dx:ContentControl>
+        </ContentCollection>
+    </dx:BootstrapPopupControl>
+
+     <dx:BootstrapPopupControl HeaderText="Mensaje" runat="server" ID="pnlGrdDevolucion"
+      PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="300px" CloseAction="CloseButton"
+      Modal="true" CssClasses-Header="fs-9 text-white bg-primary">
+      <ContentCollection>
+          <dx:ContentControl>
+              <div class="row">
+                  <div class="col-12">
+                      <dx:BootstrapGridView ID="GrdDevolucion" runat="server" AutoGenerateColumns="False" KeyFieldName="cuota" Visible="false">
+
+                          <Settings ShowColumnHeaders="true" ShowTitlePanel="true" ShowFooter="false" ShowFilterRow="false" />
+                          <SettingsText Title="Cuotas de la Poliza" />
+                          <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
+                          <SettingsBootstrap Striped="true" />
+                          <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
+                          <SettingsPager NumericButtonCount="3">
+                              <PageSizeItemSettings Visible="false" Items="10, 20, 50" />
+                          </SettingsPager>
+                          <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
+
+                          <Columns>
+                              <dx:BootstrapGridViewDataColumn Caption="Nº de Recibo" FieldName="id_recibo">
+                              </dx:BootstrapGridViewDataColumn>
+                              <dx:BootstrapGridViewDataColumn Caption="Monto Resto" FieldName="monto_resto">
+                              </dx:BootstrapGridViewDataColumn>
+                              <dx:BootstrapGridViewSpinEditColumn Caption="Año Recibo" FieldName="anio_recibo">
+                              </dx:BootstrapGridViewSpinEditColumn>
+                             <%-- <dx:BootstrapGridViewDataColumn Caption="Fecha Factura" FieldName="id_liq">
+                              </dx:BootstrapGridViewDataColumn>--%>
+
+                          </Columns>
+
+                      </dx:BootstrapGridView>
+                  </div>
+              </div>
+          </dx:ContentControl>
+      </ContentCollection>
+  </dx:BootstrapPopupControl>
+
+
 
 </asp:Content>

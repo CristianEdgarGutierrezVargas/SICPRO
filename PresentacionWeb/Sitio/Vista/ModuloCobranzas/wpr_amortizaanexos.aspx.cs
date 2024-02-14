@@ -122,7 +122,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                 msg = "El Monto a Pagar tiene que ser menor al Saldo de Devolución";
                 imagenFail.Visible = true;
                 imagenOk.Visible = false;
-                lblMensaje.Text = "Hubo un error al registrar los datos!";
+                lblMensaje.Text = msg + " - Hubo un error al registrar los datos!";
                 pnlMensaje.ShowOnPageLoad = true;
                 return;
             }
@@ -143,6 +143,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                 imagenFail.Visible = false;
                 imagenOk.Visible = true;
                 pnlMensaje.ShowOnPageLoad = true;
+                return;
             }
             else
             {
@@ -150,6 +151,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                 imagenOk.Visible = false;
                 lblMensaje.Text = "Hubo un error al registrar los datos!";
                 pnlMensaje.ShowOnPageLoad = true;
+                return;
             }
         }
         

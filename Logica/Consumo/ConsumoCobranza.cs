@@ -32,6 +32,9 @@ namespace Logica.Consumo
         private readonly Cvcb_respolpago1 _manejador_respolpago1;
         private readonly Cvcb_resumcuotas _manejador_resumcuotas;
         private readonly Cvcb_listacuoamort _manejador_listacuoamort;
+        private readonly Cpr_cuotapoliza _manejador_cuotapoliza;
+        private readonly Cpr_recibo _manejador_recibo;
+
         public ConsumoCobranza()
         {
             //if (dbContext != null) dbContext.Dispose();
@@ -48,10 +51,12 @@ namespace Logica.Consumo
             _manejador_pr_polmov = new Cpr_polmov(dbContext);
             _manejador_pr_pago = new Cpr_pago(dbContext);
             _manejador_pr_totalpago = new Cvcb_totalpago(dbContext);
-            _mnejdor_pr_devolucion=new Cpr_devolucion(dbContext);
+            _mnejdor_pr_devolucion = new Cpr_devolucion(dbContext);
             _manejador_respolpago1 = new Cvcb_respolpago1(dbContext);
-            _manejador_resumcuotas=new Cvcb_resumcuotas(dbContext);
-            _manejador_listacuoamort=new Cvcb_listacuoamort(dbContext);
+            _manejador_resumcuotas = new Cvcb_resumcuotas(dbContext);
+            _manejador_listacuoamort = new Cvcb_listacuoamort(dbContext);
+            _manejador_cuotapoliza = new Cpr_cuotapoliza(dbContext);
+            _manejador_recibo = new Cpr_recibo(dbContext);
         }
         #endregion
 
@@ -189,7 +194,7 @@ namespace Logica.Consumo
                     mat_aseg = s.mat_aseg,
                     fc_reg = s.fc_reg,
                     no_liquida = s.no_liquida,
-                    id_mom=s.id_mom
+                    id_mom = s.id_mom
                 })).ToList();
                 return pol;
             }
@@ -276,9 +281,9 @@ namespace Logica.Consumo
 
             try
             {
-                var cpoliza = _manejador_pr_poliza.GetListPoliza().Where(c=>c.id_poliza== idPol);
+                var cpoliza = _manejador_pr_poliza.GetListPoliza().Where(c => c.id_poliza == idPol);
                 var grupo = _manejador_pr_grupo.ObtenerGrupo();
-                var pol =cpoliza.Join(grupo, w => w.id_gru, s =>(long) s.id_gru, (w,s)=> new OcGrupoM { id_gru =(long) s.id_gru, id_poliza=w.id_poliza, desc_grupo=s.desc_grupo,num_poliza=w.num_poliza}).ToList();
+                var pol = cpoliza.Join(grupo, w => w.id_gru, s => (long)s.id_gru, (w, s) => new OcGrupoM { id_gru = (long)s.id_gru, id_poliza = w.id_poliza, desc_grupo = s.desc_grupo, num_poliza = w.num_poliza }).ToList();
                 return pol;
             }
             catch (SecureExceptions secureException)
@@ -293,8 +298,8 @@ namespace Logica.Consumo
 
             try
             {
-                var cpoliza = _manejador_resumcuotas.Cuotas(idPol , idMov);
-              return cpoliza;
+                var cpoliza = _manejador_resumcuotas.Cuotas(idPol, idMov);
+                return cpoliza;
             }
             catch (SecureExceptions secureException)
             {
@@ -332,6 +337,95 @@ namespace Logica.Consumo
             }
 
 
+        }
+        public pr_pago InsertarPago(pr_pago objPago)
+        {
+            try
+            {
+                return _manejador_pr_pago.InsertPago(objPago);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+        public bool ActualizarCuotaPago(pr_cuotapoliza objCuotaPoliza)
+
+        {
+            try
+            {
+                return _manejador_cuotapoliza.ActualizarCuotaPago(objCuotaPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+        public bool ActualizarSaldoDev(pr_devolucion objDev, decimal montoPago)
+
+        {
+            try
+            {
+                return _mnejdor_pr_devolucion.ActualizarSaldoDev(objDev, montoPago);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+
+        public bool ActualizarReciboCob(pr_recibo objRec, decimal montoPago)
+
+        {
+            try
+            {
+                return _manejador_recibo.ActualizarReciboCob(objRec, montoPago);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
+        public List<pr_recibo> ObtenerRD69(string idPer, string idGru, long idApli)
+        {
+
+            try
+            {
+                var cpoliza = _manejador_recibo.ObtenerRecibo(idPer, idGru, idApli);
+                return cpoliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+        }
+        public List<OcGrdDev> ObtenerRD70(string idPer, string idGru, long idApli)
+        {
+
+            try
+            {
+                var poliza = _manejador_pr_poliza.GetListPoliza();
+                var devolucion = _mnejdor_pr_devolucion.ObtenerDev();
+                //SELECT pr_devolucion.id_devolucion, abs(pr_devolucion.saldo_devolucion), to_char(CURRENT_DATE, 'yyyy') AS anio_recibo, pr_poliza.id_perclie
+                var lstDevolucion= devolucion.Join(poliza, x => x.id_poliza, s => s.id_poliza,(x,s)=>new OcGrdDev
+                {
+                     id_devolucion=x.id_devolucion,
+                     id_perclie=s.id_perclie,
+                     anio_recibo=DateTime.Now.Year,
+                     saldo_devolucion=(decimal)x.saldo_devolucion
+
+                
+                } ).Where(x=>x.id_perclie== idPer &&  x.saldo_devolucion>0).ToList();
+                return lstDevolucion;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
         }
     }
 }
