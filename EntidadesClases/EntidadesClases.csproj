@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModelEntities\OcGrdDev.cs" />
+    <Compile Include="CustomModelEntities\OcGrupoM.cs" />
     <Compile Include="CustomModelEntities\OcRecuFac.cs" />
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
@@ -117,9 +119,6 @@
     <Compile Include="ModelSicPro\GetReportGrupos_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSicPro\GetReportHistreclamoshf_Result.cs">
-      <DependentUpon>ModelSicPro.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelSicPro\GetReportHistreclamosh_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
@@ -141,16 +140,13 @@
     <Compile Include="ModelSicPro\GetReportPagopendcias_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSicPro\GetReportProyCartera_Result.cs">
+    <Compile Include="ModelSicPro\GetReportProyCarteraDirec_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportRecibosnoaplicados_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportResumProd2_Result.cs">
-      <DependentUpon>ModelSicPro.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSicPro\GetReportResumsiniestro1_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelSicPro\GetReportResumsiniestro_Result.cs">

@@ -27,7 +27,7 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-                var sql = _context.pr_grupo.ToList();                
+                var sql = _context.pr_grupo.Select(x=>x).ToList();                
                 return sql;
             }
             catch (SecureExceptions secureException)
@@ -148,5 +148,6 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+       
     }
 }

@@ -13,6 +13,8 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class GetReportComisionesxfecha_Result
     {
+        public Nullable<System.DateTime> fecha_ini { get; set; }
+        public Nullable<System.DateTime> fecha_fin { get; set; }
         public string id_spvs { get; set; }
         public string compania { get; set; }
         public Nullable<decimal> prima_total { get; set; }

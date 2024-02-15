@@ -278,6 +278,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                     else
                     {
                         this.lblmensaje.Text = "Registro Actualizado";
+                        Response.Redirect("~/Sitio/Vista/RegistroProduccion/wgr_direccion.aspx?var=" + id_per.Text.TrimStart().TrimEnd());                        
                     }
                     //string str = "";
                     //bool flag = false;

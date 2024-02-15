@@ -88,7 +88,25 @@ namespace ManejadorMetodos.CDBSicPro
             //}
         }
 
+        public pr_pago InsertPago(pr_pago objPago)
+        {
+            using (var dbContextTransaccion = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_pago.Add(objPago);
+                    _context.SaveChanges();
+                    dbContextTransaccion.Commit();
+                    return objPago;
 
+                }
+                catch (SecureExceptions secureException)
+                {
+                    throw new SecureExceptions("Error al Generar la Transacción", secureException);
+                }
+
+            }
+        }
 
     }
 }

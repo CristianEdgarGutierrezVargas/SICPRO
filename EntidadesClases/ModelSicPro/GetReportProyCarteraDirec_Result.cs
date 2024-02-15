@@ -11,7 +11,7 @@ namespace EntidadesClases.ModelSicPro
 {
     using System;
     
-    public partial class GetReportProyCartera_Result
+    public partial class GetReportProyCarteraDirec_Result
     {
         public string id_per { get; set; }
         public string nomraz { get; set; }
@@ -25,5 +25,18 @@ namespace EntidadesClases.ModelSicPro
         public string nit_fac { get; set; }
         public Nullable<int> id_suc { get; set; }
         public string sucursal { get; set; }
+        public Nullable<long> id_dir { get; set; }
+        public string direccion { get; set; }
+        public Nullable<double> id_tpdir { get; set; }
+        public string tipo { get; set; }
+        public string telf_dir { get; set; }
+        public string int_dire { get; set; }
+        public string telf_cel { get; set; }
+        public string telf_fax { get; set; }
+        public string email { get; set; }
+        public string casilla { get; set; }
+        public string web { get; set; }
+        public Nullable<decimal> dir_id_emis { get; set; }
+        public string ciudad { get; set; }
     }
 }

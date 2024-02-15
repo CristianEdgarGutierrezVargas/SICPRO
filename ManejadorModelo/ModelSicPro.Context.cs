@@ -295,21 +295,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred_cuo", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter, cuotaParameter, idmovimientoParameter);
         }
     
-        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
-        }
-    
-        public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1");
-        }
-    
-        public virtual ObjectResult<GetReportProyCartera_Result> GetReportProyCartera()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCartera_Result>("GetReportProyCartera");
-        }
-    
         public virtual int UpdatePagosFactura(string id_spvs, Nullable<double> nro_factura, Nullable<System.DateTime> fc_factura, Nullable<double> nnro_factura)
         {
             var id_spvsParameter = id_spvs != null ?
@@ -331,26 +316,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdatePagosFactura", id_spvsParameter, nro_facturaParameter, fc_facturaParameter, nnro_facturaParameter);
         }
     
-        public virtual ObjectResult<GetReportHistreclamosh_Result> GetReportHistreclamosh()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamosh_Result>("GetReportHistreclamosh");
-        }
-    
-        public virtual ObjectResult<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamoshf_Result>("GetReportHistreclamoshf");
-        }
-    
-        public virtual ObjectResult<GetReportResumsiniestro_Result> GetReportResumsiniestro()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro_Result>("GetReportResumsiniestro");
-        }
-    
-        public virtual ObjectResult<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro1_Result>("GetReportResumsiniestro1");
-        }
-    
         public virtual ObjectResult<GetReportCobsxrango_Result> GetReportCobsxrango(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin)
         {
             var fecha_iniParameter = fecha_ini.HasValue ?
@@ -362,56 +327,6 @@ namespace ManejadorModelo
                 new ObjectParameter("fecha_fin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCobsxrango_Result>("GetReportCobsxrango", fecha_iniParameter, fecha_finParameter);
-        }
-    
-        public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
-        {
-            var id_perclieParameter = id_perclie != null ?
-                new ObjectParameter("id_perclie", id_perclie) :
-                new ObjectParameter("id_perclie", typeof(string));
-    
-            var id_spvsParameter = id_spvs != null ?
-                new ObjectParameter("id_spvs", id_spvs) :
-                new ObjectParameter("id_spvs", typeof(string));
-    
-            var id_carteraParameter = id_cartera != null ?
-                new ObjectParameter("id_cartera", id_cartera) :
-                new ObjectParameter("id_cartera", typeof(string));
-    
-            var polizaParameter = poliza != null ?
-                new ObjectParameter("poliza", poliza) :
-                new ObjectParameter("poliza", typeof(string));
-    
-            var liquidaParameter = liquida != null ?
-                new ObjectParameter("liquida", liquida) :
-                new ObjectParameter("liquida", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg1_Result>("GetReportEstctaaseg1", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
-        }
-    
-        public virtual ObjectResult<GetReportEstctaaseg2_Result> GetReportEstctaaseg2(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
-        {
-            var id_perclieParameter = id_perclie != null ?
-                new ObjectParameter("id_perclie", id_perclie) :
-                new ObjectParameter("id_perclie", typeof(string));
-    
-            var id_spvsParameter = id_spvs != null ?
-                new ObjectParameter("id_spvs", id_spvs) :
-                new ObjectParameter("id_spvs", typeof(string));
-    
-            var id_carteraParameter = id_cartera != null ?
-                new ObjectParameter("id_cartera", id_cartera) :
-                new ObjectParameter("id_cartera", typeof(string));
-    
-            var polizaParameter = poliza != null ?
-                new ObjectParameter("poliza", poliza) :
-                new ObjectParameter("poliza", typeof(string));
-    
-            var liquidaParameter = liquida != null ?
-                new ObjectParameter("liquida", liquida) :
-                new ObjectParameter("liquida", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg2_Result>("GetReportEstctaaseg2", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
         }
     
         public virtual ObjectResult<GetReportLiquidacion_Result> GetReportLiquidacion()
@@ -429,41 +344,14 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportPagopendcias_Result>("GetReportPagopendcias");
         }
     
-        public virtual ObjectResult<GetReportRecibosnoaplicados_Result> GetReportRecibosnoaplicados(string id_suc)
-        {
-            var id_sucParameter = id_suc != null ?
-                new ObjectParameter("id_suc", id_suc) :
-                new ObjectParameter("id_suc", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportRecibosnoaplicados_Result>("GetReportRecibosnoaplicados", id_sucParameter);
-        }
-    
         public virtual ObjectResult<GetReportAscii_Result> GetReportAscii()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportAscii_Result>("GetReportAscii");
         }
     
-        public virtual ObjectResult<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiqcomiejec3_Result>("GetReportLiqcomiejec3");
-        }
-    
         public virtual ObjectResult<GetReportCuotaadias_Result> GetReportCuotaadias()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportCuotaadias_Result>("GetReportCuotaadias");
-        }
-    
-        public virtual ObjectResult<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin)
-        {
-            var fecha_iniParameter = fecha_ini.HasValue ?
-                new ObjectParameter("fecha_ini", fecha_ini) :
-                new ObjectParameter("fecha_ini", typeof(System.DateTime));
-    
-            var fecha_finParameter = fecha_fin.HasValue ?
-                new ObjectParameter("fecha_fin", fecha_fin) :
-                new ObjectParameter("fecha_fin", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportComisionesxfecha_Result>("GetReportComisionesxfecha", fecha_iniParameter, fecha_finParameter);
         }
     
         public virtual ObjectResult<GetReportConcipagcia_Result> GetReportConcipagcia(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin, string id_spvs, Nullable<long> id_suc)
@@ -485,11 +373,6 @@ namespace ManejadorModelo
                 new ObjectParameter("id_suc", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportConcipagcia_Result>("GetReportConcipagcia", fecha_iniParameter, fecha_finParameter, id_spvsParameter, id_sucParameter);
-        }
-    
-        public virtual ObjectResult<GetReportContable1_Result> GetReportContable1()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportContable1_Result>("GetReportContable1");
         }
     
         public virtual ObjectResult<SavePrNumAplicas_Result> SavePrNumAplicas(Nullable<long> id_poliza, Nullable<long> id_movimiento, Nullable<decimal> del, Nullable<decimal> al, Nullable<long> id_mom)
@@ -565,19 +448,202 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetFacturaNombreByIdSpvs_Result>("GetFacturaNombreByIdSpvs", id_spvsParameter);
         }
     
-        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes");
-        }
-    
         public virtual ObjectResult<GetReportGrupos_Result> GetReportGrupos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportGrupos_Result>("GetReportGrupos");
         }
     
-        public virtual ObjectResult<GetReportResumProd2_Result> GetReportResumProd2()
+        public virtual ObjectResult<GetReportDirecciones_Result> GetReportDirecciones()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumProd2_Result>("GetReportResumProd2");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDirecciones_Result>("GetReportDirecciones");
+        }
+    
+        public virtual ObjectResult<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportProyCarteraDirec_Result>("GetReportProyCarteraDirec");
+        }
+    
+        public virtual ObjectResult<GetReportResumProd2_Result> GetReportResumProd2(Nullable<int> id_suc, Nullable<long> id_div)
+        {
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(int));
+    
+            var id_divParameter = id_div.HasValue ?
+                new ObjectParameter("id_div", id_div) :
+                new ObjectParameter("id_div", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumProd2_Result>("GetReportResumProd2", id_sucParameter, id_divParameter);
+        }
+    
+        public virtual ObjectResult<GetReportMemo1_Result> GetReportMemo1(string num_poliza, string num_liquida, string tipoFecha, Nullable<System.DateTime> fechaIni, Nullable<System.DateTime> fechaFin)
+        {
+            var num_polizaParameter = num_poliza != null ?
+                new ObjectParameter("num_poliza", num_poliza) :
+                new ObjectParameter("num_poliza", typeof(string));
+    
+            var num_liquidaParameter = num_liquida != null ?
+                new ObjectParameter("num_liquida", num_liquida) :
+                new ObjectParameter("num_liquida", typeof(string));
+    
+            var tipoFechaParameter = tipoFecha != null ?
+                new ObjectParameter("TipoFecha", tipoFecha) :
+                new ObjectParameter("TipoFecha", typeof(string));
+    
+            var fechaIniParameter = fechaIni.HasValue ?
+                new ObjectParameter("fechaIni", fechaIni) :
+                new ObjectParameter("fechaIni", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("fechaFin", fechaFin) :
+                new ObjectParameter("fechaFin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportMemo1_Result>("GetReportMemo1", num_polizaParameter, num_liquidaParameter, tipoFechaParameter, fechaIniParameter, fechaFinParameter);
+        }
+    
+        public virtual ObjectResult<GetReportRecibosnoaplicados_Result> GetReportRecibosnoaplicados(string id_suc)
+        {
+            var id_sucParameter = id_suc != null ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportRecibosnoaplicados_Result>("GetReportRecibosnoaplicados", id_sucParameter);
+        }
+    
+        public virtual ObjectResult<GetReportEstctaaseg1_Result> GetReportEstctaaseg1(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg1_Result>("GetReportEstctaaseg1", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        public virtual ObjectResult<GetReportEstctaaseg2_Result> GetReportEstctaaseg2(string id_perclie, string id_spvs, string id_cartera, string poliza, string liquida)
+        {
+            var id_perclieParameter = id_perclie != null ?
+                new ObjectParameter("id_perclie", id_perclie) :
+                new ObjectParameter("id_perclie", typeof(string));
+    
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            var polizaParameter = poliza != null ?
+                new ObjectParameter("poliza", poliza) :
+                new ObjectParameter("poliza", typeof(string));
+    
+            var liquidaParameter = liquida != null ?
+                new ObjectParameter("liquida", liquida) :
+                new ObjectParameter("liquida", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportEstctaaseg2_Result>("GetReportEstctaaseg2", id_perclieParameter, id_spvsParameter, id_carteraParameter, polizaParameter, liquidaParameter);
+        }
+    
+        public virtual ObjectResult<GetReportHistreclamosh_Result> GetReportHistreclamosh(Nullable<decimal> id_caso, Nullable<decimal> anio_caso)
+        {
+            var id_casoParameter = id_caso.HasValue ?
+                new ObjectParameter("id_caso", id_caso) :
+                new ObjectParameter("id_caso", typeof(decimal));
+    
+            var anio_casoParameter = anio_caso.HasValue ?
+                new ObjectParameter("anio_caso", anio_caso) :
+                new ObjectParameter("anio_caso", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportHistreclamosh_Result>("GetReportHistreclamosh", id_casoParameter, anio_casoParameter);
+        }
+    
+        public virtual ObjectResult<GetReportResumsiniestro_Result> GetReportResumsiniestro(Nullable<int> id_sucursal)
+        {
+            var id_sucursalParameter = id_sucursal.HasValue ?
+                new ObjectParameter("id_sucursal", id_sucursal) :
+                new ObjectParameter("id_sucursal", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportResumsiniestro_Result>("GetReportResumsiniestro", id_sucursalParameter);
+        }
+    
+        public virtual ObjectResult<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3(Nullable<System.DateTime> fechaIni, Nullable<System.DateTime> fechaFin, string id_cartera)
+        {
+            var fechaIniParameter = fechaIni.HasValue ?
+                new ObjectParameter("fechaIni", fechaIni) :
+                new ObjectParameter("fechaIni", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("fechaFin", fechaFin) :
+                new ObjectParameter("fechaFin", typeof(System.DateTime));
+    
+            var id_carteraParameter = id_cartera != null ?
+                new ObjectParameter("id_cartera", id_cartera) :
+                new ObjectParameter("id_cartera", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportLiqcomiejec3_Result>("GetReportLiqcomiejec3", fechaIniParameter, fechaFinParameter, id_carteraParameter);
+        }
+    
+        public virtual ObjectResult<GetReportContable1_Result> GetReportContable1(string idCompania, Nullable<int> mes, Nullable<int> anio)
+        {
+            var idCompaniaParameter = idCompania != null ?
+                new ObjectParameter("idCompania", idCompania) :
+                new ObjectParameter("idCompania", typeof(string));
+    
+            var mesParameter = mes.HasValue ?
+                new ObjectParameter("mes", mes) :
+                new ObjectParameter("mes", typeof(int));
+    
+            var anioParameter = anio.HasValue ?
+                new ObjectParameter("anio", anio) :
+                new ObjectParameter("anio", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportContable1_Result>("GetReportContable1", idCompaniaParameter, mesParameter, anioParameter);
+        }
+    
+        public virtual ObjectResult<GetReportComisionesxfecha_Result> GetReportComisionesxfecha(Nullable<System.DateTime> fecha_ini, Nullable<System.DateTime> fecha_fin)
+        {
+            var fecha_iniParameter = fecha_ini.HasValue ?
+                new ObjectParameter("fecha_ini", fecha_ini) :
+                new ObjectParameter("fecha_ini", typeof(System.DateTime));
+    
+            var fecha_finParameter = fecha_fin.HasValue ?
+                new ObjectParameter("fecha_fin", fecha_fin) :
+                new ObjectParameter("fecha_fin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportComisionesxfecha_Result>("GetReportComisionesxfecha", fecha_iniParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<GetReportClientes_Result> GetReportClientes(string nomraz, Nullable<int> mes_aniv, Nullable<int> id_suc)
+        {
+            var nomrazParameter = nomraz != null ?
+                new ObjectParameter("nomraz", nomraz) :
+                new ObjectParameter("nomraz", typeof(string));
+    
+            var mes_anivParameter = mes_aniv.HasValue ?
+                new ObjectParameter("mes_aniv", mes_aniv) :
+                new ObjectParameter("mes_aniv", typeof(int));
+    
+            var id_sucParameter = id_suc.HasValue ?
+                new ObjectParameter("id_suc", id_suc) :
+                new ObjectParameter("id_suc", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, mes_anivParameter, id_sucParameter);
         }
     }
 }

@@ -54,6 +54,11 @@
             var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
             myModal.show();
         }
+
+        function cerrarModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+            myModal.hide();
+        }
     $(document).ready(function () {
         var st = $(this).find("input[id*='hidtab']").val();
         if (st == null)
@@ -442,7 +447,7 @@
                                         <ClientSideEvents Init="function(s,e){  
                                                                    var dt1 = new Date();  
                                                                    var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                   var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                   var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                    fechaInicioCobranza.SetMinDate(new Date(dt3));  
                                                                    fechaInicioCobranza.SetMaxDate(new Date(dt2));  
                                                                 }" />  
@@ -461,7 +466,7 @@
                                         <ClientSideEvents Init="function(s,e){  
                                                                    var dt1 = new Date();  
                                                                    var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                   var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                   var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                    fechaFinCobranza.SetMinDate(new Date(dt3));  
                                                                    fechaFinCobranza.SetMaxDate(new Date(dt2));  
                                                                 }" />  
@@ -507,6 +512,14 @@
             </div>
           </div>    
         </div> 
+
+         <div class="row">
+             <div class="col-12">
+                 <div class="alert alert-danger" role="alert" runat="server" id="divMensajeError">
+                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+                 </div>
+             </div>
+         </div>
          <br />
         </div>
       </div>
@@ -598,6 +611,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Reporte</button>
+        <%--<dx:BootstrapButton runat="server" ID="btnCerrarSession" OnClick="btnCerrarSession_Click" Text="Cerrar Reporte">
+            <SettingsBootstrap RenderOption="None" Sizing="Small" />
+            <CssClasses Control="msg_button_class" Text="fs-9" />
+        </dx:BootstrapButton>--%>
       </div>
     </div>
   </div>

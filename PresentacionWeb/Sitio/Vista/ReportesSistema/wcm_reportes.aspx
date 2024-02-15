@@ -26,7 +26,7 @@
     <div class="post">
       <div>         
         <div class="container">
-            <div class="row">
+        <div class="row">
               <div class="col-md-12">      
                   <h1 class="title"> <asp:Label ID="titulo" runat="server" Text="Reporte de Comisiones"></asp:Label></h1>
                   <div class="entry">
@@ -71,7 +71,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaInicioEje.SetMinDate(new Date(dt3));  
                                                                        fechaInicioEje.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -90,7 +90,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaFinEje.SetMinDate(new Date(dt3));  
                                                                        fechaFinEje.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -292,7 +292,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaInicioNota.SetMinDate(new Date(dt3));  
                                                                        fechaInicioNota.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -311,7 +311,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaFinNota.SetMinDate(new Date(dt3));  
                                                                        fechaFinNota.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -367,7 +367,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaInicioComFe.SetMinDate(new Date(dt3));  
                                                                        fechaInicioComFe.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -386,7 +386,7 @@
                                             <ClientSideEvents Init="function(s,e){  
                                                                        var dt1 = new Date();  
                                                                        var dt2 = new Date(dt1.getFullYear() + 1, dt1.getMonth(), dt1.getDate());  
-                                                                       var dt3 = new Date(dt1.getFullYear() - 1, dt1.getMonth(), dt1.getDate());  
+                                                                       var dt3 = new Date(dt1.getFullYear() - 30, dt1.getMonth(), dt1.getDate());  
                                                                        fechaFinComfe.SetMinDate(new Date(dt3));  
                                                                        fechaFinComfe.SetMaxDate(new Date(dt2));  
                                                                     }" />  
@@ -407,6 +407,14 @@
 
                   </div>
             </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert" runat="server" id="divMensajeError">
+                    <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+                </div>
+            </div>
         </div>
       </div>
     </div>

@@ -143,6 +143,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
                 #region Comisiones Fe
 
                 #endregion
+
+                divMensajeError.Visible = false;
+                lblMensaje.Text = string.Empty;
             }
         }
 
@@ -152,35 +155,69 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void comisionesEje_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-comisionesEje-tab";
         }
         protected void spvs_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-spvs-tab";
         }
         protected void comisiones_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-comisiones-tab";
         }
         protected void contable_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-contable-tab";
         }
         protected void nota_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-nota-tab";
         }
         protected void comisionesFe_tab_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             hidtab.Value = "nav-comisionesFe-tab";
         }
 
 
         protected void btnGenerarReporteComisionesEje_Click(object sender, EventArgs e)
-        {              
+        {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var ife = fechaInicioEje.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaInicioEje.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha inicial valida";
+                return;
+            }
+
             var ff = fechaFinEje.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaFinEje.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha inicial valida";
+                return;
+            }
             var ipc = Convert.ToString(cmbCarteraEje.SelectedItem.Value);
+
+            if (string.IsNullOrEmpty(ipc) || ipc == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una sucursal";
+                return;
+            }
             var isuc = Convert.ToString(cmbSucursalEje.SelectedItem.Value);
             var ipe = Convert.ToString(cmbEjecutivoEje.SelectedItem.Value);
 
@@ -198,6 +235,8 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteSpvs_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var m = Convert.ToString(cmbMesSpvs.SelectedItem.Value);
             var a = Convert.ToString(cmbAnioSpvs.SelectedItem.Value);
 
@@ -212,7 +251,15 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteComisiones_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var r = Convert.ToString(cmbReporteCom.SelectedItem.Value);
+            if (string.IsNullOrEmpty(r) || r == "0")
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione un tipo de reporte";
+                return;
+            }
             var m = Convert.ToString(cmbMesCom.SelectedItem.Value);
             var a = Convert.ToString(cmbAnioCom.SelectedItem.Value);
 
@@ -227,7 +274,16 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteContable_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var s = Convert.ToString(cmbCompaniaCont.SelectedItem.Value);
+            //if (string.IsNullOrEmpty(s) || s == "0")
+            //{
+            //    divMensajeError.Visible = true;
+            //    lblMensaje.Text = "Seleccione una compania";
+            //    return;
+            //}
+
             var m = Convert.ToString(cmbMesCont.SelectedItem.Value);
             var a = Convert.ToString(cmbAnioCont.SelectedItem.Value);
 
@@ -243,8 +299,22 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteNota_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var ife = fechaInicioNota.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaInicioNota.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha inicial valida";
+                return;
+            }
             var ff = fechaFinNota.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaFinNota.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha final valida";
+                return;
+            }
             var ipc = Convert.ToString(cmbCompaniaNota.SelectedItem.Value);
             var isuc = Convert.ToString(cmbSucursalEje.SelectedItem.Value);
            
@@ -261,9 +331,22 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteComisionesFe_Click(object sender, EventArgs e)
         {
+            divMensajeError.Visible = false;
+            lblMensaje.Text = string.Empty;
             var ife = fechaInicioComFe.Date.ToShortDateString();
-            var ff = fechaFinComfe.Date.ToShortDateString();           
-
+            if (string.IsNullOrEmpty(fechaInicioComFe.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha inicial valida";
+                return;
+            }
+            var ff = fechaFinComfe.Date.ToShortDateString();
+            if (string.IsNullOrEmpty(fechaFinComfe.Text))
+            {
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Seleccione una fecha final valida";
+                return;
+            }
             ifrReport.Visible = true;
             ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=26" +
                 "&if=" + ife +

@@ -38,11 +38,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportMemo1_Result> GetReportMemo1()
+        public List<GetReportMemo1_Result> GetReportMemo1(string num_poliza, string numLiquidacion, string strTipoFecha, DateTime strFechaDe, DateTime strFechaA)
         {
             try
             {
-                var sql = _context.GetReportMemo1().ToList();
+                var sql = _context.GetReportMemo1(num_poliza, numLiquidacion, strTipoFecha, strFechaDe, strFechaA).ToList();
 
                 return sql;
             }
@@ -53,11 +53,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportClientes_Result> GetReportClientes()
+        public List<GetReportClientes_Result> GetReportClientes(string strNombre, int intMesAniv, int intSuc)
         {
             try
             {
-                var sql = _context.GetReportClientes().ToList();
+                var sql = _context.GetReportClientes(strNombre, intMesAniv, intSuc).ToList();
 
                 return sql;
             }
@@ -98,11 +98,26 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportProyCartera_Result> GetReportProyCartera()
+        //public List<GetReportProyCartera_Result> GetReportProyCartera()
+        //{
+        //    try
+        //    {
+        //        var sql = _context.GetReportProyCartera().ToList();
+
+        //        return sql;
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", secureException);
+        //    }
+
+        //}
+
+        public List<GetReportProyCarteraDirec_Result> GetReportProyCarteraDirec()
         {
             try
             {
-                var sql = _context.GetReportProyCartera().ToList();
+                var sql = _context.GetReportProyCarteraDirec().ToList();
 
                 return sql;
             }
@@ -113,11 +128,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportResumProd2_Result> GetReportResumProd2()
+        public List<GetReportResumProd2_Result> GetReportResumProd2(int intSuc, long longIdDiv)
         {
             try
             {
-                var sql = _context.GetReportResumProd2().ToList();
+                var sql = _context.GetReportResumProd2(intSuc, longIdDiv).ToList();
 
                 return sql;
             }
@@ -131,11 +146,11 @@ namespace ManejadorMetodos.CDBSicPro
         #endregion
 
         #region wre reportes - reclamos
-        public List<GetReportHistreclamosh_Result> GetReportHistreclamosh()
+        public List<GetReportHistreclamosh_Result> GetReportHistreclamosh(decimal id_caso, decimal anio_caso)
         {
             try
             {
-                var sql = _context.GetReportHistreclamosh().ToList();
+                var sql = _context.GetReportHistreclamosh(id_caso, anio_caso).ToList();
 
                 return sql;
             }
@@ -146,11 +161,26 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        //public List<GetReportHistreclamoshf_Result> GetReportHistreclamoshf()
+        //{
+        //    try
+        //    {
+        //        var sql = _context.GetReportHistreclamoshf().ToList();
+
+        //        return sql;
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", secureException);
+        //    }
+
+        //}
+
+        public List<GetReportResumsiniestro_Result> GetReportResumsiniestro(int intIdSuc)
         {
             try
             {
-                var sql = _context.GetReportHistreclamoshf().ToList();
+                var sql = _context.GetReportResumsiniestro(intIdSuc).ToList();
 
                 return sql;
             }
@@ -161,35 +191,20 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportResumsiniestro_Result> GetReportResumsiniestro()
-        {
-            try
-            {
-                var sql = _context.GetReportResumsiniestro().ToList();
+        //public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
+        //{
+        //    try
+        //    {
+        //        var sql = _context.GetReportResumsiniestro1().ToList();
 
-                return sql;
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al Generar la Consulta", secureException);
-            }
+        //        return sql;
+        //    }
+        //    catch (SecureExceptions secureException)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", secureException);
+        //    }
 
-        }
-
-        public List<GetReportResumsiniestro1_Result> GetReportResumsiniestro1()
-        {
-            try
-            {
-                var sql = _context.GetReportResumsiniestro1().ToList();
-
-                return sql;
-            }
-            catch (SecureExceptions secureException)
-            {
-                throw new SecureExceptions("Error al Generar la Consulta", secureException);
-            }
-
-        }
+        //}
         #endregion
 
         #region wco reportes - cobranzas
@@ -332,11 +347,11 @@ namespace ManejadorMetodos.CDBSicPro
 
         }
 
-        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3()
+        public List<GetReportLiqcomiejec3_Result> GetReportLiqcomiejec3(DateTime strFechaIni, DateTime strFechaFin, string idCartera)
         {
             try
             {
-                var sql = _context.GetReportLiqcomiejec3().ToList();
+                var sql = _context.GetReportLiqcomiejec3(strFechaIni, strFechaFin, idCartera).ToList();
 
                 return sql;
             }
@@ -436,11 +451,11 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-        public List<GetReportContable1_Result> GetReportContable1()
+        public List<GetReportContable1_Result> GetReportContable1(int mes, int anio, string strIdCompania)
         {
             try
             {
-                var sql = _context.GetReportContable1().ToList();
+                var sql = _context.GetReportContable1(strIdCompania, mes, anio).ToList();
 
                 return sql;
             }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using DevExpress.XtraReports;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
@@ -58,7 +59,9 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
             cmbCompaniaProd.TextField = "nomraz";
             cmbCompaniaProd.DataBind();
 
-            cmbCompaniaProd.SelectedIndex = 0;
+            //cmbCompaniaProd.SelectedIndex = 0;
+            var itemCompaniaProd = new BootstrapListEditItem { Text = "SELECCIONE...", Value = 0, Selected = true, Index = 0 };
+            cmbCompaniaProd.Items.Add(itemCompaniaProd);
 
             cmbEstadoCaso.DataSource = lstParametroEst;
             cmbEstadoCaso.ValueField = "id_par";
@@ -160,7 +163,19 @@ namespace PresentacionWeb.Sitio.Vista.ReportesSistema
 
         protected void btnGenerarReporteGen_Click(object sender, EventArgs e)
         {
+
             var s = Convert.ToString(cmbOficina.SelectedItem.Value);
+
+            if (string.IsNullOrEmpty(s) || s == "0")
+            {
+                //this.sw = 1;
+                //wpr_reportes wprReporte = this;
+                //wprReporte.cad = string.Concat(wprReporte.cad, "Debe Seleccionar una Sucursal <br />");
+                divMensajeError.Visible = true;
+                lblMensaje.Text = "Debe Seleccionar una Sucursal";
+                return;
+            }
+
             var ipc = id_per.Value;
             var np = txtNumPolizaProd.Text;
             var sp = Convert.ToString(cmbCompaniaProd.SelectedItem.Value);

@@ -3428,11 +3428,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_desglosepago.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_direcciones.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_direcciones.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_estctaaseg.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3488,11 +3483,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_proycartera.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_proycartera.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_relacion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3507,11 +3497,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>re_resumprod1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\datasets\re_resumprod2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>re_resumprod2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\datasets\re_resumsiniestro.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -3631,12 +3616,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>re_grupos.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamoshf.cs">
-      <DependentUpon>re_histreclamoshf.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.cs">
       <AutoGen>True</AutoGen>
@@ -3882,9 +3861,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_clientes.xss">
       <DependentUpon>re_clientes.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_direcciones.xsc">
-      <DependentUpon>re_direcciones.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_cobsXfecha.xsc">
       <DependentUpon>re_cobsXfecha.xsd</DependentUpon>
     </Content>
@@ -3906,14 +3882,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_desglosepago.xss">
       <DependentUpon>re_desglosepago.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_direcciones.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_direcciones.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_direcciones.xss">
-      <DependentUpon>re_direcciones.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_estctaaseg.xsc">
       <DependentUpon>re_estctaaseg.xsd</DependentUpon>
@@ -4033,17 +4001,6 @@
     <Content Include="Sitio\Vista\Reportes\datasets\re_pagoacia.xss">
       <DependentUpon>re_pagoacia.xsd</DependentUpon>
     </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_proycartera.xsc">
-      <DependentUpon>re_proycartera.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_proycartera.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_proycartera.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_proycartera.xss">
-      <DependentUpon>re_proycartera.xsd</DependentUpon>
-    </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_relacion.xsc">
       <DependentUpon>re_relacion.xsd</DependentUpon>
     </Content>
@@ -4076,17 +4033,6 @@
     </None>
     <Content Include="Sitio\Vista\Reportes\datasets\re_resumprod1.xss">
       <DependentUpon>re_resumprod1.xsd</DependentUpon>
-    </Content>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_resumprod2.xsc">
-      <DependentUpon>re_resumprod2.xsd</DependentUpon>
-    </Content>
-    <None Include="Sitio\Vista\Reportes\datasets\re_resumprod2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>re_resumprod2.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Sitio\Vista\Reportes\datasets\re_resumprod2.xss">
-      <DependentUpon>re_resumprod2.xsd</DependentUpon>
     </Content>
     <Content Include="Sitio\Vista\Reportes\datasets\re_resumsiniestro.xsc">
       <DependentUpon>re_resumsiniestro.xsd</DependentUpon>
@@ -4211,10 +4157,6 @@
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_grupos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>re_grupos.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamoshf.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>re_histreclamoshf.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\re_histreclamosf.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

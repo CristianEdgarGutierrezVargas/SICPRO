@@ -311,6 +311,32 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             private global::System.Data.DataColumn columnsucursal;
             
+            private global::System.Data.DataColumn columnid_dir;
+            
+            private global::System.Data.DataColumn columndireccion;
+            
+            private global::System.Data.DataColumn columnid_tpdir;
+            
+            private global::System.Data.DataColumn columntipo;
+            
+            private global::System.Data.DataColumn columntelf_dir;
+            
+            private global::System.Data.DataColumn columnint_dire;
+            
+            private global::System.Data.DataColumn columntelf_cel;
+            
+            private global::System.Data.DataColumn columntelf_fax;
+            
+            private global::System.Data.DataColumn columnemail;
+            
+            private global::System.Data.DataColumn columncasilla;
+            
+            private global::System.Data.DataColumn columnweb;
+            
+            private global::System.Data.DataColumn columndir_id_emis;
+            
+            private global::System.Data.DataColumn columnciudad;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ComandoDataTable() {
@@ -474,6 +500,110 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_dirColumn {
+                get {
+                    return this.columnid_dir;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn direccionColumn {
+                get {
+                    return this.columndireccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_tpdirColumn {
+                get {
+                    return this.columnid_tpdir;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipoColumn {
+                get {
+                    return this.columntipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn telf_dirColumn {
+                get {
+                    return this.columntelf_dir;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn int_direColumn {
+                get {
+                    return this.columnint_dire;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn telf_celColumn {
+                get {
+                    return this.columntelf_cel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn telf_faxColumn {
+                get {
+                    return this.columntelf_fax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn emailColumn {
+                get {
+                    return this.columnemail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn casillaColumn {
+                get {
+                    return this.columncasilla;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn webColumn {
+                get {
+                    return this.columnweb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn dir_id_emisColumn {
+                get {
+                    return this.columndir_id_emis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ciudadColumn {
+                get {
+                    return this.columnciudad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -525,7 +655,19 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         string emision, 
                         string nit_fac, 
                         int id_suc, 
-                        string sucursal) {
+                        string sucursal, 
+                        string direccion, 
+                        double id_tpdir, 
+                        string tipo, 
+                        string telf_dir, 
+                        string int_dire, 
+                        string telf_cel, 
+                        string telf_fax, 
+                        string email, 
+                        string casilla, 
+                        string web, 
+                        decimal dir_id_emis, 
+                        string ciudad) {
                 ComandoRow rowComandoRow = ((ComandoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_per,
@@ -543,17 +685,23 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                         emision,
                         nit_fac,
                         id_suc,
-                        sucursal};
+                        sucursal,
+                        null,
+                        direccion,
+                        id_tpdir,
+                        tipo,
+                        telf_dir,
+                        int_dire,
+                        telf_cel,
+                        telf_fax,
+                        email,
+                        casilla,
+                        web,
+                        dir_id_emis,
+                        ciudad};
                 rowComandoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComandoRow);
                 return rowComandoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ComandoRow FindByid_per(string id_per) {
-                return ((ComandoRow)(this.Rows.Find(new object[] {
-                            id_per})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +737,19 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columnnit_fac = base.Columns["nit_fac"];
                 this.columnid_suc = base.Columns["id_suc"];
                 this.columnsucursal = base.Columns["sucursal"];
+                this.columnid_dir = base.Columns["id_dir"];
+                this.columndireccion = base.Columns["direccion"];
+                this.columnid_tpdir = base.Columns["id_tpdir"];
+                this.columntipo = base.Columns["tipo"];
+                this.columntelf_dir = base.Columns["telf_dir"];
+                this.columnint_dire = base.Columns["int_dire"];
+                this.columntelf_cel = base.Columns["telf_cel"];
+                this.columntelf_fax = base.Columns["telf_fax"];
+                this.columnemail = base.Columns["email"];
+                this.columncasilla = base.Columns["casilla"];
+                this.columnweb = base.Columns["web"];
+                this.columndir_id_emis = base.Columns["dir_id_emis"];
+                this.columnciudad = base.Columns["ciudad"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -626,10 +787,36 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 base.Columns.Add(this.columnid_suc);
                 this.columnsucursal = new global::System.Data.DataColumn("sucursal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsucursal);
+                this.columnid_dir = new global::System.Data.DataColumn("id_dir", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_dir);
+                this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndireccion);
+                this.columnid_tpdir = new global::System.Data.DataColumn("id_tpdir", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_tpdir);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
+                this.columntelf_dir = new global::System.Data.DataColumn("telf_dir", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelf_dir);
+                this.columnint_dire = new global::System.Data.DataColumn("int_dire", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnint_dire);
+                this.columntelf_cel = new global::System.Data.DataColumn("telf_cel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelf_cel);
+                this.columntelf_fax = new global::System.Data.DataColumn("telf_fax", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelf_fax);
+                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail);
+                this.columncasilla = new global::System.Data.DataColumn("casilla", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncasilla);
+                this.columnweb = new global::System.Data.DataColumn("web", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweb);
+                this.columndir_id_emis = new global::System.Data.DataColumn("dir_id_emis", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndir_id_emis);
+                this.columnciudad = new global::System.Data.DataColumn("ciudad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnciudad);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_per}, true));
+                                this.columnid_per,
+                                this.columnid_dir}, false));
                 this.columnid_per.AllowDBNull = false;
-                this.columnid_per.Unique = true;
                 this.columnid_per.MaxLength = 15;
                 this.columnnomraz.AllowDBNull = false;
                 this.columnnomraz.MaxLength = 160;
@@ -650,6 +837,20 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
                 this.columnnit_fac.MaxLength = 50;
                 this.columnsucursal.ReadOnly = true;
                 this.columnsucursal.MaxLength = 100;
+                this.columnid_dir.AutoIncrement = true;
+                this.columnid_dir.ReadOnly = true;
+                this.columndireccion.MaxLength = 200;
+                this.columntipo.ReadOnly = true;
+                this.columntipo.MaxLength = 100;
+                this.columntelf_dir.MaxLength = 20;
+                this.columnint_dire.MaxLength = 20;
+                this.columntelf_cel.MaxLength = 20;
+                this.columntelf_fax.MaxLength = 20;
+                this.columnemail.MaxLength = 200;
+                this.columncasilla.MaxLength = 10;
+                this.columnweb.MaxLength = 100;
+                this.columnciudad.ReadOnly = true;
+                this.columnciudad.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1013,6 +1214,214 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public long id_dir {
+                get {
+                    try {
+                        return ((long)(this[this.tableComando.id_dirColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_dir\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.id_dirColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string direccion {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.direccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'direccion\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.direccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double id_tpdir {
+                get {
+                    try {
+                        return ((double)(this[this.tableComando.id_tpdirColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_tpdir\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.id_tpdirColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipo {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.tipoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.tipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string telf_dir {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.telf_dirColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'telf_dir\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.telf_dirColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string int_dire {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.int_direColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'int_dire\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.int_direColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string telf_cel {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.telf_celColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'telf_cel\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.telf_celColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string telf_fax {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.telf_faxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'telf_fax\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.telf_faxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string email {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'email\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string casilla {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.casillaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'casilla\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.casillaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string web {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.webColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'web\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.webColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal dir_id_emis {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComando.dir_id_emisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'dir_id_emis\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.dir_id_emisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ciudad {
+                get {
+                    try {
+                        return ((string)(this[this.tableComando.ciudadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ciudad\' de la tabla \'Comando\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComando.ciudadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstpersonaNull() {
                 return this.IsNull(this.tableComando.tpersonaColumn);
             }
@@ -1117,6 +1526,162 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetsucursalNull() {
                 this[this.tableComando.sucursalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_dirNull() {
+                return this.IsNull(this.tableComando.id_dirColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_dirNull() {
+                this[this.tableComando.id_dirColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdireccionNull() {
+                return this.IsNull(this.tableComando.direccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdireccionNull() {
+                this[this.tableComando.direccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isid_tpdirNull() {
+                return this.IsNull(this.tableComando.id_tpdirColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setid_tpdirNull() {
+                this[this.tableComando.id_tpdirColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstipoNull() {
+                return this.IsNull(this.tableComando.tipoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettipoNull() {
+                this[this.tableComando.tipoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istelf_dirNull() {
+                return this.IsNull(this.tableComando.telf_dirColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settelf_dirNull() {
+                this[this.tableComando.telf_dirColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isint_direNull() {
+                return this.IsNull(this.tableComando.int_direColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setint_direNull() {
+                this[this.tableComando.int_direColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istelf_celNull() {
+                return this.IsNull(this.tableComando.telf_celColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settelf_celNull() {
+                this[this.tableComando.telf_celColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istelf_faxNull() {
+                return this.IsNull(this.tableComando.telf_faxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settelf_faxNull() {
+                this[this.tableComando.telf_faxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsemailNull() {
+                return this.IsNull(this.tableComando.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetemailNull() {
+                this[this.tableComando.emailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscasillaNull() {
+                return this.IsNull(this.tableComando.casillaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcasillaNull() {
+                this[this.tableComando.casillaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IswebNull() {
+                return this.IsNull(this.tableComando.webColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetwebNull() {
+                this[this.tableComando.webColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdir_id_emisNull() {
+                return this.IsNull(this.tableComando.dir_id_emisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdir_id_emisNull() {
+                this[this.tableComando.dir_id_emisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsciudadNull() {
+                return this.IsNull(this.tableComando.ciudadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetciudadNull() {
+                this[this.tableComando.ciudadColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1295,6 +1860,19 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_clientesTableAdapters
             tableMapping.ColumnMappings.Add("nit_fac", "nit_fac");
             tableMapping.ColumnMappings.Add("id_suc", "id_suc");
             tableMapping.ColumnMappings.Add("sucursal", "sucursal");
+            tableMapping.ColumnMappings.Add("id_dir", "id_dir");
+            tableMapping.ColumnMappings.Add("direccion", "direccion");
+            tableMapping.ColumnMappings.Add("id_tpdir", "id_tpdir");
+            tableMapping.ColumnMappings.Add("tipo", "tipo");
+            tableMapping.ColumnMappings.Add("telf_dir", "telf_dir");
+            tableMapping.ColumnMappings.Add("int_dire", "int_dire");
+            tableMapping.ColumnMappings.Add("telf_cel", "telf_cel");
+            tableMapping.ColumnMappings.Add("telf_fax", "telf_fax");
+            tableMapping.ColumnMappings.Add("email", "email");
+            tableMapping.ColumnMappings.Add("casilla", "casilla");
+            tableMapping.ColumnMappings.Add("web", "web");
+            tableMapping.ColumnMappings.Add("dir_id_emis", "dir_id_emis");
+            tableMapping.ColumnMappings.Add("ciudad", "ciudad");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1302,7 +1880,7 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_clientesTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString2"].ConnectionString;
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["sicproConnectionString1"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1314,35 +1892,14 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_clientesTableAdapters
             this._commandCollection[0].CommandText = "dbo.GetReportClientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomraz", global::System.Data.SqlDbType.VarChar, 160, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_aniv", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_suc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(re_clientes.ComandoDataTable dataTable, string nomraz, global::System.Nullable<int> fecha_aniv, global::System.Nullable<int> id_suc) {
+        public virtual int Fill(re_clientes.ComandoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((nomraz == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nomraz));
-            }
-            if ((fecha_aniv.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(fecha_aniv.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((id_suc.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(id_suc.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1354,26 +1911,8 @@ namespace PresentacionWeb.Sitio.Vista.Reportes.datasets.re_clientesTableAdapters
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual re_clientes.ComandoDataTable GetData(string nomraz, global::System.Nullable<int> fecha_aniv, global::System.Nullable<int> id_suc) {
+        public virtual re_clientes.ComandoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((nomraz == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nomraz));
-            }
-            if ((fecha_aniv.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(fecha_aniv.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((id_suc.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(id_suc.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
             re_clientes.ComandoDataTable dataTable = new re_clientes.ComandoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

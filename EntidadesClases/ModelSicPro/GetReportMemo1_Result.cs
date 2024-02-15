@@ -43,5 +43,12 @@ namespace EntidadesClases.ModelSicPro
         public bool tipo_cuota { get; set; }
         public Nullable<decimal> del { get; set; }
         public Nullable<decimal> al { get; set; }
+        public decimal cuota { get; set; }
+        public Nullable<System.DateTime> fecha_pago { get; set; }
+        public Nullable<decimal> cuota_total { get; set; }
+        public Nullable<decimal> cuota_neta { get; set; }
+        public Nullable<decimal> cuota_comis { get; set; }
+        public Nullable<decimal> cuota_pago { get; set; }
+        public Nullable<decimal> cuota_comicob { get; set; }
     }
 }

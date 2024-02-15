@@ -36,7 +36,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 Limpiar();
                 wpr_listacob1.valor = base.Request.QueryString["var"];
                 id_clamov.Value = wpr_listacob1.valor;
-                Datos();
+                //Datos();
 
 
             }

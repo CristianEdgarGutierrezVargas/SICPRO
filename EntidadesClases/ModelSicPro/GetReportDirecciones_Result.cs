@@ -27,5 +27,6 @@ namespace EntidadesClases.ModelSicPro
         public string web { get; set; }
         public decimal id_emis { get; set; }
         public string ciudad { get; set; }
+        public Nullable<int> id_suc { get; set; }
     }
 }

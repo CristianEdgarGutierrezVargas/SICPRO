@@ -31,5 +31,13 @@ namespace EntidadesClases.ModelSicPro
         public string sucursal { get; set; }
         public string id_perclie { get; set; }
         public string id_spvs { get; set; }
+        public long id_histcaso { get; set; }
+        public decimal rid_caso { get; set; }
+        public decimal anio { get; set; }
+        public int id_sucur { get; set; }
+        public System.DateTime fc_iniestado { get; set; }
+        public Nullable<System.DateTime> fc_finestado { get; set; }
+        public double rid_estca { get; set; }
+        public string obs_histcaso { get; set; }
     }
 }
