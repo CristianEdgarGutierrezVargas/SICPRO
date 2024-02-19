@@ -244,7 +244,7 @@ namespace ManejadorMetodos.CDBSicPro
         }
         public bool Logeo(string id_per)
         {
-            bool flag=false;
+            bool flag = false;
             try
             {
                 var sql = (from pass in _context.gr_pass
@@ -253,7 +253,7 @@ namespace ManejadorMetodos.CDBSicPro
                 sql.logged = !sql.logged;
 
                 _context.SaveChanges();
-                flag= true;
+                flag = true;
             }
             catch (SecureExceptions secureException)
             {
@@ -262,9 +262,9 @@ namespace ManejadorMetodos.CDBSicPro
             return flag;
 
 
-               // string sql = string.Concat("UPDATE gr_pass SET logged = NOT logged WHERE id_per='", id_per, "'");
-        
-          
+            // string sql = string.Concat("UPDATE gr_pass SET logged = NOT logged WHERE id_per='", id_per, "'");
+
+
         }
 
         public bool VerificarEstado(string usuario, string contraseña)
@@ -276,7 +276,7 @@ namespace ManejadorMetodos.CDBSicPro
                 var sql = from
                             persona in _context.gr_persona
                           join pass in _context.gr_pass on persona.id_per equals pass.id_per
-                          where pass.cambio==true && pass.clave == strClave && pass.login == usuario
+                          where pass.cambio == true && pass.clave == strClave && pass.login == usuario
                           select pass;
                 if (sql.ToList().Count > 0)
                 {
@@ -290,7 +290,167 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
 
-          
+
+        }
+
+        public List<gr_componente> Componentes()
+        {
+            try
+            {
+                //string sql = "SELECT gr_componente.id_com, gr_componente.desc_comp FROM gr_componente WHERE gr_componente.dep_com = 0 UNION SELECT -1, 'SELECCIONE UNA OPCIÓN' ORDER BY id_com";
+                var sql = from param in _context.gr_componente
+                          where param.dep_com == 0
+                          select param;
+
+                List<gr_componente> resultado = sql.ToList();
+                resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
+                resultado = resultado.OrderBy(x => x.id_com).ToList();
+                return resultado;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_componente> ListaComponentesNoAsig(long id_rol)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT public.gr_componente.id_com, public.gr_componente.desc_comp FROM public.gr_componente WHERE gr_componente.nivel > 0 and public.gr_componente.id_com NOT IN (SELECT gr_acceso.id_com FROM gr_acceso WHERE id_rol = ", this.id_rol.SelectedValue, ") ORDER BY gr_componente.id_com");
+                var tablaAcceso = (from acceso in _context.gr_acceso
+                                   where acceso.id_rol == id_rol
+                                   select acceso.id_com).ToList();
+
+                var sql = from param in _context.gr_componente
+                          where param.nivel > 0
+                          & tablaAcceso.Contains((long)(param.id_com)) == false
+                          select param;
+
+                List<gr_componente> resultado = sql.ToList();
+                resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
+                resultado = resultado.OrderBy(x => x.id_com).ToList();
+                return resultado;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_componente> ListaComponentesAsig(long id_rol)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT public.gr_componente.id_com, public.gr_componente.desc_comp
+                //                             FROM public.gr_componente
+                //                             WHERE gr_componente.nivel > 0
+                //                                   and public.gr_componente.id_com IN (SELECT gr_acceso.id_com FROM gr_acceso WHERE id_rol = ", this.id_rol.SelectedValue, ")
+                //                             ORDER BY gr_componente.id_com");
+
+                var tablaAcceso = (from acceso in _context.gr_acceso
+                                   where acceso.id_rol == id_rol
+                                   select acceso.id_com).ToList();
+
+                var sql = from param in _context.gr_componente
+                          where param.nivel > 0
+                           & tablaAcceso.Contains((long)(param.id_com)) == true
+                          select param;
+
+                List<gr_componente> resultado = sql.ToList();
+                resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
+                resultado = resultado.OrderBy(x => x.id_com).ToList();
+                return resultado;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+
+        public List<gr_acceso> VerificarComponente(long idRol,int idCom)
+        {
+            try
+            {
+                //object[] selectedValue = new object[] { "SELECT gr_acceso.id_acc, gr_acceso.id_com, gr_acceso.id_rol, gr_acceso.nivel
+                //                                         FROM gr_componente
+                //                                         INNER JOIN gr_acceso ON (gr_componente.id_com = gr_acceso.id_com)
+                //                                         WHERE gr_acceso.id_rol = ", this.id_rol.SelectedValue, " AND gr_componente.id_com = ", id_com };
+                var sql = (from componente in _context.gr_componente
+                          join acceso in _context.gr_acceso on componente.id_com equals acceso.id_com
+                          where acceso.id_rol==idRol & componente.id_com==idCom
+                          select acceso).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void InsertarAcceso(long idRol, int idCom)
+        {
+            try
+            {
+                //object[] idCom = new object[] { "INSERT INTO gr_acceso VALUES (default,", id_com, ",'", this.id_rol, "',0)" };
+                _context.gr_acceso.Add(new gr_acceso { id_com = idCom, id_rol = idRol, nivel = 0 });
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void AsignarAccesos(long idRol, int lstcomp)
+        {
+            try
+            {
+                //object[] idCom = new object[] { "INSERT INTO gr_acceso VALUES (default,", id_com, ",", this.id_rol.SelectedValue, ",0)" };
+                _context.gr_acceso.Add(new gr_acceso { id_com = lstcomp, id_rol = idRol, nivel = 0 });
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_componente> ListaComponentes(long idRol)
+        {
+            try
+            {
+                //string sql = string.Concat("SELECT    gr_componente.id_com
+                //                                      , gr_componente.desc_comp
+                //                            FROM gr_acceso
+                //                            INNER JOIN gr_componente ON (gr_acceso.id_com = gr_componente.id_com)
+                //                            WHERE gr_acceso.id_rol = ", this.id_rol.SelectedValue, "
+                //                                  AND gr_componente.dep_com <> 0
+                //                            ORDER BY gr_componente.id_com, gr_componente.dep_com");
+                var sql = (from acceso in _context.gr_acceso
+                           join componente in _context.gr_componente on acceso.id_com equals componente.id_com
+                           where acceso.id_rol == idRol & componente.dep_com !=0
+                           orderby componente.id_com, componente.dep_com
+                           select componente).ToList();
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public void QuitarAccesos(long id_com, long id_rol)
+        {
+            try
+            {
+                //object[] idCom = new object[] { "DELETE FROM gr_acceso WHERE id_com=", id_com, " AND id_rol=", id_rol };
+                var item = (
+                              from acceso in _context.gr_acceso
+                              where acceso.id_com == id_com & acceso.id_rol == id_rol
+                              select acceso
+                            ).FirstOrDefault();
+                _context.gr_acceso.Remove(item);
+                _context.SaveChanges();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
         }
     }
 }

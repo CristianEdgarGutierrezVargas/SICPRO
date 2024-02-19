@@ -1,4 +1,5 @@
 ﻿using Common;
+using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ManejadorMetodos.CDBSicPro.Cpr_poliza;
 
 namespace Logica.Consumo
 {
@@ -141,7 +143,7 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la consulta", secureException);
             }
         }
-        public List<pr_poliza> ObtenerPolizaPP(string id_poliza)
+        public List<OC_PolizaPP> ObtenerPolizaPP(string id_poliza)
         {
             try
             {

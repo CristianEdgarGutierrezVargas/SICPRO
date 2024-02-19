@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-7">
 
-                            <asp:DropDownList ID="id_poliza" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnSelectedIndexChanged="id_poliza_SelectedIndexChanged">
+                            <asp:DropDownList ID="id_poliza" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnSelectedIndexChanged="id_poliza_SelectedIndexChanged" AutoPostBack="true">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -114,11 +114,9 @@
                             Ejecutivo Previcor:
                         </div>
                         <div class="col-7">
-
                             <asp:DropDownList ID="id_perurc" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                                <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
-                                <asp:ListItem Value="4336060" Text="CHAVEZ MORALES OSCAR IVAN"></asp:ListItem>
-
+                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
+                                <asp:ListItem Value="4336060" Text="CHAVEZ MORALES OSCAR IVAN"></asp:ListItem>--%>
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
@@ -178,13 +176,11 @@
                             Tipo de Identificador Único:
                         </div>
                         <div class="col-7">
-
                             <asp:DropDownList ID="id_uniobj" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="64" Text="CARNET DE ASEGURADO"></asp:ListItem>
                                 <asp:ListItem Value="72" Text="OTRO"></asp:ListItem>
                                 <asp:ListItem Value="63" Text="PLACA DE VEHÍCULO"></asp:ListItem>
-
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">

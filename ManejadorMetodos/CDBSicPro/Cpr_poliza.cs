@@ -445,7 +445,7 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
-        public List<pr_poliza> ObtenerPolizaPP(string id_poliza)
+        public List<OC_PolizaPP> ObtenerPolizaPP(string id_poliza)
         {
             try
             {
@@ -460,15 +460,20 @@ namespace ManejadorMetodos.CDBSicPro
                 //                           INNER JOIN v_pr_cias_resum ON (pr_poliza.id_spvs = v_pr_cias_resum.id_spvs)
                 //                           WHERE pr_poliza.id_poliza =", id_poliza);
 
-
-
-
                 var sql = (from poliza in _context.pr_poliza
+                           join producto in _context.pr_producto on poliza.id_producto equals producto.id_producto
+                           join view in _context.v_pr_cias_resum on poliza.id_spvs equals view.id_spvs
                            where poliza.id_perclie == id_poliza
-                           select poliza
+                           select  new OC_PolizaPP
+                           {
+                               id_poliza=poliza.id_poliza,
+                               num_poliza=poliza.num_poliza,
+                               id_producto=poliza.id_producto,
+                               desc_prod=producto.desc_prod,
+                               id_spvs=poliza.id_spvs,
+                               nomraz=view.nomraz
+                           }
                            ).ToList();
-                sql.Add(new pr_poliza { id_poliza = 0, num_poliza = "SELECCIONE UNA OPCIÓN" });
-                sql = sql.OrderBy(x => x.id_poliza).ToList();
                 return sql;
             }
             catch (SecureExceptions secureException)
@@ -476,15 +481,12 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
-
+        
         public List<pr_poliza> ObtenerPoliza1(string id_per)
         {
             try
             {
                 var sql = _context.pr_poliza.Where(s => s.estado == true && s.id_perclie == id_per).ToList();
-
-
-
                 return sql;
             }
             catch (Exception ex)
@@ -492,15 +494,9 @@ namespace ManejadorMetodos.CDBSicPro
                 Console.WriteLine(ex.ToString());
                 return null;
             }
-
-
-
         }
-
         public List<pr_poliza> ObtenerPolizaByIdEstado(long idPol, bool estado)
         {
-
-
             try
             {
                 var sql = _context.pr_poliza.Where(s => s.estado == estado && s.id_poliza == idPol).ToList();
@@ -512,8 +508,6 @@ namespace ManejadorMetodos.CDBSicPro
                 Console.WriteLine(ex.ToString());
                 return null;
             }
-
-
         }
     }
 }

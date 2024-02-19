@@ -52,7 +52,7 @@
                             </dxA:ASPxButton>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row">
                         <p class="links">
                             <asp:Label ID="lblmensajeA" runat="server" Text="" class="error"></asp:Label>
                         </p>
@@ -79,15 +79,15 @@
                             <div class="col-2">
                                 Formula :
                             </div>
-                            <div class="col-4">
+                            <div class="col-1">
                                 <asp:DropDownList ID="operador" runat="server">
                                     <asp:ListItem Text="!--" Value="!--"></asp:ListItem>
                                     <asp:ListItem Text="*" Value="*"></asp:ListItem>
                                     <asp:ListItem Text="/" Value="/"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-4">
-                                <asp:TextBox ID="evaluar" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                            <div class="col-2">
+                                <asp:TextBox ID="evaluar" runat="server" class="w-100"></asp:TextBox>
                             </div>
                         </div>
                         <div class="row p-2">
@@ -95,20 +95,38 @@
                                 Comisión :
                             </div>
                             <div class="col-2">
-                                <asp:TextBox ID="comis_riesgo" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                                <asp:TextBox ID="comis_riesgo" runat="server" class="w-100"></asp:TextBox>
                             </div>
                             <div class="col-2">
                                 Por. a Crédito :
                             </div>
                             <div class="col-2">
-                                <asp:TextBox ID="por_cred" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                                <asp:TextBox ID="por_cred" runat="server" class="w-100"></asp:TextBox>
                             </div>
                             <div class="col-2">
                                 Plus Neta :
                             </div>
                             <div class="col-2">
-                                <asp:TextBox ID="plus_neta" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 280px;"></asp:TextBox>
+                                <asp:TextBox ID="plus_neta" runat="server" class="w-100"></asp:TextBox>
                             </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4">
+                            </div>
+                            <div class="col-2">
+                                <dxA:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dxA:ASPxButton>
+                            </div>
+                            <div class="col-2">
+                                <dxA:ASPxButton ID="btnGuardarPanel" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dxA:ASPxButton>
+                            </div>
+                            <div class="col-2">
+                                <dxA:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dxA:ASPxButton>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="links">
+                                <asp:Label ID="Label1" runat="server" Text="" class="error"></asp:Label>
+                            </p>
                         </div>
                     </asp:Panel>
 

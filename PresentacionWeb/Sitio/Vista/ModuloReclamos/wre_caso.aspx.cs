@@ -244,19 +244,19 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
                     //reCaso.anio_recibo;
 
                     re_siniestro siniestro = new re_siniestro();
-                    siniestro.id_caso= (double)id_caso;
-                    siniestro.anio= reCaso.anio_caso;
-                    siniestro.id_sucur= reCaso.id_sucur;
-                    siniestro.fc_incidente= (DateTime)this.fc_incidente.Value;
-                    siniestro.denunciante= this.denunciante.Text;
-                    siniestro.reladenun= this.reladenun.Text;
-                    siniestro.mat_aseg= this.mat_aseg.Text;
+                    siniestro.id_caso = (double)id_caso;
+                    siniestro.anio = reCaso.anio_caso;
+                    siniestro.id_sucur = reCaso.id_sucur;
+                    siniestro.fc_incidente = (DateTime)this.fc_incidente.Value;
+                    siniestro.denunciante = this.denunciante.Text;
+                    siniestro.reladenun = this.reladenun.Text;
+                    siniestro.mat_aseg = this.mat_aseg.Text;
                     siniestro.lugar_siniestro = this.lugar_siniestro.Text;
                     siniestro.circunstancia = this.circunstancia.Text;
-                    siniestro.id_uniobj= double.Parse(this.id_uniobj.Text);
+                    siniestro.id_uniobj = double.Parse(this.id_uniobj.Text);
                     siniestro.uniobj = this.uniobj.Text;
-                    siniestro.fc_denuncia= (DateTime)this.fc_incidente.Value;
-                    
+                    siniestro.fc_denuncia = (DateTime)this.fc_incidente.Value;
+
                     logicaReclamos.add_siniestro(siniestro);
 
                     /*
@@ -286,15 +286,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
                                       ",'", this.uniobj.Text, 
                                      "','", Funciones.fc(this.fc_denuncia.Text), "')" };
                     */
-                    
+
                     re_histcaso histocaso = new re_histcaso();
-                    histocaso.id_histcaso =0;
+                    histocaso.id_histcaso = 0;
                     histocaso.id_caso = id_caso;
-                    histocaso.anio  = reCaso.anio_caso;
-                    histocaso.id_sucur  = reCaso.id_sucur;
-                    histocaso.fc_iniestado  = DateTime.Now;
-                    histocaso.fc_finestado  =null;
-                    histocaso.id_estca  =73;
+                    histocaso.anio = reCaso.anio_caso;
+                    histocaso.id_sucur = reCaso.id_sucur;
+                    histocaso.fc_iniestado = DateTime.Now;
+                    histocaso.fc_finestado = null;
+                    histocaso.id_estca = 73;
                     histocaso.obs_histcaso = "Registro Automatico realizado por el Sistema a momento de Insertar la Denuncia";
 
                     logicaReclamos.add_histcaso1(histocaso);
@@ -353,7 +353,26 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
 
         protected void id_poliza_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                var list=logicaReclamos.ObtenerPolizaPP(this.id_poliza.SelectedValue.ToString());
+                this.nomraz2.Text= list[0].desc_prod;
+                this.desc_prod.Text= list[0].nomraz; 
 
+                //this.desc_prod.Text = dtgeneral.Rows[0]["desc_prod"].ToString();
+                //this.nomraz.Text = dtgeneral.Rows[0]["nomraz"].ToString();
+
+                //this.msgboxpanel.Visible = false;
+                //new pr_poliza()
+                //{
+                //    nomraz = this.nomraz2,
+                //    desc_prod = this.desc_prod
+                //}.ObtenerPolizaPP(this.id_poliza.SelectedValue.ToString());
+            }
+            catch (SecureExceptions ex)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+            }
         }
     }
 }
