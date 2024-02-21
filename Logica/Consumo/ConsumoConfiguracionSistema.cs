@@ -449,5 +449,94 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+        public List<gr_componente> Componente()
+        {
+            try
+            {
+                return _manejador_gr_pass.Componentes();
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public List<gr_componente> ListaComponentesNoAsig(long id_rol) 
+        {
+            try
+            {
+                return _manejador_gr_pass.ListaComponentesNoAsig(id_rol);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<gr_componente> ListaComponentesAsig(long id_rol)
+        {
+            try
+            {
+                return _manejador_gr_pass.ListaComponentesAsig(id_rol);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<gr_acceso> VerificarComponente(long idRol, int idCom)
+        {
+            try
+            {
+                return _manejador_gr_pass.VerificarComponente(idRol, idCom);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void InsertarAcceso(long idRol, int idCom)
+        {
+            try
+            {
+                _manejador_gr_pass.InsertarAcceso(idRol, idCom);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void AsignarAccesos(long idRol,int lstcomp)
+        {
+            try
+            {
+                _manejador_gr_pass.AsignarAccesos(idRol, lstcomp);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public List<gr_componente> ListaComponentes(long id_rol)
+        {
+            try
+            {
+                return _manejador_gr_pass.ListaComponentes(id_rol);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void QuitarAccesos(long id_com, long id_rol) 
+        {
+            try
+            {
+                _manejador_gr_pass.QuitarAccesos(id_com, id_rol);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

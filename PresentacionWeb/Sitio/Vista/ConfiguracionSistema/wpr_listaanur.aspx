@@ -7,30 +7,30 @@
     <div class="container rounded-3 p-4" style="background-color: rgb(243, 243, 243);">
         <div class="row">
             <div class="col-12">
-                <h1 class="title fw-bold">Lista de Polizas</h1>
+                <h1 class="title fw-bold">Anulación de Polizas</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-2">
+     <div class="row">
+            <%--            <div class="col-2">
                 <img src="../../../UI/img/img07.jpg" alt="" width="122" height="122">
-            </div>
-            <div class="col-10">
+            </div>--%>
+            <div class="col-6">
                 <div class="row p-2">
-                    <div class="col-2">
+                    <div class="col-3">
                         N° de Poliza :
                     </div>
                     <div class="col-7">
-                        <asp:TextBox ID="num_poliza" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 300px;"></asp:TextBox>
+                        <asp:TextBox ID="num_poliza" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 100%;"></asp:TextBox>
                     </div>
                     <div class="col-2">
                     </div>
                 </div>
-                <div class="row p-2">
-                    <div class="col-2">
+                <div class="row">
+                    <div class="col-3">
                         Asegurado :
                     </div>
                     <div class="col-7">
-                        <asp:TextBox ID="nomraz" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 300px;"></asp:TextBox>
+                        <asp:TextBox ID="nomraz" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 100%;"></asp:TextBox>
                     </div>
                     <div class="col-2">
                         <asp:HiddenField ID="id_per" runat="server" />
@@ -41,12 +41,12 @@
                         </dx:ASPxButton>
                     </div>
                 </div>
-                <div class="row p-2">
-                    <div class="col-2">
+                <div class="row">
+                    <div class="col-3">
                         Cia Aseguradora :
                     </div>
                     <div class="col-7">
-                        <asp:TextBox ID="nomco" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 300px;"></asp:TextBox>
+                        <asp:TextBox ID="nomco" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 100%;"></asp:TextBox>
                     </div>
                     <div class="col-2">
                         <asp:HiddenField ID="id_spvs" runat="server" />
@@ -57,17 +57,17 @@
                         </dx:ASPxButton>
                     </div>
                 </div>
-                <div class="row p-2">
-                    <div class="col-2">
+                <div class="row">
+                    <div class="col-3">
                         Producto :
                     </div>
                     <div class="col-7">
-                        <asp:TextBox ID="desc_producto" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 300px;"></asp:TextBox>
+                        <asp:TextBox ID="desc_producto" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 100%;"></asp:TextBox>
                     </div>
                     <div class="col-2">
                         <asp:HiddenField ID="id_producto" runat="server" />
                         <dx:ASPxButton ID="btnserprod" runat="server" Text="..." CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnserprod_Click">
-                                            <%--<ClientSideEvents Click="function(s, e) {
+                            <%--<ClientSideEvents Click="function(s, e) {
                                                         popupBusquedaProducto.Show();
                                                     }" />--%>
                         </dx:ASPxButton>
@@ -86,11 +86,11 @@
                     </div>
                 </div>
                 <div class="row p-2">
-                    <div class="col-2">
+                    <div class="col-3">
                         Del:
                     </div>
                     <div class="col-7">
-                        <dx:ASPxDateEdit ID="fc_inivig" runat="server">
+                        <dx:ASPxDateEdit ID="fc_inivig" runat="server" DisplayFormatString="dd/MM/yyyy" EditFormat="Custom" EditFormatString="dd/MM/yyyy" UseMaskBehavior="True">
                             <%--<CssClasses Button="btn-sm" Input="form-control-sm fs-10" />--%>
                         </dx:ASPxDateEdit>
                     </div>
@@ -98,11 +98,11 @@
                     </div>
                 </div>
                 <div class="row p-2">
-                    <div class="col-2">
+                    <div class="col-3">
                         Al:
                     </div>
                     <div class="col-7">
-                        <dx:ASPxDateEdit ID="fc_finvig" runat="server">
+                        <dx:ASPxDateEdit ID="fc_finvig" runat="server" DisplayFormatString="dd/MM/yyyy" EditFormat="Custom" EditFormatString="dd/MM/yyyy" UseMaskBehavior="True">
                             <%--<CssClasses Button="btn-sm" Input="form-control-sm fs-10" />--%>
                         </dx:ASPxDateEdit>
                     </div>
@@ -122,11 +122,11 @@
                     </div>
                 </div>
                 <div class="row p-2">
-                    <div class="col-2">
+                    <div class="col-3">
                         Polizas Vencidas :
                     </div>
                     <div class="col-7">
-                        <dx:ASPxDateEdit ID="fc_polizavencida" runat="server">
+                        <dx:ASPxDateEdit ID="fc_polizavencida" runat="server" DisplayFormatString="dd/MM/yyyy" EditFormat="Custom" EditFormatString="dd/MM/yyyy" UseMaskBehavior="True">
                             <%--<CssClasses Button="btn-sm" Input="form-control-sm fs-10" />--%>
                         </dx:ASPxDateEdit>
                     </div>
@@ -142,10 +142,38 @@
                         <dx:ASPxButton ID="btnnuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnnuevo_Click"></dx:ASPxButton>
                     </div>
                     <div class="col-2">
-                        <dx:ASPxButton ID="btnbuscar" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnbuscar" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnbuscar_Click"></dx:ASPxButton>
                     </div>
 
                 </div>
+            </div>
+            <div class="col-6">
+                <dx:ASPxGridView ID="gridpoliza" runat="server" OnDataBinding="grdPolizas_DataBinding" OnSelectionChanged="grdPolizas_SelectionChanged" EnableCallBacks="false" KeyFieldName="num_poliza"
+                    Style="width: 100%; border-collapse: collapse;"
+                    Font-Size="11px"
+                    Font-Names="Arial, Helvetica, sans-serif"
+                    Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
+                    Styles-Header-ForeColor="#15428b"
+                    Styles-Header-Paddings-Padding="1"
+                    Styles-Header-HorizontalAlign="Left"
+                    Styles-Header-Font-Bold="true"
+                    Styles-Cell-Paddings-Padding="0"
+                    Styles-Cell-ForeColor="#15428b"
+                    Visible="false">
+                    <Columns>
+                        <%--<dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>--%>
+                        <dx:GridViewDataColumn Caption="N° Póliza" FieldName="num_poliza" Visible="true"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="Cliente" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Visible="true"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="Fin Vigencia" FieldName="fc_finvig" Visible="true"></dx:GridViewDataColumn>
+                    </Columns>
+                    <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
+                        <FirstPageButton Visible="true"></FirstPageButton>
+                        <LastPageButton Visible="true"></LastPageButton>
+                        <Summary Visible="false" />
+                    </SettingsPager>
+                    <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
+                </dx:ASPxGridView>
             </div>
         </div>
 
