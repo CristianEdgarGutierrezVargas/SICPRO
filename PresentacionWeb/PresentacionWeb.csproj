@@ -692,6 +692,7 @@
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_passnuevo.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_respass.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wgr_tc.aspx" />
+    <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_datospolizacuotas.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_listaanur.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_listacuotas.aspx" />
     <Content Include="Sitio\Vista\ConfiguracionSistema\wpr_producto.aspx" />
@@ -3010,6 +3011,13 @@
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wgr_tc.aspx.designer.cs">
       <DependentUpon>wgr_tc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_datospolizacuotas.aspx.cs">
+      <DependentUpon>wpr_datospolizacuotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_datospolizacuotas.aspx.designer.cs">
+      <DependentUpon>wpr_datospolizacuotas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sitio\Vista\ConfiguracionSistema\wpr_listaanur.aspx.cs">
       <DependentUpon>wpr_listaanur.aspx</DependentUpon>

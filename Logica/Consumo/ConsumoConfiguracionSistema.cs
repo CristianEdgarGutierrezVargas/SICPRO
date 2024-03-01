@@ -1,4 +1,5 @@
 ﻿using Common;
+using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Logica.Consumo
 {
@@ -25,6 +27,7 @@ namespace Logica.Consumo
         private readonly Cpr_producto _manejador_pr_producto;
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cpr_cuotapoliza _manejador_pr_cuotapoliza;
+        private readonly Cpr_cuotas _manejador_pr_cuotas;
         public static sicproEntities dbContext;
 
         public ConsumoConfiguracionSistema()
@@ -41,6 +44,7 @@ namespace Logica.Consumo
             _manejador_pr_producto = new Cpr_producto(dbContext);
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_pr_cuotapoliza = new Cpr_cuotapoliza(dbContext);
+            _manejador_pr_cuotas = new Cpr_cuotas(dbContext);
         }
 
         public List<gr_persona> ListaPersonaConPass()
@@ -532,6 +536,29 @@ namespace Logica.Consumo
             try
             {
                 _manejador_gr_pass.QuitarAccesos(id_com, id_rol);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public vpr_listasinpago ObtenerDatosPoliza(int id_poliza, int id_movimiento, out OC_DatosCuotas datosCuotas)
+        {
+            try
+            {
+                return _manejador_pr_cuotas.ObtenerDatosPoliza(id_poliza, id_movimiento,out datosCuotas);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+
+        public void InsertarFormRiesgo(string desc_prod, string abrev_prod, string id_riesgo, string id_spvs, bool? opera, decimal evaluar, decimal comis, decimal por_cred, decimal plus_neta)
+        {
+            try
+            {
+                 _manejador_pr_producto.InsertarFormRiesgo(desc_prod, abrev_prod, id_riesgo, id_spvs, opera, evaluar, comis, por_cred,  plus_neta);
             }
             catch (SecureExceptions secureException)
             {
