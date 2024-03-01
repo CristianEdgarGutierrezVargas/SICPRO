@@ -911,6 +911,22 @@ namespace Logica.Consumo
             }
         }
 
+        public decimal Com(decimal primaBruta, long id_producto, string id_spvs1)
+        {
+            try
+            {
+                return _manejador_pr_cobranzas.Com(primaBruta, id_producto, id_spvs1);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
         public decimal Com2(decimal primaBruta, long id_producto, string id_spvs1)
         {
             try
@@ -991,6 +1007,48 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
+
+        public oc_data_vcb_veripoliza1 ObtenerDataCompletaPolizaNRI(long id_poliza, long id_movimiento)
+        {
+            try
+            {
+                var objDataVrenovar = new oc_data_vcb_veripoliza1();
+                var v_poliza = _manejador_pr_cobranzas.ObtenerPolizaI(id_poliza, id_movimiento);
+                if (v_poliza != null)
+                {
+                    var objPersona = _manejador_gr_persona.ObtenerPersona(v_poliza.id_perclie);
+                    var objGrupo = _manejador_pr_grupo.ObtenerGrupo(v_poliza.id_gru);
+                    var objProducto = _manejador_pr_producto.ObtenerProducto(v_poliza.id_producto);
+                    var objCompania = _manejador_gr_compania.GetCompaniaById(v_poliza.id_spvs);
+                    var objDireccion = _manejador_gr_direccion.ObtenerDireccion(v_poliza.id_dir);
+                    var objPersonaAgente = _manejador_gr_persona.ObtenerPersona(v_poliza.id_percart);
+                    var objParametro = _manejador_gr_parametro.ObtenerParametro(v_poliza.id_div);
+
+                    objDataVrenovar.objPersona = objPersona;
+                    objDataVrenovar.objGrupo = objGrupo;
+                    objDataVrenovar.objProducto = objProducto;
+                    objDataVrenovar.objCompania = objCompania;
+                    objDataVrenovar.objDireccion = objDireccion;
+                    objDataVrenovar.objPersonaAgente = objPersonaAgente;
+                    objDataVrenovar.objParametroDivisa = objParametro;
+                }
+                else
+                {
+                    return null;
+                }
+                objDataVrenovar.objDataPoliza = v_poliza;
+                return objDataVrenovar;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+
 
         public oc_data_vcb_veripoliza2 ObtenerDataCompletaPolizaAp(long id_poliza, long id_movimiento)
         {

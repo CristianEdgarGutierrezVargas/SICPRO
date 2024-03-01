@@ -481,6 +481,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             //LimpiarFormulario();
+            Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_listaexclu.aspx", false);
         }
 
         

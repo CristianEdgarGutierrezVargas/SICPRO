@@ -1,5 +1,6 @@
 ﻿using DevExpress.Web;
 using DevExpress.Web.Bootstrap;
+using DevExpress.XtraReports;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -22,53 +23,22 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         ConsumoValidarProd _objConsumoValidarProd = new ConsumoValidarProd();
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargaInicial();
+            
             if (!IsPostBack && base.Request.QueryString["var"] != "")
             {
                 int num = int.Parse(base.Request.QueryString["var"]);
                 int num1 = int.Parse(base.Request.QueryString["val"]);
                 Movimiento(base.Request.QueryString["ver"]);
-
+                CargaInicial(num, num1);
 
                 id_poliza.Value = num.ToString();
                 id_mov.Value = num1.ToString();
 
-                
-
-                var consumoValidar= _objConsumoValidarProd.ObtenerPolizaNRI(num, num1);
-                if (consumoValidar != null)
-                {                
-                fc_emision.Value = consumoValidar.fc_emision;
-                fc_recepcion.Value = consumoValidar.fc_recepcion;
-                fc_inivig.Value = consumoValidar.fc_inivig;
-                fc_finvig.Value = consumoValidar.fc_finvig;
-                txtNroPoliza.Text = consumoValidar.num_poliza;
-                txtNroLiquidacion.Text = consumoValidar.no_liquida;
-                nomraz.Text = consumoValidar.nomraz;
-                id_per.Value = consumoValidar.id_perclie;
-                desc_direccion.Text = consumoValidar.direccion;
-                id_direccion.Value = consumoValidar.id_dir.ToString();
-                cmbGrupo.Value = consumoValidar.id_gru.ToString();
-                cmbCiaAseg.Value = consumoValidar.id_spvs;
-               
-                cmbEjecutivo.Value = consumoValidar.id_perejec;
-                cmbAgente.Value=consumoValidar.id_percart.ToString();
-                rbTipoPoliza.Value = consumoValidar.clase_poliza;
-                txtPrimaBruta.Value = consumoValidar.prima_bruta;
-                txtNumCuotas.Value = consumoValidar.num_cuota;
-                cmbDivisa.Value = consumoValidar.id_div.ToString();
-                tipo_cuota.Value = consumoValidar.tipo_cuota;
-                txtMatAseg.Value = consumoValidar.mat_aseg;                                  
-                cmbProducto.Value = consumoValidar.id_producto.ToString();
-
-                    var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
-                    cmbProducto.DataSource = lstProducto;
-                    cmbProducto.TextField = "desc_prod";
-                    cmbProducto.ValueField = "id_producto";
-                    cmbProducto.DataBind();
-                }
-            }
-            
+                btnCuotas.Visible = false;
+                btnMemo.Visible = false;
+                btnSalir.Visible = false;
+                divCuotasPoliza.Visible = false;
+            }            
         }
         private void Movimiento(string mov)
         {
@@ -85,10 +55,161 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             }
         }
 
+        private void CalculaBtnCalcular()
+        {
+            var objPoliza = (pr_poliza)Session["POLIZA"];
+            var objPolmov = (pr_polmov)Session["POLIZA_MOVIMIENTO"];
+
+            var id_spvs = objPoliza.id_spvs;
+            var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            var id_producto = objPoliza.id_producto;
+            var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
+
+            txtPrimaNeta.Text = _objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
+            txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
+            txtComision.Text = _objConsumoRegistroProd.Com(prima_bruta, id_producto, id_spvs).ToString();
+        }
+
         #region Metodos
 
-        private void CargaInicial()
+        private void CargaInicial(long idPoliza, long idMov)
         {
+            var objResponseData = _objConsumoRegistroProd.ObtenerDataCompletaPolizaNRI(idPoliza, idMov);
+
+            pr_poliza objPoliza = new pr_poliza();
+            var objPolmov = new pr_polmov();
+            var objResponse = objResponseData.objDataPoliza;
+            if (objResponse == null)
+            {
+                //    var objResponseData = _objConsumoRegistroProd.GetDataVeriPoliza(idPoliza, idMov);
+
+                //    Session["vcb_veripoliza1"] = objResponseData;
+
+                //    objPoliza.id_poliza = objResponseData.id_poliza;
+                //    objPoliza.num_poliza = objResponseData.num_poliza;
+                //    objPoliza.id_producto = objResponseData.id_producto;
+                //    objPoliza.id_perclie = objResponseData.id_perclie;
+                //    objPoliza.id_spvs = objResponseData.id_spvs;
+                //    objPoliza.id_gru = objResponseData.id_gru;
+                //    objPoliza.clase_poliza = objResponseData.clase_poliza;
+                //    objPoliza.estado = objResponseData.estado;
+                //    objPoliza.fc_reg = objResponseData.fc_recepcion;
+                //    objPoliza.id_percart = objResponseData.id_percart;
+                //    //objPoliza.id_suc = objResponse.id_suc;
+
+                //    objPolmov.id_poliza = objResponseData.id_poliza;
+                //    objPolmov.id_movimiento = objResponseData.id_movimiento;
+                //    objPolmov.id_perejec = objResponseData.id_perejec;
+                //    objPolmov.fc_emision = objResponseData.fc_emision;
+                //    objPolmov.fc_inivig = objResponseData.fc_inivig;
+
+                //    objPolmov.fc_finvig = objResponseData.fc_finvig;
+                //    objPolmov.prima_bruta = objResponseData.prima_bruta;
+                //    objPolmov.prima_neta = objResponseData.prima_neta;
+                //    objPolmov.por_comision = objResponseData.por_comision;
+                //    objPolmov.comision = objResponseData.comision;
+
+                //    objPolmov.id_div = objResponseData.id_div;
+                //    objPolmov.tipo_cuota = objResponseData.tipo_cuota;
+                //    objPolmov.num_cuota = objResponseData.num_cuota;
+                //    objPolmov.id_clamov = objResponseData.id_poliza;
+                //    //objPolmov.estado = objResponse.estado;
+
+                //    objPolmov.id_dir = objResponseData.id_dir;
+                //    objPolmov.fc_recepcion = objResponseData.fc_recepcion;
+                //    objPolmov.mat_aseg = objResponseData.mat_aseg;
+                //    //objPolmov.fc_reg = objResponse.fc_reg;
+                //    objPolmov.no_liquida = objResponseData.no_liquida;
+                //    objPolmov.id_mom = objResponseData.id_mom;
+            }
+            else
+            {
+                Session["vcb_veripoliza1"] = objResponse;
+
+                objPoliza.id_poliza = objResponse.id_poliza;
+                objPoliza.num_poliza = objResponse.num_poliza;
+                objPoliza.id_producto = objResponse.id_producto;
+                objPoliza.id_perclie = objResponse.id_perclie;
+                objPoliza.id_spvs = objResponse.id_spvs;
+                objPoliza.id_gru = objResponse.id_gru;
+                objPoliza.clase_poliza = objResponse.clase_poliza;
+                objPoliza.estado = objResponse.estado;
+                objPoliza.fc_reg = objResponse.fc_recepcion;
+                objPoliza.id_percart = objResponse.id_percart;
+                //objPoliza.id_suc = objResponse.id_suc;
+
+                objPolmov.id_poliza = objResponse.id_poliza;
+                objPolmov.id_movimiento = objResponse.id_movimiento;
+                objPolmov.id_perejec = objResponse.id_perejec;
+                objPolmov.fc_emision = objResponse.fc_emision;
+                objPolmov.fc_inivig = objResponse.fc_inivig;
+
+                objPolmov.fc_finvig = objResponse.fc_finvig;
+                objPolmov.prima_bruta = objResponse.prima_bruta;
+                objPolmov.prima_neta = objResponse.prima_neta;
+                objPolmov.por_comision = objResponse.por_comision;
+                objPolmov.comision = objResponse.comision;
+
+                objPolmov.id_div = objResponse.id_div;
+                objPolmov.tipo_cuota = objResponse.tipo_cuota;
+                objPolmov.num_cuota = objResponse.num_cuota;
+                objPolmov.id_clamov = objResponse.id_poliza;
+                //objPolmov.estado = objResponse.estado;
+
+                objPolmov.id_dir = objResponse.id_dir;
+                objPolmov.fc_recepcion = objResponse.fc_recepcion;
+                objPolmov.mat_aseg = objResponse.mat_aseg;
+                //objPolmov.fc_reg = objResponse.fc_reg;
+                objPolmov.no_liquida = objResponse.no_liquida;
+                objPolmov.id_mom = objResponse.id_mom;
+
+                //var consumoValidar= _objConsumoValidarProd.ObtenerPolizaNRI(num, num1);
+                //if (consumoValidar != null)
+                //{                
+                fc_emision.Value = objResponse.fc_emision;
+                fc_recepcion.Value = objResponse.fc_recepcion;
+                fc_inivig.Value = objResponse.fc_inivig;
+                fc_finvig.Value = objResponse.fc_finvig;
+                txtNroPoliza.Text = objResponse.num_poliza;
+                txtNroLiquidacion.Text = objResponse.no_liquida;
+                nomraz.Text = objResponse.nomraz;
+                id_per.Value = objResponse.id_perclie;
+                desc_direccion.Text = objResponse.direccion;
+                id_direccion.Value = objResponse.id_dir.ToString();
+                cmbGrupo.Value = objResponse.id_gru.ToString();
+                cmbCiaAseg.Value = objResponse.id_spvs;
+
+                cmbEjecutivo.Value = objResponse.id_perejec;
+                cmbAgente.Value = objResponse.id_percart.ToString();
+                rbTipoPoliza.Value = objResponse.clase_poliza;
+                txtPrimaBruta.Value = objResponse.prima_bruta;
+                txtNumCuotas.Value = objResponse.num_cuota;
+                cmbDivisa.Value = objResponse.id_div.ToString();
+                tipo_cuota.Value = objResponse.tipo_cuota;
+                txtMatAseg.Value = objResponse.mat_aseg;
+                cmbProducto.Value = objResponse.id_producto.ToString();
+
+                
+                //}
+            }
+
+
+            var lstCuotas = _objConsumoRegistroProd.GridCuotasC(idPoliza, idMov);
+            Session["LST_CUOTAS"] = lstCuotas;
+            Session["POLIZA"] = objPoliza;
+            Session["POLIZA_MOVIMIENTO"] = objPolmov;
+
+            //var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+            //var objPoliza = (pr_poliza)Session["POLIZA"];
+            //var objPolmov = (pr_polmov)Session["POLIZA_MOVIMIENTO"];
+
+            var objPersona = _objConsumoRegistroProd.ObtenerPersona(objPoliza.id_perclie);
+            var objPersonaAgente = _objConsumoRegistroProd.ObtenerPersona(objPoliza.id_percart);
+            var objDireccion = _objConsumoRegistroProd.ObtenerDireccion(objPolmov.id_dir);
+            var objGrupo = _objConsumoRegistroProd.ObtenerGrupo(objPoliza.id_gru);
+            var objProducto = _objConsumoRegistroProd.ObtenerProducto(objPoliza.id_producto);
+            var objParametroDivisa = _objConsumoRegistroProd.ObtenerParametro(objPolmov.id_div);
+
             var lstGrupo = _objConsumoRegistroProd.ObtenerGrupo();
             cmbGrupo.DataSource = lstGrupo;
             cmbGrupo.TextField = "desc_grupo";
@@ -98,9 +219,17 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstGrupo = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbGrupo.Items.Add(itemLstGrupo);
 
-          
-       
-           
+            var itemGrupo = cmbGrupo.Items.FindByValue(Convert.ToString(objPoliza.id_gru));
+            if (itemGrupo != null)
+            {
+                cmbGrupo.SelectedItem = itemGrupo;
+            }            
+
+            var lstProducto = _objConsumoRegistroProd.ObtenerTablaProducto(cmbCiaAseg.Value.ToString());
+            cmbProducto.DataSource = lstProducto;
+            cmbProducto.TextField = "desc_prod";
+            cmbProducto.ValueField = "id_producto";
+            cmbProducto.DataBind();
 
             //var lstTipoCartera = _objConsumoRegistroProd.listas1();
             //cmbTipoCartera.DataSource = lstTipoCartera;
@@ -120,6 +249,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstFuncionarios = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbEjecutivo.Items.Add(itemLstFuncionarios);
 
+            var itemFuncionario = cmbEjecutivo.Items.FindByValue(objPolmov.id_perejec);
+            if (itemFuncionario != null)
+            {
+                cmbEjecutivo.SelectedItem = itemFuncionario;
+            }
+
             var lstCiaAseguradora = _objConsumoRegistroProd.ObtenerListaCompania();
             cmbCiaAseg.DataSource = lstCiaAseguradora;
             cmbCiaAseg.TextField = "nomraz";
@@ -129,6 +264,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstCiaAseguradora = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbCiaAseg.Items.Add(itemLstCiaAseguradora);
 
+            var itemCompañia = cmbCiaAseg.Items.FindByValue(Convert.ToString(objResponse.id_spvs));
+            if (itemCompañia != null)
+            {
+                cmbCiaAseg.SelectedItem = itemCompañia;
+            }
 
             var lstAgenteCartera = _objConsumoRegistroProd.Persona(60);
             cmbAgente.DataSource = lstAgenteCartera;
@@ -139,6 +279,12 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstAgenteCartera = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbAgente.Items.Add(itemLstAgenteCartera);
 
+            var itemAgente = cmbAgente.Items.FindByValue(Convert.ToString(objResponse.id_percart));
+            if (itemAgente != null)
+            {
+                cmbAgente.SelectedItem = itemAgente;
+            }
+
             var lstDivisa = _objConsumoRegistroProd.ParametroA("id_div");
             cmbDivisa.DataSource = lstDivisa;
             cmbDivisa.TextField = "abrev_param";
@@ -148,6 +294,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var itemLstDivisa = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmbDivisa.Items.Add(itemLstDivisa);
 
+            var itemDivisa = cmbDivisa.Items.FindByValue(Convert.ToString(objPolmov.id_div));
+            if (itemDivisa != null)
+            {
+                cmbDivisa.SelectedItem = itemDivisa;
+            }
 
             //var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();
             //cmbAsegurado.DataSource = lstPersonas;
@@ -157,6 +308,9 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             //var itemLstPersonas = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             //cmbAsegurado.Items.Add(itemLstPersonas);
+
+            grdCuotasPoliza.DataSource = lstCuotas;
+            grdCuotasPoliza.DataBind();
         }
 
         private List<pr_cuotapoliza> GetDataCuotas(double numeroCuotas)
@@ -272,19 +426,33 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             foreach (GridViewRow item in grdCuotasPoliza.Rows)
             {
                 var cuota = Convert.ToDecimal(item.Cells[0].Text);
-                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as ASPxDateEdit;
-                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as ASPxSpinEdit;
+                var fechaPago = item.Cells[1].FindControl("dtFechaPago") as BootstrapDateEdit;
+                var cuotaTotal = item.Cells[2].FindControl("txtCuotaTotal") as BootstrapSpinEdit;
+                var cuotaNeta = item.Cells[3].FindControl("txtCuotaNeta") as BootstrapSpinEdit;
+                var cuotaComis = item.Cells[4].FindControl("txtComision") as BootstrapSpinEdit;
                 var itemSession = lstCuotasSession.Where(w => w.cuota == cuota).FirstOrDefault();
 
                 itemSession.fecha_pago = fechaPago.Date;
-                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal.Text);
+                itemSession.cuota_total = Convert.ToDecimal(cuotaTotal == null ? "0" : cuotaTotal.Text);
+                itemSession.cuota_neta = Convert.ToDecimal(cuotaNeta == null ? "0" : cuotaNeta.Text);
+                itemSession.cuota_comis = Convert.ToDecimal(cuotaComis == null ? "0" : cuotaComis.Text);
 
                 montoTotalSuma += Convert.ToDecimal(cuotaTotal.Text);
             }
             Session["LST_CUOTAS"] = lstCuotasSession;
             return montoTotalSuma;
         }
+
         #endregion
+
+        protected void btnCalcular_Click(object sender, EventArgs e)
+        {
+            CalculaBtnCalcular();
+            btnCuotas.Visible = true;
+            btnMemo.Visible = true;
+            btnSalir.Visible = true;
+            divCuotasPoliza.Visible = true;
+        }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -292,29 +460,27 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         }
 
-        protected void btnCuotas_Click(object sender, EventArgs e)
-        {            
-                var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
-                var lstCuotas = GetDataCuotas(numeroCuotas);
-                Session["LST_CUOTAS"] = lstCuotas;
 
-                grdCuotasPoliza.DataSource = lstCuotas;
-                grdCuotasPoliza.DataBind();
-
-                //int id = 0;
-                //lstCoutasTest.ForEach(s =>
-                //{
-                //    s.id_movimiento = 3;                
-                //    s.cuota = id++;
-                //});           
-        }
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Sitio/Vista/Default.aspx");
         }
 
-        
+        protected void btnMemo_Click(object sender, EventArgs e)
+        {
+            var objVeriPoliza1 = (vcb_veripoliza1)Session["vcb_veripoliza1"];
+            var idPoliza = objVeriPoliza1.id_poliza;
+            var idMovimiento = objVeriPoliza1.id_movimiento;
+
+            ifrReport.Attributes.Add("src", "../Reportes/re_viewer.aspx?r=1" +
+                "&p=" + idPoliza +
+                "&m=" + idMovimiento
+                );
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+        }
+
         //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         //{
         //    //if there is an error
@@ -346,7 +512,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         //    LoadNewValues(item, newValues);
         //    return item;
         //}
-        
+
         //protected void LoadNewValues(pr_cuotapoliza item, OrderedDictionary values)
         //{
         //    item.id_poliza = Convert.ToInt64(values["id_poliza"]);
@@ -390,92 +556,108 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         //    cmbDireccion.Items.Add(itemLstDirecciones);
         //}
 
-        protected void btnCuotasPoliza_Click(object sender, EventArgs e)
+        protected void btnCuotas_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNumCuotas.Text) || Convert.ToDecimal(txtNumCuotas.Text) == 0)
+            var sumaTotal = ActualizaSessionCuotas();
+            if (sumaTotal != Convert.ToDecimal(txtPrimaBruta.Text))
             {
-                lblmensaje.Text = "El Numero de Cuotas no es valido";
+                lblmensaje.Text = "La suma de las Cuotas debe ser igual a la prima Total";
                 return;
             }
 
-            var montoTotalSuma = ActualizaSessionCuotas();
-            var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
-            if (montoTotalSuma != Convert.ToDecimal(txtPrimaBruta.Text))
+            foreach (var itemCuotaPoliza in (List<pr_cuotapoliza>)Session["LST_CUOTAS"])
             {
-                grdCuotasPoliza.DataSource = lstCuotasSession;
-                grdCuotasPoliza.DataBind();
-                lblmensaje.Text = "La Prima total es diferente de la suma de las cuotas por favor verifique este dato";
-                return;
+                var response = _objConsumoRegistroProd.ModificarCuotaPolizaC(itemCuotaPoliza);
             }
-            else
-            {
-                //ActualizaSessionCuotas();
-                if (_objConsumoRegistroProd.ExistePol(txtNroPoliza.Text, txtNroLiquidacion.Text))
-                {
-                    lblmensaje.Text = "Datos existentes, Debe Verificar el Número de Póliza y Liquidación";
-                    return;
-                }
-                //else
-                //{
-                //    var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
-
-                var objPoliza = new pr_poliza();
-                objPoliza.num_poliza = txtNroPoliza.Text;
-                objPoliza.id_producto = Convert.ToInt64(cmbProducto.SelectedItem.Value);
-                objPoliza.id_perclie = id_per.Value;//Convert.ToString(cmbAsegurado.SelectedItem.Value);
-                
-                objPoliza.id_spvs = Convert.ToString(cmbCiaAseg.SelectedItem.Value);
-                objPoliza.id_gru = Convert.ToInt64(cmbGrupo.SelectedItem.Value);
-                objPoliza.clase_poliza = Convert.ToBoolean(rbTipoPoliza.SelectedItem.Value);
-                objPoliza.estado = true;
-                objPoliza.fc_reg = DateTime.Now;
-                objPoliza.id_percart = Convert.ToString(cmbAgente.SelectedItem.Value);// Convert.ToString(cmbTipoCartera.SelectedItem.Value);
-
-                objPoliza.id_suc = Convert.ToInt64(Session["suc"]);
-
-                    var objResponse = _objConsumoRegistroProd.InsertarPoliza(objPoliza);
-
-                pr_polmov prPolmov = new pr_polmov();
-
-                prPolmov.id_poliza = objResponse.id_poliza;
-                prPolmov.id_perejec = Convert.ToString(cmbEjecutivo.SelectedItem.Value);
-                prPolmov.fc_emision = fc_emision.Date;
-                prPolmov.fc_inivig = fc_inivig.Date;
-                prPolmov.fc_finvig = fc_finvig.Date;
-                prPolmov.prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
-                //prima_neta =  this.prima_neta,
-                //por_comision = this.por_comision,
-                //comision = this.comision,
-                prPolmov.id_div = Convert.ToInt64(cmbDivisa.SelectedItem.Value);
-                //num_cuota = intNumeroCuotas,
-                //prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
-                prPolmov.estado = "PRODUCCION"; //this.estado,
-                prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
-                prPolmov.fc_recepcion = fc_recepcion.Date;
-                prPolmov.mat_aseg = txtMatAseg.Text;
-                prPolmov.fc_reg = DateTime.Now;
-                prPolmov.no_liquida = txtNroLiquidacion.Text;
-                prPolmov.num_cuota = Convert.ToDouble(txtNumCuotas.Text);
-                //id_mom = this.id_mom
-
-
-                 var responsePolMov = _objConsumoRegistroProd.InsertarPolizaMovimiento(prPolmov);
-
-                //    int idx = 0;
-                //    var lstCoutas = GetDataCuotas(numeroCuotas);
-                lstCuotasSession.ForEach(s =>
-                {
-                    s.id_movimiento = responsePolMov.id_movimiento;
-                    s.id_poliza = objPoliza.id_poliza;
-                });
-
-                var responseSaveCuotas = _objConsumoRegistroProd.InsertarLstCuotasPoliza(lstCuotasSession);
-                //}
-                Session["POLIZA"] = objPoliza;
-                Session["POLIZA_MOVIMIENTO"] = prPolmov;
-                Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzain.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
-            }
+            lblmensaje.Text = "Se han registrado correctamente todos los valores para la póliza ahora puede proceder a la verificación de la misma en el módulo de comisiones";
+         
         }
+        //protected void btnCuotas2_Click(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(txtNumCuotas.Text) || Convert.ToDecimal(txtNumCuotas.Text) == 0)
+        //    {
+        //        lblmensaje.Text = "El Numero de Cuotas no es valido";
+        //        return;
+        //    }
+
+        //    var montoTotalSuma = ActualizaSessionCuotas();
+        //    var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
+        //    if (montoTotalSuma != Convert.ToDecimal(txtPrimaBruta.Text))
+        //    {
+        //        grdCuotasPoliza.DataSource = lstCuotasSession;
+        //        grdCuotasPoliza.DataBind();
+        //        lblmensaje.Text = "La Prima total es diferente de la suma de las cuotas por favor verifique este dato";
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        //ActualizaSessionCuotas();
+        //        if (_objConsumoRegistroProd.ExistePol(txtNroPoliza.Text, txtNroLiquidacion.Text))
+        //        {
+        //            lblmensaje.Text = "Datos existentes, Debe Verificar el Número de Póliza y Liquidación";
+        //            return;
+        //        }
+        //        //else
+        //        //{
+        //        //    var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
+
+        //        var objPoliza = new pr_poliza();
+        //        objPoliza.num_poliza = txtNroPoliza.Text;
+        //        objPoliza.id_producto = Convert.ToInt64(cmbProducto.SelectedItem.Value);
+        //        objPoliza.id_perclie = id_per.Value;//Convert.ToString(cmbAsegurado.SelectedItem.Value);
+                
+        //        objPoliza.id_spvs = Convert.ToString(cmbCiaAseg.SelectedItem.Value);
+        //        objPoliza.id_gru = Convert.ToInt64(cmbGrupo.SelectedItem.Value);
+        //        objPoliza.clase_poliza = Convert.ToBoolean(rbTipoPoliza.SelectedItem.Value);
+        //        objPoliza.estado = true;
+        //        objPoliza.fc_reg = DateTime.Now;
+        //        objPoliza.id_percart = Convert.ToString(cmbAgente.SelectedItem.Value);// Convert.ToString(cmbTipoCartera.SelectedItem.Value);
+
+        //        objPoliza.id_suc = Convert.ToInt64(Session["suc"]);
+
+        //            var objResponse = _objConsumoRegistroProd.InsertarPoliza(objPoliza);
+
+        //        pr_polmov prPolmov = new pr_polmov();
+
+        //        prPolmov.id_poliza = objResponse.id_poliza;
+        //        prPolmov.id_perejec = Convert.ToString(cmbEjecutivo.SelectedItem.Value);
+        //        prPolmov.fc_emision = fc_emision.Date;
+        //        prPolmov.fc_inivig = fc_inivig.Date;
+        //        prPolmov.fc_finvig = fc_finvig.Date;
+        //        prPolmov.prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+        //        //prima_neta =  this.prima_neta,
+        //        //por_comision = this.por_comision,
+        //        //comision = this.comision,
+        //        prPolmov.id_div = Convert.ToInt64(cmbDivisa.SelectedItem.Value);
+        //        //num_cuota = intNumeroCuotas,
+        //        //prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
+        //        prPolmov.estado = "PRODUCCION"; //this.estado,
+        //        prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
+        //        prPolmov.fc_recepcion = fc_recepcion.Date;
+        //        prPolmov.mat_aseg = txtMatAseg.Text;
+        //        prPolmov.fc_reg = DateTime.Now;
+        //        prPolmov.no_liquida = txtNroLiquidacion.Text;
+        //        prPolmov.num_cuota = Convert.ToDouble(txtNumCuotas.Text);
+        //        //id_mom = this.id_mom
+
+
+        //         var responsePolMov = _objConsumoRegistroProd.InsertarPolizaMovimiento(prPolmov);
+
+        //        //    int idx = 0;
+        //        //    var lstCoutas = GetDataCuotas(numeroCuotas);
+        //        lstCuotasSession.ForEach(s =>
+        //        {
+        //            s.id_movimiento = responsePolMov.id_movimiento;
+        //            s.id_poliza = objPoliza.id_poliza;
+        //        });
+
+        //        var responseSaveCuotas = _objConsumoRegistroProd.InsertarLstCuotasPoliza(lstCuotasSession);
+        //        //}
+        //        Session["POLIZA"] = objPoliza;
+        //        Session["POLIZA_MOVIMIENTO"] = prPolmov;
+        //        //Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzain.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
+        //    }
+        //}
 
         protected void CallBPersona_Callback(object sender, CallbackEventArgsBase e)
         {
@@ -595,5 +777,48 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         }
         #endregion
 
+
+
+        protected void grdCuotasPoliza_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = grdCuotasPoliza.SelectedIndex;
+            var intNroCuota = grdCuotasPoliza.Rows[index].Cells[0].Text;
+            var dtFechaPago = (BootstrapDateEdit)grdCuotasPoliza.Rows[index].Cells[1].FindControl("dtFechaPago");
+            var txtCuotaTotal = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[2].FindControl("txtCuotaTotal");
+            var txtCuotaNeta = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
+            var txtComision = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
+
+            //if (intNroCuota == "0" && cmbCiaAseg. this.id_spvs.SelectedValue == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
+            //{
+            //    pr_cobranzas prCobranza = new pr_cobranzas()
+            //    {
+            //        id_spvs = this.id_spvs,
+            //        prima_neta = this.prima_neta,
+            //        por_comision = this.por_comision,
+            //        num_cuota = this.num_cuota
+            //    };
+            //    string str1 = prCobranza.Prima_Neta(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value));
+            //    double num1 = Math.Round(double.Parse(str1), 2);
+            //    str1 = num1.ToString();
+            //    text.Text = string.Format("{0:n}", double.Parse(str1));
+            //    prCobranza.comision = this.comision;
+            //    string str2 = prCobranza.ComisionTotal(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value), int.Parse(this.id_producto.SelectedValue));
+            //    double num2 = Math.Round(double.Parse(str2), 2);
+            //    str2 = num2.ToString();
+            //    str.Text = string.Format("{0:n}", double.Parse(str2));
+            //    return;
+            //}
+            //if (this.id_spvs.SelectedValue == "109" && this.id_producto.SelectedValue != "64" && this.id_producto.SelectedValue != "76")
+            //{
+            //    pr_cobranzas prCobranza1 = new pr_cobranzas();
+            //    text.Text = textBox1.Text;
+            //    double num3 = double.Parse(text.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(this.por_comision.Text.Replace(".", "").Replace(",", "")) / 100;
+            //    str.Text = num3.ToString();
+            //    double num4 = double.Parse(str.Text) / 100;
+            //    str.Text = num4.ToString();
+            //    str.Text = string.Format("{0:n}", double.Parse(str.Text));
+            //    return;
+            //}
+        }
     }
 }

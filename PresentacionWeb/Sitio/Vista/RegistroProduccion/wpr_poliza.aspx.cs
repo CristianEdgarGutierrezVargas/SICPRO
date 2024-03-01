@@ -425,6 +425,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 prPolmov.fc_reg = DateTime.Now;
                 prPolmov.no_liquida = txtNroLiquidacion.Text;
                 prPolmov.num_cuota = Convert.ToDouble(txtNumCuotas.Text);
+                prPolmov.tipo_cuota = Convert.ToBoolean(tipo_cuota.SelectedItem.Value);
                 //id_mom = this.id_mom
 
 

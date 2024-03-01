@@ -41,6 +41,16 @@ namespace ManejadorMetodos.CDBSicPro
         //    return Math.Round(value, 2);
         //}
 
+        public decimal Com(decimal monto, long idProducto, string idSpvs)
+        {
+            var num = Calculo1(monto, idProducto, idSpvs);
+            var dataTable = Formula1(idProducto, idSpvs).FirstOrDefault();
+            var num2 = dataTable.comis_riesgo;
+            num2 = (!(idSpvs == "109")) ? (num * (num2 / 100)) : (num + dataTable.plus_neta.Value) * (num2 / 100);
+            num2 = Math.Round(num2, 2);
+            return num2;// double.Parse($"{num2:n}");
+        }
+
         public decimal Com2(decimal monto, long idProducto, string idSpvs)
         {
             var num = Calculo1(monto, idProducto, idSpvs);
