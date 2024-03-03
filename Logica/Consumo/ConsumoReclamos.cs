@@ -26,6 +26,7 @@ namespace Logica.Consumo
         private readonly Cgr_compania _manejador_gr_compania;
         private readonly Cre_caso _manejador_re_caso;
         private readonly Cpr_poliza _manejador_pr_poliza;
+        private readonly Cre_histcaso _manejador_re_histcaso;
         public static sicproEntities dbContext;
 
         public ConsumoReclamos()
@@ -71,6 +72,17 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_gr_parametro.ParametroA(parametro);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+        }
+        public List<gr_parametro> ParametroV(string columna, int valor_param)
+        {
+            try
+            {
+                return _manejador_gr_parametro.ParametroV(columna, valor_param);
             }
             catch (SecureExceptions secureException)
             {
@@ -148,6 +160,17 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_pr_poliza.ObtenerPolizaPP(id_poliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public bool ser_histcaso(re_histcaso item)
+        {
+            try
+            {
+                return true;//_manejador_re_histcaso.ser_histcaso(item);
             }
             catch (SecureExceptions secureException)
             {

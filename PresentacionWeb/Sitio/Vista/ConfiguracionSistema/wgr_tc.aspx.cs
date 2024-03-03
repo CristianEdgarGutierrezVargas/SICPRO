@@ -67,9 +67,9 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             bool sw=false;
             string str = "";
 
-            if (this.fecha.Text.Length < 10)
+            if (((DateTime)this.fecha.Value).ToString("dd/mm/yyyy").Length < 10)
             {
-                str += "<br /> La Fecha de emisión no esta en formato correcto (dd/mm/yyyy)";
+                str += "<br /> La Fecha de emisión no esta en formato correcto";
                 sw = true;
             }
             if (this.tcambio.Text == "0,00")
@@ -92,7 +92,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 gr_tc item=new gr_tc();
                 item.tcambio = decimal.Parse(this.tcambio.Text);
                 item.id_div = long.Parse( this.id_div.SelectedValue );
-                item.fecha = DateTime.Parse(this.fecha.Text);
+                item.fecha = (DateTime)this.fecha.Value;
 
                 logicaConfiguracion.InsertarTC(item);
                 lblMensajePop.Text = "Tasa de Cambio Agregada Satisfactoriamente";

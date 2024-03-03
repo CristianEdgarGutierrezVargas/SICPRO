@@ -82,8 +82,8 @@
                             <div class="col-1">
                                 <asp:DropDownList ID="operador" runat="server">
                                     <asp:ListItem Text="!--" Value="!--"></asp:ListItem>
-                                    <asp:ListItem Text="*" Value="*"></asp:ListItem>
-                                    <asp:ListItem Text="/" Value="/"></asp:ListItem>
+                                    <asp:ListItem Text="*" Value="false"></asp:ListItem>
+                                    <asp:ListItem Text="/" Value="true"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <div class="col-2">
@@ -114,13 +114,13 @@
                             <div class="col-4">
                             </div>
                             <div class="col-2">
-                                <dxA:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dxA:ASPxButton>
+                                <dxA:ASPxButton ID="btnNuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"  OnClick="btnNuevo_Click"></dxA:ASPxButton>
                             </div>
                             <div class="col-2">
-                                <dxA:ASPxButton ID="btnGuardarPanel" runat="server" Text="Buscar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dxA:ASPxButton>
+                                <dxA:ASPxButton ID="btnGuardarPanel" runat="server" Text="Guardar" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnGuardarPanel_Click"></dxA:ASPxButton>
                             </div>
                             <div class="col-2">
-                                <dxA:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;"></dxA:ASPxButton>
+                                <dxA:ASPxButton ID="btnSalir" runat="server" Text="Salir" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnSalir_Click"></dxA:ASPxButton>
                             </div>
                         </div>
                         <div class="row">
@@ -238,6 +238,4 @@
             <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
         </FooterContentTemplate>
     </dxA:ASPxPopupControl>
-
-
 </asp:Content>

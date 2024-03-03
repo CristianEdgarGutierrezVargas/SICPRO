@@ -70,7 +70,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                     str += "Debe seleccionar un Año Válido\n";
                     sw = true;
                 }
-                if (string.IsNullOrEmpty(ini_reg.Text) || ini_reg.Text.Length < 10)
+                if (string.IsNullOrEmpty(ini_reg.Text) || ((DateTime)this.ini_reg.Value).ToString("dd/mm/yyyy").Length < 10)
                 {
                     str += "Debe seleccionar una Fecha de Inicio\n";
                     sw = true;

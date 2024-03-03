@@ -1,8 +1,12 @@
 ﻿using Common;
+using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Web;
+using DevExpress.XtraExport.Helpers;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -218,7 +222,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         }
         protected void grdPolizas_SelectionChanged(object sender, EventArgs e)
         {
-             
+            var grilla = (ASPxGridView)sender;
+            var row=grilla.GetSelectedFieldValues("id_poliza", "id_movimiento");
+            var objeto = (object[])(row[0]);
+            var id_poliza = objeto[0];
+            var id_movimiento = objeto[1];
+            string ruta = "~/Sitio/Vista/ConfiguracionSistema/wpr_datospolizacuotas.aspx?var=" + id_poliza.ToString()+ "&val=" + id_movimiento.ToString();
+            this.Response.Redirect(ruta);
         }
     }
 }
