@@ -306,7 +306,6 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
-
         public bool ActualizarCuotaPago(pr_cuotapoliza objPrCuotaPoliza)
         {
             using (var dbContextTransaction = _context.Database.BeginTransaction())

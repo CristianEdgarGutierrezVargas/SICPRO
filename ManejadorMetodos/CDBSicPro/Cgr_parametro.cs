@@ -258,5 +258,30 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+
+        public List<gr_parametro> ParametroV(string columna, int valor_param)
+        {
+            try
+            {
+                //object[] objArray = new object[] { "SELECT    gr_parametro.id_par
+                //                                              , gr_parametro.desc_param
+                //                                    FROM gr_parametro
+                //                                    WHERE     gr_parametro.columna LIKE '", columna, "'
+                //                                          and gr_parametro.valor_param = ", valor_param, "
+                //                                    UNION
+                //                                    SELECT 0, 'SELECCIONE UNA OPCIÓN'" };
+                var sql = (from parametro in _context.gr_parametro
+                           where parametro.columna.Contains(columna)==true
+                           & parametro.valor_param == valor_param
+                           select parametro
+                          ).ToList();
+                sql.Add(new gr_parametro { id_par=0,desc_param= "SELECCIONE UNA OPCIÓN" });
+                return sql;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="wpr_listacuotas.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.ConfiguracionSistema.wpr_listacuotas" %>
+
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -159,20 +160,26 @@
                     Styles-Header-Font-Bold="true"
                     Styles-Cell-Paddings-Padding="0"
                     Styles-Cell-ForeColor="#15428b"
-                    Visible="false">
+                    Visible="false" >
                     <Columns>
                         <%--<dx:GridViewDataColumn Caption="ID." FieldName="id_per" Visible="false"></dx:GridViewDataColumn>--%>
                         <dx:GridViewDataColumn Caption="N° Póliza" FieldName="num_poliza" Visible="true"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="Cliente" FieldName="nomraz" Visible="true"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="Ini. Vigencia" FieldName="fc_inivig" Visible="true"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="Fin Vigencia" FieldName="fc_finvig" Visible="true"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="id_poliza" FieldName="id_poliza" Visible="false"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="id_movimiento" FieldName="id_movimiento" Visible="false"></dx:GridViewDataColumn>
+                        <%--<dx:GridViewDataHyperLinkColumn FieldName="id_poliza" Caption="Ir">
+                                <PropertiesHyperLinkEdit NavigateUrlFormatString='<%#Eval("id_mov")%>'
+                                TextFormatString="->"  />
+                        </dx:GridViewDataHyperLinkColumn>--%>
                     </Columns>
                     <SettingsPager PageSize="10" NumericButtonCount="1" CurrentPageNumberFormat="{0}">
                         <FirstPageButton Visible="true"></FirstPageButton>
                         <LastPageButton Visible="true"></LastPageButton>
                         <Summary Visible="false" />
                     </SettingsPager>
-                    <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
+                    <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true" ></SettingsBehavior>
                 </dx:ASPxGridView>
             </div>
         </div>
