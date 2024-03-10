@@ -366,6 +366,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::DevExpress.Web.ASPxButton btnSalir;
 
         /// <summary>
+        /// Control pnlMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlMensaje;
+
+        /// <summary>
         /// Control lblmensaje.
         /// </summary>
         /// <remarks>
@@ -454,5 +463,23 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlIframe ifrReport;
+
+        /// <summary>
+        /// Control popUpConfirmacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl popUpConfirmacion;
+
+        /// <summary>
+        /// Control lblMensajePopUpConfirmacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblMensajePopUpConfirmacion;
     }
 }

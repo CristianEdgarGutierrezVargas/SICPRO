@@ -250,7 +250,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
         protected void btnCuotas_Click(object sender, EventArgs e)
         {
+            lblmensaje.Text = string.Empty;
             var numeroCuotas = Convert.ToDouble(txtNumCuotas.Text);
+
+            if (numeroCuotas == 0)
+            {
+                lblmensaje.Text = "El numero de Cuotas no puede ser 0";
+                return;
+            }
+
             var lstCuotas = GetDataCuotas(numeroCuotas);
             Session["LST_CUOTAS"] = lstCuotas;
 
@@ -366,6 +374,11 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 lblmensaje.Text = "Seleccione una divisa valida";
                 return;
             }
+            if (string.IsNullOrEmpty(Convert.ToString(id_direccion.Value)))
+            {
+                lblmensaje.Text = "Seleccione una direccion valida";
+                return;
+            }
 
             var montoTotalSuma = ActualizaSessionCuotas();
             var lstCuotasSession = (List<pr_cuotapoliza>)Session["LST_CUOTAS"];
@@ -419,7 +432,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //num_cuota = intNumeroCuotas,
                 prPolmov.id_clamov = Convert.ToInt64(cmbTipoCartera.SelectedItem.Value);
                 prPolmov.estado = "PRODUCCION"; //this.estado,
-                prPolmov.id_dir = Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
+                prPolmov.id_dir =string.IsNullOrEmpty(id_direccion.Value)? 0 : Convert.ToInt64(id_direccion.Value);// Convert.ToInt64(cmbDireccion.SelectedItem.Value);
                 prPolmov.fc_recepcion = fc_recepcion.Date;
                 prPolmov.mat_aseg = txtMatAseg.Text;
                 prPolmov.fc_reg = DateTime.Now;

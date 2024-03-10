@@ -492,9 +492,12 @@
           </div>
         </div>
 
+        <div class="alert alert-danger" role="alert" runat="server" id="pnlMensaje">
+           <strong><asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" Font-Size="Medium"></asp:Label> </strong>
+        </div>
         <p class="links">
-             <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>  
-         </p>
+            
+        </p>
     </div>
 
 
@@ -635,7 +638,31 @@
 
 
 
-
+<dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+    CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+    <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" >
+        <BackgroundImage ImageUrl="../../../UI/img/msg_title_1"></BackgroundImage>
+     </HeaderStyle>
+    <FooterStyle HorizontalAlign="Right" />
+    <ContentCollection>
+        <dx:PopupControlContentControl>
+            <div class="row">
+                <div class="col-3">
+                    <img src="../../../UI/img/msg_icon_1.png">
+                </div>
+                <div class="col-9">
+                    <br>
+                    <p style="color: #0A416B; font-weight: bold">
+                        <dx:ASPxLabel ID="lblMensajePopUpConfirmacion" runat="server" Text=""></dx:ASPxLabel>
+                    </p>
+                </div>
+            </div>
+        </dx:PopupControlContentControl>
+    </ContentCollection>
+    <FooterContentTemplate>
+        <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-color:navy; background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
+    </FooterContentTemplate>
+</dx:ASPxPopupControl>
 
   
 

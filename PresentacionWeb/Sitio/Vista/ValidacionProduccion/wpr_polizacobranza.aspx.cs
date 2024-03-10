@@ -577,7 +577,8 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             {
                 var response = _objConsumoRegistroProd.ModificarCuotaPolizaC(itemCuotaPoliza);
             }
-            lblmensaje.Text = "Se han registrado correctamente todos los valores para la póliza ahora puede proceder a la verificación de la misma en el módulo de comisiones";
+            popUpConfirmacion.ShowOnPageLoad = true;
+            lblMensajePopUpConfirmacion.Text = "Se han registrado correctamente todos los valores para la póliza ahora puede proceder a la verificación de la misma en el módulo de comisiones";
          
         }
         //protected void btnCuotas2_Click(object sender, EventArgs e)
@@ -796,8 +797,21 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var txtCuotaNeta = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[3].FindControl("txtCuotaNeta");
             var txtComision = (BootstrapSpinEdit)grdCuotasPoliza.Rows[index].Cells[4].FindControl("txtComision");
 
-            //if (intNroCuota == "0" && cmbCiaAseg. this.id_spvs.SelectedValue == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
-            //{
+
+            var objPoliza = (pr_poliza)Session["POLIZA"];
+            var objPolmov = (pr_polmov)Session["POLIZA_MOVIMIENTO"];
+
+            var id_spvs = objPoliza.id_spvs;
+            var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            var id_producto = objPoliza.id_producto;
+            var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
+
+            //txtPrimaNeta.Text = Math.Round(_objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota), 2).ToString();
+            //txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
+            //txtComision.Text = _objConsumoRegistroProd.Com(prima_bruta, id_producto, id_spvs).ToString();
+
+            if (intNroCuota == "0" && cmbCiaAseg.SelectedItem.Value == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
+            {
             //    pr_cobranzas prCobranza = new pr_cobranzas()
             //    {
             //        id_spvs = this.id_spvs,
@@ -815,9 +829,10 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    str2 = num2.ToString();
             //    str.Text = string.Format("{0:n}", double.Parse(str2));
             //    return;
-            //}
-            //if (this.id_spvs.SelectedValue == "109" && this.id_producto.SelectedValue != "64" && this.id_producto.SelectedValue != "76")
-            //{
+            }
+
+            if (cmbCiaAseg.SelectedItem.Value == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
+            {
             //    pr_cobranzas prCobranza1 = new pr_cobranzas();
             //    text.Text = textBox1.Text;
             //    double num3 = double.Parse(text.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(this.por_comision.Text.Replace(".", "").Replace(",", "")) / 100;
@@ -826,7 +841,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    str.Text = num4.ToString();
             //    str.Text = string.Format("{0:n}", double.Parse(str.Text));
             //    return;
-            //}
+            }
         }
     }
 }
