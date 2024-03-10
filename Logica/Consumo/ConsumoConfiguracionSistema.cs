@@ -565,5 +565,39 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la Consulta", secureException);
             }
         }
+
+        public List<OcPolizasCuotas> DatosGrid(int id_poliza, int id_movimiento)
+        {
+            try
+            {
+                return _manejador_pr_cuotas.DatosGrid(id_poliza, id_movimiento);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void Cuotas(int id_poliza, int id_movimiento, DateTime fecha_pago, decimal cuota_total, int cuota)
+        {
+            try
+            {
+                _manejador_pr_cuotas.Cuotas(id_poliza, id_movimiento, fecha_pago, cuota_total, cuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void ModificaCuota(int id_poliza, int id_movimiento, string estado, int cuota)
+        {
+            try
+            {
+                _manejador_pr_cuotas.ModificaCuota( id_poliza,  id_movimiento,  estado,  cuota);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
     }
 }

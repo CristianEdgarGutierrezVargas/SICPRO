@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CustomModelEntities\OcGrdDev.cs" />
     <Compile Include="CustomModelEntities\OcGrupoM.cs" />
+    <Compile Include="CustomModelEntities\OcPolizasCuotas.cs" />
     <Compile Include="CustomModelEntities\OcRecuFac.cs" />
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
