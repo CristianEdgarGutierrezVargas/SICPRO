@@ -140,7 +140,8 @@ namespace ManejadorMetodos.CDBSicPro
                 }
 
                 var response = _context.pr_calcfrmcred(id_producto, id_spvs1, primaBruta, tipoCuota);
-                return response == null ? 0 :  1;
+                
+                return response == null ? 0 : response.FirstOrDefault().Value;
             }
             catch (Exception)
             {

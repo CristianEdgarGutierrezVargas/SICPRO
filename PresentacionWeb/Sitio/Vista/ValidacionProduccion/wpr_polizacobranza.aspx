@@ -385,6 +385,7 @@
                                        <td style="width: 160px; height: 18px">          
                                            <dx:BootstrapSpinEdit ID="txtPrimaNeta" Width="160px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="0.1" LargeIncrement="1" NumberType="Float">
                                                <SpinButtons ShowLargeIncrementButtons="true" />
+                                                 <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                            </dx:BootstrapSpinEdit>
 
                                        </td>
@@ -393,6 +394,7 @@
                                        </td>
                                        <td style="width: 70px; height: 18px">                                          
                                            <dx:BootstrapSpinEdit ID="txtPorcentaje" Width="70px" runat="server" Number="0" MinValue="0" MaxValue="100" Increment="1" NumberType="Float">    
+                                             <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                            </dx:BootstrapSpinEdit>
   
                                        </td>
@@ -401,10 +403,11 @@
                                        </td>
                                        <td style="width: 100px; height: 18px">
                                           <dx:BootstrapSpinEdit ID="txtComision" Width="90px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" Increment="1" NumberType="Float">    
-                                           </dx:BootstrapSpinEdit>
+                                            <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
+                                              </dx:BootstrapSpinEdit>
                                        </td>
                                        <td style="width: 70px; height: 18px">
-                                           <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" />
+                                           <asp:Button ID="btnCalcular" runat="server" Text="Calcular" OnClick="btnCalcular_Click" CssClass="msg_button_class text-white" />
                                        </td>
                                    </tr>
           
@@ -463,6 +466,7 @@
                                                              <ValidationSettings SetFocusOnError="True" ErrorDisplayMode="ImageWithText" EnableCustomValidation="true">  <%--ErrorDisplayMode="ImageWithTooltip"--%>
                                                                      <RequiredField ErrorText="Campo requerido" IsRequired="true"  />  
                                                                </ValidationSettings>  
+                                                             <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                                          </dx:BootstrapDateEdit>
                                                     </ItemTemplate>
                                                     <ControlStyle Width="50px" />
@@ -475,6 +479,7 @@
                                                         <dx:BootstrapSpinEdit ID="txtCuotaTotal" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                             Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_total") %>'>
                                                             <SpinButtons ShowLargeIncrementButtons="true" />
+                                                             <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                                         </dx:BootstrapSpinEdit>
                                                     </ItemTemplate>
                                                     <ControlStyle Width="50px" />
@@ -487,6 +492,7 @@
                                                           <dx:BootstrapSpinEdit ID="txtCuotaNeta" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                               Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_neta") %>'>
                                                               <SpinButtons ShowLargeIncrementButtons="true" />
+                                                               <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                                           </dx:BootstrapSpinEdit>
                                                       </ItemTemplate>
                                                       <ControlStyle Width="50px" />
@@ -500,6 +506,7 @@
                                                         <dx:BootstrapSpinEdit ID="txtComision" Width="150px" runat="server" Number="0" MinValue="0" MaxValue="10000000000" 
                                                             Increment="0.1" LargeIncrement="1" NumberType="Float" Text='<%# Bind("cuota_comis") %>'>
                                                             <SpinButtons ShowLargeIncrementButtons="true" />
+                                                             <CssClasses Button="btn-sm" Control="fs-10" Input="form-control-sm fs-10" />
                                                         </dx:BootstrapSpinEdit>
                                                     </ItemTemplate>
                                                     <ControlStyle Width="50px" />
