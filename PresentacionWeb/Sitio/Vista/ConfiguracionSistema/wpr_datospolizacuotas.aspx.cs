@@ -118,7 +118,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             {
                 lblerror.Text = "La fecha no es una fecha valida o correcta por favor verifiquelo antes de continuar";
                 //lblerror.Text = "la fecha ingresada no esta en el formato correcto dd/mm/aaaa";
-                popUpValidacion.ShowOnPageLoad = false;
+                popUpValidacion.ShowOnPageLoad = true;
                 return;
             }
 
@@ -147,7 +147,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             else
             {
                 lblerror.Text = "El monto para cuota debe ser mayor a cero";
-                popUpValidacion.ShowOnPageLoad = false;
+                popUpValidacion.ShowOnPageLoad = true;
             }
         }
 
