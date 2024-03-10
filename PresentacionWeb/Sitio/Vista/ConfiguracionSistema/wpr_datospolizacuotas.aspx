@@ -16,7 +16,8 @@
                 <img src="../../../UI/img/renovar.png" alt="" width="122" height="122">
             </div>
             <div class="col-10">
-                <div class="row">Fechas
+                <div class="row">
+                    Fechas
                     <asp:HiddenField ID="fc_reg" runat="server" />
                     <asp:HiddenField ID="id_movimiento" runat="server" />
                     <asp:HiddenField ID="id_mom" runat="server" />
@@ -173,82 +174,124 @@
                         <asp:HiddenField ID="por_comision" runat="server" />
                         <asp:HiddenField ID="comision" runat="server" />
                         <asp:HiddenField ID="id_clamov" runat="server" />
-                        <asp:HiddenField ID="estado" runat="server" />
+                        <asp:HiddenField ID="estado" runat="server" Value="PRODUCCION" />
                         <asp:HiddenField ID="id_poliza" runat="server" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <dx:ASPxGridView ID="gridcuotas" runat="server" EnableCallBacks="false"
+                            Settings-ShowTitlePanel="true" SettingsText-Title="Cantidad de Cuotas de la Póliza"
+                            Style="width: 100%; border-collapse: collapse;"
+                            Font-Size="11px"
+                            Font-Names="Arial, Helvetica, sans-serif"
+                            Styles-Header-Font-Bold="true"
+                            Styles-Header-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
+                            Styles-Header-ForeColor="#15428b"
+                            Styles-Header-Paddings-Padding="1"
+                            Styles-Header-HorizontalAlign="Left"
+                            Styles-TitlePanel-BackgroundImage-ImageUrl="~/UI/img/blue/captionbckg.gif"
+                            Styles-TitlePanel-ForeColor="#15428b"
+                            Styles-TitlePanel-Font-Bold="false"
+                            Styles-TitlePanel-HorizontalAlign="Left"
+                            Styles-TitlePanel-Paddings-Padding="1"
+                            Styles-TitlePanel-Font-Size="Small"
+                            Styles-Cell-Paddings-Padding="0"
+                            Styles-Cell-ForeColor="#15428b"
+                            Styles-Cell-HorizontalAlign="Center"
+                            OnDataBinding="gridcuotas_DataBinding">
+                            <Columns>
+                                <dx:GridViewDataColumn Caption="Nro Poliza" FieldName="num_poliza" Visible="true" VisibleIndex="0"></dx:GridViewDataColumn>
+                                <dx:GridViewDataColumn Caption="Nro Cuota" FieldName="cuota" Visible="true" VisibleIndex="1"></dx:GridViewDataColumn>
+                                <dx:GridViewDataColumn Caption="Fecha Pago" FieldName="fecha_pago" Visible="true" Width="25%" VisibleIndex="2">
+                                    <DataItemTemplate>
+                                        <dx:ASPxDateEdit ID="fecha" runat="server" Value='<%#Eval("fecha_pago") %>' DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy" Width="100px">
+                                            <DropDownButton>
+                                                <Image IconID="scheduling_calendar_16x16" Url="../../../UI/img/Calendar_scheduleHS.png"></Image>
+                                            </DropDownButton>
+                                        </dx:ASPxDateEdit>
+                                    </DataItemTemplate>
+                                </dx:GridViewDataColumn>
+                                <dx:GridViewDataColumn Caption="Cuota Total" FieldName="cuota_total" Visible="true" Width="25%" VisibleIndex="3">
+                                    <DataItemTemplate>
+                                        <dx:ASPxTextBox ID="monto" runat="server" Width="50%" Value='<%#Eval("cuota_total") %>'></dx:ASPxTextBox>
+                                    </DataItemTemplate>
+                                </dx:GridViewDataColumn>
+                                <dx:GridViewDataColumn Visible="true" VisibleIndex="4">
+                                    <DataItemTemplate>
+                                        <dx:ASPxButton BackgroundImage-ImageUrl="../../../UI/img/lc_save.png" runat="server" ID="img1" OnClick="img1_Click"></dx:ASPxButton>
+                                    </DataItemTemplate>
+                                </dx:GridViewDataColumn>
+                            </Columns>
+                            <TotalSummary>
+                                <dx:ASPxSummaryItem FieldName="cuota_total" SummaryType="Sum" />
+                            </TotalSummary>
+                            <Settings ShowFooter="True" ShowGroupFooter="VisibleIfExpanded"></Settings>
+                        </dx:ASPxGridView>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-6">
+                        <dx:ASPxButton ID="btnnuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnnuevo_Click"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btncuotas" runat="server" Text="Cuotas" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btncuotas_Click"></dx:ASPxButton>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <p style="color: #990000; font-weight: bold">
+                            <dx:ASPxLabel ID="lblmensajePantalla" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <%--
-                       
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td align="center" colspan="4">
-                                <div class="gridcontainer" style="width: 375px">
-                                    <div>
-                                        <table class="grid" cellspacing="0" cellpadding="0" rules="all" border="1" id="ctl00_cpmaster_gridcuotas" style="width: 375px; border-collapse: collapse;">
-                                            <caption>
-                                                Cantidad de Cuotas de la Póliza
-                                            </caption>
-                                            <tr>
-                                                <th align="center" scope="col">N° Poliza</th>
-                                                <th align="center" scope="col">N° Cuota</th>
-                                                <th align="center" scope="col">Fecha Pago</th>
-                                                <th align="center" scope="col">Cuota Total</th>
-                                                <th align="center" scope="col">&nbsp;</th>
-                                            </tr>
-                                            <tr onmouseout="this.className = this.orignalclassName;" onmouseover="this.orignalclassName = this.className;this.className = 'altoverow';">
-                                                <td align="center" style="width: 80px;">
-                                                    <span id="ctl00_cpmaster_gridcuotas_ctl02_num_poliza">6501268</span>
-                                                </td>
-                                                <td align="center" style="width: 80px;">
-                                                    <span id="ctl00_cpmaster_gridcuotas_ctl02_cuota">0</span>
-                                                </td>
-                                                <td align="left" style="width: 100px;">
-                                                    <input name="ctl00$cpmaster$gridcuotas$ctl02$fecha_pago" type="text" value="01/03/2008" id="ctl00_cpmaster_gridcuotas_ctl02_fecha_pago" onkeydown="return dFilter (event.keyCode, this, '##/##/####');" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 70px;" />
-                                                    <input type="image" name="ctl00$cpmaster$gridcuotas$ctl02$ibtncalendario" id="ctl00_cpmaster_gridcuotas_ctl02_ibtncalendario" src="images/Calendar_scheduleHS.png" alt="Click en la Imagen para mostrar el Calendario" style="border-width: 0px;" />
-
-                                                </td>
-                                                <td align="left" style="width: 80px;">
-                                                    <input name="ctl00$cpmaster$gridcuotas$ctl02$cuota_total" type="text" value="0,00" id="ctl00_cpmaster_gridcuotas_ctl02_cuota_total" onkeypress="return(currencyFormat(this,event));" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 75px;" />
-                                                </td>
-                                                <td style="width: 35px;">
-                                                    <input type="image" name="ctl00$cpmaster$gridcuotas$ctl02$img1" id="ctl00_cpmaster_gridcuotas_ctl02_img1" src="images/lc_save.png" style="background-color: Transparent; height: 20px; width: 20px; border-width: 0px;" />
-                                                </td>
-                                            </tr>
-                                            <tr class="footerstyle">
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>
-                                                    <span id="ctl00_cpmaster_gridcuotas_ctl03_suma">Totales</span>
-                                                </td>
-                                                <td align="left">
-                                                    <input name="ctl00$cpmaster$gridcuotas$ctl03$scuota_total" type="text" value="0,00" readonly="readonly" id="ctl00_cpmaster_gridcuotas_ctl03_scuota_total" onfocus="DoFocus(this);" onblur="DoBlur(this);" style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 75px;" />
-                                                </td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" colspan="4">
-                                <input type="submit" name="ctl00$cpmaster$btnnuevo" value="Nuevo" id="ctl00_cpmaster_btnnuevo" title="Registrar nueva Poliza" class="msg_button_class" style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" />
-                                <input type="submit" name="ctl00$cpmaster$btnguardar" value="Cuotas" id="ctl00_cpmaster_btnguardar" class="msg_button_class" style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" />
-
-                            </td>
-                        </tr>
-                    </table>
+    <dx:ASPxPopupControl ID="popUpValidacion" runat="server" Modal="true" HeaderText="Validación de Valores" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpValidacion"
+        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_button_2.jpg" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_2.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        <p style="color: #990000; font-weight: bold">
+                            <dx:ASPxLabel ID="lblerror" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <p class="links">
-                <span id="ctl00_cpmaster_lblmensaje" class="error">Introduzca Valores</span>
-            </p>
-        </div>
-
-    </div>
-    --%>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_button_2.jpg); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpValidacion.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="popUpConfirmacion" runat="server" Modal="true" HeaderText="Confirmacion" ShowFooter="true" PopupElementID="body" ClientInstanceName="popUpConfirmacion"
+        CloseAction="OuterMouseClick" PopupAction="None" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" Width="500px">
+        <HeaderStyle BackgroundImage-ImageUrl="../../../UI/img/msg_title_1" ForeColor="White" />
+        <FooterStyle HorizontalAlign="Right" />
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../../../UI/img/msg_icon_1.png">
+                    </div>
+                    <div class="col-9">
+                        <br>
+                        <p style="color: #0A416B; font-weight: bold">
+                            <dx:ASPxLabel ID="lblMensaje" runat="server" Text=""></dx:ASPxLabel>
+                        </p>
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <FooterContentTemplate>
+            <button type="button" style="background-image: url(../../../UI/img/msg_title_1); background-size: contain; color: white; border: solid; padding: 2px" onclick="popUpConfirmacion.Hide()">ACEPTAR</button>
+        </FooterContentTemplate>
+    </dx:ASPxPopupControl>
 </asp:Content>
