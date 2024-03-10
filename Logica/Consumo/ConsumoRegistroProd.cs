@@ -1174,7 +1174,7 @@ namespace Logica.Consumo
         //    return num3.ToString();
         //}
 
-        public string ComisionTotal(string id_spvs, long id_producto, int id_poliza, int id_movimiento, decimal num_cuota, decimal prima_neta, decimal por_comision)
+        public string ComisionTotal(string id_spvs, long id_producto, long id_poliza, long id_movimiento, decimal num_cuota, decimal prima_neta, decimal por_comision)
         {
             try
             {

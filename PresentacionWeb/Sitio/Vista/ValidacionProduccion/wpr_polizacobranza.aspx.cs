@@ -39,6 +39,9 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 btnMemo.Visible = false;
                 btnSalir.Visible = false;
                 divCuotasPoliza.Visible = false;
+
+                pnlMensaje.Visible = false;
+                lblmensaje.Visible = false;
             }            
         }
         private void Movimiento(string mov)
@@ -73,7 +76,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             };
 
            // txtPrimaNeta.Text = _objConsumoValidarProd.CalcularPrimaNeta(ocCalcFrmCred).ToString();
-            txtPrimaNeta.Text = _objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
+            txtPrimaNeta.Text =Math.Round(_objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota),2).ToString();
             txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
             txtComision.Text = _objConsumoRegistroProd.Com(prima_bruta, id_producto, id_spvs).ToString();
         }
@@ -803,6 +806,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var id_spvs = objPoliza.id_spvs;
             var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
+            var prima_neta = Convert.ToDecimal(txtPrimaNeta.Text);
             var id_producto = objPoliza.id_producto;
             var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
 
@@ -812,36 +816,43 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             if (intNroCuota == "0" && cmbCiaAseg.SelectedItem.Value == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
             {
-            //    pr_cobranzas prCobranza = new pr_cobranzas()
-            //    {
-            //        id_spvs = this.id_spvs,
-            //        prima_neta = this.prima_neta,
-            //        por_comision = this.por_comision,
-            //        num_cuota = this.num_cuota
-            //    };
-            //    string str1 = prCobranza.Prima_Neta(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value));
-            //    double num1 = Math.Round(double.Parse(str1), 2);
-            //    str1 = num1.ToString();
-            //    text.Text = string.Format("{0:n}", double.Parse(str1));
-            //    prCobranza.comision = this.comision;
-            //   string str2 = prCobranza.ComisionTotal(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value), int.Parse(this.id_producto.SelectedValue));
-            //    double num2 = Math.Round(double.Parse(str2), 2);
-            //    str2 = num2.ToString();
-            //    str.Text = string.Format("{0:n}", double.Parse(str2));
-            //    return;
+                //    pr_cobranzas prCobranza = new pr_cobranzas()
+                //    {
+                //        id_spvs = this.id_spvs,
+                //        prima_neta = this.prima_neta,
+                //        por_comision = this.por_comision,
+                //        num_cuota = this.num_cuota
+                //    };
+                var str1 = _objConsumoRegistroProd.Prima_Neta(id_spvs,objPoliza.id_poliza, objPolmov.id_movimiento, Convert.ToDecimal(intNroCuota), prima_neta);
+                var num1 = Math.Round(str1, 2);
+
+                //    str1 = num1.ToString();
+                txtCuotaNeta.Text = string.Format("{0:n}", num1);
+                //    prCobranza.comision = this.comision;
+                var str2 = _objConsumoRegistroProd.ComisionTotal(id_spvs, id_producto, objPoliza.id_poliza, objPolmov.id_movimiento, Convert.ToDecimal(intNroCuota), prima_neta, Convert.ToDecimal(txtPorcentaje.Text));                   
+                var num2 = Math.Round(double.Parse(str2), 2);
+
+                //    str2 = num2.ToString();
+                txtComision.Text = string.Format("{0:n}", num2);
+                return;
             }
 
             if (cmbCiaAseg.SelectedItem.Value == "109" && cmbProducto.SelectedItem.Value != "64" && cmbProducto.SelectedItem.Value != "76")
             {
-            //    pr_cobranzas prCobranza1 = new pr_cobranzas();
-            //    text.Text = textBox1.Text;
-            //    double num3 = double.Parse(text.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(this.por_comision.Text.Replace(".", "").Replace(",", "")) / 100;
-            //    str.Text = num3.ToString();
-            //    double num4 = double.Parse(str.Text) / 100;
-            //    str.Text = num4.ToString();
-            //    str.Text = string.Format("{0:n}", double.Parse(str.Text));
-            //    return;
+                //    pr_cobranzas prCobranza1 = new pr_cobranzas();
+                txtCuotaNeta.Text = txtCuotaTotal.Text;
+                var num3 = double.Parse(txtCuotaNeta.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(txtPorcentaje.Text.Replace(".", "").Replace(",", "")) / 100;
+                txtComision.Text = num3.ToString();
+                var num4 = num3 / 100;
+                //txtComision.Text = num4.ToString();
+                txtComision.Text = string.Format("{0:n}", num4);
+                return;
             }
+
+            var num8 = (Convert.ToDecimal(txtCuotaTotal.Text) / prima_bruta) * prima_neta;
+            txtCuotaNeta.Text = string.Format("{0:n}", num8);
+            var num9 = num8 * (decimal.Parse(txtPorcentaje.Text.Replace(".", ",")) / 100);
+            txtComision.Text = string.Format("{0:n}", num9);
         }
     }
 }
