@@ -46,6 +46,7 @@
     <Compile Include="CustomModelEntities\OcPolizasCuotas.cs" />
     <Compile Include="CustomModelEntities\OcRecuFac.cs" />
     <Compile Include="CustomModelEntities\OcTablaCompaniaPersona.cs" />
+    <Compile Include="CustomModelEntities\OcCalFrmCred.cs" />
     <Compile Include="CustomModelEntities\OcTablaProductoL.cs" />
     <Compile Include="CustomModelEntities\OC_DATA_FORM.cs" />
     <Compile Include="CustomModelEntities\OC_DatosCuotas.cs" />

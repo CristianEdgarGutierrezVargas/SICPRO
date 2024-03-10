@@ -1,6 +1,7 @@
 ﻿using DevExpress.Web;
 using DevExpress.Web.Bootstrap;
 using DevExpress.XtraReports;
+using EntidadesClases.CustomModelEntities;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -64,7 +65,14 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             var prima_bruta = Convert.ToDecimal(txtPrimaBruta.Text);
             var id_producto = objPoliza.id_producto;
             var tipo_cuota = objPolmov.tipo_cuota;// true = contado, false=credito
+            var ocCalcFrmCred = new OcCalFrmCred() {
+                IdProducto = id_producto,
+                IdSpvs= id_spvs,
+                PrimaTotal = prima_bruta,
+                TipoCuota  = tipo_cuota
+            };
 
+           // txtPrimaNeta.Text = _objConsumoValidarProd.CalcularPrimaNeta(ocCalcFrmCred).ToString();
             txtPrimaNeta.Text = _objConsumoRegistroProd.Calculo2(prima_bruta, id_producto, id_spvs, tipo_cuota).ToString();
             txtPorcentaje.Text = _objConsumoRegistroProd.Porco1(id_producto, id_spvs).ToString();
             txtComision.Text = _objConsumoRegistroProd.Com(prima_bruta, id_producto, id_spvs).ToString();
@@ -802,7 +810,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             //    str1 = num1.ToString();
             //    text.Text = string.Format("{0:n}", double.Parse(str1));
             //    prCobranza.comision = this.comision;
-            //    string str2 = prCobranza.ComisionTotal(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value), int.Parse(this.id_producto.SelectedValue));
+            //   string str2 = prCobranza.ComisionTotal(int.Parse(this.id_poliza.Value), int.Parse(this.id_mov.Value), int.Parse(this.id_producto.SelectedValue));
             //    double num2 = Math.Round(double.Parse(str2), 2);
             //    str2 = num2.ToString();
             //    str.Text = string.Format("{0:n}", double.Parse(str2));

@@ -245,27 +245,6 @@ namespace ManejadorModelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBisa_Result>("GetBisa", id_spvsParameter, id_polizaParameter, id_movimientoParameter);
         }
     
-        public virtual int pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
-        {
-            var idproductoParameter = idproducto.HasValue ?
-                new ObjectParameter("idproducto", idproducto) :
-                new ObjectParameter("idproducto", typeof(long));
-    
-            var idspvsParameter = idspvs != null ?
-                new ObjectParameter("idspvs", idspvs) :
-                new ObjectParameter("idspvs", typeof(string));
-    
-            var primatotalParameter = primatotal.HasValue ?
-                new ObjectParameter("primatotal", primatotal) :
-                new ObjectParameter("primatotal", typeof(decimal));
-    
-            var tipocuotaParameter = tipocuota.HasValue ?
-                new ObjectParameter("tipocuota", tipocuota) :
-                new ObjectParameter("tipocuota", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
-        }
-    
         public virtual int pr_calcfrmcred_cuo(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota, Nullable<int> cuota, Nullable<int> idmovimiento)
         {
             var idproductoParameter = idproducto.HasValue ?
@@ -644,6 +623,27 @@ namespace ManejadorModelo
                 new ObjectParameter("id_suc", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportClientes_Result>("GetReportClientes", nomrazParameter, mes_anivParameter, id_sucParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> pr_calcfrmcred(Nullable<long> idproducto, string idspvs, Nullable<decimal> primatotal, Nullable<bool> tipocuota)
+        {
+            var idproductoParameter = idproducto.HasValue ?
+                new ObjectParameter("idproducto", idproducto) :
+                new ObjectParameter("idproducto", typeof(long));
+    
+            var idspvsParameter = idspvs != null ?
+                new ObjectParameter("idspvs", idspvs) :
+                new ObjectParameter("idspvs", typeof(string));
+    
+            var primatotalParameter = primatotal.HasValue ?
+                new ObjectParameter("primatotal", primatotal) :
+                new ObjectParameter("primatotal", typeof(decimal));
+    
+            var tipocuotaParameter = tipocuota.HasValue ?
+                new ObjectParameter("tipocuota", tipocuota) :
+                new ObjectParameter("tipocuota", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
         }
     }
 }

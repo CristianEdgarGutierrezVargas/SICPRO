@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntidadesClases.ModelSicPro;
+using ManejadorMetodosSql.CDBSicPro;
 using ManejadorMetodos.CDBSicPro;
 using ManejadorModelo;
 using Common;
@@ -30,6 +31,7 @@ namespace Logica.Consumo
         public static sicproEntities dbContext;
         private readonly Cvcb_veripoliza2 _manejador_vcb_veripoliza2;
         private readonly Cvcb_veripoliza3 _manejador_vcb_veripoliza3;
+        private readonly CSpr_calcfrmcred _manejadorSql_calcfrmCred;
 
         public ConsumoValidarProd()
         {
@@ -47,6 +49,7 @@ namespace Logica.Consumo
             _manejador_pr_polmov=new Cpr_polmov(dbContext);
             _manejador_vcb_veripoliza2 = new Cvcb_veripoliza2(dbContext);
             _manejador_vcb_veripoliza3 = new Cvcb_veripoliza3(dbContext);
+            _manejadorSql_calcfrmCred = new CSpr_calcfrmcred();
         }
 
         #endregion
@@ -362,6 +365,18 @@ namespace Logica.Consumo
             }
 
         }
-
+        public decimal CalcularPrimaNeta(OcCalFrmCred ocCalFrmCred)
+        {
+            decimal dcPrimaneta = 0;
+            try
+            {
+                dcPrimaneta = _manejadorSql_calcfrmCred.Calcular(ocCalFrmCred);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+            return dcPrimaneta;
+        }
     }
 }

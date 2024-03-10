@@ -68,6 +68,10 @@
       <Project>{6bf813f0-3f6d-4ac3-9185-456ceda60083}</Project>
       <Name>EntidadesClases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ManejadorMetodosSql\ManejadorMetodosSql.csproj">
+      <Project>{b64396c3-29e6-4daf-a42f-6c8dd2404d69}</Project>
+      <Name>ManejadorMetodosSql</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ManejadorMetodos\ManejadorMetodos.csproj">
       <Project>{B1FF8E6B-1ED3-4546-9B63-68C9B3EBE6E4}</Project>
       <Name>ManejadorMetodos</Name>

@@ -23,11 +23,11 @@
                 isDetailRowExpanded[e.visibleIndex] = false;
             }
 
-            function OnRowDblClick(s, e) {
+            /*function OnRowDblClick(s, e) {
                 var index = e.visibleIndex;
 
                 CallBGridPoliza.PerformCallback(index);
-            }
+            }*/
 
             function UpdateDetailGrid(s, e) {
                 var index = e.visibleIndex;
@@ -225,11 +225,11 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7 mt-4 mt-lg-0 p-0 p-sm-0 p-md-0 ">
                         <asp:Panel runat="server" ID="gridcontainer" Visible="false">
-                            <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza" OnDataBinding="gridpoliza_DataBinding">
+                            <dx:BootstrapGridView ID="gridpoliza" ClientInstanceName="gridpoliza" runat="server" KeyFieldName="id_poliza;id_movimiento;id_clamov" OnDataBinding="gridpoliza_DataBinding">
                                 <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                                 <SettingsText Title="Pólizas Registradas" />
                                 <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
-                                <ClientSideEvents RowDblClick="OnRowDblClick" RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
+                                <ClientSideEvents  RowClick="OnRowClick" DetailRowExpanding="OnDetailRowExpanding" DetailRowCollapsing="OnDetailRowCollapsing" />
                                 <SettingsBootstrap Striped="true" />
                                 <CssClasses PanelHeading="msg_button_class p-1 fs-10 " HeaderRow="thTabla" />
                                 <SettingsPager NumericButtonCount="3">
@@ -266,6 +266,14 @@
                                     </dx:BootstrapGridViewDateColumn>
                                     <dx:BootstrapGridViewDateColumn FieldName="id_clamov" Visible="false">
                                     </dx:BootstrapGridViewDateColumn>
+                                    <dx:BootstrapGridViewDataColumn Caption="Seleccionar"  Width="30px">
+                                        <DataItemTemplate>
+                                            <dx:BootstrapButton ID="btnSelec" runat="server" OnClick="btnSelec_Click"  >
+                                                <CssClasses Control="bi bi-check2-circle text-primary"  />
+                                                <SettingsBootstrap RenderOption="None" />
+                                            </dx:BootstrapButton>
+                                        </DataItemTemplate>
+                                    </dx:BootstrapGridViewDataColumn>
                                 </Columns>
                                 <Templates>
                                     <DetailRow>
@@ -339,7 +347,7 @@
                                     </DetailRow>
                                 </Templates>
                             </dx:BootstrapGridView>
-                            <dx:BootstrapCallbackPanel ID="CallBGridPoliza" ClientInstanceName="CallBGridPoliza" runat="server" OnCallback="CallBGridPoliza_Callback"></dx:BootstrapCallbackPanel>
+                           <%-- <dx:BootstrapCallbackPanel ID="CallBGridPoliza" ClientInstanceName="CallBGridPoliza" runat="server" OnCallback="CallBGridPoliza_Callback"></dx:BootstrapCallbackPanel>--%>
                         </asp:Panel>
 
                     </div>
