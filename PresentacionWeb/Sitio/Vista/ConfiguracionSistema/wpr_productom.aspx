@@ -18,7 +18,7 @@
             </div>
             <span class="border border-3 rounded w-75 pt-2 mb-2">
                 <div class="col-10">
-                    <div class="row p-2">
+                    <div class="row p-0">
                         <div class="col-2">
                             Compañia:
                         </div>
@@ -27,7 +27,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-0">
                         <div class="col-2">
                             Producto:
                         </div>
@@ -37,7 +37,7 @@
                             <asp:HiddenField ID="operar" runat="server" />
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-0">
                         <div class="col-2">
                             Riesgo:
                         </div>
@@ -46,12 +46,12 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-1">
+                    <div class="row p-2 align-items-center">
+                        <div class="col-2">
                             Fórmula:
                         </div>
                         <div class="col-1">
-                            <p class="fw-bold" style="text-align: right;">PT</p>
+                             <label class="fw-bold" style="text-align: right;">PT</label>
                         </div>
                         <div class="col-2">
                             <asp:DropDownList ID="opera" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width: 60px;">
@@ -59,39 +59,38 @@
                                 <asp:ListItem Value="false" Text="*"></asp:ListItem>
                                 <asp:ListItem Value="true" Text="/"></asp:ListItem>
                             </asp:DropDownList>
-
                         </div>
                         <div class="col-2">
-                            <asp:TextBox ID="evaluar" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="evaluar" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                         </div>
                         <div class="col-4"></div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-1 align-items-center">
                         <div class="col-2">
                             Comisión:
                         </div>
                         <div class="col-2">
-                            <asp:TextBox ID="comis_riesgo" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 50px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="comis_riesgo" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                         </div>
                         <div class="col-2">
                             Por. a Crédito :
                         </div>
                         <div class="col-2">
-                            <asp:TextBox ID="por_cred" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 50px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="por_cred" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                         </div>
                         <div class="col-2">
                             Plus Neta :
                         </div>
                         <div class="col-2">
-                            <asp:TextBox ID="plus_neta" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px; width: 50px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="plus_neta" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-0 align-items-center">
                         <div class="col-3">
                             Form. Contado :
                         </div>
                         <div class="col-4">
-                            <asp:TextBox ID="form_riesgo1" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="form_riesgo1" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                             <asp:HiddenField ID="Hform_riesgo1" runat="server" />
                         </div>
                         <div class="col-2">
@@ -100,12 +99,12 @@
                         <div class="col-3">
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-0 align-items-center">
                         <div class="col-3">
                             Form. Contado :
                         </div>
                         <div class="col-4">
-                            <asp:TextBox ID="form_riesgo2" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 18px;">0,00</asp:TextBox>
+                            <asp:TextBox ID="form_riesgo2" runat="server" CssClass="form-control fs-10">0,00</asp:TextBox>
                             <asp:HiddenField ID="Hform_riesgo2" runat="server" />
                         </div>
                         <div class="col-2">
@@ -131,7 +130,7 @@
 
                     </div>
                     <div class="row p-2">
-                        <div class="col-2">
+                        <div class="col-12">
                             <p style="color: #990000; font-weight: bold">
                             <dx:ASPxLabel ID="lblmensajeGuardar" runat="server" Text=""></dx:ASPxLabel>
                         </p>

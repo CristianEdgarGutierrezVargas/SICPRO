@@ -17,7 +17,7 @@
                 <img src="../../../UI/img/img07.jpg" alt="" width="122" height="122">
             </div>
             <span class="border border-3 rounded w-75 pt-2 mb-2">
-                <div class="col-10">
+                <div class="col-12">
                     <div class="row p-2">
                         <div class="col-3">
                             Rol de Sistema:
@@ -37,25 +37,25 @@
                         </div>
                     </div>
                     <div class="row p-2">
+                        <div class="col-5 p-1">
+                            <asp:ListBox ID="lstcomp" runat="server" CssClass="w-100" Rows="10"></asp:ListBox>
+                        </div>
+                        <div class="col-2" >
+                            <div class="row p-1">
+                                <asp:Button ID="btnid" runat="server" Text=">" CssClass="btn btn-primary btn-sm"  OnClick="btnid_Click"></asp:Button>
+                            </div>
+                            <div class="row p-1">
+                                <asp:Button ID="btnti" runat="server" Text=">>" CssClass="btn btn-primary btn-sm"  OnClick="btnti_Click"></asp:Button>
+                            </div>
+                            <div class="row p-1">
+                                <asp:Button ID="btndi" runat="server" Text="<" CssClass="btn btn-primary btn-sm"  OnClick="btndi_Click"></asp:Button>
+                            </div>
+                            <div class="row p-1">
+                                <asp:Button ID="btntd" runat="server" Text="<<" CssClass="btn btn-primary btn-sm"  OnClick="btntd_Click"></asp:Button>
+                            </div>
+                        </div>
                         <div class="col-5">
-                            <asp:ListBox ID="lstcomp" runat="server" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:200px;" Rows="10"></asp:ListBox>
-                        </div>
-                        <div class="col-2">
-                            <div class="row p-1">
-                                <asp:Button ID="btnid" runat="server" Text=">" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:50px;" OnClick="btnid_Click"></asp:Button>
-                            </div>
-                            <div class="row p-1">
-                                <asp:Button ID="btnti" runat="server" Text=">>" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:50px;" OnClick="btnti_Click"></asp:Button>
-                            </div>
-                            <div class="row p-1">
-                                <asp:Button ID="btndi" runat="server" Text="<" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:50px;" OnClick="btndi_Click"></asp:Button>
-                            </div>
-                            <div class="row p-1">
-                                <asp:Button ID="btntd" runat="server" Text="<<" CssClass="btn btn-primary btn-sm" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:50px;" OnClick="btntd_Click"></asp:Button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <asp:ListBox ID="lstcompo" runat="server" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; width:200px;" Rows="10"></asp:ListBox>
+                            <asp:ListBox ID="lstcompo" runat="server" CssClass="w-100" Rows="10"></asp:ListBox>
                         </div>
                     </div>
                 </div>

@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-4">
                         <dx:ASPxButton ID="btnguardar" runat="server"   Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnguardar_Click"></dx:ASPxButton>
-                        <dx:ASPxButton ID="btnmodificar" runat="server" Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnmodificar_Click"></dx:ASPxButton>
+                        <dx:ASPxButton ID="btnmodificar" runat="server" Text="Guardar" CssClass="msg_button_class" Style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnClick="btnmodificar_Click" Visible="false"></dx:ASPxButton>
                     </div>
                     <div class="col-4">
                     </div>

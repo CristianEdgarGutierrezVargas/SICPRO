@@ -1,5 +1,6 @@
 ﻿using Common;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraSpreadsheet.Model;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -7,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -32,12 +34,14 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.id_riesgo.DataTextField = "desc_riesgo";
                 this.id_riesgo.DataValueField = "id_riesgo";
                 this.id_riesgo.DataBind();
+                this.id_riesgo.SelectedValue = "-1";
 
                 var listComp = logicaConfiguracion.ObtenerListaCompania();
                 this.id_spvs.DataSource = listComp;
                 this.id_spvs.DataTextField = "nomraz";
                 this.id_spvs.DataValueField = "id_spvs";
                 this.id_spvs.DataBind();
+                this.id_spvs.SelectedValue = "-1";
             }
             catch (SecureExceptions ex)
             {
@@ -160,68 +164,60 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
         protected void ib1_Click(object sender, EventArgs e)
         {
-            //this.msgboxpanel.Visible = false;
-            //ExpressionParser expressionParser = new ExpressionParser();
-            //Hashtable tbl = new Hashtable();
-            //this.form_riesgo1.Text = this.form_riesgo1.Text.ToUpper();
-            //string exp = this.form_riesgo1.Text.ToUpper();
-            //if (exp.IndexOf("PT") >= 0)
-            //{
-            //    try
-            //    {
-            //        this.ib1.ImageUrl = "~/images/lc_okcheckbox.png";
-            //        exp = exp.Replace("PT", "100");
-            //        double num = expressionParser.Parse(exp, tbl);
-            //        this.lblmensajeGuardar.Text = "La formula esta escrita correctamente";
-            //        this.Hform_riesgo1.Value = "1";
-            //        this.lblmensajeGuardar.Text = exp + "=" + num.ToString();
-            //    }
-            //    catch
-            //    {
-            //        this.lblmensajeGuardar.Text = "La formula esta escrita incorrectamente";
-            //        this.ib1.ImageUrl = "~/images/lc_uncheckbox.png";
-            //        this.lblmensajeGuardar.Text = exp;
-            //    }
-            //}
-            //else
-            //{
-            //    this.lblmensajeGuardar.Text = "La Fórmula debe contener la sentencia PT (Prima Total)";
-            //    this.ib1.ImageUrl = "~/images/lc_uncheckbox.png";
-            //}
-
+            System.Data.DataTable table = new System.Data.DataTable();
+            this.form_riesgo1.Text = this.form_riesgo1.Text.ToUpper();
+            string exp = this.form_riesgo1.Text.ToUpper();
+            if (exp.IndexOf("PT") >= 0)
+            {
+                try
+                {
+                    this.ib1.ImageUrl = "~/UI/img/lc_okcheckbox.png";
+                    exp = exp.Replace("PT", "100");
+                    object result = table.Compute(exp, string.Empty);
+                    var num = Convert.ToDouble(result);
+                    this.lblmensajeGuardar.Text = "La formula esta escrita correctamente."+ exp + "=" + num.ToString();
+                    this.Hform_riesgo1.Value = "1";
+                }
+                catch
+                {
+                    this.lblmensajeGuardar.Text = "La formula esta escrita incorrectamente. "+ exp;
+                    this.ib1.ImageUrl = "~/UI/img/lc_uncheckbox.png";
+                }
+            }
+            else
+            {
+                this.lblmensajeGuardar.Text = "La Fórmula debe contener la sentencia PT (Prima Total)";
+                this.ib1.ImageUrl = "~/UI/img/lc_uncheckbox.png";
+            }
         }
 
         protected void ib2_Click(object sender, EventArgs e)
         {
-            //this.msgboxpanel.Visible = false;
-            //ExpressionParser expressionParser = new ExpressionParser();
-            //Hashtable tbl = new Hashtable();
-            //this.form_riesgo2.Text = this.form_riesgo2.Text.ToUpper();
-            //string exp = this.form_riesgo2.Text.ToUpper();
-            //if (exp.IndexOf("PT") >= 0)
-            //{
-            //    try
-            //    {
-            //        this.ib2.ImageUrl = "~/images/lc_okcheckbox.png";
-            //        exp = exp.Replace("PT", "100");
-            //        double num = expressionParser.Parse(exp, tbl);
-            //        this.lblmensajeGuardar.Text = "La formula esta escrita correctamente";
-            //        this.Hform_riesgo2.Value = "1";
-            //        this.lblmensajeGuardar.Text = exp + "=" + num.ToString();
-            //    }
-            //    catch
-            //    {
-            //        this.lblmensajeGuardar.Text = "La formula esta escrita incorrectamente";
-            //        this.ib2.ImageUrl = "~/images/lc_uncheckbox.png";
-            //        this.lblmensajeGuardar.Text = exp;
-            //    }
-            //}
-            //else
-            //{
-            //    this.lblmensajeGuardar.Text = "La Fórmula debe contener la sentencia PT (Prima Total)";
-            //    this.ib2.ImageUrl = "~/images/lc_uncheckbox.png";
-            //}
-
+            System.Data.DataTable table = new System.Data.DataTable();
+            this.form_riesgo2.Text = this.form_riesgo2.Text.ToUpper();
+            string exp = this.form_riesgo2.Text.ToUpper();
+            if (exp.IndexOf("PT") >= 0)
+            {
+                try
+                {
+                    this.ib2.ImageUrl = "~/UI/img/lc_okcheckbox.png";
+                    exp = exp.Replace("PT", "100");
+                    object result = table.Compute(exp, string.Empty);
+                    var num = Convert.ToDouble(result);
+                    this.lblmensajeGuardar.Text = "La formula esta escrita correctamente." + exp + "=" + num.ToString();
+                    this.Hform_riesgo2.Value = "1";
+                }
+                catch
+                {
+                    this.lblmensajeGuardar.Text = "La formula esta escrita incorrectamente. " + exp;
+                    this.ib2.ImageUrl = "~/UI/img/lc_uncheckbox.png";
+                }
+            }
+            else
+            {
+                this.lblmensajeGuardar.Text = "La Fórmula debe contener la sentencia PT (Prima Total)";
+                this.ib2.ImageUrl = "~/UI/img/lc_uncheckbox.png";
+            }
         }
     }
 }

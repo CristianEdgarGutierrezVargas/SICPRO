@@ -334,7 +334,7 @@
                                             <LastPageButton Visible="true"></LastPageButton>
                                             <Summary Visible="false" />
                                         </SettingsPager>
-                                        <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true"></SettingsBehavior>
+                                        <SettingsBehavior ProcessSelectionChangedOnServer="true" AllowSelectByRowClick="true" ></SettingsBehavior>
                                     </dx:ASPxGridView>
                                 </dx:PanelContent>
                             </PanelCollection>

@@ -43,7 +43,7 @@
                         <div class="col-2">
                             <label>Divisa :</label>
                         </div>
-                        <div class="col-4">
+                        <div class="col-7">
                             <asp:DropDownList ID="id_div" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="38" Text="UNIDAD FOMENTO A LA VIVIENDA"></asp:ListItem>

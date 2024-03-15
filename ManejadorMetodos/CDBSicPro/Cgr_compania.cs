@@ -40,6 +40,7 @@ namespace ManejadorMetodos.CDBSicPro
             try
             {
                 var sql = _context.v_pr_cias_resum.ToList();
+                sql.Add(new v_pr_cias_resum { nomraz = "SELECCIONE UN OPCION", id_spvs = "-1" });
                 return sql;
                 
             }
