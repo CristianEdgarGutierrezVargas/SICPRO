@@ -258,15 +258,16 @@ namespace ManejadorMetodos.CDBSicPro
                           ).FirstOrDefault();
 
                 //string[] selectedValue = new string[] { "INSERT INTO pr_formriesgo
-                //                                          VALUES ('", this.id_riesgo.SelectedValue
-                //                                             , "','", this.id_spvs.SelectedValue
-                //                                             , "','", form
-                //                                             , "',", this.comis_riesgo.Text.Replace(".", "").Replace(",", ".")
-                //                                             , ",'", this.opera.SelectedValue
-                //                                             , "',", this.evaluar.Text.Replace(".", "").Replace(",", ".")
-                //                                             , ",", id
-                //                                             , ",", this.por_cred.Text.Replace(".", "").Replace(",", ".")
-                //                                             , ",", this.plus_neta.Text.Replace(".", "").Replace(",", "."), ")" };
+                //                                          VALUES ('", this.id_riesgo.SelectedValue//id_riesgo
+                //                                             , "','", this.id_spvs.SelectedValue//id_spvs
+                //                                             , "','", form//form_riesgo1
+                //                                             , "',", this.comis_riesgo.Text.Replace(".", "").Replace(",", ".")//comis_riesgo
+                //                                             , ",'", this.opera.SelectedValue//opera
+                //                                             , "',", this.evaluar.Text.Replace(".", "").Replace(",", ".")//evaluar
+                //                                             , ",", id//id_producto
+                //                                             , ",", this.por_cred.Text.Replace(".", "").Replace(",", ".")//por_cred
+                //                                             , ",", this.plus_neta.Text.Replace(".", "").Replace(",", "."), ")" };//plus_neta
+                //id_riesgo, id_spvs, form_riesgo1, comis_riesgo, opera, evaluar, id_producto, por_cred, plus_neta, form_riesgo2)
                 string form = string.Concat("PT", opera, evaluar);
                 pr_formriesgo item = new pr_formriesgo();
                 item.id_riesgo = id_riesgo;
@@ -278,6 +279,7 @@ namespace ManejadorMetodos.CDBSicPro
                 item.id_producto = idProducto;
                 item.por_cred= por_cred;
                 item.plus_neta = plus_neta;
+                item.form_riesgo2= string.Empty;
                 _context.pr_formriesgo.Add(item);
                 _context.SaveChanges();
             }

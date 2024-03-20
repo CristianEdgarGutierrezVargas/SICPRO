@@ -30,6 +30,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.id_div.DataTextField = "desc_param";
                 this.id_div.DataValueField = "id_par";
                 this.id_div.DataBind();
+                this.id_div.SelectedValue = "0";
             }
             catch (SecureExceptions ex)
             {
@@ -69,17 +70,17 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
 
             if (((DateTime)this.fecha.Value).ToString("dd/mm/yyyy").Length < 10)
             {
-                str += "<br /> La Fecha de emisión no esta en formato correcto";
+                str += "La Fecha de emisión no esta en formato correcto\n";
                 sw = true;
             }
             if (this.tcambio.Text == "0,00")
             {
-                str += "<br /> Debe Registrar un Valor para la Tasa de Cambio";
+                str += "Debe Registrar un Valor para la Tasa de Cambio\n";
                 sw = true;
             }
-            if (this.id_div.SelectedIndex == 0)
+            if (this.id_div.SelectedValue == "0")
             {
-                str += "<br /> Debe Seleccionar Una Divisa";
+                str += "Debe Seleccionar Una Divisa\n";
                 sw = true;
             }
             if (sw)

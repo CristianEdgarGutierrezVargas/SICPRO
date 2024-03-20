@@ -24,7 +24,8 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
         {
             try
             {
-                this.id_rol.DataSource = logicaConfiguracion.ListaRoles().OrderBy(x => x.id_par).ToList();
+                var list= logicaConfiguracion.ListaRoles().OrderBy(x => x.id_par).ToList();
+                this.id_rol.DataSource = list;//logicaConfiguracion.ListaRoles().OrderBy(x => x.id_par).ToList();
                 this.id_rol.DataTextField = "desc_param";
                 this.id_rol.DataValueField = "id_par";
                 this.id_rol.DataBind();
@@ -149,6 +150,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                     long idRol = long.Parse(this.id_rol.SelectedValue);
                     long idCom = long.Parse(this.lstcompo.SelectedValue);
                     logicaConfiguracion.QuitarAccesos(idCom, idRol);
+                    Accesos();
                 }
             }
             catch (Exception ex)
@@ -166,6 +168,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                     long idCom = long.Parse(this.lstcompo.Items[index].Value);
 
                     logicaConfiguracion.QuitarAccesos(idCom, idRol);
+                    Accesos();
                 }
             }
             catch (Exception ex)

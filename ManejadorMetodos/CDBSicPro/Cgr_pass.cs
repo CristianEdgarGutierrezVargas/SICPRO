@@ -327,7 +327,7 @@ namespace ManejadorMetodos.CDBSicPro
                           select param;
 
                 List<gr_componente> resultado = sql.ToList();
-                resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
+                //7resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
                 resultado = resultado.OrderBy(x => x.id_com).ToList();
                 return resultado;
             }
@@ -356,7 +356,7 @@ namespace ManejadorMetodos.CDBSicPro
                           select param;
 
                 List<gr_componente> resultado = sql.ToList();
-                resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
+                //resultado.Add(new gr_componente { id_com = -1, desc_comp = "SELECCIONE UNA OPCIÓN" });
                 resultado = resultado.OrderBy(x => x.id_com).ToList();
                 return resultado;
             }

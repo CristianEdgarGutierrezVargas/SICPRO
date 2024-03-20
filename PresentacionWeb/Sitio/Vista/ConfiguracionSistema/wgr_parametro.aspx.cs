@@ -95,7 +95,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                         desc_param = this.desc_param.Text,
                         abrev_param = this.abrev_param.Text,
                         valor_param = decimal.Parse(this.valor_param.Text),
-                        id_par = long.Parse(this.id_para.Value)
+                        //id_par = long.Parse(this.id_para.Value)
                     };
 
                     logicaConfiguracion.InsertarParametro(item);

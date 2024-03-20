@@ -92,12 +92,13 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
             this.id_riesgo.DataTextField = "desc_riesgo";
             this.id_riesgo.DataValueField = "id_riesgo";
             this.id_riesgo.DataBind();
-
+            this.id_riesgo.SelectedValue = "-1";
             List<v_pr_cias_resum> listPer = logicaConfiguracion.ObtenerListaCompania();
             this.id_spvs.DataSource = listPer;
             this.id_spvs.DataTextField = "nomraz";
             this.id_spvs.DataValueField = "id_spvs";
             this.id_spvs.DataBind();
+            this.id_spvs.SelectedValue = "-1";
 
             //List<gr_compania> listCompania;
             //List<v_pr_cias_resum> listPer = logicaConfiguracion.ObtenerListaCompania();
@@ -204,20 +205,20 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                 this.lblmensajeA.Text = "Error al Generar la Transacción";
             }
         }
-        protected void Buscar()
-        {
-            try
-            {
-                pr_producto item = logicaConfiguracion.ObtenerProducto(long.Parse(id_producto.Value));
-                this.id_producto.Value = item.id_producto.ToString();
-                this.desc_producto.Text = item.desc_prod;
-                this.abrev_prod.Text = item.abrev_prod;
-            }
-            catch (SecureExceptions ex)
-            {
-                throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
-            }
-        }
+        //protected void Buscar()
+        //{
+        //    try
+        //    {
+        //        pr_producto item = logicaConfiguracion.ObtenerProducto(long.Parse(id_producto.Value));
+        //        this.id_producto.Value = item.id_producto.ToString();
+        //        this.desc_producto.Text = item.desc_prod;
+        //        this.abrev_prod.Text = item.abrev_prod;
+        //    }
+        //    catch (SecureExceptions ex)
+        //    {
+        //        throw new SecureExceptions("Error al Generar la Consulta", (Exception)ex);
+        //    }
+        //}
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -291,7 +292,7 @@ namespace PresentacionWeb.Sitio.Vista.ConfiguracionSistema
                                                         , this.abrev_prod.Text.Trim()
                                                         , this.id_riesgo.SelectedValue
                                                         , this.id_spvs.SelectedValue
-                                                        , bool.Parse(this.operador.SelectedValue)
+                                                        , bool.Parse(this.operador.SelectedItem.Text)
                                                         , decimal.Parse(this.evaluar.Text.Trim())
                                                         , decimal.Parse(this.comis_riesgo.Text.Trim())
                                                         , decimal.Parse(this.por_cred.Text.Trim())
