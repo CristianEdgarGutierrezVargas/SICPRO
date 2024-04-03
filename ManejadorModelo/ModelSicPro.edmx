@@ -68,14 +68,9 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.co_sueldo' no tiene definida ning
           <Property Name="basico_sueldo" Type="numeric" Precision="10" Scale="2" />
           <Property Name="bono_anti" Type="numeric" Precision="10" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'sicpro.dbo.gr_acceso' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="gr_acceso">
           <Key>
             <PropertyRef Name="id_acc" />
-            <PropertyRef Name="id_com" />
-            <PropertyRef Name="id_rol" />
-            <PropertyRef Name="nivel" />
           </Key>
           <Property Name="id_acc" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_com" Type="bigint" Nullable="false" />
@@ -485,7 +480,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.gr_acceso' no tiene definida ning
             <PropertyRef Name="anio" />
             <PropertyRef Name="id_sucur" />
           </Key>
-          <Property Name="id_caso" Type="float" Nullable="false" />
+          <Property Name="id_caso" Type="numeric" Precision="5" Scale="0" Nullable="false" />
           <Property Name="anio" Type="numeric" Precision="4" Scale="0" Nullable="false" />
           <Property Name="id_sucur" Type="int" Nullable="false" />
           <Property Name="fc_incidente" Type="date" Nullable="false" />
@@ -2799,6 +2794,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <EntitySet Name="co_porcomi" EntityType="Self.co_porcomi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_presprod" EntityType="Self.co_presprod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="co_proycartera" EntityType="Self.co_proycartera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gr_acceso" EntityType="Self.gr_acceso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_cierreregistro" EntityType="Self.gr_cierreregistro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_compania" EntityType="Self.gr_compania" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gr_componente" EntityType="Self.gr_componente" Schema="dbo" store:Type="Tables" />
@@ -2836,14 +2832,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
     [co_sueldo].[basico_sueldo] AS [basico_sueldo], 
     [co_sueldo].[bono_anti] AS [bono_anti]
     FROM [dbo].[co_sueldo] AS [co_sueldo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="gr_acceso" EntityType="Self.gr_acceso" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [gr_acceso].[id_acc] AS [id_acc], 
-    [gr_acceso].[id_com] AS [id_com], 
-    [gr_acceso].[id_rol] AS [id_rol], 
-    [gr_acceso].[nivel] AS [nivel]
-    FROM [dbo].[gr_acceso] AS [gr_acceso]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_gr_cont_dir" EntityType="Self.v_gr_cont_dir" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4159,7 +4147,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <EntitySet Name="pr_riesgo" EntityType="sicproModel.pr_riesgo" />
           <EntitySet Name="re_caso" EntityType="sicproModel.re_caso" />
           <EntitySet Name="re_histcaso" EntityType="sicproModel.re_histcaso" />
-          <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
           <EntitySet Name="co_sueldo" EntityType="sicproModel.co_sueldo" />
           <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
           <AssociationSet Name="fk_co_anticom" Association="sicproModel.fk_co_anticom">
@@ -4417,6 +4404,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <Parameter Name="primatotal" Mode="In" Type="Decimal" />
             <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -4861,25 +4849,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Name="fc_finestado" Type="DateTime" Precision="0" />
           <Property Name="id_estca" Type="Double" Nullable="false" />
           <Property Name="obs_histcaso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="re_siniestro">
-          <Key>
-            <PropertyRef Name="id_caso" />
-            <PropertyRef Name="anio" />
-            <PropertyRef Name="id_sucur" />
-          </Key>
-          <Property Name="id_caso" Type="Double" Nullable="false" />
-          <Property Name="anio" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
-          <Property Name="id_sucur" Type="Int32" Nullable="false" />
-          <Property Name="fc_incidente" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="denunciante" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="reladenun" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="mat_aseg" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="lugar_siniestro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="circunstancia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="id_uniobj" Type="Double" />
-          <Property Name="uniobj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="fc_denuncia" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="co_sueldo">
           <Key>
@@ -7534,6 +7503,25 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Type="Decimal" Name="dir_id_emis" Nullable="true" Precision="8" Scale="0" />
           <Property Type="String" Name="ciudad" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="re_siniestro">
+          <Key>
+            <PropertyRef Name="id_caso" />
+            <PropertyRef Name="anio" />
+            <PropertyRef Name="id_sucur" />
+          </Key>
+          <Property Name="id_caso" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="anio" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="id_sucur" Type="Int32" Nullable="false" />
+          <Property Name="fc_incidente" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="denunciante" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reladenun" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="mat_aseg" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lugar_siniestro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="circunstancia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_uniobj" Type="Double" />
+          <Property Name="uniobj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fc_denuncia" Type="DateTime" Precision="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7966,24 +7954,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
                 <ScalarProperty Name="anio" ColumnName="anio" />
                 <ScalarProperty Name="id_caso" ColumnName="id_caso" />
                 <ScalarProperty Name="id_histcaso" ColumnName="id_histcaso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="re_siniestro">
-            <EntityTypeMapping TypeName="sicproModel.re_siniestro">
-              <MappingFragment StoreEntitySet="re_siniestro">
-                <ScalarProperty Name="fc_denuncia" ColumnName="fc_denuncia" />
-                <ScalarProperty Name="uniobj" ColumnName="uniobj" />
-                <ScalarProperty Name="id_uniobj" ColumnName="id_uniobj" />
-                <ScalarProperty Name="circunstancia" ColumnName="circunstancia" />
-                <ScalarProperty Name="lugar_siniestro" ColumnName="lugar_siniestro" />
-                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
-                <ScalarProperty Name="reladenun" ColumnName="reladenun" />
-                <ScalarProperty Name="denunciante" ColumnName="denunciante" />
-                <ScalarProperty Name="fc_incidente" ColumnName="fc_incidente" />
-                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
-                <ScalarProperty Name="anio" ColumnName="anio" />
-                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10268,6 +10238,24 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pr_calcfrmcred" FunctionName="sicproModel.Store.pr_calcfrmcred" />
+          <EntitySetMapping Name="re_siniestro">
+            <EntityTypeMapping TypeName="sicproModel.re_siniestro">
+              <MappingFragment StoreEntitySet="re_siniestro">
+                <ScalarProperty Name="fc_denuncia" ColumnName="fc_denuncia" />
+                <ScalarProperty Name="uniobj" ColumnName="uniobj" />
+                <ScalarProperty Name="id_uniobj" ColumnName="id_uniobj" />
+                <ScalarProperty Name="circunstancia" ColumnName="circunstancia" />
+                <ScalarProperty Name="lugar_siniestro" ColumnName="lugar_siniestro" />
+                <ScalarProperty Name="mat_aseg" ColumnName="mat_aseg" />
+                <ScalarProperty Name="reladenun" ColumnName="reladenun" />
+                <ScalarProperty Name="denunciante" ColumnName="denunciante" />
+                <ScalarProperty Name="fc_incidente" ColumnName="fc_incidente" />
+                <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

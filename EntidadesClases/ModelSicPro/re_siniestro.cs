@@ -14,7 +14,7 @@ namespace EntidadesClases.ModelSicPro
     
     public partial class re_siniestro
     {
-        public double id_caso { get; set; }
+        public decimal id_caso { get; set; }
         public decimal anio { get; set; }
         public int id_sucur { get; set; }
         public System.DateTime fc_incidente { get; set; }
