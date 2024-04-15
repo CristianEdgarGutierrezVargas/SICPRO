@@ -36,7 +36,6 @@
         <EntityTypeShape EntityType="sicproModel.re_caso" Width="1.5" PointX="10.75" PointY="14.75" />
         <EntityTypeShape EntityType="sicproModel.re_histcaso" Width="1.5" PointX="14.75" PointY="12.75" />
         <EntityTypeShape EntityType="sicproModel.co_sueldo" Width="1.5" PointX="16.75" PointY="0.75" />
-        <EntityTypeShape EntityType="sicproModel.gr_acceso" Width="1.5" PointX="16.75" PointY="3.75" />
         <AssociationConnector Association="sicproModel.fk_co_anticom" />
         <AssociationConnector Association="sicproModel.fk_comicio_persona" />
         <AssociationConnector Association="sicproModel.gr_compania_fk" />
@@ -116,6 +115,7 @@
         <AssociationConnector Association="sicproModel.FK_pr_pagocompania_pr_pagocompania" />
         <EntityTypeShape EntityType="sicproModel.vcb_veripoliza2" Width="1.5" PointX="7.375" PointY="32.75" />
         <EntityTypeShape EntityType="sicproModel.re_siniestro" Width="1.5" PointX="7.375" PointY="15.75" />
+        <EntityTypeShape EntityType="sicproModel.gr_acceso" Width="1.5" PointX="9.375" PointY="32.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

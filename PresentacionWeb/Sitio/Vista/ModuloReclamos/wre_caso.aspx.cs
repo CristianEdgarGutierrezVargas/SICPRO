@@ -244,7 +244,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
                     //reCaso.anio_recibo;
 
                     re_siniestro siniestro = new re_siniestro();
-                    siniestro.id_caso = (double)id_caso;
+                    siniestro.id_caso = (decimal)id_caso;
                     siniestro.anio = reCaso.anio_caso;
                     siniestro.id_sucur = reCaso.id_sucur;
                     siniestro.fc_incidente = (DateTime)this.fc_incidente.Value;

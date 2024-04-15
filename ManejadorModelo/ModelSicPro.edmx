@@ -4148,7 +4148,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <EntitySet Name="re_caso" EntityType="sicproModel.re_caso" />
           <EntitySet Name="re_histcaso" EntityType="sicproModel.re_histcaso" />
           <EntitySet Name="co_sueldo" EntityType="sicproModel.co_sueldo" />
-          <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
           <AssociationSet Name="fk_co_anticom" Association="sicproModel.fk_co_anticom">
             <End Role="gr_persona" EntitySet="gr_persona" />
             <End Role="co_anticom" EntitySet="co_anticom" />
@@ -4405,6 +4404,7 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
             <Parameter Name="tipocuota" Mode="In" Type="Boolean" />
           </FunctionImport>
           <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
+          <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -4863,18 +4863,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Name="dias" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
           <Property Name="basico_sueldo" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="bono_anti" Type="Decimal" Precision="10" Scale="2" />
-        </EntityType>
-        <EntityType Name="gr_acceso">
-          <Key>
-            <PropertyRef Name="id_acc" />
-            <PropertyRef Name="id_com" />
-            <PropertyRef Name="id_rol" />
-            <PropertyRef Name="nivel" />
-          </Key>
-          <Property Name="id_acc" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_com" Type="Int64" Nullable="false" />
-          <Property Name="id_rol" Type="Int64" Nullable="false" />
-          <Property Name="nivel" Type="Double" Nullable="false" />
         </EntityType>
         <Association Name="fk_co_anticom">
           <End Type="sicproModel.gr_persona" Role="gr_persona" Multiplicity="1" />
@@ -7522,6 +7510,15 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Name="uniobj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fc_denuncia" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="gr_acceso">
+          <Key>
+            <PropertyRef Name="id_acc" />
+          </Key>
+          <Property Name="id_acc" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_com" Type="Int64" Nullable="false" />
+          <Property Name="id_rol" Type="Int64" Nullable="false" />
+          <Property Name="nivel" Type="Double" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7966,16 +7963,6 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
                 <ScalarProperty Name="anio_sueldo" ColumnName="anio_sueldo" />
                 <ScalarProperty Name="mes_sueldo" ColumnName="mes_sueldo" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="gr_acceso">
-            <EntityTypeMapping TypeName="sicproModel.gr_acceso">
-              <MappingFragment StoreEntitySet="gr_acceso">
-                <ScalarProperty Name="nivel" ColumnName="nivel" />
-                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
-                <ScalarProperty Name="id_com" ColumnName="id_com" />
-                <ScalarProperty Name="id_acc" ColumnName="id_acc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10253,6 +10240,16 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
                 <ScalarProperty Name="id_sucur" ColumnName="id_sucur" />
                 <ScalarProperty Name="anio" ColumnName="anio" />
                 <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gr_acceso">
+            <EntityTypeMapping TypeName="sicproModel.gr_acceso">
+              <MappingFragment StoreEntitySet="gr_acceso">
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+                <ScalarProperty Name="id_acc" ColumnName="id_acc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
