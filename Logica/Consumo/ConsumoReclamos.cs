@@ -27,6 +27,8 @@ namespace Logica.Consumo
         private readonly Cre_caso _manejador_re_caso;
         private readonly Cpr_poliza _manejador_pr_poliza;
         private readonly Cre_histcaso _manejador_re_histcaso;
+        private readonly Cpr_amortizaciones _manejador_pr_amortizaciones;
+        private readonly Cpr_recibo _manejador_pr_recibo;
         public static sicproEntities dbContext;
 
         public ConsumoReclamos()
@@ -44,6 +46,9 @@ namespace Logica.Consumo
             _manejador_gr_compania = new Cgr_compania(dbContext);
             _manejador_re_caso = new Cre_caso(dbContext);
             _manejador_pr_poliza = new Cpr_poliza(dbContext);
+            _manejador_re_histcaso = new Cre_histcaso(dbContext);
+            _manejador_pr_amortizaciones = new Cpr_amortizaciones(dbContext);
+            _manejador_pr_recibo = new Cpr_recibo(dbContext);   
         }
         public List<gr_persona> Persona(int idSuc)
         {
@@ -155,7 +160,7 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la consulta", secureException);
             }
         }
-        public List<OC_PolizaPP> ObtenerPolizaPP(string id_poliza)
+        public List<OC_PolizaPP> ObtenerPolizaPP(long id_poliza)
         {
             try
             {
@@ -166,11 +171,66 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al Generar la consulta", secureException);
             }
         }
-        public bool ser_histcaso(re_histcaso item)
+        public OcSerHistoCaso ser_histcaso(decimal id_caso, decimal anio_caso)
         {
             try
             {
-                return true;//_manejador_re_histcaso.ser_histcaso(item);
+                return _manejador_re_histcaso.ser_histcaso(id_caso, anio_caso);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public List<pr_recibo> ObtenerRD_Recibo(string id_per, string id_gru, int id_apli)
+        {
+            try
+            {
+                return _manejador_pr_amortizaciones.ObtenerRD_Recibo(id_per, id_gru, id_apli);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public void ins_histcaso(decimal id_caso, decimal anio_caso, int id_sucur, double id_estcaso, string obs_histcaso)
+        {
+            try
+            {
+                _manejador_re_histcaso.ins_histcaso(id_caso, anio_caso, id_sucur, id_estcaso, obs_histcaso);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public void upd_histcaso1(decimal id_caso, decimal anio_caso)
+        {
+            try
+            {
+                _manejador_re_histcaso.upd_histcaso1(id_caso, anio_caso);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public void upd_recaso(decimal id_caso, decimal anio_caso, string id_recibo, decimal pago_caso, decimal franq_caso, decimal indem_caso, decimal anio_recibo)
+        {
+            try
+            {
+                _manejador_re_caso.upd_recaso(id_caso, anio_caso, id_recibo, pago_caso, franq_caso, indem_caso, anio_recibo);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la consulta", secureException);
+            }
+        }
+        public void ActuaReciboR(long id_recibo, decimal anio_recibo)
+        {
+            try
+            {
+                _manejador_pr_recibo.ActuaReciboR(id_recibo, anio_recibo);
             }
             catch (SecureExceptions secureException)
             {
@@ -179,3 +239,4 @@ namespace Logica.Consumo
         }
     }
 }
+

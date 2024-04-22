@@ -445,7 +445,7 @@ namespace ManejadorMetodos.CDBSicPro
                 throw new SecureExceptions("Error al Generar la Transacción", secureException);
             }
         }
-        public List<OC_PolizaPP> ObtenerPolizaPP(string id_poliza)
+        public List<OC_PolizaPP> ObtenerPolizaPP(long id_poliza)
         {
             try
             {
@@ -463,7 +463,7 @@ namespace ManejadorMetodos.CDBSicPro
                 var sql = (from poliza in _context.pr_poliza
                            join producto in _context.pr_producto on poliza.id_producto equals producto.id_producto
                            join view in _context.v_pr_cias_resum on poliza.id_spvs equals view.id_spvs
-                           where poliza.id_perclie == id_poliza
+                           where poliza.id_poliza == id_poliza
                            select  new OC_PolizaPP
                            {
                                id_poliza=poliza.id_poliza,

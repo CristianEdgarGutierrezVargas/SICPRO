@@ -17,54 +17,46 @@
                 <img src="../../../UI/img/caso.png" alt="" width="122" height="122">
             </div>
             <span class="border border-3 rounded w-75 pt-2">
-                <div class="col-10 ">
-                    <div class="row p-2">
-                        <div class="col-2">
+                <div class="col-10">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Sucursal:
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList ID="id_suc" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
-                                <asp:ListItem Value="98" Text="COCHABAMBA"></asp:ListItem>
-                                <asp:ListItem Value="54" Text="SANTA CRUZ"></asp:ListItem>
-                                <asp:ListItem Value="95" Text="SUCRE"></asp:ListItem>
-                                <asp:ListItem Value="53" Text="CENTRAL LA PAZ"></asp:ListItem>--%>
+                            <asp:DropDownList ID="id_suc" runat="server" CssClass="form-control-sm fs-10 w-100">
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Año de Atención:
                         </div>
                         <div class="col-7">
 
-                            <asp:DropDownList ID="anio_caso" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
-                                <asp:ListItem Value="2023" Text="2023"></asp:ListItem>
-                                <asp:ListItem Value="2024" Text="2024"></asp:ListItem>--%>
+                            <asp:DropDownList ID="anio_caso" runat="server" CssClass="form-control-sm fs-10 w-100">
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Número de Reclamo:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="id_caso" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;">Por asignarse...</asp:TextBox>
+                            <asp:TextBox ID="id_caso" runat="server" CssClass="form-control fs-10">Por asignarse...</asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Cliente:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="nomraz" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="nomraz" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                             <asp:HiddenField ID="id_per" runat="server" />
@@ -75,13 +67,13 @@
                             </dx:ASPxButton>
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Nº de póliza:
                         </div>
                         <div class="col-7">
 
-                            <asp:DropDownList ID="id_poliza" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;" OnSelectedIndexChanged="id_poliza_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:DropDownList ID="id_poliza" runat="server" CssClass="form-control-sm fs-10 w-100" OnSelectedIndexChanged="id_poliza_SelectedIndexChanged" AutoPostBack="true">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -89,56 +81,54 @@
                             <asp:ImageButton runat="server" ImageUrl="~/UI/img/refresh.png" CommandName="UPDATE" BorderStyle="Groove" CssClass="rounded-3" BorderColor="#999999" />
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Producto:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="desc_prod" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="desc_prod" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Compañía:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="nomraz2" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="nomraz2" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Ejecutivo Previcor:
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList ID="id_perurc" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
-                               <%-- <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
-                                <asp:ListItem Value="4336060" Text="CHAVEZ MORALES OSCAR IVAN"></asp:ListItem>--%>
+                            <asp:DropDownList ID="id_perurc" runat="server" CssClass="form-control-sm fs-10 w-100">
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Inspector Compañía:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="per_cia" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="per_cia" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Atención:
                         </div>
                         <div class="col-7">
 
-                            <asp:DropDownList ID="id_rolate" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                            <asp:DropDownList ID="id_rolate" runat="server" CssClass="form-control-sm fs-10 w-100">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="89" Text="AJUSTADOR"></asp:ListItem>
                                 <asp:ListItem Value="90" Text="IMPORTADOR"></asp:ListItem>
@@ -151,32 +141,32 @@
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Siniestro Atendido por:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="per_aten" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="per_aten" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Siniestro atendido en:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="direccion" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="direccion" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Tipo de Identificador Único:
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList ID="id_uniobj" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                            <asp:DropDownList ID="id_uniobj" runat="server" CssClass="form-control-sm fs-10 w-100">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="64" Text="CARNET DE ASEGURADO"></asp:ListItem>
                                 <asp:ListItem Value="72" Text="OTRO"></asp:ListItem>
@@ -186,99 +176,99 @@
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Identificador Único :
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="uniobj" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="uniobj" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Descripción del Asegurado (obj/pers):
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="mat_aseg" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 50px; width: 300px;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="mat_aseg" runat="server" CssClass="form-control fs-10" TextMode="MultiLine"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Fecha del Incidente:
                         </div>
                         <div class="col-7">
-                            <dx:BootstrapDateEdit ID="fc_incidente" runat="server">
+                            <dx:BootstrapDateEdit ID="fc_incidente" runat="server" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                             </dx:BootstrapDateEdit>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Fecha de Denuncia:
                         </div>
                         <div class="col-7">
-                            <dx:BootstrapDateEdit ID="fc_denuncia" runat="server">
+                            <dx:BootstrapDateEdit ID="fc_denuncia" runat="server" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                             </dx:BootstrapDateEdit>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Circunstancias del Caso:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="circunstancia" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 50px; width: 300px;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="circunstancia" runat="server" CssClass="form-control fs-10" TextMode="MultiLine"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Lugar del Incidente:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="lugar_siniestro" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 50px; width: 300px;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="lugar_siniestro" runat="server" CssClass="form-control fs-10" TextMode="MultiLine"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Denunciado por:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="denunciante" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="denunciante" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Relación del Denunciante:
                         </div>
                         <div class="col-7">
-                            <asp:TextBox ID="reladenun" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 300px;"></asp:TextBox>
+                            <asp:TextBox ID="reladenun" runat="server" CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-2">
+                    <div class="row p-0">
+                        <div class="col-3">
                             Monto aproximado de reclamo:
                         </div>
                         <div class="col-4">
-                            <asp:TextBox ID="aprox_caso" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 180px;">0.00</asp:TextBox>
+                            <asp:TextBox ID="aprox_caso" runat="server" CssClass="form-control fs-10">0.00</asp:TextBox>
                         </div>
                         <div class="col-2">
-                            <asp:DropDownList ID="id_div" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                            <asp:DropDownList ID="id_div" runat="server" CssClass="form-control-sm fs-10 w-100">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="37" Text="BS"></asp:ListItem>
                                 <asp:ListItem Value="39" Text="SUS"></asp:ListItem>
@@ -288,7 +278,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="row p-2">
+                    <div class="row p-0">
                         <div class="col-2">
                         </div>
                         <div class="col-2">

@@ -22,21 +22,21 @@
                         <div class="col-2">
                             Nº de Caso / Año:
                         </div>
-                        <div class="col-4">
-                            <asp:TextBox ID="aprox_caso" runat="server" Style="color: #336699; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold; height: 25px; width: 180px;"></asp:TextBox>
+                        <div class="col-3">
+                            <asp:TextBox ID="id_caso" runat="server"  CssClass="form-control fs-10"></asp:TextBox>
                         </div>
                         <div class="col-1">
                             /
                         </div>
-                        <div class="col-2">
-                            <asp:DropDownList ID="anio_caso" runat="server" class="form-select" Style="color: #0F5B96; text-align: left; background-color: White; font-family: Arial,Helvetica,sans-serif; font-size: 11px; font-weight: bold;">
+                        <div class="col-4">
+                            <asp:DropDownList ID="anio_caso" runat="server" CssClass="form-control-sm fs-10 w-100">
                                 <asp:ListItem Value="-1" Text="SEL. UNA OPCIÓN"></asp:ListItem>
                                 <asp:ListItem Value="2023" Text="2023"></asp:ListItem>
                                 <asp:ListItem Value="2024" Text="2024"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="col-2">
-                            <asp:ImageButton runat="server" ImageUrl="~/UI/img/view.png" CommandName="UPDATE" BorderStyle="Groove" CssClass="rounded-3" BorderColor="#999999" />
+                            <asp:ImageButton runat="server" ImageUrl="~/UI/img/view.png" ID="btnser" CommandName="UPDATE" BorderStyle="Groove" CssClass="rounded-3" BorderColor="#999999" OnClick="btnser_Click"/>
                         </div>
                     </div>
                     <div class="row p-1">
