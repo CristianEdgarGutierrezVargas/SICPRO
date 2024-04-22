@@ -68,6 +68,7 @@
     <Compile Include="CDBSicPro\Cpr_devolucion.cs" />
     <Compile Include="CDBSicPro\Cpr_formriesgo.cs" />
     <Compile Include="CDBSicPro\Cpr_liqrec.cs" />
+    <Compile Include="CDBSicPro\Cpr_amortizaciones.cs" />
     <Compile Include="CDBSicPro\Cpr_numaplicas.cs" />
     <Compile Include="CDBSicPro\Cpr_pago.cs" />
     <Compile Include="CDBSicPro\Cpr_pagocompania.cs" />

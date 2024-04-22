@@ -15,13 +15,13 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
     {
 
         /// <summary>
-        /// aprox_caso control.
+        /// id_caso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox aprox_caso;
+        protected global::System.Web.UI.WebControls.TextBox id_caso;
 
         /// <summary>
         /// anio_caso control.
@@ -31,6 +31,15 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList anio_caso;
+
+        /// <summary>
+        /// btnser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnser;
 
         /// <summary>
         /// cpmaster_nomraz control.

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -304,6 +305,25 @@ namespace ManejadorMetodos.CDBSicPro
                 return sql;
 
 
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Consulta", secureException);
+            }
+        }
+        public void ActuaReciboR(long id_recibo,decimal anio_recibo)
+        {
+            try
+            {
+                //string sql = string.Concat("UPDATE pr_recibo SET monto_resto = 0 where id_recibo = ", this.recibo.Text, " and anio_recibo = ", this.anio_recibo.Value);
+                var sql = (
+                            from recibo in _context.pr_recibo
+                            where recibo.id_recibo == id_recibo
+                                & recibo.anio_recibo == anio_recibo
+                            select recibo
+                          ).FirstOrDefault();
+                sql.monto_resto = 0;
+                _context.SaveChanges();
             }
             catch (SecureExceptions secureException)
             {

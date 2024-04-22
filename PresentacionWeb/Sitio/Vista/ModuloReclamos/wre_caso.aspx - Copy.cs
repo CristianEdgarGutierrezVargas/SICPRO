@@ -73,7 +73,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
             //valid valid = new valid();
             try
             {
-                if (this.id_suc.SelectedValue == "0")
+                if (this.id_suc.SelectedValue =="0")
                 {
                     str += "Debe Seleccionar un valor para sucursal \n ";
                     flag = true;
@@ -248,21 +248,21 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
                     //reCaso.id_recibo;
                     //reCaso.anio_recibo;
 
-                    re_siniestro siniestro = new re_siniestro();
-                    siniestro.id_caso = id_caso;
-                    siniestro.anio = reCaso.anio_caso;
-                    siniestro.id_sucur = reCaso.id_sucur;
-                    siniestro.fc_incidente = (DateTime)this.fc_incidente.Value;
-                    siniestro.denunciante = this.denunciante.Text;
-                    siniestro.reladenun = this.reladenun.Text;
-                    siniestro.mat_aseg = this.mat_aseg.Text;
-                    siniestro.lugar_siniestro = this.lugar_siniestro.Text;
-                    siniestro.circunstancia = this.circunstancia.Text;
-                    siniestro.id_uniobj = double.Parse(this.id_uniobj.Text);
-                    siniestro.uniobj = this.uniobj.Text;
-                    siniestro.fc_denuncia = (DateTime)this.fc_incidente.Value;
+                    //re_siniestro siniestro = new re_siniestro();
+                    //siniestro.id_caso = id_caso;
+                    //siniestro.anio = reCaso.anio_caso;
+                    //siniestro.id_sucur = reCaso.id_sucur;
+                    //siniestro.fc_incidente = (DateTime)this.fc_incidente.Value;
+                    //siniestro.denunciante = this.denunciante.Text;
+                    //siniestro.reladenun = this.reladenun.Text;
+                    //siniestro.mat_aseg = this.mat_aseg.Text;
+                    //siniestro.lugar_siniestro = this.lugar_siniestro.Text;
+                    //siniestro.circunstancia = this.circunstancia.Text;
+                    //siniestro.id_uniobj = decimal.Parse(this.id_uniobj.Text);
+                    //siniestro.uniobj = this.uniobj.Text;
+                    //siniestro.fc_denuncia = (DateTime)this.fc_incidente.Value;
 
-                    logicaReclamos.add_siniestro(siniestro);
+                    //logicaReclamos.add_siniestro(siniestro);
 
                     /*
                     reCaso.fc_incidente = this.fc_incidente;
@@ -360,9 +360,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         {
             try
             {
-                var list = logicaReclamos.ObtenerPolizaPP(long.Parse(this.id_poliza.SelectedValue.ToString()));
-                this.nomraz2.Text = list[0].desc_prod;
-                this.desc_prod.Text = list[0].nomraz;
+                var list=logicaReclamos.ObtenerPolizaPP(long.Parse(this.id_poliza.SelectedValue.ToString()));
+                this.nomraz2.Text= list[0].desc_prod;
+                this.desc_prod.Text= list[0].nomraz; 
             }
             catch (SecureExceptions ex)
             {
