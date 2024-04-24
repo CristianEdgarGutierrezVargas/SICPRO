@@ -25,7 +25,7 @@ namespace ManejadorMetodos.CDBSicPro
         {
             try
             {
-                //SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado = 'true'
+                
                 var sql = _context.vcb_listacuoamort.Where(x=>x.id_poliza== idPol && x.id_movimiento==idMov).ToList();
                 
                 return sql;

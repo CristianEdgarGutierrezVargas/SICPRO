@@ -522,7 +522,21 @@ namespace Logica.Consumo
                 //dbContext.Dispose();
             }
         }
-
+        public bool UpdatePolizaMovimiento(pr_polmov objPolMov)
+        {
+            try
+            {
+                return _manejador_pr_polmov.UpdatePolMov(objPolMov);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
 
         public List<pr_polmov> GetListPolMov()
         {
@@ -636,6 +650,21 @@ namespace Logica.Consumo
             try
             {
                 return _manejador_pr_poliza.InsertarPoliza(objPoliza);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al Generar la Transacción", secureException);
+            }
+            finally
+            {
+                //dbContext.Dispose();
+            }
+        }
+        public bool UpdatePoliza(pr_poliza objPoliza)
+        {
+            try
+            {
+                return _manejador_pr_poliza.UpdatePoliza(objPoliza);
             }
             catch (SecureExceptions secureException)
             {

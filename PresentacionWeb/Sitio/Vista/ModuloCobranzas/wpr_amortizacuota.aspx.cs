@@ -380,8 +380,8 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
 
                 var lstGrupo = conCobranza.ObtenerGrupoM(Convert.ToInt64(num_poliza.Value));
-                id_gru.Value = lstGrupo.FirstOrDefault().id_gru.ToString();
-                desc_grupo.Text = lstGrupo.FirstOrDefault().desc_grupo;
+                id_gru.Value = lstGrupo.Count==0?"": lstGrupo.FirstOrDefault().id_gru.ToString();
+                desc_grupo.Text = lstGrupo.Count == 0 ? "" : lstGrupo.FirstOrDefault().desc_grupo;
             }
             catch
             {

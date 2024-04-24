@@ -20,13 +20,13 @@ namespace ManejadorMetodos.CDBSicPro
         }
 
         #endregion
-        public vcb_resumcuotas Cuotas(long idPol, long idMov)
+        public List<vcb_resumcuotas> Cuotas(long idPol, long idMov)
         
         {
             try
             {
                 //SELECT num_poliza, nomraz, fc_inivig, fc_finvig, id_poliza, id_movimiento FROM vcb_veripoliza1 WHERE estado = 'true'
-                var sql = _context.vcb_resumcuotas.Where(x=>x.id_poliza== idPol && x.id_movimiento==idMov && x.cuotatotal > x.cuotapago).FirstOrDefault();
+                var sql = _context.vcb_resumcuotas.Where(x=>x.id_poliza== idPol && x.id_movimiento==idMov && x.cuotatotal > x.cuotapago).ToList();
                 
                 return sql;
             }

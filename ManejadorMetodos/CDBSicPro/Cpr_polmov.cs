@@ -78,6 +78,53 @@ namespace ManejadorMetodos.CDBSicPro
                 }
             }
         }
+        public bool UpdatePolMov(pr_polmov objPolMov)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_polmov.Where(w => w.id_poliza == objPolMov.id_poliza && w.id_movimiento== objPolMov.id_movimiento).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        sql.id_perejec = objPolMov.id_perejec;
+                        sql.fc_emision = objPolMov.fc_emision;
+                        sql.fc_inivig = objPolMov.fc_inivig;
+                        sql.fc_finvig = objPolMov.fc_finvig;
+                        sql.prima_bruta = objPolMov.prima_bruta;
+                        sql.prima_neta = objPolMov.prima_neta;
+                        sql.por_comision = objPolMov.por_comision;
+                        sql.comision = objPolMov.comision;
+                        sql.id_div = objPolMov.id_div;
+                        sql.tipo_cuota = objPolMov.tipo_cuota;
+                        sql.num_cuota = objPolMov.num_cuota;
+                        sql.id_clamov = objPolMov.id_clamov;
+                        sql.estado = objPolMov.estado;
+                        sql.id_dir = objPolMov.id_dir;
+                        sql.fc_recepcion = objPolMov.fc_recepcion;
+                        sql.mat_aseg = objPolMov.mat_aseg;
+                        sql.no_liquida = objPolMov.no_liquida;
+                        sql.id_mom = objPolMov.id_mom;
+
+
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
         public pr_polmov GetPolizaMovimiento(long idPoliza, long idMovimiento)
         {
 

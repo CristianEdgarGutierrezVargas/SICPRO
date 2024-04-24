@@ -281,7 +281,7 @@ namespace Logica.Consumo
 
             try
             {
-                var cpoliza = _manejador_pr_poliza.GetListPoliza().Where(c => c.id_poliza == idPol);
+                var cpoliza = _manejador_pr_poliza.GetListPoliza().Where(c => c.id_poliza == idPol).ToList();
                 var grupo = _manejador_pr_grupo.ObtenerGrupo();
                 var pol = cpoliza.Join(grupo, w => w.id_gru, s => (long)s.id_gru, (w, s) => new OcGrupoM { id_gru = (long)s.id_gru, id_poliza = w.id_poliza, desc_grupo = s.desc_grupo, num_poliza = w.num_poliza }).ToList();
                 return pol;
@@ -293,7 +293,7 @@ namespace Logica.Consumo
 
 
         }
-        public vcb_resumcuotas Cuotas(long idPol, long idMov)
+        public List<vcb_resumcuotas> Cuotas(long idPol, long idMov)
         {
 
             try

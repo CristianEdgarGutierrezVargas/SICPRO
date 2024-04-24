@@ -72,6 +72,42 @@ namespace ManejadorMetodos.CDBSicPro
             }
         }
 
+        public bool UpdatePoliza(pr_poliza objPoliza)
+        {
+            using (var dbContextTransaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_poliza.Where(w => w.id_poliza == objPoliza.id_poliza).FirstOrDefault();
+
+                    if (sql == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        sql.num_poliza = objPoliza.num_poliza;
+                        sql.id_producto = objPoliza.id_producto;
+                        sql.id_perclie = objPoliza.id_perclie;
+                        sql.id_spvs = objPoliza.id_spvs;
+                        sql.id_gru = objPoliza.id_gru;
+                        sql.clase_poliza = objPoliza.clase_poliza;
+                        sql.id_percart = objPoliza.id_percart;
+                       
+                        _context.SaveChanges();
+                        dbContextTransaction.Commit();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
         //public void InsertarPoliza(string variable)
         //{
         //    try
