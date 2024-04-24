@@ -34,7 +34,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
                 id_poliza.Value = num.ToString();
                 id_mov.Value = num1.ToString();
-
+                //id_mom=
                 btnCuotas.Visible = false;
                 btnMemo.Visible = false;
                 btnSalir.Visible = false;
@@ -661,7 +661,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 prPolmov.no_liquida = txtNroLiquidacion.Text;
                 prPolmov.num_cuota = Convert.ToDouble(txtNumCuotas.Text);
 
-                //id_mom = this.id_mom
+               // prPolmov.id_mom = this.id_mom
                 prPolmov.id_movimiento = Convert.ToInt64(id_mov.Value);
                 //65364
                 var responsePolMov = _objConsumoRegistroProd.UpdatePolizaMovimiento(prPolmov);
@@ -850,7 +850,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             {
                 //    pr_cobranzas prCobranza1 = new pr_cobranzas();
                 txtCuotaNeta.Text = txtCuotaTotal.Text;
-                var num3 = double.Parse(txtCuotaNeta.Text.Replace(".", "").Replace(",", "")) / 100 * double.Parse(txtPorcentaje.Text.Replace(".", "").Replace(",", "")) / 100;
+                var num3 = double.Parse(txtCuotaNeta.Text) / 100 * double.Parse(txtPorcentaje.Text) / 100;
                 txtComision.Text = num3.ToString();
                 var num4 = num3 / 100;
                 //txtComision.Text = num4.ToString();
@@ -860,7 +860,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
 
             var num8 = (Convert.ToDecimal(txtCuotaTotal.Text) / prima_bruta) * prima_neta;
             txtCuotaNeta.Text = string.Format("{0:n}", num8);
-            var num9 = num8 * (decimal.Parse(txtPorcentaje.Text.Replace(".", ",")) / 100);
+            var num9 = num8 * (decimal.Parse(txtPorcentaje.Text) / 100);
             txtComision.Text = string.Format("{0:n}", num9);
 
             var sumaTotal = ActualizaSessionCuotas();

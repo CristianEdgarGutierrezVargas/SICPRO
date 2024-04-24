@@ -109,7 +109,7 @@ namespace ManejadorMetodos.CDBSicPro
                         sql.fc_recepcion = objPolMov.fc_recepcion;
                         sql.mat_aseg = objPolMov.mat_aseg;
                         sql.no_liquida = objPolMov.no_liquida;
-                        sql.id_mom = objPolMov.id_mom;
+                       // sql.id_mom = objPolMov.id_mom;
 
 
                         _context.SaveChanges();

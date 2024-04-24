@@ -51,6 +51,15 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         protected global::System.Web.UI.WebControls.HiddenField id_mov;
 
         /// <summary>
+        /// Control id_mom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField id_mom;
+
+        /// <summary>
         /// Control fc_emision.
         /// </summary>
         /// <remarks>
