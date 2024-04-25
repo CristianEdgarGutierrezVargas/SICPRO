@@ -456,7 +456,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
                 //}
                 Session["POLIZA"] = objPoliza;
                 Session["POLIZA_MOVIMIENTO"] = prPolmov;
-                Response.Redirect("~/Sitio/Vista/ValidacionProduccion/wpr_polizacobranza.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
+                Response.Redirect("~/Sitio/Vista/ValidacionProduccion/wpr_polizacobranza.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=42");
                 //Response.Redirect("~/Sitio/Vista/RegistroProduccion/wpr_polizacobranzain.aspx?var=" + objPoliza.id_poliza + "&val=" + responsePolMov.id_movimiento + "&ver=0");
             }
         }

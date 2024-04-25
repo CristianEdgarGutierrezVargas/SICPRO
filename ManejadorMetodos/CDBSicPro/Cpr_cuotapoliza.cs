@@ -150,6 +150,9 @@ namespace ManejadorMetodos.CDBSicPro
                         sql.cuota_total = objPrCuotaPoliza.cuota_total;
                         sql.cuota_neta = objPrCuotaPoliza.cuota_neta;
                         sql.cuota_comis = objPrCuotaPoliza.cuota_comis;
+                        sql.cuota_pago = 0;
+                        sql.cuota_comicob = 0;
+
                     }
                     _context.SaveChanges();
                     dbContextTransaction.Commit();
