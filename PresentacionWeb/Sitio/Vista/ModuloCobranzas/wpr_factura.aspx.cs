@@ -87,30 +87,30 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         protected void img2_Click(object sender, EventArgs e)
         {
             
-                int num = Convert.ToInt32(e.CommandArgument);
-                GridViewRow item = this.grid_factura.Rows[num];
-                Label label = (Label)item.FindControl("num_poliza");
-                Label label1 = (Label)item.FindControl("no_liquida");
-                Label label2 = (Label)item.FindControl("id_perclie");
-                Label label3 = (Label)item.FindControl("cuota");
-                Label label4 = (Label)item.FindControl("monto_pago");
-                TextBox textBox = (TextBox)item.FindControl("factura");
-                TextBox textBox1 = (TextBox)item.FindControl("fecha_factura");
-                HiddenField hiddenField = (HiddenField)item.FindControl("id_pago");
-                pr_factura prFactura = new pr_factura()
-                {
-                    factura = textBox,
-                    fecha_factura = textBox1
-                };
-                prFactura.ModificarPago(int.Parse(hiddenField.Value), label4.Text.Replace(".", "").Replace(",", "."));
-                MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
-                messageBox.SetTitle("Información");
-                messageBox.SetIcon("msg_icon_1.png");
-                messageBox.SetMessage("Factura Modificada Satisfactoriamente");
-                messageBox.SetOKButton("msg_button_class");
-                this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-                this.grid_factura.DataSource = prFactura.ObtenerTabla(this.id_spvs.SelectedValue, this.num_poliza1.SelectedValue);
-                this.grid_factura.DataBind();
+                //int num = Convert.ToInt32(e.CommandArgument);
+                //GridViewRow item = this.grid_factura.Rows[num];
+                //Label label = (Label)item.FindControl("num_poliza");
+                //Label label1 = (Label)item.FindControl("no_liquida");
+                //Label label2 = (Label)item.FindControl("id_perclie");
+                //Label label3 = (Label)item.FindControl("cuota");
+                //Label label4 = (Label)item.FindControl("monto_pago");
+                //TextBox textBox = (TextBox)item.FindControl("factura");
+                //TextBox textBox1 = (TextBox)item.FindControl("fecha_factura");
+                //HiddenField hiddenField = (HiddenField)item.FindControl("id_pago");
+                //pr_factura prFactura = new pr_factura()
+                //{
+                //    factura = textBox,
+                //    fecha_factura = textBox1
+                //};
+                //prFactura.ModificarPago(int.Parse(hiddenField.Value), label4.Text.Replace(".", "").Replace(",", "."));
+                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
+                //messageBox.SetTitle("Información");
+                //messageBox.SetIcon("msg_icon_1.png");
+                //messageBox.SetMessage("Factura Modificada Satisfactoriamente");
+                //messageBox.SetOKButton("msg_button_class");
+                //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
+                //this.grid_factura.DataSource = prFactura.ObtenerTabla(this.id_spvs.SelectedValue, this.num_poliza1.SelectedValue);
+                //this.grid_factura.DataBind();
            
         }
 
