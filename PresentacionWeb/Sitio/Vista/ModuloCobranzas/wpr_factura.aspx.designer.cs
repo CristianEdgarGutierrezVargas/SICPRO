@@ -51,22 +51,22 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grid_factura;
 
         /// <summary>
-        /// Control Button1.
+        /// Control Nuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton Button1;
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton Nuevo;
 
         /// <summary>
-        /// Control Button2.
+        /// Control Salir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton Button2;
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton Salir;
 
         /// <summary>
         /// Control pnlMensaje.

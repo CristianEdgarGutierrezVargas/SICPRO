@@ -192,6 +192,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelSicPro\ObtenerTablaFactura_Result.cs">
+      <DependentUpon>ModelSicPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelSicPro\pagos_rep1_Result.cs">
       <DependentUpon>ModelSicPro.tt</DependentUpon>
     </Compile>

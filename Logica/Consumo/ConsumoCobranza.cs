@@ -427,5 +427,20 @@ namespace Logica.Consumo
                 throw new SecureExceptions("Error al generar la transacción", secureException);
             }
         }
+
+        public List<ObtenerTablaFactura_Result> ObtenerTablaFactura(string id_spvs, string num_poliza)
+        {
+
+            try
+            {
+                var poliza = _manejador_pr_poliza.ObtenerTablaFactura(id_spvs, num_poliza);
+          
+                return poliza;
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+        }
     }
 }

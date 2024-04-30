@@ -88,11 +88,11 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         {
             if (this.id_tpago.Value.ToString() == "69")
             {
-               var datar = conCobranza.ObtenerRD69( this.id_per.Value, this.id_gru.Value, 85);
+                var datar = conCobranza.ObtenerRD69(this.id_per.Value, this.id_gru.Value, 85);
 
                 grdReciboCompensacion.DataSource = datar;
                 grdReciboCompensacion.DataBind();
-                pnlReciboCompensacion.ShowOnPageLoad=true;
+                pnlReciboCompensacion.ShowOnPageLoad = true;
                 return;
             }
             if (this.id_tpago.Value.ToString() != "70")
@@ -105,9 +105,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                 pnlGrdDevolucion.ShowOnPageLoad = true;
 
                 return;
-                
+
             }
-           
+
             var dataTable = conCobranza.ObtenerRD69(this.id_per.Value, "0", 85);
 
             grdReciboCompensacion.DataSource = dataTable;
@@ -124,7 +124,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         protected void b1_Click(object sender, EventArgs e)
         {
-           
+
             if (this.id_perclie.Value == "" || this.id_perclie.Value == null)
             {
                 this.Polizas();
@@ -138,7 +138,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             try
             {
                 string str = "";
-              
+
                 if (string.IsNullOrEmpty(this.monto_pago.Text))
                 {
                     str = string.Concat(str, "<br />Debe Ingresar un monto a pagar");
@@ -149,9 +149,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                     str = string.Concat(str, "<br />Debe Ingresar un Concepto");
                     this.sw = true;
                 }
-                double num = double.Parse(this.monto_exclusion.Text.Replace(".", "").Replace(",", "")) / 100;
-                double num1 = double.Parse(this.monto_pago.Text.Replace(".", "").Replace(",", "")) / 100;
-                if (Math.Round(num1 + double.Parse(this.monto_devolucion.Text.Replace(".", "").Replace(",", "")) / 100 - num, 2) > 0)
+                double num = double.Parse(this.monto_exclusion.Text) / 100;
+                double num1 = double.Parse(this.monto_pago.Text) / 100;
+                if (Math.Round(num1 + double.Parse(this.monto_devolucion.Text) / 100 - num, 2) > 0)
                 {
                     str = string.Concat(str, "<br /> La suma del monto pagado mas el monto a pagar no puede exceder el valor de la prima total ");
                     this.sw = true;
@@ -163,11 +163,11 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                     double num4 = double.Parse(this.comision_cuota.Value);
                     if (this.monto_pago.Text.Length <= 6)
                     {
-                        num1 = double.Parse(this.monto_pago.Text.Replace(".", ","));
+                        num1 = double.Parse(this.monto_pago.Text);
                     }
                     else
                     {
-                        num1 = double.Parse(this.monto_pago.Text.Replace(",", "").Replace(".", ""));
+                        num1 = double.Parse(this.monto_pago.Text);
                         num1 /= 100;
                     }
                     double num5 = 0;
@@ -188,30 +188,29 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                         this.anio_recibo.Value = "0";
                         this.recibo.Text = "0";
                         this.monto_resto.Text = "0";
+
+
                         pr_pago prPago = new pr_pago()
                         {
-                            
-                            id_poliza =Convert.ToInt64(num_poliza.Value),
-                            id_movimiento =Convert.ToInt64(no_liquida.Value),
-                            cuota= Convert.ToDecimal( cuota.Value),
-                           anio_recibo =Convert.ToDecimal( anio_recibo.Value),
-                            monto_pago =Convert.ToDecimal( monto_pago.Text),
+                            id_poliza = Convert.ToInt64(num_poliza.Value),
+                            id_movimiento = Convert.ToInt64(no_liquida.Value),
+                            cuota = Convert.ToDecimal(cuota.Value),
+                            anio_recibo = Convert.ToDecimal(anio_recibo.Value),
+                            monto_pago = Convert.ToDecimal(monto_pago.Text),
                             neta_pago = Convert.ToDecimal(neta_pago.Value),
-                            comision_pago =Convert.ToDecimal( comision_pago.Value),
+                            comision_pago = Convert.ToDecimal(comision_pago.Value),
                             id_tpago = Convert.ToInt64(id_tpago.Value),
                             pago_por = pago_por.Text,
-                           id_liq =Convert.ToInt32 (id_liq.Value),
-                          
+                            id_liq = Convert.ToInt32(id_liq.Value),
                         };
 
                         var objPagos = conCobranza.InsertarPago(prPago);
-
                         pr_cuotapoliza objCuotaPoliza = new pr_cuotapoliza()
-                        { 
-                            id_poliza= Convert.ToInt64(num_poliza.Value),
-                            id_movimiento= Convert.ToInt64(no_liquida.Value),
-                            cuota= Convert.ToDecimal(cuota.Value),
-                            cuota_pago =Convert.ToDecimal( monto_pago.Value)
+                        {
+                            id_poliza = Convert.ToInt64(num_poliza.Value),
+                            id_movimiento = Convert.ToInt64(no_liquida.Value),
+                            cuota = Convert.ToDecimal(cuota.Value),
+                            cuota_pago = Convert.ToDecimal(monto_pago.Value)
                         };
                         var objcuotaPoliza = conCobranza.ActualizarCuotaPago(objCuotaPoliza);
 
@@ -220,26 +219,26 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                             if (this.id_tpago.Value.ToString() == "70")
                             {
                                 pr_devolucion prDev = new pr_devolucion()
-                                { 
-                                    id_devolucion=Convert.ToInt64( recibo.Text),
-                                    id_poliza= Convert.ToInt64(num_poliza.Value),
-                                    
+                                {
+                                    id_devolucion = Convert.ToInt64(recibo.Text),
+                                    id_poliza = Convert.ToInt64(num_poliza.Value),
                                 };
-
-                                var objDevo = conCobranza.ActualizarSaldoDev(prDev,Convert.ToDecimal(monto_pago.Text));
-                            
+                                var objDevo = conCobranza.ActualizarSaldoDev(prDev, Convert.ToDecimal(monto_pago.Text));
                             }
-                            return;
+                            // return;
                         }
-                        pr_recibo prRecibo = new pr_recibo()
+                        else
                         {
-                            id_liq = Convert.ToInt64(id_liq.Value),
-                            id_recibo = Convert.ToInt64(recibo.Text),
-                            anio_recibo=Convert.ToDecimal( anio_recibo.Value)
+                            pr_recibo prRecibo = new pr_recibo()
+                            {
+                                id_liq = Convert.ToInt64(id_liq.Value),
+                                id_recibo = Convert.ToInt64(recibo.Text),
+                                anio_recibo = Convert.ToDecimal(anio_recibo.Value)
+                            };
+                            var objRec = conCobranza.ActualizarReciboCob(prRecibo, Convert.ToDecimal(monto_pago.Text));
+                        }
 
-                        };
-
-                        var objRec = conCobranza.ActualizarReciboCob(prRecibo, Convert.ToDecimal(monto_pago.Text));
+                       
 
                         this.Grilla();
                         this.Limpiar();
@@ -251,18 +250,24 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
                         this.no_liquida.ValueField = "id_movimiento";
                         this.no_liquida.DataBind();
 
-
                         var lstGrupo = conCobranza.ObtenerGrupoM(Convert.ToInt64(num_poliza.Value));
-                        id_gru.Value = lstGrupo.FirstOrDefault().id_gru.ToString();
-                        desc_grupo.Text = lstGrupo.FirstOrDefault().desc_grupo;
-                      
+                        id_gru.Value = lstGrupo.Count == 0 ? "" : lstGrupo.FirstOrDefault().id_gru.ToString();
+                        desc_grupo.Text = lstGrupo.Count == 0 ? "" : lstGrupo.FirstOrDefault().desc_grupo;
+
+                        ////////////////////////
+
+
+
+
+                   
+
                     }
                     else if (num1 > num5)
                     {
                         this.lblMensaje.Text = "El monto a pagar tiene que ser menor al Monto total";
                         imagenFail.Visible = true;
                         imagenOk.Visible = false;
-                       
+
                         pnlMensaje.ShowOnPageLoad = true;
                         return;
                     }
@@ -339,11 +344,13 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
         }
         private void Limpiar()
         {
-            //pr_amortizaciones prAmortizacione = new pr_amortizaciones()
-            //{
-            //    cuota = this.cuota
-            //};
-            //prAmortizacione.Cuotas(int.Parse(this.num_poliza.SelectedValue), int.Parse(this.no_liquida.SelectedValue));
+            var lstCuotas = conCobranza.Cuotas(Convert.ToInt64(num_poliza.Value), Convert.ToInt64(no_liquida.Value));
+
+            this.cuota.DataSource = lstCuotas;
+            this.cuota.TextField = "cuota";
+            this.cuota.ValueField = "cuota";
+            this.cuota.DataBind();
+
             this.cuota.SelectedIndex = -1;
             this.id_tpago.SelectedIndex = -1;
             this.recibo.Text = "";
@@ -380,7 +387,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
 
                 var lstGrupo = conCobranza.ObtenerGrupoM(Convert.ToInt64(num_poliza.Value));
-                id_gru.Value = lstGrupo.Count==0?"": lstGrupo.FirstOrDefault().id_gru.ToString();
+                id_gru.Value = lstGrupo.Count == 0 ? "" : lstGrupo.FirstOrDefault().id_gru.ToString();
                 desc_grupo.Text = lstGrupo.Count == 0 ? "" : lstGrupo.FirstOrDefault().desc_grupo;
             }
             catch
@@ -429,9 +436,9 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             try
             {
 
-               var vnum_poliza =Convert.ToInt64( num_poliza.Value);
-               var vno_liquida = Convert.ToInt64(no_liquida.Value);
-               var vcuota = Convert.ToInt64(cuota.Value);
+                var vnum_poliza = Convert.ToInt64(num_poliza.Value);
+                var vno_liquida = Convert.ToInt64(no_liquida.Value);
+                var vcuota = Convert.ToInt64(cuota.Value);
 
                 var datos = conCobranza.DatosCuota(vnum_poliza, vno_liquida, vcuota).FirstOrDefault();
                 this.cuota_total.Value = datos.cuota_total.ToString();
@@ -448,7 +455,7 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         protected void id_tpago_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             if (this.id_tpago.Value.ToString() != "68")
             {
                 this.recibo.Text = "";
@@ -473,8 +480,12 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
             this.cuota_total.Value = datos.cuota_total.ToString();
             this.cuota_neta.Value = datos.cuota_neta.ToString();
             this.comision_cuota.Value = datos.cuota_comis.ToString();
-            this.monto_exclusion.Text = datos.monto_exclusion.ToString();
-            this.monto_devolucion.Text = datos.monto_devolucion.ToString();
+            this.monto_exclusion.Text = datos.cuotatotal.ToString();
+            this.monto_devolucion.Text = datos.cuotapago.ToString();
+
+        }
+        protected void Insertar(object sender, EventArgs e)
+        {
 
         }
     }

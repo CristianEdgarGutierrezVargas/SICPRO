@@ -39,7 +39,7 @@
                         <div class="col-4 col-sm-4 col-md-4 col-lg-3 col-xl-3">
                             <span id="Label10">Factura:</span>
                         </div>
-                        <div class="col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-8 col-sm-8 col-md-4 col-lg-6 col-xl-6">
                             <dx:BootstrapComboBox ID="num_poliza1" runat="server" ValueType="System.String" NullText="Seleccione una opcion..." AutoPostBack="true" OnSelectedIndexChanged="num_poliza1_SelectedIndexChanged">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
                                 <ValidationSettings ValidationGroup="Buscar">
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="row mt-1">
-                        <div class="mt-1 mt-sm-1 mt-md-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="mt-1 mt-sm-1 mt-md-0 col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
 
                             <asp:Panel runat="server" ID="pnlGrid" Visible="false" CssClass="mt-2">
                                 <dx:BootstrapGridView ID="grid_factura" ClientInstanceName="grid_factura" runat="server" KeyFieldName="id_pago" >
@@ -71,23 +71,23 @@
                                         </dx:BootstrapGridViewDataColumn>
                                         <dx:BootstrapGridViewDataColumn Caption="Poliza" FieldName="num_poliza" Width="30px">
                                         </dx:BootstrapGridViewDataColumn>
-                                        <dx:BootstrapGridViewDateColumn Name="Fecha" Caption="Fecha Factura" FieldName="fecha_factura" Width="30px">
+                                        <dx:BootstrapGridViewDateColumn Name="Fecha" Caption="Fecha Factura" FieldName="fecha_factura" Width="20px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapDateEdit ID="fecha_factura" runat="server" Date='<%# Bind("fecha_factura") %>' CalendarProperties-CssClasses-Button="btn-sm">
+                                                <dx:BootstrapDateEdit ID="fecha_factura" runat="server"  CalendarProperties-CssClasses-Button="btn-sm">
                                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                                 </dx:BootstrapDateEdit>
                                             </DataItemTemplate>
                                         </dx:BootstrapGridViewDateColumn>
-                                        <dx:BootstrapGridViewDataColumn Name="fac" Caption="Nro Factura" FieldName="factura" Width="30px">
+                                        <dx:BootstrapGridViewDataColumn Name="fac" Caption="Nro Factura" FieldName="factura" Width="40px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapTextBox ID="n_factura" runat="server" Text='<%# Bind("factura") %>'>
+                                                <dx:BootstrapTextBox ID="n_factura" runat="server" >
                                                     <CssClasses Input="form-control-sm fs-10" />
                                                 </dx:BootstrapTextBox>
                                             </DataItemTemplate>
                                         </dx:BootstrapGridViewDataColumn>
                                         <dx:BootstrapGridViewDataColumn Caption="" Width="20px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapButton ID="img2" runat="server" Text="" >
+                                                <dx:BootstrapButton ID="img2" runat="server" Text="" OnClick="img2_Click" >
                                                     <CssClasses Icon="bi bi-floppy-fill text-primary" />
                                                     <SettingsBootstrap RenderOption="None" />
                                                 </dx:BootstrapButton>
@@ -108,11 +108,11 @@
 
                     <div class="row mt-2">
                         <div class="col-12">
-                            <dx:BootstrapButton runat="server" ID="Button1" Text="Buscar Factura"  ValidationGroup="Buscar">
+                            <dx:BootstrapButton runat="server" ID="Nuevo" Text="Nuevo"  OnClick="Nuevo_Click" >
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>
-                            <dx:BootstrapButton runat="server" ID="Button2" Text="Cambiar todas"  ValidationGroup="Cambiar">
+                            <dx:BootstrapButton runat="server" ID="Salir" Text="Salir" OnClick="Salir_Click" >
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>

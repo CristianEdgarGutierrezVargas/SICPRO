@@ -645,5 +645,18 @@ namespace ManejadorModelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("pr_calcfrmcred", idproductoParameter, idspvsParameter, primatotalParameter, tipocuotaParameter);
         }
+    
+        public virtual ObjectResult<ObtenerTablaFactura_Result> ObtenerTablaFactura(string id_spvs, string numPoliza)
+        {
+            var id_spvsParameter = id_spvs != null ?
+                new ObjectParameter("id_spvs", id_spvs) :
+                new ObjectParameter("id_spvs", typeof(string));
+    
+            var numPolizaParameter = numPoliza != null ?
+                new ObjectParameter("numPoliza", numPoliza) :
+                new ObjectParameter("numPoliza", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ObtenerTablaFactura_Result>("ObtenerTablaFactura", id_spvsParameter, numPolizaParameter);
+        }
     }
 }

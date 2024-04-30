@@ -545,5 +545,19 @@ namespace ManejadorMetodos.CDBSicPro
                 return null;
             }
         }
+        public List<ObtenerTablaFactura_Result> ObtenerTablaFactura(string id_spvs, string num_poliza)
+        {
+            try
+            {
+                var sql = _context.ObtenerTablaFactura(id_spvs, num_poliza).ToList();
+
+                return sql;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
     }
 }

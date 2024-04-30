@@ -2652,6 +2652,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
         <Function Name="GetTotalCuotas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_poliza" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="ObtenerTablaFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_spvs" Type="varchar" Mode="In" />
+          <Parameter Name="numPoliza" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="pagos_rep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_perclie" Type="varchar" Mode="In" />
           <Parameter Name="id_spvs" Type="varchar" Mode="In" />
@@ -4405,6 +4409,10 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           </FunctionImport>
           <EntitySet Name="re_siniestro" EntityType="sicproModel.re_siniestro" />
           <EntitySet Name="gr_acceso" EntityType="sicproModel.gr_acceso" />
+          <FunctionImport Name="ObtenerTablaFactura" ReturnType="Collection(sicproModel.ObtenerTablaFactura_Result)">
+            <Parameter Name="id_spvs" Mode="In" Type="String" />
+            <Parameter Name="numPoliza" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="co_anticom">
           <Key>
@@ -7519,6 +7527,17 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
           <Property Name="id_rol" Type="Int64" Nullable="false" />
           <Property Name="nivel" Type="Double" Nullable="false" />
         </EntityType>
+        <ComplexType Name="ObtenerTablaFactura_Result">
+          <Property Type="String" Name="num_poliza" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="no_liquida" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="id_perclie" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="nomraz" Nullable="true" MaxLength="160" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="2" Scale="0" />
+          <Property Type="Decimal" Name="monto_pago" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Double" Name="factura" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_factura" Nullable="true" />
+          <Property Type="Int64" Name="id_pago" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10253,6 +10272,21 @@ advertencia 6002: La tabla o vista 'sicpro.dbo.zrep_estcta1' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ObtenerTablaFactura" FunctionName="sicproModel.Store.ObtenerTablaFactura">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicproModel.ObtenerTablaFactura_Result">
+                <ScalarProperty Name="num_poliza" ColumnName="num_poliza" />
+                <ScalarProperty Name="no_liquida" ColumnName="no_liquida" />
+                <ScalarProperty Name="id_perclie" ColumnName="id_perclie" />
+                <ScalarProperty Name="nomraz" ColumnName="nomraz" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="monto_pago" ColumnName="monto_pago" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="fecha_factura" ColumnName="fecha_factura" />
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
