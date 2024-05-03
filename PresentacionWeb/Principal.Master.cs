@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,6 +22,9 @@ namespace PresentacionWeb
             {
                 return;
             }
+            
+
+
             CargaMenu();
         }
 
@@ -36,6 +41,26 @@ namespace PresentacionWeb
 
         private void CargaMenu()
         {
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
+            }
+
+            HttpCookie authCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                Session["roles"] = authTicket.UserData;
+                //string[] userRoles = authTicket.UserData.Split(new Char[] { ',' });
+                //GenericPrincipal userPrincipal = new GenericPrincipal(new GenericIdentity(authTicket.Name), userRoles);
+                //HttpContext.Current.User = userPrincipal; //How do I reference this in the program?
+            }
+            else 
+            {
+                Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
+            }
+
+
             var IdRolSession = Session["roles"];
             if (IdRolSession == null)
             {
@@ -69,6 +94,12 @@ namespace PresentacionWeb
                 }
                 
             }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
         }
     }
 }

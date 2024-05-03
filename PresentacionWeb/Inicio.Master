@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Inicio.master.cs" Inherits="PresentacionWeb.Inicio" %>
+
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/UI/css/themes/cerulean.v5.3.css" rel="stylesheet" />
+    <link href="~/UI/css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="UI/css/Blue.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/UI/BootstrapIcons/font/bootstrap-icons.css" />
+
+</head>
+<script src='<%=ResolveUrl("~/crystalreportviewers13/js/crviewer/crv.js")%>' type="text/javascript"></script>
+<script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.js")%>"></script>
+<script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.js")%>"></script>
+<!-- jQuery -->
+
+<script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.min.js")%>"></script>
+<script type="text/javascript" src="<%= ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+<script type="text/javascript" src="<%= ResolveUrl("~/Scripts/bootstrap.min.js")%>"></script>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="MasterAjaxScript" runat="server"></asp:ScriptManager>
+
+        <div class="row">
+            <div class="flex-row ps-5" id="header">
+                <div id="logo" class="pt-lg-4 pt-md-4 mt-md-4 mt-lg-4 float-start float-sm-start float-md-end col-12 col-sm-12 col-md-5">
+                    <h1><a href="#">
+                        <img src="../../../UI/img/logoPrevicor_01.png" alt="SICPRO" width="250" style="border: 0;"></a></h1>
+                </div>
+                <div id="menu" class="pt-lg-5 pt-md-5 mt-md-4 mt-lg-4 float-end float-sm-end float-md-start col-12 col-sm-12 col-md-7">
+
+                    <blockquote>
+                        <ul>
+                            <%--<li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>--%>
+                            <li><a href="#" onclick="abre2();">Acerca de </a></li>
+                            <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
+                        </ul>
+                    </blockquote>
+
+                </div>
+            </div>
+
+        </div>
+        <p></p>
+        <div class="container mt-lg-0 mt-md-0 mt-5">
+            <style>
+                /*               .nav-link {
+                   color:white!important
+               }
+*/
+                /* .dxbs-acc .panel-body > ul.nav {
+     margin: 0em;
+ }
+
+ .panel-default > .panel-heading {
+     background-color: #B7FFB7;
+ }
+
+ .panel-default > .header-collapsed {
+     background-color: #f5f5f5;
+ }
+*/
+                /*.accordion-body {    
+    color: black !important;
+}*/
+                .nav-link {
+                    color: black !important;
+                }
+
+                .nav-item {
+                    color: #808080 !important;
+                    background-color: #ffffff !important;
+                    /*background-color: var(--bs-accordion-active-bg);*/
+                }
+
+                    .nav-item :hover {
+                        color: black !important;
+                        background-color: #d5edfa !important;
+                    }
+
+                .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+                    color: black !important;
+                    background-color: #d5edfa !important;
+                }
+
+                .accordion-header .accordion-button span:first-child {
+                    position: relative;
+                    left: 30px !important;
+                }
+
+                .accordion-header .accordion-button span:nth-child(2) {
+                    position: relative;
+                    left: -90px !important;
+                    background-color: transparent !important;
+                    font-size: large;
+                }
+
+                .accordion-button {
+                    /* position: relative; */
+                    /* display: flex; */
+                    align-items: center;
+                    width: 100%;
+                    padding: 5px; /* var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x); */
+                    font-size: 1rem;
+                    color: var(--bs-accordion-btn-color);
+                    text-align: left;
+                    background-color: var(--bs-accordion-btn-bg);
+                    border: 0;
+                    border-radius: 0;
+                    overflow-anchor: none;
+                    transition: var(--bs-accordion-transition);
+                }
+
+                .nav-pills .nav-link {
+                    background: none;
+                    border: 0;
+                    border-radius: var(--bs-nav-pills-border-radius);
+                    border-radius: 0px;
+                    min-height: 30px;
+                    padding-top: 10px;
+                }
+            </style>
+            <!-- Menu Barra Izquierda -->
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 ">
+                </div>
+                <div class="col-12 col-md-12 col-md-8 col-lg-9">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <!-- Inicio Barra Derecha -->
+                    <div style="clear: both;">
+                        <p style="text-align: center; color: aliceblue;" class="right">
+                            ©2024 All Rights Reserved. <%--&nbsp;•&nbsp; Design by <a href="http://www.eisbol.com/">Enterprise Integrated Solutions Bolivia</a>.--%>
+                            <br>
+                            <%--EISBOL--%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

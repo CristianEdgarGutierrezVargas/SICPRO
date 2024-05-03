@@ -685,6 +685,7 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Inicio.Master" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -2958,6 +2959,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inicio.Master.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.Master.designer.cs">
+      <DependentUpon>Inicio.Master</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Funciones.cs" />
     <Compile Include="Parametros\CParametros.cs" />
     <Compile Include="Principal.Master.cs">
@@ -4093,6 +4101,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sitio\Vista\Reportes\reportes\reportepagoacia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportepagoacia.cs</LastGenOutput>

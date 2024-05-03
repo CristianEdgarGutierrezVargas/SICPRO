@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.Login.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inicio.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PresentacionWeb.Sitio.Vista.Login.Login" %>
 
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
@@ -50,7 +50,7 @@
                                     <dx:BootstrapComboBox ID="sesion" runat="server" DropDownStyle="DropDownList" NullText="Seleccione una opción" ValueType="System.String">
                                         <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                         <Items>
-                                            <dx:BootstrapListEditItem Text="Sel. una Opción" Value="0" Selected />
+                                            <dx:BootstrapListEditItem Text="Sel. una Opción" Value="0" Selected="true" />
                                             <dx:BootstrapListEditItem Text="30 Minutos" Value="30" />
                                             <dx:BootstrapListEditItem Text="60 Minutos" Value="60" />
                                             <dx:BootstrapListEditItem Text="90 Minutos" Value="90" />
