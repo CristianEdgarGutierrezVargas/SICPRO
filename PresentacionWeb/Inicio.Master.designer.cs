@@ -11,7 +11,7 @@ namespace PresentacionWeb
 {
 
 
-    public partial class Principal
+    public partial class Inicio
     {
 
         /// <summary>
@@ -40,24 +40,6 @@ namespace PresentacionWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager MasterAjaxScript;
-
-        /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnLogout;
-
-        /// <summary>
-        /// dxMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapAccordion dxMenu;
 
         /// <summary>
         /// ContentPlaceHolderPrincipal control.

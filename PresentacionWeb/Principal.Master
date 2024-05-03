@@ -43,6 +43,9 @@
                             <%--<li><a href="http://www.eisbol.com" target="_blank">EISBOL</a></li>--%>
                             <li><a href="#" onclick="abre2();">Acerca de </a></li>
                             <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
+                            <li>
+                                <dx:BootstrapButton ID="btnLogout" runat="server" AutoPostBack="true" Text="Logout" OnClick="btnLogout_Click"></dx:BootstrapButton>
+                            </li>
                         </ul>
                     </blockquote>
 

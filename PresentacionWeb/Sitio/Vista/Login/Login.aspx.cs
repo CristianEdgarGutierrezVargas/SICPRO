@@ -3,6 +3,8 @@ using Logica.Consumo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -12,7 +14,7 @@ namespace PresentacionWeb.Sitio.Vista.Login
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly ConsumoAuth _consumoAuth=new ConsumoAuth();
+        private readonly ConsumoAuth _consumoAuth = new ConsumoAuth();
         private long tiempo;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +27,7 @@ namespace PresentacionWeb.Sitio.Vista.Login
         {
             try
             {
-                
+
                 if (!_consumoAuth.VerificarUsuario(base.Server.HtmlEncode(this.txtusuario.Text.ToUpper()), base.Server.HtmlEncode(this.txtpassword.Text.ToUpper())))
                 {
                     lblmensaje.Text = "Usuario Inválido o ha Iniciado sesión en otro equipo";
@@ -38,7 +40,7 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     this.Session["roles"] = str1;
                     string str2 = _consumoAuth.ObtenerId(this.txtusuario.Text.ToUpper(), this.txtpassword.Text.ToUpper());
                     this.Session["id"] = str2;
-                    if (sesion.Value!= "0")
+                    if (sesion.Value != "0")
                     {
                         tiempo = int.Parse(sesion.Value.ToString());
                     }
@@ -46,13 +48,27 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     {
                         tiempo = 30;
                     }
+
                     string text = this.txtusuario.Text;
                     DateTime now = DateTime.Now;
                     DateTime dateTime = DateTime.Now;
-                    FormsAuthenticationTicket formsAuthenticationTicket = new FormsAuthenticationTicket(2, text, now, dateTime.AddMinutes((double)this.tiempo), false, this.txtusuario.Text, FormsAuthentication.FormsCookiePath);
-                    string str3 = FormsAuthentication.Encrypt(formsAuthenticationTicket);
-                    HttpCookie httpCookie = new HttpCookie(FormsAuthentication.FormsCookieName, str3);
-                    base.Response.Cookies.Add(httpCookie);
+                    double tiempSesion = Convert.ToDouble(tiempo);
+
+                    FormsAuthenticationTicket tkt;
+                    string cookiestr;
+                    HttpCookie ck;
+                    tkt = new FormsAuthenticationTicket(1, text, DateTime.Now,DateTime.Now.AddMinutes(tiempSesion), true, str1);
+                    cookiestr = FormsAuthentication.Encrypt(tkt);
+                    ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                   // if (chkPersistCookie.Checked)
+                        ck.Expires = tkt.Expiration;
+                    ck.Path = FormsAuthentication.FormsCookiePath;
+                    Response.Cookies.Add(ck);
+
+                    ///FormsAuthentication.;
+                    //var ff = HttpContext.Current.User.Identity.IsAuthenticated;
+                    //bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated
+
                     string str4 = this.Session["id"].ToString();
                     _consumoAuth.Logeo(str4);
                     if (!_consumoAuth.VerificarEstado(base.Server.HtmlEncode(this.txtusuario.Text.ToUpper()), base.Server.HtmlEncode(this.txtpassword.Text.ToUpper())))
@@ -85,6 +101,28 @@ namespace PresentacionWeb.Sitio.Vista.Login
             else
                 mensajeError = objErr.InnerException.Message;
             Response.Redirect("~/Sitio/Vista/Exceptions/Error.aspx?error=" + mensajeError.Replace("\r\n", ""));
+        }
+
+        public HttpCookie GetAuthCookie(string user, double time)
+        {
+            // Temporalmente se coloca un rol de sesión por defecto
+            string sessionRoles = "GUEST"; //rolesManager.GetSessionRoles(validUser);
+
+            DateTime expires = DateTime.Now.AddMinutes(time);
+            FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                1,                  // version
+                user,        // user name
+                DateTime.Now,       // created
+                expires,           // expires
+                true,   // persistent?
+                sessionRoles        // roles for use in IsInRole() method
+                );
+
+            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+
+            HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+
+            return authCookie;
         }
     }
 }
