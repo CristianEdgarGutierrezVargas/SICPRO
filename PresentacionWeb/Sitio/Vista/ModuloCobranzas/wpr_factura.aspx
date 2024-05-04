@@ -39,7 +39,7 @@
                         <div class="col-4 col-sm-4 col-md-4 col-lg-3 col-xl-3">
                             <span id="Label10">Factura:</span>
                         </div>
-                        <div class="col-8 col-sm-8 col-md-4 col-lg-6 col-xl-6">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-7 col-xl-7">
                             <dx:BootstrapComboBox ID="num_poliza1" runat="server" ValueType="System.String" NullText="Seleccione una opcion..." AutoPostBack="true" OnSelectedIndexChanged="num_poliza1_SelectedIndexChanged">
                                 <CssClasses Button="btn-sm" Input="form-control-sm fs-10" ListBox="fs-10" />
                                 <ValidationSettings ValidationGroup="Buscar">
@@ -50,10 +50,10 @@
                     </div>
 
                     <div class="row mt-1">
-                        <div class="mt-1 mt-sm-1 mt-md-0 col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                        <div class="mt-1 mt-sm-1 mt-md-0 col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11">
 
                             <asp:Panel runat="server" ID="pnlGrid" Visible="false" CssClass="mt-2">
-                                <dx:BootstrapGridView ID="grid_factura" ClientInstanceName="grid_factura" runat="server" KeyFieldName="id_pago" >
+                                <dx:BootstrapGridView ID="grid_factura" ClientInstanceName="grid_factura" runat="server" KeyFieldName="num_poliza;no_liquida;id_perclie;cuota;monto_pago;id_pago">
                                     <Settings ShowColumnHeaders="true" ShowTitlePanel="true" />
                                     <SettingsText Title="Cantidad de cuotas de la póliza" />
                                     <SettingsBehavior AllowFocusedRow="True" AllowClientEventsOnLoad="False" AllowSelectByRowClick="true" />
@@ -65,30 +65,34 @@
                                     <SettingsDetail ShowDetailRow="true" ShowDetailButtons="false" />
 
                                     <Columns>
-                                        <dx:BootstrapGridViewDataColumn Caption="Id Pago" FieldName="id_pago" Width="20px">
+                                        <dx:BootstrapGridViewDataColumn Caption="Nº Poliza" FieldName="num_poliza" Width="100px" CssClasses-HeaderCell="fs-11">
                                         </dx:BootstrapGridViewDataColumn>
-                                        <dx:BootstrapGridViewDataColumn Caption="Nº Cuota" FieldName="cuota" Width="30px">
+                                        <dx:BootstrapGridViewDataColumn Caption="Nº Liquida." FieldName="no_liquida" Width="100px">
                                         </dx:BootstrapGridViewDataColumn>
-                                        <dx:BootstrapGridViewDataColumn Caption="Poliza" FieldName="num_poliza" Width="30px">
+                                        <dx:BootstrapGridViewDataColumn Caption="Cliente" FieldName="id_perclie" Width="50px">
+                                        </dx:BootstrapGridViewDataColumn>
+                                        <dx:BootstrapGridViewDataColumn Caption="Cuota" FieldName="cuota" Width="60px">
+                                        </dx:BootstrapGridViewDataColumn>
+                                        <dx:BootstrapGridViewDataColumn Caption="Monto" FieldName="monto_pago" Width="70px">
                                         </dx:BootstrapGridViewDataColumn>
                                         <dx:BootstrapGridViewDateColumn Name="Fecha" Caption="Fecha Factura" FieldName="fecha_factura" Width="20px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapDateEdit ID="fecha_factura" runat="server"  CalendarProperties-CssClasses-Button="btn-sm">
+                                                <dx:BootstrapDateEdit ID="fecha_factura" runat="server" CalendarProperties-CssClasses-Button="btn-sm" Width="20px">
                                                     <CssClasses Button="btn-sm" Input="form-control-sm fs-10" />
                                                 </dx:BootstrapDateEdit>
                                             </DataItemTemplate>
                                         </dx:BootstrapGridViewDateColumn>
-                                        <dx:BootstrapGridViewDataColumn Name="fac" Caption="Nro Factura" FieldName="factura" Width="40px">
+                                        <dx:BootstrapGridViewDataColumn Name="fac" Caption="Nro Factura" FieldName="factura" Width="20px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapTextBox ID="n_factura" runat="server" >
+                                                <dx:BootstrapTextBox ID="n_factura" runat="server" Width="80px">
                                                     <CssClasses Input="form-control-sm fs-10" />
                                                 </dx:BootstrapTextBox>
                                             </DataItemTemplate>
                                         </dx:BootstrapGridViewDataColumn>
-                                        <dx:BootstrapGridViewDataColumn Caption="" Width="20px">
+                                        <dx:BootstrapGridViewDataColumn Caption="" Width="10px">
                                             <DataItemTemplate>
-                                                <dx:BootstrapButton ID="img2" runat="server" Text="" OnClick="img2_Click" >
-                                                    <CssClasses Icon="bi bi-floppy-fill text-primary" />
+                                                <dx:BootstrapButton ID="img2" runat="server" Text="" OnClick="img2_Click">
+                                                    <CssClasses Icon="bi bi-floppy-fill text-orange" />
                                                     <SettingsBootstrap RenderOption="None" />
                                                 </dx:BootstrapButton>
                                             </DataItemTemplate>
@@ -108,11 +112,11 @@
 
                     <div class="row mt-2">
                         <div class="col-12">
-                            <dx:BootstrapButton runat="server" ID="Nuevo" Text="Nuevo"  OnClick="Nuevo_Click" >
+                            <dx:BootstrapButton runat="server" ID="Nuevo" Text="Nuevo" OnClick="Nuevo_Click">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>
-                            <dx:BootstrapButton runat="server" ID="Salir" Text="Salir" OnClick="Salir_Click" >
+                            <dx:BootstrapButton runat="server" ID="Salir" Text="Salir" OnClick="Salir_Click">
                                 <SettingsBootstrap RenderOption="None" Sizing="Small" />
                                 <CssClasses Control="msg_button_class" Text="fs-9" />
                             </dx:BootstrapButton>

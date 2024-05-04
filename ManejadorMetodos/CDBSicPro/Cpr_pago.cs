@@ -88,6 +88,32 @@ namespace ManejadorMetodos.CDBSicPro
             //}
         }
 
+        public bool ModificarPago(double? nro_factura, DateTime fechaFactura, long id_pago)
+        {
+            using (var dbContextTransaccion = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sql = _context.pr_pago.Where(w => w.id_pago == id_pago).FirstOrDefault();
+                    if (sql != null)
+                    {
+                        sql.factura = nro_factura;
+                        sql.fecha_factura = fechaFactura;
+                        _context.SaveChanges();
+                        dbContextTransaccion.Commit();
+                        return true;
+                    }
+                    return false;
+
+                }
+                catch (SecureExceptions secureException)
+                {
+                    throw new SecureExceptions("Error al Generar la Transacción", secureException);
+                }
+
+            }
+        }
+
         public pr_pago InsertPago(pr_pago objPago)
         {
             using (var dbContextTransaccion = _context.Database.BeginTransaction())

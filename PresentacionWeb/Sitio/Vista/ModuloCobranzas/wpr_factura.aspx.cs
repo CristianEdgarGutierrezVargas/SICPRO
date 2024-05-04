@@ -11,6 +11,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using DevExpress.XtraPrinting;
+using DevExpress.XtraReports;
+
 namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 {
     public partial class wpr_factura : System.Web.UI.Page
@@ -86,32 +89,49 @@ namespace PresentacionWeb.Sitio.Vista.ModuloCobranzas
 
         protected void img2_Click(object sender, EventArgs e)
         {
-            
-                //int num = Convert.ToInt32(e.CommandArgument);
-                //GridViewRow item = this.grid_factura.Rows[num];
-                //Label label = (Label)item.FindControl("num_poliza");
-                //Label label1 = (Label)item.FindControl("no_liquida");
-                //Label label2 = (Label)item.FindControl("id_perclie");
-                //Label label3 = (Label)item.FindControl("cuota");
-                //Label label4 = (Label)item.FindControl("monto_pago");
-                //TextBox textBox = (TextBox)item.FindControl("factura");
-                //TextBox textBox1 = (TextBox)item.FindControl("fecha_factura");
-                //HiddenField hiddenField = (HiddenField)item.FindControl("id_pago");
-                //pr_factura prFactura = new pr_factura()
-                //{
-                //    factura = textBox,
-                //    fecha_factura = textBox1
-                //};
-                //prFactura.ModificarPago(int.Parse(hiddenField.Value), label4.Text.Replace(".", "").Replace(",", "."));
-                //MessageBox messageBox = new MessageBox(base.Server.MapPath("msgbox.tpl"));
-                //messageBox.SetTitle("Información");
-                //messageBox.SetIcon("msg_icon_1.png");
-                //messageBox.SetMessage("Factura Modificada Satisfactoriamente");
-                //messageBox.SetOKButton("msg_button_class");
-                //this.msgboxpanel.InnerHtml = messageBox.ReturnObject();
-                //this.grid_factura.DataSource = prFactura.ObtenerTabla(this.id_spvs.SelectedValue, this.num_poliza1.SelectedValue);
-                //this.grid_factura.DataBind();
-           
+
+            BootstrapButton button = sender as BootstrapButton;
+            var container = button.NamingContainer as GridViewDataItemTemplateContainer;
+            string[] valores = container.KeyValue.ToString().Split('|');
+
+            var numPoliza = valores[0];
+            var noLiquida = valores[1];
+            var idPerClie = valores[2];
+            var cuota = valores[3];
+            var montoPago = valores[4];
+            var idPago= valores[5];
+
+            int num = Convert.ToInt32(container.VisibleIndex);
+            GridViewDataColumn CC = grid_factura.Columns[5] as GridViewDataColumn;
+            BootstrapDateEdit fechaFactura = grid_factura.FindRowCellTemplateControl(num, CC, "fecha_factura") as BootstrapDateEdit;
+            GridViewDataColumn CC1 = grid_factura.Columns[6] as GridViewDataColumn;
+            BootstrapTextBox numFactura = grid_factura.FindRowCellTemplateControl(num, CC1, "n_factura") as BootstrapTextBox;
+
+            //var label1 = (BootstrapDateEdit)grid_factura.Rows[num].Cells[1].FindControl("dtFechaPago");
+            //Label label = (Label)grid_factura.FindDetailRowTemplateControl("num_poliza");
+            //Label label1 = (Label)item.FindControl("no_liquida");
+            //Label label2 = (Label)item.FindControl("id_perclie");
+            //Label label3 = (Label)item.FindControl("cuota");
+            //Label label4 = (Label)item.FindControl("monto_pago");
+            //TextBox textBox = (TextBox)item.FindControl("factura");
+            //TextBox textBox1 = (TextBox)item.FindControl("fecha_factura");
+            //HiddenField hiddenField = (HiddenField)item.FindControl("id_pago");
+            //pr_factura prFactura = new pr_factura()
+            //{
+            //    factura = textBox,
+            //    fecha_factura = textBox1
+            //};
+
+            conCobranza.ModificarPago(Convert.ToDouble( numFactura.Text), fechaFactura.Date,Convert.ToInt64( idPago));
+            lblMensaje.Text = "Factura Modificada Satisfactoriamente";
+            imagenOk.Visible = true;
+            imagenFail.Visible = false;
+            pnlMensaje.ShowOnPageLoad = true;
+        
+          
+            this.grid_factura.DataSource = conCobranza.ObtenerTablaFactura(this.id_spvs.Value.ToString(), numPoliza);
+            this.grid_factura.DataBind();
+
         }
 
     }

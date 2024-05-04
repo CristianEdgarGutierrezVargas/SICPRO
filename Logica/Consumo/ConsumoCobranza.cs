@@ -107,6 +107,19 @@ namespace Logica.Consumo
             }
 
         }
+        public bool ModificarPago(double? factura, DateTime fechaFactura, long id_pago)
+        {
+
+            try
+            {
+                return _manejador_pr_pago.ModificarPago(factura, fechaFactura, id_pago);
+            }
+            catch (SecureExceptions secureException)
+            {
+                throw new SecureExceptions("Error al generar la transacción", secureException);
+            }
+
+        }
         public bool ModFacM(double? nro_factura, double? nnro_factura, DateTime fechaFactura, string id_spvs)
         {
 
