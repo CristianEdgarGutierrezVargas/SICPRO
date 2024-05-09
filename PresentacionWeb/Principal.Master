@@ -44,7 +44,9 @@
                             <li><a href="#" onclick="abre2();">Acerca de </a></li>
                             <li><a href="#" onclick="abre1();">Soporte Técnico</a></li>
                             <li>
-                                <dx:BootstrapButton ID="btnLogout" runat="server" AutoPostBack="true" Text="Logout" OnClick="btnLogout_Click"></dx:BootstrapButton>
+                                <a>
+                                    <asp:Button ID="btnLogout" runat="server" Text="Cerrar Sesion" style="background-color:transparent;border:inherit;font-style:inherit;color:inherit" OnClick="btnLogout_Click"/>
+                                </a>
                             </li>
                         </ul>
                     </blockquote>

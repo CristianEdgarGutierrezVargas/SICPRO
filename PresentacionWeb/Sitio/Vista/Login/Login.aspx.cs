@@ -40,7 +40,7 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     this.Session["roles"] = str1;
                     string str2 = _consumoAuth.ObtenerId(this.txtusuario.Text.ToUpper(), this.txtpassword.Text.ToUpper());
                     this.Session["id"] = str2;
-                    if (sesion.Value != "0")
+                    if (sesion.Value.ToString() != "0")
                     {
                         tiempo = int.Parse(sesion.Value.ToString());
                     }
@@ -53,21 +53,6 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     DateTime now = DateTime.Now;
                     DateTime dateTime = DateTime.Now;
                     double tiempSesion = Convert.ToDouble(tiempo);
-
-                    FormsAuthenticationTicket tkt;
-                    string cookiestr;
-                    HttpCookie ck;
-                    tkt = new FormsAuthenticationTicket(1, text, DateTime.Now,DateTime.Now.AddMinutes(tiempSesion), true, str1);
-                    cookiestr = FormsAuthentication.Encrypt(tkt);
-                    ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
-                   // if (chkPersistCookie.Checked)
-                        ck.Expires = tkt.Expiration;
-                    ck.Path = FormsAuthentication.FormsCookiePath;
-                    Response.Cookies.Add(ck);
-
-                    ///FormsAuthentication.;
-                    //var ff = HttpContext.Current.User.Identity.IsAuthenticated;
-                    //bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated
 
                     string str4 = this.Session["id"].ToString();
                     _consumoAuth.Logeo(str4);
@@ -86,8 +71,9 @@ namespace PresentacionWeb.Sitio.Vista.Login
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                lblmensaje.Text = ex.Message;
             }
 
         }
