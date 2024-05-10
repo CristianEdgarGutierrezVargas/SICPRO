@@ -41,30 +41,16 @@ namespace PresentacionWeb
 
         private void CargaMenu()
         {
-            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            var authCookie=this.Session["id"];
+            if (authCookie == null)
             {
                 Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
             }
-
-            HttpCookie authCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCookie != null)
-            {
-                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                Session["roles"] = authTicket.UserData;
-                //string[] userRoles = authTicket.UserData.Split(new Char[] { ',' });
-                //GenericPrincipal userPrincipal = new GenericPrincipal(new GenericIdentity(authTicket.Name), userRoles);
-                //HttpContext.Current.User = userPrincipal; //How do I reference this in the program?
-            }
-            else 
-            {
-                Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
-            }
-
 
             var IdRolSession = Session["roles"];
             if (IdRolSession == null)
             {
-                return;
+                Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
             }
             var idRol = Convert.ToInt64(Session["roles"].ToString());
             var lstGroupComponents = _objConsumoCommon.ObtenerTablaComp(0, idRol);
@@ -98,7 +84,7 @@ namespace PresentacionWeb
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
+            this.Session["id"] = null;
             Response.Redirect("~/Sitio/Vista/Login/Login.aspx");
         }
     }
