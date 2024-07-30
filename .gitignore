@@ -47,3 +47,6 @@
 /ManejadorModelo/obj/Release
 /PresentacionWeb/obj/Release
 /PresentacionWeb/Properties/PublishProfiles
+.vs
+bin/
+obj/

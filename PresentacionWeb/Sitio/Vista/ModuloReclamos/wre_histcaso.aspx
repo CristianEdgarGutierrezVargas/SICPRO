@@ -44,7 +44,7 @@
                             Cliente:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_nomraz" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="nomraz" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -55,7 +55,7 @@
                             Poliza:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_num_poliza" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="num_poliza" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -65,7 +65,7 @@
                             Producto :
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_desc_prod" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="desc_prod" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -75,7 +75,7 @@
                             Compañía :
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_nomraz2" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="nomraz2" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -85,7 +85,7 @@
                             Objeto Asegurado:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_mat_aseg" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="mat_aseg" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -95,7 +95,7 @@
                             Identificador Unico:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_uni_obj" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="uni_obj" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -105,7 +105,7 @@
                             Fecha de Denuncia:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_fc_denuncia" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="fc_denuncia" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -115,7 +115,7 @@
                             Circunstancias:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_circunstancia" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="circunstancia" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -125,10 +125,10 @@
                             Monto Aproximado:
                         </div>
                         <div class="col-3">
-                            <asp:Label ID="cpmaster_monto_aprox1" runat="server" Text="0.00"></asp:Label>
+                            <asp:Label ID="monto_aprox1" runat="server" Text="0.00"></asp:Label>
                         </div>
                         <div class="col-1">
-                            <asp:Label ID="cpmaster_divisa" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="divisa" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-3">
                         </div>
@@ -139,7 +139,7 @@
                             Ultimo Estado:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_desc_param" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="desc_param" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -149,7 +149,7 @@
                             Fecha de Registro:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_fc_iniestado" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="fc_iniestado" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
@@ -159,12 +159,12 @@
                             Observaciones:
                         </div>
                         <div class="col-7">
-                            <asp:Label ID="cpmaster_obs_histcaso1" runat="server" Text="-"></asp:Label>
+                            <asp:Label ID="obs_histcaso1" runat="server" Text="-"></asp:Label>
                         </div>
                         <div class="col-2">
                         </div>
                     </div>
-                    <div class="row p-1">
+                   <%-- <div class="row p-1">
                         <div class="col-2">
                             Nuevo Estado:
                         </div>
@@ -181,8 +181,8 @@
                         </div>
                         <div class="col-2">
                         </div>
-                    </div>
-                    <div class="row p-1">
+                    </div>--%>
+                    <%--<div class="row p-1">
                         <div class="col-2">
                             Observaciones:
                         </div>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="col-2">
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="row p-2">
                         <div class="col-2">
                         </div>
@@ -211,7 +211,7 @@
             </span>
         </div>
         <p class="links">
-            <asp:Label ID="cpmaster_lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>
+            <asp:Label ID="lblmensaje" runat="server" Text="Introduzca Valores" CssClass="error"></asp:Label>
         </p>
     </div>
 </asp:Content>
