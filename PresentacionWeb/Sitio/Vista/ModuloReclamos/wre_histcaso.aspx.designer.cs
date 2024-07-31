@@ -42,130 +42,67 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         protected global::System.Web.UI.WebControls.ImageButton btnser;
 
         /// <summary>
-        /// cpmaster_nomraz control.
+        /// nomraz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_nomraz;
+        protected global::System.Web.UI.WebControls.Label nomraz;
 
         /// <summary>
-        /// cpmaster_num_poliza control.
+        /// num_poliza control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_num_poliza;
+        protected global::System.Web.UI.WebControls.Label num_poliza;
 
         /// <summary>
-        /// cpmaster_desc_prod control.
+        /// desc_prod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_desc_prod;
+        protected global::System.Web.UI.WebControls.Label desc_prod;
 
         /// <summary>
-        /// cpmaster_nomraz2 control.
+        /// nomraz2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_nomraz2;
+        protected global::System.Web.UI.WebControls.Label nomraz2;
 
         /// <summary>
-        /// cpmaster_mat_aseg control.
+        /// mat_aseg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_mat_aseg;
+        protected global::System.Web.UI.WebControls.Label mat_aseg;
 
         /// <summary>
-        /// cpmaster_uni_obj control.
+        /// uni_obj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_uni_obj;
+        protected global::System.Web.UI.WebControls.Label uni_obj;
 
         /// <summary>
-        /// cpmaster_fc_denuncia control.
+        /// fc_denuncia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_fc_denuncia;
-
-        /// <summary>
-        /// cpmaster_circunstancia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_circunstancia;
-
-        /// <summary>
-        /// cpmaster_monto_aprox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_monto_aprox1;
-
-        /// <summary>
-        /// cpmaster_divisa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_divisa;
-
-        /// <summary>
-        /// cpmaster_desc_param control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_desc_param;
-
-        /// <summary>
-        /// cpmaster_fc_iniestado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_fc_iniestado;
-
-        /// <summary>
-        /// cpmaster_obs_histcaso1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_obs_histcaso1;
-
-        /// <summary>
-        /// id_estca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList id_estca;
+        protected global::System.Web.UI.WebControls.Label fc_denuncia;
 
         /// <summary>
         /// circunstancia control.
@@ -174,7 +111,52 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox circunstancia;
+        protected global::System.Web.UI.WebControls.Label circunstancia;
+
+        /// <summary>
+        /// monto_aprox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label monto_aprox1;
+
+        /// <summary>
+        /// divisa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label divisa;
+
+        /// <summary>
+        /// desc_param control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label desc_param;
+
+        /// <summary>
+        /// fc_iniestado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fc_iniestado;
+
+        /// <summary>
+        /// obs_histcaso1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label obs_histcaso1;
 
         /// <summary>
         /// btnnuevo control.
@@ -195,12 +177,12 @@ namespace PresentacionWeb.Sitio.Vista.ModuloReclamos
         protected global::DevExpress.Web.ASPxButton btnsalir;
 
         /// <summary>
-        /// cpmaster_lblmensaje control.
+        /// lblmensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cpmaster_lblmensaje;
+        protected global::System.Web.UI.WebControls.Label lblmensaje;
     }
 }
