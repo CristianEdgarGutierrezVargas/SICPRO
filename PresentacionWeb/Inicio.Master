@@ -53,88 +53,11 @@
         </div>
         <p></p>
         <div class="container mt-lg-0 mt-md-0 mt-5">
-            <style>
-                /*               .nav-link {
-                   color:white!important
-               }
-*/
-                /* .dxbs-acc .panel-body > ul.nav {
-     margin: 0em;
- }
-
- .panel-default > .panel-heading {
-     background-color: #B7FFB7;
- }
-
- .panel-default > .header-collapsed {
-     background-color: #f5f5f5;
- }
-*/
-                /*.accordion-body {    
-    color: black !important;
-}*/
-                .nav-link {
-                    color: black !important;
-                }
-
-                .nav-item {
-                    color: #808080 !important;
-                    background-color: #ffffff !important;
-                    /*background-color: var(--bs-accordion-active-bg);*/
-                }
-
-                    .nav-item :hover {
-                        color: black !important;
-                        background-color: #d5edfa !important;
-                    }
-
-                .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-                    color: black !important;
-                    background-color: #d5edfa !important;
-                }
-
-                .accordion-header .accordion-button span:first-child {
-                    position: relative;
-                    left: 30px !important;
-                }
-
-                .accordion-header .accordion-button span:nth-child(2) {
-                    position: relative;
-                    left: -90px !important;
-                    background-color: transparent !important;
-                    font-size: large;
-                }
-
-                .accordion-button {
-                    /* position: relative; */
-                    /* display: flex; */
-                    align-items: center;
-                    width: 100%;
-                    padding: 5px; /* var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x); */
-                    font-size: 1rem;
-                    color: var(--bs-accordion-btn-color);
-                    text-align: left;
-                    background-color: var(--bs-accordion-btn-bg);
-                    border: 0;
-                    border-radius: 0;
-                    overflow-anchor: none;
-                    transition: var(--bs-accordion-transition);
-                }
-
-                .nav-pills .nav-link {
-                    background: none;
-                    border: 0;
-                    border-radius: var(--bs-nav-pills-border-radius);
-                    border-radius: 0px;
-                    min-height: 30px;
-                    padding-top: 10px;
-                }
-            </style>
+       
             <!-- Menu Barra Izquierda -->
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-4 col-lg-3 ">
-                </div>
-                <div class="col-12 col-md-12 col-md-8 col-lg-9">
+               
+                <div class="col-12 ">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolderPrincipal" runat="server">
                     </asp:ContentPlaceHolder>
                     <!-- Inicio Barra Derecha -->

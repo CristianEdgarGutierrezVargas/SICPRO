@@ -230,8 +230,10 @@ hr {
 
 #content {
 	/*float: left;*/
-	width: 800px;
+	/*width: 800px;*/
 	/*padding: 0 0 0 25px;*/
+	min-width:430px;
+	max-width:800px;
 }
 
 

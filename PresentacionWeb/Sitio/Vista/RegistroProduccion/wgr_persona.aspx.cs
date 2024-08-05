@@ -1,6 +1,7 @@
 ﻿using Common;
 using DevExpress.Web.Rendering;
 using DevExpress.Web;
+using DevExpress.Web.Bootstrap;
 using EntidadesClases.ModelSicPro;
 using Logica.Consumo;
 using System;
@@ -51,7 +52,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_suc.ValueField = "id_par";
             cmb_id_suc.TextField = "desc_param";            
             cmb_id_suc.DataBind();
-            var itemSeleccioneSucursal = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemSeleccioneSucursal = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmb_id_suc.Items.Add(itemSeleccioneSucursal);
 
             var lstTipoPersona = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_tper);
@@ -60,7 +61,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_tper.ValueField = "id_par";
             cmb_tper.TextField = "desc_param";            
             cmb_tper.DataBind();
-            var itemSeleccioneTipoPersona = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0};
+            var itemSeleccioneTipoPersona = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0};
             cmb_tper.Items.Add(itemSeleccioneTipoPersona);
 
             var lstSalutacionPersonal = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_sal);
@@ -69,7 +70,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_sal.ValueField = "id_par";
             cmb_id_sal.TextField = "desc_param";
             cmb_id_sal.DataBind();
-            var itemSeleccioneSalPersonal = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemSeleccioneSalPersonal = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmb_id_sal.Items.Add(itemSeleccioneSalPersonal);
 
             var lstTipoRol = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_rol);
@@ -78,7 +79,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_rol.ValueField = "id_par";
             cmb_id_rol.TextField = "desc_param";
             cmb_id_rol.DataBind();
-            var itemSeleccioneTipoRol = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemSeleccioneTipoRol = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmb_id_rol.Items.Add(itemSeleccioneTipoRol);
 
             var lstTipoDocumento = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_tdoc);
@@ -87,7 +88,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_tipodoc.ValueField = "id_par";
             cmb_tipodoc.TextField = "desc_param";
             cmb_tipodoc.DataBind();
-            var itemSeleccioneTipoDocumento = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemSeleccioneTipoDocumento = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmb_tipodoc.Items.Add(itemSeleccioneTipoDocumento);
 
             var lstEmisionDocumento = _objConsumoRegistroProd.ObtenerLista(CParametros.LexColumna_id_emis);
@@ -96,7 +97,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
             cmb_id_emis.ValueField = "id_par";
             cmb_id_emis.TextField = "desc_param";
             cmb_id_emis.DataBind();
-            var itemSeleccioneEmisionDocumento = new ListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
+            var itemSeleccioneEmisionDocumento = new BootstrapListEditItem { Text = "Seleccione...", Value = "", Selected = true, Index = 0 };
             cmb_id_emis.Items.Add(itemSeleccioneEmisionDocumento);
 
             var lstPersonas = _objConsumoRegistroProd.ObtenerListaPersona();

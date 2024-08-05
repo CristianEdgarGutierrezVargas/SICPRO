@@ -21,7 +21,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox id_per;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox id_per;
 
         /// <summary>
         /// Control nomraz.
@@ -30,7 +30,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox nomraz;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nomraz;
 
         /// <summary>
         /// Control cmb_id_suc.
@@ -39,7 +39,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_id_suc;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_id_suc;
 
         /// <summary>
         /// Control cmb_tper.
@@ -48,7 +48,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_tper;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_tper;
 
         /// <summary>
         /// Control fechaNacimiento.
@@ -57,7 +57,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit fechaNacimiento;
+        protected global::DevExpress.Web.Bootstrap.BootstrapDateEdit fechaNacimiento;
 
         /// <summary>
         /// Control cmb_id_sal.
@@ -66,7 +66,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_id_sal;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_id_sal;
 
         /// <summary>
         /// Control cmb_id_rol.
@@ -75,7 +75,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_id_rol;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_id_rol;
 
         /// <summary>
         /// Control cmb_tipodoc.
@@ -84,7 +84,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_tipodoc;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_tipodoc;
 
         /// <summary>
         /// Control cmb_id_emis.
@@ -93,7 +93,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmb_id_emis;
+        protected global::DevExpress.Web.Bootstrap.BootstrapComboBox cmb_id_emis;
 
         /// <summary>
         /// Control nit_fac.
@@ -102,7 +102,7 @@ namespace PresentacionWeb.Sitio.Vista.RegistroProduccion
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox nit_fac;
+        protected global::DevExpress.Web.Bootstrap.BootstrapTextBox nit_fac;
 
         /// <summary>
         /// Control btnNuevo.
